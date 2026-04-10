@@ -346,3 +346,8 @@
   type="text/javascript"
   src="{{ instance.getJsUrl() }}"
 ></script>
+
+
+<script>
+  alert("From the cookie-script branch")
+</script>
