@@ -1,0 +1,36 @@
+<div class="mb-4">
+  <p class="text-dark-50 fs-7">
+    <span id="resultCount"></span> of <span id="totalAticleCount"></span> articles
+  </p>
+</div>
+<div class="row g-3 news-archive-list"></div>
+<div
+  class="news-cards-swiper__nav d-inline-flex w-100 justify-content-center align-items-center mt-5"
+>
+  <div
+    class="swiper-button-prev prev-stories-button position-relative bg-opacity-60 bg-light me-4"
+    data-location-type="body:related-stories"
+    data-function-type="other"
+    data-format-type="icon-block"
+    data-page-componentType-type="related-stories component"
+  >
+    <i class="material-symbols-outlined text-dark-100">arrow_back</i>
+  </div>
+  <div
+    class="swiper-pagination position-relative px-4 rounded-14 swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"
+    data-location-type="body:related-stories"
+    data-function-type="other"
+    data-format-type="icon-block"
+    data-page-componentType-type="related-stories component"
+  ></div>
+  <div
+    class="swiper-button-next next-stories-button position-relative bg-opacity-60 bg-light ms-4"
+    data-location-type="body:related-stories"
+    data-function-type="other"
+    data-format-type="icon-block"
+    data-page-componentType-type="related- component"
+  >
+    <i class="material-symbols-outlined text-dark-100">arrow_forward</i>
+  </div>
+</div>
+

@@ -1,0 +1,292 @@
+<div id="faq" class="mb-15">
+  <h4 class="mb-8 font-normal">Frequently Asked Questions</h4>
+  <div class="mb-8">
+    <p class="mb-8 fs-6 mx-6">Financial Donations</p>
+    <div class="card  rounded-5 bg-light">
+      <div
+        class="accordion accordion-flush px-8 py-3"
+        id="accordion-financial-donations"
+      >
+
+      {{each faqs as faq WHERE topic = 'financial_donations'}}
+        <div class="accordion-item p-0 mx-6">
+          <h2 class="accordion-header py-5">
+            <button
+             onclick="LinkTrackingClickEvent(this, 'view_content_click')"
+              data-location-type="body:faq"
+              data-function-type="accordion_open"
+              data-format-type="accordion"
+              data-link-type="internal"
+              data-page-componentType-type="faqs component"
+              data-page-componentHeading-type="{{faq.question}}"
+              class="accordion-button collapsed p-0 fw-normal accordion-button-partners"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#financial-donations-{{faq._index}}"
+              aria-expanded="false"
+              aria-controls="flush-collapse{{faq._index}}"
+            >
+              <p class="fs-7 mb-0">{{faq.question}}</p>
+            </button>
+          </h2>
+          <div
+            id="financial-donations-{{faq._index}}"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordion-financial-donations"
+          >
+            <div class="accordion-body p-0">
+              <div class="mb-4">
+                <div class="text-dark-50">
+                  {{faq.answer}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-8">
+    <p class="mb-8 fs-6 mx-6">In Kind Donations</p>
+    <div class="card  rounded-5 bg-light">
+      <div
+        class="accordion accordion-flush px-8 py-3"
+        id="accordion-in-kind-donations"
+      >
+
+      {{each faqs as faq WHERE topic = 'in_kind_donations'}}
+        <div class="accordion-item p-0 mx-6">
+          <h2 class="accordion-header py-5">
+            <button
+              onclick="LinkTrackingClickEvent(this, 'view_content_click')"
+              data-location-type="body:faq"
+              data-function-type="accordion_open"
+              data-format-type="accordion"
+              data-link-type="internal"
+              data-page-componentType-type="faqs component"
+              data-page-componentHeading-type="{{faq.question}}"
+              class="accordion-button collapsed p-0 fw-normal accordion-button-partners"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#in-kind-donations-{{faq._index}}"
+              aria-expanded="false"
+              aria-controls="flush-collapse{{faq._index}}"
+            >
+              <p class="fs-7 mb-2">{{faq.question}}</p>
+            </button>
+          </h2>
+          <div
+            id="in-kind-donations-{{faq._index}}"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordion-in-kind-donations"
+          >
+            <div class="accordion-body p-0">
+              <div class="mb-4">
+                <div class="text-dark-50">
+                  {{faq.answer}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-8">
+    <p class="mb-8 fs-6 mx-6">Volunteering</p>
+    <div class="card  rounded-5 bg-light">
+      <div
+        class="accordion accordion-flush px-8 py-3"
+        id="accordion-volunteering"
+      >
+
+      {{each faqs as faq WHERE topic = 'volunteering'}}
+        <div class="accordion-item p-0 mx-6">
+          <h2 class="accordion-header py-5">
+            <button
+             onclick="LinkTrackingClickEvent(this, 'view_content_click')"
+              data-location-type="body:faq"
+              data-function-type="accordion_open"
+              data-format-type="accordion"
+              data-link-type="internal"
+              data-page-componentType-type="faqs component"
+              data-page-componentHeading-type="{{faq.question}}"
+              class="accordion-button collapsed p-0 fw-normal accordion-button-partners"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#voluteering-{{faq._index}}"
+              aria-expanded="false"
+              aria-controls="flush-collapse{{faq._index}}"
+            >
+              <p class="fs-7 mb-2">{{faq.question}}</p>
+            </button>
+          </h2>
+          <div
+            id="voluteering-{{faq._index}}"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordion-volunteering"
+          >
+            <div class="accordion-body p-0">
+              <div class="mb-4">
+                <div class="text-dark-50">
+                  {{faq.answer}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-8">
+    <p class="mb-8 fs-6 mx-6">Getting Help</p>
+    <div class="card  rounded-5 bg-light">
+      <div
+        class="accordion accordion-flush px-8 py-3"
+        id="accordion-getting-help"
+      >
+
+      {{each faqs as faq WHERE topic = 'getting_help'}}
+        <div class="accordion-item p-0 mx-6">
+          <h2 class="accordion-header py-5">
+            <button
+             onclick="LinkTrackingClickEvent(this, 'view_content_click')"
+              data-location-type="body:faq"
+              data-function-type="accordion_open"
+              data-format-type="accordion"
+              data-link-type="internal"
+              data-page-componentType-type="faqs component"
+              data-page-componentHeading-type="{{faq.question}}"
+              class="accordion-button collapsed p-0 fw-normal accordion-button-partners"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#getting-help-{{faq._index}}"
+              aria-expanded="false"
+              aria-controls="flush-collapse{{faq._index}}"
+            >
+              <p class="fs-7 mb-2">{{faq.question}}</p>
+            </button>
+          </h2>
+          <div
+            id="getting-help-{{faq._index}}"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordion-getting-help"
+          >
+            <div class="accordion-body p-0">
+              <div class="mb-4">
+                <div class="text-dark-50">
+                  {{faq.answer}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-8">
+    <p class="mb-8 fs-6 mx-6">Employment Opportunities</p>
+    <div class="card  rounded-5 bg-light">
+      <div
+        class="accordion accordion-flush px-8 py-3"
+        id="accordion-employment-opportunities"
+      >
+
+      {{each faqs as faq WHERE topic = 'employment_opportunities'}}
+        <div class="accordion-item p-0 mx-6">
+          <h2 class="accordion-header py-5">
+            <button
+             onclick="LinkTrackingClickEvent(this, 'view_content_click')"
+              data-location-type="body:faq"
+              data-function-type="accordion_open"
+              data-format-type="accordion"
+              data-link-type="internal"
+              data-page-componentType-type="faqs component"
+              data-page-componentHeading-type="{{faq.question}}"
+              class="accordion-button collapsed p-0 fw-normal accordion-button-partners"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#employment-{{faq._index}}"
+              aria-expanded="false"
+              aria-controls="flush-collapse{{faq._index}}"
+            >
+              <p class="fs-7 mb-2">{{faq.question}}</p>
+            </button>
+          </h2>
+          <div
+            id="employment-{{faq._index}}"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordion-employment-opportunities"
+          >
+            <div class="accordion-body p-0">
+              <div class="mb-4">
+                <div class="text-dark-50">
+                  {{faq.answer}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-8">
+    <p class="mb-8 fs-6 mx-6">Other</p>
+    <div class="card  rounded-5 bg-light">
+      <div
+        class="accordion accordion-flush px-8 py-3"
+        id="accordion-other"
+      >
+
+      {{each faqs as faq WHERE topic = 'other'}}
+        <div class="accordion-item p-0 mx-6">
+          <h2 class="accordion-header py-5">
+            <button
+             onclick="LinkTrackingClickEvent(this, 'view_content_click')"
+              data-location-type="body:faq"
+              data-function-type="accordion_open"
+              data-format-type="accordion"
+              data-link-type="internal"
+              data-page-componentType-type="faqs component"
+              data-page-componentHeading-type="{{faq.question}}"
+              class="accordion-button collapsed p-0 fw-normal accordion-button-partners"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#other-{{faq._index}}"
+              aria-expanded="false"
+              aria-controls="flush-collapse{{faq._index}}"
+            >
+              <p class="fs-7 mb-2">{{faq.question}}</p>
+            </button>
+          </h2>
+          <div
+            id="other-{{faq._index}}"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordion-other"
+          >
+            <div class="accordion-body p-0">
+              <div class="mb-4">
+                <div class="text-dark-50">
+                  {{faq.answer}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+      </div>
+    </div>
+  </div>
+
+
+</div>

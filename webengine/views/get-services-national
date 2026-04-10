@@ -1,0 +1,28 @@
+{{$zuid = {request.queryParam(zuid)} }}
+{{$totalItems = 0 }}
+{
+    "data": [
+        {{each services as s where location is null and division is null and territory is null }}
+            {{$sortOrder = {service_types.filter({s.service_type}).sort_order} }}
+
+            {
+                "zuid": "{{s.zuid}}",
+                "title": "{{ s.title.escapeForJs() }}",
+                "hero_subtitle": "{{s.subtitle.escapeForJs()}}",
+                "url": "{{ s.getUrl() }}",
+                "icon": "{{if {s.service_page_icon} }}{{s.service_page_icon}}{{else}}{{ service_types.filter({s.service_type}).icon_name }}{{/if}}",
+                "service_type": "{{s.service_type}}",
+                "service_type_name": "{{service_types.filter({s.service_type}).title }}",
+                "display_on_nav": {{ s.display_in_services_navigation_dropdown }},
+                "meta_keywords": "{{s.seo_meta_keywords.escapeForJs()}}",
+                "meta_title": "{{s.seo_meta_title.escapeForJs()}}",
+                "meta_description": "{{s.seo_meta_description.escapeForJs()}}",
+                "sort_order": {{if {$sortOrder} }} {{$sortOrder}} {{else}} 0 {{/if}}
+            }{{s._arraycomma}}
+            {{ $totalItems  = {s._num} }}
+        {{/each}}
+    ],
+    "total_items": {{ $totalItems }},
+    "location_zuid": "{{ $zuid }}", 
+    "date_requested": "{{ instance.date(Y-m-d H:i:s) }}"
+}

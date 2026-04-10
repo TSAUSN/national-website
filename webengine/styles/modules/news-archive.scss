@@ -1,0 +1,14 @@
+.view-stories_new {
+  .news-archive-search {
+    @media (min-width: 360px) {
+      max-width: 1200px;
+    }
+  }
+}
+.news-archive-list {
+  .card {
+    @media (max-width: 768px) {
+      width: 100% !important; /* 25% width for 4 slides, minus some space for gaps */
+    }
+  }
+}

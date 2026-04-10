@@ -1,0 +1,65 @@
+.goggle-map {
+  height: 17.375rem;
+  position: relative;
+}
+
+.map-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.map-loader__spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #002056;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.map__reset {
+  z-index: 1;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (min-width: 768px) {
+  .goggle-map {
+    height: 36.813rem;
+  }
+}
+
+@supports (content-visibility: auto) {
+  #map {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 900px;
+  }
+}
+
+/* Styles for map marker labels */
+.marker-label {
+  background-color: transparent;
+  border-radius: 1.25rem;
+  font-family: sans-serif !important;
+  padding: 4px 8px;
+  border-radius: 4px;
+  box-shadow: none;
+  margin-right: 0px;
+  white-space: pre-wrap;
+  position: relative;
+  border: none;
+  transform: translate(-45%,-20%);
+  width: 75%;
+  text-shadow: rgba(0, 0, 0, 0.5) 2px 5px 10px;
+}

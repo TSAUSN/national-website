@@ -1,0 +1,12 @@
+{{$zuid = {request.queryParam(zuid)} }}
+
+
+{{each locations as loc WHERE z.zuid = '{$zuid}' LIMIT 1 }}
+[
+    {{each {loc.services_offered} as so}}    
+            
+              {{so.toJSON()}}{{so._arraycomma}}
+            
+    {{/each}}
+]
+{{/each}}

@@ -1,0 +1,127 @@
+<!-- Scripts and style tags for contact section from Symphony. --->
+<!-- These can be deleted once an updated form is implementd -->
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/usn-cache.salvationarmy.org/44655bf7-da24-4b31-a177-27ddd8513346_t-mapdata.js"></script>
+<script type="https://s3.amazonaws.com/usn-cache.salvationarmy.org/afbb875b-b267-4aa4-9055-90eea96cc20a_t-usmap.js"></script>
+<style type="text/css">
+@media (max-width:768px)  {
+     html  {
+     scroll-padding-top:  50px;
+     /* height of sticky header */ }
+ } @media (min-width: 769px)  {
+     html  {
+     scroll-padding-top:  125px;
+     /* height of sticky header */ }
+ .loveBeyond h4  {
+    font-size:  34px;
+}
+ }
+  
+  
+#freeTextArea-0 {display: none;}
+.myDiv{
+	display:none;
+    padding:10px;
+}  
+  .myDiv iframe {height: 1100px;}
+  
+  iframe body {padding-top: 0px !important;}
+
+
+#wufoo-p1ktgp8i16mqtto iframe {height: 1940px !important;}
+#map { max-height: none !important; }
+
+.tt_sm{border-radius: 0px; box-shadow: none; z-index: 1000000;   background-color: white;   padding: 7px; opacity:1; font-family:"proxima-nova"; text-align: left !important;} 
+  .tt_name_sm{float: left; font-weight: bold} 
+  .xmark_sm{float: right; margin-left: 5px; cursor: pointer; line-height: 0px;}  
+  .tt_custom_sm{} 
+  .tt_mobile_sm{margin-top: 5px;} 
+  .btn_simplemaps{color: #fff;text-decoration: none;background: #ed1c2b;display: inline-block;padding: 5px 5px;margin: 0; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; line-height: 1.43;text-align: center;white-space: nowrap;vertical-align: middle;-ms-touch-action: manipulation;touch-action: manipulation;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}   
+  .btn_simplemaps:hover{text-decoration: none; color: #ed1c2b; border: 1px solid #ed1c2b; background: #fff;}
+#jaBody input:not([type=submit]):not([type=radio]):not([type=checkbox]), select, textarea {
+  
+    margin: 0 5px 20px 0 !important;
+    
+}
+  #jaBody form {padding: 0px 10px !important;}
+#jaBody input[type=submit] {
+    width: 100% !important;
+    margin: 20px 0 !important;
+  max-width: 10000px !important;
+    
+  }
+  
+  #jaBody a {
+    font-weight: 600;
+}
+.wufooBtn {
+      width: 97% !important;
+    /* margin: 10px 15px 10px !important; */
+    margin: 10px auto !important;
+    border: 1px solid #ed1c2a !important;}
+.cBody form ::placeholder {
+  color: black !important;
+
+}
+.cBody form input:not([type=submit]), .cBody form select, .cBody form textarea  {
+  margin-bottom: 20px !important;
+      border: 1px solid #2a313f !important;}
+  
+  .cBody form input:focus, .cBody form select:focus, .cBody form textarea:focus  {
+  margin-bottom: 20px !important;
+      border: 1px solid #ee3a43 !important;}
+  
+  
+  #Field3 {height: 43px;}
+
+  
+.row .greyBoxes {margin: 0 4px !important;}
+  .greyBoxes-title {font-weight: 600;}
+.hide, .hide2 {display: none;
+}
+  .stateFinder { padding: 20px; text-align: center;}
+  .stateInput {display: flex; justify-content: center; margin-bottom:30px;}
+  #territory {width:100px;}
+.stateFinder, #terrAlert {
+ 
+    border: 1px #c5dde2 solid;
+    padding: 15px;
+    background: #dfedf0;
+  margin-top:20px;
+ 
+}
+
+  .greyBoxes-box {background-color: #fff !important;}
+
+.tab>input[type=checkbox]+label::after, .tab>input[type=radio]+label::after {
+   font-size: 1.5em;
+  line-height: 2.5 !important;
+  height: 2.5em !important;
+  }
+ 
+.accordionSub {
+  font-weight: 300 !important;
+    line-height: 1em !important;
+    font-size: .9em !important;
+  }
+.tab>input[type=checkbox]+label, .tab>input[type=radio]+label {
+    /* position: relative; */
+   padding: 17px 50px 17px 16px !important;
+    line-height: 1.5 !important;
+  margin-bottom: 3px !important;}
+
+  .customLink {
+  color: #111 !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid #111 !important;
+}
+
+  .gdosAlert {
+          background: #ffdbdb;
+    padding: 15px;
+    margin: 14px 0px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    border: 1px solid #f59b9b;
+    font-size: 0.9em;
+}</style>

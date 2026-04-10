@@ -1,0 +1,721 @@
+{{$zuid = {request.queryParam(zuid)} }}
+{{$zuidD = {request.queryParam(divisionzuid)} }}
+{{$zuidL = {request.queryParam(locationzuid)} }}
+{{$divisions = {request.queryParam(divisions)} }}
+{{$locations = {request.queryParam(locations)} }}
+{{$aboutUs = {request.queryParam(about_us)} }}
+{{$contactUs = {request.queryParam(contact_us)} }}
+{{$informational = {request.queryParam(informational_pages)} }}
+{{$stories = {request.queryParam(stories_landing_page)} }}
+{{$events = {request.queryParam(events_landing_page)} }}
+{{$leadership = {request.queryParam(leadership_landing_page)} }}
+{{$services = {request.queryParam(services)} }}
+{{$page = 1}}
+{{$perPage = 50}}
+
+{{if {request.queryParam(page)} }}
+{{$page = {request.queryParam(page)} }}
+{{/if}}
+
+{{if {request.queryParam(per_page)} }}
+{{$perPage = {request.queryParam(per_page)} }}
+{{/if}}
+
+
+{{$offset = {math(({$page} - 1) * {$perPage})} }}
+[
+{{if {$zuid} && {$zuidD} == "" && {$zuidL} == "" }}
+{{$isFirst = 1}}
+    {
+        "model": "Territories",
+        "model_zuid": "{{territories.filter({$zuid}).set_zuid}}",
+        "zuid": "{{territories.filter({$zuid}).zuid }}",
+        "title": "{{territories.filter({$zuid}).name.escapeForJs() }}",
+        "territory": null,
+        "division": null,
+        "location": null,
+        "path_part": "{{truepath({$zuid})}}",
+
+        "publish_status": "{{if {isPublished({$zuid})} }}publish{{else}}unpublish{{/if}}",
+        "url": "https://{{instance.domain}}{{truepath({$zuid})}}"
+    }
+    {{$isFirst = 0}}
+
+    {{if {$divisions} }}
+        {{each divisions as div WHERE territory = '{$zuid}' LIMIT {$offset}, {$perPage} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Divisions",
+                "model_zuid": "{{div.set_zuid}}",
+                "zuid": "{{div.zuid}}",
+                "title": "{{div.name.escapeForJs() }}",
+                "territory": "{{territories.filter({div.territory}).name.escapeForJs() }}",
+                "division": null,
+                "location": null,
+                "path_part": "{{truepath({div.zuid})}}",
+
+                "publish_status": "{{if {isPublished({div.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({div.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$locations} }}
+        {{each locations as loc WHERE territory = '{$zuid}' LIMIT {$offset}, {$perPage} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Locations",
+                "model_zuid": "{{loc.set_zuid}}",
+                "zuid": "{{loc.zuid}}",
+                "title": "{{loc.name.escapeForJs() }}",
+                "territory": "{{territories.filter({loc.territory}).name.escapeForJs() }}",
+                "division": "{{divisions.filter({loc.division}).name.escapeForJs() }}",
+                "location": null,
+                "path_part": "{{truepath({loc.zuid})}}",
+
+                "publish_status": "{{if {isPublished({loc.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({loc.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$aboutUs} }}
+        {{each about_us as ab WHERE territory = '{$zuid}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({ab.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({ab.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({ab.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "About Us",
+                "model_zuid": "{{ab.set_zuid}}",
+                "zuid": "{{ab.zuid}}",
+                "title": "{{ab.title.escapeForJs() }}",
+                "territory": {{if {ab.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {ab.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {ab.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({ab.zuid})}}",
+
+                "publish_status": "{{if {isPublished({ab.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({ab.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$informational} }}
+        {{each informational_pages as ip WHERE territory = '{$zuid}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({ip.territory}).name.escapeForJs() } }}
+            {{$division = {divisions.filter({ip.division}).name.escapeForJs() } }}
+            {{$location = {locations.filter({ip.location}).name.escapeForJs() } }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Informational Pages",
+                "model_zuid": "{{ip.set_zuid}}",
+                "zuid": "{{ip.zuid}}",
+                "title": "{{ip.title.escapeForJs() }}",
+                "page_type": "{{ information_page_types.filter({ip.page_type}).name.escapeForJs() }}",
+                "territory": {{if {ip.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {ip.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {ip.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({ip.zuid})}}",
+
+                "publish_status": "{{if {isPublished({ip.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({ip.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$contactUs} }}
+        {{each contact_us as con WHERE territory = '{$zuid}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({con.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({con.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({con.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Contact Us",
+                "model_zuid": "{{con.set_zuid}}",
+                "zuid": "{{con.zuid}}",
+                "title": "{{con.title.escapeForJs() }}",
+                "territory": {{if {con.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {con.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {con.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({con.zuid})}}",
+
+                "publish_status": "{{if {isPublished({con.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({con.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$leadership} }}
+        {{each leadership_landing_page as lead WHERE territory = '{$zuid}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({lead.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({lead.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({lead.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Leadership Landing Page",
+                "model_zuid": "{{lead.set_zuid}}",
+                "zuid": "{{lead.zuid}}",
+                "title": "{{lead.title.escapeForJs() }}",
+                "territory": {{if {lead.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {lead.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {lead.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({lead.zuid})}}",
+
+                "publish_status": "{{if {isPublished({lead.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({lead.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$events} }}
+        {{each events_landing_pages as ev WHERE territory = '{$zuid}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({ev.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({ev.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({ev.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Events Landing Page",
+                "model_zuid": "{{ev.set_zuid}}",
+                "zuid": "{{ev.zuid}}",
+                "title": "{{ev.title.escapeForJs() }}",
+                "territory": {{if {ev.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {ev.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {ev.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({ev.zuid})}}",
+
+                "publish_status": "{{if {isPublished({ev.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({ev.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$stories} }}
+        {{each stories_landing_page as st  WHERE territory = '{$zuid}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({st.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({st.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({st.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Stories Landing Page",
+                "model_zuid": "{{st.set_zuid}}",
+                "zuid": "{{st.zuid}}",
+                "title": "{{st.title.escapeForJs() }}",
+                "territory": {{if {st.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {st.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {st.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({st.zuid})}}",
+
+                "publish_status": "{{if {isPublished({st.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({st.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+    
+    {{if {$services} }}
+        {{each services as ser LIMIT {$offset}, {$perPage} }}
+            {{$territory = {locations.filter({ser.location}).territory} }}
+
+
+            {{if {$territory} == {$zuid} }}
+            {{$division = {locations.filter({ser.location}).division} }}
+
+            {{$territoryName = {territories.filter({$territory}).name.escapeForJs()} }}
+            {{$divisionName = {divisions.filter({$division}).name.escapeForJs()} }}
+            {{$locationName = {locations.filter({ser.location}).name.escapeForJs()} }}
+                {{if {$isFirst} == 0}},{{/if}}
+                {{$isFirst = 0}}
+                {
+                    "model": "Services",
+                    "model_zuid": "{{ser.set_zuid}}",
+                    "zuid": "{{ser.zuid}}",
+                    "title": "{{ser.title.escapeForJs() }}",
+                    "territory": {{if {$territory} }} "{{$territoryName}}" {{else}} null {{/if}},
+                    "division":  {{if {$division} }} "{{$divisionName}}" {{else}} null {{/if}},
+                    "location":  {{if {ser.location} }} "{{$locationName}}" {{else}} null {{/if}},
+                    "path_part": "{{truepath({ser.zuid})}}",
+
+                    "publish_status": "{{if {isPublished({ser.zuid})} }}publish{{else}}unpublish{{/if}}",
+                    "url": "https://{{instance.domain}}{{truepath({ser.zuid})}}"
+                }
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/if}}
+
+{{if {$zuid} && {$zuidD} && {$zuidL} == "" }}
+{{$isFirst = 1}}
+      {
+        "model": "Territories",
+        "model_zuid": "{{territories.filter({$zuid}).set_zuid}}",
+        "zuid": "{{territories.filter({$zuid}).zuid }}",
+        "title": "{{territories.filter({$zuid}).name.escapeForJs() }}",
+        "territory": null,
+        "division": null,
+        "location": null,
+        "path_part": "{{truepath({$zuid})}}",
+
+        "publish_status": "{{if {isPublished({$zuid})} }}publish{{else}}unpublish{{/if}}",
+        "url": "https://{{instance.domain}}{{truepath({$zuid})}}"
+    }
+    {{$isFirst = 0}}
+
+    {{if {$divisions} }}
+    
+        {{each divisions as div WHERE zuid = '{$zuidD}' LIMIT 1 }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Divisions",
+                "model_zuid": "{{div.set_zuid}}",
+                "zuid": "{{div.zuid}}",
+                "title": "{{div.name.escapeForJs() }}",
+                "territory": "{{territories.filter({div.territory}).name.escapeForJs() }}",
+                "division": null,
+                "location": null,
+                "path_part": "{{truepath({div.zuid})}}",
+
+                "publish_status": "{{if {isPublished({div.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({div.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$locations} }}
+        {{each locations as loc WHERE division = '{$zuidD}' LIMIT {$offset}, {$perPage} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Locations",
+                "model_zuid": "{{loc.set_zuid}}",
+                "zuid": "{{loc.zuid}}",
+                "title": "{{loc.name.escapeForJs() }}",
+                "territory": "{{territories.filter({loc.territory}).name.escapeForJs() }}",
+                "division": "{{divisions.filter({loc.division}).name.escapeForJs() }}",
+                "location": null,
+                "path_part": "{{truepath({loc.zuid})}}",
+
+                "publish_status": "{{if {isPublished({loc.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({loc.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$aboutUs} }}
+        {{each about_us as ab WHERE division = '{$zuidD}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({ab.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({ab.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({ab.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "About Us",
+                "model_zuid": "{{ab.set_zuid}}",
+                "zuid": "{{ab.zuid}}",
+                "title": "{{ab.title.escapeForJs() }}",
+                "territory": {{if {ab.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {ab.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {ab.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({ab.zuid})}}",
+
+                "publish_status": "{{if {isPublished({ab.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({ab.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$informational} }}
+        {{each informational_pages as ip WHERE division = '{$zuidD}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({ip.territory}).name.escapeForJs() } }}
+            {{$division = {divisions.filter({ip.division}).name.escapeForJs() } }}
+            {{$location = {locations.filter({ip.location}).name.escapeForJs() } }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Informational Pages",
+                "model_zuid": "{{ip.set_zuid}}",
+                "zuid": "{{ip.zuid}}",
+                "title": "{{ip.title.escapeForJs() }}",
+                "page_type": "{{ information_page_types.filter({ip.page_type}).name.escapeForJs() }}",
+                "territory": {{if {ip.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {ip.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {ip.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({ip.zuid})}}",
+
+                "publish_status": "{{if {isPublished({ip.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({ip.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$contactUs} }}
+        {{each contact_us as con WHERE division = '{$zuidD}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({con.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({con.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({con.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Contact Us",
+                "model_zuid": "{{con.set_zuid}}",
+                "zuid": "{{con.zuid}}",
+                "title": "{{con.title.escapeForJs() }}",
+                "territory": {{if {con.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {con.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {con.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({con.zuid})}}",
+
+                "publish_status": "{{if {isPublished({con.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({con.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$leadership} }}
+        {{each leadership_landing_page as lead WHERE division = '{$zuidD}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({lead.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({lead.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({lead.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Leadership Landing Page",
+                "model_zuid": "{{lead.set_zuid}}",
+                "zuid": "{{lead.zuid}}",
+                "title": "{{lead.title.escapeForJs() }}",
+                "territory": {{if {lead.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {lead.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {lead.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({lead.zuid})}}",
+
+                "publish_status": "{{if {isPublished({lead.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({lead.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$events} }}
+        {{each events_landing_pages as ev WHERE division = '{$zuidD}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({ev.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({ev.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({ev.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Events Landing Page",
+                "model_zuid": "{{ev.set_zuid}}",
+                "zuid": "{{ev.zuid}}",
+                "title": "{{ev.title.escapeForJs() }}",
+                "territory": {{if {ev.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {ev.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {ev.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({ev.zuid})}}",
+
+                "publish_status": "{{if {isPublished({ev.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({ev.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$stories} }}
+        {{each stories_landing_page as st  WHERE division = '{$zuidD}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({st.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({st.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({st.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Stories Landing Page",
+                "model_zuid": "{{st.set_zuid}}",
+                "zuid": "{{st.zuid}}",
+                "title": "{{st.title.escapeForJs() }}",
+                "territory": {{if {st.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {st.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {st.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({st.zuid})}}",
+
+                "publish_status": "{{if {isPublished({st.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({st.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+    
+    {{if {$services} }}
+        {{each services as ser LIMIT {$offset}, {$perPage} }}
+            {{$division = {locations.filter({ser.location}).division} }}
+
+
+            {{if {$division} == {$zuidD} }}
+            {{$territory = {locations.filter({ser.location}).territory} }}
+
+            {{$territoryName = {territories.filter({$territory}).name.escapeForJs()} }}
+            {{$divisionName = {divisions.filter({$division}).name.escapeForJs()} }}
+            {{$locationName = {locations.filter({ser.location}).name.escapeForJs()} }}
+                {{if {$isFirst} == 0}},{{/if}}
+                {{$isFirst = 0}}
+                {
+                    "model": "Services",
+                    "model_zuid": "{{ser.set_zuid}}",
+                    "zuid": "{{ser.zuid}}",
+                    "title": "{{ser.title.escapeForJs() }}",
+                    "territory": {{if {$territory} }} "{{$territoryName}}" {{else}} null {{/if}},
+                    "division":  {{if {$division} }} "{{$divisionName}}" {{else}} null {{/if}},
+                    "location":  {{if {ser.location} }} "{{$locationName}}" {{else}} null {{/if}},
+                    "path_part": "{{truepath({ser.zuid})}}",
+
+                    "publish_status": "{{if {isPublished({ser.zuid})} }}publish{{else}}unpublish{{/if}}",
+                    "url": "https://{{instance.domain}}{{truepath({ser.zuid})}}"
+                }
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/if}}
+
+
+{{if {$zuid} && {$zuidD} && {$zuidL} }}
+{{$isFirst = 1}}
+      {
+        "model": "Territories",
+        "model_zuid": "{{territories.filter({$zuid}).set_zuid}}",
+        "zuid": "{{territories.filter({$zuid}).zuid }}",
+        "title": "{{territories.filter({$zuid}).name.escapeForJs() }}",
+        "territory": null,
+        "division": null,
+        "location": null,
+        "path_part": "{{truepath({$zuid})}}",
+
+        "publish_status": "{{if {isPublished({$zuid})} }}publish{{else}}unpublish{{/if}}",
+        "url": "https://{{instance.domain}}{{truepath({$zuid})}}"
+    }
+    {{$isFirst = 0}}
+
+     {{if {$divisions} }}
+        {{each divisions as div WHERE zuid = '{$zuidD}' LIMIT 1 }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Divisions",
+                "model_zuid": "{{div.set_zuid}}",
+                "zuid": "{{div.zuid}}",
+                "title": "{{div.name.escapeForJs() }}",
+                "territory": "{{territories.filter({div.territory}).name.escapeForJs() }}",
+                "division": null,
+                "location": null,
+                "path_part": "{{truepath({div.zuid})}}",
+
+                "publish_status": "{{if {isPublished({div.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({div.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$locations} }}
+        {{each locations as loc WHERE zuid = '{$zuidL}' LIMIT 1 }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Locations",
+                "model_zuid": "{{loc.set_zuid}}",
+                "zuid": "{{loc.zuid}}",
+                "title": "{{loc.name.escapeForJs() }}",
+                "territory": "{{territories.filter({loc.territory}).name.escapeForJs() }}",
+                "division": "{{divisions.filter({loc.division}).name.escapeForJs() }}",
+                "location": null,
+                "path_part": "{{truepath({loc.zuid})}}",
+
+                "publish_status": "{{if {isPublished({loc.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({loc.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$aboutUs} }}
+        {{each about_us as ab WHERE location = '{$zuidL}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({ab.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({ab.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({ab.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "About Us",
+                "model_zuid": "{{ab.set_zuid}}",
+                "zuid": "{{ab.zuid}}",
+                "title": "{{ab.title.escapeForJs() }}",
+                "territory": {{if {ab.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {ab.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {ab.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({ab.zuid})}}",
+
+                "publish_status": "{{if {isPublished({ab.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({ab.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$informational} }}
+        {{each informational_pages as ip WHERE location = '{$zuidL}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({ip.territory}).name.escapeForJs() } }}
+            {{$division = {divisions.filter({ip.division}).name.escapeForJs() } }}
+            {{$location = {locations.filter({ip.location}).name.escapeForJs() } }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Informational Pages",
+                "model_zuid": "{{ip.set_zuid}}",
+                "zuid": "{{ip.zuid}}",
+                "title": "{{ip.title.escapeForJs() }}",
+                "page_type": "{{ information_page_types.filter({ip.page_type}).name.escapeForJs() }}",
+                "territory": {{if {ip.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {ip.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {ip.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({ip.zuid})}}",
+
+                "publish_status": "{{if {isPublished({ip.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({ip.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$contactUs} }}
+        {{each contact_us as con WHERE location = '{$zuidL}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({con.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({con.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({con.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Contact Us",
+                "model_zuid": "{{con.set_zuid}}",
+                "zuid": "{{con.zuid}}",
+                "title": "{{con.title.escapeForJs() }}",
+                "territory": {{if {con.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {con.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {con.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({con.zuid})}}",
+
+                "publish_status": "{{if {isPublished({con.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({con.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$leadership} }}
+        {{each leadership_landing_page as lead WHERE location = '{$zuidL}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({lead.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({lead.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({lead.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Leadership Landing Page",
+                "model_zuid": "{{lead.set_zuid}}",
+                "zuid": "{{lead.zuid}}",
+                "title": "{{lead.title.escapeForJs() }}",
+                "territory": {{if {lead.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {lead.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {lead.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({lead.zuid})}}",
+
+                "publish_status": "{{if {isPublished({lead.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({lead.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$events} }}
+        {{each events_landing_pages as ev WHERE location = '{$zuidL}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({ev.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({ev.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({ev.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Events Landing Page",
+                "model_zuid": "{{ev.set_zuid}}",
+                "zuid": "{{ev.zuid}}",
+                "title": "{{ev.title.escapeForJs() }}",
+                "territory": {{if {ev.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {ev.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {ev.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({ev.zuid})}}",
+
+                "publish_status": "{{if {isPublished({ev.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({ev.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$stories} }}
+        {{each stories_landing_page as st  WHERE location = '{$zuidL}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({st.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({st.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({st.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Stories Landing Page",
+                "model_zuid": "{{st.set_zuid}}",
+                "zuid": "{{st.zuid}}",
+                "title": "{{st.title.escapeForJs() }}",
+                "territory": {{if {st.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {st.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {st.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({st.zuid})}}",
+
+                "publish_status": "{{if {isPublished({st.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({st.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+    
+    {{if {$services} }}
+        {{each services as ser WHERE location = '{$zuidL}' LIMIT {$offset}, {$perPage} }}
+            {{$divisionZ = {locations.filter({ser.location}).division} }}
+            {{$territoryZ = {locations.filter({ser.location}).territory} }}
+
+
+            {{$territory = {territories.filter({$territoryZ}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({$divisionZ}).name.escapeForJs()} }}
+            {{$location = {locations.filter({ser.location}).name.escapeForJs()} }}
+                {{if {$isFirst} == 0}},{{/if}}
+                {{$isFirst = 0}}
+                {
+                    "model": "Services",
+                    "model_zuid": "{{ser.set_zuid}}",
+                    "zuid": "{{ser.zuid}}",
+                    "title": "{{ser.title.escapeForJs() }}",
+                    "territory": {{if {$territory} }} "{{$territory}}" {{else}} null {{/if}},
+                    "division":  {{if {$division} }} "{{$division}}" {{else}} null {{/if}},
+                    "location":  {{if {ser.location} }} "{{$location}}" {{else}} null {{/if}},
+                    "path_part": "{{truepath({ser.zuid})}}",
+
+                    "publish_status": "{{if {isPublished({ser.zuid})} }}publish{{else}}unpublish{{/if}}",
+                    "url": "https://{{instance.domain}}{{truepath({ser.zuid})}}"
+                }
+        {{/each}}
+    {{/if}}
+{{/if}}
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

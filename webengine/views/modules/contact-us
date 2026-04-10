@@ -1,0 +1,82 @@
+{{if {this.title} }}
+<div
+  id="contact-us"
+  class="featured-article bg-opacity-25 mb-4 position-relative rounded-5 position-relative overflow-hidden mb-15"
+>
+  <img
+    class="w-100 rounded-5 object-fit-cover contact-us-hero-image states__banner"
+    src="{{ this.hero_image.getImage() }}"
+    alt="Featured Article"
+    fetchpriority="high"
+    decoding="async"
+    loading="eager"
+  />
+  <div
+    class="image-overlay position-absolute bg-opacity-50 bg-dark top-0 start-0 w-100 h-100"
+  ></div>
+  <div
+    class="px-6 py-8 position-absolute top-0 left-0 w-100 h-100 d-inline-flex flex-column align-items-start justify-content-center z-3"
+  >
+    <div>
+      <h1 class="fs-4 mt-3 mb-2 text-white">
+        {{ this.title }}
+      </h1>
+    </div>
+    <div class="d-flex align-items-center text-white w-100 mt-4 gap-2">
+      <a
+        href="#contact"
+        class="btn btn-light"
+        data-location-type="body:hero-banner"
+        data-function-type="navigation"
+        data-format-type="button"
+        data-link-type="internal"
+        onclick="LinkTrackingClickEvent(this,'cta_click')"
+        >Send a Message</a
+      >
+      <a
+        href="#faq"
+        class="btn btn-primary"
+        data-location-type="body:hero-banner"
+        data-function-type="navigation"
+        data-format-type="button"
+        data-link-type="internal"
+        onclick="LinkTrackingClickEvent(this,'cta_click')"
+        >FAQ</a
+      >
+    </div>
+  </div>
+</div>
+{{/if}}
+
+<style>
+  .featured-article{
+    height: 365px;
+  }
+
+  .featured-article img {
+    height: 100%;
+  }
+</style>
+
+
+
+<script>
+ 
+
+  function resolveImages() {
+    let defaultImages = [];
+    // populate default images
+    {{ each media.{clippings.hero_fallback_image} as media }}
+      defaultImages.push("{{ media.image.getImage() }}");
+    {{ end-each }}
+    const imageDOM = document.querySelector('.states__banner');
+    imageDOM.setAttribute('src', defaultImages[Math.floor(Math.random()*defaultImages.length)])
+  }
+  {{if !{this.hero_image} }}
+    resolveImages();
+  {{else}}
+    const imageDOM = document.querySelector('.states__banner');
+    imageDOM.setAttribute('src', {{this.hero_image.getImage()}})
+  {{/if}}
+  
+</script>

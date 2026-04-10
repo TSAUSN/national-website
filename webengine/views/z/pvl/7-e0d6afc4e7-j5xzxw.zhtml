@@ -1,0 +1,58 @@
+<div className={styles.pvlRoot}>
+	<h1 class="mb-8 fs-4 px-2">Faith and Fellowship</h1>
+	<div style="display:flex" classname="{styles.pvlRow}" class="bg-white p-5 rounded-5 mb-18">
+		<div style="flex:1" className={styles.pvlColumn}>
+			<video width="100%" src="https://8hxvw8tw.media.zestyio.com/the-salvation-army-new-york-promo-video-home-2025.mp4" alt="placeholder" controls="" class="rounded-4 mb-8"></video>
+			<p data-start="296" data-end="331"><strong data-start="296" data-end="329">Making a Difference Every Day</strong></p>
+<p data-start="333" data-end="448">Here at The Salvation Army, we do good things — real, meaningful things that make a difference in people’s lives.</p>
+<p data-start="450" data-end="620">We help families find <em data-start="472" data-end="497">food, shelter, and hope</em>; support children with <strong data-start="521" data-end="550">education and life skills</strong>; and stand alongside communities during times of need and disaster.<br><br></p>
+<p data-start="627" data-end="659"><strong data-start="627" data-end="657">How We Serve the Community</strong></p>
+<ul data-start="661" data-end="1424">
+<li data-start="661" data-end="817">
+<p data-start="663" data-end="817"><strong data-start="663" data-end="694">Community Support &amp; Relief:</strong> Providing essential aid during crises and natural disasters.</p>
+</li>
+<li data-start="818" data-end="982">
+<p data-start="820" data-end="982"><strong data-start="820" data-end="851">Education &amp; Youth Programs:</strong> Offering learning opportunities, skills training, and scholarships.</p>
+</li>
+<li data-start="983" data-end="1130">
+<p data-start="985" data-end="1130"><strong data-start="985" data-end="1007">Shelter &amp; Housing:</strong> Safe and comfortable housing for families and individuals in need.</p>
+</li>
+<li data-start="1131" data-end="1280">
+<p data-start="1133" data-end="1280"><strong data-start="1133" data-end="1164">Health &amp; Wellness Services:</strong> Access to medical care, wellness activities, and health education.</p>
+</li>
+<li data-start="1281" data-end="1424">
+<p data-start="1283" data-end="1424"><strong data-start="1283" data-end="1317">Volunteer &amp; Outreach Programs:</strong> Opportunities for individuals and groups to serve their communities.<em data-start="1387" data-end="1422"><br></em></p>
+</li>
+</ul>
+<p><em data-start="1387" data-end="1422"></em></p>
+<p data-start="1431" data-end="1461"><strong data-start="1431" data-end="1459">Why Your Support Matters</strong></p>
+<p data-start="1463" data-end="1690">Every act of service, donation, and volunteer effort contributes to building <strong data-start="1540" data-end="1584">stronger, more compassionate communities</strong>.<br data-start="1585" data-end="1588">We believe in meeting people where they are, offering practical help, and empowering them to thrive.</p>
+<ul data-start="1692" data-end="1993">
+<li data-start="1692" data-end="1785">
+<p data-start="1694" data-end="1785">Your donations help provide <strong data-start="1722" data-end="1755">meals, shelter, and education</strong> for those who need it most.</p>
+</li>
+<li data-start="1786" data-end="1890">
+<p data-start="1788" data-end="1890">Volunteering with us gives you a chance to <strong data-start="1831" data-end="1856">directly impact lives</strong> and gain rewarding experiences.</p>
+</li>
+<li data-start="1891" data-end="1993">
+<p data-start="1893" data-end="1993">Partnering with The Salvation Army helps <strong data-start="1934" data-end="1966">strengthen local communities</strong> and expand our outreach.</p>
+</li>
+</ul>
+		</div>
+	</div>
+	<div>{{block('/-/block/greatest_need.html?variant=7-f0e8f690c9-m3c8jg')}}</div>
+	<div>{{block('/-/block/service_selector.html?variant=7-f6ccc893c1-s98w6v')}}</div>
+	<div>{{block('/-/block/way_to_give_block.html?variant=7-e6a194f8b3-dzrbt9')}}</div>
+	<h1 class="fs-4 px-2 mb-8">Make an Impact in Your Community</h1>
+	<div style="height:;width:;" classname="{styles.pvlRow}" class="row gap-2 mb-18 col-auto">
+		<div style="flex:1" className={styles.pvlColumn}>
+			<div>{{block('/-/block/info_block.html?variant=7-a0e48afbe0-rmbnsg')}}</div>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<div>{{block('/-/block/info_block.html?variant=7-90dae5a1b1-sd9rzg')}}</div>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<div>{{block('/-/block/info_block.html?variant=7-e8a1dcd2d7-w46qvz')}}</div>
+		</div>
+	</div>
+</div>

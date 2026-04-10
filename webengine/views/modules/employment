@@ -1,0 +1,9 @@
+<div>
+    {{include modules/hero-full}}
+    {{include modules/job-positions}}
+    {{include modules/image-button-text}}
+    {{include modules/benefits-perks}}
+    {{include modules/video-module}}
+    {{include modules/testimonials}}
+    {{include modules/text-block}}
+</div>

@@ -1,0 +1,5 @@
+{{ include modules/hero-full }}
+{{include modules/image-button-text-full}}
+{{ include modules/stats }}
+{{ include modules/local-needs }}
+{{ include modules/leadership-list }}

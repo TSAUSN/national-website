@@ -1,0 +1,40 @@
+{{$limit = 0}}
+{{$show = 15}}
+{{$whereClause = }}
+{{$property = 7-dcb3daeee7-3l9t49}}
+{{if {get_var.territory} }}
+    {{$property = {get_var.territory} }}
+{{/if}}
+{
+  "data": [{{each stories as story {$whereClause} limit {$limit}, {$show} }}
+      {{$serviceReturn = 0}}
+      {{$locationReturn = 0}}
+      
+      {
+        "title": "{{story.title.htmlentities()}}",
+        "date": "{{story.story_date_picker.date(Y-m-d)}}",
+        "image": "{{story.image.getImage()}}",
+        "body": "{{story.body.escapeForJs()}}",
+        "url": "https://{{instance.domain}}{{story.getUrl()}}",
+        "external_url": "{{story.external_url}}",
+        "seo_meta_description": "{{story.seo_meta_description.htmlentities().escapeForJs()}}",
+        "author": "{{story.author}}",
+        {{each locations as location where z.zuid="{property}" }}
+          {{$locationReturn = 1}}
+          "location": {{location.toJSON(1)}},
+        {{/each}}
+        {{if {$locationReturn} === 0 }}
+          "location": null,
+        {{/if}}
+        {{each service_types as service_type where z.zuid = '{story.related_service}' }}
+          {{$serviceReturn = 1}}
+          "related_service": {{service_type.toJSON()}},
+        {{/each}}
+        {{if {$serviceReturn} === 0}}
+          "related_service": null,
+        {{/if}}
+        "custom_num": "{{story._num}} {{story._length}}",
+        "where_clause": "{{$whereClause}} limit {{$limit}} {{$show}}"
+      }{{story._arraycomma}}
+    {{/each}}]
+}

@@ -1,0 +1,95 @@
+{{$zuid = {request.queryParam(zuid)} }}
+{{$page_model = {request.queryParam(page-model)} }}
+{{$parent_division = {request.queryParam(parent-division)} }}
+{{$parent_territory = {request.queryParam(parent-territory)} }}
+[
+  {{if {$page_model} == 'locations'}}
+    {{$count = 0 }}
+
+    {{each matrix_hero_sliders as banner_content WHERE find_in_set('{$zuid}', display_on_locations) limit 1 }}
+      {{$count = 1}}
+    {{/each}}
+
+    {{if {$count} == 0 }}
+      {{each matrix_hero_sliders as banner_content WHERE find_in_set('{$parent_division}', display_on_divisions) limit 1 }}
+          {{$count = 2 }}
+      {{/each}}
+    {{/if}}
+
+    {{if {$count} == 0 }}
+      {{each matrix_hero_sliders as banner_content WHERE find_in_set('{$parent_territory}', display_on_territories) limit 1 }}
+        {{$count = 3 }}
+      {{/each}}
+    {{/if}}
+    
+    {{if {$count} == 1 }}
+      {{each matrix_hero_sliders as banner_content WHERE find_in_set('{$zuid}', display_on_locations) }}
+        {{banner_content.toJSON()}}{{banner_content._arraycomma}}
+      {{/each}}
+    {{else-if {$count} == 2 }}
+      {{each matrix_hero_sliders as banner_content WHERE find_in_set('{$parent_division}', display_on_divisions) }}
+        {{banner_content.toJSON()}}{{banner_content._arraycomma}}
+      {{/each}}
+    {{else-if {$count} == 3 }}
+      {{each matrix_hero_sliders as banner_content WHERE find_in_set('{$parent_territory}', display_on_territories) }}
+        {{banner_content.toJSON()}}{{banner_content._arraycomma}}
+      {{/each}}
+    {{else}}
+      {{each matrix_hero_sliders as banner_content WHERE banner_content.display_on_national = 1 }}
+        {{banner_content.toJSON()}}{{banner_content._arraycomma}}
+      {{/each}}
+    {{/if}}
+  {{/if}}
+
+  {{if {$page_model} == 'divisions'}}
+    {{$count = 0}}
+      {{each matrix_hero_sliders as banner_content WHERE find_in_set('{$zuid}', display_on_divisions) limit 1 }}
+          {{ $count = 1 }}
+      {{/each}}
+    
+    {{if {$count} == 0 }}
+      {{each matrix_hero_sliders as banner_content WHERE find_in_set('{$parent_territory}', display_on_territories) limit 1 }}
+        {{$count = 2 }}
+      {{/each}}
+    {{/if}}
+
+    {{if {$count} == 1 }}
+      {{each matrix_hero_sliders as banner_content WHERE find_in_set('{$zuid}', display_on_divisions) }}
+        {{banner_content.toJSON()}}{{banner_content._arraycomma}}
+      {{/each}}
+    {{else-if {$count} == 2 }}
+      {{each matrix_hero_sliders as banner_content WHERE find_in_set('{$parent_territory}', display_on_territories) }}
+        {{banner_content.toJSON()}}{{banner_content._arraycomma}}
+      {{/each}}
+    {{else}}
+      {{each matrix_hero_sliders as banner_content WHERE banner_content.display_on_national = 1 }}
+        {{banner_content.toJSON()}}{{banner_content._arraycomma}}
+      {{/each}}
+    {{/if}}
+  {{@count = {$count} }}
+  {{/if}}
+
+  {{if {$page_model} == 'territories'}}
+    {{$count = 0}}
+
+    {{each matrix_hero_sliders as banner_content WHERE find_in_set('{$zuid}', display_on_territories) limit 1 }}
+      {{$count = 1 }}
+    {{/each}}
+    
+    {{if {$count} == 1 }}
+      {{each matrix_hero_sliders as banner_content WHERE find_in_set('{$zuid}', display_on_territories) }}
+        {{banner_content.toJSON()}}{{banner_content._arraycomma}}
+      {{/each}}
+    {{else}}
+      {{each matrix_hero_sliders as banner_content WHERE banner_content.display_on_national = 1 }}
+        {{banner_content.toJSON()}}{{banner_content._arraycomma}}
+      {{/each}}
+    {{/if}}
+  {{/if}}
+
+  {{if {$page_model} == 'homepage'}}
+    {{each matrix_hero_sliders as banner_content WHERE banner_content.display_on_national = 1 }}
+      {{banner_content.toJSON()}}{{banner_content._arraycomma}}
+    {{/each}}
+  {{/if}}
+]

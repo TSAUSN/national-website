@@ -1,0 +1,66 @@
+{{$baseUrl = "https://tags.tiqcdn.com/utag/salvationarmy"}}
+
+<script src='{{$baseUrl}}/{{this.tealium_profile}}/{{instance.env}}/utag.sync.js' type="text/javascript"></script>
+{{ $page_owner = { this.zuid } }}
+
+<!-- The string here is the national id homepage-->
+
+{{ if { this.zuid } == "7-dab495a2c1-13lthp" }}
+
+{{ $page_owner = national }}
+
+{{/if}}
+
+<script type="text/javascript">
+  var utag_data = {};
+    window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
+    window.utag_cfg_ovrd.noview = true;
+    (function(a,b,c,d){
+    a='{{$baseUrl}}/{{this.tealium_profile}}/{{instance.env}}/utag.js'; b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/javascript'
+    c;d.async=true;
+    a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+    })();
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (utag) {
+      utag.view({
+          //All pages
+          event: 'page_view',
+          page_path: '{{this.getUrl()}}',
+          page_name: '{{this.seo_meta_title}}', 
+          page_siteSection: 'home', //! Make a variable 
+          page_hierarchy: 'SAL^<< [Territory abbreviation - 3 letters] >>^<< [Division abbreviation - 3 letters] >>^<< [Corp/command name or abbreviation] >>',
+          page_errorPage: 'false',
+          page_environment: '{{instance.env}}',
+          page_language: 'EN', //! Get from url path or DOM 
+          page_type: `SAL:'<< [Territory abbreviation - 3 letters] >>`, //? Clarification
+          page_type_detail: '<< donation | ticketed | crowdfunding | reg_w_fund | p2p >>', //? Clarification
+          page_objective: '<< [Objective of the content as selected by the user in the CMS] >>',
+          page_author: '<< [Name or ID of the user who authored the page (most recent)] >>', //! Do not pass from the server or need to be architected
+          page_owner: '{{$page_owner}}', //? Clarification 
+          page_updated_date: '<< [Date and timestamp of most recent publish date] >>',  //? Clarification
+          page_audience: '<< donors | clients | volunteers | thrift shoppers | job applicants | press >>', //? Clarification 
+          page_tags: '<< [Content tags associated with the page, comma-separated] >>', //? Clarification 
+          organization_id: '<< [Same value as GTM dataLayer] >>', //? Clarification 
+          organization_name: '<< [Lowest level organization name] >>', //? Clarification 
+          organization_level: '<< national | territory | division | corp >>', 
+          organization_territory: '<< [Territory full name if applicable] >>',
+          organization_division: '<< [Division full name if applicable] >>',
+          organization_corp: '<< [Corp/command full name if applicable] >>', 
+          page_state: '<< [State name] >>',
+          page_city: '<< [City name(s), comma separated if multiple] >>',
+      });
+
+      utag.link({
+          event: 'content_view',
+          page_componentID: '<< [component HTML ID] >>',
+          page_componentHeading: '<< [component header text - strip all possible PII] >>',
+          page_componentSubheading: '<< [component sub header text if applicable - strip all possible PII] >>',
+          page_componentType: '<< [CMS component type, e.g. "hero component", "donation component" or "stories component"] >>',
+          page_componentIndex: '<< 1 | 2 | 3 >>',
+          page_componentImageAssetURL: '<< [full source URL of image asset] >>'
+      });
+    }
+  });
+
+</script>

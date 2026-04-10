@@ -1,0 +1,212 @@
+{{$useWithFindSet = 0}}
+{{$initialReturn = 1 }}
+{{$modelJumpedName = }}
+{{$modelJumped = }}
+
+
+{{ if {request.queryParam(name)} && ({request.queryParam(related-service)} || {request.queryParam(date)}) }}
+ {{$nameQuery = AND title LIKE "%{request.queryParam(name)}%" AND}}
+{{else-if {request.queryParam(name)} }}
+  {{$nameQuery = AND title LIKE "%{request.queryParam(name)}%" }}
+{{/if}}
+
+{{if {request.queryParam(date)} }}
+  {{$date = {request.queryParam(date)} }}
+  {{$dateQuery = story_date_picker = {$date.date(Y-m-d)} }}
+{{/if}}
+
+{{$sort = sort by story_date_picker desc }}
+
+{{if {request.queryParam(most-recent)} == 0 }}
+  {{$sort = sort by story_date_picker asc }}  
+{{else}}
+  {{$sort = sort by story_date_picker desc }}
+{{/if}}
+
+{{if {request.queryParam(related-service)} }}
+  {{$serviceQuery = story.related_service = '{request.queryParam(related-service)}' }}
+{{/if}}
+
+{{if {request.queryParam(limit)} }}
+  {{ $limit = {request.queryParam(limit)} }}
+{{else}}
+  {{$limit = 0}}
+{{/if}}
+
+{{if {request.queryParam(show)} }}
+  {{$show = {request.queryParam(show)} }}
+{{else}}
+  {{$show = 15 }}
+{{/if}}
+
+{{if {request.queryParam(location)} && {request.queryParam(model)} }}
+  {{$locationZuid = {request.queryParam(location)} }}
+  {{$useWithFindSet = 1}}
+  {{$nextModel = 0 }}
+  {{$endJump = 0 }}
+  
+  {{if {request.queryParam(model)}  == '6-b4c9aba69c-h2nqvm' }}
+    {{$division_zuid = 0 }}
+    {{$territory_zuid = 0 }}
+    {{$hasReturn = 0 }}
+    {{$returnValue = {stories.filter(property LIKE "%{$locationZuid}%").zuid} }}
+
+    {{if {$returnValue} }}
+      {{$locationModel = property}}
+      {{$whereClause = where find_in_set('{$locationZuid}', {$locationModel}) {$nameQuery} {$dateQuery} {$serviceQuery} {$sort} }}
+      {{$endJump = 1}}
+    {{else}}
+      {{$division_zuid = {locations.filter(z.zuid = '{$locationZuid}').division} }}
+      {{$hasDivision = {stories.filter(divisions LIKE "%{$division_zuid}%").zuid} }}
+      {{if {$hasDivision} }}
+        {{$nextModel = 1}}
+      {{/if}}
+      {{$initialReturn = 0}}
+      {{$show = 4}}
+    {{/if}}
+
+    {{if {$nextModel} == 1 }}
+      {{$locationModel = divisions}}
+      {{$show = 4}}
+      {{$whereClause = where find_in_set('{$division_zuid}', {$locationModel}) {$nameQuery} {$dateQuery} {$serviceQuery} {$sort} }}
+      {{$modelJumpedName = {divisions.filter(z.zuid = '{$division_zuid}').name.htmlentities().escapeForJs()} }}
+      {{$modelJumped = division}}
+      {{$modelJumepdZuid = {$division_zuid} }}
+      {{$endJump = 1}}
+    {{else}}
+      {{$territory_zuid = {locations.filter(z.zuid = '{$locationZuid}').territory} }}
+      {{$hasTerritory = {stories.filter(territory LIKE "%{$territory_zuid}%").zuid} }}
+      {{if {$hasTerritory} }}
+        {{$nextModel = 2}}
+      {{/if}}
+    {{/if}}
+
+    {{if {$nextModel} == 2 && {$endJump} == 0}}
+      {{$locationModel = territory}}
+      {{$show = 4}}
+      {{$whereClause = where find_in_set('{$territory_zuid}', {$locationModel}) {$nameQuery} {$dateQuery} {$serviceQuery} {$sort} }}
+      {{$modelJumpedName = '{territories.filter(z.zuid = '{$territory_zuid}').name.htmlentities().escapeForJs()}' }}
+      {{$modelJumped = territory }}
+      {{$modelJumepdZuid = {$territory_zuid} }}
+      {{$endJump = 1}}
+    {{else}}
+      {{$nextModel = 3}}
+    {{/if}}
+
+    {{if {$nextModel} == 3 && {$endJump} == 0}}
+      {{$whereClause = where display_on_national = 1 {$nameQuery} {$dateQuery} {$serviceQuery} {$sort} }}
+      {{$modelJumpedName = Salvation Army }}
+      {{$modelJumped = national }}
+    {{/if}}
+
+{{else-if {request.queryParam(model)}  == '6-acb19a94bd-4q8ftj' }}
+    {{$territory_zuid = 0 }}
+    {{$hasReturn = 0 }}
+    {{$returnValue = {stories.filter(divisions LIKE "%{$locationZuid}%").zuid} }}
+  
+  {{if {$returnValue} }}
+    {{$locationModel = divisions}}
+    {{$whereClause = where find_in_set('{$locationZuid}', {$locationModel}) {$nameQuery} {$dateQuery} {$serviceQuery} {$sort} }}
+    {{$endJump = 1}}
+  {{else}}
+    {{$territory_zuid = {divisions.filter(z.zuid = '{$locationZuid}').territory} }}
+    {{$hasTerritory = {stories.filter(territory LIKE "%{$territory_zuid}%").zuid} }}
+    {{if {$hasTerritory} }}
+      {{$nextModel = 1}}
+    {{/if}}
+    {{$initialReturn = 0}}
+  {{/if}}
+
+  {{if {$nextModel} == 1 }}
+    {{$locationModel = territory}}
+    {{$show = 4}}
+    {{$whereClause = where find_in_set('{$territory_zuid}', {$locationModel}) {$nameQuery} {$dateQuery} {$serviceQuery} {$sort} }}
+    {{$modelJumpedName = {territories.filter(z.zuid = '{$territory_zuid}').name.htmlentities().escapeForJs()} }}
+    {{$modelJumped = territory }}
+    {{$modelJumepdZuid = {$territory_zuid} }}
+    {{$endJump = 1}}
+  {{else}}
+    {{$nextModel = 2}}
+  {{/if}}
+
+  {{if {$nextModel} == 2 && {$endJump} == 0}}
+    {{$whereClause = where display_on_national = 1 {$nameQuery} {$dateQuery} {$serviceQuery} {$sort} }}
+    {{$modelJumpedName = Salvation Army }}
+    {{$show = 4}}
+    {{$modelJumped = national }}
+  {{/if}}
+
+{{else-if {request.queryParam(model)}  == '6-deab97cfd9-wb5km4'}}
+    {{$hasReturn = 0 }}
+      {{each stories as s where territory = '{$locationZuid}' LIMIT 1}}
+        {{$returnValue = {s.zuid} }}
+      {{/each}}
+  
+    
+    {{if {$returnValue} }}
+      {{ $locationModel = territory }}
+      {{ $whereClause = where find_in_set('{$locationZuid}', {$locationModel}) {$nameQuery} {$dateQuery} {$serviceQuery} {$sort} }}
+    {{else}}
+      {{$nextModel = 1}}
+      {{$initialReturn = 0}}
+    {{/if}}
+
+    {{if {$nextModel} == 1 && {$endJump} == 0}}
+      {{$show = 4}}
+      {{$whereClause = where display_on_national = 1 {$nameQuery} {$dateQuery} {$serviceQuery} {$sort} }}
+      {{$modelJumpedName = Salvation Army }}
+      {{$modelJumped = national }}
+    {{/if}}
+{{else}}
+  {{$whereClause = where display_on_national = 1 {$nameQuery} {$dateQuery} {$serviceQuery} {$sort} }}
+{{/if}}
+
+{{each stories as storiescounter {$whereClause} }}
+  {{$totalItems = {storiescounter._num} }}
+{{/each}}
+
+{
+  "data": [{{each stories as story {$whereClause}  limit {$limit}, {$show} }}
+      {{$serviceReturn = 0}}
+      {{$locationReturn = 0}}
+      
+      {
+        "title": "{{story.title.htmlentities()}}",
+        "date": "{{story.story_date_picker.date(Y-m-d)}}",
+        "image": "{{story.image.getImage()}}",
+        "body": "{{story.body.escapeForJs() }}",
+        "url": "https://{{instance.domain}}{{story.getUrl()}}",
+        "external_url": "{{story.external_url}}",
+        "seo_meta_description": "{{story.seo_meta_description.htmlentities().escapeForJs()}}",
+        "author": "{{story.author}}",
+        {{each locations as location where z.zuid="{property}" }}
+          {{$locationReturn = 1}}
+        {{/each}}
+        {{if {$locationReturn} === 1}}
+          "location": {{each locations as location where z.zuid="{property}"}}
+            {{location.toJSON(1)}}
+          {{/each}},
+        {{else}}
+          "location": null,
+        {{/if}}
+        {{each service_types as service_type where z.zuid = '{story.related_service}' }}
+          {{$serviceReturn = 1}}
+        {{/each}}
+        {{if {$serviceReturn} === 1}}
+          "related_service": {{each service_types as service_type where z.zuid = '{story.related_service}' }}
+            {{service_type.toJSON()}},
+          {{/each}}
+        {{else}}
+        "related_service": null,
+        {{/if}}
+        "custom_num": "{{story._num}} {{story._length}}",
+        "where_clause": "{{$whereClause.escapeForJs()}} limit {{$limit}} {{$show}}"
+      }{{story._arraycomma}}
+    {{/each}}],
+  "totalItems": {{if {$totalItems} }} {{$totalItems}} {{else}} 0 {{/if}},
+  "initialReturn": {{$initialReturn}},
+  "modelJumpedName": "{{ $modelJumpedName }}",
+  "modelJumped": "{{$modelJumped}}",
+  "modelJumpedZuid": "{{$modelJumepdZuid}}",
+  "modelJumpedNewsroomUrl": "{{truepath({$modelJumepdZuid})}}"
+}

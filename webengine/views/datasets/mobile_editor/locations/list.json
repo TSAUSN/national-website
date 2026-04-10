@@ -1,0 +1,41 @@
+{{$email = "example@email"}}
+{{$search = "%%" }}
+
+{{if {request.queryParam(email)} }}
+{{$email = "{request.queryParam(email)}" }}
+{{end-if}}
+
+
+{{if {request.queryParam(search)} }}
+{{$search = "%{request.queryParam(search)}%" }}
+{{end-if}}
+
+
+
+{
+   "data": [
+       {{each staffs as staffUser WHERE staffUser.email = {$email} }}
+        {{if {staffUser} && {staffUser.member_locations} }}
+            {{each {staffUser.member_locations} as staffLocation WHERE staffLocation.name LIKE {$search} SORT BY staffLocation.name ASC }}
+                {
+                    "name": "{{staffLocation.name.escapeForJs()}}",
+                    "address": "{{staffLocation.address.escapeForJs()}}",
+                    "meta": {
+                        "zuid": "{{staffLocation.zuid}}",
+                        "modelZuid": "{{staffLocation.set_zuid}}"
+                    }
+                }
+                {{staffLocation._arraycomma}}
+            {{/each}}    
+       {{end-if}}
+        {{staffUser._arraycomma}}
+       {{/each}} 
+   ],
+   "meta": {
+       "email": {{$email}},
+       "member_divisions": "{{staffs.filter({$email} = {email}).member_divisions}}",
+       "member_territories": "{{staffs.filter({$email} = {email}).member_territories}}",
+       "property_type": "Location"
+
+   }
+}

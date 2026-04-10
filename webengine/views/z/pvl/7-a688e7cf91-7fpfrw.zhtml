@@ -1,0 +1,53 @@
+<div className={styles.pvlRoot}>
+	<p>Because of you, a child in our community will have gifts on Christmas morning. The Angel Tree Toy Town program is one of The Salvation Army's highest profile Christmas efforts. Angel Tree was created by The Salvation Army in 1979 by Majors Charles and Shirley White when they worked with a shopping mall in Virginia, to provide clothing and toys for children at Christmas time.&nbsp;<br>Below is more information about how you can get involved by hosting an Angel Tree, a&nbsp;toy drive,&nbsp;buying gifts online from our Walmart and&nbsp;Amazon gift lists, or volunteer and&nbsp;help us distribute&nbsp;gifts and toys to families.</p>
+	<h3>Host A Toy Drive</h3>
+	<p>To ensure we help more children&nbsp;ages 0-12&nbsp;this&nbsp;Christmas, we invite you to host an Angel Tree&nbsp;or a Toy Drive with us. All of our toy collection programs are open to&nbsp;businesses, organizations, churches, groups, families and individuals.<br><br>Christmas in July Toy Drive (July 1-31): Collect new toys, books, games, or gift cards.&nbsp;<br>Angel Tree Host (Oct. 1&nbsp;- Dec. 5): Receive generic gift wish tags for Angels (children), and collect them for our distribution.<br>Toy Drive (Anytime): Collect new toys, books, games, stuffed animals and gift cards for distribution to Angels.<br><br>To register for our 2025 Christmas in July Toy Drive, please fill out the Toy Host Interest form below. If you have any questions, please contact Angel Tree Coordinator Lauren Shelton at&nbsp;Lauren.Shelton@usc.salvationarmy.org.&nbsp;</p>
+	<br>
+	<h3>Online Gift Lists</h3>
+	<p>You can also purchase gifts for Angels through our Walmart and&nbsp;Amazon gift lists. Simply review the items available to purchase, select a gift, and our Angel Tree Toy Town will receive it and distribute it at Christmas time!&nbsp;</p>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<h3>Walmart Gift List</h3>
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/usc-mid-angel-tree-amazon.png" alt="placeholder">
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<h3>Amazon Gift List</h3>
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/usc-mid-amazon.png" alt="placeholder">
+		</div>
+	</div>
+	<br>
+	<h3>Heading 1</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<h5>Heading 1</h5>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<h5>Heading 1</h5>
+		</div>
+	</div>
+	<br>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</div>
+	<br>
+	<h1>Heading 1</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+		</div>
+	</div>
+	<img width="100%" src="https://apps.zesty.io/freestyle/images/images-placeholder.jpg" alt="placeholder" />
+</div>

@@ -1,0 +1,22 @@
+[
+{{each contact_us as cu}}
+    {
+        {{if {cu.territory} }}
+        "territory": "{{territories.filter({cu.territory}).name.escapeForJs() }}",
+        {{else}}
+        "territory": "",
+        {{/if}}
+        {{if {cu.division} }}
+        "division": "{{divisions.filter({cu.division}).name.escapeForJs() }}",
+        {{else}}
+        "division": "",
+        {{/if}}
+        {{if {cu.location} }}
+        "location": "{{locations.filter({cu.location}).name.escapeForJs() }}",
+        {{else}}
+        "location": "",
+        {{/if}}
+        "path": "{{truepath({cu.zuid})}}"
+    }{{cu._arraycomma}}
+{{/each}}
+]

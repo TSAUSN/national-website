@@ -1,0 +1,9 @@
+<div className={styles.pvlRoot}>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<div>{{block('/-/block/generic_image_text_button_block.html?variant=7-cafa95d2e1-ng458s')}}</div>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+		</div>
+	</div>
+</div>

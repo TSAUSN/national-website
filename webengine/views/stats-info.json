@@ -1,0 +1,228 @@
+{{$zuid = {request.queryParam(zuid)} }}
+{{$page_model = {request.queryParam(page-model)} }}
+{{$parent_division = {request.queryParam(parent-division)} }}
+{{$parent_territory = {request.queryParam(parent-territory)} }}
+
+[
+    {{if {$page_model} === '6-b4c9aba69c-h2nqvm'}}
+    {{$count = 0}}
+
+    {{each stats as stat WHERE stat.locations = '{$zuid}' limit 1 }}
+      {{$count = 1}}
+    {{/each}}
+
+    {{if $count === 0 }}
+      {{each stats as stat WHERE stat.divisions = '{$parent_division}' limit 1 }}
+          {{$count = 2}}
+      {{/each}}
+    {{/if}}
+
+    {{if $count === 0 }}
+      {{each stats as stat WHERE stat.territories = '{$parent_territory}' limit 1 }}
+        {{$count = 3}}
+      {{/each}}
+    {{/if}}
+    
+    {{if {$count} === 1 }}
+      {{each stats as stat WHERE stat.locations = '{$zuid}' }}
+    {
+          {{$rsc  = {stat.right_side_content.striptags()} }}
+          {{$description = {stat.description.striptags()} }}
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name}}",
+          "stats_sub_text": "{{stat.stats_sub_text.escapeForJs()}}",
+          "description": "{{$description.escapeForJs()}}",
+          "right_side_header": "{{stat.right_side_header.striptags()}}",
+          "right_side_content": "{{$rsc.escapeForJs()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{else-if {$count} === 2 }}
+      {{each stats as stat WHERE stat.divisions = '{$parent_division}' }}
+ {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name}}",
+          "stats_sub_text": "{{stat.stats_sub_text}}",
+          "description": "{{stat.description.striptags()}}",
+          "right_side_header": "{{stat.right_side_header.striptags()}}",
+          "right_side_content": "{{stat.right_side_content.striptags()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{else-if {$count} === 3}}
+      {{each stats as stat WHERE stat.territories = '{$parent_territory}' }}
+ {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name}}",
+          "stats_sub_text": "{{stat.stats_sub_text}}",
+          "description": "{{stat.description.striptags()}}",
+          "right_side_header": "{{stat.right_side_header.striptags()}}",
+          "right_side_content": "{{stat.right_side_content.striptags()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{else}}
+      {{each stats as stat WHERE stat.national = 1 }}
+ {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name}}",
+          "stats_sub_text": "{{stat.stats_sub_text}}",
+          "description": "{{stat.description.striptags()}}",
+          "right_side_header": "{{stat.right_side_header.striptags()}}",
+          "right_side_content": "{{stat.right_side_content.striptags()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{/if}}
+  {{/if}}
+
+  {{if {$page_model} === '6-acb19a94bd-4q8ftj'}}
+    {{$count = 0}}
+      {{each stats as stat WHERE stat.divisions = '{$zuid}' limit 1 }}
+          {{$count = 1}}
+      {{/each}}
+    
+    {{if $count === 0 }}
+      {{each stats as stat WHERE stat.territories = '{$parent_territory}' limit 1 }}
+        {{$count = 2}}
+      {{/each}}
+    {{/if}}
+
+    {{if {$count} === 1 }}
+      {{each stats as stat WHERE stat.divisions = '{$zuid}' }}
+       {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name}}",
+          "stats_sub_text": "{{stat.stats_sub_text}}",
+          "description": "{{stat.description.striptags().escapeForJs()}}",
+          "right_side_header": "{{stat.right_side_header.striptags()}}",
+          "right_side_content": "{{stat.right_side_content.striptags()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{else-if {$count} === 2}}
+      {{each stats as stat WHERE stat.territories = '{$parent_territory}' }}
+ {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name}}",
+          "stats_sub_text": "{{stat.stats_sub_text}}",
+          "description": "{{stat.description.striptags()}}",
+          "right_side_header": "{{stat.right_side_header.striptags()}}",
+          "right_side_content": "{{stat.right_side_content.striptags()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{else}}
+      {{each stats as stat WHERE stat.national = 1 }}
+ {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name}}",
+          "stats_sub_text": "{{stat.stats_sub_text}}",
+          "description": "{{stat.description.striptags()}}",
+          "right_side_header": "{{stat.right_side_header.striptags()}}",
+          "right_side_content": "{{stat.right_side_content.striptags()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{/if}}
+  {{/if}}
+
+  {{if {$page_model} === '6-deab97cfd9-wb5km4'}}
+    {{$count = 0}}
+
+    {{each stats as stat WHERE stat.territories = '{$zuid}' limit 1 }}
+      {{$count = 1}}
+    {{/each}}
+
+    {{if {$count} === 1}}
+      {{each stats as stat WHERE stat.territories = '{$zuid}' }}
+         {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name}}",
+          "stats_sub_text": "{{stat.stats_sub_text}}",
+          "description": "{{stat.description.striptags()}}",
+          "right_side_header": "{{stat.right_side_header.striptags()}}",
+          "right_side_content": "{{stat.right_side_content.striptags()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{else}}
+      {{each stats as stat WHERE stat.national = 1 }}
+ {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name}}",
+          "stats_sub_text": "{{stat.stats_sub_text}}",
+          "description": "{{stat.description.striptags()}}",
+          "right_side_header": "{{stat.right_side_header.striptags()}}",
+          "right_side_content": "{{stat.right_side_content.striptags()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{/if}}
+  {{/if}}
+
+  {{if {$page_model} === '6-a0898ca2c1-krnm0f'}}
+    {{each stats as stat WHERE stat.national = 1 }}
+      {{$relatedURL = {stat.related_service} }}
+       {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name}}",
+          "stats_sub_text": "{{stat.stats_sub_text}}",
+          "description": "{{stat.description.striptags()}}",
+          "right_side_header": "{{stat.right_side_header.striptags()}}",
+          "right_side_content": "{{stat.right_side_content.striptags()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+    {{/each}}
+  {{/if}}
+]

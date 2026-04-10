@@ -1,0 +1,17 @@
+#recent-stories div.card-img-top {
+    min-height: 222px;
+    max-height: 250px;
+}
+
+#recent-stories div.card-body-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    #recent-stories div.card {
+        width: 100%;
+    }
+}

@@ -1,0 +1,84 @@
+{{$zuid = {request.queryParam(zuid)} }}
+{{$modelZUID = {request.queryParam(model_zuid)} }}
+{{$totalItems = 0 }}
+{
+    "data": [
+    {{ if {$modelZUID} == "6-deab97cfd9-wb5km4" }} 
+        {{each services as s where territory =  '{$zuid}' and division is null and location is null}}
+            {
+                "zuid": "{{s.zuid}}",
+                "title": "{{ s.title.escapeForJs() }}",
+                "hero_subtitle": "{{s.subtitle.escapeForJs()}}",
+                "url": "{{ s.getUrl() }}",
+                "icon": "{{if {s.service_page_icon} }}{{s.service_page_icon}}{{else}}{{ service_types.filter({s.service_type}).icon_name }}{{/if}}",
+                "service_type": "{{s.service_type}}",
+                "display_on_nav": {{ s.display_in_services_navigation_dropdown }},
+                "meta_keywords": "{{s.seo_meta_keywords.escapeForJs()}}",
+                "meta_title": "{{s.seo_meta_title.escapeForJs()}}",
+                "meta_description": "{{s.seo_meta_description.escapeForJs()}}",
+                "sort_order": {{service_types.filter({s.service_type}).sort_order}}
+            }{{s._arraycomma}}
+            {{ $totalItems  = {s._num} }}
+        {{/each}}
+
+    {{ else if {$modelZUID} == "6-acb19a94bd-4q8ftj" }}
+        {{each services as s where division =  '{$zuid}' and location is null }}
+            {
+                "zuid": "{{s.zuid}}",
+                "title": "{{ s.title.escapeForJs() }}",
+                "hero_subtitle": "{{s.subtitle.escapeForJs()}}",
+                "url": "{{ s.getUrl() }}",
+                "icon": "{{if {s.service_page_icon} }}{{s.service_page_icon}}{{else}}{{ service_types.filter({s.service_type}).icon_name }}{{/if}}",
+                "service_type": "{{s.service_type}}",
+                "display_on_nav": {{ s.display_in_services_navigation_dropdown }},
+                "meta_keywords": "{{s.seo_meta_keywords.escapeForJs()}}",
+                "meta_title": "{{s.seo_meta_title.escapeForJs()}}",
+                "meta_description": "{{s.seo_meta_description.escapeForJs()}}",
+                "sort_order": {{service_types.filter({s.service_type}).sort_order}}
+            }{{s._arraycomma}}
+            {{ $totalItems  = {s._num} }}
+        {{/each}}
+
+    {{ else if {$modelZUID} == "6-b4c9aba69c-h2nqvm" }}
+        {{each services as s where location = '{$zuid}' and division is null }}
+            {
+                "zuid": "{{s.zuid}}",
+                "title": "{{ s.title.escapeForJs() }}",
+                "hero_subtitle": "{{s.subtitle.escapeForJs()}}",
+                "url": "{{ s.getUrl() }}",
+                "icon": "{{if {s.service_page_icon} }}{{s.service_page_icon}}{{else}}{{ service_types.filter({s.service_type}).icon_name }}{{/if}}",
+                "service_type": "{{s.service_type}}",
+                "display_on_nav": {{ s.display_in_services_navigation_dropdown }},
+                "meta_keywords": "{{s.seo_meta_keywords.escapeForJs()}}",
+                "meta_title": "{{s.seo_meta_title.escapeForJs()}}",
+                "meta_description": "{{s.seo_meta_description.escapeForJs()}}",
+                "sort_order": {{service_types.filter({s.service_type}).sort_order}}
+            }{{s._arraycomma}}
+            {{ $totalItems  = {s._num} }}
+        {{/each}}
+    
+    {{ else if {$modelZUID} == "6-a0898ca2c1-krnm0f" }}
+        {{each services as s where location is null and division is null and territory is null }}
+            {
+                "zuid": "{{s.zuid}}",
+                "title": "{{ s.title.escapeForJs() }}",
+                "hero_subtitle": "{{s.subtitle.escapeForJs()}}",
+                "url": "{{ s.getUrl() }}",
+                "icon": "{{if {s.service_page_icon} }}{{s.service_page_icon}}{{else}}{{ service_types.filter({s.service_type}).icon_name }}{{/if}}",
+                "service_type": "{{s.service_type}}",
+                "display_on_nav": {{ s.display_in_services_navigation_dropdown }},
+                "meta_keywords": "{{s.seo_meta_keywords.escapeForJs()}}",
+                "meta_title": "{{s.seo_meta_title.escapeForJs()}}",
+                "meta_description": "{{s.seo_meta_description.escapeForJs()}}",
+                "sort_order": {{service_types.filter({s.service_type}).sort_order}}
+            }{{s._arraycomma}}
+            {{ $totalItems  = {s._num} }}
+        {{/each}}
+    
+    {{/if}}
+    ],
+    "total_items": {{ $totalItems }},
+    "location_zuid": "{{ $zuid }}", 
+    "model_zuid": "{{ $modelZUID }}", 
+    "date_requested": "{{ instance.date(Y-m-d H:i:s) }}"
+}

@@ -1,0 +1,480 @@
+{{$serviceAreaPage = {services_area.filter({this.zuid}).zuid} }}
+{{$cityZUID = {cities.filter({this.parent_zuid}).zuid} }}
+{{$locationZUID = {locations.filter({this.parent_zuid}).zuid} }}
+<div
+  class="module services mb-16"
+  id="services"
+  data-component-type="services"
+>
+  <div class="px-5 d-flex mb-8 align-items-center justify-content-between gap-sm-12">
+    <div class="d-flex align-items-center justify-content-start">
+      <h4>{{ this.seo_meta_title }} Services</h4>
+    </div>
+
+    {{if {$cityZUID} && {this.parent_zuid} != 0 }}
+    <div>
+      <a
+        href="/location-finder"
+        class="d-flex align-items-center text-dark-50 text-decoration-none"
+        ><span>View All Services</span>
+        <span class="material-symbols-outlined ms-2 fs-7 text-dark-50"> arrow_outward </span>
+      </a>
+    </div>
+    {{/if}}
+  </div>
+  <div class="bg-transparent bg-lg-light rounded-5 px-lg-4 px-sm-0 pb-2 pt-4">
+    <div class="rounded-5">
+      <div class="rounded-5 mb-3 services-image position-relative">
+        <img
+            data-service-type-id="{{ service_type.zuid }}"
+            src="{{ globals.services_all_image.getImage() }}?width=1400"
+            srcset="{{ globals.services_all_image.getImage() }}?width=640 640w, {{ globals.services_all_image.getImage() }}?width=960 960w, {{ globals.services_all_image.getImage() }}?width=1400 1400w"
+            sizes="(max-width: 768px) 100vw, 1200px"
+            alt=""
+            class="position-absolute z-2 service-image"
+            width="1400"
+            height="405"
+            decoding="async"
+            loading="lazy"
+        /> 
+        <form
+          autocomplete="off"
+          class="services-search-form position-absolute bottom-sm-2 top-md-4 end-sm-2 end-lg-4 z-3"
+        >
+          <div class="p-3 bg-light rounded-3">
+            <div class="row position-relative">
+              <div class="col-lg-8 col-sm-6 pe-2">
+                <div class="input-group">
+                  <span class="material-symbols-outlined input-group-text px-sm-2 px-lg-4 pe-lg-1"> search </span>
+                  <input
+                    type="search"
+                    name="service"
+                    class="form-control px-sm-2 px-lg-4 ps-lg-2"
+                    placeholder="Search Services"
+                    onsearch="OnSearch(this)"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6 ps-1">
+                <button
+                  type="submit"
+                  class="btn btn-primary text-nowrap w-100"
+                >
+                  Search Services
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="services-swiper-area">
+        <div class="swiper-wrapper pb-4">
+          {{each service_types as service_type where find_in_set(z.zuid, '{this.service_type}' )}}
+          <div
+            class="swiper-slide rounded-5 service-card"
+            data-service-type="{{ service_types.filter({service.service_type}).zuid }}"
+            data-meta-title="{{ services.seo_meta_title }}"
+            data-meta-description="{{ services.seo_meta_description }}"
+            data-meta-keywords="{{ services.seo_meta_keywords }}"
+          >
+            <div class="rounded-5 p-lg-6 p-4 border d-flex flex-column justify-content-between h-100 w-100">
+              <div class="mb-0 d-flex justify-content-between">
+                <h6 class="fs-7 card-title">{{ service.title }}</h6>
+                <span
+                  class="material-symbols-outlined text-dark-100 service-icon"
+                  >{{service_types.filter({service.service_type}).icon_name}}</span
+                >
+              </div>
+          
+              {{$service = {services.filter({this.zuid}).zuid} }}
+              <div class="mt-4 d-flex align-items-center justify-content-between gap-2 text-nowrap d-none">
+                <a
+                  class="location-finder-button btn btn-info btn-sm w-100 p-3"
+                  data-location-type="body:services-section"
+                  data-function-type="navigation"
+                  data-format-type="button"
+                  data-link-type="internal"
+                  href="/location-finder?services={{ service.service_type }}"
+                  onclick="LinkTrackingClickEvent(this,'find_help_click')"
+                >
+                  <div class="d-flex align-items-center justify-content-center">
+                    <span class="material-symbols-outlined me-1"> location_on </span>
+                    <span>Find Location</span>
+                  </div>
+                </a>
+                <a
+                  class="learn-more-button btn btn-secondary btn-sm w-100 p-3"
+                  data-link-location-type="body:services-section"
+                  data-link-function-type="navigation"
+                  data-link-format-type="button"
+                  data-link-type-type="internal"
+                  data-link-url-type="{{ service.getUrl() }}"
+                  data-link-text-type="Learn More"
+                  data-search-type-type="site search - body"
+                  data-search-method-type="user-entered"
+                  data-search-term-type="all"
+                  data-search-result-index-type="{{service._index}}"
+                  data-search-results-type="{{service._length}}"
+                  href="{{ service.getUrl() }}"
+                  onclick="searchResultClick(this)"
+                >
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="services-swiper__nav d-flex w-100 justify-content-end align-items-center mt-5">
+    <div
+      class="swiper-button-prev position-relative bg-opacity-60 bg-light me-4"
+      data-location-type="body:services"
+      data-function-type="other"
+      data-format-type="icon-block"
+      data-page-componentType-type="services component"
+      data-page-componentHeading-type=null
+      data-page-componentSubheading-type=null
+      data-page-componentIndex-type=null
+      onclick="LinkTrackingClickEvent(this,'view_content_click')"
+    >
+      <i class="material-symbols-outlined text-dark-100">arrow_back</i>
+    </div>
+
+    <div
+      class="swiper-pagination services-pagination position-relative px-4 rounded-14"
+      data-location-type="body:services"
+      data-function-type="other"
+      data-format-type="icon-block"
+      data-page-componentType-type="services component"
+      data-page-componentHeading-type=null
+      data-page-componentSubheading-type=null
+      data-page-componentIndex-type=null
+      onclick="LinkTrackingClickEvent(this,'view_content_click')"
+    ></div>
+
+    <div
+      class="swiper-button-next position-relative bg-opacity-60 bg-light ms-4"
+      data-location-type="body:services"
+      data-function-type="other"
+      data-format-type="icon-block"
+      data-page-componentType-type="services component"
+      data-page-componentHeading-type=null
+      data-page-componentSubheading-type=null
+      data-page-componentIndex-type=null
+      onclick="LinkTrackingClickEvent(this,'view_content_click')"
+    >
+      <i class="material-symbols-outlined text-dark-100">arrow_forward</i>
+    </div>
+  </div>
+</div>
+
+<script>
+  const servicesContainer = document.querySelector('.services-filter');
+  const servicesCards = document.querySelectorAll('.services-swiper-area .service-card');
+  const servicesImages = document.querySelectorAll('.service-image');
+
+  // Swiper Object
+  const servicesPagination = document.querySelector('.services-swiper__nav .swiper-pagination');
+
+  const servicesSwiper = new Swiper('.services-swiper-area', {
+    slidesPerView: 1,
+    slidesPerGroupSkip: 1,
+    spaceBetween: 16,
+    loop: false,
+    centeredSlides: false,
+    pagination: {
+      el: '.services-pagination',
+      clickable: true,
+      renderBullet: (index, className) => `<span class="${className}">${index + 1}</span>`
+    },
+    navigation: {
+      nextEl: '.services-swiper__nav .swiper-button-next',
+      prevEl: '.services-swiper__nav .swiper-button-prev',
+    },
+    breakpoints: {
+      1024: {
+        slidesPerView: 4,
+        slidesPerGroup: 1,
+      },
+      768: {
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+        loopFillGroupWithBlank: true,
+      },
+      0: {
+        slidesPerView: "auto",
+        slidesPerGroup: 1,
+      }
+    }
+  });
+
+  function toggleButtonState(button, isDisabled) {
+    button.classList.toggle('swiper-button-disabled', isDisabled);
+    button.setAttribute('aria-disabled', isDisabled.toString());
+  }
+
+  function adjustPaginationBullets() {
+    const swiper = servicesSwiper;
+    const maxVisibleBullets = 5;
+    const totalBullets = swiper.pagination.bullets.length;
+    const prevButton = document.querySelector(".services-swiper__nav .swiper-button-prev");
+    const nextButton = document.querySelector(".services-swiper__nav .swiper-button-next");
+
+    let start = Math.floor(swiper.activeIndex / maxVisibleBullets) * maxVisibleBullets;
+    let end = start + maxVisibleBullets;
+
+    if (end > totalBullets) {
+      end = totalBullets;
+      start = Math.max(0, end - maxVisibleBullets);
+    }
+
+    if (end - start < maxVisibleBullets && start > 0) {
+      start = Math.max(0, end - maxVisibleBullets);
+    }
+
+    swiper.pagination.bullets.forEach((bullet, index) => {
+        bullet.style.display = index >= start && index < end ? "inline-block" : "none";
+    });
+
+    const startEllipsis = document.querySelector('.pagination-start-ellipsis');
+    if (start > 0) {
+      if (!startEllipsis) {
+          const bullet = document.createElement('span');
+          bullet.className = 'pagination-start-ellipsis';
+          bullet.textContent = '...';
+          bullet.style.display = 'inline-block';
+          bullet.style.marginRight = '-8px';
+          swiper.pagination.bullets[start].parentNode.insertBefore(bullet, swiper.pagination.bullets[start]);
+      }
+    } else if (startEllipsis) {
+      startEllipsis.remove();
+    }
+
+    const endEllipsis = document.querySelector('.pagination-ellipsis');
+    if (end < totalBullets) {
+      if (!endEllipsis) {
+        const bullet = document.createElement('span');
+        bullet.className = 'pagination-ellipsis';
+        bullet.textContent = '...';
+        bullet.style.display = 'inline-block';
+        bullet.style.marginLeft = '-8px';
+        swiper.pagination.bullets[end - 1].parentNode.appendChild(bullet);
+      }
+    } else if (endEllipsis) {
+      endEllipsis.remove();
+    }
+
+    toggleButtonState(nextButton, servicesSwiper.activeIndex >= totalBullets - 1);
+    prevButton.style.display = swiper.activeIndex === 0 ? "none" : "flex";
+  }
+
+  function handleSlideChange(){
+    const swiper = servicesSwiper;
+    const totalSlides = swiper.slides.length; 
+    const visibleSlides = swiper.params.slidesPerView; 
+    const remainingSlides = totalSlides - swiper.activeIndex - visibleSlides; 
+
+    const nextButton = document.querySelector('.services-swiper__nav .swiper-button-next');
+    const prevButton = document.querySelector('.services-swiper__nav .swiper-button-prev');
+
+    toggleButtonState(nextButton, remainingSlides <= 0);
+    toggleButtonState(prevButton, servicesSwiper.activeIndex === 0);
+
+    adjustPaginationBullets()
+  }
+
+    // Search
+    const servicesSearchForm = document.querySelector('.services-search-form');
+
+function searchServicesOnSubmit(event) {
+  if (event) event.preventDefault(); // Prevent default form submission behavior
+
+  const formData = new FormData(servicesSearchForm); // Extract form data
+  const searchTerm = formData.get('service')?.toLowerCase().trim(); // Get search term and normalize
+
+  // Show all cards if search term is empty
+  if (!searchTerm) {
+    servicesCards.forEach((card) => card.classList.remove('d-none'));
+    return;
+  }
+
+  // Filter and toggle visibility based on the search term
+  let foundMatch = false; // Track if at least one card matches
+
+  servicesCards.forEach((card) => {
+    const metaTitle = card.getAttribute('data-meta-title')?.toLowerCase() || '';
+    const metaDescription = card.getAttribute('data-meta-description')?.toLowerCase() || '';
+    const metaKeywords = card.getAttribute('data-meta-keywords')?.toLowerCase() || '';
+    const title = card.querySelector('h6')?.textContent.toLowerCase() || '';
+    const subtitle = card.querySelector('p.card-text')?.textContent.trim().toLowerCase() || '';
+    const learnMoreButton = card.querySelector('.learn-more-button');
+
+    // Split meta-keywords into an array, trim spaces, and check for match
+    const metaKeywordsArray = metaKeywords.split(',').map((keyword) => keyword.trim());
+    const keywordsMatch = metaKeywordsArray.some((keyword) => keyword.includes(searchTerm));
+
+    // Check if search term matches any field
+    const isMatch =
+      metaTitle.includes(searchTerm) ||
+      metaDescription.includes(searchTerm) ||
+      keywordsMatch ||
+      title.includes(searchTerm) ||
+      subtitle.includes(searchTerm);
+
+    // Update card visibility based on the match
+    card.classList.toggle('d-none', !isMatch);
+
+    if (isMatch) {
+      foundMatch = true; // Update match tracker
+      learnMoreButton?.setAttribute('data-search-term-type', searchTerm);
+    }
+  });
+
+  // If no matches, show all cards
+  if (!foundMatch) {
+    servicesCards.forEach((card) => card.classList.remove('d-none'));
+  }
+
+  servicesSwiper.update();
+  adjustPaginationBullets();
+  // Track search event with the search term
+  utag.link({
+    event: 'services_search',
+    services_search_term: searchTerm
+  });
+}
+
+servicesSearchForm.addEventListener('submit', searchServicesOnSubmit);
+
+function OnSearch(input) {
+  if (input.value == '') {
+    searchServicesOnSubmit();
+    servicesSwiper.update();
+    adjustPaginationBullets();
+  }
+}
+
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    servicesSwiper.on('slideChangeTransitionEnd',handleSlideChange);
+    adjustPaginationBullets()
+    window.addEventListener('resize', adjustPaginationBullets)
+  });
+
+  const servicesFilterSwiper = new Swiper('.services-filter-swiper', {
+    slidesPerView: 1.5,
+    spaceBetween: 16,
+    loop: false,
+    centeredSlides: false,
+    navigation: {
+      nextEl: '.services-filter-swiper .swiper-button-next',
+      prevEl: '.services-filter-swiper .swiper-button-prev'
+    },
+    breakpoints: {
+      1024: {
+        slidesPerView: 'auto',
+        spaceBetween: 16
+      }
+    }
+  });
+
+  // Filter
+  function getServiceTypes() {
+    const servicesCardsArr = Array.from(servicesCards);
+    const serviceTypes = Array.from(
+      new Set(
+        servicesCardsArr.map((card) => {
+          return card.getAttribute('data-service-type');
+        })
+      )
+    );
+
+    return serviceTypes;
+  }
+
+  const servicesButtons = servicesContainer.querySelectorAll('.nav-link');
+
+  function filterServices(type) {
+    servicesCards.forEach((card) => {
+      card.classList.remove('d-none');
+    });
+
+    if (type !== 'all') {
+      servicesCards.forEach((card) => {
+        if (card.getAttribute('data-service-type').toLocaleLowerCase() !== type) {
+          card.classList.add('d-none');
+        }
+      });
+    }
+    servicesSwiper.update();
+  }
+
+  servicesButtons.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      filterServices(btn.getAttribute('data-service-type'));
+    });
+  });
+
+
+  // Filter buttons
+  document.addEventListener('DOMContentLoaded', () => {
+    if (servicesCards.length <= 1) {
+      document.querySelector('.services-swiper__nav .swiper-button-next').classList.add('d-none');
+      document.querySelector('.services-swiper__nav .swiper-button-prev').classList.add('d-none');
+    }
+  });
+
+  for (let i = 0; i < servicesCards.length; i++) {
+    servicesCards[i].addEventListener('click', (event) => {
+      event.stopPropagation();
+      servicesSwiper.slideToLoop(i, 400);
+    });
+  }
+
+  const serviceFilters = document.querySelectorAll('.services-filter .nav-link');
+
+  function toggleOffActiveClass() {
+    for (let i = 0; i < serviceFilters.length; i++) {
+      if (serviceFilters[i].classList.contains('active')) {
+        serviceFilters[i].classList.remove('active');
+        serviceFilters[i].classList.add('text-dark-50');
+        break;
+      }
+    }
+  }
+
+  for (let i = 0; i < serviceFilters.length; i++) {
+    serviceFilters[i].addEventListener('click', (event) => {
+      if (
+        !serviceFilters[i].classList.contains('active') &&
+        serviceFilters[i].contains(event.target)
+      ) {
+        toggleOffActiveClass();
+        serviceFilters[i].classList.add('active');
+        serviceFilters[i].classList.remove('text-dark-50');
+      }
+    });
+  }
+</script>
+
+<script>
+  const cookieModel = getCookieByName('model');
+  const cookieLocationName = getCookieByName('location_name');
+  const cookieLocationFinderUrl = getCookieByName('location_finder_url');
+  const locationFinderButtons = document.querySelectorAll('.location-finder-button');
+
+  locationFinderButtons.forEach((locationFinderButton) => {
+    if (
+      cookieModel === 'locations' ||
+      (cookieLocationName !== 'NATIONAL' && cookieModel === 'services') && cookieLocationFinderUrl != "/location-finder"
+    ) {
+      locationFinderButton.classList.add('d-none');
+    } else {
+      locationFinderButton.classList.remove('d-none');
+    }
+  });
+</script>

@@ -1,0 +1,84 @@
+{{$skip = 0 }}
+{{$limit = 20 }}
+{{$totalItems = 0}}
+{{$sort_order = desc}}
+{{$sort_by = updated_at}}
+{{$search = "" }}
+{{$division = "" }}
+
+
+{{if {request.queryParam(skip)} }}
+{{$skip = {request.queryParam(skip)} }}
+{{else}}
+{{$skip = 0}}
+{{end-if}}
+
+
+{{if {request.queryParam(limit)} }}
+{{$limit = {request.queryParam(limit)} }}
+{{else}}
+{{$limit = 10}}
+{{end-if}}
+
+{{if {request.queryParam(sort_order)} &&  {request.queryParam(sort_order)} === 'asc'}}
+{{$sort_order = asc }}
+{{else}}
+{{$sort_order = desc }}
+{{end-if}}
+
+
+{{if {request.queryParam(sort_by)} &&  {request.queryParam(sort_by)} === 'name'}}
+{{$sort_by = name }}
+{{else if {request.queryParam(sort_by)} &&  {request.queryParam(sort_by)} === 'date'}}
+{{$sort_by = updated_at }}
+{{else}}
+{{$sort_by = updated_at }}
+{{end-if}}
+
+
+{{if {request.queryParam(search)} }}
+{{$search = "%{request.queryParam(search)}%" }}
+{{else}}
+{{$search = "%%" }}
+{{end-if}}
+
+{{if {request.queryParam(division)} }}
+{{$division = "{request.queryParam(division)}" }}
+{{else}}
+{{$division = "" }}
+{{end-if}}
+
+
+
+
+{
+    "data": [
+        {{each divisions as division WHERE division.zuid = {$division} AND division.name LIKE {$search} LIMIT {$skip}, {$limit} SORT BY division.{$sort_by} {$sort_order} }}
+        {{$totalItems = {division._num} }}
+        {
+            "data": {
+                "title": "{{division.name.escapeForJs()}}",
+                "description": "Last modified {{division.updated_at.date(m/d/Y)}}",
+                "image": "{{division.og_image}}",
+                "property":  "{{division.zuid}}"
+            },
+            "meta": {
+                "ZUID": "{{division.zuid}}",
+                "masterZuid": "{{division.zuid}}",
+                "contentModelZuid": "{{division.set_zuid}}"
+            }
+        } {{division._arraycomma}}
+        {{/each}}
+    ],
+    "_meta": {
+        "skip": {{$skip}},
+        "limit": {{$limit}},
+        "page": {{math({$skip} / {$limit} + 1)}},
+        "pages": {{ math(ceil({$totalItems} / {$limit})) }},
+        "totalItems": {{$totalItems}},
+        "sortOrder": "{{$sort_order}}",
+        "sortBy": "{{$sort_by}}",
+        "search": {{$search}},
+        "division": {{$division}}
+    }
+}

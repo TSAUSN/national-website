@@ -1,0 +1,27 @@
+<div className={styles.pvlRoot}>
+	<div class="row my-3">
+		<div class="col-lg-6 col-md-6 col-sm-12">
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<div>{{block('/-/block/profile_card_block.html?variant=7-c880f4858d-3j8c7c')}}</div>
+		</div>
+	</div>
+	<div class="row my-3">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</div>
+	<div>{{block('/-/block/theater_space_block.html?variant=7-b2e9cac0d8-jn7qjm')}}</div>
+	<div class="row my-3">
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<div>{{block('/-/block/info_block.html?variant=7-a0e48afbe0-rmbnsg')}}</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</div>
+	<br>
+	<div>{{block('/-/block/our_vision.html?variant=7-c0fed6b0c5-r0kdnt')}}</div>
+	<div>{{block('/-/block/greatest_need.html?variant=7-f0e8f690c9-m3c8jg')}}</div>
+	<div>{{block('/-/block/way_to_give_block.html?variant=7-e6a194f8b3-dzrbt9')}}</div>
+</div>

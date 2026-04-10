@@ -1,0 +1,8 @@
+{
+    "data": [
+         {{each staff_role_types as role_type }}
+                {{role_type.toJSON(2, true)}}
+                {{role_type._arraycomma}}
+            {{/each}}    
+    ]
+}

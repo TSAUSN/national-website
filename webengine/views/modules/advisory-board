@@ -1,0 +1,133 @@
+<div id="advisory-board" class="mb-15">
+    <h4 class="mb-8 fw-normal">The Salvation Army's Advisory Board</h4>
+    <div>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item rounded-5">
+                <h2 class="accordion-header">
+                    <button class="accordion-button p-6 fw-normal accordion-button-partners" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="fs-7 fw-normal">National Board</p>
+                        </div>
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div class="d-flex align-items-center justify-content-between gap-2">
+                            <div class="bg-area rounded-2 d-flex flex-column p-6 w-100">
+                                <h6 class="fw-normal">Title</h6>
+                                <div class="text-dark-50 display-4">
+                                    <span class="d-block mb-1">Job Title</span>
+                                    <span>Location</span>
+                                </div>
+                            </div>
+                            <div class="bg-area rounded-2 d-flex flex-column p-6 w-100">
+                                <h6 class="fw-normal">Title</h6>
+                                <div class="text-dark-50 display-4">
+                                    <span class="d-block mb-1">Job Title</span>
+                                    <span>Location</span>
+                                </div>
+                            </div>
+                            <div class="bg-area rounded-2 d-flex flex-column p-6 w-100">
+                                <h6 class="fw-normal">Title</h6>
+                                <div class="text-dark-50 display-4">
+                                    <span class="d-block mb-1">Job Title</span>
+                                    <span>Location</span>
+                                </div>
+                            </div>
+                            <div class="bg-area rounded-2 d-flex flex-column p-6 w-100">
+                                <h6 class="fw-normal">Title</h6>
+                                <div class="text-dark-50 display-4">
+                                    <span class="d-block mb-1">Job Title</span>
+                                    <span>Location</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-2">
+        <div class="card rounded-5 bg-light mt-2">
+            <div class="accordion accordion-flush px-8 py-3" id="accordion-financial-donations">
+                <div class="accordion-item p-0 mx-6">
+                    <h2 class="accordion-header py-5">
+                        <button
+                            class="accordion-button collapsed p-0 fw-normal accordion-button-partners"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#financial-donations-{{faq._index}}"
+                            aria-expanded="false"
+                            aria-controls="flush-collapse{{faq._index}}"
+                        >
+                            <p class="fs-7 mb-0">Past Chairman Circle</p>
+                        </button>
+                    </h2>
+                    <div id="financial-donations-{{faq._index}}" class="accordion-collapse collapse" data-bs-parent="#accordion-financial-donations">
+                        <div class="accordion-body p-0">
+                            <div class="mb-4">
+                                <div class="text-dark-50">
+                                    Sample body
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card rounded-5 bg-light mt-2">
+            <div class="accordion accordion-flush px-8 py-3" id="accordion-financial-donations">
+                <div class="accordion-item p-0 mx-6">
+                    <h2 class="accordion-header py-5">
+                        <button
+                            class="accordion-button collapsed p-0 fw-normal accordion-button-partners"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#financial-donations-{{faq._index}}"
+                            aria-expanded="false"
+                            aria-controls="flush-collapse{{faq._index}}"
+                        >
+                            <p class="fs-7 mb-0">Past Chairman Circle</p>
+                        </button>
+                    </h2>
+                    <div id="financial-donations-{{faq._index}}" class="accordion-collapse collapse" data-bs-parent="#accordion-financial-donations">
+                        <div class="accordion-body p-0">
+                            <div class="mb-4">
+                                <div class="text-dark-50">
+                                    Sample body
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card rounded-5 bg-light mt-2">
+            <div class="accordion accordion-flush px-8 py-3" id="accordion-financial-donations">
+                <div class="accordion-item p-0 mx-6">
+                    <h2 class="accordion-header py-5">
+                        <button
+                            class="accordion-button collapsed p-0 fw-normal accordion-button-partners"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#financial-donations-{{faq._index}}"
+                            aria-expanded="false"
+                            aria-controls="flush-collapse{{faq._index}}"
+                        >
+                            <p class="fs-7 mb-0">Past Chairman Circle</p>
+                        </button>
+                    </h2>
+                    <div id="financial-donations-{{faq._index}}" class="accordion-collapse collapse" data-bs-parent="#accordion-financial-donations">
+                        <div class="accordion-body p-0">
+                            <div class="mb-4">
+                                <div class="text-dark-50">
+                                    Sample body
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

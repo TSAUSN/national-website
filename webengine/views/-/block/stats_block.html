@@ -1,0 +1,402 @@
+<div
+  id="stats"
+  class="module stats mb-16"
+  data-component-type="stats"
+>
+  <div class="px-lg-5 d-flex mb-8 align-items-center justify-content-between gap-sm-12">
+    <h4>{{this.title}}</h4>
+    <nav class="stats-filter flex-nowrap nav nav-pills justify-content-between gap-4 d-none"></nav>
+  </div>
+
+  <div
+    id="stats-carousel-parent"
+    class="card shadow rounded-5 overflow-hidden"
+  >
+    <div class="row g-0">
+      <div
+        class="stats__left col-md-6 position-relative"
+        style="height: 480px"
+      >
+        <div
+          class="carousel slide h-100 carousel-fade"
+          data-bs-ride="false"
+        >
+          <div
+            id="stats-carousel-left"
+            class="carousel-inner h-100"
+          >
+        {{each {this.stats} as s sort by find_in_set(z.zuid,'{this.stats}') }}
+
+			 <div
+                class="carousel-item {{if {s._index} == 0 }} active {{/if}} "
+                data-stat-category="${stat.categories}"
+                data-stat-name="${stat.stats_name}"
+              >
+                <div
+                  class="stat-box d-flex flex-column justify-content-between h-100 position-absolute top-0 left-0 z-20"
+                >
+                  <div class="p-12 p-sm-8">
+                    <h1 class="stat-number fs-1 text-light mb-4 lh-1">{{s.stats_sub_text}}</h1>
+                    <div class="fs-4 text-light lh-sm">
+                      {{s.description}}
+                    </div>
+                  </div>
+                </div>
+                
+                <img
+                  class="w-100 h-100"
+                  style="object-fit: cover"
+                  src="{{s.image.getImage()}}"
+                />
+        	</div>
+		{{/each}}
+		</div>
+        </div>
+      </div>
+
+      <div class="col-md-6 p-16 p-sm-6">
+        <div class="h-100">
+          <div
+            id="stats-carousel"
+            class="carousel slide h-100"
+            data-bs-ride="false"
+          >
+            <div
+              id="stats-carousel-right"
+              class="carousel-inner h-100"
+            >
+             	{{each {this.stats} as s sort by find_in_set(z.zuid,'{this.stats}') }}
+        		<div
+                  class="carousel-item {{if {s._index} == 0 }} active {{/if}} "
+                  data-stat-category="${stat.categories}"
+                  data-stat-name="${stat.stats_name}"
+                >
+                  <div class="card-body p-0 d-flex flex-column justify-content-between h-100">
+                    <h5 class="card-title fs-md-4 fs-sm-6 fw-normal">
+                      {{s.right_side_header}}
+                    </h5>
+                    <p></p>
+                    <div>
+                      <div>
+                        <div class="mb-16 fs-7 f-ajenson text-dark-50 ">
+                          {{s.right_side_content}}
+                        </div>
+                      </div>
+                      <div class="mt-4 d-flex justify-content-between">
+                        <div class="d-flex align-items-center stat-share__wrapper">
+                          <div class="d-md-flex d-none align-items-center">
+                            <a
+                                data-social="facebook"
+                                data-location-type="body:stats"
+                                data-function-type="social"
+                                data-format-type="icon-block"
+                                data-link-type="external"
+                                data-link-text="Facebook"
+                                onclick="LinkTrackingClickEvent(this,'social_share')"
+                                href="https://www.facebook.com/sharer/sharer.php?u={{page.zuid.truepath()}}&quote={{s.stats_name}}"
+                                target="_blank"
+                                class="facebook-link social-icon fs-5 text-dark-50 mx-3"
+                            >
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a
+                                data-social="twitter"
+                                data-location-type="body:stats"
+                                data-function-type="social"
+                                data-format-type="icon-block"
+                                data-link-type="external"
+                                data-link-text="Twitter/X"
+                                onclick="LinkTrackingClickEvent(this,'social_share')"
+                                href="https://twitter.com/intent/tweet?url={{page.zuid.truepath()}}&text={{s.stats_name}}"
+                                target="_blank"
+                                class="twitter-link social-icon fs-5 text-dark-50 mx-3"
+                            >
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+                            <a
+                                data-social="linkedin"
+                                data-location-type="body:stats"
+                                data-function-type="social"
+                                data-format-type="icon-block"
+                                data-link-type="external"
+                                data-link-text="LinkedIn"
+                                onclick="LinkTrackingClickEvent(this,'social_share')"
+                                href="https://www.linkedin.com/feed/?shareActive=true&text={{s.stats_name}} {{page.zuid.truepath()}}"
+                                target="_blank"
+                                class="linkedin-link social-icon fs-5 text-dark-50 mx-3"
+                            >
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                          </div>
+                          <div class="d-md-none d-flex">
+                            <a
+                                data-social="mobile-share"
+                                data-location-type="nav-foot"
+                                data-function-type="social"
+                                data-format-type="icon-block"
+                                data-link-type="external"
+                                href="#"
+                                class="display-3 text-dark-50 mx-3 d-flex align-items-center gap-1 text-decoration-none mobile-share-btn"  
+                            >
+                                Share Story
+                                <span class="material-symbols-outlined">share</span>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <a
+                            class="{{if {s.learn_more_url} }} d-inline-flex {{else}} d-none {{/if}} btn btn-secondary me-2 px-5 py-4 px-sm-5 py-sm-3 d-inline-flex align-items-center display-sm-3"
+                            data-location-type="body:stats"
+                            data-function-type="navigation"
+                            data-format-type="button"
+                            href="${stat.learn_more_url}"
+                            target="_blank"
+                            onclick="LinkTrackingClickEvent(this,'cta_click')"
+                          >
+                            <i class="material-icons me-2 text-light">arrow_outward</i>Learn
+                            More
+                          </a>
+                          <button
+                            href="https://give.salvationarmyusa.org/campaign/676125/donate?c_src=NT26TZOAAC&c_src2=USNhomepageStatsModule"
+                            target="_blank"
+                            data-link-type="external"
+                            data-location-type="body:stats"
+                            data-function-type="donation"
+                            data-format-type="button"
+                            onclick="LinkTrackingClickEvent(this,'donate_money_click')"
+                            class="btn btn-primary px-5 py-4 px-sm-5 py-sm-3 display-sm-3 stats-donate header-donate-button"
+                          >
+                            Donate
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+				{{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-control-container mt-5">
+    <button
+      class="carousel-control-prev hide"
+      type="button"
+      data-bs-target="#stats-carousel"
+      data-bs-slide="prev"
+      data-location-type="body:stats"
+      data-function-type="other"
+      data-format-type="icon-block"
+      data-page-componentType-type="stats component"
+      data-page-componentHeading-type="Previous"
+      data-page-componentSubheading-type=null
+      data-page-componentIndex-type=null
+      onclick="LinkTrackingClickEvent(this,
+      'view_content_click')"
+    >
+      <span class="material-symbols-outlined">arrow_back</span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+
+    <div
+      id="stats-carousel-indicators"
+      class="carousel-indicators"
+    >
+        {{each {this.stats} as s sort by find_in_set(z.zuid,'{this.stats}') }}
+
+		<button
+          type="button"
+          data-bs-target="#stats-carousel"
+          data-bs-slide-to="{{s._index}}"
+          class="stat-pagination-bullet {{if {s._index} == 0 }} active {{/if}}"
+          aria-label="Slide 1"
+          aria-current="true"
+          data-location-type="body:stats"
+          data-function-type="other"
+          data-format-type="icon-block"
+          data-page-componentType-type="stats component"
+          data-page-componentHeading-type=null
+          data-page-componentSubheading-type=null
+          data-page-componentIndex-type="{{s._index}}"
+          onclick="LinkTrackingClickEvent(this,'view_content_click')"
+        ></button>
+		{{/each}}
+	</div>
+
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#stats-carousel"
+      data-bs-slide="next"
+      data-location-type="body:stats"
+      data-function-type="other"
+      data-format-type="icon-block"
+      data-page-componentType-type="stats component"
+      data-page-componentHeading-type="Next"
+      data-page-componentSubheading-type=null
+      data-page-componentIndex-type=null
+      onclick="LinkTrackingClickEvent(this,'view_content_click')"
+    >
+      <span class="material-symbols-outlined">arrow_forward</span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<script>
+  let shareData = {};
+const statsCarouselContainer = document.getElementById('stats');
+
+    const statsFilterContainer = statsCarouselContainer.querySelector('.stats-filter');
+
+    const statsCarouselInnerLeft = document.getElementById('stats-carousel-left');
+    const statsCarouselInnerRight = document.getElementById('stats-carousel-right');
+
+    const indicatorContainer = document.getElementById('stats-carousel-indicators');
+    const statsPrevCarouselBtn = statsCarouselContainer.querySelector('.carousel-control-prev');
+    const statsNextCarouselBtn = statsCarouselContainer.querySelector('.carousel-control-next');
+  document.addEventListener('DOMContentLoaded', function () {
+    
+
+    const cookieLocationZUID = getCookieByName('location_zuid');
+    const cookieLocation = getCookieByName('location_model');
+
+      // Add this here, after the carousel items are created
+      document.querySelectorAll('.mobile-share-btn').forEach(button => {
+
+        button.addEventListener('click', async function(e) {
+          e.preventDefault();
+        
+          
+          try {
+            LinkTrackingClickEvent(this, "social_share");
+            
+            if (navigator.share) {
+              await navigator.share(shareData);
+            }
+          } catch (err) {
+            console.error("Error sharing:", err);
+          }
+        });
+      });
+
+      const donateContainer = document.getElementById('header-donate-container');
+      const dontateCloseBtn = document.querySelector('.donate-modal-close-button');
+      const donateButtons = document.querySelectorAll('.stats-donate');
+
+      donateButtons.forEach((donateBtn) => {
+        donateBtn.addEventListener('click', (event) => {
+          event.stopPropagation();
+          navMenu.style.transform = 'unset';
+          navMenu.classList.remove('active');
+          if (searchContainer.classList.contains('active')) {
+            searchContainer.classList.remove('active');
+
+            searchToggleBtn.querySelector('span').classList.toggle('text-primary-200');
+            searchToggleBtn.querySelector('span').classList.toggle('text-dark-100');
+          }
+
+          if (findHelpContainer.classList.contains('active')) {
+            findHelpContainer.classList.remove('active');
+          }
+
+          if (iframe === null) {
+            const f = document.createElement('iframe');
+            f.id = 'classy-form-iframe';
+            f.src = cookie; // Replace with the actual URL
+            f.title = 'Classy Form';
+            f.loading = 'lazy';
+
+            iframe = f;
+            document.querySelector('.donation-iframe-container').appendChild(iframe);
+          }
+
+          donateContainer.classList.toggle('active');
+        });
+      });
+
+    
+
+      dontateCloseBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        donateContainer.classList.remove('active');
+      });
+
+    // sharing
+    if (window.location.hash.includes("#hash")) {
+      const statsModule = document.getElementById("stats");
+      if (!statsModule){
+        return 
+      }
+      statsModule.scrollIntoView({
+        behavior: "smooth", 
+        block: "start", 
+      });
+    }
+  });
+// Attach after carousel items are created
+document.querySelectorAll('.mobile-share-btn').forEach((button) => {
+  button.addEventListener('click', async (e) => {
+    e.preventDefault();
+
+    try {
+      // Track link click event
+      LinkTrackingClickEvent(button, "social_share");
+
+      // Prepare share data safely (fallbacks if missing)
+      const data = {
+        title: shareData.title || document.title,
+        text: shareData.text || "Check this out!",
+        url: shareData.url || window.location.href,
+      };
+
+      // Use Web Share API if available
+      if (navigator.share) {
+        await navigator.share(data);
+      } else {
+        console.warn("Web Share API not supported on this device.");
+      }
+    } catch (err) {
+      console.error("Error sharing:", err);
+    }
+  });
+});
+
+   const indicators = statsCarouselContainer.querySelectorAll('.carousel-indicators button');
+    const carouselLeft = new bootstrap.Carousel('#stats-carousel-left');
+    const carouselRight = new bootstrap.Carousel('#stats-carousel-right');
+	const carouselItemsRight = statsCarouselContainer.querySelectorAll(
+        '#stats-carousel .carousel-item'
+      );
+	statsCarouselContainer.addEventListener('slide.bs.carousel', (event) => {
+      // Update previous button visibility
+      const activeIndex = event.to;
+
+      carouselLeft.to(event.to);
+      if (activeIndex === 0) {
+        statsPrevCarouselBtn.classList.add('hide');
+      } else {
+        statsPrevCarouselBtn.classList.remove('hide');
+      }
+
+      // Update next button visibility
+      if (event.to === carouselItemsRight.length - 1) {
+        statsNextCarouselBtn.classList.add('hide');
+      } else {
+        statsNextCarouselBtn.classList.remove('hide');
+      }
+      indicators.forEach((indicator, index) => {
+        if (index === activeIndex) {
+          indicator.classList.add('active');
+          indicator.setAttribute('aria-current', 'true');
+        } else {
+          indicator.classList.remove('active');
+          indicator.removeAttribute('aria-current');
+        }
+      });
+    });
+  
+</script>

@@ -1,0 +1,641 @@
+{{@model = {$page_type_detail} }}
+
+{{$westClassyDonation = {territories.filter(7-dcb3daeee7-3l9t49).classy_url} }}
+{{$eastClassyDonation = {territories.filter(7-ae82da90c9-zjnfr3).classy_url} }}
+{{$southClassyDonation = {territories.filter(7-b4aeafb8dd-033tjr).classy_url} }}
+{{$centralClassyDonation = {territories.filter(7-ec8a80fdbe-46hzww).classy_url} }}
+
+{{$westVolunteer = {truepath(7-d088e883e5-ppgc40)} }}
+{{$eastVolunteer = {truepath(7-80efad8ed3-2hsgp8)} }}
+{{$southVolunteer = {truepath(7-82e8d0a3b6-rs9xll)} }}
+{{$centralVolunteer = {truepath(7-eaad9bf2e7-sc2t6c)} }}
+{{$nationalVolunteer = {truepath(7-dcc29fbaa4-6wc9lz)} }}
+
+{{$westEmployment = {truepath(7-f8a8bcdbd3-2vljtw)} }}
+{{$eastEmployment = {truepath(7-a8e8dda9bb-mph0lw)} }}
+{{$southEmployment = {truepath(7-88deb6e6f5-l6xv5v)} }}
+{{$centralEmployment = {truepath(7-909ec5bbc1-fv94h8)} }}
+{{$nationalEmployment = {truepath(7-e6c1f1aac6-h62c86)} }}
+
+{{if {$page_type_detail} == "location_finder" }}
+    (**This will check if the user is on a location**)
+    {{if {request.queryParam(zuid)} }}
+        {{$location = {locations.filter({request.queryParam(zuid)}).name} }}
+        {{$locationAddress = {locations.filter({request.queryParam(zuid)}).address} }}
+
+        {{if {$location} }}
+            {{ @location_name = {$location} }}
+            {{ @location_home_url = {truepath({request.queryParam(zuid)})} }}
+            {{ @location_finder_url = /location-finder/?address={$locationAddress}&zuid={request.queryParam(zuid)} }}
+            {{ @location_model = locations }}
+            {{ @location_zuid = {locations.filter({request.queryParam(zuid)}).zuid} }}
+
+            {{$location_territory = {locations.filter({request.queryParam(zuid)}).territory} }}
+            {{ @territory_zuid = {$location_territory} }}
+
+
+            {{ if {$location_territory} == "7-dcb3daeee7-3l9t49" }}
+            {{ @location_donate_form = {$westClassyDonation} }}
+            {{@volunteer_url = {$westVolunteer} }}
+            {{@employment_url = {$westEmployment} }}
+            {{else-if {$location_territory} == "7-ae82da90c9-zjnfr3" }}
+            {{ @location_donate_form = {$eastClassyDonation} }}
+            {{@volunteer_url = {$eastVolunteer} }}
+             {{@employment_url = {$eastEmployment} }}
+
+            {{else-if {$location_territory} == "7-b4aeafb8dd-033tjr" }}
+            {{ @location_donate_form = {$southClassyDonation} }}
+            {{@volunteer_url = {$southVolunteer} }}
+             {{@employment_url = {$southEmployment} }}
+
+            {{else-if {$location_territory} == "7-ec8a80fdbe-46hzww" }}
+            {{ @location_donate_form = {$centralClassyDonation} }}
+            {{@volunteer_url = {$centralVolunteer} }}
+            {{@employment_url = {$centralEmployment} }}
+            
+            {{/if}}
+
+        {{else if {@location_model} == divisions || {@location_model} == territories }}
+            
+
+        {{else}}
+            {{if !{@location_name} }}
+                {{ @location_name = NATIONAL }}
+                {{ @location_home_url = / }}
+                {{ @location_model = homepage }}
+                {{ @location_zuid = {homepage.first().zuid} }}
+                {{ @location_donate_form = {homepage.first().classy_url} }}
+                {{ @territory_zuid = null }}
+
+            {{/if}}
+            {{ @location_finder_url = /location-finder }}
+        {{/if}}
+
+    {{else}}
+        {{if !{@location_name} }}
+            {{ @location_name = NATIONAL }}
+            {{ @location_home_url = / }}
+            {{ @location_model = homepage }}
+            {{ @location_zuid = {homepage.first().zuid} }}
+            {{ @location_donate_form = {homepage.first().classy_url} }}
+            {{ @territory_zuid = null }}
+        {{/if}}
+        {{ @location_finder_url = /location-finder }}
+    {{/if}}
+
+{{/if}}
+
+{{if {$page_type_detail} == "contact_us" || {$page_type_detail} == "about_us" || {$page_type_detail} == "stories_landing_page" ||  {$page_type_detail} == "events_landing_pages" }}
+    {{$location = {locations.filter({this.parent_zuid}).name} }}
+    {{$division = {divisions.filter({this.parent_zuid}).name} }}
+    {{$territory = {territories.filter({this.parent_zuid}).name} }}
+
+    {{if {$location} && {this.parent_zuid} != 0 }}
+        {{ @location_name = {$location} }}
+        {{ @location_home_url = {truepath({this.parent_zuid})} }}
+        {{ @location_model = locations }}
+        {{ @location_zuid = {locations.filter({this.parent_zuid}).zuid} }}
+        {{$location_territory = {locations.filter({this.parent_zuid}).territory} }}
+        {{ @territory_zuid = {$location_territory} }}
+
+
+           
+        {{ if {$location_territory} == "7-dcb3daeee7-3l9t49" }}
+        {{ @location_donate_form = {$westClassyDonation} }}
+        {{@volunteer_url = {$westVolunteer} }}
+        {{@employment_url = {$westEmployment} }}
+        {{else-if {$location_territory} == "7-ae82da90c9-zjnfr3" }}
+        {{ @location_donate_form = {$eastClassyDonation} }}
+        {{@volunteer_url = {$eastVolunteer} }}
+         {{@employment_url = {$eastEmployment} }}
+
+        {{else-if {$location_territory} == "7-b4aeafb8dd-033tjr" }}
+        {{ @location_donate_form = {$southClassyDonation} }}
+        {{@volunteer_url = {$southVolunteer} }}
+         {{@employment_url = {$southEmployment} }}
+
+        {{else-if {$location_territory} == "7-ec8a80fdbe-46hzww" }}
+        {{ @location_donate_form = {$centralClassyDonation} }}
+        {{@volunteer_url = {$centralVolunteer} }}
+        {{@employment_url = {$centralEmployment} }}
+        
+        {{/if}}
+
+    {{else if {$division} && {this.parent_zuid} != 0 }}
+        {{ @location_name = {divisions.filter({this.parent_zuid}).name} }}
+        {{ @location_home_url = {truepath({this.parent_zuid})} }}
+        {{ @location_finder_url = /location-finder }}
+        {{ @location_model = divisions  }}
+        {{ @location_zuid = {divisions.filter({this.parent_zuid}).zuid} }}
+
+        {{ $territoryZUID = {divisions.filter({this.parent_zuid}).territory} }}
+        {{ @territory_zuid = {$territoryZUID} }}
+
+
+        {{ if {$territoryZUID} == "7-dcb3daeee7-3l9t49" }}
+        {{ @location_donate_form =  {$westClassyDonation} }}
+        {{@volunteer_url = {$westVolunteer} }}
+        {{@employment_url = {$westEmployment} }}
+
+        {{else-if {$territoryZUID} == "7-ae82da90c9-zjnfr3" }}
+        {{@volunteer_url = {$eastVolunteer} }}
+        {{@employment_url = {$eastEmployment} }}
+
+        {{ @location_donate_form = {$eastClassyDonation} }}
+        {{else-if {$territoryZUID} == "7-b4aeafb8dd-033tjr" }}
+        {{ @location_donate_form = {$southClassyDonation}}}
+        {{@volunteer_url = {$southVolunteer} }}
+        {{@employment_url = {$southEmployment} }}
+        
+        {{else-if {$territoryZUID} == "7-ec8a80fdbe-46hzww" }}
+        {{ @location_donate_form = {$centralClassyDonation} }}
+        {{@volunteer_url = {$centralVolunteer} }}
+        {{@employment_url = {$centralEmployment} }}
+
+        {{/if}}
+
+    {{else if {$territory} && {this.parent_zuid} != 0 }}
+        {{ @location_name = {territories.filter({this.parent_zuid}).name} }}
+        {{ @location_home_url = {truepath({this.parent_zuid})} }}
+        {{ @location_finder_url = /location-finder }}
+        {{ @location_model = territories  }}
+        {{ @location_zuid = {this.parent_zuid} }}
+        {{ @territory_zuid = {this.parent_zuid} }}
+
+        
+        {{ if {this.parent_zuid} == "7-dcb3daeee7-3l9t49" }}
+        {{ @location_donate_form =  {$westClassyDonation} }}
+        {{@volunteer_url = {$westVolunteer} }}
+        {{@employment_url = {$westEmployment} }}
+        
+        {{else-if {this.parent_zuid} == "7-ae82da90c9-zjnfr3" }}
+        {{ @location_donate_form = {$eastClassyDonation} }}
+        {{@volunteer_url = {$eastVolunteer} }}
+        {{@employment_url = {$eastEmployment} }}
+
+        {{else-if {this.parent_zuid} == "7-b4aeafb8dd-033tjr" }}
+        {{ @location_donate_form = {$southClassyDonation} }}
+        {{@volunteer_url = {$southVolunteer} }}
+        {{@employment_url = {$southEmployment} }}
+
+        {{else-if {this.parent_zuid} == "7-ec8a80fdbe-46hzww" }}
+        {{ @location_donate_form = {$centralClassyDonation} }}
+        {{@volunteer_url = {$centralVolunteer} }}
+        {{@employment_url = {$centralEmployment} }}
+
+        {{/if}}
+
+    {{else}}
+        {{ @location_name = NATIONAL }}
+        {{ @location_home_url = / }}
+        {{ @location_model = homepage }}
+        {{ @location_zuid = {homepage.first().zuid} }}
+        {{ @location_donate_form = {homepage.first().classy_url} }}
+        {{ @territory_zuid = null }}
+
+
+    {{/if}}
+        {{if !{@location_name} }}
+            {{ @location_name = NATIONAL }}
+            {{ @location_home_url = / }}
+            {{ @location_model = homepage }}
+            {{ @location_zuid = {homepage.first().zuid} }}
+            {{ @location_donate_form = {homepage.first().classy_url} }}
+            {{ @territory_zuid = null }}
+        {{/if}}
+            {{ @location_finder_url = /location-finder }}
+    
+{{/if}}
+
+{{if {$page_type_detail} == "stories"  }}
+
+        {{$foundIn = 0}}
+        {{if {$foundIn} == 0 }}
+        {{each stories as story WHERE find_in_set('{@location_zuid}', property) LIMIT 1 }}
+            {{$foundIn = 1}}
+        {{/each}}
+        {{/if}}
+
+        {{if {$foundIn} == 0 }}
+        {{each stories as story WHERE find_in_set('{@location_zuid}', divisions) LIMIT 1 }}
+            {{$foundIn = 2}}
+        {{/each}}
+        {{/if}}
+
+        {{if {$foundIn} == 0 }}
+        {{each stories as story WHERE find_in_set('{@location_zuid}', territory) LIMIT 1 }}
+            {{$foundIn = 3}}
+        {{/each}}
+        {{/if}}
+
+
+        {{if {$foundIn} == 1}}
+            {{$location = {locations.filter({@location_zuid}).name} }}
+
+            {{ @location_name = {$location} }}
+            {{ @location_home_url = {truepath({@location_zuid})} }}
+            {{ @location_model = locations }}
+            {{ @location_zuid = {locations.filter({@location_zuid}).zuid} }}
+            {{$location_territory = {locations.filter({@location_zuid}).territory} }}
+            {{ @territory_zuid = {$location_territory} }}
+
+
+            {{ if {$location_territory} == "7-dcb3daeee7-3l9t49" }}
+            {{ @location_donate_form = {$westClassyDonation} }}
+            {{@volunteer_url = {$westVolunteer} }}
+            {{@employment_url = {$westEmployment} }}
+            {{else-if {$location_territory} == "7-ae82da90c9-zjnfr3" }}
+            {{ @location_donate_form = {$eastClassyDonation} }}
+            {{@volunteer_url = {$eastVolunteer} }}
+             {{@employment_url = {$eastEmployment} }}
+
+            {{else-if {$location_territory} == "7-b4aeafb8dd-033tjr" }}
+            {{ @location_donate_form = {$southClassyDonation} }}
+            {{@volunteer_url = {$southVolunteer} }}
+             {{@employment_url = {$southEmployment} }}
+
+            {{else-if {$location_territory} == "7-ec8a80fdbe-46hzww" }}
+            {{ @location_donate_form = {$centralClassyDonation} }}
+            {{@volunteer_url = {$centralVolunteer} }}
+            {{@employment_url = {$centralEmployment} }}
+            
+            {{/if}}
+        {{else-if {$foundIn} == 2}}
+            {{$division = {divisions.filter({@location_zuid}).name} }}
+
+            {{ @location_name = {$division} }}
+            {{ @location_home_url = {truepath({@location_zuid})} }}
+            {{ @location_model = divisions }}
+            {{ @location_zuid = {divisions.filter({@location_zuid}).zuid} }}
+            {{$location_territory = {locations.filter({@location_zuid}).territory} }}
+            {{ @territory_zuid = {$location_territory} }}
+
+
+          
+            {{ if {$location_territory} == "7-dcb3daeee7-3l9t49" }}
+            {{ @location_donate_form = {$westClassyDonation} }}
+            {{@volunteer_url = {$westVolunteer} }}
+            {{@employment_url = {$westEmployment} }}
+            {{else-if {$location_territory} == "7-ae82da90c9-zjnfr3" }}
+            {{ @location_donate_form = {$eastClassyDonation} }}
+            {{@volunteer_url = {$eastVolunteer} }}
+             {{@employment_url = {$eastEmployment} }}
+
+            {{else-if {$location_territory} == "7-b4aeafb8dd-033tjr" }}
+            {{ @location_donate_form = {$southClassyDonation} }}
+            {{@volunteer_url = {$southVolunteer} }}
+             {{@employment_url = {$southEmployment} }}
+
+            {{else-if {$location_territory} == "7-ec8a80fdbe-46hzww" }}
+            {{ @location_donate_form = {$centralClassyDonation} }}
+            {{@volunteer_url = {$centralVolunteer} }}
+            {{@employment_url = {$centralEmployment} }}
+            
+            {{/if}}
+        {{else-if {$foundIn} == 3}}
+
+            {{$territory = {territories.filter({@location_zuid}).name} }}
+
+            {{ @location_name = {$territory} }}
+            {{ @location_home_url = {truepath({@location_zuid})} }}
+            {{ @location_model = territories }}
+            {{ @location_zuid = {divisions.filter({@location_zuid}).zuid} }}
+            {{$location_territory = {@location_zuid} }}
+            {{ @territory_zuid = {$location_territory} }}
+
+
+           
+            {{ if {$location_territory} == "7-dcb3daeee7-3l9t49" }}
+            {{ @location_donate_form = {$westClassyDonation} }}
+            {{@volunteer_url = {$westVolunteer} }}
+            {{@employment_url = {$westEmployment} }}
+            {{else-if {$location_territory} == "7-ae82da90c9-zjnfr3" }}
+            {{ @location_donate_form = {$eastClassyDonation} }}
+            {{@volunteer_url = {$eastVolunteer} }}
+             {{@employment_url = {$eastEmployment} }}
+
+            {{else-if {$location_territory} == "7-b4aeafb8dd-033tjr" }}
+            {{ @location_donate_form = {$southClassyDonation} }}
+            {{@volunteer_url = {$southVolunteer} }}
+             {{@employment_url = {$southEmployment} }}
+
+            {{else-if {$location_territory} == "7-ec8a80fdbe-46hzww" }}
+            {{ @location_donate_form = {$centralClassyDonation} }}
+            {{@volunteer_url = {$centralVolunteer} }}
+            {{@employment_url = {$centralEmployment} }}
+            
+            {{/if}}
+
+        {{else}}
+        {{ @location_name = NATIONAL }}
+        {{ @location_home_url = / }}
+        {{ @location_finder_url = /location-finder }}
+        {{ @location_model = {$page_type_detail}  }}
+        {{ @location_zuid = {this.zuid} }}
+        {{ @location_donate_form = {homepage.first().classy_url} }}
+        {{ @territory_zuid = null}}
+        {{/if}}
+{{/if}}
+
+{{if {$page_type_detail} == "events"  }}
+
+        {{$foundIn = 0}}
+        {{if {$foundIn} == 0 }}
+        {{each events as event WHERE find_in_set('{@location_zuid}', property) LIMIT 1 }}
+            {{$foundIn = 1}}
+        {{/each}}
+        {{/if}}
+
+        {{if {$foundIn} == 0 }}
+        {{each events as event WHERE find_in_set('{@location_zuid}', divisions) LIMIT 1 }}
+            {{$foundIn = 2}}
+        {{/each}}
+        {{/if}}
+
+        {{if {$foundIn} == 0 }}
+        {{each events as event WHERE find_in_set('{@location_zuid}', territories) LIMIT 1 }}
+            {{$foundIn = 3}}
+        {{/each}}
+        {{/if}}
+
+
+        {{if {$foundIn} == 1}}
+            {{$location = {locations.filter({@location_zuid}).name} }}
+
+            {{ @location_name = {$location} }}
+            {{ @location_home_url = {truepath({@location_zuid})} }}
+            {{ @location_model = locations }}
+            {{ @location_zuid = {locations.filter({@location_zuid}).zuid} }}
+            {{$location_territory = {locations.filter({@location_zuid}).territory} }}
+            {{ @territory_zuid = {$location_territory} }}
+
+
+            {{ if {$location_territory} == "7-dcb3daeee7-3l9t49" }}
+            {{ @location_donate_form = {$westClassyDonation} }}
+            {{@volunteer_url = {$westVolunteer} }}
+            {{@employment_url = {$westEmployment} }}
+            {{else-if {$location_territory} == "7-ae82da90c9-zjnfr3" }}
+            {{ @location_donate_form = {$eastClassyDonation} }}
+            {{@volunteer_url = {$eastVolunteer} }}
+             {{@employment_url = {$eastEmployment} }}
+
+            {{else-if {$location_territory} == "7-b4aeafb8dd-033tjr" }}
+            {{ @location_donate_form = {$southClassyDonation} }}
+            {{@volunteer_url = {$southVolunteer} }}
+             {{@employment_url = {$southEmployment} }}
+
+            {{else-if {$location_territory} == "7-ec8a80fdbe-46hzww" }}
+            {{ @location_donate_form = {$centralClassyDonation} }}
+            {{@volunteer_url = {$centralVolunteer} }}
+            {{@employment_url = {$centralEmployment} }}
+            
+            {{/if}}
+        {{else-if {$foundIn} == 2}}
+            {{$division = {divisions.filter({@location_zuid}).name} }}
+
+            {{ @location_name = {$division} }}
+            {{ @location_home_url = {truepath({@location_zuid})} }}
+            {{ @location_model = divisions }}
+            {{ @location_zuid = {divisions.filter({@location_zuid}).zuid} }}
+            {{$location_territory = {locations.filter({@location_zuid}).territory} }}
+            {{ @territory_zuid = {$location_territory} }}
+
+
+          
+            {{ if {$location_territory} == "7-dcb3daeee7-3l9t49" }}
+            {{ @location_donate_form = {$westClassyDonation} }}
+            {{@volunteer_url = {$westVolunteer} }}
+            {{@employment_url = {$westEmployment} }}
+            {{else-if {$location_territory} == "7-ae82da90c9-zjnfr3" }}
+            {{ @location_donate_form = {$eastClassyDonation} }}
+            {{@volunteer_url = {$eastVolunteer} }}
+             {{@employment_url = {$eastEmployment} }}
+
+            {{else-if {$location_territory} == "7-b4aeafb8dd-033tjr" }}
+            {{ @location_donate_form = {$southClassyDonation} }}
+            {{@volunteer_url = {$southVolunteer} }}
+             {{@employment_url = {$southEmployment} }}
+
+            {{else-if {$location_territory} == "7-ec8a80fdbe-46hzww" }}
+            {{ @location_donate_form = {$centralClassyDonation} }}
+            {{@volunteer_url = {$centralVolunteer} }}
+            {{@employment_url = {$centralEmployment} }}
+            
+            {{/if}}
+        {{else-if {$foundIn} == 3}}
+
+            {{$territory = {territories.filter({@location_zuid}).name} }}
+
+            {{ @location_name = {$territory} }}
+            {{ @location_home_url = {truepath({@location_zuid})} }}
+            {{ @location_model = territories }}
+            {{ @location_zuid = {divisions.filter({@location_zuid}).zuid} }}
+            {{$location_territory = {@location_zuid} }}
+            {{ @territory_zuid = {$location_territory} }}
+
+
+           
+            {{ if {$location_territory} == "7-dcb3daeee7-3l9t49" }}
+            {{ @location_donate_form = {$westClassyDonation} }}
+            {{@volunteer_url = {$westVolunteer} }}
+            {{@employment_url = {$westEmployment} }}
+            {{else-if {$location_territory} == "7-ae82da90c9-zjnfr3" }}
+            {{ @location_donate_form = {$eastClassyDonation} }}
+            {{@volunteer_url = {$eastVolunteer} }}
+             {{@employment_url = {$eastEmployment} }}
+
+            {{else-if {$location_territory} == "7-b4aeafb8dd-033tjr" }}
+            {{ @location_donate_form = {$southClassyDonation} }}
+            {{@volunteer_url = {$southVolunteer} }}
+             {{@employment_url = {$southEmployment} }}
+
+            {{else-if {$location_territory} == "7-ec8a80fdbe-46hzww" }}
+            {{ @location_donate_form = {$centralClassyDonation} }}
+            {{@volunteer_url = {$centralVolunteer} }}
+            {{@employment_url = {$centralEmployment} }}
+            
+            {{/if}}
+
+        {{else}}
+        {{ @location_name = NATIONAL }}
+        {{ @location_home_url = / }}
+        {{ @location_finder_url = /location-finder }}
+        {{ @location_model = {$page_type_detail}  }}
+        {{ @location_zuid = {this.zuid} }}
+        {{ @location_donate_form = {homepage.first().classy_url} }}
+        {{ @territory_zuid = null}}
+        {{/if}}
+{{/if}}
+
+{{if {$page_type_detail} == "services" }}
+    {{$location = {locations.filter({this.parent_zuid}).name} }}
+    {{$locationAddress = {locations.filter({this.parent_zuid}).address} }}
+
+(**Check if on a service location page**)
+    {{if {$location} && {this.parent_zuid} != 0 }}
+        {{ @location_name = {$location} }}
+        {{ @location_home_url = {truepath({this.parent_zuid})} }}
+        {{ @location_finder_url = /location-finder/?address={$locationAddress}&zuid={this.parent_zuid} }}
+        {{ @location_model = locations }}
+        {{ @location_zuid = {locations.filter({this.parent_zuid}).zuid} }}
+
+        {{$location_territory = {locations.filter({this.parent_zuid}).territory} }}
+        {{ @territory_zuid = {$location_territory} }}
+
+            
+        {{ if {$location_territory} == "7-dcb3daeee7-3l9t49" }}
+        {{ @location_donate_form = {$westClassyDonation} }}
+        {{@volunteer_url = {$westVolunteer} }}
+        {{@employment_url = {$westEmployment} }}
+        {{else-if {$location_territory} == "7-ae82da90c9-zjnfr3" }}
+        {{ @location_donate_form = {$eastClassyDonation} }}
+        {{@volunteer_url = {$eastVolunteer} }}
+         {{@employment_url = {$eastEmployment} }}
+
+        {{else-if {$location_territory} == "7-b4aeafb8dd-033tjr" }}
+        {{ @location_donate_form = {$southClassyDonation} }}
+        {{@volunteer_url = {$southVolunteer} }}
+         {{@employment_url = {$southEmployment} }}
+
+        {{else-if {$location_territory} == "7-ec8a80fdbe-46hzww" }}
+        {{ @location_donate_form = {$centralClassyDonation} }}
+        {{@volunteer_url = {$centralVolunteer} }}
+        {{@employment_url = {$centralEmployment} }}
+        
+        {{/if}}
+
+    {{else if {@location_model} == divisions || {@location_model} == territories }}
+            (**Leave this block for specific handling**)
+
+    {{else}}
+            {{ @location_name = NATIONAL }}
+            {{ @location_home_url = / }}
+            {{ @location_model = homepage }}
+            {{ @location_zuid = {homepage.first().zuid} }}
+            {{ @location_donate_form = {homepage.first().classy_url} }}
+            {{ @territory_zuid = null }}
+
+
+    {{else}}
+        {{if !{@location_name} }}
+            {{ @location_name = NATIONAL }}
+            {{ @location_home_url = / }}
+            {{ @location_model = homepage }}
+            {{ @location_zuid = {homepage.first().zuid} }}
+            {{ @location_donate_form = {homepage.first().classy_url} }}
+            {{ @territory_zuid = null }}
+
+        {{/if}}
+    {{/if}}
+    
+{{/if}}
+
+(**Set the cookies on the homepages**) 
+(**When on a homepage set the location_name**)
+(**It will also set the home url path**)
+
+{{if {$page_type_detail} == "locations" }}
+
+
+    {{ @location_name = {locations.filter({this.zuid}).name} }}
+    {{ @location_home_url = {this.getUrl()} }}
+    {{ @location_finder_url = /location-finder/?address={this.address}&zuid={this.zuid} }}
+    {{ @location_model = {$page_type_detail}  }}
+    {{ @location_zuid = {this.zuid} }}
+
+    {{$location_territory = {locations.filter({this.zuid}).territory} }}
+    {{ @territory_zuid = {$location_territory} }}
+
+
+            {{ if {$location_territory} == "7-dcb3daeee7-3l9t49" }}
+            {{ @location_donate_form = {$westClassyDonation} }}
+            {{@volunteer_url = {$westVolunteer} }}
+            {{@employment_url = {$westEmployment} }}
+            {{else-if {$location_territory} == "7-ae82da90c9-zjnfr3" }}
+            {{ @location_donate_form = {$eastClassyDonation} }}
+            {{@volunteer_url = {$eastVolunteer} }}
+             {{@employment_url = {$eastEmployment} }}
+
+            {{else-if {$location_territory} == "7-b4aeafb8dd-033tjr" }}
+            {{ @location_donate_form = {$southClassyDonation} }}
+            {{@volunteer_url = {$southVolunteer} }}
+             {{@employment_url = {$southEmployment} }}
+
+            {{else-if {$location_territory} == "7-ec8a80fdbe-46hzww" }}
+            {{ @location_donate_form = {$centralClassyDonation} }}
+            {{@volunteer_url = {$centralVolunteer} }}
+            {{@employment_url = {$centralEmployment} }}
+            
+            {{/if}}
+{{/if}}
+
+{{if {$page_type_detail} == "divisions" }}
+    {{ @location_name = {divisions.filter({this.zuid}).name} }}
+    {{ @location_home_url = {this.getUrl()} }}
+    {{ @location_finder_url = /location-finder }}
+    {{ @location_model = {$page_type_detail}  }}
+    {{ @location_zuid = {this.zuid} }}
+    {{ @territory_zuid = {this.parent_zuid} }}
+
+    {{ if {this.parent_zuid} == "7-dcb3daeee7-3l9t49" }}
+    {{ @location_donate_form =  {$westClassyDonation} }}
+    {{@volunteer_url = {$westVolunteer} }}
+    {{@employment_url = {$westEmployment} }}
+    {{else-if {this.parent_zuid} == "7-ae82da90c9-zjnfr3" }}
+    {{ @location_donate_form = {$eastClassyDonation} }}
+    {{@volunteer_url = {$eastVolunteer} }}
+    {{@employment_url = {$eastEmployment} }}
+
+    {{else-if {this.parent_zuid} == "7-b4aeafb8dd-033tjr" }}
+    {{ @location_donate_form = {$southClassyDonation}}}
+    {{@volunteer_url = {$southVolunteer} }}
+    {{@employment_url = {$southEmployment} }}
+
+    {{else-if {this.parent_zuid} == "7-ec8a80fdbe-46hzww" }}
+    {{ @location_donate_form = {$centralClassyDonation} }}
+    {{@volunteer_url = {$centralVolunteer} }}
+    {{@employment_url = {$centralEmployment} }}
+
+    {{/if}}
+{{/if}}
+
+{{if  {$page_type_detail} == "territories" }}
+    {{ @location_name = {territories.filter({this.zuid}).name} }}
+    {{ @location_home_url = {this.getUrl()} }}
+    {{ @location_finder_url = /location-finder }}
+    {{ @location_model = {$page_type_detail}  }}
+    {{ @location_zuid = {this.zuid} }}
+    {{ @territory_zuid = {this.zuid} }}
+    
+    {{ if {this.zuid} == "7-dcb3daeee7-3l9t49" }}
+    {{ @location_donate_form =  {$westClassyDonation} }}
+    {{@volunteer_url = {$westVolunteer} }}
+    {{@employment_url = {$westEmployment} }}
+    {{else-if {this.zuid} == "7-ae82da90c9-zjnfr3" }}
+    {{ @location_donate_form = {$eastClassyDonation} }}
+    {{@volunteer_url = {$eastVolunteer} }}
+    {{@employment_url = {$eastEmployment} }}
+    {{else-if {this.zuid} == "7-b4aeafb8dd-033tjr" }}
+    {{ @location_donate_form = {$southClassyDonation} }}
+    {{@volunteer_url = {$southVolunteer} }}
+    {{@employment_url = {$southEmployment} }}
+    {{else-if {this.zuid} == "7-ec8a80fdbe-46hzww" }}
+    {{ @location_donate_form = {$centralClassyDonation} }}
+    {{@volunteer_url = {$centralVolunteer} }}
+    {{@employment_url = {$centralEmployment} }}
+    {{/if}}
+    
+{{/if}}
+
+{{if {$page_type_detail} == "homepage" }}
+    {{ @location_name = NATIONAL }}
+    {{ @location_home_url = / }}
+    {{ @location_finder_url = /location-finder }}
+    {{ @location_model = {$page_type_detail}  }}
+    {{ @location_zuid = {this.zuid} }}
+    {{ @location_donate_form = {homepage.first().classy_url} }}
+    {{ @territory_zuid = null}}
+    {{ @volunteer_url = {$nationalVolunteer} }}
+    {{ @employment_url = {$nationalEmployment} }}
+{{/if}}
+

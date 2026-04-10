@@ -1,0 +1,294 @@
+<div class="mb-15">
+    <p class="text-dark-50">Select a service to view programs</p>
+  <div class="bg-light py-2 px-3 rounded-2 mb-4">
+    <ul class="nav nav-pills programs-filter">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          aria-current="page"
+          href="#"
+          >Shelter Assistance</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Food Pantry</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Service</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Service</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Service</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Service</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Service</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Service</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Service</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Service</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Service</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Service</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Service</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Service</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Service</a
+        >
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-sm bg-primary-200 bg-opacity-15 text-primary-200">+ More</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="bg-light rounded-5 p-lg-8 p-sm-6 row mx-0">
+    <div class="col-lg-4 col-sm-12 p-0">
+      <h4 class="mb-8">Shelter Assistance Programs</h4>
+      <p class="mb-8">
+        Learn about our programs by clicking above to see what we offer at a glance. Lorem ipsum
+        dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et
+        dolore magna aliqua.
+      </p>
+      <button class="btn btn-secondary">Learn About Worship Services</button>
+    </div>
+    <div class="col-lg-1 col-sm-12 py-sm-6 mb-sm-8 mb-lg-0 border-bottom p-0"></div>
+    <div class="col-lg-7 col-sm-12 p-0">
+      <div
+        class="accordion accordion-flush"
+        id="accordionFlushExample"
+      >
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button fs-7 fw-normal accordion-button-services"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne"
+              aria-expanded="false"
+              aria-controls="flush-collapseOne"
+            >
+              Church Service
+            </button>
+          </h2>
+          <div
+            id="flush-collapseOne"
+            class="accordion-collapse collapse show"
+            data-bs-parent="#accordionFlushExample"
+          >
+            <div class="accordion-body">
+              <div class="d-flex flex-column gap-4">
+                <div>
+                  <span>Schedule:</span>
+                  <span class="text-dark-50">[Schedule text]</span>
+                </div>
+                <div>
+                  <span>Location:</span>
+                  <span class="text-dark-50">12345 Street Name, City, State, 54321</span>
+                </div>
+                <div>
+                  <span>Registration Link:</span>
+                  <a
+                    href="#"
+                    class="text-dark-50"
+                    >Link</a
+                  >
+                </div>
+                <p class="text-dark-50">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididun ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore
+                  magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididun ut labore et dolore magna aliqua. Lorem ipsum dolor sit
+                  amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et
+                  dolore magna aliqua.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button fs-7 fw-normal accordion-button-services collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseTwo"
+              aria-expanded="false"
+              aria-controls="flush-collapseTwo"
+            >
+              Youth Service
+            </button>
+          </h2>
+          <div
+            id="flush-collapseTwo"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionFlushExample"
+          >
+            <div class="accordion-body">
+              <div class="d-flex flex-column gap-4">
+                <div>
+                  <span>Schedule:</span>
+                  <span class="text-dark-50">[Schedule text]</span>
+                </div>
+                <div>
+                  <span>Location:</span>
+                  <span class="text-dark-50">12345 Street Name, City, State, 54321</span>
+                </div>
+                <div>
+                  <span>Registration Link:</span>
+                  <a
+                    href="#"
+                    class="text-dark-50"
+                    >Link</a
+                  >
+                </div>
+                <p class="text-dark-50">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididun ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore
+                  magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididun ut labore et dolore magna aliqua. Lorem ipsum dolor sit
+                  amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et
+                  dolore magna aliqua.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button fs-7 fw-normal accordion-button-services collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseThree"
+              aria-expanded="false"
+              aria-controls="flush-collapseThree"
+            >
+              Bible Study
+            </button>
+          </h2>
+          <div
+            id="flush-collapseThree"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionFlushExample"
+          >
+            <div class="accordion-body">
+              <div class="d-flex flex-column gap-4">
+                <div>
+                  <span>Schedule:</span>
+                  <span class="text-dark-50">[Schedule text]</span>
+                </div>
+                <div>
+                  <span>Location:</span>
+                  <span class="text-dark-50">12345 Street Name, City, State, 54321</span>
+                </div>
+                <div>
+                  <span>Registration Link:</span>
+                  <a
+                    href="#"
+                    class="text-dark-50"
+                    >Link</a
+                  >
+                </div>
+                <p class="text-dark-50">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididun ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore
+                  magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididun ut labore et dolore magna aliqua. Lorem ipsum dolor sit
+                  amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et
+                  dolore magna aliqua.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .programs-filter {
+    .nav-link {
+      padding: 8px 12px;
+    }
+    .active {
+      border-radius: 4px;
+    }
+  }
+</style>

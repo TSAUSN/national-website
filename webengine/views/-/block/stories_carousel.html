@@ -1,0 +1,143 @@
+<div class="row mb-18 pb-18 px-0">
+  <div class="px-lg-5 d-flex mb-md-8 mb-sm-2 align-items-center justify-content-between">
+    <div class="d-flex align-items-center position-relative">
+      <h4 class="mb-0 new-header">{{this.title}}</h4>
+    </div>
+  </div>
+
+  <div
+    class="col-12"
+    style="height: 420px"
+  >
+    <div class="swiper news-swiper-block">
+      <div class="swiper-wrapper">
+        {{if {this.stories_entries} }} {{each {this.stories_entries} as s sort by find_in_set(z.zuid,'{this.stories_entries}') }}
+        <div class="swiper-slide rounded-5">
+          <div class="card rounded-5 overflow-hidden w-100 h-100">
+            <div class="card-img-top bg-secondary bg-opacity-25 position-relative overflow-hidden">
+              <div
+                class="d-flex align-items-center badge bg-white text-danger rounded-5 position-absolute top-3 start-3 px-4 py-2 z-3"
+              >
+                <i class="material-symbols-outlined me-2 text-primary-200 display-4"
+                  >{{service_types.filter({s.related_service}).icon_name }}</i
+                >
+                <span class="text-dark-100 display-4 fw-normal"
+                  >{{service_types.filter({s.related_service}).title }}</span
+                >
+              </div>
+              <div
+                class="position-absolute bottom-4 start-0 d-flex align-items-center justify-content-between w-100 px-6 text-light display-4 z-3"
+              >
+                <span class="d-block author">{{s.story_date_picker.date(F j, Y)}}</span>
+                {{if {s.author} }}
+                <span>By {{s.author}}</span>
+                {{/if}}
+              </div>
+
+              <div
+                class="ratio ratio-4x3 bg-secondary bg-opacity-25 position-relative overflow-hidden"
+              >
+                <img class="w-100 h-100 object-fit-cover" {{if {s.image} }}
+                src="{{s.image.getImage()}}" {{else}}
+                src="https://8hxvw8tw.media.zestyio.com/SAL_IndivCards_Newsroom-7-2x.png" {{/if}}
+                alt="{{s.seo_meta_title}}" />
+              </div>
+            </div>
+
+            <div class="card-body px-6 pt-6">
+              <h5 class="card-title display-2 text-start text-dark-100 fw-normal text-truncate-2">
+                {{s.title}}
+              </h5>
+              <p class="card-text text-dark display-3 text-start text-truncate-2">
+                {{s.seo_meta_description}}
+              </p>
+            </div>
+
+            <div class="card-footer bg-transparent border-0 px-6 pb-6">
+              <a
+                href="{{truepath({s.zuid})}}"
+                class="btn btn-secondary text-white w-100 d-flex align-items-center justify-content-center gap-2"
+                data-location-type="body:news-section"
+                data-function-type="navigation"
+                data-format-type="button"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'cta_click', 'Read Article')"
+                >Read Article
+                <span class="material-symbols-outlined display-3"> arrow_outward </span></a
+              >
+            </div>
+          </div>
+        </div>
+        {{/each}} {{/if}}
+      </div>
+    </div>
+    <div class="news-swiper__nav d-inline-flex w-100 justify-content-end align-items-center mt-5">
+      <div
+        class="swiper-button-prev swiper-news-prev position-relative bg-opacity-60 bg-light me-4"
+      >
+        <i
+          data-location-type="body:news"
+          data-function-type="other"
+          data-format-type="icon-block"
+          data-page-componentType-type="news component"
+          data-page-componentHeading-type="null"
+          data-page-componentSubheading-type="null"
+          data-page-componentIndex-type="null"
+          onclick="LinkTrackingClickEvent(this,'view_content_click')"
+          class="material-symbols-outlined text-dark-100"
+          >arrow_back</i
+        >
+      </div>
+      <div class="swiper-pagination news-pagination position-relative px-4 rounded-14"></div>
+      <div
+        class="swiper-button-next swiper-news-next position-relative bg-opacity-60 bg-light ms-4 text-dark-100"
+      >
+        <i
+          data-location-type="body:news"
+          data-function-type="other"
+          data-format-type="icon-block"
+          data-page-componentType-type="news component"
+          data-page-componentHeading-type="null"
+          data-page-componentSubheading-type="null"
+          data-page-componentIndex-type="null"
+          onclick="LinkTrackingClickEvent(this,'view_content_click')"
+          class="material-symbols-outlined text-dark-100"
+          >arrow_forward</i
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const config = {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    navigation: {
+      nextEl: '.news-swiper__nav .swiper-button-next',
+      prevEl: '.news-swiper__nav .swiper-button-prev'
+    },
+    pagination: {
+      el: '.news-swiper__nav .swiper-pagination',
+      clickable: true,
+      renderBullet: function (index, className) {
+        return `<span class="${className}"
+          data-location-type="body:news"
+          data-function-type="other"
+          data-format-type="icon-block"
+          data-page-componentType-type="news component block"
+          data-page-componentHeading-type="null"
+          data-page-componentSubheading-type="null"
+          data-page-componentIndex-type="${index}"
+          onclick="LinkTrackingClickEvent(this,'view_content_click')"
+        ></span>`;
+      }
+    },
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1200: { slidesPerView: 3 }
+    }
+  };
+
+  new Swiper('.news-swiper-block', config);
+</script>

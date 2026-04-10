@@ -1,0 +1,181 @@
+{{ if {this.featured_article} }}
+
+<div
+  id="program-schedule"
+  class="mb-16 overflow-hidden rounded-5 position-relative become-member p-lg-8 p-4 d-flex flex-column flex-md-row align-items-center justify-content-between"
+>
+  <img
+    class="w-100 h-100 rounded-5 object-fit-cover position-absolute top-0 start-0"
+    src="{{ services.filter({this.featured_article}).hero_image.getImage() }}"
+    alt="{{ services.filter({this.featured_article}).title }}"
+  />
+  <div
+    class="image-overlay position-absolute bg-opacity-60 bg-dark top-0 start-0 w-100 h-100"
+  ></div>
+
+  <div>
+    <div
+      class="mb-6 mb-md-0 px-5 d-flex flex-column text-light justify-content-between rounded-5 p-8 z-3 position-relative"
+    >
+      <h4 class="fs-4 text-white mb-3">{{services.filter({this.featured_article}).title}}</h4>
+      <p class="text-white display-1 w-lg-75 w-sm-100">
+        {{services.filter({this.featured_article}).subtitle}}
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="bg-light p-8 rounded-5 position-relative z-3 w-lg-50 mt-auto mt-lg-0 w-100 h-lg-100 d-flex flex-column"
+  >
+    <div
+      class="module programs-schedule"
+      data-component-type="programs-schedule"
+    >
+      <div class="px-5 d-flex flex-column align-items-center justify-content-between">
+        <h4>Program Schedule</h4>
+      </div>
+
+      <div class="card rounded-5 bg-light">
+        <div
+          id="ps-accordion"
+          class="accordion accordion-flush py-3"
+        >
+          {{ $ps = {services.filter({this.featured_article}).matrix_program_schedule} }}
+          {{if {$ps} }}
+          {{ each {$ps} as schedule sort by find_in_set(z.zuid, '{$ps}') }}
+          <div class="accordion-item p-0">
+            <h2 class="accordion-header py-5">
+              <button
+                class="accordion-button collapsed p-0 fw-normal accordion-button-partners"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#financial-donations-{{ schedule._index }}"
+                aria-expanded="false"
+                aria-controls="flush-collapse{{ schedule._index }}"
+              >
+                <div>
+                  <p class="display-2 mb-2 fw-bold">{{ schedule.title }}</p>
+                  <h6 class="fw-bold display-2 mb-0">
+                    Schedule:
+                    <span class="fw-normal multiselect_days">{{ schedule.pseudo_multiselect_days }}</span>
+                    <span>{{ schedule.time }}</span>
+                  </h6>
+                </div>
+              </button>
+            </h2>
+            <div
+              id="financial-donations-{{ schedule._index }}"
+              {{if {schedule._length == 1} }} 
+                class="accordion-collapse collapse show"
+              {{else}}
+                class="accordion-collapse collapse"
+              {{/if}}
+              data-bs-parent="#ps-accordion"
+            >
+              <div class="accordion-body p-0">
+                <div class="mb-4">
+                  <div class="text-dark-100 d-flex flex-column gap-4">
+                    <h6 class="fw-bold display-2">
+                      Timezone: <span class="fw-normal">{{ schedule.timezone }} </span>
+                    </h6>
+                    <h6 class="fw-bold display-2">
+                      Location:
+                      <span class="fw-normal">
+                        {{ if {schedule.program_schedule_location} }}
+                          {{schedule.program_schedule_location}}
+                        {{else}}
+                            {{this.name}}
+                        {{/if}}
+                      </span>
+                    </h6>
+                {{if {schedule.link} && {schedule.link} != "#" }}
+                    <h6 class="fw-bold display-2">
+                      Link:
+                      <span class="fw-normal"
+                        ><a
+                          href="{{ schedule.link }}"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                          >{{ schedule.link }}</a
+                        ></span
+                      >
+                    </h6>
+                    {{/if}}
+                    <div>{{ schedule.description }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+          {{/if}}
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <a
+        href="{{truepath({this.featured_article})}}"
+        class="btn btn-primary"
+        >View More</a
+      >
+    </div>
+  </div>
+</div>
+
+<script>
+  const days = {
+    monday: 1,
+    tuesday: 2,
+    wednesday: 3,
+    thursday: 4,
+    friday: 5,
+    saturday: 6,
+    sunday: 7
+  };
+
+  function checkArrayIfConsecutive(arr) {
+    let prev = days[arr[0].toLocaleLowerCase()];
+
+    for (let i = 0; i < arr.length; i++) {
+      const key = arr[i].toLocaleLowerCase();
+
+      if (i > 0) {
+        if (days[arr[i].toLocaleLowerCase()] === prev + 1) {
+          prev = days[key];
+        } else {
+          return false
+        }
+      }
+    }
+    return true
+  }
+  const multiSelectDays = document.querySelectorAll('.multiselect_days');
+
+  multiSelectDays.forEach((m) => {
+    const daysArr = m.textContent.split(',');
+    if (daysArr.length === 7) {
+      m.textContent = 'Everyday';
+    } else if (daysArr.length === 2) {
+      m.textContent = `Every ${daysArr[0]} & ${daysArr[1]}`;
+    } else if (daysArr.length > 2 && daysArr.length < 7) {
+      if (checkArrayIfConsecutive(daysArr)){
+        m.textContent = `Every ${daysArr[0]} through ${daysArr[daysArr.length-1]}`
+      }else{
+        const updatedDaysArr = daysArr.map((day, idx) =>{
+            if(idx === daysArr.length-1){
+              return `& ${day}`
+            }
+            else if(idx === daysArr.length-2){
+              return `${day}`
+            }
+            return `${day},` 
+        })
+
+        m.textContent = `Every ${updatedDaysArr.join(" ")}`
+      }
+    }
+  });
+</script>
+
+{{/if}}

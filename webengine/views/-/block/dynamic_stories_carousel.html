@@ -1,0 +1,293 @@
+{{$sort = sort by story_date_picker desc }}
+{{$limit = 0}}
+{{$show = 50}}
+{{$whereClause = where z.zuid != "" {$sort} }}
+
+{{if {this.locations} }}
+  {{$locationModel = property}}
+  {{$returnValue = {stories.filter(property LIKE "%{this.locations}%").zuid} }}
+  {{if {$returnValue} }}
+    {{$whereClause = where find_in_set('{this.locations}', {$locationModel}) {$sort} }}
+  {{else-if {this.divisions} }}
+    {{$locationModel = divisions}}
+    {{$returnValue = {stories.filter(divisions LIKE "%{this.divisions}%").zuid} }}
+    {{if {$returnValue} }}
+      {{$whereClause = where find_in_set('{this.divisions}', {$locationModel}) {$sort} }}
+    {{else-if {this.territories} }}
+      {{$locationModel = territory}}
+      {{$returnValue = {stories.filter(territory LIKE "%{this.territories}%").zuid} }}
+      {{if {$returnValue} }}
+        {{$whereClause = where find_in_set('{this.territories}', {$locationModel}) {$sort} }}
+      {{/if}}
+    {{/if}}
+  {{else-if {this.territories} }}
+    {{$locationModel = territory}}
+    {{$returnValue = {stories.filter(territory LIKE "%{this.territories}%").zuid} }}
+    {{if {$returnValue} }}
+      {{$whereClause = where find_in_set('{this.territories}', {$locationModel}) {$sort} }}
+    {{/if}}
+  {{/if}}
+{{else-if {this.divisions} }}
+  {{$locationModel = divisions}}
+  {{$returnValue = {stories.filter(divisions LIKE "%{this.divisions}%").zuid} }}
+  {{if {$returnValue} }}
+    {{$whereClause = where find_in_set('{this.divisions}', {$locationModel}) {$sort} }}
+  {{else-if {this.territories} }}
+    {{$locationModel = territory}}
+    {{$returnValue = {stories.filter(territory LIKE "%{this.territories}%").zuid} }}
+    {{if {$returnValue} }}
+      {{$whereClause = where find_in_set('{this.territories}', {$locationModel}) {$sort} }}
+    {{/if}}
+  {{/if}}
+{{else-if {this.territories} }}
+  {{$locationModel = territory}}
+  {{$whereClause = where find_in_set('{this.territories}', {$locationModel}) {$sort} }}
+{{/if}}
+
+<div
+  class="module mb-12 px-0"
+  id="dynamic-stories-carousel-{{this.zuid}}"
+  data-selected-tags="{{if {this.article_tags} }}{{each {this.article_tags} as tag}}{{tag.zuid}}{{tag._arraycomma}}{{/each}}{{/if}}"
+  data-max-stories="15"
+>
+  <div class="px-lg-5 d-flex mb-md-8 mb-sm-2 align-items-center justify-content-between">
+    <div class="d-flex align-items-center position-relative">
+      <h4 class="mb-0 new-header">{{this.title}}</h4>
+    </div>
+  </div>
+
+  <div class="col-md-12 mt-8 mb-5">
+    <div class="swiper news-cards-swiper">
+      <div class="swiper-wrapper">
+        {{each stories as s {$whereClause} limit {$limit}, {$show} }}
+        <div
+          class="swiper-slide h-auto rounded-5"
+          data-story-tags="{{s.article_tags}}"
+        >
+          <div class="card h-100 w-100 rounded-5 overflow-hidden">
+            <div class="card-img-top card-img-top__large bg-secondary bg-opacity-25 position-relative overflow-hidden">
+              {{if {s.related_service} }}
+              <div
+                class="d-flex align-items-center badge bg-white text-danger rounded-5 position-absolute top-3 start-3 px-4 py-2 z-3"
+              >
+                <i class="material-symbols-outlined me-2 text-primary-200 display-4"
+                  >{{service_types.filter({s.related_service}).icon_name }}</i
+                >
+                <span class="text-dark-100 display-4 fw-normal"
+                  >{{service_types.filter({s.related_service}).title }}</span
+                >
+              </div>
+              {{/if}}
+
+              <div
+                class="position-absolute bottom-4 start-0 d-flex align-items-center justify-content-between w-100 px-6 text-light display-4 z-3"
+              >
+                <span class="d-block author">{{s.story_date_picker.date(F j, Y)}}</span>
+                {{if {s.author} }}
+                <span>By {{s.author}}</span>
+                {{/if}}
+              </div>
+
+              <div
+                class="ratio ratio-16x9 h-100 bg-secondary bg-opacity-25 position-relative overflow-hidden"
+              >
+                <img class="img-fluid object-fit-cover" {{if {s.image} }}
+                src="{{s.image.getImage()}}?width=338&height=190&crop=16:9,smart&quality=100" {{else}}
+                src="https://8hxvw8tw.media.zestyio.com/SAL_EmptyStates_SAL_IndivCards_Newsroom-6.HkGLWVDrfbx.jpg?width=338&height=190&crop=16:9,smart&quality=100" {{/if}}
+                alt="{{s.seo_meta_title}}" />
+              </div>
+            </div>
+
+            <div class="card-body-wrapper">
+              <div class="card-body px-6 pt-6">
+                <h5 class="card-title display-2 text-start text-dark-100 fw-normal">
+                  {{s.title}}
+                </h5>
+                <div class="card-text text-dark display-3 text-start">
+                  {{s.seo_meta_description}}
+                </div>
+              </div>
+
+              <div class="card-footer bg-transparent border-0 px-6 pb-6">
+                <a
+                  href="{{truepath({s.zuid})}}"
+                  class="btn btn-secondary text-white w-100 d-flex align-items-center justify-content-center"
+                  data-location-type="body:news-section"
+                  data-function-type="navigation"
+                  data-format-type="button"
+                  data-link-type="internal"
+                  onclick="LinkTrackingClickEvent(this,'cta_click')"
+                  >Read Article <span class="material-symbols-outlined">arrow_outward</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="dynamic-stories-empty d-none px-lg-5">
+      <p class="mb-0 text-dark display-3">No stories matched the selected filters.</p>
+    </div>
+
+    <div
+      class="news-cards-swiper__nav d-inline-flex w-100 justify-content-end align-items-center mt-5"
+    >
+      <div
+        class="swiper-button-prev swiper-news-card-prev position-relative bg-opacity-60 bg-light me-4"
+      >
+        <i
+          data-location-type="body:news-cards"
+          data-function-type="other"
+          data-format-type="icon-block"
+          data-page-componentType-type="news-cards component"
+          onclick="LinkTrackingClickEvent(this,'view_content_click')"
+          class="material-symbols-outlined text-dark-100"
+          >arrow_back</i
+        >
+      </div>
+      <div
+        class="swiper-pagination news-cards__pagination news-home-pagination position-relative px-4 rounded-14"
+        data-location-type="body:news-cards"
+        data-function-type="other"
+        data-format-type="icon-block"
+        data-page-componentType-type="news-cards component"
+      ></div>
+      <div
+        class="swiper-button-next swiper-news-card-next position-relative bg-opacity-60 bg-light ms-4"
+      >
+        <i
+          data-location-type="body:news-cards"
+          data-function-type="other"
+          data-format-type="icon-block"
+          data-page-componentType-type="news-cards component"
+          onclick="LinkTrackingClickEvent(this,'view_content_click')"
+          class="material-symbols-outlined text-dark-100"
+          >arrow_forward</i
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const root = document.getElementById('dynamic-stories-carousel-{{this.zuid}}');
+
+    if (!root) {
+      return;
+    }
+
+    const selectedTags = (root.dataset.selectedTags || '')
+      .split(',')
+      .map((tag) => tag.trim())
+      .filter(Boolean);
+    const maxStories = Number(root.dataset.maxStories || 15);
+    const wrapper = root.querySelector('.swiper-wrapper');
+    const slides = Array.from(root.querySelectorAll('.swiper-slide'));
+    const emptyState = root.querySelector('.dynamic-stories-empty');
+    const nav = root.querySelector('.news-cards-swiper__nav');
+
+    const filteredSlides = slides
+      .filter((slide) => {
+        if (!selectedTags.length) {
+          return true;
+        }
+
+        const storyTags = (slide.dataset.storyTags || '')
+          .split(',')
+          .map((tag) => tag.trim())
+          .filter(Boolean);
+
+        return selectedTags.some((tag) => storyTags.includes(tag));
+      })
+      .slice(0, maxStories);
+
+    wrapper.replaceChildren(...filteredSlides);
+
+    if (!filteredSlides.length) {
+      emptyState.classList.remove('d-none');
+      nav.classList.add('d-none');
+      return;
+    }
+
+    function bindCustomPaginationClicks(swiperInstance) {
+      const bullets = root.querySelectorAll('.news-home-pagination .swiper-pagination-bullet[data-index]');
+      bullets.forEach((bullet) => {
+        bullet.onclick = () => {
+          const index = Number(bullet.getAttribute('data-index'));
+          if (!Number.isNaN(index)) {
+            swiperInstance.slideTo(index - 1);
+          }
+        };
+      });
+    }
+
+    const config = {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      loop: false,
+      navigation: {
+        nextEl: root.querySelector('.swiper-news-card-next'),
+        prevEl: root.querySelector('.swiper-news-card-prev')
+      },
+      pagination: {
+        type: 'custom',
+        el: root.querySelector('.news-home-pagination'),
+        renderCustom: function (swiper, current, total) {
+          const maxVisible = 5;
+          let pages = [];
+
+          if (total <= maxVisible) {
+            for (let i = 1; i <= total; i++) {
+              pages.push(i);
+            }
+          } else if (current <= 2) {
+            pages = [1, 2, 3, '...', total];
+          } else if (current >= total - 1) {
+            pages = [1, '...', total - 2, total - 1, total];
+          } else {
+            pages = [1, '...', current - 1, current, current + 1, '...', total];
+          }
+
+          return pages
+            .map((num) =>
+              num === current
+                ? `<span role="button" class="swiper-pagination-bullet-active swiper-pagination-bullet" data-index="${num}">${num}</span>`
+                : typeof num === 'number'
+                ? `<span role="button" class="swiper-pagination-bullet" data-index="${num}">${num}</span>`
+                : `<span class="ellipsis swiper-pagination-bullet">${num}</span>`
+            )
+            .join(' ');
+        }
+      },
+      breakpoints: {
+        1024: { slidesPerView: 3 },
+        768: { slidesPerView: 3 },
+        576: { slidesPerView: 1 },
+        320: { slidesPerView: 1 }
+      },
+      on: {
+        paginationRender: function () {
+          const instance = this;
+          setTimeout(() => bindCustomPaginationClicks(instance), 0);
+        },
+        slideChange: function () {
+          const instance = this;
+          setTimeout(() => bindCustomPaginationClicks(instance), 0);
+        }
+      }
+    };
+
+    const swiperInstance = new Swiper(root.querySelector('.news-cards-swiper'), config);
+    setTimeout(() => bindCustomPaginationClicks(swiperInstance), 0);
+  })();
+</script>
+
+<style>
+  #dynamic-stories-carousel-{{this.zuid}} .card-body {
+    min-height: 175px;
+    max-height: 175px;
+  }
+</style>

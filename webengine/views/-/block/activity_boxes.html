@@ -1,0 +1,37 @@
+<style>
+  .hover-activity-box {
+    transition: all 0.4s ease;
+  }
+  .hover-activity-box:hover {
+    background: rgba(200, 200, 200, 0.3);
+  }
+</style>
+
+<div class="row gap-8 justify-content-center">
+  {{each {this.activity_box_items} as ab sort by find_in_set(z.zuid,'{this.activity_box_items}') }}
+  <div class="hover-activity-box col-6 col-md-4 col-lg-3 text-center p-4">
+    <a
+      data-location-type="body:activity_box_items"
+      data-function-type="navigation"
+      data-format-type="button"
+      data-link-type="internal"
+      onclick="LinkTrackingClickEvent(this,'cta_click')"
+      target="_blank"
+      href="{{ab.url}}"
+    >
+      <div
+        class="ratio ratio-16x9 overflow-hidden rounded-5"
+        style="max-width: 240px; margin: auto"
+      >
+        <img
+          src="{{ab.image.getImage()}}"
+          alt="{{ab.title}}"
+          class="w-100 h-100"
+          style="object-fit: cover"
+        />
+      </div>
+      <div class="mt-2 fw-bold">{{ab.title}}</div>
+    </a>
+  </div>
+  {{/each}}
+</div>

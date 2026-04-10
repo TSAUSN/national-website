@@ -1,0 +1,9 @@
+{{ if !{request.queryParam(query)} }}
+  {'error': 'Request Parameter is empty!'}
+  
+{{else}}
+  {{ each locations as location where z.zuid = '{request.queryParam(query)}' }}
+    {{location.toJSON(1, false)}}
+  {{/each}}
+  
+{{/if}}

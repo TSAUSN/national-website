@@ -1,0 +1,100 @@
+{{$skip = 0 }}
+{{$limit = 0 }}
+{{$totalItems = 0}}
+{{$sort_order = desc}}
+{{$sort_by = updated_at}}
+{{$search = "%%" }}
+{{$property = "" }}
+{{$division = "" }}
+{{$territory = "" }}
+{{$queryFilter = slp.title LIKE {$search} AND slp.location IS NULL AND slp.division AND slp.territory IS NULL}}
+
+
+{{if {request.queryParam(skip)} }}
+{{$skip = {request.queryParam(skip)} }}
+{{else}}
+{{$skip = 0}}
+{{end-if}}
+
+
+{{if {request.queryParam(limit)} }}
+{{$limit = {request.queryParam(limit)} }}
+{{else}}
+{{$limit = 10}}
+{{end-if}}
+
+{{if {request.queryParam(sort_order)} &&  {request.queryParam(sort_order)} === 'asc'}}
+{{$sort_order = asc }}
+{{else}}
+{{$sort_order = desc }}
+{{end-if}}
+
+{{if {request.queryParam(sort_by)} &&  {request.queryParam(sort_by)} === 'name'}}
+{{$sort_by = title }}
+{{else if {request.queryParam(sort_by)} &&  {request.queryParam(sort_by)} === 'date'}}
+{{$sort_by = updated_at }}
+{{else}}
+{{$sort_by = updated_at }}
+{{end-if}}
+
+
+{{if {request.queryParam(search)} }}
+{{$search = "%{request.queryParam(search)}%" }}
+{{else}}
+{{$search = "%%" }}
+{{end-if}}
+
+{{if {request.queryParam(property)} }}
+{{$property = "{request.queryParam(property)}" }}
+{{$queryFilter = slp.title LIKE {$search} AND slp.location = {$property} AND slp.division IS NOT NULL AND slp.territory IS NOT NULL }}
+{{else}}
+{{$property = "" }}
+{{end-if}}
+
+{{if {request.queryParam(division)} }}
+{{$division = "{request.queryParam(division)}" }}
+{{$queryFilter = slp.title LIKE {$search} AND slp.division = {$division} AND slp.location IS NULL AND slp.territory IS NOT NULL}}
+{{else}}
+{{$division = "" }}
+{{end-if}}
+
+{{if {request.queryParam(territory)} }}
+{{$territory = "{request.queryParam(territory)}" }}
+{{$queryFilter = slp.title LIKE {$search} AND slp.territory = {$territory} AND slp.location IS NULL AND slp.division IS NULL }}
+{{else}}
+{{$territory = "" }}
+{{end-if}}
+
+
+{
+    "data": [
+        {{each stories_landing_page as slp WHERE {$queryFilter} LIMIT {$skip}, {$limit} SORT BY slp.{$sort_by} {$sort_order} }}
+        {{$totalItems = {slp._num} }}
+        {
+            "data": {
+                "title": "{{slp.title.escapeForJs()}}",
+                "property":  "{{slp.location}}",
+                "url_path": "{{slp.getUrl()}}"
+                },
+            "meta": {
+                "ZUID": "{{slp.zuid}}",
+                "masterZuid": "{{slp.zuid}}",
+                "contentModelZuid": "{{slp.set_zuid}}"
+                }
+        } {{slp._arraycomma}}
+        {{/each}}
+    ],
+    "_meta": {
+        "skip": {{$skip}},
+        "limit": {{$limit}},
+        "page": {{math({$skip} / {$limit} + 1)}},
+        "pages": {{ math(ceil({$totalItems} / {$limit})) }},
+        "totalItems": {{$totalItems}},
+        "sortOrder": "{{$sort_order}}",
+        "sortBy": "{{$sort_by}}",
+        "search": {{$search}},
+        "property": {{$property}},
+        "division": {{$division}},
+        "territory": {{$territory}}
+    }
+}

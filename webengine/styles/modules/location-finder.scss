@@ -1,0 +1,95 @@
+.location-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  .pin-icon {
+    display: none;
+    min-width: 16px;
+    width: 20px;
+    height: 20px;
+    background-image: url('https://8hxvw8tw.media.zestyio.com/location_filled.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 8px;
+    vertical-align: middle;
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+  }
+  &.selected-pin {
+    .location-finder-results {
+      box-shadow: 0 9px 20px 0 rgba(28, 27, 31, 0.5);
+      h4 {
+        font-weight: 700;
+      }
+    }
+    .pin-icon {
+      display: inline-block;
+    }
+  }
+  &.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#service-areas-container {
+  .location-finder-results {
+    min-height: 355px;
+  }
+}
+.current-card__hours {
+  width: 100%;
+  height: auto;
+  border: 0;
+  resize: none;
+  white-space: pre-line;
+}
+// need lerma confirmation
+.form-check-input {
+  // .services-list & {
+  //   border: 2px solid rgb(255, 93, 10);
+  // }
+  // .services-list--mobile & {
+  //   border: 2px solid rgb(255, 93, 10);
+  // }
+}
+@media (max-width: 1024px) {
+  .dropdown-toggle {
+    background-color: #f8f9fa;
+    border-color: #ced4da;
+  }
+  .services-filter .dropdown-menu,
+  .services-list__header--mobile .dropdown-menu {
+    position: relative !important;
+    width: 100%;
+    margin-top: 0.5rem !important;
+    box-shadow: none;
+    border: 1px solid #ced4da;
+    min-width: unset !important;
+    transform: translate3d(0, 1rem, 0) !important;
+    max-height: 280px;
+    margin-bottom: 64px !important;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling:touch;
+    z-index: 10;
+  }
+  .dropdown-menu__wrapper {
+    max-height: 280px;  
+  }
+  .dropdown-item {
+    padding: 10px 15px;
+  }
+  .dropdown-item label {
+    margin-bottom: 0;
+  }
+  .dropdown-item .icon {
+    font-size: 20px;
+    width: 30px;
+    text-align: center;
+  }
+  .dropdown-toggle::after {
+    margin-right: 15px;
+  }
+}

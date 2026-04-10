@@ -1,0 +1,8 @@
+[
+  {{each staff_role_types as srt WHERE displayed_on_website = 1 }}
+    {
+      "role_name": "{{staff_role_type.role_name}}",
+      "zuid": "{{staff_role_type.zuid}}"
+    }{{srt._arraycomma}}
+  {{/each}}
+]

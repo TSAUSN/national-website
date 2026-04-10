@@ -1,0 +1,90 @@
+<div className={styles.pvlRoot}>
+	<!-- Theater Space - slides -->
+<div id="Theater-Space" class="mb-5 mx-2">
+<div id="carousel-8a80804980ad7f770180be3209eb0883" class="carousel slide" data-bs-ride="carousel">
+<div class="carousel-inner rounded overflow-hidden">
+<div class="carousel-item active">
+<div class="position-relative d-none d-md-block w-100" style="aspect-ratio: 1300/508; overflow: hidden;"><img class="slide-thumbnail" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/848b202a-38b3-4a6b-9af1-c44017d5666c_LoveBeyond_theater_Desktop.jpg" alt="LOVE BEYOND ADDICTION" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.style.display='none'">
+<div class="bg-photo-overlay bg-opacity-60" style="position: absolute; inset: 0; z-index: 1;"></div>
+</div>
+<div class="position-relative d-block d-md-none w-100" style="aspect-ratio: 500/425; overflow: hidden;"><img class="slide-thumbnail" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/848b202a-38b3-4a6b-9af1-c44017d5666c_LoveBeyond_theater_Desktop.jpg" alt="LOVE BEYOND ADDICTION" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.style.display='none'">
+<div class="bg-photo-overlay bg-opacity-60" style="position: absolute; inset: 0; z-index: 1;"></div>
+</div>
+<div class="carousel-caption text-center" style="z-index: 2;">
+<h3>LOVE BEYOND ADDICTION</h3>
+<p>$25/month helps support our neighbors in need.</p>
+<div class="slider-btn"><a href="https://give.salvationarmysouth.org/give/172894/#!/donation/checkout?amount=25&amp;recurring=0&amp;c_src=WebsiteUSS&amp;c_src2=PrimaryDonateButton" class="btn my-2 mx-1 btn-primary text-white" style="text-decoration: none;">Make A Monthly Gift</a></div>
+</div>
+</div>
+</div>
+</div>
+<!-- JS: Hide indicators and controls immediately after first slide load, show only on hover -->
+<script>
+  const carousel_8a80804980ad7f770180be3209eb0883 = document.getElementById('carousel-8a80804980ad7f770180be3209eb0883');
+  const indicators_8a80804980ad7f770180be3209eb0883 = document.getElementById('carouselIndicators-8a80804980ad7f770180be3209eb0883');
+  const prevBtn_8a80804980ad7f770180be3209eb0883 = document.getElementById('prevBtn-8a80804980ad7f770180be3209eb0883');
+  const nextBtn_8a80804980ad7f770180be3209eb0883 = document.getElementById('nextBtn-8a80804980ad7f770180be3209eb0883');
+
+  // Hide immediately after first render
+  window.addEventListener('load', () => {
+    if(indicators_8a80804980ad7f770180be3209eb0883) indicators_8a80804980ad7f770180be3209eb0883.style.display = 'none';
+    if(prevBtn_8a80804980ad7f770180be3209eb0883) prevBtn_8a80804980ad7f770180be3209eb0883.style.display = 'none';
+    if(nextBtn_8a80804980ad7f770180be3209eb0883) nextBtn_8a80804980ad7f770180be3209eb0883.style.display = 'none';
+  });
+
+  // Show on hover (ONLY if more than 1 slide)
+  if(carousel_8a80804980ad7f770180be3209eb0883 && 1 > 1) {
+      carousel_8a80804980ad7f770180be3209eb0883.addEventListener('mouseenter', () => {
+        if(indicators_8a80804980ad7f770180be3209eb0883) indicators_8a80804980ad7f770180be3209eb0883.style.display = 'flex';
+        if(prevBtn_8a80804980ad7f770180be3209eb0883) prevBtn_8a80804980ad7f770180be3209eb0883.style.display = 'flex';
+        if(nextBtn_8a80804980ad7f770180be3209eb0883) nextBtn_8a80804980ad7f770180be3209eb0883.style.display = 'flex';
+      });
+
+      carousel_8a80804980ad7f770180be3209eb0883.addEventListener('mouseleave', () => {
+        if(indicators_8a80804980ad7f770180be3209eb0883) indicators_8a80804980ad7f770180be3209eb0883.style.display = 'none';
+        if(prevBtn_8a80804980ad7f770180be3209eb0883) prevBtn_8a80804980ad7f770180be3209eb0883.style.display = 'none';
+        if(nextBtn_8a80804980ad7f770180be3209eb0883) nextBtn_8a80804980ad7f770180be3209eb0883.style.display = 'none';
+      });
+  }
+</script>
+</div>
+<!-- Desc & Audio - freetextarea -->
+<div id="Free-Text-Area" class="mb-5 mx-2 rounded overflow-hidden p-4" style="background-color: #ffffff;">
+<h2 style="text-align: center;">TOWN HALL CALL</h2>
+<p style="text-align: center;"><cite>One individual's personal story of healing and recovery from addiction<br>with the help of The Salvation Army.</cite></p>
+<p> </p>
+<p>On our Town Hall Call on May 10th. We discussed how <strong>Love Beyond Addiction</strong> was possible as Brian shared how he found new life at The Salvation Army Adult Rehabilitation Center. Commissioner Willis Howell shared his gratitude for all our donors have done to support our work, especially dealing with the impact of COVID. Commissioner shared how we are continuing to meet the increasing needs of people facing challenges in their lives. Great questions were asked, and we did our best to answer as many as possible. Our local Salvation Army team members will address those we did not have time to address on the call.<br><br>If you were unable to listen live, you can still listen to a recording of our call here:</p>
+<p style="text-align: center;"><a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/e447f460-4a35-4cf0-b841-5811daec0667_TSA_0510-edited+%281%29.mp3" class="btn my-2 mx-1 btn-secondary text-white" style="text-decoration: none;">LISTEN NOW</a></p>
+</div>
+<!-- We Hope - freetextarea -->
+<div id="Free-Text-Area-1" class="mb-5 mx-2 rounded overflow-hidden p-4" style="background-color: #cccccc;">
+<h2 style="text-align: center;">We hope you'll join us once again when the time comes for our next Town Hall!</h2>
+</div>
+<!-- Archive - freetextarea -->
+<div id="Free-Text-Area-2" class="mb-5 mx-2 rounded overflow-hidden p-4" style="background-color: #ffffff;">
+<h2 style="text-align: center;">Town Hall Archive</h2>
+</div>
+<!-- Accordion - accordiongroup -->
+<div id="Accordion" class="mb-5 mx-2">
+<div class="accordion my-3" id="accordion-8a8080e7">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading-8a8080e7-1"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-8a8080e7-1" aria-expanded="false" aria-controls="collapse-8a8080e7-1"> 10-25-2022 Town Hall Call - Love Beyond the Unthinkable </button></h2>
+<div id="collapse-8a8080e7-1" class="accordion-collapse collapse" aria-labelledby="heading-8a8080e7-1" data-bs-parent="#accordion-8a8080e7">
+<div class="accordion-body">
+<p>    A “behind-the-curtain” view of our response to Hurricane Ian and our special needs as we enter this special time of the year.​</p>
+<p>    <a href="https://southernusa.salvationarmy.org/uss/102522-town-hall-call" target="_self">LEARN MORE</a></p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading-8a8080e7-2"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-8a8080e7-2" aria-expanded="false" aria-controls="collapse-8a8080e7-2"> 11-10-2021 Town Hall Call - Hope Marches On </button></h2>
+<div id="collapse-8a8080e7-2" class="accordion-collapse collapse" aria-labelledby="heading-8a8080e7-2" data-bs-parent="#accordion-8a8080e7">
+<div class="accordion-body">
+<p><cite>An update on The Salvation Army’s Homeless Prevention Services.</cite></p>
+<p><a href="https://southernusa.salvationarmy.org/uss/111021-town-hall-call" target="_self">LEARN MORE</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

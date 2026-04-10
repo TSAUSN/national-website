@@ -1,0 +1,199 @@
+.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.future-phase {
+  display: none !important;
+}
+
+.none {
+  display: none;
+}
+.dropdown-toggle::after {
+  // margin-right: 1rem;
+}
+.services-list {
+  &--mobile {
+    .form-check-input {
+      border: 3px solid #1c1b1f99;
+      position: relative;
+      &:checked {
+        background-image: none;
+        background-color: transparent;
+        &::after {
+          content: '';
+          position: absolute;
+          left: 30%;
+          top: 50%;
+          width: 6px;
+          height: 10px;
+          border: solid #1c1b1f99;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg) translate(-50%, -50%);
+        }
+      }
+    }
+  }
+}
+.is-open-modal {
+  @media (max-width: 430px) {
+    overflow: hidden;
+  }
+}
+.btn {
+  @media (max-width: 430px) {
+    font-size: 16px !important;
+  }
+  .material-icons {
+    @media (max-width: 430px) {
+      font-size: 18px !important;
+    }
+  }
+}
+.text-truncate-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1 !important; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+}
+
+.text-truncate-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2 !important; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+}
+
+.text-truncate-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3 !important; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+}
+
+.banner-404 {
+  width: 100%;
+  height: 100%;
+  max-height: 365px;
+  &__content {
+    max-width: 609px;
+  }
+  img {
+    @media (max-width: 768px) {
+      min-height: 366px;
+    }
+  }
+}
+
+.text-jenson {
+  font-family: 'Adobe Jenson Pro';
+}
+
+.services-body {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+  h4 {
+    font-size: 1.3rem;
+  }
+  h5 {
+    font-size: 1.2rem;
+  }
+}
+
+.stories-body {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  h5 {
+    font-size: 1.25rem;
+  }
+  h6 {
+    font-size: 1rem;
+  }
+}
+
+.h-5rem {
+  height: 5rem;
+}
+
+.min-h-20rem {
+  min-height: 20rem;
+}
+
+.h-20rem {
+  height: 20rem;
+}
+
+.min-h-42rem {
+  min-height: 42rem;
+}
+
+.h-10rem {
+  height: 10rem;
+}
+
+html {
+  scroll-padding-top: 6.5rem !important;
+}
+/* Add this to your main CSS file */
+.gm-ui-hover-effect {
+  width: 21px !important;
+  height: 21px !important;
+  right: 2px !important;
+  top: 2px !important;
+}
+
+.gm-ui-hover-effect > span {
+  width: 21px !important;
+  height: 21px !important;
+  font-size: 18px !important;
+  line-height: 21px !important;
+  margin: 0 !important;
+}
+
+button[title='Close'] {
+  width: 21px !important;
+  height: 21px !important;
+  font-size: 18px !important;
+  margin: 0 !important;
+  margin-right: 21px !important;
+  margin-top: 12px !important;
+}
+
+.gm-ui-hover-effect img {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.overflow-scroll-hidden {
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.overflow-scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 6.6rem !important;
+  }
+}

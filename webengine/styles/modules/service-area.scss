@@ -1,0 +1,15 @@
+.service-area {
+  &__contact-detail  {
+    min-height: 436px;
+    max-height: 436px;
+    &.w-75 {
+      min-height: auto;
+      max-height: auto;
+    }
+  }
+  &__body {
+    min-height: 436px;
+    max-height: 436px;
+    overflow-y: scroll;
+  }
+}

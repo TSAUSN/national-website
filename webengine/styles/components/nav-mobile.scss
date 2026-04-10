@@ -1,0 +1,243 @@
+.mobile-nav {
+  z-index: 30;
+  box-shadow: 0px 0px 20px 0.15px rgba(28, 27, 31, 0.15);
+}
+.mobile-nav .navbar-brand {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.mobile-nav .navbar-brand .material-icons {
+  font-size: 20px;
+}
+
+.mobile-nav .nav-link {
+  color: #000;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  transition: color 0.2s ease-in-out;
+
+  @media (max-width: 375px) {
+    font-size: 0.7rem;
+  }
+}
+
+.mobile-nav .nav-link:hover {
+  color: #ed1c24;
+}
+
+.mobile-nav .nav-btn-more {
+  background-color: #fee6e8;
+  color: #ed1c24;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  font-weight: bold;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+.mobile-nav .nav-btn-more:hover {
+  background-color: #ed1c24;
+  color: #fff;
+}
+
+.nav-menu {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  transition: bottom 0.3s ease-in-out;
+  padding: 0px 36px 24px 24px;
+  box-sizing: border-box;
+  z-index: 1031;
+  height: 75%;
+  display: none;
+
+  @media (max-width: 375px) {
+    height: 84%;
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.nav-menu.active {
+  bottom: 0;
+}
+
+.nav-menu-grabber__wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 11;
+}
+
+.nav-menu-grabber__wrapper:hover {
+  cursor: grab;
+}
+
+.nav-menu-grabber__inner {
+  background: var(--opacity-black-30, rgba(28, 27, 31, 0.3));
+  width: 36px;
+  height: 5px;
+  border-radius: 2.5px 0px 0px 0px;
+}
+
+.nav-menu__wrapper {
+  position: relative;
+  margin-top: 37px;
+  z-index: 10;
+}
+
+.nav-menu__gradient-bottom {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+  height: 41px;
+  width: 100%;
+  bottom: 0;
+  position: sticky;
+}
+
+.nav-menu__gradient-bottom.active {
+  height: 41px;
+}
+
+.nav-items__wrapper {
+  padding-left: 2.5rem;
+  flex-grow: 1;
+}
+
+.sub-menu#ways-we-help {
+  overflow-x: hidden;
+}
+
+.sub-menu#ways-we-help .nav-items__wrapper {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.sub-menu#ways-we-help .services-mobile-container .header-service-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  white-space: normal;
+}
+
+.header-service-item span:last-of-type {
+  width: 240px;
+  text-wrap: wrap;
+}
+
+.sub-menu#ways-we-help .services-mobile-container .header-service-item span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.nav-item {
+  padding: 10px 0;
+  border-bottom: none;
+  cursor: pointer;
+}
+.nav-item:last-child {
+  border-bottom: none;
+}
+.home {
+  background-color: #e0e0e0;
+  padding: 10px;
+  border-radius: 20px;
+  position: sticky;
+  top: 0;
+}
+.home a {
+  color: red;
+  text-decoration: none;
+}
+.home img {
+  width: 20px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.submenu {
+  display: none;
+  padding-left: 20px;
+}
+.submenu.active {
+  display: block;
+}
+.toggle-submenu {
+  float: right;
+  font-size: 18px;
+}
+.social-icons {
+  display: flex;
+  justify-content: space-around;
+}
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+.social-icon {
+  color: rgba(28, 27, 31, 0.5);
+}
+.language-selector {
+  text-align: center;
+  margin-top: 20px;
+}
+.nav-mobile__container {
+  z-index: -1;
+}
+.sub-menu {
+  display: none;
+  width: 100%;
+  background-color: #fff;
+  transition:
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateX(-20px);
+  flex-direction: column;
+}
+.mobile-nav-close-btn {
+  z-index: 12;
+}
+
+.sub-menu.active {
+  display: flex;
+  opacity: 1;
+  transform: translateX(0);
+  // overflow: scroll;
+  max-height: 500px;
+}
+.fade-in-left {
+  animation: fadeInLeft 0.5s ease-in-out;
+}
+.fade-out-left {
+  animation: fadeOutLeft 0.5s ease-in-out;
+}
+
+.divider {
+  height: 1rem;
+  width: 2px;
+}
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}

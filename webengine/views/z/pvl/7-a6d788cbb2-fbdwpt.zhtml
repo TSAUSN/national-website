@@ -1,0 +1,30 @@
+<div className={styles.pvlRoot}>
+	<h1 style="width:;padding-left:0px;" class="text-center">&nbsp;{{this.title}}</h1>
+	<p style="text-align:center;font-size:18px;">&nbsp;{{this.subtitle}}&nbsp;</p>
+	{{block('/-/block/fundraising_thermometer_block.html?variant=7-9ef595f0e1-9t2qzs')}}
+	<div class="row my-3 rounded-8 mb-18 py-4">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<h1 style="font-size:36px;text-align:center;margin-bottom:28px;">Faith in Action</h1>
+			<div class="row my-3">
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					{{block('/-/block/info_block.html?variant=7-e8a1dcd2d7-w46qvz')}}
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div>{{block('/-/block/info_block.html?variant=7-90dae5a1b1-sd9rzg')}}</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div>{{block('/-/block/info_block.html?variant=7-a0e48afbe0-rmbnsg')}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h1 class="fs-4">Our Mission of Hope</h1>
+	<div class="row my-3">
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<img width="100%" src="{{this.hero_image.getImage()}}" alt="placeholder">
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<p>&nbsp;{{this.body}}&nbsp;</p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+{{$redirectOveride = true}}
+{{if {request.queryParam(redirect)} }}
+   {{$redirectOveride = {request.queryParam(redirect)}  }}
+{{/if}}
+{{if {this.redirect_url} && {$redirectOveride} === true }}
+   {{ response.redirect301({this.redirect_url}) }}
+{{else}}
+
+{{if {this.page_layout} != "simplified" }}
+{{ include modules/hero }}
+{{/if}}
+{{ include modules/map-with-info }}
+
+{{if {this.page_layout} != "simplified" }}
+{{ include modules/services }}
+{{include modules/service-wy-landing}}
+{{include modules/programs-schedule-landing}}
+{{ include modules/stats }}
+{{/if}}
+{{ include modules/news-cards }}
+
+{{include modules/community-leaders}}
+{{/if}}

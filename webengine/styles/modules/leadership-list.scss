@@ -1,0 +1,14 @@
+.leadership-list {
+  .card {
+    &__wrapper {
+      max-width: 338px;
+      width: 100%;
+    }
+  }
+  .card-image-top {
+    height: 319px !important;
+    width: 424px !important;
+    max-height: 320px;
+    object-fit: cover;
+  }
+}

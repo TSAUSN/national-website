@@ -1,0 +1,8 @@
+.accordion-button-services {
+  box-shadow: none !important;
+  &.active {
+    background-color: transparent !important;
+  }
+  &::after {
+  }
+}

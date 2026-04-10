@@ -1,0 +1,31 @@
+<div className={styles.pvlRoot}>
+	<h1>HTML Element &amp; Style Showcase</h1>
+<section>
+<h2>Typography</h2>
+<p>This is a paragraph of text.</p>
+<strong>Strong text</strong><br><em>Emphasized text</em><br><u>Underlined text</u><br><mark>Highlighted text</mark><br><small>Small text</small><br><del>Deleted text</del><br><ins>Inserted text</ins></section>
+<section>
+<h2>Headings</h2>
+<h1>H1 Heading</h1>
+<h2>H2 Heading</h2>
+<h3>H3 Heading</h3>
+<h4>H4 Heading</h4>
+<h5>H5 Heading</h5>
+<h6>H6 Heading</h6>
+</section>
+<section>
+<h2>Lists</h2>
+<ul>
+<li>Unordered Item 1</li>
+<li>Unordered Item 2</li>
+</ul>
+<ol>
+<li>Ordered Item 1</li>
+<li>Ordered Item 2</li>
+</ol>
+<dl>
+<dt>Term</dt>
+<dd>Definition</dd>
+</dl>
+</section>
+</div>

@@ -1,0 +1,477 @@
+<style>
+  .story__detail .label {
+    font-size: 1.25rem;
+  }
+
+  .story__detail .content {
+    font-size: 1.5rem; 
+  }
+
+  img {
+    &[style*="float:right"],
+    &[style*="float: right"] {
+        margin-left: 7px;
+    }
+
+    &[style*="float:left"],
+    &[style*="float: left"] {
+        margin-right: 7px;
+    }
+}
+
+  @media (max-width: 1024px) {
+    .story__detail .content {
+      font-size: 1.125rem; 
+    }
+
+    .story__detail .label  {
+      font-size: 1rem;
+    }
+  }
+
+
+</style>
+
+{{ $location = ''}}
+{{ $locationName }}
+{{each locations as location where z.zuid="{!this.property}"}}
+  {{$location = {location.getUrl()} }}
+  {{$locationName = {location.name} }}
+{{/each}}
+{{$city = {cities.filter(z.zuid = '{!this.city}').title} }}
+{{$state = {states.filter(z.zuid = '{!this.state}').state_code} }}
+
+{{if {!this.external_url} }}
+    {{ response.redirect301({!this.external_url}) }}
+{{/if}}
+<div class="container my-5">
+  <div>
+    <a       
+      class="return-to-newsroom d-flex align-items-center justify-content-start text-decoration-none text-primary-200">
+    <span class="material-symbols-outlined">
+      reply
+    </span>  
+    Newsroom
+    </a>
+  </div>
+  <div class="d-flex align-items-center justify-content-between py-8">
+    <div class="w-75">
+      <h1 class="fs-md-4 mb-2 fs-6">{{!this.title}}</h1>
+      {{ if {!this.page_layout} === "No Image"  || {!this.page_layout} === "Image Landscape No Sidebar"|| !{!this.page_layout} }}
+        <div class="ms-md-2">
+          <p class="display-3 text-dark-50">{{if {!this.author} }} By {{!this.author}} / {{/if}}<span class="story__date"></span> 
+            {{if {$city} && {$state} }} 
+          /
+            <span class="d-block d-md-inline mt-1 mt-md-0 text-primary-200">
+              <span class="material-symbols-outlined  display-4">location_on</span><span class="location-name">{{$city}}</span>, {{$state}}
+            </span
+            {{/if}}
+          </p>
+        </div>
+      {{/if}}
+    </div>
+    <div class="d-flex align-items-center">
+      <div class="me-6 d-md-block d-none">
+        <span class="display-1 text-dark-50">Share Story</span>
+      </div>
+      <div>
+      {{ include /components/socials-share }}
+    </div>
+    </div>
+  </div>
+
+  <div class="story-card bg-light rounded-5 py-6 px-5 py-md-12 px-md-11">
+    {{ if {!this.page_layout} === "Image Landscape" }}
+      <!-- Image placeholder -->
+      <div class="ratio ratio-16x9 bg-secondary mb-md-8 mb-0">
+        <div class="d-flex align-items-center justify-content-center text-white">
+          <div class="text-center rounded-3 overflow-hidden h-100 ratio ratio-1x1">
+            <img class="w-100 h-100 object-fit-cover" src="{{!this.image.getImage()}}" alt=""/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metadata -->
+      <div class="row mb-4 px-md-8 px-0 pb-md-8 pb-0">
+        <div class="col-md-4">
+          <div class="d-md-block d-flex justify-content-between border-bottom border-md-bottom-0">
+            <!-- Date -->
+            <div class="story__detail py-4 border-0 border-bottom-md">
+              {{if {!this.story_date_picker} != "" }}
+              <div class="label mb-3 text-dark-50">Date</div>
+              <div class="story__date content text-dark-100"></div>
+              {{/if}}
+            </div>
+          
+            <!-- Author -->
+            {{if {!this.author} }}
+            <div class="story__detail py-4 text-md-start text-end border-bottom-md">
+              <div class="label mb-3 text-dark-50">Author</div>
+              <div class="content text-dark-100">{{!this.author}}</div>
+            </div>
+            {{/if}}
+          </div>
+          
+          
+          <!-- Location -->
+          {{if {$city} && {$state} }}
+            <div class="story__detail mb-4 py-4 d-md-block d-none">
+              <div class="label mb-3 text-dark-50">Location</div>
+              <div class="content d-flex align-items-center text-primary-200">
+                <span class="material-symbols-outlined">location_on</span>
+                <span class="ms-2 text-decoration-none text-primary-200">
+                  <span class="location-name">{{$city}}</span>, {{$state}}
+                </span>
+              </div>
+            </div>
+          {{/if}}
+
+          
+          <!-- Buttons -->
+          <div class="d-flex gap-2 mt-4">
+            {{if {!this.primary_cta_name} }}
+              <a href="{{!this.primary_cta_link}}" class="btn btn-info btn-lg">{{!this.primary_cta_name}}</a>
+            {{/if}}
+            {{if {!this.secondary_cta_name} }}
+              <a href="{{!this.secondary_cta_link}}" class="btn btn-secondary btn-lg">{{!this.secondary_cta_name}}</a>
+            {{/if}}
+          </div>
+
+          {{if {!this.external_url} }}
+            <div class="d-flex mt-2 mt-md-4">
+
+              <a 
+                href="{{!this.external_url}}"
+                class="btn btn-primary btn-lg"
+                target="_blank"
+                data-location-type="body:stories-page"
+                data-function-type="other"
+                data-format-type="button"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'cta_click')"
+              >Read More</a>
+            </div>
+          {{/if}}
+        </div>
+
+        <!-- Content -->
+        <div class="col-md-8 mt-md-0 mt-8">
+          <div class="pb-6 mb-6 stories-body">
+            {{!this.body}}
+          </div>
+
+
+          <!-- Location Mobile -->
+          {{if {$city} && {$state} }}
+            <div class="d-md-none d-flex flex-column gap-2">
+              <div class="text-dark-50 fs-8">Location</div>
+              <div class="d-flex align-items-center text-primary-200 fs-8">
+                <span class="material-symbols-outlined">location_on</span>
+                <span class="ms-2 text-decoration-none text-primary-200">
+                  <span class="location-name">{{$city}}</span>, {{$state}}
+                </span>
+              </div>
+            </div>
+          {{/if}}
+
+          <!-- Tags
+          <div class="mt-8 d-flex flex-wrap gap-2 align-items-center justify-content-start">
+              {{if {!this.article_tags} !== ""}}
+                {{each {!this.article_tags} as tag}}
+                  <div class="bg-dark bg-opacity-15 text-dark-100 me-2 py-2 px-4 d-flex align-items-center justify-content-center rounded-5 display-2"><span class="material-symbols-outlined me-2 text-primary-200 fs-7">{{tag.tag_icon}}</span>{{tag.name}}</div>
+                {{/each}}
+              {{/if}}
+          </div>
+           -->
+        </div>
+      </div>
+
+
+    {{else-if {!this.page_layout} === "Image Landscape No Sidebar" }}
+      <!-- Image placeholder -->
+      <div class="ratio ratio-16x9 bg-secondary mb-md-8 mb-0">
+        <div class="d-flex align-items-center justify-content-center text-white">
+          <div class="text-center rounded-3 overflow-hidden h-100 ratio ratio-1x1">
+            <img
+              class="w-100 h-100 object-fit-cover"
+              src="{{!this.image.getImage()}}"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 mt-md-0 mt-8">
+          <div class="mb-6 stories-body">{{!this.body}}</div>
+          <div>
+            {{if {!this.external_url} }}
+            <div class="d-flex my-2 my-md-4">
+              <a
+                href="{{!this.external_url}}"
+                class="btn btn-primary btn-lg"
+                target="_blank"
+                data-location-type="body:stories-page"
+                data-function-type="other"
+                data-format-type="button"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'cta_click')"
+                >Read More</a
+              >
+            </div>
+            {{/if}}
+            <!-- Buttons -->
+            <div class="d-flex gap-2 mt-md-0 mt-4">
+              {{if {!this.primary_cta_name} }}
+              <a
+                href="{{!this.primary_cta_link}}"
+                class="btn btn-info btn-lg"
+                data-location-type="body:stories-page"
+                data-function-type="other"
+                data-format-type="button"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'cta_click')"
+                >{{!this.primary_cta_name}}</a
+              >
+              {{/if}} {{if {!this.secondary_cta_name} }}
+              <a
+                href="{{!this.secondary_cta_link}}"
+                class="btn btn-secondary btn-lg"
+                data-location-type="body:stories-page"
+                data-function-type="other"
+                data-format-type="button"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'cta_click')"
+                >{{!this.secondary_cta_name}}</a
+              >
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    {{ else-if {!this.page_layout} === "Image Thumbnail" }}
+      <div class="row">
+        <!-- Image placeholder -->
+        <div class="col-12 col-md-4 d-flex flex-column ">
+          <div class="ratio ratio-4x3 bg-secondary text-center rounded-3 overflow-hidden">
+            <img src="{{!this.image.getImage()}}" alt="" class="object-fit-cover"/>
+          </div>
+          <div>
+              <div class="d-md-block d-flex justify-content-between border-bottom border-md-bottom-0">
+                <!-- Date -->
+                <div class="story__detail py-4 border-0 border-bottom-md">
+                  {{if {!this.story_date_picker} != "" }}
+                    <div class="label mb-3 text-dark-50">Date</div>
+                    <div class="story__date content text-dark-100"></div>
+                    {{/if}}
+                </div>
+
+                <!-- Author -->
+                {{if {!this.author} }}
+                <div class="story__detail py-4 text-md-start text-end border-bottom-md">
+                  <div class="label mb-3 text-dark-50">Author</div>
+                  <div class="content text-dark-100">{{!this.author}}</div>
+                </div>
+                {{/if}}
+              </div>
+            
+              <!-- Location -->
+              {{if {$city} && {$state} }}
+                <div class="story__detail mb-4 py-4 d-md-block d-none">
+                  <div class="label mb-3 text-dark-50 fs-7">Location</div>
+                  <div class="content d-flex align-items-center text-primary-200">
+                    <span class="material-symbols-outlined">location_on</span>
+                    <span class="ms-2 text-decoration-none text-primary-200 ">
+                      <span class="location-name">{{$city}}</span>, {{$state}}
+                    </span>
+                  </div>
+                </div>
+              {{/if}}
+              
+              <!-- Buttons -->
+              <div class="d-flex gap-2 mt-4">
+                  {{if {!this.primary_cta_name} }}
+                  <a 
+                    href="{{!this.primary_cta_link}}"
+                    class="btn btn-info btn-lg"
+                    data-location-type="body:stories-page"
+                    data-function-type="other"
+                    data-format-type="button"
+                    data-link-type="internal"
+                    onclick="LinkTrackingClickEvent(this,'cta_click')"
+                  >{{!this.primary_cta_name}}</a>
+                  {{/if}} {{if {!this.secondary_cta_name} }}
+                  <a
+                    href="{{!this.secondary_cta_link}}"
+                    class="btn btn-secondary btn-lg"
+                    data-location-type="body:stories-page"
+                    data-function-type="other"
+                    data-format-type="button"
+                    data-link-type="internal"
+                    onclick="LinkTrackingClickEvent(this,'cta_click')"
+                  >{{!this.secondary_cta_name}}</a>
+                  {{/if}}
+              </div>
+
+              {{if {!this.external_url} }}
+              <div class="d-flex mt-2 mt-md-4">
+                <a 
+                  href="{{!this.external_url}}"
+                  target="_blank"
+                  class="btn btn-primary btn-lg"
+                  data-location-type="body:stories-page"
+                  data-function-type="other"
+                  data-format-type="button"
+                  data-link-type="internal"
+                  onclick="LinkTrackingClickEvent(this,'cta_click')"
+                >Read More</a>
+              </div>
+            {{/if}}
+
+          </div>
+        </div>
+        <div class="col-12 col-md-8 mt-md-0 mt-8">
+          <div class="pb-6 mb-6 stories-body">
+              
+              {{!this.body}}
+          </div>
+
+          <!-- Location Mobile -->
+          {{if {$city} && {$state} }}
+            <div class="d-md-none d-flex flex-column gap-2">
+              <div class="text-dark-50 fs-8">Location</div>
+              <div class="d-flex align-items-center text-primary-200 fs-8">
+                <span class="material-symbols-outlined">location_on</span>
+                <span class="ms-2 text-decoration-none text-primary-200">
+                  <span class="location-name">{{$city}}</span>, {{$state}}
+                </span>
+              </div>
+            </div>
+          {{/if}}
+          <!-- Tags 
+          <div class="mt-8 d-flex align-items-center justify-content-start d-flex flex-wrap gap-2 ">
+              {{if {!this.article_tags} !== ""}}
+                {{each {!this.article_tags} as tag}}
+                  <div class="bg-dark bg-opacity-15 text-dark-100 me-2 py-2 px-4 d-flex align-items-center justify-content-center rounded-5 display-2"><span class="material-symbols-outlined me-2 text-primary-200 fs-7">{{tag.tag_icon}}</span>{{tag.name}}</div>
+                {{/each}}
+              {{/if}}
+            </div>
+        </div>
+        -->
+      </div>
+
+    {{else}}
+      <div class="row">
+        <div class="col-12 mt-md-0 mt-8">
+          <div class="mb-6 stories-body">
+              {{!this.body}}
+          </div>
+          <div>
+            {{if {!this.external_url} }}
+              <div class="d-flex my-2 my-md-4">
+                <a 
+                  href="{{!this.external_url}}"
+                  class="btn btn-primary btn-lg"
+                  target="_blank"
+                  data-location-type="body:stories-page"
+                  data-function-type="other"
+                  data-format-type="button"
+                  data-link-type="internal"
+                  onclick="LinkTrackingClickEvent(this,'cta_click')"
+                >Read More</a>
+              </div>
+            {{/if}}
+
+              <!-- Buttons -->
+              <div class="d-flex gap-2 mt-md-0 mt-4">
+                {{if {!this.primary_cta_name} }}
+                <a 
+                  href="{{!this.primary_cta_link}}"
+                  class="btn btn-info btn-lg"
+                  data-location-type="body:stories-page"
+                  data-function-type="other"
+                  data-format-type="button"
+                  data-link-type="internal"
+                  onclick="LinkTrackingClickEvent(this,'cta_click')"
+                >{{!this.primary_cta_name}}</a>
+                {{/if}} {{if {!this.secondary_cta_name} }}
+                <a
+                  href="{{!this.secondary_cta_link}}"
+                  class="btn btn-secondary btn-lg"
+                  data-location-type="body:stories-page"
+                  data-function-type="other"
+                  data-format-type="button"
+                  data-link-type="internal"
+                  onclick="LinkTrackingClickEvent(this,'cta_click')"
+                >{{!this.secondary_cta_name}}</a>
+                {{/if}}
+            </div>
+
+           
+
+          </div>
+          <!-- Tags 
+          <div class="mt-8 d-flex align-items-center justify-content-start d-flex flex-wrap gap-2 ">
+              {{if {!this.article_tags} !== ""}}
+                {{each {!this.article_tags} as tag}}
+                  <div class="bg-dark bg-opacity-15 text-dark-100 me-2 py-2 px-4 d-flex align-items-center justify-content-center rounded-5 display-2"><span class="material-symbols-outlined me-2 text-primary-200 fs-7">{{tag.tag_icon}}</span>{{tag.name}}</div>
+                {{/each}}
+              {{/if}}
+            </div>
+            -->
+        </div>
+      </div>
+      
+    {{/if}}
+      </div>
+  </div>
+  <div class="mt-8">
+    {{include modules/recent-stories}}
+  </div>
+</div>
+
+<script>
+  async function  getLocation(zuid) {
+    try {
+      const response = await fetch(`${window.location.origin}/location-finder.json?query=${zuid}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const rawData = await response.text(); 
+      const data = JSON.parse(rawData);
+      return data.name;
+    } catch (error) {
+      console.error('Error checking location:', error);
+      return false;
+    }
+  }
+
+  const locationNameCookie = getCookieByName('location_name');
+  const returnToNewsRoom = document.querySelector(".return-to-newsroom");
+
+  if (locationNameCookie == 'NATIONAL') {
+    returnToNewsRoom.setAttribute("href", "/stories")
+
+  }else{
+    returnToNewsRoom.setAttribute("href", getCookieByName("location_home_url")+"stories")
+  }
+
+  document.addEventListener("DOMContentLoaded", async function () {
+    const articleDate = "{{!this.story_date_picker.date(F j, Y)}}";
+    document.querySelector('.story__date').textContent = articleDate;
+  }); 
+
+  const cityCardNames = document.querySelectorAll('.location-name');
+  const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
+
+  cityCardNames.forEach((cityCardName) => {
+    const result = cityCardName.textContent.replace(regex, (word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    });
+
+    cityCardName.textContent = result;
+  });
+
+
+</script>

@@ -1,0 +1,49 @@
+{{$email = "example@email"}}
+{{$search = "%%" }}
+
+{{if {request.queryParam(email)} }}
+{{$email = "{request.queryParam(email)}" }}
+{{end-if}}
+
+
+{{if {request.queryParam(search)} }}
+{{$search = "%{request.queryParam(search)}%" }}
+{{end-if}}
+
+
+
+{
+   "data": [
+       {{each staffs as staffUser WHERE staffUser.email = {$email} }}
+        {{if {staffUser} && {staffUser.member_divisions} }}
+            {{each {staffUser.member_divisions} as divisionStaff WHERE divisionStaff.name LIKE {$search} SORT BY divisionStaff.name ASC }}
+                {
+                    "name": "{{divisionStaff.name.escapeForJs()}}",
+                    "address": "{{divisionStaff.address.escapeForJs()}}",
+                    "locations": [
+                        {{each locations as location WHERE location.division = "{divisionStaff.zuid}" }}
+                            {
+                                "name": "{{location.name.escapeForJs()}}",
+                                "address": "{{location.address.escapeForJs()}}",
+                                "zuid": "{{location.zuid}}"
+                            }  {{location._arraycomma}}
+                        {{/each}}
+                    ],
+                    "meta": {
+                        "zuid": "{{divisionStaff.zuid}}",
+                        "modelZuid": "{{divisionStaff.set_zuid}}"
+                    }
+                }
+                {{divisionStaff._arraycomma}}
+            {{/each}}    
+       {{end-if}}
+        {{staffUser._arraycomma}}
+       {{/each}} 
+   ],
+   "meta": {
+       "email": {{$email}},
+       "member_divisions": "{{staffs.filter({$email} = {email}).member_divisions}}",
+       "member_territories": "{{staffs.filter({$email} = {email}).member_territories}}",
+       "property_type": "Division"
+   }
+}

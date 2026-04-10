@@ -1,0 +1,28 @@
+{{$zuid = {request.queryParam(zuid)} }}
+
+{{each informational_pages as ip WHERE z.zuid = '{$zuid}' LIMIT 1}}
+    {
+        {{if {ip.location} }}
+            {{$cityZUID = {locations.filter({ip.location}).city} }}
+            {{$stateZUID = {locations.filter({ip.location}).state} }}
+            "content": {{ locations.filter({ip.location}).toJSON() }},
+            "address": "{{ locations.filter({ip.location}).address }}",
+            "city": "{{cities.filter({$cityZUID}).title }}",
+            "state": "{{states.filter({$stateZUID}).name }}"
+        {{else-if {ip.division} }}
+            {{$cityZUID = {divisions.filter({ip.division}).city} }}
+            {{$stateZUID = {divisions.filter({ip.division}).state} }}
+            "content": {{ divisions.filter({ip.division}).toJSON() }},
+            "address": "{{ divisions.filter({ip.division}).address }}",
+            "city": "{{cities.filter({$cityZUID}).title }}",
+            "state": "{{states.filter({$stateZUID}).name }}"
+        {{else-if {ip.territory} }}
+            {{$cityZUID = {territories.filter({ip.territory}).city} }}
+            {{$stateZUID = {territories.filter({ip.territory}).state} }}
+            "content": {{ territories.filter({ip.territory}).toJSON() }},
+            "address": "{{ territories.filter({ip.territory}).address }}",
+            "city": "{{cities.filter({$cityZUID}).title }}",
+            "state": "{{states.filter({$stateZUID}).name }}"
+        {{/if}}
+    }
+{{/each}}

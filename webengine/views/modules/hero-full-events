@@ -1,0 +1,48 @@
+{{if {this.hero_image} && {this.title} }}
+<div
+  class="featured-article bg-opacity-25 mb-4 position-relative rounded-5 position-relative overflow-hidden mb-15"
+>
+  <img
+  id="hero-full-image"
+  class="w-100 rounded-5 object-fit-cover"
+  src="{{ this.hero_image.getImage() }}"
+  alt="Featured Article"
+  fetchpriority="high"
+  decoding="async"
+  loading="eager"
+  />
+  <div
+    class="image-overlay position-absolute bg-opacity-50 bg-dark top-0 start-0 w-100 h-100"
+  ></div>
+  <div
+    class="px-6 py-8 position-absolute top-0 left-0 w-100 h-100 d-inline-flex flex-column align-items-start justify-content-center z-3"
+  >
+    <div>
+      <h1 class="fs-4 mt-3 mb-2 text-white">
+        {{ this.title }}
+      </h1>
+    </div>
+  </div>
+</div>
+{{/if}}
+<script>
+  function setBannerImage() {
+    let bannerImage = '{{ this.hero_image.getImage() }}';
+    let bannerImg = document.querySelector("#hero-full-image");
+    if(window.innerWidth <= 768) {
+      bannerImage += "?width=396&crop=3:2,smart";
+    } else {
+      bannerImage += "?width=1400&crop=3:1,smart";
+    }
+    bannerImg?.setAttribute('src', bannerImage)
+
+  }
+  document.addEventListener("DOMContentLoaded", function() {
+    setBannerImage();
+  });
+</script>
+<style>
+  .featured-article img {
+    max-height: 640px;
+  }
+</style>

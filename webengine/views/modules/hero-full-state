@@ -1,0 +1,56 @@
+{{if {this.image} || {this.name} }}
+<div
+  class="featured-article bg-opacity-25 mb-4 position-relative rounded-5 position-relative overflow-hidden mb-15"
+>
+  <img
+    class="w-100 rounded-5 object-fit-cover states__banner"
+    src="{{ this.image.getImage() }}"
+    alt="Featured Article"
+    fetchpriority="high"
+    decoding="async"
+    loading="eager"
+  />
+  <div
+    class="image-overlay position-absolute bg-opacity-50 bg-dark top-0 start-0 w-100 h-100"
+  ></div>
+  <div
+    class="px-6 py-8 position-absolute top-0 left-0 w-100 h-100 d-inline-flex flex-column align-items-start justify-content-center z-3"
+  >
+    <div>
+      <h1 class="fs-4 mb-3 text-white">
+        Salvation Army in {{ this.name }}
+      </h1>
+      <div class="mb-3 text-white display-1 w-lg-50 w-sm-100">
+        <!-- {{ this.seo_meta_description }} -->
+      </div>
+    </div>
+  </div>
+</div>
+{{/if}}
+<script>
+  function resolveImages() {
+    let defaultImages = [];
+    // populate default images
+    {{ each media.{clippings.hero_fallback_image} as media }}
+      defaultImages.push("{{ media.image.getImage() }}");
+    {{ end-each }}
+    const imageDOM = document.querySelector('.states__banner');
+    imageDOM.setAttribute('src', defaultImages[Math.floor(Math.random()*defaultImages.length)])
+  }
+  {{if !{this.image} }}
+    resolveImages();
+  {{else}}
+    const imageDOM = document.querySelector('.states__banner');
+    imageDOM.setAttribute('src', {{this.image.getImage()})
+  {{/if}}
+  
+</script>
+<style>
+  .featured-article{
+    height: 365px;
+  }
+
+  .featured-article img {
+    height: 100%;
+  }
+</style>

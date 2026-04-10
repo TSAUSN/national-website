@@ -1,0 +1,12 @@
+{{if {request.queryParam(query)} }}
+  {{$state = {request.queryParam(query)} }}
+{{/if}}
+
+{{if {request.queryParam(services)} }}
+  {{$services = {request.queryParam(services)}  }}
+{{/if}}
+
+{{$state_zuid = {states.filter(state_code LIKE '%{$state}%').zuid} }}
+[{{each service_areas as service_area WHERE state='{$state_zuid}' AND find_in_set('{$services}', service_type)}}
+  {{service_area.toJSON()}}{{service_area._arraycomma}}
+{{/each}}]

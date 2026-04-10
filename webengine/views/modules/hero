@@ -1,0 +1,736 @@
+<div
+  id="hero"
+  class="module mb-12 hide-special-prop-type"
+  data-component-type="hero"
+>
+  <div class="hero-section">
+    <div class="hero-main">
+      <div
+        class="h-100"
+        id="carousel"
+      >
+        <div class="h-100">
+          <div class="h-100 bd-example-snippet bd-code-snippet">
+            <div class="h-100 bd-example m-0 border-0">
+              <div
+                id="carouselExampleCaptions"
+                class=" carousel slide h-100"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-control-container" id="hero-carousel">
+                  <button
+                    class="carousel-control-prev hide"
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev"
+                    data-location-type="body:hero"
+                    data-function-type="other"
+                    data-format-type="icon-block"
+                    data-page-componentType-type="banner component"
+                    data-page-componentHeading-type="Previous"
+                    data-page-componentSubheading-type="null"
+                    data-page-componentIndex-type="null"
+                    onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                  >
+                    <span class="material-symbols-outlined">arrow_back</span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+
+                  <div class="carousel-indicators">
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleCaptions"
+                      data-bs-slide-to="0"
+                      class="active"
+                      aria-label="Slide 1"
+                      aria-current="true"
+                      data-location-type="body:hero"
+                      data-function-type="other"
+                      data-format-type="icon-block"
+                      data-page-componentType-type="banner component"
+                      data-page-componentHeading-type="null"
+                      data-page-componentSubheading-type="null"
+                      data-page-componentIndex-type="null"
+                      onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleCaptions"
+                      data-bs-slide-to="1"
+                      aria-label="Slide 2"
+                      data-location-type="body:hero"
+                      data-function-type="other"
+                      data-format-type="icon-block"
+                      data-page-componentType-type="banner component"
+                      data-page-componentHeading-type="null"
+                      data-page-componentSubheading-type="null"
+                      data-page-componentIndex-type="null"
+                      onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleCaptions"
+                      data-bs-slide-to="2"
+                      aria-label="Slide 3"
+                      data-location-type="body:hero"
+                      data-function-type="other"
+                      data-format-type="icon-block"
+                      data-page-componentType-type="banner component"
+                      data-page-componentHeading-type="null"
+                      data-page-componentSubheading-type="null"
+                      data-page-componentIndex-type="null"
+                      onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                    ></button>
+                  </div>
+
+                  <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next"
+                    data-location-type="body:hero"
+                    data-function-type="other"
+                    data-format-type="icon-block"
+                    data-page-componentType-type="banner component"
+                    data-page-componentHeading-type="Next"
+                    data-page-componentSubheading-type="null"
+                    data-page-componentIndex-type="null"
+                    onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                  >
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+
+                <div class="carousel-inner rounded-5">
+                  <div class="carousel-item h-100 active">
+                    <div
+                      class="image-background hero-main-content position-relative text-light d-flex flex-column justify-content-end align-items-start rounded-5 overflow-hidden"
+                    >
+                      <img
+                        src="{{ globals.default_og_image.getImage() }}?width=1046&crop=16:9,smart"
+                        srcset="{{ globals.default_og_image.getImage() }}?width=396&height=222&crop=16:9,smart 396w, {{ globals.default_og_image.getImage() }}?width=1046&crop=16:9,smart 1046w"
+                        sizes="(max-width: 1199px) 100vw, 75vw"
+                        fetchpriority="high"
+                        loading="eager"
+                        decoding="async"
+                        alt=""
+                        width="1046"
+                        height="588"
+                        class="position-absolute w-100 h-100 top-0 start-0 object-fit-cover"
+                      />
+                      <div class="image-backdrop position-absolute top-0 start-0 w-100 h-100 rounded-5"></div>
+                    </div>
+                  </div>
+                  <!-- Dynamic Banner Items -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-side-col cta-column">
+      <div class="dynamic-cards-container">
+        <div
+          id="dynamic-card-1"
+          class="dynamic-card-1 card cta-card rounded-5 overflow-hidden d-flex flex-column"
+        >
+          <div class="hero-card-placeholder" aria-hidden="true">
+            <div class="hero-card-placeholder__media"></div>
+            <div class="hero-card-placeholder__content">
+              <div class="hero-card-placeholder__body">
+                <div class="hero-card-placeholder__line"></div>
+                <div class="hero-card-placeholder__line hero-card-placeholder__line--short"></div>
+              </div>
+              <div class="hero-card-placeholder__footer">
+                <div class="hero-card-placeholder__button"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="dynamic-card-2"
+          class="dynamic-card-2 card cta-card rounded-5 overflow-hidden d-flex flex-column"
+        >
+          <div class="hero-card-placeholder" aria-hidden="true">
+            <div class="hero-card-placeholder__media"></div>
+            <div class="hero-card-placeholder__content">
+              <div class="hero-card-placeholder__body">
+                <div class="hero-card-placeholder__line"></div>
+                <div class="hero-card-placeholder__line hero-card-placeholder__line--short"></div>
+              </div>
+              <div class="hero-card-placeholder__footer">
+                <div class="hero-card-placeholder__button"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    async function fetchData(url) {
+      try {
+        const response = await fetch(url);
+        return await response.json();
+      } catch (err) {
+        console.error('Error fetching data:', err);
+        return null;
+      }
+    }
+    function resolveImages() {
+    let defaultImages = [];
+    // populate default images
+    {{ each media.{clippings.default_images} as media }}
+    	defaultImages.push("{{ media.image.getImage() }}");
+    {{ end-each }}
+   return defaultImages[Math.floor(Math.random()*defaultImages.length)];
+  }
+
+  const defaultHeroImage = resolveImages();
+
+    async function fetchCard(urls, cardType = 'primary') {
+      for (let url of urls) {
+        const data = await fetchData(url);
+
+        if (cardType === 'primary' && data?.primary_card?.data[0]) {
+          return data.primary_card.data[0]; // Return primary card if found
+        }
+
+        if (cardType === 'secondary' && data?.secondary_card?.data[0]) {
+          return data.secondary_card.data[0]; // Return secondary card if found
+        }
+      }
+      return {}; // Fallback in case no valid card is found
+    }
+
+    const modelInfoUrl = `https://{{instance.domain}}/model-info.json?zuid={{this.zuid}}`;
+    const instantUrl = 'https://{{instance.domain}}/-/instant'
+
+    const cardGenerator1 = async () => {
+      let cardData = null;
+      let cardText = "View";
+      const primaryCard = "{{this.primary_card}}";
+
+      if (primaryCard === '') {
+        try {
+          // 1️⃣ Fetch base JSON first
+          const baseJson = await fetch(`${instantUrl}/{{this.zuid}}.json`).then(r => r.json());
+
+          // Extract possible fallback ZUIDs
+          const divisionZuid  = baseJson?.data?.[0]?.content?.division?.data?.[0]?.zuid;
+          const territoryZuid = baseJson?.data?.[0]?.content?.territory?.data?.[0]?.zuid;
+          const nationalZuid  = "7-dab495a2c1-13lthp";
+
+          // 2️⃣ Helper to load primary card for a given ZUID
+          const loadPrimaryCard = async (zuid) => {
+            if (!zuid) throw new Error("No ZUID"); // Skip invalid inputs
+
+            const modelJson = await fetch(`${instantUrl}/${zuid}.json`).then(r => r.json());
+            const primaryCard = modelJson?.data?.[0]?.content?.primary_card;
+            const primaryCardText = modelJson?.data?.[0]?.content?.primary_card_cta_text || "View";
+
+            // If model has no card, reject so Promise.any tries the next one
+            if (!primaryCard?.data?.[0]?.resourceURI) throw new Error("No card data");
+
+            // Fetch the actual card data
+            const cardRes = await fetch(primaryCard.data[0].resourceURI).then(r => r.json());
+            return { cardData: cardRes, cardText: primaryCardText };
+          };
+
+          // 3️⃣ Launch all requests concurrently and return first successful one
+          const trySources = [divisionZuid, territoryZuid, nationalZuid]
+            .filter(Boolean) // skip nulls
+            .map(loadPrimaryCard);
+
+          const { cardData: fastestCard, cardText: fastestText } = await Promise.any(trySources);
+
+          // 4️⃣ Assign results
+          cardData = fastestCard;
+
+          cardText = fastestText || "View";
+        } catch (err) {
+        console.error("Error fetching primary card:", err);
+      }
+
+
+      } 
+      else {
+        const response = await fetch(`${instantUrl}/{{this.zuid}}.json`)
+        const instantJson = await response.json();
+        const primaryCard = instantJson.data[0]?.content?.primary_card;
+
+        
+        const primaryCardText = instantJson.data[0]?.content?.primary_card_cta_text;
+        console.log(primaryCardText)
+        if(primaryCard){
+          const responseCard = await fetch(primaryCard.data[0]?.resourceURI);
+          cardData = await responseCard.json();
+         
+        }
+
+        if(primaryCardText){
+          cardText = primaryCardText;
+        }           
+      }
+      const hero_image = '';
+      let cardImage = '';
+
+
+      if (cardData?.data[0]?.content?.og_image) {
+        cardImage = cardData?.data[0]?.content?.og_image?.data ? cardData?.data[0]?.content?.og_image?.data[0]?.url : cardData?.data[0]?.content?.og_image;
+      } else {
+        cardImage = cardData?.data[0]?.content?.image?.data ? cardData?.data[0]?.content?.image?.data[0]?.url : cardData?.data[0]?.content?.image;
+      }
+      // let cardImage = cardData?.data[0]?.content?.hero_image?.data? cardData?.data[0]?.content?.hero_image?.data[0]?.url : cardData?.data[0]?.content?.hero_image;
+
+      if(!cardImage){
+        cardImage = defaultHeroImage || resolveImages();
+      }
+
+      const cardImageBase = cardImage;
+      const cardImageMobile = `${cardImageBase}?width=396&height=222&crop=16:9,smart`;
+      const cardImageDesktop = `${cardImageBase}?width=338&height=179&crop=16:9,smart`;
+
+      const meta = cardData?.meta?.web || {};
+      const metaTitle = meta.seo_meta_title || meta.title || '';
+      const metaDescription = meta.seo_meta_description || '';
+      const metaUri = meta.uri || '#';
+
+      return `
+        <div class="dynamic-card-media cta-card-image bg-secondary bg-opacity-25 position-relative overflow-hidden">
+          <div class="image-backdrop position-absolute top-0 start-0 w-100 h-100 rounded-5"></div>
+          <img
+            class="w-100 h-100 object-fit-cover position-absolute top-0 start-0"
+            src="${cardImageDesktop}"
+            srcset="${cardImageMobile} 396w, ${cardImageDesktop} 338w"
+            sizes="(max-width: 768px) 100vw, 338px"
+            decoding="async"
+            alt="Card Image"
+            width="338"
+            height="179"
+          />
+          <h5 class="card-title hero-card-title text-white px-4 pb-2 d-flex align-items-end position-absolute bottom-0 start-0 w-100">${metaTitle}</h5>
+        </div>
+        <div class="cta-card-content">
+          <div class="card-body cta-card-body">
+            ${metaDescription ? `<p class="cta-card-excerpt">${metaDescription}</p>` : ''}
+          </div>
+          <div class="card-footer cta-card-footer bg-transparent border-0 d-flex align-items-center justify-content-between gap-2">
+            <a href="${metaUri}"
+                data-location-type="body:banner-section"
+                data-function-type="navigation"
+                data-format-type="button"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'cta_click')"
+                class="btn btn-secondary flex-grow-1">
+                ${cardText}
+                </a>
+          </div>
+        </div>
+      `;
+    };
+
+    const cardGenerator2 = async () => {
+      let cardData = null;
+      let cardText = "View";
+      const secondaryCard = "{{this.secondary_card}}";
+
+      if (secondaryCard === '') {
+        try {
+          // 1️⃣ Fetch the base content first
+          const baseJson = await fetch(`${instantUrl}/{{this.zuid}}.json`).then(r => r.json());
+
+          // Extract possible fallback ZUIDs
+          const divisionZuid  = baseJson?.data?.[0]?.content?.division?.data?.[0]?.zuid;
+          const territoryZuid = baseJson?.data?.[0]?.content?.territory?.data?.[0]?.zuid;
+          const nationalZuid  = "7-dab495a2c1-13lthp";
+
+          // 2️⃣ Reusable helper to load a secondary card
+          const loadSecondaryCard = async (zuid) => {
+            if (!zuid) throw new Error("No ZUID provided");
+
+            const modelJson = await fetch(`${instantUrl}/${zuid}.json`).then(r => r.json());
+            const secCard = modelJson?.data?.[0]?.content?.secondary_card;
+            const secText = modelJson?.data?.[0]?.content?.secondary_card_cta_text || "View";
+
+            if (!secCard?.data?.[0]?.resourceURI) throw new Error("No card data found");
+
+            // Fetch card JSON
+            const cardRes = await fetch(secCard.data[0].resourceURI).then(r => r.json());
+            return { cardData: cardRes, cardText: secText };
+          };
+
+          // 3️⃣ Fire all requests in parallel and get the first valid card
+          const trySources = [divisionZuid, territoryZuid, nationalZuid]
+            .filter(Boolean)
+            .map(loadSecondaryCard)
+            .map(p =>
+              p.catch(() => {
+                throw new Error("Invalid card");
+              })
+            );
+
+          const { cardData: fastestCard, cardText: fastestText } = await Promise.any(trySources);
+
+          // 4️⃣ Apply the result
+          cardData = fastestCard;
+          cardText = fastestText || "View";
+        } catch (err) {
+          console.error("Error fetching secondary card:", err);
+        }
+
+      } else {
+        const response = await fetch(`${instantUrl}/{{this.zuid}}.json`)
+        const instantJson = await response.json();
+        const secondaryCard = instantJson.data[0]?.content?.secondary_card;
+        const secondaryCardText = instantJson.data[0]?.content?.secondary_cta_text ? instantJson.data[0]?.content?.secondary_cta_text : instantJson.data[0]?.content?.secondary_card_cta_text;
+
+        if(secondaryCard){
+          const responseCard = await fetch(secondaryCard.data[0]?.resourceURI);
+          cardData = await responseCard.json();
+        }
+
+        if(secondaryCardText){
+          cardText = secondaryCardText;
+        }                   
+      }
+
+      const hero_image = '';
+      let cardImage = '';
+
+      if (cardData?.data[0]?.content?.og_image) {
+        cardImage = cardData?.data[0]?.content?.og_image?.data ? cardData?.data[0]?.content?.og_image?.data[0]?.url : cardData?.data[0]?.content?.og_image;
+      } else {
+        cardImage = cardData?.data[0]?.content?.image?.data ? cardData?.data[0]?.content?.image?.data[0]?.url : cardData?.data[0]?.content?.image;
+      }
+      
+
+
+      if(!cardImage){
+        cardImage = defaultHeroImage || resolveImages();
+      }
+
+      const cardImageBase = cardImage;
+      const cardImageMobile = `${cardImageBase}?width=396&height=222&crop=16:9,smart`;
+      const cardImageDesktop = `${cardImageBase}?width=338&height=179&crop=16:9,smart`;
+
+      const meta = cardData?.meta?.web || {};
+      const metaTitle = meta.seo_meta_title || meta.title || '';
+      const metaDescription = meta.seo_meta_description || '';
+      const metaUri = meta.uri || '#';
+
+      return `
+        <div class="dynamic-card-media cta-card-image bg-secondary bg-opacity-25 position-relative overflow-hidden">
+          <div class="image-backdrop position-absolute top-0 start-0 w-100 h-100 rounded-5"></div>
+          <img
+            class="w-100 h-100 object-fit-cover position-absolute top-0 start-0"
+            src="${cardImageDesktop}"
+            srcset="${cardImageMobile} 396w, ${cardImageDesktop} 338w"
+            sizes="(max-width: 768px) 100vw, 338px"
+            decoding="async"
+            alt="Card Image"
+            width="338"
+            height="179"
+          />
+          <h5 class="card-title hero-card-title text-white px-4 d-flex align-items-end pb-2 position-absolute bottom-0 start-0 w-100">${metaTitle}</h5>
+          
+        </div>
+        <div class="cta-card-content">
+          <div class="card-body cta-card-body">
+            ${metaDescription ? `<p class="cta-card-excerpt">${metaDescription}</p>` : ''}
+          </div>
+          <div class="card-footer cta-card-footer bg-transparent border-0 d-flex align-items-center justify-content-between gap-2">
+            <a href="${metaUri}"
+               data-location-type="body:banner-section"
+                data-function-type="navigation"
+                data-format-type="button"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'cta_click')"
+            class="btn btn-secondary flex-grow-1"> 
+              ${cardText}
+            </a>
+          </div>
+        </div>
+      `;
+    };
+    
+
+    const locationModelZUID = "6-b4c9aba69c-h2nqvm";
+    const divisionModelZUID = "6-acb19a94bd-4q8ftj";
+    const territoryModelZUID = "6-deab97cfd9-wb5km4";
+    const nationalModelZUID = "6-a0898ca2c1-krnm0f";
+
+      function addHeroSliders(heroSliders, level) {
+        const divisionZUID = cookieManager.get(cookieKeys.divisionZUID);
+        const territoryZUID = cookieManager.get(cookieKeys.territoryZUID);
+
+        const filterBy = (field, zuid) =>
+          heroSliders.filter((s) => (s?.[field] || "").includes(zuid));
+
+        const national = () => heroSliders.filter((s) => s.display_on_national === "1");
+
+        // LOCATION: location -> division(cookie) -> territory(cookie) -> national
+        if (level === locationModelZUID) {
+          const loc = filterBy("display_on_locations", "{{this.zuid}}");
+          if (loc.length) return loc;
+
+          const div = filterBy("display_on_divisions", divisionZUID);
+          if (div.length) return div;
+
+          const terr = filterBy("display_on_territories", territoryZUID);
+          if (terr.length) return terr;
+
+          return national();
+        }
+
+        // DIVISION: division -> territory(cookie) -> national
+        if (level === divisionModelZUID) {
+          const div = filterBy("display_on_divisions", "{{this.zuid}}");
+          if (div.length) return div;
+
+          const terr = filterBy("display_on_territories", territoryZUID);
+          if (terr.length) return terr;
+
+          return national();
+        }
+
+        // TERRITORY: territory -> national
+        if (level === territoryModelZUID) {
+          const terr = filterBy("display_on_territories", "{{this.zuid}}");
+          return terr.length ? terr : national();
+        }
+
+        // default: national
+        return national();
+      }
+
+      function hideSlider(){
+          const mainLoader = document.querySelector(".slider-loader")
+          const mainContentContainer = document.querySelector("#carousel")
+
+          if(mainLoader){
+            mainLoader.classList.add("d-none")
+          }
+          if(mainContentContainer){
+            mainContentContainer.classList.remove("d-none")
+          }
+        }
+
+    async function generateBannerCarouselItems(params) {
+      try {
+        const heroSliderGQL = `https://{{instance.domain}}/-/gql/matrix_hero_sliders.json`
+        const res = await fetch(heroSliderGQL)
+
+        const heroSliders = await res.json();
+                 
+        let foundSliders = addHeroSliders(heroSliders, cookieManager.get(cookieKeys.locationModel));
+
+        if (foundSliders.length <= 0) {
+          foundSliders = addHeroSliders(heroSliders, divisionModelZUID);
+        }
+
+        if (foundSliders.length <= 0) {
+          foundSliders = addHeroSliders(heroSliders, territoryModelZUID);
+        }
+
+        if (foundSliders.length <= 0) {
+          foundSliders = addHeroSliders(heroSliders, nationalModelZUID);
+        }
+
+        const sortedBannerContents = foundSliders.sort((a, b) => Number(a.sort_order) - Number(b.sort_order));
+
+        const carouselInner = document.querySelector('.carousel-inner');
+        const carouselIndicators = document.querySelector('.carousel-indicators');
+        const carouselControlPrev = document.querySelector('.carousel-control-prev');
+        const carouselControlNext = document.querySelector('.carousel-control-next');
+        const carouselControlContainer = document.querySelector('.carousel-control-container');
+
+        // Hide navigation elements if there's only one item
+        if (sortedBannerContents.length <= 1) {
+          if (carouselControlContainer) carouselControlContainer.style.display = 'none';
+          if (carouselIndicators) carouselIndicators.style.display = 'none';
+          if (carouselControlPrev) carouselControlPrev.style.display = 'none';
+          if (carouselControlNext) carouselControlNext.style.display = 'none';
+
+          // Also disable the carousel from auto-sliding when there's only one item
+          const carousel = document.querySelector('#carouselExampleCaptions');
+          if (carousel) {
+            carousel.setAttribute('data-bs-ride', 'false');
+          }
+        } else {
+          // Show navigation elements if there are multiple items
+          if (carouselControlContainer) carouselControlContainer.style.display = '';
+          if (carouselIndicators) carouselIndicators.style.display = '';
+          if (carouselControlPrev) carouselControlPrev.style.display = '';
+          if (carouselControlNext) carouselControlNext.style.display = '';
+        }
+
+        // Clear existing indicators
+        carouselIndicators.innerHTML = '';
+
+        // Generate new indicators based on actual items
+        sortedBannerContents.forEach((_, index) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.setAttribute('data-bs-target', '#carouselExampleCaptions');
+          button.setAttribute('data-bs-slide-to', index);
+          button.setAttribute('aria-label', `Slide ${index + 1}`);
+          button.setAttribute('data-location-type', 'body:hero');
+          button.setAttribute('data-function-type', 'other');
+          button.setAttribute('data-format-type', 'icon-block');
+          button.setAttribute('data-page-componentType-type', 'banner component');
+          button.setAttribute('data-page-componentHeading-type', null);
+          button.setAttribute('data-page-componentSubheading-type', null);
+          button.setAttribute('data-page-componentIndex-type', null);
+          button.onclick = function() { LinkTrackingClickEvent(this,'view_content_click'); };
+
+          if (index === 0) {
+            button.classList.add('active');
+            button.setAttribute('aria-current', 'true');
+          }
+
+          carouselIndicators.appendChild(button);
+        });
+
+        let carouselHTMLWrapper = '';
+        sortedBannerContents.forEach((banner_content, index) => {
+          if(banner_content) {
+            const bannerImageBase = banner_content.image;
+            const bannerCropRatio = '16:9';
+            const bannerMobileHeight = 222;
+            const bannerDesktopHeight = 588;
+            const bannerImageMobile = `${bannerImageBase}?width=396&height=${bannerMobileHeight}&crop=${bannerCropRatio},smart`;
+            const bannerImageDesktop = `${bannerImageBase}?width=1046&crop=${bannerCropRatio},smart`;
+            const bannerPriorityAttr = index === 0
+              ? 'fetchpriority="high" loading="eager"'
+              : 'loading="lazy"';
+
+            carouselHTMLWrapper += `<div
+              class="carousel-item h-100 ${index === 0 ? 'active' : ''}"
+            >
+              <div
+                class="image-background hero-main-content position-relative text-light d-flex flex-column justify-content-end align-items-start rounded-5 overflow-hidden"
+              >
+                <img
+                  src="${bannerImageDesktop}"
+                  srcset="${bannerImageMobile} 396w, ${bannerImageDesktop} 1046w"
+                  sizes="(max-width: 1199px) 100vw, 75vw"
+                  ${bannerPriorityAttr}
+                  decoding="async"
+                  alt=""
+                  width="1046"
+                  height="${bannerDesktopHeight}"
+                  class="position-absolute w-100 h-100 top-0 start-0 object-fit-cover"
+                />
+                <div class="image-backdrop position-absolute top-0 start-0 w-100 h-100 rounded-5"></div>
+
+                <div class="mb-4">
+                  <h3 class="fw-normal">${banner_content.title}</h3>
+                  <div class="w-md-75 w-sm-100 hero-item">
+                    ${banner_content.content || ''}
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  ${banner_content.primary_cta_link ? `
+                  <a
+                    data-location-type="body:banner-section"
+                    data-function-type="cta"
+                    data-format-type="button"
+                    data-link-type="internal"
+                    onclick="LinkTrackingClickEvent(this,'cta_click')"
+                    href="${banner_content.primary_cta_link}"
+                    class="btn btn-primary banner-cta-btn display-2"
+                  >${banner_content?.primary_cta_name}</a>
+                  ` : ''}
+
+                  ${banner_content.secondary_cta_link ? `
+                  <a
+                    data-location-type="body:banner-section"
+                    data-function-type="cta"
+                    data-format-type="button"
+                    data-link-type="internal"
+                    onclick="LinkTrackingClickEvent(this,'cta_click')"
+                    href="${banner_content.secondary_cta_link}"
+                    class="btn  btn-light banner-cta-btn display-2"
+                  >${banner_content?.secondary_cta_name}</a>
+                  ` : ''}
+                </div>
+              </div>
+            </div>`;
+          }
+        });
+        if (carouselHTMLWrapper) {
+          carouselInner.innerHTML = carouselHTMLWrapper;
+          hideSlider();
+        }
+      } catch (error) {
+        console.error('Error in generateBannerCarouselItems:', error);
+      }
+    }
+    const appendCardsToBannerSideCol = async () => {
+      const card1 = document.getElementById("dynamic-card-1");
+      const card2 = document.getElementById("dynamic-card-2");
+
+      if (!card1 || !card2) {
+        console.error("One or both card containers not found");
+        return;
+      }
+
+      try {
+        // Kick off both async requests simultaneously
+        const cardPromises = [cardGenerator1(), cardGenerator2()];
+     
+        // Wait for both to finish (parallel)
+        const [card1Html, card2Html] = await Promise.allSettled(cardPromises);
+
+        // Use DocumentFragment to minimize reflows
+        const frag1 = document.createRange().createContextualFragment(
+          card1Html.value || ""
+        );
+        const frag2 = document.createRange().createContextualFragment(
+          card2Html.value || ""
+        );
+
+        // Replace all children in one go (faster than innerHTML for large DOM)
+        requestAnimationFrame(() => {
+          card1.replaceChildren(frag1);
+          card2.replaceChildren(frag2);
+        });
+      } catch (err) {
+        console.error("Error generating cards:", err);
+      }
+    };
+
+    (async function(){
+      await generateBannerCarouselItems();
+      appendCardsToBannerSideCol();
+
+       const links = document.querySelectorAll('a');
+        links.forEach(link => {
+          if(link.getAttribute('href') !== ""){
+            const url = new URL(link.getAttribute('href'), window.location.origin);
+            if(url.hostname !== window.location.hostname){
+              link.setAttribute('target', '_blank')
+              link.setAttribute('data-url', url)
+            }
+
+          }
+      });
+
+       document.querySelectorAll('a[target="_blank"]').forEach(link => {
+      if (!link.hasAttribute('rel')) {
+        link.setAttribute('rel', 'noopener noreferrer');
+      }
+      document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('mouseup', () => btn.blur());
+      
+      })
+      link.addEventListener('mouseup', () => link.blur());
+    });
+    })();
+</script>

@@ -1,0 +1,46 @@
+<div
+  id="hero-full-404"
+  class="featured-article mb-4 position-relative rounded-5 position-relative overflow-hidden mb-15"
+>
+  <img
+    class="w-100 rounded-5 object-fit-cover"
+    src="{{clippings.hero_fallback_image.getImage()}}"
+    alt="Featured Article"
+    fetchpriority="high"
+    decoding="async"
+    loading="eager"
+  />
+  <div
+    class="image-overlay position-absolute bg-opacity-50 bg-dark top-0 start-0 w-100 h-100"
+  ></div>
+  <div
+    class="px-6 py-8 position-absolute top-0 left-0 w-100 h-100 d-inline-flex flex-column align-items-center justify-content-center z-3"
+  >
+    <div class="w-100 d-flex flex-column align-items-center justify-content-center">
+      <h1 class="fs-4 mt-3 mb-2 text-white">
+        404 Error
+      </h1>
+      <div class="mb-3 display-1 w-lg-100 w-sm-100 text-center text-white">
+        Sorry Page Not Found
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-center text-white w-100 mt-4 gap-2">
+      <a
+        id="btn-404"
+        href=""
+        class="btn btn-primary"
+        >Back To Home Page</a
+      >
+    </div>
+  </div>
+</div>
+
+<style>
+  .featured-article{
+    height: 365px;
+  }
+
+  .featured-article img {
+    height: 100%;
+  }
+</style>

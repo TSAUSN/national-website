@@ -1,0 +1,39 @@
+<div class="mb-15">
+  <h4 class="mb-8 fw-normal">Featured [Corp] Positions</h4>
+  <div class="d-flex flex-column flex-md-row gap-3">
+    <div class="bg-light rounded-5 p-6">
+      <div class="mb-5">
+        <h5 class="fs-7">Job Opportunity Title</h5>
+        <span class="display-3 mb-4"> Augusta, ME </span>
+        <p class="text-dark-50 display-2">
+          Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididun ut labore et dolore magna aliqua. Description. Lorem ipsum dolor sit
+          amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore
+          magna aliqua. Ut
+        </p>
+      </div>
+      <a
+        class="btn btn-secondary btn-sm"
+        href=""
+        >View Position</a
+      >
+    </div>
+    <div class="bg-light rounded-5 p-6">
+      <div class="mb-5">
+        <h5 class="fs-7">Job Opportunity Title</h5>
+        <span class="display-3 mb-4"> Augusta, ME </span>
+        <p class="text-dark-50 display-2">
+          Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididun ut labore et dolore magna aliqua. Description. Lorem ipsum dolor sit
+          amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore
+          magna aliqua. Ut
+        </p>
+      </div>
+      <a
+        class="btn btn-secondary btn-sm"
+        href=""
+        >View Position</a
+      >
+    </div>
+  </div>
+</div>

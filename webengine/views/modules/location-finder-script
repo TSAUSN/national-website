@@ -1,0 +1,1827 @@
+<script type="text/javascript">
+window.serviceTypesCache = null;
+window.serviceTypesPromise = null;
+window.servicesByLocationCache = new Map();
+window.servicesByLocationPromise = new Map();
+
+function getCookieByName(name) {
+  const cookies = document.cookie.split(';');
+  for (let cookie of cookies) {
+    cookie = cookie.trim();
+    if (cookie.startsWith(name + '=')) {
+      const value = cookie.substring(name.length + 1);
+      return decodeURIComponent(value); 
+    }
+  }
+  return null;
+}
+async function getProperty() {
+  try {
+    const zuid = getCookieByName('location_zuid')
+    const response = await fetch(`${window.location.origin}/location-finder.json?query=${zuid}`);
+    const data = await response.json();
+    return data.address || null;
+  } catch (error) {
+    // console.error('Error fetching property:', error);
+    return null;
+  }
+}
+
+async function getLocation(zuid) {
+  try {
+    const response = await fetch(`${window.location.origin}/location-finder.json?query=${zuid}`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error checking location:', error);
+    return false;
+  }
+}
+
+async function getServiceAreasByState(state, services) {
+  try {
+    const response = await fetch(`${window.location.origin}/service-areas.json?query=${state}&services=${services}`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error checking location:', error);
+    return false;
+  }
+}
+
+async function getServiceType(zuid) {
+  try {
+    const response = await fetch(`${window.location.origin}/service-types.json?zuid=${zuid}`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error checking location:', error);
+    return false;
+  }
+}
+
+// Make fetchServicesForLocation available globally
+window.fetchServicesForLocation = async function(zuid) {
+  try {
+    if (!zuid) return [];
+    if (window.servicesByLocationCache.has(zuid)) {
+      return window.servicesByLocationCache.get(zuid);
+    }
+    if (window.servicesByLocationPromise.has(zuid)) {
+      return window.servicesByLocationPromise.get(zuid);
+    }
+
+    const fetchPromise = (async () => {
+    const response = await fetch(`${window.location.origin}/services.json?location=${zuid}`);
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    window.servicesByLocationCache.set(zuid, data);
+    return data;
+    })();
+
+    window.servicesByLocationPromise.set(zuid, fetchPromise);
+    const result = await fetchPromise;
+    window.servicesByLocationPromise.delete(zuid);
+    return result;
+  } catch (error) {
+    console.error('Error checking location:', error);
+    window.servicesByLocationPromise.delete(zuid);
+    return [];
+  }
+};
+
+function setServicesLoadingState(index, message) {
+  const servicesContainer = document.getElementById(`services-container-${index}`);
+  if (!servicesContainer) return;
+  servicesContainer.innerHTML = `
+    <div class="col-12 services-loading">
+      <div class="d-flex align-items-center">
+        <div class="spinner-border spinner-border-sm text-primary me-2" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <span class="display-4 display-md-1">${message || 'Loading services...'}</span>
+      </div>
+    </div>
+  `;
+}
+
+async function renderServicesForLocation(loc, services, index) {
+  const servicesContainer = document.getElementById(`services-container-${index}`);
+  if (!servicesContainer) return;
+
+  const serviceTypeZuids = (loc.service_types || '')
+    .split(',')
+    .map(s => s.trim())
+    .filter(Boolean);
+  const serviceTypeSet = new Set(serviceTypeZuids);
+
+  if (serviceTypeSet.size === 0) {
+    servicesContainer.innerHTML = '<div class="col">No services available</div>';
+    return;
+  }
+
+  const servicesInnerHTML = [];
+
+  for (const serviceTypeZuid of serviceTypeSet) {
+    const serviceTypeData = await getServiceType(serviceTypeZuid);
+    if (!serviceTypeData || !serviceTypeData[0]) continue;
+    const iconName = serviceTypeData[0]?.icon_name || '';
+    const matchingService = Array.isArray(services)
+      ? services.find(s => s.service_type?.data?.[0]?.meta?.zuid === serviceTypeZuid)
+      : null;
+
+    if (matchingService) {
+      const title = loc.redirect_url
+        ? matchingService.title
+        : matchingService.title?.replace(/<\/?b>/g, '');
+      if (!title) continue;
+
+      servicesInnerHTML.push(`<div class="col">
+          <div class="d-flex align-items-start">
+            <span class="material-symbols-outlined text-primary-200 display-6">${iconName}</span>
+            <a
+              href="${matchingService.meta?.web?.url || '#'}"
+              class="display-4 text-dark-100 display-md-1 ms-2"
+              data-location-type="body:location-finder"
+              data-function-type="other"
+              data-format-type="button"
+              data-link-type="internal"
+              onclick="LinkTrackingClickEvent(this,'cta_click')"
+            >${title}</a>
+          </div>
+        </div>
+      `);
+    } else {
+      const label = serviceTypeData[0]?.meta?.web_title || serviceTypeData[0]?.title || '';
+      if (!label) continue;
+
+      servicesInnerHTML.push(`<div class="col">
+          <div class="d-flex align-items-start">
+            <span class="material-symbols-outlined text-primary-200 display-6">${iconName}</span>
+            <span class="display-4 text-dark-100 display-md-1 ms-2">${label}</span>
+          </div>
+        </div>
+      `);
+    }
+  }
+
+  servicesContainer.innerHTML = servicesInnerHTML.length > 0
+    ? servicesInnerHTML.join('')
+    : '<div class="col">No services available</div>';
+}
+
+// Update getServicesForServiceArea to use the cached data
+async function getServicesForServiceArea(serviceArea) {
+  try {
+    
+    // Filter services based on service area's service_types
+    const areaServices = [];
+    if (serviceArea.service_type && window.allServices) {
+      const serviceTypes = serviceArea.service_type.data;
+      
+      // Use a Set for faster lookups
+      const serviceTypeSet = new Set(serviceTypes);
+      const serviceTypeMap = new Map(
+        [...serviceTypeSet].map(serviceType => [serviceType.meta.zuid, serviceType])
+      );
+      // Filter the services
+      for (const service of window.allServices) {
+        if (serviceTypeMap.has(service.meta.zuid)) {
+          areaServices.push(service);
+        }
+      }
+    }
+    
+    return areaServices;
+  } catch (error) {
+    console.error('Error getting services for service area:', error);
+    return [];
+  }
+}
+
+
+// Pagination state
+let currentPage = 1;
+const itemsPerPage = 6;
+let allFilteredLocations = [];
+
+function handleApplyServices() {
+  const selectedCheckboxes = document.querySelectorAll('.services-list--mobile input[type="checkbox"]:checked');
+  const dropdownToggle = document.querySelector('#servicesDropdown2');
+  
+  // Get the current search term
+  const searchInput = document.getElementById('location-finder__input');
+  const searchInputMobile = document.getElementById('pac-input-mobile');
+  const activeInput = searchInput;
+  const searchTerm = activeInput?.value || '';
+
+  // Get filter information
+  const filterTypes = [];
+  const filterValues = [];
+  selectedCheckboxes.forEach(checkbox => {
+      const serviceName = checkbox.getAttribute('data-search-term-type').trim();
+      if (serviceName) {
+          filterTypes.push(serviceName);
+          filterValues.push(checkbox.value);
+      }
+  });
+  if (selectedCheckboxes.length > 0) {
+    // Get the first selected checkbox's label text
+    const firstCheckbox = selectedCheckboxes[0];
+    const firstLabel = firstCheckbox.closest('.service-item').querySelector('.service-name').textContent.trim();
+    
+    // Update dropdown button text
+    if (selectedCheckboxes.length === 1) {
+      dropdownToggle.innerHTML = `<div class="selected-pills py-3 px-1"><span class="bg-secondary-200 text-light rounded-9 px-6 py-3">${firstLabel}</span></div>`;
+    } else {
+      dropdownToggle.innerHTML = `<div class="selected-pills py-3 px-1"><span class="bg-secondary-200 text-light rounded-9 px-6 py-3">${firstLabel}</span> +${selectedCheckboxes.length - 1}</div>`;
+    }
+
+    // Track filter application
+    LocationTrackingFilterEvent(
+        searchTerm,
+        allFilteredLocations?.length || 0,
+        'location search - body',
+        'autofilled filters',
+        filterTypes.join(', '),
+        filterValues.join(', ')
+    );
+  } else {
+    // Reset to default text if no checkboxes selected
+    dropdownToggle.innerHTML = '<span class="rounded-9 px-6 py-3">Services</span>';
+  }
+  
+  // Trigger a new search when services are applied
+  const addressInput = document.getElementById('location-finder__input');
+  if (addressInput && addressInput.value) {
+    // searchServices();
+    debouncedSearchServices();
+  }
+}
+
+function handleResetServices(checkbox) {
+  const isMobile = window.innerWidth < 768;
+  const locationFinderDropdown = document.querySelector("#servicesDropdown2");
+
+  // Clear checkboxes based on view
+  const checkboxes = document.querySelectorAll(isMobile ? 
+    '.services-list--mobile input[type="checkbox"]' : 
+    '.services-list:not(.services-list--mobile) input[type="checkbox"]'
+  );
+  const checkedServices = [];
+  checkboxes.forEach(cb => {
+    if (checkbox.value == cb.value) {
+      cb.checked = false;
+    }
+
+    if (cb.checked) {
+      checkedServices.push(cb.getAttribute('data-search-term-type'));
+    }
+  });
+  
+
+  if (checkedServices.length == 0) {
+    // Reset dropdown button text
+    const dropdownToggle = document.querySelector('#servicesDropdown2');
+    if (dropdownToggle) {
+      dropdownToggle.innerHTML = '<span class="rounded-9 px-6 py-3">Services</span>';
+    }
+  } else {
+    if (checkedServices.length === 1) locationFinderDropdown.innerHTML =  `<div class="selected-pills py-3 px-1"><span class="bg-secondary-200 text-light rounded-9 px-6 py-3">${checkedServices[0]}</span></div>`;
+    if (checkedServices.length > 1) locationFinderDropdown.innerHTML = `<div class="selected-pills py-3 px-1"><span class="bg-secondary-200 text-light rounded-9 px-6 py-3">${checkedServices[0]}</span> +${checkedServices.length - 1}</div>`;
+  }
+
+  // Track filter reset
+  const searchInput = document.getElementById('location-finder__input');
+  const searchInputMobile = document.getElementById('pac-input-mobile');
+  const activeInput = searchInput;
+  const searchTerm = activeInput?.value || '';
+
+  LocationTrackingFilterEvent(
+      searchTerm,
+      allFilteredLocations?.length || 0,
+      'location search - body',
+      'user-entered',
+      '',  // No filter type when resetting
+      ''   // No filter value when resetting
+  );
+  
+  // Trigger a new search when services are reset
+  const addressInput = document.getElementById('location-finder__input');
+  if (addressInput && addressInput.value) {
+    // searchServices();
+    debouncedSearchServices();
+  }
+}
+
+function getPaginatedData(locations, page, perPage) {
+  const startIndex = (page - 1) * perPage;
+  const endIndex = startIndex + perPage;
+  return locations.slice(startIndex, endIndex);
+}
+
+function renderPaginationControls(totalItems) {
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const paginationContainer = document.createElement('div');
+  paginationContainer.className = 'pagination d-flex justify-content-center align-items-center gap-3 mt-4';
+  
+  const prevButton = document.createElement('button');
+  prevButton.className = 'btn btn-secondary';
+  prevButton.innerHTML = '&laquo; Previous';
+  prevButton.disabled = currentPage === 1;
+  prevButton.onclick = () => {
+    if (currentPage > 1) {
+      currentPage--;
+      displayLocations(allFilteredLocations);
+    }
+  };
+  
+  const pageIndicator = document.createElement('span');
+  pageIndicator.className = 'display-4 text-dark';
+  pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
+  
+  const nextButton = document.createElement('button');
+  nextButton.className = 'btn btn-secondary';
+  nextButton.innerHTML = 'Next &raquo;';
+  nextButton.disabled = currentPage >= totalPages;
+  nextButton.onclick = () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      displayLocations(allFilteredLocations);
+    }
+  };
+  
+  paginationContainer.appendChild(prevButton);
+  paginationContainer.appendChild(pageIndicator);
+  paginationContainer.appendChild(nextButton);
+  
+  return paginationContainer;
+}
+
+function showLoadingIndicator() {
+  const resultsContainer = document.querySelector('.location-results__list');
+  if (!resultsContainer) return;
+  
+  resultsContainer.innerHTML = `
+    <div class="col-12 text-center py-5">
+      <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="mt-3 display-4">Loading location data...</p>
+    </div>
+  `;
+}
+
+let _displayGen = 0;
+
+async function displayLocations(locations, selectedServices) {
+  const resultsContainer = document.querySelector('.location-results__list');
+  if (!resultsContainer) return;
+  // Results found — clear both no-results containers
+  document.querySelector('#no-service-area-container').innerHTML = '';
+  document.querySelector('#no-results-container').innerHTML = '';
+  const _gen = ++_displayGen;
+
+  resultsContainer.innerHTML = '';
+
+  if (locations.length === 0) {
+    const address = document.getElementById('location-finder__input').value;
+    const { county, stateCode } = await window.getCountyFromAddress(address);
+    // Show loader while fetching service areas
+    document.querySelector('#no-results-container').innerHTML = '';
+    document.querySelector('#no-service-area-container').innerHTML = `
+      <div class="d-flex align-items-center gap-2">
+        <div class="spinner-border spinner-border-sm text-primary-200" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    `;
+    
+    // Pre-fetch service types in the background to ensure they're cached
+    getServiceTypes().catch(err => console.error('Failed to preload service types:', err));
+    
+    // Use IIFE to avoid long promise chains
+    (async function() {
+      try {
+        // Get county/state information
+        if (!stateCode) {
+          document.querySelector('#no-results-container').innerHTML = `
+            <div class="col-12">
+              <div class="alert alert-info">
+                No locations found within 50 miles of your search location in ${county || ''}, ${stateCode}.
+              </div>
+            </div>
+          `;
+          return;
+        }
+        // Start fetching service areas
+        const serviceAreasPromise = getServiceAreasByState(stateCode, selectedServices);
+
+        
+        // Wait for both the API response and the minimum 1s display of the loader
+        const [serviceAreas] = await Promise.all([
+          serviceAreasPromise,
+          new Promise(resolve => setTimeout(resolve, 1000))
+        ]);
+
+        // A newer search started while we were waiting — discard this result
+        if (_gen !== _displayGen) return;
+
+        if (!serviceAreas || !Array.isArray(serviceAreas) || serviceAreas.length === 0) {
+          document.querySelector('#no-service-area-container').innerHTML = `
+            <div class="fs-7">No service areas found in ${stateCode}.</div>
+          `;
+          document.querySelector('#no-results-container').innerHTML = `
+            <p class="mb-2">No locations found within 50 miles of your search location in ${county || ''}, ${stateCode}.</p>
+          `;
+          return;
+        }
+
+        // Service areas found — show the "no locations" message and set up the service areas container
+        document.querySelector('#no-results-container').innerHTML = `
+          <p class="mb-2">No locations found within 50 miles of your search location in ${county || ''}, ${stateCode}.</p>
+          <div id="service-areas-container" class="mt-4"></div>
+        `;
+
+        // Update the UI with basic service area structure
+        document.getElementById('service-areas-container').innerHTML = `
+          <span class="fs-7 mb-3">Service Areas in ${stateCode}</span>
+          <div class="row g-3" id="service-areas-row"></div>
+        `;
+        
+        const serviceAreasRow = document.getElementById('service-areas-row');
+        
+        // Create all area cards with placeholders for services
+        serviceAreas.forEach((area, index) => {
+          const areaElement = document.createElement('div');
+          areaElement.className = 'col-md-6 mb-4';
+          areaElement.innerHTML = `
+            <div class="location-finder-results bg-light rounded-5 overflow-hidden p-8">
+              <div class="d-flex flex-column gap-4 justify-content-between h-100">
+                <div>
+                  <h4 class="display-1 fs-md-7">${area.name || 'Service Area'}</h4>
+                </div>
+                <div class="mb-auto">
+                  <div class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-3">
+                    <span class="display-4 display-md-1">Description</span>
+                    <div class="text-dark-50 ms-auto me-2 display-4 display-md-1">
+                      <span>${area.description || 'No description available'}</span>
+                    </div>
+                  </div>
+                  ${area.contact_name ? `
+                    <div class="d-flex align-items-center justify-content-between py-3">
+                      <span class="display-4 display-md-1">Contact Name</span>
+                      <div class="text-dark-50 display-4 display-md-1">
+                        <span>${area.contact_name}</span>
+                      </div>
+                    </div>
+                  ` : ''}
+                  ${area.contact_number ? `
+                    <div class="d-flex align-items-center justify-content-between py-3">
+                      <span class="display-4 display-md-1">Contact Number</span>
+                      <div class="text-dark-50 display-4 display-md-1">
+                        <span>${area.contact_number}</span>
+                      </div>
+                    </div>
+                  ` : ''}
+                  ${area.email ? `
+                    <div class="d-flex align-items-center justify-content-between py-3">
+                      <span class="display-4 display-md-1">Email Address</span>
+                      <div class="text-dark-50 display-4 display-md-1">
+                        <span>${area.email}</span>
+                      </div>
+                    </div>
+                  ` : ''}
+                  <div class="border-top border-2 border-dark-50 py-3">
+                    <span class="display-md-1 display-4">Services Offered</span>
+                    <div class="pt-3">
+                      <div class="row row-cols-2 row-cols-md-3 g-3" id="service-list-${index}">
+                        <div class="col">Loading services...</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                ${area.url ? `
+                  <div class="d-flex gap-2">
+                    <a href="${area.url}" class="btn btn-info d-flex align-items-center justify-content-center w-100 display-4">
+                      <span class="material-symbols-outlined text-light me-2">arrow_outward</span>
+                      View Service Area Details
+                    </a>
+                  </div>
+                ` : ''}
+              </div>
+            </div>
+          `;
+          
+          serviceAreasRow.appendChild(areaElement);
+        });
+        
+        // After all cards are rendered, fetch and attach services in the background
+        // This ensures the UI is responsive while services load
+        setTimeout(() => {
+          serviceAreas.forEach((area, index) => {
+            
+            getServicesForServiceArea(area).then(areaServices => {
+              const serviceListContainer = document.getElementById(`service-list-${index}`);
+              if (serviceListContainer) {
+                if (areaServices && areaServices.length > 0) {
+                  serviceListContainer.innerHTML = areaServices.map(service => `
+                    <div class="col">
+                      <div class="d-flex align-items-center">
+                        <span class="material-symbols-outlined text-primary-200 display-6">${service.content.icon_name}</span>
+                        <span class="display-4 display-md-1 ms-2">${service.meta.title}</span>
+                      </div>
+                    </div>
+                  `).join('');
+                } else {
+                  serviceListContainer.innerHTML = '<div class="col">No services available</div>';
+                }
+              }
+            }).catch(err => {
+              console.error('Error loading services for area:', err);
+              const serviceListContainer = document.getElementById(`service-list-${index}`);
+              if (serviceListContainer) {
+                serviceListContainer.innerHTML = '<div class="col">Error loading services</div>';
+              }
+            });
+          });
+        }, 100); // Short delay to let the UI render first
+        
+      } catch (error) {
+        console.error('Error getting location details:', error);
+        if (_gen !== _displayGen) return;
+        document.querySelector('#no-results-container').innerHTML = `
+          <div class="col-12">
+            <div class="alert alert-info">
+              No locations found within 50 miles of your search location in ${county || ''}, ${stateCode}.
+            </div>
+          </div>
+        `;
+      }
+    })();
+    
+    return;
+  }
+
+  // Show a loading placeholder while we render all the location cards
+  if (locations.length > 0) {
+    // Only add this if we have locations to display
+    resultsContainer.innerHTML = `
+      <div class="col-12 text-center py-3 location-loading-indicator">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-2 display-4">Preparing location data...</p>
+      </div>
+    `;
+  }
+  // Use setTimeout to give the browser a chance to render the loading indicator
+  setTimeout(() => {
+    // Clear the loading indicator
+    resultsContainer.innerHTML = '';
+    
+    const paginatedLocations = getPaginatedData(locations, currentPage, itemsPerPage);
+  
+    paginatedLocations.forEach(async (loc, index) => {
+      const distance = window.calculateDistance(
+        window.currentSearchLocation.lat,
+        window.currentSearchLocation.lng,
+        loc.latitude,
+        loc.longitude
+      ).toFixed(1);
+
+      const locationDiv = document.createElement('div');
+      locationDiv.className = 'col-md-6 mb-4 location-card position-relative';
+      locationDiv.setAttribute('data-location-id', loc.zuid);
+      
+      // Get the territory, division, and corps from location data
+      const orgDetails = loc.organization_details || '';
+      const services = loc.services ? loc.services.map(s => s.title).join(',') : '';
+      const address = addressBuilder(loc?.address, loc?.city, loc?.state, loc?.zipcode);
+      const hasServiceTypes = !!(loc.service_types && loc.service_types.trim().length);
+      // console.log(`LatLOng ${loc.name} ${address}`, loc.latitude,
+      //   loc.longitude, window.currentSearchLocation.lat,
+      //   window.currentSearchLocation.lng)
+      let generalHours = '';
+      if(stripos('Contact Store for hours', loc.hours_of_operation)) {
+        generalHours = 'Contact location for hours';
+      } else if (stripos('Contact for hours', loc.hours_of_operation)) {
+        generalHours = 'Contact location for hours';
+      } else {
+        generalHours = loc.hours_of_operation;
+      }
+      locationDiv.innerHTML = `
+        <div class="location-finder-results bg-light rounded-5 overflow-hidden p-8">
+          <div class="d-flex flex-column gap-4 justify-content-between h-100">
+            <div>
+              <h4 class="display-1 fs-md-7 d-flex align-items-center">
+                <div class="pin-icon"></div>
+                <span class="fw-bold">${loc.name || 'Salvation Army Location'}</span>
+              </h4>
+              <p class="display-4 display-md-2 text-primary-200">${distance} miles away from your location</p>
+            </div>
+            <div class="border-top border-2 border-dark-50 py-3 ${hasServiceTypes ? '' : 'd-none'}" id="servicesSection${index}">
+                <span class="display-md-1 display-4 fw-bold">Services Offered</span>
+                <div class="pt-3">
+                  <div class="row row-cols-2 row-cols-md-3 g-3" id="services-container-${index}">
+                    <div class="col">Loading services...</div>
+                  </div>
+                </div>
+              </div>
+            <div class="mb-auto">
+              <div class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-3">
+                <div class="d-flex align-items-start form-control ms-auto">
+                  <span class="display-4 display-md-1 fw-bold me-2">General Hours:</span>
+                  <span class="text-dark-50 display-4 display-md-1">${generalHours || 'Hours not available'}</span>
+                </div>
+                
+              </div>
+              <div class="d-flex align-items-center justify-content-between py-3">
+                <div class="d-flex align-items-center">
+                  <span class="display-4 display-md-1 fw-bold me-2">Phone:</span>
+                  <a 
+                    href="tel:${loc.contact_number}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-link-location-type="body:map"
+                    data-link-function-type="other"
+                    data-link-format-type="button"
+                    data-link-type="internal"
+                    data-location-id="${loc.zuid}"
+                    data-location-name="${loc.name}"
+                    data-location-org-detail="${orgDetails}"
+                    data-location-services="${services}"
+                    onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
+                    class="text-secondary-200 display-4 display-md-1 text-decoration-none"
+                  >
+                      <span class="border-bottom border-primary-100">${loc.contact_number || 'Phone not available'}</span>
+                  </a>
+                </div>
+              </div>
+              <div class="d-flex align-items-center justify-content-between py-3">
+                <div class="d-flex align-items-center">
+                  <span class="display-4 display-md-1 fw-bold me-2">Address:</span>
+                  <a 
+                      href="https://www.google.com/maps?q=${address}" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-link-location-type="body:map"
+                      data-link-function-type="other"
+                      data-link-format-type="button"
+                      data-link-type="internal"
+                      data-location-id="${loc.zuid}"
+                      data-location-name="${loc.name}"
+                      data-location-org-detail="${orgDetails}"
+                      data-location-services="${services}"
+                      onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
+                      class="text-secondary-200 display-4 display-md-1 text-decoration-none"
+                  >
+                      <span class="border-bottom border-primary-100">${address || 'Address not available'}</span>
+                  </a>
+                </div>
+              </div>
+              <div class="d-flex align-items-center justify-content-between py-3">
+                <div class="d-flex align-items-center">
+                  <span class="display-4 display-md-1 fw-bold me-2">Directions:</span>
+                  <a
+                          href="https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${address}&travelmode=walking"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-link-location-type="body:map"
+                          data-link-function-type="other"
+                          data-link-format-type="button"
+                          data-link-type="external"
+                          data-location-id="${loc.zuid}"
+                          data-location-name="${loc.name}"
+                          data-location-org-detail="${orgDetails}"
+                          data-location-services="${services}"
+                          onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
+                          class="text-dark-50 me-2 display-4 fs-md-7"
+                      >Walking</a>
+                      <a
+                          href="https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${address}&travelmode=driving"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-link-location-type="body:map"
+                          data-link-function-type="other"
+                          data-link-format-type="button"
+                          data-link-type="external"
+                          data-location-id="${loc.zuid}"
+                          data-location-name="${loc.name}"
+                          data-location-org-detail="${orgDetails}"
+                          data-location-services="${services}"
+                          onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
+                          class="text-dark-50 me-2 display-4 fs-md-7 "
+                      >Driving</a>
+                      <a
+                          href="https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${address}&travelmode=transit"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-link-location-type="body:map"
+                          data-link-function-type="other"
+                          data-link-format-type="button"
+                          data-link-type="external"
+                          data-location-id="${loc.zuid}"
+                          data-location-name="${loc.name}"
+                          data-location-org-detail="${orgDetails}"
+                          data-location-services="${services}"
+                          onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
+                          class="text-dark-50 me-2 display-4 fs-md-7"
+                      >Public Transport</a>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex gap-2">
+              <a
+                href="${loc.redirect_url ? loc.redirect_url : loc.url || '#'}"
+                class="btn btn-secondary d-flex align-items-center justify-content-center w-100 display-2"
+                data-location-search-term="${document.getElementById('location-finder__input')?.value || document.getElementById('pac-input-mobile')?.value || ''}"
+                data-location-search-results="${allFilteredLocations.length}"
+                data-location-search-type="location search - body"
+                data-location-search-method="${getSearchMethod()}"
+                data-location-search-result-index="${index + 1}"
+                data-location-id="${loc.zuid || ''}"
+                data-location-name="${loc.name || ''}"
+                data-location-org-detail="${orgDetails}"
+                data-location-services="${services}"
+                data-location-search-filter-type="${getSelectedFilterTypes()}"
+                data-location-search-filter-value="${getSelectedFilterValues()}"
+                data-link-function="navigation"
+                data-link-format="button"
+                data-link-text="View Location Website"
+                data-link-location="body:location-results"
+                data-link-url="${loc.url || ''}"
+                data-link-type="internal"
+                target="_blank"
+                onclick="LocationTrackingResultsClickEvent(this)"
+              >
+                <span class="material-symbols-outlined text-light me-2">arrow_outward</span>
+                View Location Website
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      resultsContainer.appendChild(locationDiv);
+      // Load services asynchronously (cached)
+      const servicesSection = document.getElementById(`servicesSection${index}`);
+      if (hasServiceTypes) {
+        if (servicesSection) {
+          servicesSection.classList.remove('d-none');
+        }
+        setServicesLoadingState(index);
+       
+        const locServiceTypes = loc.service_types.split(',');
+        window.fetchServicesForLocation(loc.zuid).then(services => {
+          renderServicesForLocation(loc, services, index);
+        }).catch(error => {
+          console.error('Error loading services:', error);
+          setServicesLoadingState(index, 'Error loading services');
+        });
+      }
+
+      // Trigger fade-in animation after a small delay
+      setTimeout(() => {
+        locationDiv.classList.add('fade-in');
+      }, index * 100); // Stagger the animations
+    });
+
+    // Add pagination controls
+    if (locations.length > 6 ) {
+      const paginationControls = renderPaginationControls(locations.length);
+      resultsContainer.appendChild(paginationControls);
+    }
+    
+    // Remove any remaining loading indicators
+    const loadingIndicator = document.querySelector('.location-loading-indicator');
+    if (loadingIndicator) {
+      loadingIndicator.remove();
+    }
+  }, 200); // Small delay to allow the loading indicator to be visible
+  
+
+  resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  const offset = 300; // your offset in pixels
+
+  const resultsContainertPosition = resultsContainer.getBoundingClientRect().top;
+  const offsetPosition = resultsContainertPosition + window.pageYOffset - offset;
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: 'smooth'
+  });
+  
+}
+
+// Function to update map position without loading pins
+async function updateMapPosition(address) {
+  return new Promise((resolve, reject) => {
+    const geocoder = new google.maps.Geocoder();
+    let geocodeRequest;
+    
+    if (isValidUSZipcode(address)) {
+      geocodeRequest = { 
+        address: address,
+        componentRestrictions: { 
+          country: 'US',
+          postalCode: address 
+        }
+      };
+    } else {
+      geocodeRequest = { 
+        address: address,
+        componentRestrictions: { 
+          country: 'US'
+        }
+      };
+    }
+
+    geocoder.geocode(geocodeRequest, (results, status) => {
+      if (status === "OK" && results.length > 0) {
+        const location = results[0].geometry.location;
+        
+        // Clear any existing markers
+        if (window.markers) {
+          window.markers.forEach(marker => marker.setMap(null));
+          window.markers = [];
+        }
+
+        // Center the map on the searched location and zoom in
+        window.map.setCenter(location);
+        window.map.setZoom(12);
+
+        resolve(location);
+      } else {
+        reject(new Error("Geocoding failed"));
+      }
+    });
+  });
+}
+
+async function searchServices() {
+  const searchInput = document.getElementById('location-finder__input');
+  const searchInputMobile = document.getElementById('pac-input-mobile');
+  const activeInput = searchInput;
+    
+  const location = document.getElementById('location-finder__input').value;
+  
+  // Show loading indicator immediately when search starts
+  showLoadingIndicator();
+  document.querySelector('#no-service-area-container').innerHTML = '';
+  document.querySelector('#no-results-container').innerHTML = '';
+  // window.mapClusters.cleanupClusters();
+
+  try {
+    // Get the location coordinates
+    const geocoder = new google.maps.Geocoder();
+    const geocodeResult = await new Promise((resolve, reject) => {
+      geocoder.geocode({ address: location, componentRestrictions: { country: 'US' } }, (results, status) => {
+        if (status === "OK" && results.length > 0) {
+          resolve(results[0].geometry.location);
+        } else {
+          reject(new Error("Geocoding failed"));
+        }
+      });
+    });
+    
+    // Store current search location for distance calculations
+    window.currentSearchLocation = {
+      lat: geocodeResult.lat(),
+      lng: geocodeResult.lng()
+    };
+
+    // Center the map on the search location
+    const map = window.map;
+    if (map) {
+      map.setCenter(geocodeResult);
+      map.setZoom(12);
+    }
+    // Fetch all locations
+    const locations = window.locationDatas;
+    // Get selected services from checkboxes based on screen size
+    const isMobile = window.innerWidth < 768;
+    const selectedServices = Array.from(document.querySelectorAll(isMobile ? 
+      '.services-list--mobile input[type="checkbox"]:checked' : 
+      '.services-list:not(.services-list--mobile) input[type="checkbox"]:checked'
+    )).map(checkbox => checkbox.value);
+    // Filter locations based on distance and services
+    allFilteredLocations = [];
+    for (const loc of locations) {
+      if (!loc || !loc.latitude || !loc.longitude) continue;
+      
+      const distance = window.calculateDistance(
+        geocodeResult.lat(),
+        geocodeResult.lng(),
+        loc.latitude,
+        loc.longitude
+      );
+
+      if (distance <= 50) {
+        // Check if location has ALL of the selected services
+        if (selectedServices.length > 0) {
+          
+          const locationServices = loc.service_types ? loc.service_types.split(",") : [];
+          const hasAllSelectedServices = selectedServices.some(service => 
+            locationServices.includes(service)
+          );
+
+          if (hasAllSelectedServices) {
+            allFilteredLocations.push(loc);
+          }
+          activeInput.setAttribute('data-search-filter-value-type', selectedServices.join(","));
+        } else {
+          allFilteredLocations.push(loc);
+        }
+      }
+    }
+
+    // Update data attributes before tracking
+    activeInput.setAttribute('data-search-term-type', location);
+    activeInput.setAttribute('data-search-results-type', allFilteredLocations.length);
+    
+    
+    const resultTextDiv = document.querySelector('.result-text');
+    if (resultTextDiv) {
+
+      const selectedServiceNames = Array.from(document.querySelectorAll(isMobile ? 
+        '.services-list--mobile input[type="checkbox"]:checked' : 
+        '.services-list:not(.services-list--mobile) input[type="checkbox"]:checked'
+      )).map(checkbox => checkbox.getAttribute('data-search-term-type'));
+      
+      resultTextDiv.textContent = `Search results for: ${location}`;
+        const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
+
+          const result = resultTextDiv.textContent.replace(regex, (word) => {
+              return word.charAt(0) + word.slice(1);
+            });
+            resultTextDiv.innerHTML = result;
+
+      if (selectedServiceNames.length > 0) {
+        resultTextDiv.innerHTML += `<br>Services Selected: ${selectedServiceNames.join(', ')}`;
+      }
+    }
+
+    const locationResults = document.getElementById('location-results');
+    if (locationResults) {
+      locationResults.style.display = 'block';
+    }
+    
+    // Clear existing location markers
+    if (window.locationMarkers && window.locationMarkers.length) {
+      window.locationMarkers.forEach(marker => marker.setMap(null));
+      window.locationMarkers = [];
+    }
+    
+    // Manually create markers for filtered locations
+    const customIcon = {
+      url: 'https://8hxvw8tw.media.zestyio.com/location_filled50.png',
+      origin: new google.maps.Point(0, 0),
+      anchor: new google.maps.Point(15, 40),
+      scaledSize: new google.maps.Size(40, 40)
+    };
+
+    const selectedIcon = {
+      url: 'https://8hxvw8tw.media.zestyio.com/location_filled.png',
+      origin: new google.maps.Point(0, 0),
+      anchor: new google.maps.Point(15, 40),
+      scaledSize: new google.maps.Size(40, 40)
+    };
+
+    // Create markers for the filtered locations
+    window.locationMarkers = [];
+    
+    for (const location of allFilteredLocations) {
+      const position = {
+        lat: parseFloat(location.latitude),
+        lng: parseFloat(location.longitude)
+      };
+
+      // Validate position
+      if (isNaN(position.lat) || isNaN(position.lng)) {
+        console.error('Invalid position for location:', location);
+        continue;
+      }
+
+      const locationMarker = new google.maps.Marker({
+        position: position,
+        map: window.map,
+        icon: customIcon,
+        title: convertHtmlEntities(location.name) || 'Salvation Army Location',
+        selectedIcon: selectedIcon,
+        defaultIcon: customIcon,
+
+      });
+
+      // Store location data directly on the marker object
+      locationMarker.locationData = {
+        resultIndex: window.locationMarkers.length + 1,
+        zuid: location.zuid || '',
+        name: convertHtmlEntities(location.name) || '',
+        organization_details: `SAL^${location.territory || ''}^${location.division || ''}^${location.corps || ''}`,
+        services: location.services ? location.services.map(s => s.title).join(',') : '',
+        address: addressBuilder(location.address, location.city, location.state, location.zipcode) || '',
+        contact_number: location.contact_number || '',
+        hours_of_operation: location.hours_of_operation || '',
+        url: window.location.origin + (location.url || '')
+      };
+
+      // Add click listener to marker
+      locationMarker.addListener('click', () => {
+        // Deselect previously selected marker if exists
+        if (window.selectedMarker && window.selectedMarker !== locationMarker) {
+          window.selectedMarker.setIcon(window.selectedMarker.defaultIcon);
+        }
+
+        // Toggle selection of current marker
+        if (window.selectedMarker === locationMarker) {
+          locationMarker.setIcon(locationMarker.defaultIcon);
+          window.selectedMarker = null;
+        } else {
+          locationMarker.setIcon(locationMarker.selectedIcon);
+          window.selectedMarker = locationMarker;
+        }
+
+        // Center and zoom the map on the clicked marker
+        window.map.setCenter(locationMarker.getPosition());
+        window.map.setZoom(15);
+
+        // Track the marker click
+        if (typeof LocationTrackingMapClickEvent === 'function') {
+          const searchInfo = {
+            searchTerm: document.getElementById('location-finder__input')?.value || '',
+            totalResults: allFilteredLocations.length,
+            searchMethod: getSearchMethod ? getSearchMethod() : 'user-entered',
+            filterType: selectedServices.length > 0 ? 'Service Type' : '',
+            filterValue: selectedServices.join(', ')
+          };
+          
+          LocationTrackingMapClickEvent(locationMarker.locationData, searchInfo);
+        }
+
+        // Call handlePinClick to highlight associated card
+        if (typeof window.handlePinClick === 'function') {
+          window.handlePinClick(locationMarker.locationData.zuid);
+        }
+
+        // Dispatch marker clicked event with the marker data
+        const event = new CustomEvent('markerClicked', {
+          detail: locationMarker.locationData
+        });
+        document.dispatchEvent(event);
+      });
+
+      window.locationMarkers.push(locationMarker);
+    }
+
+    // After filtering locations
+    activeInput.setAttribute('data-search-results', allFilteredLocations.length.toString());
+    
+    if (selectedServices.length > 0) {
+      activeInput.setAttribute('data-search-filter-type', 'Service Type');
+      activeInput.setAttribute('data-search-filter-value', 
+        selectedServices.map(cb => cb.nextElementSibling?.textContent?.trim() || '').join(', ')
+      );
+      activeInput.setAttribute('data-search-method', 'autofilled filters');
+    
+    }
+    // Track initial search
+    LocationTrackingSearchEvent(activeInput, 'location_search');
+    allFilteredLocations.sort((a, b) => {
+      const distanceA = window.calculateDistance(
+        geocodeResult.lat(),
+        geocodeResult.lng(),
+        a.latitude,
+        a.longitude
+      );
+      const distanceB = window.calculateDistance(
+        geocodeResult.lat(),
+        geocodeResult.lng(),
+        b.latitude,
+        b.longitude
+      );
+      return distanceA - distanceB;
+    });
+
+    // Reset to first page when performing new search
+    currentPage = 1;
+    displayLocations(allFilteredLocations, selectedServices);
+ 
+  } catch (error) {
+    console.error('Error in searchServices:', error);
+    const resultsContainer = document.querySelector('.location-results__list');
+    if (resultsContainer) {
+      resultsContainer.innerHTML = `
+        <div class="col-12">
+          <div class="alert alert-danger">
+            Error searching for locations. Please try again.
+          </div>
+        </div>
+      `;
+    }
+  }
+}
+
+function debounce(func, delay) {
+  let timeoutId;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+
+const debouncedSearchServices = debounce(searchServices, 300);
+
+// Add these helper functions at the script level
+function getSearchMethod() {
+    const hasFilters = document.querySelectorAll('input[type="checkbox"]:checked').length > 0;
+    const isGeolocation = document.querySelector('.use-my-location-2').classList.contains('active');
+    
+    if (hasFilters && isGeolocation) return 'autofilled filters and location';
+    if (hasFilters) return 'autofilled filters';
+    if (isGeolocation) return 'autofilled location';
+    return 'user-entered';
+}
+
+function getSelectedFilterTypes() {
+    const selectedFilters = document.querySelectorAll('input[type="checkbox"]:checked');
+    return Array.from(selectedFilters)
+        .map(cb => cb.closest('.service-item')?.querySelector('.service-name')?.textContent || '')
+        .join(', ');
+}
+
+function getSelectedFilterValues() {
+    const selectedFilters = document.querySelectorAll('input[type="checkbox"]:checked');
+    return Array.from(selectedFilters)
+        .map(cb => cb.value)
+        .join(', ');
+}
+
+// Replace or modify the existing getServiceTypes function
+async function getServiceTypes() {
+  // If we already have the data cached, return it immediately
+  if (window.serviceTypesCache) {
+    return window.serviceTypesCache;
+  }
+  
+  // If we're already in the process of fetching, don't start another request
+  if (window.serviceTypesPromise) {
+    return window.serviceTypesPromise;
+  }
+  
+  // Start a new fetch and save the promise
+  window.serviceTypesPromise = new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch('https://{{instance.domain}}/-/instant/6-f0f2e8c49b-sdbvrb.json');
+      const { data } = await response.json();
+      
+      // Save the result in the cache
+      window.serviceTypesCache = data;
+      resolve(data);
+    } catch (error) {
+      console.error('Error fetching service types:', error);
+      // Clear the promise so we can try again next time
+      window.serviceTypesPromise = null;
+      reject(error);
+    }
+  });
+  
+  return window.serviceTypesPromise;
+}
+
+// Modify the initialization function to preload service types
+async function initLoad() {
+
+  const zuid = '{{request.queryParam(zuid)}}';
+  // Preload service types in the background
+  window.allServices = await getServiceTypes();
+  
+  if (zuid) {
+    const location = await window.getLocation(zuid);
+    if (location) {
+      const currentCardTitle = document.querySelector('.current-card__title');
+      if (currentCardTitle) currentCardTitle.innerHTML = location.name;
+
+      const currentCardHours = document.querySelector('.current-card__hours');
+      if (currentCardHours) currentCardHours.innerHTML = location.hours_of_operation;
+
+      const currentCardPhone = document.querySelector('.current-card__phone');
+      if (currentCardPhone) currentCardPhone.innerHTML = location.contact_number;
+
+      const currentCardAddress = document.querySelector('.current-card__address');
+      if (currentCardAddress) currentCardAddress.innerHTML = location.address;
+
+      const locationFinderTitle = document.querySelector('.location-finder__title');
+      if (locationFinderTitle) locationFinderTitle.innerHTML = `${location.name} Information`;
+      
+      const distanceContainer = document.querySelector('.current-card__distance');
+      if(distanceContainer && window.currentSearchLocation.lat && window.currentSearchLocation.lng) {
+        window.currentLocation = location;
+        await initializeLocationWatcher();
+      }
+    }
+  }
+
+  // Add event listeners for mobile services dropdown buttons
+  const servicesListMobile = document.querySelector('.services-list--mobile .dropdown-menu');
+}
+
+// Function to update distance
+function updateDistance() {
+  const distanceContainer = document.querySelector('.current-card__distance');
+  if (distanceContainer && window.currentSearchLocation?.lat && window.currentSearchLocation?.lng) {
+    const distance = window.calculateDistance(
+      window.currentSearchLocation.lat,
+      window.currentSearchLocation.lng,
+      window.currentLocation?.latitude,
+      window.currentLocation?.longitude
+    ).toFixed(1);
+    distanceContainer.innerHTML = `${distance} miles away from your general location`;
+  }
+}
+
+// Function to initialize and watch for changes
+function initializeLocationWatcher() {
+  // Try to update immediately if data is available
+  if (window.currentSearchLocation?.lat && window.currentSearchLocation?.lng) {
+    updateDistance();
+  }
+
+  // Set up watcher for future changes
+  let previousLat = window.currentSearchLocation?.lat;
+  let previousLng = window.currentSearchLocation?.lng;
+  
+  setInterval(() => {
+    if (!window.currentSearchLocation) return;
+    
+    if (previousLat !== window.currentSearchLocation.lat || 
+        previousLng !== window.currentSearchLocation.lng) {
+      previousLat = window.currentSearchLocation.lat;
+      previousLng = window.currentSearchLocation.lng;
+      updateDistance();
+    }
+  }, 100);
+}
+// Function to handle pin click
+function handlePinClick(locationId) {
+  // Find the index of the location in allFilteredLocations
+  const locationIndex = allFilteredLocations.findIndex(loc => loc.zuid === locationId);
+  
+  if (locationIndex === -1) return;
+
+  // Calculate which page this location should be on
+  const targetPage = Math.floor(locationIndex / itemsPerPage) + 1;
+
+  // If we're not on the correct page, update currentPage and redisplay
+  if (currentPage !== targetPage) {
+    currentPage = targetPage;
+    displayLocations(allFilteredLocations);
+  }
+
+  // Remove selected-pin class from all cards
+  document.querySelectorAll('.location-card').forEach(card => {
+    card.classList.remove('selected-pin');
+    card.querySelector('.pin-icon').style.display = 'none';
+  });
+
+  // After a short delay to allow for page transition
+  setTimeout(() => {
+    // Find and highlight the associated card
+    const selectedCard = document.querySelector(`.location-card[data-location-id="${locationId}"]`);
+    if (selectedCard) {
+      selectedCard.classList.add('selected-pin');
+      const pinIcon = selectedCard.querySelector('.pin-icon');
+      if (pinIcon) {
+        pinIcon.style.display = 'block';
+      }
+      // Scroll the card into view with smooth behavior
+      selectedCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, 100);
+}
+
+// Make handlePinClick available globally for map.js
+window.handlePinClick = handlePinClick;
+
+async function initLocationFinder() {
+  // Initialize and handle URL parameters
+  try {
+    const addressInput = document.getElementById('location-finder__input');
+    // Initialize the page (this will call buildServiceCheckboxes)
+    const data = await window.fetchLocationData();
+    const searchBtn = document.querySelector("#location-finder__search-btn");
+    if(window.locationDatas.length > 0) {
+      const useMyLocationButton = document.querySelector(".use-my-location-2");
+      
+      if (useMyLocationButton) {
+        useMyLocationButton.addEventListener("click", async () => {
+        const locationButton = document.querySelector('.use-my-location-2');
+        if (!locationButton) {
+          console.error('Location button not found');
+          return;
+        }
+        
+        locationButton.disabled = true;
+
+        if (!navigator.geolocation) {
+          locationButton.disabled = false;
+          alert('Geolocation is not supported by your browser');
+          return;
+        }
+
+        const options = {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 300000 // 5 minutes
+        };
+
+        navigator.geolocation.getCurrentPosition(
+          async (position) => {
+            try {
+              const address = await getAddressFromCoordinates(position.coords.latitude, position.coords.longitude);
+              
+              LocationTrackingUseLocationEvent(address);
+              
+              const desktopInput = document.getElementById('location-finder__input');
+              const mobileInput = document.getElementById('pac-input-mobile');
+              
+              if (desktopInput) desktopInput.value = address;
+              if (mobileInput) mobileInput.value = address;
+
+              const searchInput = document.getElementById('location-finder__input') || document.getElementById('pac-input-mobile');
+              if (searchInput) {
+                searchInput.setAttribute('data-search-term-type', address);
+                searchInput.setAttribute('data-search-type-type', 'location search - body');
+                searchInput.setAttribute('data-search-method-type', 'autofilled location');
+              }
+
+              // Instead of updateMapPosition, directly update the map center
+              const geocoder = new google.maps.Geocoder();
+              const result = await new Promise((resolve, reject) => {
+                geocoder.geocode({ address }, (results, status) => {
+                  if (status === "OK" && results.length > 0) {
+                    resolve(results[0].geometry.location);
+                  } else {
+                    reject(new Error("Geocoding failed"));
+                  }
+                });
+              });
+
+              window.map.setCenter(result);
+              window.map.setZoom(12);
+              
+            } catch (error) {
+              console.error('Error:', error);
+              alert('Unable to get your location. Please enter it manually.');
+            } finally {
+              locationButton.disabled = false;
+            }
+          },
+          (error) => {
+            console.error('Geolocation error:', error);
+            locationButton.disabled = false;
+            
+            let errorMessage = 'Unable to get your location. Please enter it manually.';
+            switch(error.code) {
+              case error.PERMISSION_DENIED:
+                errorMessage = 'Location permission was denied. Please enter your location manually.';
+                break;
+              case error.POSITION_UNAVAILABLE:
+                errorMessage = 'Location information is unavailable. Please enter your location manually.';
+                break;
+              case error.TIMEOUT:
+                errorMessage = 'Location request timed out. Please enter your location manually.';
+                break;
+            }
+            
+            // alert(errorMessage);
+          },
+          options
+        );
+      });
+      }
+
+      // Wait for Google Maps to be loaded before initializing search boxes
+      if (window.google && window.google.maps) {
+        const input = document.getElementById("location-finder__input");
+        const inputMobile = document.getElementById("pac-input-mobile");
+        const checkboxesItems = document.querySelectorAll('.form-check-input');
+        
+        if (input) {
+          // Create session token to group autocomplete requests (reduces API costs)
+          let sessionToken = new google.maps.places.AutocompleteSessionToken();
+          const autocompleteService = new google.maps.places.AutocompleteService();
+
+          let debounceTimer;
+          const debounceDelay = 300; // Wait 300ms after user stops typing
+
+          // Create autocomplete dropdown container with enhanced styling
+          const autocompleteContainer = document.createElement('div');
+          autocompleteContainer.className = 'autocomplete-dropdown-container';
+          autocompleteContainer.style.cssText = `
+            position: absolute;
+            z-index: 1050;
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            max-height: 280px;
+            overflow-y: auto;
+            display: none;
+            width: 100%;
+            margin-top: 4px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+          `;
+
+          // Add custom styles for this dropdown
+          if (!document.getElementById('autocomplete-styles-location-finder')) {
+            const style = document.createElement('style');
+            style.id = 'autocomplete-styles-location-finder';
+            style.textContent = `
+              .autocomplete-dropdown-container::-webkit-scrollbar {
+                width: 8px;
+              }
+              .autocomplete-dropdown-container::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 4px;
+              }
+              .autocomplete-dropdown-container::-webkit-scrollbar-thumb {
+                background: #c1c1c1;
+                border-radius: 4px;
+              }
+              .autocomplete-dropdown-container::-webkit-scrollbar-thumb:hover {
+                background: #a8a8a8;
+              }
+              .autocomplete-item-location {
+                padding: 12px 16px;
+                cursor: pointer;
+                border-bottom: 1px solid #f3f4f6;
+                transition: background-color 0.15s ease;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+              }
+              .autocomplete-item-location:last-child {
+                border-bottom: none;
+              }
+              .autocomplete-item-location:hover {
+                background-color: #f9fafb;
+              }
+              .autocomplete-item-location:active {
+                background-color: #f3f4f6;
+              }
+              .autocomplete-icon-location {
+                width: 18px;
+                height: 18px;
+                color: #6b7280;
+                flex-shrink: 0;
+              }
+              .autocomplete-text-location {
+                color: #1f2937;
+                font-size: 14px;
+                line-height: 1.5;
+              }
+            `;
+            document.head.appendChild(style);
+          }
+
+          input.parentNode.style.position = 'relative';
+          input.parentNode.appendChild(autocompleteContainer);
+
+          input.addEventListener('input', function() {
+            const value = this.value;
+
+            clearTimeout(debounceTimer);
+
+            if (value.length < 3) {
+              autocompleteContainer.style.display = 'none';
+              return;
+            }
+
+            // Debounce API call - only fire after user stops typing
+            debounceTimer = setTimeout(() => {
+              autocompleteService.getPlacePredictions({
+                input: value,
+                types: ['(regions)'],  // Regions type for city/ZIP searches (cheaper than geocode)
+                componentRestrictions: { country: 'US' },
+                sessionToken: sessionToken
+              }, (predictions, status) => {
+                if (status === google.maps.places.PlacesServiceStatus.OK && predictions) {
+                  autocompleteContainer.innerHTML = '';
+                  autocompleteContainer.style.display = 'block';
+
+                  predictions.forEach(prediction => {
+                    const item = document.createElement('div');
+                    item.className = 'autocomplete-item-location';
+                    item.innerHTML = `
+                      <svg class="autocomplete-icon-location" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                      </svg>
+                      <span class="autocomplete-text-location">${prediction.description}</span>
+                    `;
+
+                    item.addEventListener('click', function() {
+                      input.value = prediction.description;
+                      autocompleteContainer.style.display = 'none';
+                      debouncedSearchServices();
+
+                      // Create new session token for next search
+                      sessionToken = new google.maps.places.AutocompleteSessionToken();
+                    });
+                    autocompleteContainer.appendChild(item);
+                  });
+                } else {
+                  autocompleteContainer.style.display = 'none';
+                }
+              });
+            }, debounceDelay);
+          });
+
+          // Hide dropdown when clicking outside
+          document.addEventListener('click', function(e) {
+            if (e.target !== input && !autocompleteContainer.contains(e.target)) {
+              autocompleteContainer.style.display = 'none';
+            }
+          });
+        }
+
+        if (inputMobile) {
+          // Create session token to group autocomplete requests (reduces API costs)
+          let sessionTokenMobile = new google.maps.places.AutocompleteSessionToken();
+          const autocompleteServiceMobile = new google.maps.places.AutocompleteService();
+
+          let debounceTimerMobile;
+          const debounceDelayMobile = 300; // Wait 300ms after user stops typing
+
+          // Create autocomplete dropdown container with enhanced styling
+          const autocompleteContainerMobile = document.createElement('div');
+          autocompleteContainerMobile.className = 'autocomplete-dropdown-container-mobile';
+          autocompleteContainerMobile.style.cssText = `
+            position: absolute;
+            z-index: 1050;
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            max-height: 280px;
+            overflow-y: auto;
+            display: none;
+            width: 100%;
+            margin-top: 4px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+          `;
+
+          // Add custom styles for mobile dropdown
+          if (!document.getElementById('autocomplete-styles-location-finder-mobile')) {
+            const styleMobile = document.createElement('style');
+            styleMobile.id = 'autocomplete-styles-location-finder-mobile';
+            styleMobile.textContent = `
+              .autocomplete-dropdown-container-mobile::-webkit-scrollbar {
+                width: 8px;
+              }
+              .autocomplete-dropdown-container-mobile::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 4px;
+              }
+              .autocomplete-dropdown-container-mobile::-webkit-scrollbar-thumb {
+                background: #c1c1c1;
+                border-radius: 4px;
+              }
+              .autocomplete-dropdown-container-mobile::-webkit-scrollbar-thumb:hover {
+                background: #a8a8a8;
+              }
+              .autocomplete-item-location-mobile {
+                padding: 12px 16px;
+                cursor: pointer;
+                border-bottom: 1px solid #f3f4f6;
+                transition: background-color 0.15s ease;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+              }
+              .autocomplete-item-location-mobile:last-child {
+                border-bottom: none;
+              }
+              .autocomplete-item-location-mobile:hover {
+                background-color: #f9fafb;
+              }
+              .autocomplete-item-location-mobile:active {
+                background-color: #f3f4f6;
+              }
+              .autocomplete-icon-location-mobile {
+                width: 18px;
+                height: 18px;
+                color: #6b7280;
+                flex-shrink: 0;
+              }
+              .autocomplete-text-location-mobile {
+                color: #1f2937;
+                font-size: 14px;
+                line-height: 1.5;
+              }
+            `;
+            document.head.appendChild(styleMobile);
+          }
+
+          inputMobile.parentNode.style.position = 'relative';
+          inputMobile.parentNode.appendChild(autocompleteContainerMobile);
+
+          inputMobile.addEventListener('input', function() {
+            const value = this.value;
+
+            clearTimeout(debounceTimerMobile);
+
+            if (value.length < 3) {
+              autocompleteContainerMobile.style.display = 'none';
+              return;
+            }
+
+            // Debounce API call - only fire after user stops typing
+            debounceTimerMobile = setTimeout(() => {
+              autocompleteServiceMobile.getPlacePredictions({
+                input: value,
+                types: ['(regions)'],  // Regions type for city/ZIP searches (cheaper than geocode)
+                componentRestrictions: { country: 'US' },
+                sessionToken: sessionTokenMobile
+              }, (predictions, status) => {
+                if (status === google.maps.places.PlacesServiceStatus.OK && predictions) {
+                  autocompleteContainerMobile.innerHTML = '';
+                  autocompleteContainerMobile.style.display = 'block';
+
+                  predictions.forEach(prediction => {
+                    const item = document.createElement('div');
+                    item.className = 'autocomplete-item-location-mobile';
+                    item.innerHTML = `
+                      <svg class="autocomplete-icon-location-mobile" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                      </svg>
+                      <span class="autocomplete-text-location-mobile">${prediction.description}</span>
+                    `;
+
+                    item.addEventListener('click', async function() {
+                      inputMobile.value = prediction.description;
+                      autocompleteContainerMobile.style.display = 'none';
+                      await updateMapPosition(prediction.description);
+
+                      // Create new session token for next search
+                      sessionTokenMobile = new google.maps.places.AutocompleteSessionToken();
+                    });
+                    autocompleteContainerMobile.appendChild(item);
+                  });
+                } else {
+                  autocompleteContainerMobile.style.display = 'none';
+                }
+              });
+            }, debounceDelayMobile);
+          });
+
+          // Hide dropdown when clicking outside
+          document.addEventListener('click', function(e) {
+            if (e.target !== inputMobile && !autocompleteContainerMobile.contains(e.target)) {
+              autocompleteContainerMobile.style.display = 'none';
+            }
+          });
+        }
+        
+        checkboxesItems.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (input.value != '') {
+                    // console.log("Input Value:", input.value);
+                    // searchServices();
+                    debouncedSearchServices();
+                } else if(input.value == '' && checkbox.checked) {
+                  const city = cookieManager.get(cookieKeys.locationCity);
+                  const state = cookieManager.get(cookieKeys.locationState);
+                  const address = cookieManager.get(cookieKeys.locationAddress);
+                  let completeAddress = '';
+                  if (address === null && state === null && city === null) {
+                    completeAddress = "615 Slaters Lane, Alexandria, Virginia 22314"
+                  } else {
+                    completeAddress = `${address}, ${city}, ${state}`;
+                  }
+                  input.value = completeAddress;
+                  // searchServices();
+                  debouncedSearchServices();
+                }
+            });
+        });
+
+        // Prevent Google Maps from handling the enter key
+        input?.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') e.preventDefault();
+        });
+        
+        inputMobile?.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') e.preventDefault();
+        });
+
+        
+
+      }
+      // Handle URL parameters
+      const address = '{{request.queryParam(address)}}';
+      const services = '{{request.queryParam(services)}}';
+      
+      
+      if (address || services) {
+        let hasParams = false;
+        
+        // Apply address parameter
+        if (address && addressInput) {
+          const decodedAddress = decodeURIComponent(address);
+          addressInput.value = decodedAddress;
+          hasParams = true;
+        }
+
+        // Apply services parameter
+        if (services) {
+          const addressInput = document.querySelector('#location-finder__input');
+          const servicesList = decodeURIComponent(services).split(',').map(s => s.trim().toLowerCase());
+          const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+          let servicesApplied = false;
+          
+          checkboxes.forEach(checkbox => {
+            if (servicesList.includes(checkbox.value.toLowerCase())) {
+              checkbox.checked = true;
+              checkbox.setAttribute('checked', 'checked');
+              servicesApplied = true;
+            }
+          });
+
+          // Update dropdown text if services were applied
+          if (servicesApplied) {
+            const dropdownToggle = document.querySelector('#servicesDropdown2');
+            if (dropdownToggle) {
+              const selectedCheckboxes = document.querySelectorAll('.location-finder .services-list--mobile input[type="checkbox"]:checked');
+              if (selectedCheckboxes.length > 0) {
+                const firstCheckbox = selectedCheckboxes[0];
+                const firstLabel = firstCheckbox.getAttribute('data-search-term-type').trim();
+                if (selectedCheckboxes.length === 1) {
+                  dropdownToggle.innerHTML = `<div class="selected-pills py-3 px-1"><span class="bg-secondary-200 text-light rounded-9 px-6 py-3">${firstLabel}</span></div>`;
+                } else {
+                  dropdownToggle.innerHTML = `<div class="selected-pills py-3 px-1"><span class="bg-secondary-200 text-light rounded-9 px-6 py-3">${firstLabel}</span> +${selectedCheckboxes.length - 1}</div>`;
+                }
+              }
+            }
+            hasParams = true;
+          }
+
+
+          const city = cookieManager.get(cookieKeys.locationCity);
+          const state = cookieManager.get(cookieKeys.locationState);
+          const address = cookieManager.get(cookieKeys.locationAddress);
+
+          if (address === null && state === null && city === null) {
+            addressInput.setAttribute('value', '615 Slaters Lane, Alexandria, Virginia 22314');
+          }else{
+            const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
+
+            const result = `${address}, ${city}, ${state}`.replace(regex, (word) => {
+              return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+            });
+            addressInput.setAttribute("value", result)
+          }
+        }
+
+        // If we have an address parameter, update the map position
+        if (address && addressInput) {
+          await updateMapPosition(addressInput.value);
+        }
+
+        // searchServices();
+        debouncedSearchServices();
+      }
+      searchBtn.removeAttribute('disabled');
+    }
+    await initLoad();
+  } catch (error) {
+    console.error('Error during initialization:', error);
+  }
+}
+
+// Make initLocationFinder available globally for the callback
+window.initLocationFinder = initLocationFinder;
+
+// Wait for DOM content to be loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // The map.js file will call initLocationFinder after Google Maps is loaded
+  if (window.google && window.google.maps) {
+    initLocationFinder();
+  }
+});
+
+</script>

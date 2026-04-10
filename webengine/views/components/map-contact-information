@@ -1,0 +1,244 @@
+<div class="d-flex flex-column gap-4 justify-content-between h-100">
+  <h4 class="fw-normal">{{this.name}}</h4>
+
+  <div class="mb-auto">
+
+    {{if {this.hours_of_operation.htmlentities()} }}
+    <div
+      class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-3"
+    >
+      <span class="fs-lg-7 display-4 fw-normal"> General Hours </span>
+      <div class="text-dark-50 ms-auto me-2 fs-lg-7 display-4 fw-normal text-end w-75">
+        <div class="form-control w-100 border-0 custom-textarea text-dark-50 bg-transparent fs-lg-7 display-4 fw-normal ">
+          {{this.hours_of_operation.htmlentities()}}
+        </div>
+      </div>
+      <!-- <button class="btn p-0 d-flex align-items-center justify-content-center">
+        <span class="material-symbols-outlined text-dark-50"> add </span>
+      </button> -->
+    </div>
+    {{/if}}
+    <div
+      class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-3"
+    >
+      <span class="fs-lg-7 display-4 fw-normal"> Phone </span>
+      <div class="text-dark-50 fs-lg-7 display-4 fw-normal">
+        <a href="tel:{{this.contact_number}}" 
+          onclick="LocationTrackingResultsClickEvent(this)"
+          data-location-name="{{this.name}}"
+          data-location-id="{{this.zuid}}"
+          data-link-function="contact"
+          data-link-format="phone"
+          data-link-text="{{this.contact_number}}"
+          data-link-type="phone">{{this.contact_number}}</a>
+      </div>
+    </div>
+    <div
+      class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-3"
+    >
+      <span class="fs-lg-7 display-4 fw-normal"> Address </span>
+      <div  class="text-dark-50 fs-lg-7 display-4 fw-normal w-75 text-end">
+        <a 
+          id="map__address"
+          href="" target="_blank" rel="noopener noreferrer"
+          onclick="LocationTrackingResultsClickEvent(this)"
+          data-location-name="{{this.name}}"
+          data-location-id="{{this.zuid}}"
+          data-link-function="contact"
+          data-link-format="address"
+          data-link-text="{{!this.address}}"
+          data-link-type="address">
+          <span class="text-dark-50 text-decoration-none mapAddress"></span>
+        </a>
+      </div>
+    </div>
+    <div
+      class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-3"
+    >
+      <span class="fs-lg-7 display-4 fw-normal"> Directions </span>
+      <div class="text-dark-50 fs-lg-7 display-4 fw-normal">
+        <a id="map__walking" href="https://www.google.com/maps?dirflg=w&q={{!this.address}}" target="_blank" rel="noopener noreferrer" class="text-dark-50 me-2"
+          onclick="LocationTrackingResultsClickEvent(this)"
+          data-location-name="{{this.name}}"
+          data-location-id="{{this.zuid}}"
+          data-link-function="directions"
+          data-link-format="walking"
+          data-link-text="Walking"
+          data-link-type="directions">Walking</a>
+        <a id="map__driving" href="https://www.google.com/maps?dirflg=d&q={{!this.address}}" target="_blank" rel="noopener noreferrer" class="text-dark-50 me-2"
+          onclick="LocationTrackingResultsClickEvent(this)"
+          data-location-name="{{this.name}}"
+          data-location-id="{{this.zuid}}"
+          data-link-function="directions"
+          data-link-format="driving"
+          data-link-text="Driving"
+          data-link-type="directions">Driving</a>
+        <a id="map__transit" href="https://www.google.com/maps?dirflg=r&q={{!this.address}}" target="_blank" rel="noopener noreferrer" class="text-dark-50"
+          onclick="LocationTrackingResultsClickEvent(this)"
+          data-location-name="{{this.name}}"
+          data-location-id="{{this.zuid}}"
+          data-link-function="directions"
+          data-link-format="transit"
+          data-link-text="Public Transport"
+          data-link-type="directions">Public Transport</a>
+      </div>
+    </div>
+    <div
+      class="border-top border-bottom border-2 border-dark-50 d-flex align-items-center justify-content-between py-3 w-100"
+    >
+    <div class="accordion w-100" id="servicesAccordion">
+      <div class="accordion-item border-0">
+        <h2 class="accordion-header" id="servicesHeading">
+          <button
+            aria-expanded="false"
+            aria-controls="servicesCollapse"
+            class="accordion-button collapsed p-0 bg-transparent shadow-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#servicesCollapse"
+            data-location-type="body:location-results"
+            data-function-type="other"
+            data-format-type="icon-block"
+            data-page-componentType-type="location-results component"
+            data-page-componentHeading-type=null
+            data-page-componentSubheading-type=null
+            data-page-componentIndex-type=null
+            onclick="LinkTrackingClickEvent(this,'view_content_click')" 
+          >
+            <div class="d-flex align-items-center justify-content-between w-100">
+              <span class="display-md-1 display-4">Services</span>
+              <span class="text-dark-50 text-decoration-none display-md-1 display-4 me-1">View More</span>
+            </div>
+          </button>
+        </h2>
+        <div id="servicesCollapse" class="accordion-collapse collapse" aria-labelledby="servicesHeading" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body p-0 pt-3">
+            <div class="row row-cols-2 row-cols-md-3 g-3" id="services-container">
+              Loading services...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="d-flex gap-2">
+    <!-- <button class="btn btn-info d-flex align-items-center justify-content-center d-sm-none d-lg-flex">
+      <span class="material-symbols-outlined text-light"> arrow_outward </span>
+      Go To Site
+    </button> -->
+    <!-- <a href="#program-schedule" class="btn btn-secondary d-flex align-items-center justify-content-center">
+      <span class="material-symbols-outlined text-light"> arrow_outward </span>
+      Service Hours & Info
+    </a> -->
+  </div>
+</div>
+<script>
+  const locZuid = "{{this.zuid}}";
+  const fetchServicesForLocation = async function(zuid) {
+    try {
+      const response = await fetch(`${window.location.origin}/services.json?location=${zuid}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const rawData = await response.text(); 
+      
+      const data = JSON.parse(rawData);
+
+      return Array.isArray(data) ? data : [];
+    } catch (error) {
+      console.error('Error checking location:', error);
+      return [];
+    }
+  };
+
+
+  const fetchServicesOfferedForLocation = async function(zuid) {
+    try {
+      const response = await fetch(`${window.location.origin}/services-offered.json?zuid=${zuid}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const rawData = await response.text(); 
+      const data = JSON.parse(rawData);
+      
+      return Array.isArray(data) ? data : [];
+    } catch (error) {
+      console.error('Error checking location:', error);
+      return [];
+    }
+  };
+  // Initialize when the page loads
+  document.addEventListener('DOMContentLoaded', async function () {
+    // Load services asynchronously
+    fetchServicesForLocation(locZuid).then(services => {
+        const servicesContainer = document.getElementById(`services-container`);
+        if (servicesContainer && services && Array.isArray(services) && services.length > 0) {
+          servicesContainer.innerHTML = services
+            .filter(service => service.service_type && service.service_type.data && service.service_type.data[0])
+            .map(service => `
+            <div class="col">
+              <div class="d-flex align-items-start">
+                <span class="material-symbols-outlined text-primary-200 display-6">${service.service_type ? service.service_type.data[0].icon_name : `settings`}</span>
+                <a href="${service.meta.web.url}" class="display-4 text-dark-100 display-md-1 ms-2">${service.title}</a>
+              </div>
+            </div>
+          `).join('');
+        } else if (servicesContainer) {
+
+          fetchServicesOfferedForLocation(locZuid).then(services => {
+            const servicesContainer = document.getElementById(`services-container`);
+            if (servicesContainer && services && Array.isArray(services)) {
+              servicesContainer.innerHTML = services.map(service => `
+              <div class="col">
+                <div class="d-flex align-items-start">
+                  <span class="material-symbols-outlined text-primary-200 display-6">${service.icon_name}</span>
+                  <span class="display-5 text-dark-100 display-md-1 ms-2">${service.title}</span>
+                </div>
+              </div>
+          `).join('');
+            }
+          })
+          
+        }
+      }).catch(error => {
+        console.error('Error loading services:', error);
+        const servicesContainer = document.getElementById(`services-container`);
+        if (servicesContainer) {
+          servicesContainer.innerHTML = 'Error loading services';
+        }
+      });
+      // Overwrite address links
+      const address = '{{!this.address}}';
+      const city = '{{cities.filter({this.city}).title}}';
+      const state = '{{states.filter({this.state}).state_code}}';
+      const zipcode = '{{this.zipcode}}';
+
+      const mapAddressText = document.querySelector('#map__address span');
+      const mapAddressLink = document.querySelector('#map__address');
+      const mapWalking = document.querySelector('#map__walking');
+      const mapDriving = document.querySelector('#map__driving');
+      const mapTransit = document.querySelector('#map__transit');
+      
+      const fullAddress = addressBuilder(address, city, state, zipcode);
+      mapAddressText.innerHTML = fullAddress;
+      mapAddressLink.setAttribute('href', `https://www.google.com/maps?q=${fullAddress}`);
+      mapWalking.setAttribute('href', `https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${fullAddress}&travelmode=walking`);
+      mapDriving.setAttribute('href', `https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${fullAddress}&travelmode=driving`);
+      mapTransit.setAttribute('href', `https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${fullAddress}&travelmode=transit`);
+
+
+      const mapAddresses = document.querySelectorAll('.mapAddress');
+      const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
+
+      mapAddresses.forEach((address) => {
+        const result = address.textContent.replace(regex, (word) => {
+          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        });
+
+        address.textContent = result;
+      }); 
+      });
+  
+</script>

@@ -1,0 +1,191 @@
+
+
+<script type="text/javascript">
+  function checkPropertyType() {
+   const propType = cookieManager.get(cookieKeys.locationPropertyType);
+        if (propType) {
+          const currentPropType = specialPropertyTypes[propType];
+          if (currentPropType) {
+            const el = document.querySelectorAll('.hide-special-prop-type');
+
+            el.forEach((e) => (e.className = 'd-none'));
+            isSpecialPropType = true;
+          }
+        }
+    }
+    
+  (async function(a,b,c,d){
+    await initCookies()
+    checkPropertyType();
+
+
+    const profile = cookieManager.get(cookieKeys.tealiumprofile)
+    a=`{{$baseUrl}}/${profile}/{{$profile_env}}/utag.js`;
+    b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/javascript';
+    d.async=true;
+    a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+  })();
+
+  const page_path = document.location.pathname;
+
+  function getModules() {
+    const pageModules = [];
+    const modules = document.querySelectorAll('[data-component-type]');
+    modules.forEach((module, index) => {
+      module.dataset.componentIndex = index + 1;
+      pageModules.push(module.dataset.componentType);
+    });
+    return pageModules.toString()
+  }
+
+  function waitForUtag(callback, maxAttempts = 50) {
+      let attempts = 0;
+
+      function checkUtag() {
+          attempts++;
+          if (typeof utag !== 'undefined') {
+              callback();
+          } else if (attempts < maxAttempts) {
+              setTimeout(checkUtag, 100);
+          } else {
+              console.warn('Tealium failed to load after maximum attempts');
+          }
+      }
+
+      checkUtag();
+  }
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    waitForUtag(async function() {
+    checkPropertyType();
+
+      const code = cookieManager.get(cookieKeys.analyticsCode)
+      const name = cookieManager.get(cookieKeys.locationName)
+      const level = cookieManager.get(cookieKeys.organizationLevel)
+      const territory = cookieManager.get(cookieKeys.organizationTerritory)
+      const division = cookieManager.get(cookieKeys.organizationDivision)
+      const corp = cookieManager.get(cookieKeys.organizationCorp)
+
+        // Your Tealium tracking code here
+        utag.view({
+          //All pages
+          event: 'page_view',
+          page_path: `{{$page_path}}`,
+          page_name: `{{ $page_title.htmlentities() }}`,
+          page_siteSection: '{{ $page_siteSection }}',
+          page_hierarchy: code,
+          page_errorPage: 'false',
+          page_environment: '{{instance.env}}',
+          page_language: 'EN',
+          page_type: '{{ $page_type }}',
+          page_type_detail: '{{ $page_type_detail }}',
+          page_objective: `{{ this.seo_meta_description.htmlentities() }}`,
+          page_author: '<< [Name or ID of the user who authored the page (most recent)] >>',
+          page_owner: "{{$tealium_profile}}",
+          page_updated_date: '{{this.updated_at}}',
+          page_audience: '<< donors | clients | volunteers | thrift shoppers | job applicants | press >>',
+          organization_name: name,
+          organization_level: level,
+          organization_territory: territory ? territory : '',
+          organization_division: division ? division : '',
+          organization_corp: corp ? corp : '',
+          {{if {$page_tags} }}
+            page_tags: {{$page_tags}},
+          {{/if}}
+          {{if {$page_state} }}
+            page_state: {{$page_state}},
+          {{/if}}
+          {{if {$page_city} }}
+            page_city: {{$page_city}},
+          {{/if}}
+          modules: getModules(),
+          test_module: getModules()
+        });
+        // Implement content_view analytics
+        function trackContentView(component) {
+          try {
+  
+
+            const componentData = {
+              id: component.id || '',
+              type: component.dataset.componentType || '',
+              index: component.dataset.componentIndex || '',
+              heading: component.querySelector('h1, h2, h3, h4, h5, h6')?.textContent?.trim() || '',
+              subheading: component.querySelector('p')?.textContent?.trim() || '',
+              imageUrl: component.querySelector('img')?.src || ''
+            };
+
+            utag.link({
+              event: 'content_view',
+              page_componentID: componentData.id,
+              page_componentHeading: componentData.heading,
+              page_componentSubheading: componentData.subheading,
+              page_componentType: componentData.type,
+              page_componentIndex: componentData.index,
+              page_componentImageAssetURL: componentData.imageUrl,
+              modules: getModules()
+            });
+          } catch (error) {
+            console.error('Error in trackContentView:', error);
+          }
+        }
+
+        let modules = [];
+        // Create Intersection Observer
+        // const observer = new IntersectionObserver((entries) => {
+        //   entries.forEach(entry => {
+        //     if (entry.isIntersecting) {
+        //       trackContentView(entry.target);
+        //       observer.unobserve(entry.target); // Only track once
+        //     }
+        //   });
+        // }, {
+        //   threshold: 0.1 // Fire when 10% of the component is visible
+        // });
+
+        // Apply observer to all components
+        // const components = document.querySelectorAll('[data-component-type]');
+        // components.forEach((component, index) => {
+        //   component.dataset.componentIndex = index + 1;
+        //   modules.push(component.dataset.componentType);
+        //   observer.observe(component);
+        // });
+    });
+  });
+
+  function updateViewContentLink() {
+    let data = {{ this.toJSON() }};
+    let contentZuid = data.meta.zuid;
+    let modelZuid = data.meta.model.zuid;
+    let contentURL = 'https://{{ instance.zuid }}.manager.zesty.io/content/' +  modelZuid + "/" + contentZuid;
+    document.querySelector("#view-content-button").href= contentURL;
+  }
+  updateViewContentLink();
+</script>
+
+<div>
+  <div class="placeholder-glow header-content-loader">
+    <div class="placeholder rounded-bottom-sm-2 rounded-bottom-lg-5 top-lg-5 start-sm-0 end-sm-0 end-lg-2 start-lg-2 top-sm-0 rounded-top-sm-0 rounded-top-lg-5 rounded-top-sm-0 position-sm-fixed py-5 my-lg-5 mt-sm-0 mx-md-8 mx-sm-0" style="height: 6rem; z-index: 100;"></div>
+  </div>
+<div class="d-none header-main-container align-items-center justify-content-center mx-auto">
+  {{include components/header }}
+</div>
+
+<main class="px-4 px-md-8 px-lg-0 container-lg container-fluid main-container">
+  <div class="main-content">
+    {{include modules/hero-full-404}}
+    {{include modules/services}}
+    {{include modules/faqs}}
+  </div>
+</main>
+</div>
+<div class="px-4 px-md-8 px-lg-0 container-lg container-fluid main-container mt-15">
+{{include components/footer}}
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const bannerBtn = document.querySelector('#btn-404');
+    bannerBtn.setAttribute("href", getCookieByName('location_home_url'));
+  })
+</script>

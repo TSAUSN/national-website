@@ -1,0 +1,166 @@
+{{ if {this.matrix_program_schedule} }}
+<div
+  id="program-schedule"
+  class="module program-schedule mb-16"
+  data-component-type="program-schedule"
+>
+  <div class="px-5 d-flex mb-8 align-items-center justify-content-between gap-sm-12">
+    <h4>Program Schedule</h4>
+  </div>
+  <div class="card rounded-5 bg-light">
+    <div class="accordion accordion-flush px-8 py-3">
+      {{ each {this.matrix_program_schedule} as schedule sort by find_in_set(z.zuid,'{this.matrix_program_schedule}') }}
+      <div class="accordion-item p-0 mx-6">
+        <h2 class="accordion-header py-5">
+          <button
+            class="accordion-button collapsed p-0 fw-normal accordion-button-partners"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#financial-donations-{{ faq._index }}"
+            aria-expanded="false"
+            aria-controls="flush-collapse{{ faq._index }}"
+          >
+            <div>
+              <p class="display-2 mb-2 fw-bold">{{ schedule.title }}</p>
+              <h6 class="fw-bold display-2 mb-0">
+                Schedule:
+                <span class="fw-normal services-multiselect_days">{{ schedule.pseudo_multiselect_days }}</span>
+                <span class="fw-normal">{{ schedule.time }}</span>
+              </h6>
+            </div>
+          </button>
+        </h2>
+        <div
+          id="financial-donations-{{ faq._index }}"
+          {{if {schedule._length == 1} }} 
+            class="accordion-collapse collapse show"
+          {{else}}
+            class="accordion-collapse collapse"
+          {{/if}}
+          data-bs-parent="#accordion-financial-donations"
+        >
+          <div class="accordion-body p-0">
+            <div class="mb-4">
+              <div class="text-dark-100 d-flex flex-column gap-4">
+                <h6 class="fw-bold display-2">
+                  Timezone: <span class="fw-normal">{{ schedule.timezone }}</span>
+                </h6>
+                <h6 class="fw-bold display-2">
+                  Location:
+                  <span class="fw-normal">
+                    {{ if {schedule.program_schedule_location} }}
+                      {{schedule.program_schedule_location}}
+                    {{else}}
+                      {{locations.filter({this.parent_zuid}).name}}
+                    {{/if}}
+                  </span>
+                </h6>
+                {{if {schedule.link} && {schedule.link} != "#" }}
+                <h6 class="fw-bold display-2">
+                  Link:
+                  <span class="fw-normal"
+                    ><a
+                      href="{{ schedule.link }}"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      >{{ schedule.link }}</a
+                    ></span
+                  >
+                </h6>
+                {{/if}}
+                <div>{{ schedule.description }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
+<script>
+
+
+  const DAY_ORDER = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
+  const DAY_INDEX = Object.fromEntries(DAY_ORDER.map((d, i) => [d, i]));
+
+  function normalizeDay(day) {
+    return (day ?? "").toString().trim().toLowerCase();
+  }
+
+  function parseDays(text) {
+    const tokens = (text ?? "")
+      .split(",")
+      .map(normalizeDay)
+      .filter(Boolean);
+
+    // Keep only valid days, remove duplicates, then sort by weekday order
+    const unique = [...new Set(tokens)].filter(d => d in DAY_INDEX);
+    unique.sort((a, b) => DAY_INDEX[a] - DAY_INDEX[b]);
+    return unique;
+  }
+
+  function isConsecutive(indices) {
+    for (let i = 1; i < indices.length; i++) {
+      if (indices[i] !== indices[i - 1] + 1) return false;
+    }
+    return true;
+  }
+
+  function titleCase(day) {
+    return day.charAt(0).toUpperCase() + day.slice(1);
+  }
+
+  function formatEveryDays(daysSorted) {
+  const n = daysSorted.length;
+  if (n === 0) return "";
+  if (n === 7) return "Everyday"; // keep this, or change to "Daily" if you want
+
+  const pretty = daysSorted.map(titleCase);
+
+  if (n === 1) {
+    return pretty[0];
+  }
+
+  if (n === 2) {
+    return `${pretty[0]} & ${pretty[1]}`;
+  }
+
+  const indices = daysSorted.map(d => DAY_INDEX[d]);
+  if (isConsecutive(indices)) {
+    return `${pretty[0]} through ${pretty[n - 1]}`;
+  }
+
+  // Oxford-style list: "A, B & C"
+  const head = pretty.slice(0, -1).join(", ");
+  const last = pretty[n - 1];
+  return `${head} & ${last}`;
+}
+
+
+  function checkArrayIfConsecutive(arr) {
+    let prev = days[arr[0].toLocaleLowerCase()];
+
+    for (let i = 0; i < arr.length; i++) {
+      const key = arr[i].toLocaleLowerCase();
+
+      if (i > 0) {
+        if (days[arr[i].toLocaleLowerCase()] === prev + 1) {
+          prev = days[key];
+        } else {
+          return false
+        }
+      }
+    }
+    return true
+  }
+  document.querySelectorAll(".services-multiselect_days").forEach((el) => {
+  const daysSorted = parseDays(el.textContent);
+  const formatted = formatEveryDays(daysSorted);
+
+  // If parsing failed (no valid days), keep original text; otherwise set formatted
+  if (formatted) el.textContent = formatted;
+});
+</script>
+
+{{/if}}

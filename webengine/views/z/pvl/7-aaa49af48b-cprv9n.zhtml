@@ -1,0 +1,17 @@
+<div className={styles.pvlRoot}>
+	<h1>Heading 1</h1>
+	<div class="row my-3">
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<h1 class="display-3">&nbsp;{{this.title}}&nbsp;</h1>
+			<p>&nbsp;{{this.body}}&nbsp;</p>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/SAL_EmptyStates_SAL_IndivCards_Newsroom-6.HkGLWVDrfbx.jpg" alt="placeholder">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</div>
+	<div>{{block('/-/block/hero_full.html?variant=7-ccbd808bb3-7mvwqz')}}</div>
+	<div>{{block('/-/block/our_vision.html?variant=7-c0fed6b0c5-r0kdnt')}}</div>
+	<div>{{block('/-/block/stats_block.html?variant=7-a4e0f3f5a5-5kdzc4')}}</div>
+	<div>{{block('/-/block/profile_card_block.html?variant=7-c880f4858d-3j8c7c')}}</div>
+</div>

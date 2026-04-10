@@ -1,0 +1,50 @@
+{{$containerWidth = w-45}}
+{{if !{this.body} }}
+  {{$containerWidth = w-75}}
+{{/if}}
+<div class="mb-auto {{ $containerWidth }} bg-area p-8 rounded-5 service-area__contact-detail me-4">
+  <h4>Contact Information</h4>
+  <div
+    class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-4"
+  >
+    <span class="fs-lg-7 display-4 fw-normal"> Contact Name </span>
+    <div class="text-dark-50 ms-auto me-2 fs-lg-7 display-4 fw-normal text-end">
+      <span>{{this.contact_name}}</span>
+    </div>
+    <!-- <button class="btn p-0 d-flex align-items-center justify-content-center">
+      <span class="material-symbols-outlined text-dark-50"> add </span>
+    </button> -->
+  </div>
+  <div
+    class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-4"
+  >
+    <span class="fs-lg-7 display-4 fw-normal"> Phone </span>
+    <div class="text-dark-50 fs-lg-7 display-4 fw-normal text-end">
+      <a href="tel:{{this.contact_name}}" 
+        onclick="LocationTrackingResultsClickEvent(this)"
+        data-location-name="{{this.name}}"
+        data-location-id="{{this.zuid}}"
+        data-link-function="contact"
+        data-link-format="phone"
+        data-link-text="{{this.contact_number}}"
+        data-link-type="phone">{{this.contact_number}}</a>
+    </div>
+  </div>
+  <div
+    class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-4"
+  >
+    <span class="fs-lg-7 display-4 fw-normal"> Email </span>
+    <div class="text-dark-50 fs-lg-7 display-4 fw-normal text-truncate w-75 text-end">
+      <a href="mailto:{{this.email}}"
+        onclick="LocationTrackingResultsClickEvent(this)"
+        data-location-name="{{this.name}}"
+        data-location-id="{{this.zuid}}"
+        data-link-function="contact"
+        data-link-format="email"
+        data-link-text="{{this.email}}"
+        data-link-type="email">
+        {{this.email}}
+      </a>
+    </div>
+  </div>
+</div>

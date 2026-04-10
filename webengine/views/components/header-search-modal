@@ -1,0 +1,383 @@
+
+<div
+  class="px-lg-14 px-sm-4 py-6 bg-light rounded-lg-5 position-absolute w-100 d-flex flex-column rounded-sm-0 pb-sm-12 pb-lg-6 position-relative d-none"
+  id="header-search-container"
+>
+  <button
+    class="d-lg-flex d-sm-none align-items-center justify-content-center btn btn-sm p-0 end-6 position-absolute top-6 search-modal-close-button"
+  >
+    <span class="material-symbols-outlined text-dark-50 fs-5">close</span>
+  </button>
+  <div class="position-relative h-auto">
+    <form
+      id="site-search"
+      action=""
+      class="mb-12 w-lg-50 w-sm-100"
+      onsubmit="onSubmit()"
+    >
+      <div
+        class="py-2 d-flex align-items-center justify-content-center border-bottom border-dark-100"
+      >
+        <span
+          class="material-symbols-outlined text-primary-200 me-4"
+          style="font-size: 32px"
+          >search</span
+        >
+        <input
+          id="search-input"
+          placeholder="What are you looking for?"
+        />
+        <button
+          type="button"
+          id="search-input-clear-btn"
+          class="hide bg-transparent border border-0 d-flex align-items-center justify-content-center"
+        >
+          <span class="material-symbols-outlined text-dark-50">close</span>
+        </button>
+      </div>
+    </form>
+    <div class="d-flex flex-sm-column flex-lg-row gap-lg-17 gap-sm-10">
+      <div class="w-lg-50 w-sm-100">
+        <div class="d-flex justify-content-between gap-10">
+          <div class="w-100">
+            <div class="d-flex align-items-center border-bottom border-dark-50 pb-2">
+              <span class="material-symbols-outlined me-3">alarm</span>
+              <p class="fs-7">Recent Searches</p>
+            </div>
+            <ul class="list-group">
+              <li
+                class="list-group-item border-0"
+                style="width: fit-content"
+              >
+                <a
+                  href="#"
+                  class="d-flex align-items-center text-dark-100 text-decoration-none"
+                  data-search-method-type="recent searches"
+                  onclick="SiteSearchEvent(this,'search')"
+                  ><span>Ways To Give</span>
+                  <span class="material-symbols-outlined ms-2 fs-7">arrow_outward</span></a
+                >
+              </li>
+              <li
+                class="list-group-item border-0"
+                style="width: fit-content"
+              >
+                <a
+                  href="#"
+                  class="d-flex align-items-center text-dark-100 text-decoration-none"
+                  data-search-method-type="recent searches"
+                  onclick="SiteSearchEvent(this,'search')"
+                  ><span>About Us</span>
+                  <span class="material-symbols-outlined ms-2 fs-7">arrow_outward</span></a
+                >
+              </li>
+              <li
+                class="list-group-item border-0"
+                style="width: fit-content"
+              >
+                <a
+                  href="#"
+                  data-search-method-type="recent searches"
+                  onclick="SiteSearchEvent(this,'search')"
+                  class="d-flex align-items-center text-dark-100 text-decoration-none"
+                  ><span>Help Near Me</span>
+                  <span class="material-symbols-outlined ms-2 fs-7">arrow_outward</span></a
+                >
+              </li>
+              <li
+                class="list-group-item border-0"
+                style="width: fit-content"
+              >
+                <a
+                  href="#"
+                  data-search-method-type="recent searches"
+                  onclick="SiteSearchEvent(this,'search')"
+                  class="d-flex align-items-center text-dark-100 text-decoration-none"
+                  ><span>Dallas Salvation Army</span>
+                  <span class="material-symbols-outlined ms-2 fs-7">arrow_outward</span></a
+                >
+              </li>
+              <li
+                class="list-group-item border-0"
+                style="width: fit-content"
+              >
+                <a
+                  href="#"
+                  data-search-method-type="recent searches"
+                  onclick="SiteSearchEvent(this,'search')"
+                  class="d-flex align-items-center text-dark-100 text-decoration-none"
+                  ><span>Summer Camps</span>
+                  <span class="material-symbols-outlined ms-2 fs-7">arrow_outward</span></a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="w-100 d-sm-none d-lg-block">
+            <div class="d-flex align-items-center border-bottom border-dark-50 pb-2">
+              <span class="material-symbols-outlined me-3">award_star</span>
+              <p class="fs-7">Popular Searches</p>
+            </div>
+            <ul class="list-group">
+              <li
+                class="list-group-item border-0"
+                style="width: fit-content"
+              >
+                <a
+                  href="#"
+                  data-search-method-type="suggested links"
+                  onclick="SiteSearchEvent(this,'search')"
+                  class="d-flex align-items-center text-dark-100 text-decoration-none"
+                  ><span>After School Programs</span>
+                  <span class="material-symbols-outlined ms-2 fs-7">arrow_outward</span></a
+                >
+              </li>
+              <li
+                class="list-group-item border-0"
+                style="width: fit-content"
+              >
+                <a
+                  href="#"
+                  data-search-method-type="suggested links"
+                  onclick="SiteSearchEvent(this,'search')"
+                  class="d-flex align-items-center text-dark-100 text-decoration-none"
+                  ><span>Summer Camps</span>
+                  <span class="material-symbols-outlined ms-2 fs-7">arrow_outward</span></a
+                >
+              </li>
+              <li
+                class="list-group-item border-0"
+                style="width: fit-content"
+              >
+                <a
+                  href="#"
+                  data-search-method-type="suggested links"
+                  onclick="SiteSearchEvent(this,'search')"
+                  class="d-flex align-items-center text-dark-100 text-decoration-none"
+                  ><span>Salvation Army Near Me</span>
+                  <span class="material-symbols-outlined ms-2 fs-7">arrow_outward</span></a
+                >
+              </li>
+              <li
+                class="list-group-item border-0"
+                style="width: fit-content"
+              >
+                <a
+                  href="#"
+                  data-search-method-type="suggested links"
+                  onclick="SiteSearchEvent(this,'search')"
+                  class="d-flex align-items-center text-dark-100 text-decoration-none"
+                  ><span>Life Skills</span>
+                  <span class="material-symbols-outlined ms-2 fs-7">arrow_outward</span></a
+                >
+              </li>
+              <li
+                class="list-group-item border-0"
+                style="width: fit-content"
+              >
+                <a
+                  href="#"
+                  data-search-method-type="suggested links"
+                  onclick="SiteSearchEvent(this,'search')"
+                  class="d-flex align-items-center text-dark-100 text-decoration-none"
+                  ><span>Summer Camps</span>
+                  <span class="material-symbols-outlined ms-2 fs-7">arrow_outward</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="w-lg-50 w-sm-100">
+        <div class="d-flex align-items-center border-bottom border-dark-50 pb-2 mb-5">
+          <span class="material-symbols-outlined me-3">family_home</span>
+          <p class="fs-7">Featured Pages</p>
+        </div>
+        <div
+          class="swiper header-swiper"
+          style="z-index: 10"
+        >
+          <div
+            class="swiper-wrapper"
+            style="height: auto"
+          >
+            <div
+              class="swiper-slide rounded-5 bg-photo-overlay position-relative d-flex align-items-center justify-content-center"
+              style="height: 250px"
+            >
+              <div class="d-flex align-items-center justify-content-center flex-column">
+                <span>4:3 Horizontal</span> <span>332 x 250</span>
+              </div>
+              <div class="position-absolute bottom-2 start-4">
+                <h6 class="text-light fw-normal">Page Link Name</h6>
+              </div>
+            </div>
+            <div
+              class="swiper-slide rounded-5 bg-photo-overlay position-relative d-flex align-items-center justify-content-center"
+              style="height: 250px"
+            >
+              <div class="d-flex align-items-center justify-content-center flex-column">
+                <span>4:3 Horizontal</span> <span>332 x 250</span>
+              </div>
+              <div class="position-absolute bottom-2 start-4">
+                <h6 class="text-light fw-normal">Page Link Name</h6>
+              </div>
+            </div>
+            <div
+              class="swiper-slide rounded-5 bg-photo-overlay position-relative d-flex align-items-center justify-content-center"
+              style="height: 250px"
+            >
+              <div class="d-flex align-items-center justify-content-center flex-column">
+                <span>4:3 Horizontal</span> <span>332 x 250</span>
+              </div>
+              <div class="position-absolute bottom-2 start-4">
+                <h6 class="text-light fw-normal">Page Link Name</h6>
+              </div>
+            </div>
+            <div
+              class="swiper-slide rounded-5 bg-photo-overlay position-relative d-flex align-items-center justify-content-center"
+              style="height: 250px"
+            >
+              <div class="d-flex align-items-center justify-content-center flex-column">
+                <span>4:3 Horizontal</span> <span>332 x 250</span>
+              </div>
+              <div class="position-absolute bottom-2 start-4">
+                <h6 class="text-light fw-normal">Page Link Name</h6>
+              </div>
+            </div>
+            <div
+              class="swiper-slide rounded-5 bg-photo-overlay position-relative d-flex align-items-center justify-content-center"
+              style="height: 250px"
+            >
+              <div class="d-flex align-items-center justify-content-center flex-column">
+                <span>4:3 Horizontal</span> <span>332 x 250</span>
+              </div>
+              <div class="position-absolute bottom-2 start-4">
+                <h6 class="text-light fw-normal">Page Link Name</h6>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center justify-content-end gap-2 mt-4 header-swiper-nav">
+            <button
+              class="btn bg-area p-2 d-flex align-items-center justify-content-center header-prev-btn"
+              id="header-prev-btn"
+            >
+              <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <button
+              class="btn bg-area p-2 d-flex align-items-center justify-content-center header-next-btn"
+              id="header-next-btn"
+            >
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="w-100 d-lg-none d-sm-block">
+        <div class="d-flex align-items-center border-bottom border-dark-50 pb-2">
+          <span class="material-symbols-outlined me-3">award_star</span>
+          <p class="fs-7">Popular Searches</p>
+        </div>
+        <ul class="list-group">
+          <li
+            class="list-group-item border-0"
+            style="width: fit-content"
+          >
+            <a
+              href="#"
+              data-search-method-type="suggested links"
+              onclick="SiteSearchEvent(this,'search')"
+              class="d-flex align-items-center text-dark-100 text-decoration-none"
+              ><span>After School Programs</span>
+              <span class="material-symbols-outlined ms-2 fs-7">arrow_outward</span></a
+            >
+          </li>
+          <li
+            class="list-group-item border-0"
+            style="width: fit-content"
+          >
+            <a
+              href="#"
+              data-search-method-type="suggested links"
+              onclick="SiteSearchEvent(this,'search')"
+              class="d-flex align-items-center text-dark-100 text-decoration-none"
+              ><span>Summer Camps</span>
+              <span class="material-symbols-outlined ms-2 fs-7">arrow_outward</span></a
+            >
+          </li>
+          <li
+            class="list-group-item border-0"
+            style="width: fit-content"
+          >
+            <a
+              href="#"
+              data-search-method-type="suggested links"
+              onclick="SiteSearchEvent(this,'search')"
+              class="d-flex align-items-center text-dark-100 text-decoration-none"
+              ><span>Salvation Army Near Me</span>
+              <span class="material-symbols-outlined ms-2 fs-7">arrow_outward</span></a
+            >
+          </li>
+          <li
+            class="list-group-item border-0"
+            style="width: fit-content"
+          >
+            <a
+              href="#"
+              data-search-method-type="suggested links"
+              onclick="SiteSearchEvent(this,'search')"
+              class="d-flex align-items-center text-dark-100 text-decoration-none"
+              ><span>Life Skills</span>
+              <span class="material-symbols-outlined ms-2 fs-7">arrow_outward</span></a
+            >
+          </li>
+          <li
+            class="list-group-item border-0"
+            style="width: fit-content"
+          >
+            <a
+              href="#"
+              data-search-method-type="suggested links"
+              onclick="SiteSearchEvent(this,'search')"
+              class="d-flex align-items-center text-dark-100 text-decoration-none"
+              ><span>Summer Camps</span>
+              <span class="material-symbols-outlined ms-2 fs-7">arrow_outward</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const siteSearchForm = document.getElementById('site-search');
+  const siteSearchInput = document.getElementById('search-input');
+
+  const searchData = {
+    event: 'Search',
+    site_search_term: siteSearchInput.value,
+    site_search_type: 'site_search - header'
+  };
+
+  // Move to seperate file and add site search logic
+  const onSubmit = () => {
+    utag.link(searchData);
+  };
+
+  const headerSwiper = new Swiper('.header-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 16,
+    loop: false,
+    centeredSlides: false,
+    navigation: {
+      nextEl: '.header-swiper-nav .header-next-btn',
+      prevEl: '.header-swiper-nav .header-prev-btn'
+    },
+    breakpoints: {
+      1024: {
+        slidesPerView: 2.5,
+        spaceBetween: 16
+      }
+    }
+  });
+</script>

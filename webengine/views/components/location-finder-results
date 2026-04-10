@@ -1,0 +1,126 @@
+<div class="location-finder-results bg-light rounded-5 overflow-hidden p-8">
+  <div class="d-flex flex-column gap-4 justify-content-between h-100">
+    <div>
+      <h4 class="display-1 fs-md-7">Salvation Army Corp</h4>
+      <p class="display-4 display-md-2 text-primary-200">3.5 miles away from your general location</p>
+    </div>
+    <div class="mb-auto">
+      <div class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-3">
+        <span class="display-4 display-md-1">General Hours</span>
+        <div class="text-dark-50 ms-auto me-2 display-4 display-md-1">
+          <span>Open 9:00 AM</span>
+          |
+          <span>Closes 12:00 PM</span>
+        </div>
+        <button class="btn p-0 d-flex align-items-center justify-content-center">
+          <span class="material-symbols-outlined text-dark-50">add</span>
+        </button>
+      </div>
+      <div class="d-flex align-items-center justify-content-between py-3">
+        <span class="display-4 display-md-1">Phone</span>
+        <div class="text-dark-50 display-4 display-md-1">
+          <span>(214) 234 - 5678</span>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between py-3">
+        <span class="display-4 display-md-1">Address</span>
+        <div class="text-dark-50 display-4 display-md-1">
+          <span>36 Eastern Ave, Augusta, ME 04330</span>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between py-3">
+        <span class="display-4 display-md-1">Directions</span>
+        <div class="text-dark-50 display-4 display-md-1">
+          <span>Walking</span>
+          <span>Driving</span>
+          <span>Public Transport</span>
+        </div>
+      </div>
+      <div class="border-top border-2 border-dark-50 py-3">
+        <div class="accordion" id="servicesAccordion1">
+          <div class="accordion-item border-0">
+            <h2 class="accordion-header" id="servicesHeading">
+              <button class="accordion-button collapsed p-0 bg-transparent shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#servicesCollapse" aria-expanded="false" aria-controls="servicesCollapse">
+                <div class="d-flex align-items-center justify-content-between w-100">
+                  <span class="display-2 fs-md-7">Services Offered</span>
+                  <span class="text-dark-50 text-decoration-none display-2 fs-md-7 me-1">View More</span>
+                </div>
+              </button>
+            </h2>
+            <div id="servicesCollapse" class="accordion-collapse collapse" aria-labelledby="servicesHeading" data-bs-parent="#servicesAccordion">
+              <div class="accordion-body p-0 pt-3">
+                <div class="row row-cols-2 row-cols-md-3 g-3">
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <span class="material-symbols-outlined text-danger me-2">home</span>
+                      <span class="display-4 fs-md-7">Services 1</span>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <span class="material-symbols-outlined text-danger me-2">home</span>
+                      <span class="display-4 fs-md-7">Services 1</span>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <span class="material-symbols-outlined text-danger me-2">home</span>
+                      <span class="display-4 fs-md-7">Services 1</span>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <span class="material-symbols-outlined text-danger me-2">home</span>
+                      <span class="display-4 fs-md-7">Services 2</span>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <span class="material-symbols-outlined text-danger me-2">home</span>
+                      <span class="display-4 fs-md-7">Services 2</span>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <span class="material-symbols-outlined text-danger me-2">home</span>
+                      <span class="display-4 fs-md-7">Services 2</span>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <span class="material-symbols-outlined text-danger me-2">home</span>
+                      <span class="display-4 fs-md-7">Services 3</span>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <span class="material-symbols-outlined text-danger me-2">home</span>
+                      <span class="display-4 fs-md-7">Services 3</span>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex align-items-center">
+                      <span class="material-symbols-outlined text-danger me-2">home</span>
+                      <span class="display-4 fs-md-7">Services 3</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="d-flex gap-2">
+      <button class="btn btn-info d-flex align-items-center justify-content-center w-100 display-4">
+        <span class="material-symbols-outlined text-light me-2">arrow_outward</span>
+        View Location Website
+      </button>
+      <button class="btn btn-secondary d-flex align-items-center justify-content-center w-100 display-4">
+        <span class="material-symbols-outlined text-light me-2">arrow_outward</span>
+        View Service Hours & Info
+      </button>
+    </div>
+  </div>
+</div>

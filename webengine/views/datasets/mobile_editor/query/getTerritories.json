@@ -1,0 +1,39 @@
+{{$queryFilter}}
+
+
+{{if {request.queryParam(territory_zuid)} }}
+    {{$queryFilter = territory.zuid = "{request.queryParam(territory_zuid)}" }}
+{{end-if}}
+
+{
+   "data": [
+        {{ each territories as territory WHERE {$queryFilter} }}
+            {
+                "value": "{{territory.zuid}}",
+                "label": "{{territory.name.escapeForJs()}}",
+                "divisions": [
+                     {{each divisions as division WHERE division.territory = '{territory.zuid}' }}
+                        {
+                            "value": "{{division.zuid}}",
+                            "label": "{{division.name.escapeForJs()}}",
+                            "address": "{{division.address.escapeForJs()}}",
+                            "parent_territory": "{{division.territory}}",
+                            "model_zuid": "{{division.set_zuid}}"
+                        } {{division._arraycomma}}
+                     {{/each}}
+                ],
+                "locations": [
+                     {{each locations as location WHERE location.territory = '{territory.zuid}' }}
+                        {
+                            "value": "{{location.zuid}}",
+                            "label": "{{location.name.escapeForJs()}}",
+                            "address": "{{location.address.escapeForJs()}}",
+                            "parent_division": "{{location.division}}",
+                            "model_zuid": "{{location.set_zuid}}"
+                        } {{location._arraycomma}}
+                     {{/each}}
+                ]  
+            } {{division._arraycomma}}
+        {{/each}} 
+   ]
+}

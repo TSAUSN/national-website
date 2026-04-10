@@ -1,0 +1,45 @@
+{{if {this.image_button_text_full_bleed_image_left} }}
+
+<div
+  id="become-member"
+  class="mb-15 overflow-hidden rounded-5 position-relative become-member p-lg-8 p-4 d-flex align-items-center"
+>
+  <img
+    class="w-100 rounded-5 object-fit-cover position-absolute top-0 start-0 img-background"
+    src="{{ this.image_button_text_full_bleed_image_left.getImage() }}"
+    alt="{{ this.image_button_text_full_bleed_title_left }}"
+  />
+  <div
+    class="image-overlay position-absolute bg-opacity-50 bg-dark top-0 start-0 w-100 h-100"
+  ></div>
+
+  {{if {!this.image_button_text_full_bleed_title_left} && {!this.image_button_text_full_bleed_description_left} }}
+  <div
+    class="bg-light p-8 rounded-5 position-relative z-3 w-lg-50 mt-auto mt-lg-0 w-100 ms-lg-auto h-lg-100 d-flex flex-column"
+  >
+    <div class="mt-auto mt-lg-0">
+      <h4 class="fw-normal">
+        {{ this.image_button_text_full_bleed_title_left }}
+      </h4>
+      <div class="text-dark-50">
+        {{ this.image_button_text_full_bleed_description_left }}
+      </div>
+    </div>
+    {{ if {this.image_button_text_full_bleed_cta_link_left} && {this.image_button_text_full_bleed_cta_name_left}  }}
+    <div class="mt-lg-auto mt-6">
+      <a
+        href="{{ this.image_button_text_full_bleed_cta_link_left }}"
+        class="btn btn-primary"
+        data-function-type="other"
+        data-format-type="button"
+        onclick="LinkTrackingClickEvent(this,'donate_money_click')"
+      >
+        {{ this.image_button_text_full_bleed_cta_name_left }}
+      </a>
+    </div>
+    {{/if}}
+  </div>
+  {{/if}}
+</div>
+
+{{/if}}

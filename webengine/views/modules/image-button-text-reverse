@@ -1,0 +1,38 @@
+<div
+  id="image-text-button"
+  data-component-type="image-text-button"
+  class="module bg-light d-flex gap-lg-16 gap-sm-6 flex-sm-column flex-lg-row p-lg-8 p-sm-4 rounded-5 mb-16"
+>
+  <div class="w-100 order-2">
+    <img
+      src="{{ this.image_button_text_reverse_image.getImage() }}"
+      alt="placeholder image"
+      class="rounded-5 w-100"
+    />
+  </div>
+  <div class="w-100 d-flex flex-column order-1">
+    <div>
+      <h3 class="fw-normal">{{ this.image_button_text_reverse_title }}</h3>
+
+      <div class="text-dark-50">
+        {{ this.image_button_text_reverse_description }}
+      </div>
+    </div>
+    <div class="mt-lg-auto mt-sm-6">
+      <!-- Todo -->
+
+      {{if {this.image_button_text_reverse_cta_name} }}
+      <a
+        data-location-type="body:card-section"
+        data-function-type="navigation"
+        data-format-type="button"
+        data-link-type="internal"
+        onclick="LinkTrackingClickEvent(this,'cta_click')"
+        href="{{ this.image_button_text_reverse_cta_link }}"
+        class="btn btn-secondary w-sm-100 w-lg-auto"
+        >{{ this.image_button_text_reverse_cta_name }}</a
+      >
+      {{/if}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,215 @@
+<title>{{ !this.seo_meta_title }}</title>
+<meta
+  name="description"
+  content="{{ !this._meta_description }}"
+/>
+<meta
+  property="og:title"
+  content="{{ !this._meta_title }}"
+/>
+<meta
+  property="og:description"
+  content="{{ !this._meta_description.post_clean() }}"
+/>
+<meta
+  property="og:url"
+  content="https://www.{{ instance.domain }}{{ request.path() }}"
+/>
+<meta
+  property="og:type"
+  content="website"
+/>
+<meta
+  property="og:site_name"
+  content="{{ globals.site_name }}"
+/>
+
+{{if {!this.og_image} }}  
+<meta
+  property="og:image"
+  content="{{ !this.og_image.getImage() }}"
+/>
+<meta
+  property="twitter:image:src"
+  content="{{ !this.og_image.getImage() }}"
+/>
+{{else}}
+<meta
+  property="og:image"
+  content="{{ globals.default_og_image.getImage() }}"
+/>
+{{/if}}
+
+<meta
+  name="twitter:card"
+  content="summary"
+/>
+<meta
+  name="twitter:title"
+  content="{{ !this._meta_title }}"
+/>
+<meta
+  name="twitter:site"
+  content="{{ globals.site_name }}"
+/>
+<!-- <meta name="twitter:creator" content=""> -->
+<meta
+  name="twitter:description"
+  content="{{ !this._meta_description }}"
+/>
+
+<link
+  rel="icon"
+  type="image/png"
+  href="{{ setting.fav_icon }}"
+/>
+<script>
+  (function () {
+    function getCookie(name) {
+      const cookies = document.cookie.split(';');
+      for (let cookie of cookies) {
+        cookie = cookie.trim();
+        if (cookie.startsWith(name + '=')) {
+          return decodeURIComponent(cookie.substring(name.length + 1));
+        }
+      }
+      return null;
+    }
+
+    const propType = getCookie('location_property_type');
+    if (propType === 'simplified') {
+      document.documentElement.classList.add('prop-type-simplified');
+    }
+  })();
+</script>
+<link rel="preconnect" href="https://8hxvw8tw.media.zestyio.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/materialsymbolsoutlined/v315/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOej.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/materialicons/v145/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2" />
+{{$baseUrl = https://tags.tiqcdn.com/utag/salvationarmy}}
+{{ $page_zuid = {!this.zuid} }}
+{{ $set_zuid = {!this.set_zuid} }}
+{{ $page_path = {request.path()} }}
+{{ $page_title = {!this.seo_meta_title} }}
+
+{{each models as model }}
+{{if {$set_zuid} == {model.zuid} }}
+{{ $model_name = {model.name.escapeForJs()} }}
+{{ $page_type_detail = {model.name} }}
+{{/if}}
+{{/each}}
+
+{{include modules/client-global-navigation}}
+{{include modules/indexdb}}
+
+<!-- Add this before your Tealium script -->
+<script type="text/javascript">
+  window.ServicesObserver = new ServicesSubject();
+  // Create a global error handler for utag
+  window.utagError = function (error) {
+    console.error('Tealium loading error:', error);
+  };
+  window.cookiesReady = window.cookiesReady || initCookies().catch((err) => {
+    console.error('initCookies failed:', err);
+  });
+  function createTealiumScript(account, profile, environment) {
+    // Create the script element
+    const script = document.createElement('script');
+    let tealiumProfile = cookieManager.get(cookieKeys.tealiumprofile);
+
+    if (tealiumProfile === null || typeof tealiumProfile === 'undefined') {
+      tealiumProfile = 'national';
+    }
+
+    const siteDomain = '{{instance.domain}}';
+    const instanceEnv = '{{instance.env}}';
+    window.instanceEnv = instanceEnv;
+    let profile_env = '';
+
+    if (instanceEnv == 'live') {
+      if (siteDomain == 'thesalvationarmy-h4zw8zcg.zesty.dev') {
+        profile_env = 'qa';
+      } else {
+        profile_env = 'prod';
+      }
+    } else {
+      profile_env = 'dev';
+    }
+    // Set the source attribute with dynamic values
+    script.src = `{{ $baseUrl }}/${tealiumProfile}/${profile_env}/utag.sync.js`;
+
+    // Set the type attribute
+    script.type = 'text/javascript';
+
+    // Append the script to the document head
+    document.getElementsByTagName('head')[0].appendChild(script);
+
+    // Return the created script element (optional)
+    return script;
+  }
+
+  function createDGIOHScript(account, profile, environment) {
+    // Create the script element
+    const script = document.createElement('script');
+    let dgiohID = cookieManager.get(cookieKeys.dgiohID);
+
+    if (dgiohID === null || typeof dgiohID === 'undefined') {
+      dgiohID = '1ba4571c-6e05-4431-8d28-9374c32606e5';
+    }
+    // Set the source attribute with dynamic values
+    script.src = `https://www.lightboxcdn.com/vendor/${dgiohID}/lightbox_inline.js`;
+
+    // Set the type attribute
+    script.type = 'text/javascript';
+
+    // Append the script to the document head
+    document.getElementsByTagName('head')[0].appendChild(script);
+
+    // Return the created script element (optional)
+    return script;
+  }
+
+  async function initSiteScripts(params) {
+    await window.cookiesReady;
+    const locationZUID = cookieManager.get(cookieKeys.locationZUID);
+    const modelZUID = cookieManager.get(cookieKeys.locationModel);
+    const db = new ServicesDB();
+    await db.initServices(locationZUID, modelZUID);
+    createTealiumScript();
+    createDGIOHScript();
+    window.siteInitialized = true;
+    document.dispatchEvent(new Event('site-initialized'));
+  }
+  function scheduleInitSiteScripts() {
+    const runInit = () => initSiteScripts();
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(runInit, { timeout: 3000 });
+    } else {
+      setTimeout(runInit, 0);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', scheduleInitSiteScripts, { once: true });
+  } else {
+    scheduleInitSiteScripts();
+  }
+</script>
+
+<!-- Add this after your Tealium script -->
+<script type="text/javascript">
+  // Verify Tealium loaded correctly
+  window.addEventListener('load', function () {
+    if (typeof utag === 'undefined') {
+      console.error('Tealium failed to load properly');
+    }
+  });
+</script>
+<script type="text/javascript">
+  {{if {this.set_zuid} === "6-c2b7f2a9ad-k4frxv" && {!clippings.custom_analytics_scripts} != null}}
+    {{clippings.custom_analytics_scripts}}
+  {{/if}}
+</script>
+{{include modules/schema}}

@@ -1,0 +1,10 @@
+{{$location = {locations.filter({this.parent_zuid}).zuid} }}
+
+<div class="">
+    {{include modules/hero-full}}
+    {{include modules/community-leaders}}
+    {{include modules/advisory-board}}
+    {{if {$location} && {this.parent_zuid} != 0 }}
+    {{include modules/image-button-text}}
+    {{/if}}
+</div>

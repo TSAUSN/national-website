@@ -1,0 +1,689 @@
+<div
+  class="module mb-18 "
+  data-component-type="hero"
+>
+  <div class="row">
+    <div class="col-lg-9 col-md-8">
+      <div
+        class="h-100"
+        id="carousel-block"
+      >
+        <div class="h-100">
+          <div class="h-100 bd-example-snippet bd-code-snippet">
+            <div class="h-100 bd-example m-0 border-0">
+              <div
+                id="carouselExampleCaptions"
+                class="h-100 carousel slide"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-control-container">
+                  <button
+                    class="carousel-control-prev hide"
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev"
+                    data-location-type="body:hero"
+                    data-function-type="other"
+                    data-format-type="icon-block"
+                    data-page-componentType-type="banner component"
+                    data-page-componentHeading-type="Previous"
+                    data-page-componentSubheading-type="null"
+                    data-page-componentIndex-type="null"
+                    onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                  >
+                    <span class="material-symbols-outlined">arrow_back</span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+
+                  <div class="carousel-indicators">
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleCaptions"
+                      data-bs-slide-to="0"
+                      class="active"
+                      aria-label="Slide 1"
+                      aria-current="true"
+                      data-location-type="body:hero"
+                      data-function-type="other"
+                      data-format-type="icon-block"
+                      data-page-componentType-type="banner component"
+                      data-page-componentHeading-type="null"
+                      data-page-componentSubheading-type="null"
+                      data-page-componentIndex-type="null"
+                      onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleCaptions"
+                      data-bs-slide-to="1"
+                      aria-label="Slide 2"
+                      data-location-type="body:hero"
+                      data-function-type="other"
+                      data-format-type="icon-block"
+                      data-page-componentType-type="banner component"
+                      data-page-componentHeading-type="null"
+                      data-page-componentSubheading-type="null"
+                      data-page-componentIndex-type="null"
+                      onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleCaptions"
+                      data-bs-slide-to="2"
+                      aria-label="Slide 3"
+                      data-location-type="body:hero"
+                      data-function-type="other"
+                      data-format-type="icon-block"
+                      data-page-componentType-type="banner component"
+                      data-page-componentHeading-type="null"
+                      data-page-componentSubheading-type="null"
+                      data-page-componentIndex-type="null"
+                      onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                    ></button>
+                  </div>
+
+                  <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next"
+                    data-location-type="body:hero"
+                    data-function-type="other"
+                    data-format-type="icon-block"
+                    data-page-componentType-type="banner component"
+                    data-page-componentHeading-type="Next"
+                    data-page-componentSubheading-type="null"
+                    data-page-componentIndex-type="null"
+                    onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                  >
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+
+                <div class="carousel-inner rounded-5 h-100">
+                  
+                  {{each {this.hero_sliders} as hs sort sort by find_in_set(z.zuid,'{this.hero_sliders}')}}
+                  <div
+                  {{if {hs._index} == 0 }}
+                    class="carousel-item h-100 active"
+                  {{else}}
+                    class="carousel-item h-100"
+                    {{/if}}
+                  >
+                    <div
+                      class="image-background h-100 position-relative p-md-12 px-sm-6 pt-sm-6 pb-sm-18 text-light d-sm-flex flex-sm-column justify-content-sm-end justify-content-md-start"
+                    >
+                      <img
+                        src="{{hs.image.getImage()}}"
+                        class="position-absolute w-100 h-100 top-0 start-0"
+                      />
+                      <div class="mb-16">
+                        <h3 class="fw-normal">{{hs.title}}</h3>
+                        <div class="w-md-75 w-sm-100 hero-item">
+                        {{hs.content}}
+                        </div>
+                      </div>
+                     
+                    </div>
+                  </div>
+
+                  {{/each}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-side-col col-lg-3 col-md-4 d-md-flex flex-column gap-3">
+      <div class="bg-white rounded-4 py-5 px-4 d-sm-none d-lg-block">
+        <span class="fw-normal d-block">We Can Help You Find Your </span>
+        <span class="fw-normal mb-5 d-block">Local Salvation Army</span>
+        <form
+          class="row g-3 align-items-center"
+          action=""
+          id="help-search-form2"
+        >
+          <div class="col">
+            <div class="input-group w-100">
+              <span class="input-group-text border-start-1 rounded-start-4 pe-2 ps-4">
+                <span class="material-symbols-outlined text-dark-50 fs-7"> location_on </span>
+              </span>
+              <input
+                id="address-search2"
+                type="tel"
+                class="form-control rounded-end-4 text-dark border-start-0 ps-0"
+                placeholder="ZIP Code"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <button
+              type="submit"
+              class="btn btn-secondary text-white rounded-3 w-100"
+            >
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="dynamic-cards-container">
+        <div
+          id="dynamic-card-1"
+          class="dynamic-card-1 card rounded-5 overflow-hidden"
+        >
+          <!-- This div will be replaced by the dynamically generated card -->
+           
+        </div>
+
+        <div
+          id="dynamic-card-2"
+          class="dynamic-card-2 card rounded-5 overflow-hidden"
+        >
+          <!-- This div will be replaced by the dynamically generated card -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+    async function fetchData(url) {
+      try {
+        const response = await fetch(url);
+        return await response.json();
+      } catch (err) {
+        console.error('Error fetching data:', err);
+        return null;
+      }
+    }
+    function resolveImages() {
+    let defaultImages = [];
+    // populate default images
+    {{ each media.{clippings.default_images} as media }}
+    	defaultImages.push("{{ media.image.getImage() }}");
+    {{ end-each }}
+   return defaultImages[Math.floor(Math.random()*defaultImages.length)];
+  }
+
+  resolveImages();
+
+
+
+  async function fetchCard(urls, cardType = 'primary') {
+      for (let url of urls) {
+        const data = await fetchData(url);
+
+        if (cardType === 'primary' && data?.primary_card?.data[0]) {
+          return data.primary_card.data[0]; // Return primary card if found
+        }
+
+        if (cardType === 'secondary' && data?.secondary_card?.data[0]) {
+          return data.secondary_card.data[0]; // Return secondary card if found
+        }
+      }
+      return {}; // Fallback in case no valid card is found
+    }
+
+    const modelInfoUrl = `https://{{instance.domain}}/model-info.json?zuid={{this.zuid}}`;
+
+    const cardGenerator1 = async () => {
+      let cardData = {};
+      if (`{{this.primary_card}}` === '') {
+        try {
+          // Fetch model info
+          const modelInfo = await fetchData(modelInfoUrl);
+          const urls = [`https://{{instance.domain}}?toJSON`]; // Fallback URL by default
+
+          if (modelInfo?.division_code) {
+            urls.unshift(`https://{{instance.domain}}/{{request.pathPart(1)}}?toJSON`);
+            cardData = await fetchCard(urls, 'primary');
+          }
+
+          if (modelInfo?.territory_code) {
+            cardData = await fetchCard(urls, 'primary');
+          }
+
+          if (modelInfo?.territory && modelInfo?.division) {
+            // const divisionUrls = [
+            //   `https://{{instance.domain}}/{{request.pathPart(1)}}/{{request.pathPart(2)}}?toJSON`,
+            //   `https://{{instance.domain}}/{{request.pathPart(1)}}?toJSON`,
+            //   `https://{{instance.domain}}?toJSON` // Fallback
+            // ];
+            const divisionUrls = [
+              `${modelInfo?.division?.data[0].meta?.web?.url}?toJSON`,
+              `${modelInfo?.territory?.data[0].meta?.web?.url}?toJSON`,
+              `https://{{instance.domain}}?toJSON` // Fallback
+            ];
+
+            cardData = await fetchCard(divisionUrls, 'primary');
+          }
+          cardData.primary_card_cta_text = modelInfo.primary_card_cta_text
+
+        } catch (err) {
+          console.error('Error:', err);
+        }
+      } else {
+        const m = await fetchData(modelInfoUrl);
+        cardData = await fetchData(
+          'https://{{instance.domain}}/model-info.json?zuid={{this.primary_card}}'
+        );
+        cardData.primary_cta_name = m?.primary_card_cta_text ? m?.primary_card_cta_text : cardData.primary_cta_name;
+      }
+
+      let cardImage = ""
+
+      if(cardData?.hero_image){
+        cardImage = cardData.hero_image?.data[0]?.url;
+      }else if (cardData.og_image !== "" && cardData.og_image !== null && cardData.og_image !== undefined && !cardData?.hero_image){
+        cardImage = cardData?.og_image?.data[0]?.url
+      }else{
+        cardImage = resolveImages()
+      }
+
+      if(window.innerWidth <= 768) {
+        cardImage += "?width=396&height=222&crop=16:9,smart";
+      } else {
+        cardImage += "?width=338&height=179&crop=16:9,smart";
+      }
+
+      let linkText = '';
+
+      if(typeof cardData.primary_cta_name !== 'undefined' || cardData.primary_cta_name !== '') {
+        linkText = cardData.primary_cta_name;
+      }
+
+      if(typeof cardData.primary_cta_name !== 'undefined' || cardData.primary_cta_name !== '') {
+        linkText = cardData.primary_cta_name;
+      }
+
+      return `
+        <div class="card-img-top bg-secondary bg-opacity-25 position-relative">
+            <div class="ratio ratio-16x9 overflow-hidden" style="height: 100%">
+          <img class="w-100 object-fit-cover" src="${cardImage}" alt="Card Image" />
+            </div>
+        </div>
+        <div class="card-body px-4 pt-4">
+          <h5 class="card-title display-1 mb-1">${cardData.meta.web.seo_meta_title}</h5>
+          <div class="card-text text-dark display-3 text-truncate-2">${cardData.meta.web.seo_meta_description}</div>
+        </div>
+        <div class="card-footer bg-transparent pb-4 border-0 d-flex align-items-center justify-content-between gap-2">
+          <a href="${cardData.meta.web.uri}"
+              data-location-type="body:banner-section"
+              data-function-type="navigation"
+              data-format-type="button"
+              data-link-type="internal"
+              onclick="LinkTrackingClickEvent(this,'cta_click')"
+              class="btn btn-secondary flex-grow-1">${linkText ? linkText : "View"}</a>
+          ${
+            cardData.primaryCardCtaName2
+              ? `<a href="${cardData.meta.web.uri}"
+                 data-location-type="body:banner-section"
+              data-function-type="navigation"
+              data-format-type="button"
+              data-link-type="internal"
+              onclick="LinkTrackingClickEvent(this,'cta_click')"
+              class="btn btn-info flex-grow-1">${cardData.name}</a>`
+              : ''
+          }
+        </div>
+      `;
+    };
+
+ const cardGenerator2 = async () => {
+      let cardData = {};
+      if (`{{this.secondary_card}}` === '') {
+        try {
+          const modelInfoUrl = `https://{{instance.domain}}/model-info.json?zuid={{this.zuid}}`;
+
+          // Fetch model info
+          const modelInfo = await fetchData(modelInfoUrl);
+
+          const urls = [`https://{{instance.domain}}?toJSON`]; // Fallback URL by default
+
+          if (modelInfo?.division_code) {
+            urls.unshift(`https://{{instance.domain}}/{{request.pathPart(1)}}?toJSON`);
+            cardData = await fetchCard(urls, 'secondary');
+          }
+
+          if (modelInfo?.territory_code) {
+            cardData = await fetchCard(urls, 'secondary');
+          }
+
+          if (modelInfo?.territory && modelInfo?.division) {
+            // const divisionUrls = [
+            //   `https://{{instance.domain}}/{{request.pathPart(1)}}/{{request.pathPart(2)}}?toJSON`,
+            //   `https://{{instance.domain}}/{{request.pathPart(1)}}?toJSON`,
+            //   `https://{{instance.domain}}?toJSON` // Fallback
+            // ];
+            const divisionUrls = [
+              `${modelInfo?.division?.data[0].meta?.web?.url}?toJSON`,
+              `${modelInfo?.territory?.data[0].meta?.web?.url}?toJSON`,
+              `https://{{instance.domain}}?toJSON` // Fallback
+            ];
+            cardData = await fetchCard(divisionUrls, 'secondary');
+          }
+          cardData.secondary_card_cta_text = modelInfo.secondary_card_cta_text
+
+        } catch (err) {
+          console.error('Error:', err);
+        }
+      } else {
+        const m = await fetchData(modelInfoUrl);
+        cardData = await fetchData(
+          'https://{{instance.domain}}/model-info.json?zuid={{this.secondary_card}}'
+        );
+        cardData.secondary_cta_name = m?.secondary_card_cta_text ? m.secondary_card_cta_text : cardData.secondary_cta_name;
+
+      }
+
+      let cardImage = ""
+      if(cardData?.hero_image){
+        cardImage = cardData.hero_image?.data[0]?.url;
+      }else if (cardData.og_image !== "" && cardData.og_image !== null && cardData.og_image !== undefined && !cardData?.hero_image){
+        cardImage = cardData?.og_image?.data[0]?.url
+      }else{
+        cardImage = resolveImages()
+      }
+
+      if(window.innerWidth <= 768) {
+        cardImage += "?width=396&height=222&crop=16:9,smart";
+      } else {
+        cardImage += "?width=338&height=179&crop=16:9,smart";
+      }
+
+      let linkText = '';
+
+      if(typeof cardData?.secondary_cta_name !== 'undefined' || cardData?.secondary_cta_name !== '') {
+        linkText = cardData.secondary_cta_name;
+      }
+
+      if(typeof cardData?.secondary_cta_name !== 'undefined' || cardData?.secondary_cta_name !== '') {
+        linkText = cardData?.secondary_cta_name;
+      }
+
+      return `
+        <div class="card-img-top bg-secondary bg-opacity-25 position-relative">
+            <div class="ratio ratio-16x9 overflow-hidden" style="height: 100%">
+          <img class="w-100 object-fit-cover" src="${cardImage}" alt="Card Image" />
+            </div>
+        </div>
+        <div class="card-body px-4 pt-4">
+          <h5 class="card-title display-1 mb-1">${cardData.meta.web.seo_meta_title}</h5>
+          <div class="card-text text-dark display-3 text-truncate-2">${cardData.meta.web.seo_meta_description}</div>
+        </div>
+        <div class="card-footer bg-transparent pb-4 border-0 d-flex align-items-center justify-content-between gap-2">
+          <a href="${cardData.meta.web.uri}"
+             data-location-type="body:banner-section"
+              data-function-type="navigation"
+              data-format-type="button"
+              data-link-type="internal"
+              onclick="LinkTrackingClickEvent(this,'cta_click')"
+          class="btn btn-secondary flex-grow-1"> ${linkText ? linkText : "View"}</a>
+          ${
+            cardData.secondaryCardCtaName2
+              ? `<a href="${cardData.meta.web.uri}"
+               data-location-type="body:banner-section"
+              data-function-type="navigation"
+              data-format-type="button"
+              data-link-type="internal"
+              onclick="LinkTrackingClickEvent(this,'cta_click')"
+              class="btn btn-info flex-grow-1">${cardData.name}</a>`
+              : ''
+          }
+        </div>
+      `;
+    };
+
+    const appendCardsToBannerSideCol = async () => {
+      const card1 = document.getElementById('dynamic-card-1');
+      const card2 = document.getElementById('dynamic-card-2');
+
+      if (card1 && card2) {
+        card1.innerHTML = await cardGenerator1();
+        card2.innerHTML = await cardGenerator2();
+      } else {
+        console.error('One or both card containers not found');
+      }
+    };
+    appendCardsToBannerSideCol()
+    
+
+    function initZipCodeHandler() {
+      const form = document.getElementById('help-search-form2');
+      const addressInput = document.getElementById('address-search2');
+
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          const address = addressInput.value;
+          const services = getSelectedServices();
+
+          if (!address) {
+            alert('Please enter a location or use your current location');
+            return;
+          }
+          addressInput.setAttribute('data-search-term-type', address);
+          addressInput.setAttribute('data-search-type-type', 'location search - body');
+          addressInput.setAttribute('data-search-method-type', 'user-entered');
+           LocationTrackingSearchEvent(addressInput, 'location_search');
+          redirectToLocationFinder(address, services);
+        });
+      }
+    }
+
+    // Initialize immediately and also on DOMContentLoaded
+    initZipCodeHandler();
+</script>
+
+
+<script>
+  const myCarouselBlock = document.getElementById('carousel-block');
+
+  if (myCarouselBlock) {
+    const prevcarouselBtn = myCarouselBlock.querySelector('.carousel-control-prev');
+    const nextcarouselBtn = myCarouselBlock.querySelector('.carousel-control-next');
+
+    myCarouselBlock.addEventListener('slide.bs.carousel', (event) => {
+      const items = myCarouselBlock.querySelectorAll('.carousel-item');
+
+      if (event.to === 0) {
+        prevcarouselBtn.classList.add('hide');
+      } else {
+        prevcarouselBtn.classList.remove('hide');
+      }
+
+      if (event.to === items.length - 1) {
+        nextcarouselBtn.classList.add('hide');
+      } else {
+        nextcarouselBtn.classList.remove('hide');
+      }
+    });
+  }
+</script>
+
+<script>
+  async function redirectToLocationFinder(address, services) {
+    const data = await checkIfLocation();
+    const baseUrl = 'https://{{instance.domain}}/location-finder';
+    const queryParams = new URLSearchParams({
+      address: address,
+      services: services
+    });
+
+    if (data) {
+      queryParams.append('zuid', '{{this.zuid}}');
+    }
+
+    window.location.href = `${baseUrl}?${queryParams.toString()}`;
+  }
+
+  async function checkIfLocation() {
+    try {
+      const response = await fetch(
+        `https://{{instance.domain}}/location-finder.json?query={{this.zuid}}`
+      );
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const rawData = await response.text();
+      const data = JSON.parse(rawData);
+      return data || false;
+    } catch (error) {
+      console.error('Error checking location:', error);
+      return false;
+    }
+  }
+</script>
+
+
+<script>
+  function LocationTrackingSearchEvent(el, eventName) {
+  const locationSearchData = {
+    event: eventName,
+    location_search_term: el.getAttribute('data-search-term-type') || null,
+    location_search_results: String(el.getAttribute('data-search-results-type')) || null,
+    location_search_type: el.getAttribute('data-search-type-type') || null,
+    location_search_method: el.getAttribute('data-search-method-type') || null,
+    location_search_filter_type: el.getAttribute('data-search-filter-type') || null,
+    location_search_filter_value: el.getAttribute('data-search-filter-value-type') || null
+  };
+
+  // Clean the locationSearchData object
+  const cleanedLocationSearchData = cleanObject(locationSearchData);
+  const locationResultData = [
+    'data-result-index-type',
+    'data-location-id-type',
+    'data-location-name-type',
+    'data-location-org-detail-type',
+    'data-location-services-type'
+  ].reduce((acc, attr) => {
+    const value = el.getAttribute(attr);
+    if (value) {
+      const key = attr.replace(/data-/, '').replace(/-type/g, '').replace(/-/g, '_');
+      acc[key] = value;
+    }
+    return acc;
+  }, {});
+  
+  const linkData = [
+    'data-link-function-type',
+    'data-link-format-type',
+    'data-link-text-type',
+    'data-link-location-type',
+    'data-link-url-type',
+    'data-link-type-type'
+  ].reduce((acc, attr) => {
+    const value = el.getAttribute(attr);
+    if (value) {
+      const key = attr.replace(/data-/, '').replace(/-type/g, '').replace(/-/g, '_');
+      acc[key] = value.trim().replace(/\s+/g, ' ');
+    }
+    return acc;
+  }, {});
+
+  const trackingData = {
+    ...cleanedLocationSearchData,
+    ...locationResultData,
+    ...linkData
+  };
+  utag.link(trackingData);
+}
+
+function LocationTrackingUseLocationEvent(searchTerm) {
+  // Strip PII by rounding coordinates to fewer decimal places
+  // const lat = position?.coords?.latitude.toFixed(2) || '';
+  // const lng = position?.coords?.longitude.toFixed(2) || '';
+  // const searchTerm = lat && lng ? `${lat},${lng}` : '';
+
+  utag.link({
+    event: 'location_search_use_my_location',
+    location_search_term: searchTerm
+  });
+}
+
+function LocationTrackingResultsClickEvent(el) {
+  const trackingData = {
+    event: 'location_search_results_click',
+    location_search_term: el.getAttribute('data-location-search-term') || null,
+    location_search_results: String(el.getAttribute('data-location-search-results')) || null,
+    location_search_type: el.getAttribute('data-location-search-type') || null,
+    location_search_method: el.getAttribute('data-location-search-method') || null,
+    location_search_result_index: String(el.getAttribute('data-location-search-result-index')) || null,
+    location_id: el.getAttribute('data-location-id') || null,
+    location_name: el.getAttribute('data-location-name') || null,
+    location_org_detail: el.getAttribute('data-location-org-detail') || null,
+    location_services: el.getAttribute('data-location-services') || null,
+    location_search_filter_type: el.getAttribute('data-location-search-filter-type') || null,
+    location_search_filter_value: el.getAttribute('data-location-search-filter-value') || null,
+    link_function: el.getAttribute('data-link-function') || null,
+    link_format: el.getAttribute('data-link-format') || null,
+    link_text: el.textContent.trim().replace(/\s+/g, ' ') || null,
+    link_location: el.getAttribute('data-link-location') || null,
+    link_url: el.getAttribute('href') || null,
+    link_type: el.getAttribute('data-link-type') || null
+  };
+  const cleanedTrackingData = cleanObject(trackingData);
+  utag.link(cleanedTrackingData);
+}
+
+function LocationTrackingFilterEvent(
+  searchTerm,
+  resultsCount,
+  searchType,
+  searchMethod,
+  filterType,
+  filterValue
+) {
+  const linkData = {
+    event: 'location_search_filter',
+    location_search_term: searchTerm || '',
+    location_search_results: resultsCount || '0',
+    location_search_type: searchType || 'location search - body',
+    location_search_method: searchMethod || 'autofilled filters',
+    location_search_filter_type: filterType || '',
+    location_search_filter_value: filterValue || ''
+  }
+  const cleanedTrackingData = cleanObject(linkData);
+  utag.link(cleanedTrackingData);
+}
+
+function LocationTrackingMapClickEvent(markerData, searchInfo) {
+  const mapClickEventData = {
+    event: 'location_search_map_click',
+    location_search_term: searchInfo.searchTerm || '',
+    location_search_results: `${searchInfo.totalResults}` || '0',
+    location_search_type: 'location search - body',
+    location_search_method: searchInfo.searchMethod || 'user-entered',
+    location_search_result_index: String(markerData.resultIndex) || '1',
+    location_id: markerData.zuid || '',
+    location_name: markerData.name || '',
+    location_org_detail: markerData.organization_details || '',
+    location_services: markerData.services || '',
+    location_search_filter_type: searchInfo.filterType || '',
+    location_search_filter_value: searchInfo.filterValue || ''
+  }
+  const cleanedMapClickEventData = cleanObject(mapClickEventData);
+  utag.link(cleanedMapClickEventData);
+}
+// Function to clean object by removing null or empty values
+function cleanObject(obj) {
+  const cleanedObj = {};
+  
+  // Loop through all properties
+  for (const key in obj) {
+    // Only include properties that are not null, undefined, or empty strings
+    if (obj[key] !== null && obj[key] !== undefined && obj[key] !== '' && obj[key] !== 'null') {
+      cleanedObj[key] = obj[key];
+    }
+  }
+  
+  return cleanedObj;
+}
+</script>

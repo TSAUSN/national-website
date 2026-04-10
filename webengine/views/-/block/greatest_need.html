@@ -1,0 +1,20 @@
+<div
+  id="greatest-need"
+  class="mb-18"
+>
+  <div class="bg-white px-5 py-8 rounded-5 d-flex align-items-center justify-content-center flex-column" style="height: 363px;">
+    <h4 class="fw-normal text-center mb-8">
+		<span class="text-jenson mb-2 d-block text-uppercase">
+			The Greatest Need right now is
+		</span>
+		<span class="text-primary-200 d-block">
+			{{this.title}}
+		</span>
+	</h4>
+	<div class="d-flex align-items-center justify-content-center">
+		<a href="{{if {this.url} }} {{this.url}} {{else}} https://give.salvationarmyusa.org/give/164006/#!/donation/checkout" {{/if}} target="{{if {this.open_in_a_new_tab} == "1" }}_blank{{else}}_top{{/if}}"  class="btn btn-primary">
+			{{if {this.button_text} }} {{this.button_text}} {{else}} Meet the Need {{/if}}
+		</a>
+	</div>
+  </div>
+</div>

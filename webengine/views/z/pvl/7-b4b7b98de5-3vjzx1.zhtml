@@ -1,0 +1,7 @@
+<div className={styles.pvlRoot}>
+	<div>{{block('/-/block/generic_image_text_button_block.html?variant=7-cafa95d2e1-ng458s')}}</div>
+	<div>{{block('/-/block/mobile_desktop_videos.html?variant=7-f28dcbcafa-826zs3')}}</div>
+	<div>{{block('/-/block/service_selector.html?variant=7-f6ccc893c1-s98w6v')}}</div>
+	<div>{{block('/-/block/stories_carousel.html?variant=7-de8688c6ed-b5gmkj')}}</div>
+	<div>{{block('/-/block/contact_us_block.html?variant=7-b2c4b8bed5-zgl06m')}}</div>
+</div>

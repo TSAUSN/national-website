@@ -1,0 +1,31 @@
+<div className={styles.pvlRoot}>
+	<div style="display:flex">
+		<div style="flex:2" className={styles.pvlColumn}>
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Web_SAL_Insert_1046x856.jpg" alt="placeholder">
+		</div>
+		<div style="flex:4" className={styles.pvlColumn}>
+			<img width="100%" src="https://apps.zesty.io/freestyle/images/video-placeholder.jpg" alt="placeholder" />
+		</div>
+	</div>
+	<div style="display:flex" classname="{styles.pvlRow}" class="row gap-3">
+		<div style="flex:1" className={styles.pvlColumn}>
+			<div>{{block('/-/block/general_accordion.html?variant=7-caa1cbd9b5-f8vs3l')}}</div>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<div>{{block('/-/block/info_block.html?variant=7-aefcccaee4-sbfw8l')}}</div>
+			<h1>Heading 1</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla <strong>pariatur</strong>. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<div>{{block('/-/block/generic_image_text_button_block.html?variant=7-cafa95d2e1-ng458s')}}</div>
+		</div>
+	</div>
+	<div>{{block('/-/block/generic_image_text_button_block.html?variant=7-e6a8f18edb-s0ss9b')}}</div>
+	<div>{{block('/-/block/stories_carousel.html?variant=7-de8688c6ed-b5gmkj')}}</div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,72 @@
+<!-- <div
+  class="px-lg-12 px-sm-4 py-6 bg-light rounded-lg-5 position-absolute w-lg-25 w-sm-100 d-flex flex-column rounded-sm-0 end-0"
+  id="header-donate-container"
+>
+  <button
+    class="d-flex align-items-center justify-content-center btn btn-sm p-0 end-6 position-absolute top-6 donate-modal-close-button"
+  >
+    <span class="material-symbols-outlined text-dark-50 fs-5">close</span>
+  </button>
+
+  <div class="donation-iframe-container">
+    <h2 class="fs-5 position-relative z-2 text-center mt-2">
+      {{ homepage.first().donation_title }}
+    </h2>
+    <div class="d-flex align-items-center justify-content-center" id="donation-loader-container">
+      <div
+        id="donation-loader"
+        class="spinner-border"
+        role="status"
+      ></div>
+    </div>
+  </div>
+</div>
+
+ -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  tabindex="-1"
+  id="donateModal"
+  aria-labelledby="donateModalLabel"
+  aria-hidden="true"
+
+>
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md modal-fullscreen-lg-down">
+    <div class="modal-content bg-light rounded-lg-5 overflow-y-auto" style="height: 48rem;">
+      <!-- Close Button -->
+      <button
+        type="button"
+        class="btn-close position-absolute end-0 m-3 donate-modal-close-button"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+
+      <div class="modal-title text-center p-6 fs-5">
+        <h2 class="fs-5 text-center m-0">
+          {{ homepage.first().donation_title }}
+        </h2>
+      </div>
+      <!-- Modal Body -->
+      <div
+        class="modal-body p-4"
+        id="header-donate-container"
+      >
+        <!-- Iframe Container -->
+        <div class="ratio ratio-16x9 h-100 donation-iframe-container">
+          <div
+            class="d-flex align-items-center justify-content-center mb-4"
+            id="donation-loader-container"
+          >
+            <div
+              id="donation-loader"
+              class="spinner-border"
+              role="status"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

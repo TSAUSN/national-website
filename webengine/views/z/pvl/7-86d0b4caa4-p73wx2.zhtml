@@ -1,0 +1,6 @@
+<div className={styles.pvlRoot}>
+	<div>{{block('/-/block/hero_full.html?variant=7-dccd87d19d-75sbfd')}}</div>
+	<div>{{block('/-/block/mobile_desktop_location_card_block.html?variant=7-e6db97dcc3-j0grjk')}}</div>
+	<div>{{block('/-/block/contact_us_block.html?variant=7-b2c4b8bed5-zgl06m')}}</div>
+	<div>{{block('/-/block/general_accordion.html?variant=7-b2859ef087-j37ncj')}}</div>
+</div>

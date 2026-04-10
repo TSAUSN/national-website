@@ -1,0 +1,348 @@
+<!-- Start dev instance -->
+{{ if {instance.env} == 'dev'}}
+<!-- QA Form Modal -->
+
+
+</div>
+<!-- Open modal, display on desktop only-->
+<div class="fixed-bottom m-4 d-lg-flex w-25">
+  <a
+    class="btn btn-info d-none d-lg-inline me-2"
+    href="https://coda.io/embed/59tgpaCKXI"
+    target="_blank"
+    role="button"
+    >Submit a QA Ticket</a
+  >
+  <a
+    id="view-content-button"
+    class="btn btn-info d-none d-lg-flex icon-link"
+    href=""
+    role="button"
+    target="_blank"
+  >
+    <img
+      src="https://8-da979ebeab-d59gnx.manager.zesty.io/zestyLogoOnlyGrey.svg"
+      class="bi"
+    />
+    Edit Content
+  </a>
+</div>
+{{/if}}
+<!-- End dev instance -->
+
+{{$baseUrl = https://tags.tiqcdn.com/utag/salvationarmy}}
+{{ $page_zuid = {!this.zuid} }}
+{{ $set_zuid = {!this.set_zuid} }}
+{{ $page_path = {request.path()} }}
+{{ $page_title = {!this.seo_meta_title} }}
+<!-- default profile is national -->
+{{ $tealium_profile = national }}
+
+{{each models as model }}
+{{if {$set_zuid} == {model.zuid} }}
+{{ $model_name = {model.name} }}
+{{ $model_zuid = {model.zuid} }}
+{{ $page_type_detail = {model.name} }}
+{{/if}}
+{{/each}}
+
+
+{{$modules = []}}
+
+<script type="text/javascript">
+  function checkPropertyType() {
+   const propType = cookieManager.get(cookieKeys.locationPropertyType);
+   if (propType === "simplified") {
+       document.documentElement.classList.add('prop-type-simplified');
+       isSpecialPropType = true;
+    }
+  }
+
+  var utag_data = {};
+  window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
+  window.utag_cfg_ovrd.noview = true;
+
+  function getCookiesReadyPromise() {
+    if (window.cookiesReady && typeof window.cookiesReady.then === 'function') {
+      return window.cookiesReady;
+    }
+    if (typeof initCookies === 'function') {
+      return Promise.resolve(initCookies());
+    }
+    return Promise.resolve();
+  }
+
+  (async function(){
+    await getCookiesReadyPromise();
+    checkPropertyType();
+
+    let profile = cookieManager.get(cookieKeys.tealiumprofile);
+    if (profile === null || typeof profile === 'undefined') {
+      profile = "national";
+    }
+
+    const siteDomain = '{{instance.domain}}';
+    const instanceEnv = '{{instance.env}}';
+    let profile_env = '';
+
+    if (instanceEnv == 'live') {
+      if (siteDomain == 'thesalvationarmy-h4zw8zcg.zesty.dev') {
+        profile_env = 'qa';
+      } else {
+        profile_env = 'prod';
+      }
+    } else {
+      profile_env = 'dev';
+    }
+    
+    const script = document.createElement('script');
+   script.src = `{{$baseUrl}}/${profile}/${profile_env}/utag.js`;
+    script.type = 'text/javascript';
+    script.async = true;
+        
+    script.onload = function() {
+      // Dispatch an event when utag is loaded
+      document.dispatchEvent(new Event('utag_loaded'));
+    };
+
+    // Get the body element and its first child
+    var body = document.getElementsByTagName('body')[0];
+    var firstChild = body.firstChild;
+        
+    // Insert the script as the first element in the body
+    body.insertBefore(script, firstChild);
+  })();
+
+  const page_path = document.location.pathname;
+
+  function getModules() {
+    const pageModules = [];
+    const modules = document.querySelectorAll('[data-component-type]');
+    modules.forEach((module, index) => {
+      module.dataset.componentIndex = index + 1;
+      pageModules.push(module.dataset.componentType);
+    });
+    return pageModules.toString()
+  }
+  function cleanObject(obj) {
+    const cleanedObj = {};
+    
+    // Loop through all properties
+    for (const key in obj) {
+      // Only include properties that are not null, undefined, or empty strings
+      if (obj[key] !== null && obj[key] !== undefined && obj[key] !== '') {
+        cleanedObj[key] = obj[key];
+      }
+    }
+    
+    return cleanedObj;
+  }
+
+  function waitForUtag(callback, maxAttempts = 50) {
+      let attempts = 0;
+
+      function checkUtag() {
+          attempts++;
+          if (typeof utag !== 'undefined') {
+              callback();
+          } else if (attempts < maxAttempts) {
+              setTimeout(checkUtag, 100);
+          } else {
+              console.warn('Tealium failed to load after maximum attempts');
+          }
+      }
+
+      checkUtag();
+  }
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    getCookiesReadyPromise().then(() => {
+      waitForUtag(async function() {
+      checkPropertyType();
+
+      let code = '';
+      const name = cookieManager.get(cookieKeys.locationName)
+      const level = cookieManager.get(cookieKeys.organizationLevel)
+      const territory = cookieManager.get(cookieKeys.organizationTerritory)
+      const division = cookieManager.get(cookieKeys.organizationDivision)
+      const corp = cookieManager.get(cookieKeys.organizationCorp)
+      const model = cookieManager.get(cookieKeys.locationModel)
+      const model_name = '{{$model_name}}';
+      const city = cookieManager.get(cookieKeys.locationCity);
+      const state = cookieManager.get(cookieKeys.locationState);
+      const tealiumprofile = cookieManager.get(cookieKeys.tealiumprofile);
+      const territory_code = cookieManager.get(cookieKeys.territoryCode);
+      const division_code = cookieManager.get(cookieKeys.divisionCode);
+
+     
+      code = cookieManager.get(cookieKeys.analyticsCode);
+      let pageType = cookieManager.get(cookieKeys.analyticsPageType);
+
+      if (!code) {
+        code = 'SAL';
+      }
+
+      if(!pageType){
+        pageType = "SAL:USN"
+      }
+
+      const utagViewData = {
+          //All pages
+          event: 'page_view',
+          page_path: `{{$page_path}}`,
+          page_name: `{{ $page_title.htmlentities() }}`,
+          page_siteSection: '{{ $page_siteSection }}',
+          page_hierarchy: code,
+          page_errorPage: 'false',
+          page_environment: '{{instance.env}}',
+          page_language: 'EN',
+          page_type: pageType,
+          page_type_detail: model_name,
+          page_objective: `{{ !this.seo_meta_description.htmlentities() }}`,
+          page_author: '',
+          page_owner: tealiumprofile,
+          page_updated_date: '{{!this.updated_at}}',
+          page_audience: '',
+          organization_name: name,
+          organization_level: level,
+          organization_territory: territory ? territory : '',
+          organization_division: division ? division : '',
+          organization_corp: corp ? corp : '',
+          modules: getModules(),
+          test_module: getModules()
+        };
+
+      if(city) {
+        utagViewData.page_city = city;
+      }
+
+      if (state) {
+        utagViewData.page_state = state;
+      }
+
+      const cleanUtagObject = cleanObject(utagViewData);
+
+      // Your Tealium tracking code here
+      utag.view(cleanUtagObject);
+
+      // Implement content_view analytics
+      function trackContentView(component) {
+        try {
+          const componentData = {
+            id: component.id || '',
+            type: component.dataset.componentType || '',
+            index: component.dataset.componentIndex || '',
+            heading: component.querySelector('h1, h2, h3, h4, h5, h6')?.textContent?.trim() || '',
+            subheading: component.querySelector('p')?.textContent?.trim() || '',
+            imageUrl: component.querySelector('img')?.src || ''
+          };
+
+          utag.link({
+            event: 'content_view',
+            page_componentID: componentData.id,
+            page_componentHeading: componentData.heading,
+            page_componentSubheading: componentData.subheading,
+            page_componentType: componentData.type,
+            page_componentIndex: componentData.index,
+            page_componentImageAssetURL: componentData.imageUrl,
+            modules: getModules()
+          });
+        } catch (error) {
+          console.error('Error in trackContentView:', error);
+        }
+      }
+
+      let modules = [];
+      // Create Intersection Observer
+      // const observer = new IntersectionObserver((entries) => {
+      //   entries.forEach(entry => {
+      //     if (entry.isIntersecting) {
+      //       trackContentView(entry.target);
+      //       observer.unobserve(entry.target); // Only track once
+      //     }
+      //   });
+      // }, {
+      //   threshold: 0.1 // Fire when 10% of the component is visible
+      // });
+
+      // Apply observer to all components
+      // const components = document.querySelectorAll('[data-component-type]');
+      // components.forEach((component, index) => {
+      //   component.dataset.componentIndex = index + 1;
+      //   modules.push(component.dataset.componentType);
+      //   observer.observe(component);
+      // });
+      });
+    });
+  });
+
+  function updateViewContentLink() {
+    let data = {{ !this.toJSON() }};
+    let contentZuid = data.meta.zuid;
+    let modelZuid = data.meta.model.zuid;
+    let contentURL = 'https://salvationarmy.mobile.zesty.io/content/' +  modelZuid + "/" + contentZuid;
+  
+     document.getElementById("view-content-button").setAttribute("href", contentURL)
+  
+  }
+  updateViewContentLink();
+</script>
+
+<div>
+  <div class="header-main-container align-items-center justify-content-center mx-auto">
+    {{if {instance.env} == 'dev' && {request.queryParam(navType)} == 'dynamic' }}
+      {{include components/header-dynamic }}
+    {{else}}
+      {{include components/header }}
+    {{/if}}
+    
+    {{include components/header-donate-modal}}
+  </div>
+
+  <main class="{{if {this.zuid} != ""}} main-container {{else}} main-container-404 {{/if}}" >
+    <div class="px-4 px-md-8 px-lg-0 container-lg container-fluid">
+      <div class="main-content">
+        {{ current_view }}
+      </div>
+    </div>
+  </main>
+</div>
+<div class="px-4 px-md-8 px-lg-0 container-lg container-fluid main-container mt-15">
+  {{include components/footer}}
+</div>
+
+{{if (instance.env) == 'dev'}}
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rijgwmao11");
+</script>
+{{/if}}
+
+{{if {this.zuid} === "7-dab495a2c1-13lthp" && {instance.env} === 'dev'}}
+  <script src="https://cdn.jsdelivr.net/npm/@feathery/react@latest/umd/index.js"></script>
+
+    <div id='container'></div>
+
+    <script>
+
+    (() => {
+
+        Feathery.init('b97e273c-baaf-4174-ad15-2f285f6686c8')
+
+        const loginEnabled = false;
+
+        Feathery.renderAt('container', { formId: "EXfqIo" }, loginEnabled);
+
+    })();
+
+    </script>
+{{/if}}
+
+<script
+  type="text/javascript"
+  src="{{ instance.getJsUrl() }}"
+></script>

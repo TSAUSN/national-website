@@ -1,0 +1,32 @@
+.card {
+  border: none;
+}
+
+.card-img-top {
+  max-height: 200px;
+  min-height: 200px;
+
+  &__large {
+    max-height: 185px;
+    min-height: 185px;
+    @media (min-width: 1024px) {
+      max-height: 250px;
+      min-height: 250px;
+    }
+  }
+  &__small {
+    max-height: 185px;
+    min-height: 185px;
+  }
+  &::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: linear-gradient(360deg, rgba(28, 27, 31, 0.5) 0%, rgba(28, 27, 31, 0.1) 100%);
+  }
+}

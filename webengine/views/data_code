@@ -1,0 +1,39 @@
+{{$zuid = {request.queryParam(zuid)} }}
+{{$modelZuid = {request.queryParam(model)} }}
+
+{{if {$modelZuid} == '6-b4c9aba69c-h2nqvm' }}
+    {{$territoryZUID = {locations.filter({$zuid}).territory} }}
+    {{$territoryCode = {territories.filter({$territoryZUID}).territory_code} }}
+
+    {{$divisionZUID = {locations.filter({$zuid}).division} }}
+    {{$divisionCode = {divisions.filter({$divisionZUID}).division_code} }}
+    {
+        "code": "SAL:{{$territoryCode}}:{{$divisionCode}}:{{locations.filter({$zuid}).name}}",
+        "page_type": "SAL:{{$territoryCode}}",
+        "territory_code": "{{$territoryCode}}",
+        "division_code": "{{$divisionCode}}"
+    }
+{{else if {$modelZuid} == '6-acb19a94bd-4q8ftj' }}
+    {{$territoryZUID = {divisions.filter({$zuid}).territory} }}
+    {{$territoryCode = {territories.filter({$territoryZUID}).territory_code} }}
+    {{$divisionCode = {divisions.filter({$zuid}).division_code} }}
+    {
+        "code": "SAL:{{$territoryCode}}:{{$divisionCode}}",
+        "page_type": "SAL:{{ $territoryCode }}",
+        "territory_code": "{{$territoryCode}}",
+        "division_code": "{{divisions.filter({$zuid}).division_code}}"
+
+    }
+
+{{else if {$modelZuid} == '6-deab97cfd9-wb5km4' }}
+    {
+        "code": "SAL:{{territories.filter({$zuid}).territory_code}}",
+        "page_type": "SAL:{{territories.filter({$zuid}).territory_code}}",
+        "territory_code": "{{territories.filter({$zuid}).territory_code}}"
+    }
+{{else}}
+    {
+        "code": "SAL:USN",
+        "page_type": "SAL:USN"
+    }
+{{/if}}

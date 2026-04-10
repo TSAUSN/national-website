@@ -1,0 +1,38 @@
+{{$totalItems = 0}}
+
+{
+    "data": [
+        {{each staffs as staffUser }}
+        {{$totalItems = {staffUser._num} }}
+        {
+            "data": {
+                "firstName": "{{staffUser.first_name.escapeForJs()}}",
+                "lastName": "{{staffUser.last_name}}",
+                "email": "{{staffUser.email}}",
+                "locations": [
+                     {{each locations as location WHERE find_in_set(z.zuid,'{staffUser.member_locations}')}}
+                     {
+                         "name": "{{location.name}}"
+                     }{{location._arraycomma}}
+                     {{/each}}
+                ],
+                "divisions": [
+                     {{each divisions as division WHERE find_in_set(z.zuid,'{staffUser.member_divisions}')}}
+                     {
+                         "name": "{{division.name}}"
+                     }{{division._arraycomma}}
+                     {{/each}}
+                ]
+            },
+            "meta": {
+                "ZUID": "{{staffUser.zuid}}",
+                "masterZuid": "{{staffUser.zuid}}",
+                "contentModelZuid": "{{staffUser.set_zuid}}"
+            }
+        }{{staffUser._arraycomma}}
+        {{/each}}
+    ],
+    "_meta": {
+        "totalItems": {{$totalItems}}
+    }
+}

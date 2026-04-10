@@ -1,0 +1,60 @@
+footer {
+  .accordion-button {
+    &.active {
+      background-color: #fff !important;
+    }
+  }
+  .contact-us {
+    height: 400px;
+    position: relative;
+    &::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: rgba(28, 27, 31, 0.3);
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      height: 223px;
+    }
+    &__cta {
+      background-color: #fff;
+      @media (max-width: 768px) {
+        background-color: transparent;
+      }
+    }
+
+    img {
+      @media (max-width: 768px) {
+        width: 100% !important;
+        height: 223px !important;
+        object-fit: cover;
+      }
+    }
+    .salvation-army-logo {
+      max-width: 122px;
+      width: 100%;
+      @media (max-width: 1024px) {
+        max-width: 65px;
+        width: 100% !important;
+        height: auto !important;
+      }
+      @media (max-width: 768px) {
+        max-width: 50px;
+        width: 100% !important;
+        height: auto !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  footer {
+    margin-bottom: 4rem;
+  }
+}

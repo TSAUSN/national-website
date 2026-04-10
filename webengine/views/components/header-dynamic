@@ -1,0 +1,624 @@
+<header
+  id="header"
+  data-component-type="header"
+  class="bg-light rounded-bottom-sm-2 rounded-bottom-lg-5 top-lg-5 start-sm-0 end-sm-0 end-lg-2 start-lg-2 top-sm-0 rounded-top-sm-0 rounded-top-lg-5 rounded-top-sm-0 position-sm-fixed py-5 pb-lg-5 pb-sm-2 px-5 px-lg-8 my-lg-5 mt-sm-0 d-flex justify-content-center align-items-center"
+>
+  <div class="header__wrapper d-flex justify-content-between align-items-center w-100">
+    <nav class="navbar navbar-expand-lg py-0">
+      <a
+        href="/"
+        class="me-8 header-home-image"
+        ><img
+          src="https://8hxvw8tw.media.zestyio.com/shield-1.svg"
+          alt="The Salvation Army Logo"
+          width="39"
+          height="46"
+      /></a>
+      
+      <ul class="navbar-nav header-navbar-nav me-auto mb-2 mb-lg-0 d-sm-none d-lg-flex hide-special-prop-type">
+        <li class="nav-item">
+          <a
+            class="nav-link header-home-link active fw-normal"
+            data-location-type="nav-top"
+            data-function-type="navigation"
+            data-format-type="text"
+            data-link-type="internal"
+            aria-current="page"
+            href="#"
+            onclick="LinkTrackingClickEvent(this,'header_click')"
+            >Home</a
+          >
+        </li>
+        
+        <li class="nav-item dropdown ">
+          <a
+            class="nav-link header-dropdown dropdown-toggle fw-normal"
+            data-location-type="nav-top"
+            data-function-type="navigation"
+            data-format-type="text"
+            data-link-type="internal"
+            aria-current="page"
+            href="#"
+            onclick="LinkTrackingClickEvent(this,'header_click')"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            >Services</a
+          >
+          <ul class="dropdown-menu header-services-dropdown  px-8 py-4 rounded-6 pe-none">
+            <li class="d-flex align-items-center justify-content-between mb-4">
+              <span class="p-0 d-block text-dark-50">Services</span>
+              <a
+                href="#"
+                data-location-type="nav-top"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                href="#"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                role="button"
+                class="d-flex align-items-center justify-content-between text-primary-200 display-2 text-decoration-none services-view-all pe-auto"
+                >View All<span class="material-symbols-outlined ms-4 fs-6"> arrow_outward </span></a
+              >
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            
+            <li class=" services_dropdown-item__container pe-auto services-dropdown-li">
+              {{$url = https://8hxvw8tw-dev.webengine.zesty.io/menu-config/7-8cb2cdb7d3-v7g7zn.json?zpw=tsasecret123 }}
+              {{each api.json.get({$url}) as obj }}
+              {{if {obj.parent} ==  'services'}}
+              {{$url = {truepath({obj.page-zuid})} }}
+              {{$service_type = {services.filter({obj.page-zuid}).service_type} }}
+              {{$service_icon = {service_types.filter({$service_type}).icon_name} }}
+              <a class="dropdown-item py-2 px-2 d-flex align-items-center gap-2 header-service-item mb-4" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-sort="{{obj.sort}}" aria-current="page" href="{{$url}}" onclick="LinkTrackingClickEvent(this,'header_click')"><span class="material-symbols-outlined text-primary-200">{{$service_icon}}</span><span>{{obj.page_name}}</span></a>
+              {{/if}}
+              {{/each}}  
+            </li> 
+            <li class="services-scroll-indicator" aria-hidden="true" role="presentation">
+              <span class="material-symbols-outlined text-primary-200">keyboard_arrow_down</span>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link header-dropdown dropdown-toggle fw-normal"
+            data-location-type="nav-top"
+            data-function-type="navigation"
+            data-format-type="text"
+            data-link-type="internal"
+            aria-current="page"
+            href="#"
+            onclick="LinkTrackingClickEvent(this,'header_click')"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            >About Us</a
+          >
+          <ul class="dropdown-menu  px-8 py-4 rounded-6 pe-none">
+            <li><span class="p-0 mb-4 d-block text-dark-50">About Us</span></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+
+            <li class="dropdown-item__container dropdown-item__container-repeat-3 pe-auto about-us-item-container">
+              <a
+                class="dropdown-item py-2 px-2 about-the-salvation-link"
+                href="#"
+                data-location-type="nav-top"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >About The Salvation Army</a
+              >
+              <a
+                class="dropdown-item py-2 px-2 leadership-link"
+                href="#"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >Leadership</a
+              >
+              <a
+                class="dropdown-item py-2 px-2 history-link"
+                href="{{ truepath(7-b8c09b84c2-fp57hm) }}"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >History</a
+              >
+              <a
+                class="dropdown-item py-2 px-2 employment-link"
+                href="#"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >Employment Opportunities</a
+              >
+              <a
+                class="dropdown-item py-2 px-2 love-beyond-link d-none"
+                href="{{ truepath(7-ec948cc4c0-lm28pm) }}"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >Love Beyond</a
+              >
+              <a
+                class="dropdown-item py-2 px-2"
+                href="/give-with-joy"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >Give With Joy</a
+              >
+              <a
+                class="dropdown-item py-2 px-2 sub-newsroom-link d-none"
+                href="#"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >Newsroom</a
+              >
+
+              <p class="dropdown-item placeholder-glow component-placeholder p-0">
+                <span
+                  class="placeholder h-100"
+                  style="width: 10rem"
+                ></span>
+              </p>
+
+              <a
+              class="dropdown-item py-2 px-2"
+              href="{{truepath(7-98f6a2b4bf-8xvb3r)}}"
+              data-function-type="navigation"
+              data-format-type="text"
+              data-link-type="internal"
+              onclick="LinkTrackingClickEvent(this,'header_click')"
+              >Commitment to Serving All</a
+            >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link fw-normal newsroom-link"
+            aria-current="page"
+            data-location-type="nav-top"
+            data-function-type="navigation"
+            data-format-type="text"
+            data-link-type="internal"
+            aria-current="page"
+            href="#"
+            onclick="LinkTrackingClickEvent(this,'header_click')"
+            >Newsroom</a
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link  header-dropdown dropdown-toggle fw-normal header-wtg-dropdown"
+            data-location-type="nav-top"
+            data-function-type="navigation"
+            data-format-type="text"
+            data-link-type="internal"
+            aria-current="page"
+            href="#"
+            onclick="LinkTrackingClickEvent(this,'header_click')"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            >Ways to Give</a
+          >
+          <ul class="dropdown-menu px-8 py-4 rounded-6 pe-none header-wtg-dropdown-ul">
+            <li class="d-flex align-items-center justify-content-between mb-4">
+              <span class="p-0 d-block text-dark-50">Ways to Give</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li class="dropdown-item__container dropdown-item__container-repeat-3 pe-auto ways-to-give-container">
+              <a
+              class="dropdown-item py-2 px-2"
+                href="https://give.salvationarmyusa.org/campaign/676125/donate?c_src=NT26TZOAAC&c_src2=USAWaystoGiveNavigation"
+                target="_blank"
+                data-location-type="nav-top"
+                data-function-type="other"
+                data-format-type="text"
+                data-link-type="external"
+                onclick="LinkTrackingClickEvent(this,'donate_money_click')"
+               >Donate Money</a>
+              
+              <a
+                class="dropoff-link dropdown-item py-2 px-2"
+                href="https://satruck.org"
+                target="_blank"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="external"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >Donate Goods</a
+              >
+              
+                  <a
+                class="fundraiser-link dropdown-item py-2 px-2"
+                href="https://give.salvationarmyusa.org/campaign/fundraise-for-good/c175635"
+                target="_blank"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="external"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >Become a Fundraiser</a
+              >
+              <a
+                class="donate-goods-link dropdown-item py-2 px-2 {{if {this.zuid} == '7-ae82da90c9-zjnfr3'}} d-none {{/if}}"
+                href="#"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >Gift Stocks & Bonds</a
+              >
+              <a
+                class="dropdown-item py-2 px-2 volunteer-link"
+                href="#"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >Volunteer</a
+              >
+              <a
+                class="planned-giving-link dropdown-item py-2 px-2"
+                href="#"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >Planned Giving</a
+              >
+              <a
+                class="angel-tree-link dropdown-item py-2 px-2 d-none"
+                href="/walmart-angel-tree/"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >Angel Tree Campaign</a
+              >
+              <a
+                class="dropdown-item py-2 px-2 ways-to-give-link"
+                href="#"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >View All Ways to Give</a
+              >
+              <p class="dropdown-item placeholder-glow component-placeholder p-2">
+                <span
+                  class="placeholder h-100"
+                  style="width: 10rem"
+                ></span>
+              </p>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link fw-normal contact-us-link"
+            aria-current="page"
+            data-location-type="nav-top"
+            data-function-type="navigation"
+            data-format-type="text"
+            data-link-type="internal"
+            aria-current="page"
+            href="#"
+            onclick="LinkTrackingClickEvent(this,'header_click')"
+            >Contact Us</a
+          >
+        </li>
+
+        <li class="nav-item  dropdown d-none informational-links-more-parent">
+          <a
+            class="nav-link header-dropdown header-dropdown-more dropdown-toggle fw-normal"
+            data-location-type="nav-top"
+            data-function-type="navigation"
+            data-format-type="text"
+            data-link-type="internal"
+            aria-current="page"
+            href="#"
+            onclick="LinkTrackingClickEvent(this,'header_click')"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            >More</a
+          >
+          <ul class="dropdown-menu dropdown-menu-more px-8 py-4 rounded-6 pe-none">
+            <li class="dropdown-item__container dropdown-item__container-repeat-3 pe-auto informational-links-more">
+              <p class="dropdown-item placeholder-glow component-placeholder p-0">
+                <span
+                  class="placeholder h-100"
+                  style="width: 10rem"
+                ></span>
+              </p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    
+    <div class="ms-sm-auto ms-lg-0 me-sm-4 d-none">
+      <button
+        id="search-toggle-btn"
+        class="bg-transparent border border-0 d-flex align-items-center justify-content-center"
+        data-location-type="nav-top"
+        data-function-type="other"
+        data-format-type="icon-block"
+        data-link-type="internal"
+        aria-current="page"
+        onclick="LinkTrackingClickEvent(this,'header_click')"
+      >
+        <span
+          class="material-symbols-outlined text-dark-100"
+          style="font-size: 38px"
+          >search</span
+        >
+      </button>
+    </div>
+
+    <div class="location-indicator d-lg-flex align-items-center justify-content-center d-sm-none ms-auto me-18">
+      <div class="me-2 d-flex align-items-center justify-content-center">
+        <span
+          class="material-symbols-outlined text-primary-200"
+          style="font-size: 38px"
+          >location_on</span
+        >
+      </div>
+      <div>
+        <p class="location-title-placeholder placeholder-glow component-placeholder mb-0">
+          <span
+            class="placeholder"
+            style="width: 10rem"
+          ></span>
+        </p>
+        <p class="my-0 mb-0">
+          <span class="header-salvation-name"></span>
+          <span class="header-location"></span>
+        </p>
+        <div class="">
+          <a
+            data-location-type="nav-top"
+            data-function-type="navigation"
+            data-format-type="text"
+            data-link-type="internal"
+            href="#"
+            onclick="LinkTrackingClickEvent(this,'header_click')"
+            class="text-dark-50 location-link service-center"
+            >Find Service Centers</a
+          >
+          <span class="text-dark-50 d-none">|</span>
+          <a
+            data-location-type="nav-top"
+            data-function-type="navigation"
+            data-format-type="text"
+            data-link-type="internal"
+            href="#"
+            onclick="LinkTrackingClickEvent(this,'header_click')"
+            class="d-none text-dark-50 location-link"
+            >Thrift Stores</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- mobile -->
+    <div
+      class="mx-4 py-2 px-4 rounded-9 d-lg-none align-items-center justify-content-between d-sm-flex position-absolute bg-light start-0 end-0"
+      style="top: 5.8rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);"
+    >
+      <div class="me-2 d-flex align-items-center justify-content-center">
+        <span
+          class="material-symbols-outlined text-primary-200 me-1"
+          style="font-size: 24px"
+          >location_on</span
+        >
+        <p class="location-title-placeholder placeholder-glow component-placeholder mb-0">
+          <span
+            class="placeholder"
+            style="width: 10rem"
+          ></span>
+        </p>
+        <p class="display-3 text-nowrap text-truncate location-title mb-0">
+          <span class="header-salvation-name"></span>
+          <span class="header-location"></span>
+        </p>
+      </div>
+      <div>
+        <div class="d-flex align-items-center justify-content-center">
+          <a
+            data-location-type="nav-top"
+            data-function-type="navigation"
+            data-format-type="text"
+            data-link-type="internal"
+            href="#"
+            onclick="LinkTrackingClickEvent(this,'header_click')"
+            class="text-dark-50 display-3 text-nowrap location-link service-center"
+            >Service Centers</a
+          >
+          <span class="text-dark-50 mx-1 d-none">|</span>
+          <a
+            data-location-type="nav-top"
+            data-function-type="navigation"
+            data-format-type="text"
+            data-link-type="internal"
+            href="#"
+            onclick="LinkTrackingClickEvent(this,'header_click')"
+            class="d-none text-dark-50 display-3 text-nowrap location-link"
+            >Thrift</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- future-phase !-->
+    <div
+      class="dropdown d-sm-none d-lg-block future-phase"
+      bis_skin_checked="1"
+    >
+      <button
+        class="bg-area language-button rounded-7 btn py-2 px-3 dropdown-toggle d-flex align-items-center justify-content-center"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        data-location-type="nav-top"
+        data-function-type="other"
+        data-format-type="dropdown"
+        data-link-type="internal"
+        onclick="LinkTrackingClickEvent(this,'header_click')"
+      >
+        <div class="d-inline-block">
+          <div class="d-flex align-items-center justify-content-center">
+            <span
+              class="material-symbols-outlined me-2"
+              style="font-size: 14px"
+            >
+              g_translate
+            </span>
+            <span class="current-language-text">English</span>
+          </div>
+        </div>
+      </button>
+      <form
+        id="translate-form"
+        action=""
+      >
+        <ul
+          class="dropdown-menu p-4"
+          style="min-width: 50px"
+        >
+          <li>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                checked
+                id="flexRadioDefault1"
+              />
+              <label
+                class="form-check-label language-item"
+                for="flexRadioDefault1"
+                >English</label
+              >
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+              />
+              <label
+                class="form-check-label language-item"
+                for="flexRadioDefault2"
+                >Spanish</label
+              >
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault3"
+              />
+              <label
+                class="form-check-label language-item"
+                for="flexRadioDefault3"
+                >Mandarin</label
+              >
+            </div>
+          </li>
+        </ul>
+      </form>
+    </div>
+    <!-- end-future-phase !-->
+
+    <div class="d-none d-md-flex align-items-center justify-content-center">
+      <button
+        class="btn btn-primary me-2 text-nowrap header-find-help-btn d-flex align-items-center gap-2"
+        data-location-type="nav-top"
+        data-function-type="other"
+        data-format-type="button"
+        onclick="LinkTrackingClickEvent(this,'find_help_click'); toggleCaret(this)"
+      >
+        Find Help
+        <i class="bi bi-chevron-down caret-icon"></i>
+      </button>
+        <button
+          class="btn btn-primary header-donate-button d-flex align-items-center gap-2"
+          
+          data-location-type="nav-top"
+          data-function-type="other"
+          data-format-type="button"
+          onclick="LinkTrackingClickEvent(this,'donate_money_click'); toggleCaret(this)"
+        >
+          Donate
+          <i class="bi bi-chevron-down caret-icon"></i>
+        </button>
+    </div>
+    <div class="d-flex d-md-none">
+      <div class="header-cta-buttons active">
+        <button
+          class="btn btn-primary btn-sm me-2 text-nowrap header-find-help-btn d-flex align-items-center gap-2"
+          data-location-type="nav-top"
+          data-function-type="other"
+          data-format-type="button"
+          onclick="LinkTrackingClickEvent(this,'find_help_click'); toggleCaret(this)"
+        >
+          Find Help
+          <i class="bi bi-chevron-down caret-icon"></i>
+        </button>
+        <button
+          class="btn btn-primary btn-sm header-donate-button d-lg-none d-flex align-items-center gap-2"
+          data-location-type="nav-top"
+          data-function-type="other"
+          data-format-type="button"
+          onclick="LinkTrackingClickEvent(this,'donate_money_click'); toggleCaret(this)"
+        >
+          Donate
+          <!-- <i class="bi bi-chevron-down caret-icon"></i> -->
+        </button>
+      </div>
+      <div class="header-search-close-button">
+        <button
+          class="btn btn-secondary btn-sm d-flex align-items-center justify-content-center"
+          data-location-type="nav-top"
+          data-function-type="other"
+          data-format-type="icon-block"
+          onclick="LinkTrackingClickEvent(this,'header_click')"
+        >
+          Close <span class="material-symbols-outlined ms-2 fs-7">close</span>
+        </button>
+      </div>
+    </div>
+
+    {{include components/nav-mobile}}
+    {{include components/header-find-help-modal}}
+    {{include components/header-search-modal}}
+    {{include components/header-donate-drawer-modal}}
+
+  </div>
+
+</header>      

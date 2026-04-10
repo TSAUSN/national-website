@@ -1,0 +1,1230 @@
+{{ include components/news-archive-search }}
+
+<script>
+    // Initialize global variables
+    let pageLimit = 16;
+    let totalArticleCount = 0;
+    let numberOfPages = 0;
+    let stories = [];
+    let  = null;
+    function buildParentNewsLink(truepath) {
+        const parentNewsroomLinkContainer = document.querySelector("#parent-news__link");
+        parentNewsroomLinkContainer.setAttribute('href', truepath +'stories');
+    }
+
+    function showLoader(container) {
+        if (!container) return;
+        container.innerHTML = `
+            <div class="loader-container">
+                <div class="loader-spinner">
+                    <span class="material-symbols-outlined spin text-primary" style="font-size: 2rem;">progress_activity</span>
+                </div>
+                <div class="loader-text">Loading news articles...</div>
+            </div>
+        `;
+    }
+
+      function fixMalformedJSON(rawText) {
+            try {
+            // Remove line breaks and unnecessary whitespace
+            let cleaned = rawText.replace(/\n/g, ' ').replace(/\s+/g, ' ');
+
+            // Remove trailing commas before closing brackets
+            cleaned = cleaned.replace(/,\s*]/g, ']');
+            cleaned = cleaned.replace(/,\s*}/g, '}');
+
+            // Remove empty lines or invalid commas between objects
+            cleaned = cleaned.replace(/},\s*,\s*{/g, '}, {');
+
+            // Try to parse it
+            const json = JSON.parse(cleaned);
+            return json;
+            } catch (err) {
+            console.error('Failed to parse JSON:', err.message);
+            return null;
+            }
+  }
+
+    async function getStories(params) {
+        try {
+            const response = await fetch(`https://{{instance.domain}}/stories.json?limit=0&show=16`);
+            const stories = await response.json();
+            
+            return stories.data;
+        } catch (error) {
+            console.error('Error in getStories:', error);
+            return [];
+        }
+    }
+
+
+    
+    async function fetchNews(searchTerm, filterType, filterValue, selectedDate, pageNumber = 1) {
+        try {
+            let url = `https://{{instance.domain}}/stories.json`;
+            const params = new URLSearchParams();
+            const locationZUID = cookieManager.get('6-a0898ca2c1-krnm0f');
+            const locationModel = cookieManager.get('6-a0898ca2c1-krnm0f');
+
+            // const locationZUID = cookieManager.get('location_zuid');
+            // const locationModel = cookieManager.get('location_model');
+            
+            // Calculate limit and show parameters based on pageNumber
+            const limit = (pageNumber - 1) * pageLimit;
+            const show = pageLimit;
+            
+            if (searchTerm) {
+                params.append('name', searchTerm);
+            }
+            if (locationZUID && locationModel) {
+                params.append('location', locationZUID);
+                params.append('model', locationModel);
+            }
+            
+            // Add parameters based on filter type
+            if (filterType === 'most-recent') {
+                params.append('most-recent', '1');
+            } else if (filterType === 'category' && filterValue) {
+                params.append('related-service', filterValue);
+            } else if (filterType === 'date' && selectedDate) {
+                const date = new Date(selectedDate);
+                const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+                params.append('date', formattedDate);
+            }
+            
+            // Add pagination parameters
+            params.append('limit', limit.toString());
+            params.append('show', show.toString());
+            
+            // Add params to URL if any exist
+            if (params.toString()) {
+                url += '?' + params.toString();
+            }
+
+            const response = await fetch(url);
+            // const rawText = await response.text()
+            // const fixedData = fixMalformedJSON(rawText);
+            // if (!fixedData) {
+            //     throw new Error('Invalid JSON format.');
+            // }
+
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const { data, initialReturn, modelJumped, modelJumpedName, modelJumpedZuid, modelJumpedNewsroomUrl, totalItems } = await response.json();
+            
+            
+
+            if (initialReturn !== 1) {
+                let retArr = new Array();
+                retArr['paretnData'] = data;
+                retArr['modelJumped'] = modelJumped;
+                retArr['modelJumpedName'] = modelJumpedName;
+                retArr['initialReturn'] = initialReturn;
+                retArr['modelJumpedZuid'] = modelJumpedZuid;
+                retArr['modelJumpedNewsroomUrl'] = modelJumpedNewsroomUrl;
+                retArr['data'] = [];
+                totalArticleCount = 0;
+                return Array.isArray(retArr) ? retArr : [retArr];
+            } else {
+                totalArticleCount = totalItems;
+                return Array.isArray(data) ? data : [data];
+            }
+            
+        } catch (error) {
+            console.error('Error fetching news:', error);
+            return [];
+        }
+    }
+
+    async function getServiceTypes() {
+        try {
+            const response = await fetch(`https://{{instance.domain}}/service-types.json`);
+            const serviceTypes = await response.json();
+            return serviceTypes;
+        } catch (error) {
+            console.error('Error in getServiceTypes:', error);
+            return [];
+        }
+    }
+
+    async function getServiceType(zuid) {
+        try {
+            const response = await fetch(`https://{{instance.domain}}/service-types.json?zuid=${zuid}`);
+            const serviceType = await response.json();
+            const innerHTML = `
+                <div
+                class="d-flex align-items-center badge bg-white text-danger rounded-5 position-absolute top-3 start-3 px-4 py-2 z-3"
+                >
+                <i class="material-symbols-outlined me-2 text-primary-200 display-4">${serviceType[0].icon_name}</i>
+                <span class="text-dark-100 display-4 fw-normal">${serviceType[0].title}</span>
+                </div>
+            `;
+            return innerHTML;
+        } catch (error) {
+            console.error('Error in getServiceType:', error);
+            return '';
+        }
+    }
+
+    // Modified buildNewsList function to handle initialReturn = 1
+async function buildNewsList(pageNumber, params, fetchData, newSearchResults = null) {
+
+    
+    const listContainer = document.querySelector('.news-archive-list');
+    try {
+        // Wait for DOM to be ready
+        if (document.readyState === 'loading') {
+            await new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve));
+        }
+
+        // Ensure pageNumber is a valid number
+        pageNumber = parseInt(pageNumber) || 1;
+
+        if (!listContainer) {
+            console.error('News archive list container not found');
+            return;
+        }
+
+        // Show loader while fetching and processing data
+        showLoader(listContainer);
+
+        // For server-side pagination, we always need to fetch the data for the current page
+        // We can no longer rely on previously fetched stories
+        const searchForm = document.getElementById('newsSearchForm');
+        const searchInput = document.getElementById('searchNews');
+        const hiddenInput = document.getElementById('contentType');
+        const selectedDateInput = document.getElementById('selectedDate');
+        
+        const searchTerm = searchInput ? searchInput.value.trim() : '';
+        const filterType =  'most-recent';
+        const filterValue = hiddenInput ? hiddenInput.getAttribute('data-zuid') : '';
+        const selectedDate = selectedDateInput ? selectedDateInput.value : '';
+        
+        // Fetch data for the current page if new data wasn't provided
+        const results = newSearchResults || await fetchNews(searchTerm, filterType, filterValue, selectedDate, pageNumber);
+        
+        // Handle case when no results are found
+        if (totalArticleCount === 0) {
+            listContainer.innerHTML = `
+                <div class="text-center w-100 py-5">
+                    <span class="material-symbols-outlined text-secondary mb-3" style="font-size: 3rem;">search_off</span>
+                    <p class="text-secondary mb-0">No results found</p>
+                </div>
+            `;
+            
+            const resultCount = document.querySelector('#resultCount');
+            const totalArticleCountElement = document.querySelector('#totalAticleCount');
+            const paginationElement = document.querySelector(".swiper-pagination");
+            
+            if (resultCount) resultCount.innerHTML = '0';
+            if (totalArticleCountElement) totalArticleCountElement.innerHTML = '0';
+            if (paginationElement) paginationElement.innerHTML = '';
+            return;
+        }
+        
+        // Process stories for current page
+        let processedStories = "";
+        
+        // Parse response based on the structure
+        const stories = results['initialReturn'] == 0 ? results['data'] : results;
+        stories.sort((a, b) => new Date(b.date) - new Date(a.date));
+        // For each story in the current page, build the card 
+        for (let i = 0; i < stories.length; i++) {
+            const story = stories[i];
+            const serviceType = story.related_service ? await getServiceType(story.related_service.meta.zuid) : '';
+            let storyImage = story.image ? story.image : resolveImages() ;
+            if(window.innerWidth <= 768) {
+            storyImage += "?width=396&height=222&crop=16:9,smart&quality=100";
+            } else {
+            storyImage += "?width=338&height=190&crop=16:9,smart&quality=100";
+            }
+
+            let imageClass = "";
+            const regex = /media\.zestyio/;
+            if(!regex.test(storyImage)) {
+                imageClass = "object-fit-cover";
+            }
+            processedStories += `
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-3">
+                    <div class="card rounded-5 overflow-hidden h-100">
+                        <div class="card-img-top card-img-top__large bg-secondary bg-opacity-25 position-relative overflow-hidden">
+                 
+                    <div
+                        class="position-absolute bottom-4 start-0 d-flex align-items-center justify-content-between w-100 px-6 text-light display-4 z-3"
+                    >
+                        <span class="d-block">${dateFormatter(story.date)}</span>
+                        <span class="d-block">${story.author ? `By ${story.author}` : '' }</span>
+                    </div>
+                    <div class="ratio ratio-16x9 h-100">
+                    <img
+                        class="img-fluid ${imageClass}"
+                        src="${storyImage}"
+                        alt="${story.image ? story.image : 'Stories Image' }"
+                        style="object-fit: cover;"
+                    />
+                    </div>
+                    </div>
+                    <div class="card-body px-6 pt-6">
+                    <h5 class="card-title display-2 text-start text-dark-100 fw-normal">${story.title}</h5>
+                    <div class="card-text text-dark display-3 text-start">
+                        ${story.seo_meta_description ? (story.seo_meta_description.trim().endsWith('.') ? story.seo_meta_description : story.seo_meta_description + '...') : ''}
+                    </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 px-6 pb-6">
+                    <a
+                        href=${story.url}
+                        class="btn btn-secondary text-white w-100"
+                        data-link-url="${story.url}"
+                        data-link-text="Read Article"
+                        data-search-term="${searchTerm}"
+                        data-link-location="body:news-section"
+                        data-function-type="navigation"
+                        data-link-format="button"
+                        data-link-type="internal"
+                        onclick="newsSearchResultClickEvent(this)"
+                        >Read Article</a
+                    >
+                    </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Update the list container
+        listContainer.innerHTML = processedStories;
+
+        // Check if initialReturn is 1, and handle pagination accordingly
+        if (results['initialReturn'] == 1) {
+            // Hide pagination elements when initialReturn is 1
+            const paginationElement = document.querySelector(".swiper-pagination");
+            const prevButton = document.querySelector(".swiper-button-prev");
+            const nextButton = document.querySelector(".swiper-button-next");
+            const resultCount = document.querySelector('#resultCount');
+            const totalArticleCountElement = document.querySelector('#totalAticleCount');
+            
+            // Hide pagination
+            if (paginationElement) paginationElement.innerHTML = '';
+            if (prevButton) prevButton.style.display = 'none';
+            if (nextButton) nextButton.style.display = 'none';
+            
+            // Update counts to show all items are displayed (no pagination)
+            if (resultCount && totalArticleCountElement) {
+                resultCount.innerHTML = stories.length;
+                totalArticleCountElement.innerHTML = stories.length;
+            }
+            
+            // Hide parent news section if it exists (since we're not using buildCardSlider)
+            const parentContainer = document.querySelector('#parent-news');
+            if (parentContainer && !parentContainer.classList.contains('d-none')) {
+                parentContainer.classList.add('d-none');
+            }
+        } else {
+            // Update counts and pagination for normal case (initialReturn is 0)
+            const resultCount = document.querySelector('#resultCount');
+            const totalArticleCountElement = document.querySelector('#totalAticleCount');
+            const prevButton = document.querySelector(".swiper-button-prev");
+            const nextButton = document.querySelector(".swiper-button-next");
+            
+            // Show navigation buttons
+            if (prevButton) prevButton.style.display = '';
+            if (nextButton) nextButton.style.display = '';
+
+            if (resultCount && totalArticleCountElement) {
+                let startCount = (pageNumber - 1) * pageLimit + 1;
+                
+                let endCount = pageNumber * pageLimit;
+                if (endCount > totalArticleCount) endCount = totalArticleCount;
+                
+                resultCount.innerHTML = `${startCount}-${endCount}`;
+                totalArticleCountElement.innerHTML = totalArticleCount;
+
+                // Calculate number of pages and update pagination with ellipsis
+                numberOfPages = Math.ceil(totalArticleCount / pageLimit);
+                updatePaginationWithEllipsis(pageNumber);
+            }
+        }
+
+        // Show search results container if it exists
+        const searchResultsContainer = document.querySelector("#searchResults");
+        if (searchResultsContainer) {
+            searchResultsContainer.classList.remove("d-none");
+        }
+        
+    } catch (error) {
+        console.error('Error in buildNewsList:', error);
+        if (listContainer) {
+            listContainer.innerHTML = `
+                <div class="text-center w-100 py-5">
+                    <span class="material-symbols-outlined text-danger mb-3" style="font-size: 3rem;">error</span>
+                    <p class="text-danger mb-0">Error loading news articles. Please try again later.</p>
+                </div>
+            `;
+        }
+    }
+}
+
+    async function populateCategoryOptions() {
+        const categoryOptions = document.getElementById('categoryOptions');
+        if (!categoryOptions) return;
+
+        const serviceTypes = await getServiceTypes();
+        
+        if (serviceTypes && Array.isArray(serviceTypes)) {
+            const optionsHTML = serviceTypes.map(service => `
+                <div class="option child-option d-flex align-items-center" data-value="${service.meta.zuid}" data-zuid="${service.meta.zuid}">
+                    <span class="material-symbols-outlined text-primary-200 me-3">
+                        ${service.icon_name}
+                    </span>
+                    <span>${service.title}</span>
+                </div>
+            `).join('');
+            categoryOptions.innerHTML = optionsHTML;
+
+            // Reattach event listeners to new options
+            categoryOptions.querySelectorAll('.child-option').forEach(option => {
+                option.addEventListener('click', async function(e) {
+                    e.stopPropagation();
+                    
+                    const selectedText = document.querySelector('.selected-text');
+                    const hiddenInput = document.getElementById('contentType');
+                    const customSelect = document.querySelector('.custom-select-trigger');
+                    const customOptions = document.querySelector('.custom-options');
+                    
+                    if (selectedText && hiddenInput && customSelect && customOptions) {
+                        // Update selected text and hidden input
+                        selectedText.textContent = this.querySelector('span:last-child').textContent; // Changed to get only the title text
+                        hiddenInput.value = 'category';
+                        hiddenInput.setAttribute('data-zuid', this.dataset.zuid);
+                        
+                        // Remove selected class from all child options
+                        document.querySelectorAll('.child-option').forEach(opt => opt.classList.remove('selected'));
+                        // Add selected class to clicked option
+                        this.classList.add('selected');
+                        
+                        // Close dropdown
+                        customSelect.classList.remove('open');
+                        customOptions.classList.remove('open');
+                        customSelect.setAttribute('aria-expanded', 'false');
+                        
+                        // Hide all child options
+                        document.querySelectorAll('.child-options').forEach(opt => {
+                            opt.style.display = 'none';
+                        });
+
+                        // Fetch and display results
+                        const results = await fetchNews('', 'category', this.dataset.zuid, '');
+                        if (results['initialReturn'] == 0) {
+                            const parentContainer = document.querySelector('#parent-news');
+                            const parentHeading = document.querySelector('.parent-news__heading');
+                            const modelJumped = results['modelJumped'];
+                            const model = modelJumped.charAt(0).toUpperCase() + modelJumped.slice(1);
+                            if (parentContainer.classList.contains('d-none')) {
+                                parentContainer.classList.remove('d-none');
+                            }
+                            if(modelJumped == 'territory') {
+                                parentHeading.textContent = `More stories from ${results['modelJumpedName']}`
+                            } else {
+                                parentHeading.textContent = `More stories from ${results['modelJumpedName']} ${model}`
+                            }
+                            buildCardSlider(results['paretnData']);
+                            buildNewsList(1, "", false, results['data']);
+                        } else {
+                            buildNewsList(1, "", false, results);
+                        }
+                    }
+                });
+            });
+        }
+    }
+
+    async function buildCardSlider(stories) {
+        try {
+        // const stories = await getStories();
+        const newsContainer = document.querySelector('#parent-news');
+
+        if(typeof stories !== 'undefined'){
+            const swiperWrapper = document.querySelector('#parent-news .row');
+        
+            // Process all stories concurrently using Promise.all and map
+            const processedStories = await Promise.all(stories.map(async (story) => {
+            const serviceTypes = story.related_service ? await getServiceType(story.related_service.meta.zuid) : '';
+
+            return `
+                <div class="col-12 col-md-3 mb-10">
+                <div class="card h-100 w-100 rounded-5 overflow-hidden">
+                    <div class="card-img-top bg-secondary bg-opacity-25 position-relative overflow-hidden">
+                    ${serviceTypes}
+                    <div
+                        class="position-absolute bottom-4 start-0 d-flex align-items-center justify-content-between w-100 px-6 text-light display-4 z-3"
+                    >
+                        <span class="d-block">${dateFormatter(story.date)}</span>
+                    </div>
+                    <div class="ratio ratio-16x9 h-100">
+                        <img
+                        class="img-fluid"
+                        src="${story.image ? story.image : resolveImages() }"
+                        alt="${story.image ? story.image : 'Stories Image' }"
+                        style="object-fit: cover;"
+                        />
+                    </div>
+                    </div>
+                    <div class="card-body-wrapper">
+                    <div class="card-body px-6 pt-6">
+                        <h5 class="card-title display-2 text-start text-dark-100 fw-normal">${story.title}</h5>
+                        <div class="card-text text-dark display-3 text-start">
+                        ${story.seo_meta_description ? (story.seo_meta_description.trim().endsWith('.') ? story.seo_meta_description : story.seo_meta_description + '...') : ''}
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 px-6 pb-6">
+                        <a
+                        href="${story.url}"
+                        class="btn btn-secondary text-white w-100"
+                        data-link-url="${story.url}"
+                        data-link-text="Read Article"
+                        data-search-term="${searchTerm}"
+                        data-link-location="body:news-section"
+                        data-function-type="navigation"
+                        data-link-format="button"
+                        data-link-type="internal"
+                        onclick="newsSearchResultClickEvent(this)"
+                        >Read Article</a
+                        >
+                    </div>
+                    </div>
+                </div>
+                </div>
+            `;
+            }));
+
+            // Join all the processed stories HTML and update the wrapper
+            swiperWrapper.innerHTML = processedStories.join('');
+        } else {
+            
+        }
+        
+        } catch (error) {
+        console.error('Error in buildCardSlider:', error);
+        }
+    }
+
+    function resolveImages() {
+        let defaultImages = [];
+        // populate default images
+        {{ each media.{clippings.default_news_images} as media }}
+            defaultImages.push("{{ media.image.getImage() }}");
+        {{ end-each }}
+        return defaultImages[Math.floor(Math.random()*defaultImages.length)];
+    }
+
+    // Function to update pagination with ellipsis when there are many pages
+    function updatePaginationWithEllipsis(pageNumber) {
+        const paginationElement = document.querySelector(".swiper-pagination");
+        let maxVisibleBullets = 0;
+        const searchInput = document.getElementById('searchNews');
+        const searchTerm = searchInput ? searchInput.value.trim() : '';
+
+        if (!paginationElement) return;
+        
+        // Convert to number to ensure proper comparisons
+        pageNumber = parseInt(pageNumber);
+        
+        if(window.innerWidth <= 768) {
+            maxVisibleBullets = 4 ; // Number of page numbers to show at once
+        } else {
+            maxVisibleBullets = 5; // Number of page numbers to show at once
+        }
+        
+        const totalBullets = numberOfPages;
+        
+        // Don't do anything special if we have fewer pages than our maximum visible
+        if (totalBullets <= maxVisibleBullets) {
+            let paginationHTML = "";
+            for (let i = 1; i <= totalBullets; i++) {
+                paginationHTML += `<span onclick="newsSearchViewMoreEvent(this)" data-news-search-term="${searchTerm}" data-link-text="${pageNumber}" data-news-link-location="body:news-section" data-news-link-type="navigation" data-news-link-format="button" data-news-link-type="internal" class="swiper-pagination-bullet stories-pagination-item ${i === pageNumber ? "swiper-pagination-bullet-active" : ""}" tabindex="0">${i}</span>`;
+            }
+            paginationElement.innerHTML = paginationHTML;
+        } else {
+            // Calculate which pages to show
+            let start = Math.max(1, Math.min(
+                pageNumber - Math.floor(maxVisibleBullets / 2),
+                totalBullets - maxVisibleBullets + 1
+            ));
+            let end = Math.min(start + maxVisibleBullets - 1, totalBullets);
+            
+            // Adjust start if we're near the end
+            if (end - start + 1 < maxVisibleBullets) {
+                start = Math.max(1, end - maxVisibleBullets + 1);
+            }
+            
+            // Create pagination HTML
+            let paginationHTML = '';
+            
+            // Always show first page when not in the visible range
+            if (start > 1) {
+                // paginationHTML += `<span class="swiper-pagination-bullet ${1 === pageNumber ? "swiper-pagination-bullet-active" : ""}" tabindex="0">1</span>`;
+                paginationHTML += `<span class="swiper-pagination-ellipsis">...</span>`;
+                // Add start ellipsis if not showing page 2
+                // if (start > 2) {
+                //     paginationHTML += `<span class="swiper-pagination-ellipsis">...</span>`;
+                // }
+            }
+            
+            // Add visible page bullets
+            for (let i = start; i <= end; i++) {
+                // Skip if we already added page 1 separately and are now at page 1 in the loop
+                if (i === 1 && start > 1) continue;
+                
+                paginationHTML += `<span onclick="newsSearchViewMoreEvent(this)" data-news-search-term="${searchTerm}" data-link-text="${pageNumber}" data-news-link-location="body:news-section" data-news-link-type="navigation" data-news-link-format="button" data-news-link-type="internal" class="swiper-pagination-bullet ${i === pageNumber ? "swiper-pagination-bullet-active" : ""}" tabindex="0">${i}</span>`;
+            }
+            
+            // Always show last page when not in the visible range
+            if (end < totalBullets) {
+                // Add end ellipsis if not showing the second-to-last page
+                // if (end < totalBullets - 1) {
+                //     paginationHTML += `<span class="swiper-pagination-ellipsis">...</span>`;
+                // }
+                
+                // paginationHTML += `<span class="swiper-pagination-bullet ${totalBullets === pageNumber ? "swiper-pagination-bullet-active" : ""}" tabindex="0">${totalBullets}</span>`;
+                paginationHTML += `<span class="swiper-pagination-ellipsis">...</span>`;
+            }
+            
+            // Update pagination HTML
+            paginationElement.innerHTML = paginationHTML;
+
+  
+        }
+        
+        // Add click event listeners to new pagination bullets
+        document.querySelectorAll(".swiper-pagination-bullet").forEach(bullet => {
+            bullet.addEventListener("click", async function() {
+                const page = parseInt(this.innerHTML);
+                 window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                });
+                await buildNewsList(page, "", false);
+                
+            });
+        });
+        
+        // Update navigation button states after updating pagination
+        updateNavigationButtons(pageNumber);
+    }
+
+    // Function to update navigation button states
+    function updateNavigationButtons(pageNumber) {
+        pageNumber = parseInt(pageNumber);
+        const prevButton = document.querySelector(".swiper-button-prev");
+        const nextButton = document.querySelector(".swiper-button-next");
+        
+        if (prevButton) {
+            if (pageNumber <= 1) {
+                prevButton.classList.add("swiper-button-disabled");
+                prevButton.setAttribute("aria-disabled", "true");
+            } else {
+                prevButton.classList.remove("swiper-button-disabled");
+                prevButton.setAttribute("aria-disabled", "false");
+            }
+        }
+        
+        if (nextButton) {
+            if (pageNumber >= numberOfPages) {
+                nextButton.classList.add("swiper-button-disabled");
+                nextButton.setAttribute("aria-disabled", "true");
+            } else {
+                nextButton.classList.remove("swiper-button-disabled");
+                nextButton.setAttribute("aria-disabled", "false");
+            }
+        }
+    }
+
+    // Add some CSS for the ellipsis
+    function addEllipsisStyles() {
+        const style = document.createElement('style');
+        style.textContent = `
+          
+            .card-text {
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    // Initialize event listeners for navigation buttons
+    function setupNavigationButtons() {
+        const prevButton = document.querySelector(".swiper-button-prev");
+        const nextButton = document.querySelector(".swiper-button-next");
+
+        // Clear existing event listeners to prevent duplicates
+        if (prevButton) {
+            const newPrevButton = prevButton.cloneNode(true);
+            prevButton.parentNode.replaceChild(newPrevButton, prevButton);
+            
+            newPrevButton.addEventListener("click", async function(event) {
+                if (this.classList.contains("swiper-button-disabled")) return;
+                window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                });
+                const activePage = document.querySelector(".swiper-pagination-bullet-active");
+                if (activePage) {
+                    let currentPageNumber = parseInt(activePage.innerHTML);
+                    if (currentPageNumber > 1) {
+                       
+                        await buildNewsList(currentPageNumber - 1, "", false);
+                    }
+                } else {
+                    // Fallback if no active page is found
+                  
+                    await buildNewsList(1, "", false);
+                }
+                const searchInput = document.getElementById('searchNews');
+                const searchTerm = searchInput ? searchInput.value.trim() : '';
+
+                newPrevButton.setAttribute("data-news-link-type", "navigation")
+                newPrevButton.setAttribute("data-news-link-format", "button")
+                newPrevButton.setAttribute("data-news-link-type", "internal")
+                newPrevButton.setAttribute("data-news-link-location", "body:news-section")
+                newPrevButton.setAttribute("data-link-text", "arrow_back")
+                newPrevButton.setAttribute("data-news-search-term", searchTerm)
+
+                newsSearchViewMoreEvent(newPrevButton)
+
+            });
+        }
+
+        if (nextButton) {
+            const newNextButton = nextButton.cloneNode(true);
+            nextButton.parentNode.replaceChild(newNextButton, nextButton);
+            
+            newNextButton.addEventListener("click", async function() {
+                if (this.classList.contains("swiper-button-disabled")) return;
+                   window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                });
+                const activePage = document.querySelector(".swiper-pagination-bullet-active");
+                if (activePage) {
+                    let currentPageNumber = parseInt(activePage.innerHTML);
+                    if (currentPageNumber < numberOfPages) {
+                       
+                        await buildNewsList(currentPageNumber + 1, "", false);
+                    }
+                } else {
+                 
+                    await buildNewsList(2, "", false);
+                }
+   const searchInput = document.getElementById('searchNews');
+                const searchTerm = searchInput ? searchInput.value.trim() : '';
+                newNextButton.setAttribute("data-news-link-type", "navigation")
+                newNextButton.setAttribute("data-news-link-format", "button")
+                newNextButton.setAttribute("data-news-link-type", "internal")
+                newNextButton.setAttribute("data-news-link-location", "body:news-section")
+                newNextButton.setAttribute("data-link-text", "arrow_back")
+                newNextButton.setAttribute("data-news-search-term", searchTerm)
+                newsSearchViewMoreEvent(newNextButton)
+
+            });
+        }
+    }
+// Also update the parent option handler for consistency
+function updateParentOptionHandlers() {
+    const parentOptions = document.querySelectorAll('.parent-option');
+    
+    parentOptions.forEach(option => {
+        option.addEventListener('click', async function(e) {
+            e.stopPropagation();
+            
+            // Check if this parent has child options
+            const hasChildOptions = this.nextElementSibling && this.nextElementSibling.classList.contains('child-options');
+            
+            if (hasChildOptions) {
+                // Toggle selected state for parent
+                parentOptions.forEach(opt => {
+                    if (opt !== this) opt.classList.remove('selected');
+                });
+                this.classList.toggle('selected');
+                
+                // Toggle child options visibility
+                const childOptionsDiv = this.nextElementSibling;
+                const allChildOptions = document.querySelectorAll('.child-options');
+                
+                allChildOptions.forEach(opt => {
+                    if (opt !== childOptionsDiv) {
+                        opt.style.display = 'none';
+                    }
+                });
+                
+                // Show child options for this parent
+                if (this.classList.contains('selected')) {
+                    childOptionsDiv.style.display = 'block';
+                    // If this is the date option, ensure datepicker is visible
+                    if (this.dataset.value === 'date' && datePickerOptions) {
+                        datePickerOptions.style.display = 'block';
+                        if (selectedText) selectedText.textContent = 'Date';
+                    }
+                } else {
+                    childOptionsDiv.style.display = 'none';
+                }
+            } else {
+                // For parents without child options, just toggle selected state
+                parentOptions.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                if (selectedText && hiddenInput && customSelect && customOptions) {
+                    // Update selected text and hidden input
+                    selectedText.textContent = this.querySelector('.option__text').textContent;
+                    hiddenInput.value = this.dataset.value;
+                    if (selectedDateInput) selectedDateInput.value = ''; // Clear date when selecting non-date option
+                    
+                    // Hide all child options
+                    document.querySelectorAll('.child-options').forEach(opt => {
+                        opt.style.display = 'none';
+                    });
+                    
+                    // Close dropdown
+                    customSelect.classList.remove('open');
+                    customOptions.classList.remove('open');
+                    customSelect.setAttribute('aria-expanded', 'false');
+
+                    // If "Most Recent" is selected, fetch news immediately
+                    if (this.dataset.value === 'most-recent') {
+                        const results = await fetchNews('', 'most-recent', '', '', 1);
+                        if (results['initialReturn'] == 0) {
+                            const parentContainer = document.querySelector('#parent-news');
+                            const parentHeading = document.querySelector('.parent-news__heading');
+                            const modelJumped = results['modelJumped'];
+                            const model = modelJumped.charAt(0).toUpperCase() + modelJumped.slice(1);
+                            
+                            if (parentContainer.classList.contains('d-none')) {
+                                parentContainer.classList.remove('d-none');
+                            }
+                            
+                            if(modelJumped == 'territory') {
+                                parentHeading.textContent = `More stories from ${results['modelJumpedName']}`
+                            } else {
+                                parentHeading.textContent = `More stories from ${results['modelJumpedName']} ${model}`
+                            }
+                            buildCardSlider(results['paretnData']);
+                            buildNewsList(1, "", false, results['data']);
+                        } else {
+                            // For initialReturn = 1, hide the parent news section
+                            const parentContainer = document.querySelector('#parent-news');
+                            if (parentContainer && !parentContainer.classList.contains('d-none')) {
+                                parentContainer.classList.add('d-none');
+                            }
+                            
+                            buildNewsList(1, "", false, results);
+                        }
+                    }
+                }
+            }
+        });
+    });
+}
+// Modified functions that call fetchNews to handle initialReturn = 1 case
+async function updateSearchFormHandler() {
+    const searchForm = document.getElementById('newsSearchForm');
+    const searchInput = document.getElementById('searchNews');
+    const hiddenInput = document.getElementById('contentType');
+    const selectedDateInput = document.getElementById('selectedDate');
+    
+    if (searchForm && searchInput && hiddenInput && selectedDateInput) {
+        const url = new URLSearchParams(window.location.search)
+        const searchQuery = url.get("search");
+        if(searchQuery){
+
+            searchInput.value = searchQuery;
+            const filterType = 'most-recent';
+            const filterValue = hiddenInput.getAttribute('data-zuid');
+            const selectedDate = selectedDateInput.value;
+
+            // Show loading state in the list container
+            const listContainer = document.querySelector('.news-archive-list');
+            if (listContainer) {
+                showLoader(listContainer);
+            }
+
+            // Always start with page 1 when submitting a new search
+            const results = await fetchNews(searchQuery.trim(), filterType, filterValue, selectedDate, 1);
+            
+            // Check initialReturn value to decide what to do
+            if (results['initialReturn'] == 0) {
+                const parentContainer = document.querySelector('#parent-news');
+                const parentHeading = document.querySelector('.parent-news__heading');
+                const modelJumped = results['modelJumped'];
+                const model = modelJumped.charAt(0).toUpperCase() + modelJumped.slice(1);
+                
+                if (parentContainer.classList.contains('d-none')) {
+                    parentContainer.classList.remove('d-none');
+                }
+                
+                if(modelJumped == 'territory') {
+                    parentHeading.textContent = `More stories from ${results['modelJumpedName']}`
+                } else {
+                    parentHeading.textContent = `More stories from ${results['modelJumpedName']} ${model}`
+                }
+                buildCardSlider(results['parentData']);
+                buildNewsList(1, "", false, results['data']);
+            } else {
+                // When initialReturn is 1, we directly build the news list without using buildCardSlider
+                // Hide parent-news container if visible
+                const parentContainer = document.querySelector('#parent-news');
+                if (parentContainer && !parentContainer.classList.contains('d-none')) {
+                    parentContainer.classList.add('d-none');
+                }
+                
+                buildNewsList(1, "", false, results);
+            }
+
+            return
+        }
+
+
+        searchForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const searchTerm = searchInput.value.trim();
+            const url = new URL(window.location.href)
+            if(searchTerm){
+                url.searchParams.set("search",searchTerm)
+            }else{
+                url.searchParams.delete("search");
+            }
+
+            window.history.replaceState(null,null, url);
+
+            // const filterType = hiddenInput.value;
+            const filterType = 'most-recent';
+            const filterValue = hiddenInput.getAttribute('data-zuid');
+            const selectedDate = selectedDateInput.value;
+
+            // Show loading state in the list container
+            const listContainer = document.querySelector('.news-archive-list');
+            if (listContainer) {
+                showLoader(listContainer);
+            }
+
+            // Always start with page 1 when submitting a new search
+            const results = await fetchNews(searchTerm, filterType, filterValue, selectedDate, 1);
+            
+            // Check initialReturn value to decide what to do
+            if (results['initialReturn'] == 0) {
+                const parentContainer = document.querySelector('#parent-news');
+                const parentHeading = document.querySelector('.parent-news__heading');
+                const modelJumped = results['modelJumped'];
+                const model = modelJumped.charAt(0).toUpperCase() + modelJumped.slice(1);
+                
+                if (parentContainer.classList.contains('d-none')) {
+                    parentContainer.classList.remove('d-none');
+                }
+                
+                if(modelJumped == 'territory') {
+                    parentHeading.textContent = `More stories from ${results['modelJumpedName']}`
+                } else {
+                    parentHeading.textContent = `More stories from ${results['modelJumpedName']} ${model}`
+                }
+                buildCardSlider(results['parentData']);
+                buildNewsList(1, "", false, results['data']);
+            } else {
+                // When initialReturn is 1, we directly build the news list without using buildCardSlider
+                // Hide parent-news container if visible
+                const parentContainer = document.querySelector('#parent-news');
+                if (parentContainer && !parentContainer.classList.contains('d-none')) {
+                    parentContainer.classList.add('d-none');
+                }
+                
+                buildNewsList(1, "", false, results);
+            }
+        });
+    }
+}
+
+    // Call this at the start of your DOMContentLoaded event
+    function initPagination() {
+        addEllipsisStyles();
+        setupNavigationButtons();
+    }
+
+    // Initialize everything when DOM is ready
+    document.addEventListener('DOMContentLoaded', async function() {
+        const searchForm = document.getElementById('newsSearchForm');
+        const searchInput = document.getElementById('searchNews');
+        const customSelect = document.querySelector('.custom-select-trigger');
+        const customOptions = document.querySelector('.custom-options');
+        const parentOptions = document.querySelectorAll('.parent-option');
+        const selectedText = document.querySelector('.selected-text');
+        const hiddenInput = document.getElementById('contentType');
+        const selectedDateInput = document.getElementById('selectedDate');
+        const datePickerOptions = document.getElementById('datePickerOptions');
+
+
+        // Handle datepicker selection
+        document.getElementById('datepicker').addEventListener('changeDate', async function(e) {
+            const hiddenInput = document.getElementById('contentType');
+            const selectedDateInput = document.getElementById('selectedDate');
+            
+            // Update hidden inputs
+            hiddenInput.value = 'date';
+            selectedDateInput.value = e.detail.date;
+            
+            // Close dropdown
+            customSelect.classList.remove('open');
+            customOptions.classList.remove('open');
+            customSelect.setAttribute('aria-expanded', 'false');
+            
+            // Hide all child options
+            document.querySelectorAll('.child-options').forEach(opt => {
+                opt.style.display = 'none';
+            });
+
+            // Fetch and display results
+            const results = await fetchNews('', 'date', '', e.detail.date);
+            if (results['initialReturn'] == 0) {
+                const parentHeading = document.querySelector('.parent-news__heading');
+                const modelJumped = results['modelJumped'];
+                const model = modelJumped.charAt(0).toUpperCase() + modelJumped.slice(1);
+                if(modelJumped == 'territory') {
+                    parentHeading.textContent = `More stories from ${results['modelJumpedName']}`
+                } else {
+                    parentHeading.textContent = `More stories from ${results['modelJumpedName']} ${model}`
+                }
+                buildCardSlider(results['paretnData']);
+                buildNewsList(1, "", false, results['data']);
+            } else {
+                buildNewsList(1, "", false, results);
+            }
+        });
+
+        // Populate category options
+        populateCategoryOptions();
+
+        // Custom Select Functionality
+        if (customSelect && customOptions) {
+            customSelect.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('open');
+                customOptions.classList.toggle('open');
+                this.setAttribute('aria-expanded', customOptions.classList.contains('open'));
+            });
+        }
+
+        // Handle parent option clicks (toggle slide down)
+        parentOptions.forEach(option => {
+            option.addEventListener('click', async function(e) {
+                e.stopPropagation();
+                
+                // Check if this parent has child options
+                const hasChildOptions = this.nextElementSibling && this.nextElementSibling.classList.contains('child-options');
+                
+                if (hasChildOptions) {
+                    // Toggle selected state for parent
+                    parentOptions.forEach(opt => {
+                        if (opt !== this) opt.classList.remove('selected');
+                    });
+                    this.classList.toggle('selected');
+                    
+                    // Toggle child options visibility
+                    const childOptionsDiv = this.nextElementSibling;
+                    const allChildOptions = document.querySelectorAll('.child-options');
+                    
+                    allChildOptions.forEach(opt => {
+                        if (opt !== childOptionsDiv) {
+                            opt.style.display = 'none';
+                        }
+                    });
+                    
+                    // Show child options for this parent
+                    if (this.classList.contains('selected')) {
+                        childOptionsDiv.style.display = 'block';
+                        // If this is the date option, ensure datepicker is visible
+                        if (this.dataset.value === 'date' && datePickerOptions) {
+                            datePickerOptions.style.display = 'block';
+                            if (selectedText) selectedText.textContent = 'Date';
+                        }
+                    } else {
+                        childOptionsDiv.style.display = 'none';
+                    }
+                } else {
+                    // For parents without child options, just toggle selected state
+                    parentOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    if (selectedText && hiddenInput && customSelect && customOptions) {
+                        // Update selected text and hidden input
+                        selectedText.textContent = this.querySelector('.option__text').textContent;
+                        hiddenInput.value = this.dataset.value;
+                        if (selectedDateInput) selectedDateInput.value = ''; // Clear date when selecting non-date option
+                        
+                        // Hide all child options
+                        document.querySelectorAll('.child-options').forEach(opt => {
+                            opt.style.display = 'none';
+                        });
+                        
+                        // Close dropdown
+                        customSelect.classList.remove('open');
+                        customOptions.classList.remove('open');
+                        customSelect.setAttribute('aria-expanded', 'false');
+
+                        // If "Most Recent" is selected, fetch news immediately
+                        if (this.dataset.value === 'most-recent') {
+                            const results = await fetchNews('', 'most-recent', '', '');
+                            if (results['initialReturn'] == 0) {
+                                const parentHeading = document.querySelector('.parent-news__heading');
+                                const modelJumped = results['modelJumped'];
+                                const model = modelJumped.charAt(0).toUpperCase() + modelJumped.slice(1);
+                                if(modelJumped == 'territory') {
+                                    parentHeading.textContent = `More stories from ${results['modelJumpedName']}`
+                                } else {
+                                    parentHeading.textContent = `More stories from ${results['modelJumpedName']} ${model}`
+                                }
+                                
+                                buildCardSlider(results['paretnData']);
+                                buildNewsList(1, "", false, results['data']);
+                            } else {
+                                buildNewsList(1, "", false, results);
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            // Don't close if clicking inside the datepicker
+            if (e.target.closest('.datepicker')) {
+                return;
+            }
+            
+            if (customSelect && customOptions) {
+                customSelect.classList.remove('open');
+                customOptions.classList.remove('open');
+                customSelect.setAttribute('aria-expanded', 'false');
+            }
+            
+            // Hide all child options except when datepicker is active
+            document.querySelectorAll('.child-options').forEach(opt => {
+                if (!opt.contains(e.target)) {
+                    opt.style.display = 'none';
+                }
+            });
+        });
+
+        // Keyboard navigation
+        if (customSelect) {
+            customSelect.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        }
+
+        parentOptions.forEach(option => {
+            option.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+
+        // Handle form submission
+        if (searchForm && searchInput && hiddenInput && selectedDateInput) {
+           
+            searchForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const searchTerm = searchInput.value.trim();
+                const url = new URL(window.location.href)
+                if(searchTerm){
+                    url.searchParams.set("search",searchTerm)
+                }else{
+                    url.searchParams.delete("search");
+                }
+
+            window.history.replaceState(null,null, url);
+                const filterType = 'most-recent';
+                const filterValue = hiddenInput.getAttribute('data-zuid');
+                const selectedDate = selectedDateInput.value;
+
+                // Show loading state in the list container
+                const listContainer = document.querySelector('.news-archive-list');
+                if (listContainer) {
+                    showLoader(listContainer);
+                }
+
+                // Fetch results
+                const results = await fetchNews(searchTerm, filterType, filterValue, selectedDate);
+                if (results['initialReturn'] == 0) {
+                    const parentHeading = document.querySelector('.parent-news__heading');
+                    const modelJumped = results['modelJumped'];
+                    const model = modelJumped.charAt(0).toUpperCase() + modelJumped.slice(1);
+                    if(modelJumped == 'territory') {
+                        parentHeading.textContent = `More stories from ${results['modelJumpedName']}`
+                    } else {
+                        parentHeading.textContent = `More stories from ${results['modelJumpedName']} ${model}`
+                    }
+                    buildCardSlider(results['paretnData']);
+                    buildNewsList(1, "", false, results['data']);
+                } else {
+                    buildNewsList(1, "", false, results);
+                }
+            });
+        }
+
+        // Call initPagination before doing anything else with the pagination
+        initPagination();
+
+
+        // Setup the event handlers
+        updateParentOptionHandlers();
+        updateSearchFormHandler();     
+        const url = new URLSearchParams(window.location.search)
+        const searchQuery = url.get("search");
+        
+        
+        if(!searchQuery || searchQuery === "" || searchQuery === null){
+
+            // Initial load
+            const results = await fetchNews('', 'most-recent', '', '');
+
+            if (results['initialReturn'] == 0) {
+                const parentHeading = document.querySelector('.parent-news__heading');
+                const modelJumped = results['modelJumped'];
+                const model = modelJumped.charAt(0).toUpperCase() + modelJumped.slice(1);
+                const parentContainer = document.querySelector('#parent-news');
+                const navContainer = document.querySelector('.news-cards-swiper__nav');
+
+                navContainer.classList.add('d-none');
+
+                if (parentContainer.classList.contains('d-none')) {
+                    parentContainer.classList.remove('d-none');
+                }
+                
+                buildParentNewsLink(results['modelJumpedNewsroomUrl']);
+                if(modelJumped == 'territory') {
+                    parentHeading.textContent = `More stories from ${results['modelJumpedName']}`
+                } else {
+                    parentHeading.textContent = `More stories from ${results['modelJumpedName']} ${model}`
+                }
+                buildCardSlider(results['paretnData']);
+                buildNewsList(1, "", false, results['data']);
+            } else {
+                // For initialReturn = 1, hide the parent news section and just build the list
+                const parentContainer = document.querySelector('#parent-news');
+                if (parentContainer && !parentContainer.classList.contains('d-none')) {
+                    parentContainer.classList.add('d-none');
+                }
+                
+                buildNewsList(1, "", false, results);
+            }
+        }
+        
+    });
+</script>

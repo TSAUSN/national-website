@@ -1,0 +1,52 @@
+<div class="container-fluid py-5">
+  <h2 class="text-start mb-5 fs-4">[FPO] Volunteering Stats at a Glance</h2>
+  <div class="container bg-light rounded-5 py-3 px-3 px-md-4 py-md-4">
+    <div class="row row-cols-1 row-cols-md-3 gy-3 gx-3">
+      <div class="col">
+        <div class="card h-100 bg-dark-100 bg-opacity-15 border-0">
+          <div class="card-body text-start p-4">
+            <h1 class="card-title fs-3 fs-md-1 text-secondary-200">1,400,000</h1>
+            <h3 class="card-subtitle display-2 fs-md-7 mb-2">Volunteers in 2023</h3>
+            <p class="text-dark display-3 display-md-2">
+              Lorem ipsum dolor sit amet consectetur. Id mattis et praesent lectus aliquet enim
+              morbi quis diam. Iaculis convallis erat eu pellentesque morbi et
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 bg-dark-100 bg-opacity-15 border-0">
+          <div class="card-body text-start p-4">
+            <h1 class="card-title fs-3 fs-md-1 text-secondary-200">1,400,000</h1>
+            <h3 class="card-subtitle display-2 fs-md-7 mb-2">Volunteers in 2023</h3>
+            <p class="text-dark display-3 display-md-2">
+              Lorem ipsum dolor sit amet consectetur. Id mattis et praesent lectus aliquet enim
+              morbi quis diam. Iaculis convallis erat eu pellentesque morbi et
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 bg-dark-100 bg-opacity-15 border-0">
+          <div class="card-body text-start p-4">
+            <h1 class="card-title fs-3 fs-md-1 text-secondary-200">1,400,000</h1>
+            <h3 class="card-subtitle display-2 fs-md-7 mb-2">Volunteers in 2023</h3>
+            <p class="text-dark display-3 display-md-2">
+              Lorem ipsum dolor sit amet consectetur. Id mattis et praesent lectus aliquet enim
+              morbi quis diam. Iaculis convallis erat eu pellentesque morbi et
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .bg-secondary {
+    background-color: #e9ecef !important;
+  }
+  .text-navy {
+    color: #000080;
+  }
+</style>

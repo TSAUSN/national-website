@@ -1,0 +1,53 @@
+<div className={styles.pvlRoot}>
+	{{block('/-/block/fundraising_thermometer_block.html?variant=7-a4eca5a4e7-1mrl1k')}}
+	<div class="row my-3">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div>
+  <h1>
+    Hello World
+  </h1>
+  <p class="text-primary-200 fs-2 text-center">Lorem</p>
+</div>
+			<h1 style="width:;padding-bottom:0px;" class="text-center"> {{this.title}} </h1>
+			<p style="font-size:18px;text-align:center;"> {{this.subtitle}} </p>
+		</div>
+	</div>
+	<h3 class="fs-4 text-center"> {{this.title}} </h3>
+	<div class="row my-3">
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			{{block('/-/block/info_block.html?variant=7-90dae5a1b1-sd9rzg')}}
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			{{block('/-/block/info_block.html?variant=7-e8a1dcd2d7-w46qvz')}}
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			{{block('/-/block/info_block.html?variant=7-a0e48afbe0-rmbnsg')}}
+		</div>
+	</div>
+	<h3 class="fs-4">Our Mission of Hope</h3>
+	<div class="row my-3">
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<div class="row">
+				<div class="column">
+					<h1>Heading 1</h1>
+				</div>
+				<div class="column">
+					<h1>Heading 1</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column">
+					{{block('/-/block/info_block.html?variant=7-e8a1dcd2d7-w46qvz')}}
+				</div>
+				<div class="column">
+					<h1>Heading 1</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-12 bg-body-secondary text-background-modal">
+			<h1>Heading 1</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<img width="100%" src="{{this.hero_image.getImage()}}" alt="placeholder">
+		</div>
+	</div>
+</div>

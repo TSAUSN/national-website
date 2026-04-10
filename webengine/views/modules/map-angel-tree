@@ -1,0 +1,749 @@
+<div class="d-flex flex-sm-column flex-lg-row bg-light row rounded-5 w-100 m-auto mb-16" id="ATonline">
+  <div class="col-sm-12 col-lg-5 p-sm-4 p-lg-7">
+    <div>
+      {{if {!this.map_heading} }}
+      <div class="mb-8">
+        <h3 class="fs-5">{{this.map_heading}}</h3>
+        <div id="angel-tree-content" class="container mt-8 px-0">
+          {{if {!this.map_content} }}
+            {{this.map_content}}
+          {{/if}}
+        </div>
+      </div>
+      {{/if}}
+      <div class="input-group mb-6">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter your city or Zip Code"
+          aria-label="Enter your city or Zip Code"
+          id="angel-tree__input"
+          data-search-term-type=""
+          data-search-results-type=""
+          data-search-type="location search - body"
+          data-search-method-type="user-entered"
+          data-search-filter-type="Services"
+          data-search-filter-value-type=""
+          onkeydown="if(event.key === 'Enter') { searchAngelTreeLocations(); event.preventDefault(); }"
+        >
+      </div>
+      <div class="d-flex">
+        <button id="angel-tree__search-btn" class="btn btn-primary w-75" onclick="searchAngelTreeLocations()" disabled>
+          Search Location
+        </button>
+        <button class="btn btn-outline-danger w-50 d-flex align-items-center justify-content-end text-primary-200 display-1 use-my-location-angel ">
+          <span class="material-symbols-outlined me-2">
+            my_location
+          </span> Use My Location
+        </button>
+      </div>
+    </div>
+    <div>
+      <div id="angel-tree-result" class="container d-flex flex-column mt-4 overflow-auto mb-2 pt-2 d-none"></div>
+    </div>
+    
+  </div>
+  <div class="col-sm-12 col-lg-7 p-sm-4 p-lg-7">
+    <div class="col-12 p-0 order-sm-1 order-lg-2 position-relative">
+      <div class="rounded-5 goggle-map"></div>
+      <div class="map-loader d-none">
+        <div class="map-loader__spinner"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+let map = null;
+let items = [];
+
+// OPTIMIZED BATCH GEOCODER - Only for user input address
+const createOptimizedBatchGeocoder = (rateLimitMs = 10) => {
+  let geocoder = null;
+
+  const initialize = () => {
+    if (window.google && window.google.maps) {
+      geocoder = new google.maps.Geocoder();
+      return true;
+    }
+    return false;
+  };
+
+  const geocodeSingle = async (address) => {
+    return new Promise((resolve) => {
+      const delay = Math.random() * rateLimitMs;
+      
+      setTimeout(() => {
+        geocoder.geocode({ address }, (results, status) => {
+          let result = null;
+          if (status === google.maps.GeocoderStatus.OK && results?.length > 0) {
+            result = {
+              lat: results[0].geometry.location.lat(),
+              lng: results[0].geometry.location.lng(),
+              formatted_address: results[0].formatted_address
+            };
+          }
+          
+          resolve(result);
+        });
+      }, delay);
+    });
+  };
+
+  // Method for single address geocoding (for search functionality)
+  const geocodeWithRateLimit = async (address) => {
+    if (!geocoder && !initialize()) {
+      throw new Error('Google Maps API not ready');
+    }
+
+    return geocodeSingle(address);
+  };
+
+  return { initialize, geocodeWithRateLimit };
+};
+
+const batchGeocoder = createOptimizedBatchGeocoder();
+
+// Build address string for location identification
+const buildAddressString = (location) => {
+  const parts = [];
+  if (location[121]?.value) parts.push(location[121].value);
+  if (location[122]?.value) parts.push(location[122].value);
+  if (location[31]?.value) parts.push(location[31].value);
+  if (location[153]?.value) parts.push(location[153].value);
+  return parts.length > 0 ? parts.join(', ') : '';
+};
+
+// SIMPLIFIED LOCATION PROCESSOR - No coordinate processing needed
+const createSimpleLocationProcessor = () => {
+  const processLocations = (locations) => {
+    return locations
+      .map(location => {
+        // Check if location has required coordinate fields
+        if (!location[156] || !location[157]) {
+          return null;
+        }
+
+        const orgDetails = `SAL^${location[16]?.value}` || 'SAL';
+        const fullAddress = buildAddressString(location);
+        
+        // Skip locations without address info
+        if (!fullAddress) {
+          return null;
+        }
+        
+        return {
+          ...location,
+          fullAddress,
+          coordinates: {
+            lat: parseFloat(location[156].value),
+            lng: parseFloat(location[157].value)
+          },
+          displayName: location[162]?.value || 'Unknown Location',
+          giveUrl: location[32]?.value || '#',
+          organization_details: orgDetails
+        };
+      })
+      .filter(Boolean);
+  };
+
+  return { processLocations };
+};
+
+// SIMPLIFIED PREPROCESSING FUNCTION
+const preprocessLocationDataOptimized = async (locations) => {
+  console.log('Starting simplified preprocessing...');
+  const startTime = Date.now();
+  
+  // Initialize simple processor
+  const processor = createSimpleLocationProcessor();
+  
+  // Process locations directly (no geocoding needed)
+  const processedLocations = processor.processLocations(locations);
+  
+  const endTime = Date.now();
+  const processingTime = (endTime - startTime) / 1000;
+  console.log(`Preprocessing complete: ${processedLocations.length} locations processed in ${processingTime.toFixed(2)}s`);
+  
+  return processedLocations;
+};
+
+// Optimized filtering with pre-stored coordinates
+const filterLocationsByRadius = async (processedLocations, inputLocation, radiusMiles = 50) => {
+  console.log("Input Text", inputLocation);
+  console.log("Processed Location", location)
+  if (!processedLocations?.length) {
+    throw new Error('No processed locations available');
+  }
+
+  // Get center coordinates (this is the only geocoding call during search)
+  const centerCoordinates = await batchGeocoder.geocodeWithRateLimit(inputLocation);
+  if (!centerCoordinates) {
+    throw new Error('Could not geocode input location');
+  }
+  
+  // Filter using pre-stored coordinates
+  const filteredLocations = processedLocations
+    .map(location => {
+      const distance = calculateLocationDistance(
+        centerCoordinates.lat, 
+        centerCoordinates.lng,
+        location.coordinates.lat, 
+        location.coordinates.lng
+      );
+      
+      return {
+        ...location,
+        distanceFromCenter: Math.round(distance * 100) / 100
+      };
+    })
+    .filter(location => location.distanceFromCenter <= radiusMiles)
+    .sort((a, b) => a.distanceFromCenter - b.distanceFromCenter);
+
+  return { filteredLocations, centerCoordinates };
+};
+
+// Optimized marker creation with object pooling
+const createMarkerPool = () => {
+  const activeMarkers = [];
+  const inactiveMarkers = [];
+
+  const createOrReuseMarker = (map, lat, lng, title) => {
+    let marker;
+    
+    if (inactiveMarkers.length > 0) {
+      // Reuse existing marker
+      marker = inactiveMarkers.pop();
+      marker.setPosition({ lat: parseFloat(lat), lng: parseFloat(lng) });
+      marker.setTitle(title || 'Custom Marker');
+      marker.setMap(map);
+    } else {
+      // Create new marker
+      const customIcon = {
+        url: 'https://8hxvw8tw.media.zestyio.com/location_filled50.png',
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(15, 40),
+        scaledSize: new google.maps.Size(40, 40)
+      };
+
+      marker = new google.maps.Marker({
+        position: { lat: parseFloat(lat), lng: parseFloat(lng) },
+        map: map,
+        title: title || 'Custom Marker',
+        icon: customIcon
+      });
+    }
+    
+    activeMarkers.push(marker);
+    return marker;
+  };
+
+  const clearAllMarkers = () => {
+    // Hide all active markers and move to inactive pool
+    activeMarkers.forEach(marker => {
+      marker.setMap(null);
+      inactiveMarkers.push(marker);
+    });
+    activeMarkers.length = 0;
+  };
+
+  return { createOrReuseMarker, clearAllMarkers };
+};
+
+const markerPool = createMarkerPool();
+
+// Calculate distance (unchanged)
+const calculateLocationDistance = (lat1, lon1, lat2, lon2) => {
+  const R = 3959; // Earth's radius in miles
+  const dLat = toRadians(lat2 - lat1);
+  const dLon = toRadians(lon2 - lon1);
+  
+  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+};
+
+const toRadians = (degrees) => degrees * (Math.PI / 180);
+
+// Optimized card generation
+const generateCards = (locations, analyticsObject) => {
+  return locations.map((location, index) => 
+    `<div class="angel-tree__items card mb-2 mt-2" data-id="${index}">
+      <div class="card-body d-flex justify-content-between align-items-center">
+        <div class="col-7 justify-content-center">
+          <h5 class="card-title fw-bold text-secondary-200 mb-1 display-2">
+            ${location.displayName}
+          </h5>
+          <p class="text-muted mb-0 display-3">${location.distanceFromCenter} mi</p>
+        </div>
+        <div class="col-5 text-end justify-content-center">
+          <a
+            class="btn btn-primary btn-sm fw-bold px-4 py-2 text-uppercase fs-6 display-3"
+            target="_blank"
+            href="${location.giveUrl}"
+            data-link-location-type="body:map"
+            data-link-function-type="other"
+            data-link-format-type="button"
+            data-link-type="external"
+            data-location-name="${location.displayName}"
+            data-location-search-term="${analyticsObject.search_term}"
+            data-location-search-results="${analyticsObject.total_results}"
+            data-location-search-type="location search - body"
+            data-location-search-method-type="user-entered"
+            data-location-search-result-index="${index}"
+            onclick="LocationTrackingResultsClickEvent(this, 'angel_tree_result_click')"
+          >
+            View Registry
+          </a>
+        </div>
+      </div>
+    </div>`
+  ).join('');
+};
+
+// Function to handle marker click and card interaction
+const handleMarkerClick = (markerId) => {
+  const cardsContainer = document.querySelector('#angel-tree-result');
+  
+  // Remove active class from all cards
+  const allCards = cardsContainer.querySelectorAll('.angel-tree__items');
+  allCards.forEach((card) => {
+    card.classList.remove('active');
+    card.classList.remove('bg-primary-50');
+  } );
+  
+  // Find and activate the corresponding card
+  const targetCard = cardsContainer.querySelector(`[data-id="${markerId}"]`);
+  if (targetCard) {
+    // Add active class bg-primary-50
+    targetCard.classList.add('active');
+    targetCard.classList.add('bg-primary-50');
+    
+    // Scroll within the cards container only
+    const containerRect = cardsContainer.getBoundingClientRect();
+    const cardRect = targetCard.getBoundingClientRect();
+    
+    // Calculate scroll position relative to container
+    const scrollTop = targetCard.offsetTop - cardsContainer.offsetTop - 10;
+    
+    // Smooth scroll within the container
+    cardsContainer.scrollTo({
+      top: scrollTop,
+      behavior: 'smooth'
+    });
+  }
+};
+
+// Data fetching (unchanged)
+const getData = async () => {
+  try {
+    const response = await fetch(`https://api.quickbase.com/v1/records/query`, {
+      method: "POST",
+      headers: {
+        'QB-Realm-Hostname': 'saapps.quickbase.com',
+        'Authorization': 'QB-USER-TOKEN ca43nd_mn6f_0_vff9axtcqg3fceraqiic2kasz7',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        "from": "bs44qugfi",
+        "select": [130, 153, 158, 15, 121, 122, 31, 32, 16, 17, 156, 157, 162],
+        "where": "{52.CampaignType.'Online Angel Tree'}"
+      })
+    });
+    
+    const { data, fields } = await response.json();
+    console.log('Returned Data', fields, data)
+    return data;
+  } catch (error) {
+    console.log("ERROR Angel Tree", error.message);
+    return [];
+  }
+};
+
+// Function to handle "Use My Location" button click
+const handleUseMyLocation = async () => {
+  const button = document.querySelector('.use-my-location-angel');
+  const input = document.querySelector('#angel-tree__input');
+  const loader = document.querySelector('.map-loader');
+  
+  // Show loading state
+  if (button) {
+    button.disabled = true;
+    button.innerHTML = `
+      <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+      Getting Location...
+    `;
+  }
+  
+  if (loader) loader.classList.remove('d-none');
+
+  try {
+    // Check if geolocation is supported
+    if (!navigator.geolocation) {
+      throw new Error('Geolocation is not supported by this browser.');
+    }
+
+    // Get current position
+    const position = await new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(
+        resolve,
+        reject,
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 300000 // 5 minutes
+        }
+      );
+    });
+
+    const { latitude, longitude } = position.coords;
+    console.log('Current coordinates:', latitude, longitude);
+
+    // Use Google Maps Geocoder to reverse geocode the coordinates
+    const geocoder = new google.maps.Geocoder();
+    
+    const geocodeResult = await new Promise((resolve, reject) => {
+      geocoder.geocode(
+        { location: { lat: latitude, lng: longitude } },
+        (results, status) => {
+          if (status === google.maps.GeocoderStatus.OK && results?.length > 0) {
+            resolve(results[0]);
+          } else {
+            reject(new Error('Unable to get address from coordinates'));
+          }
+        }
+      );
+    });
+
+    // Get the formatted address
+    const formattedAddress = geocodeResult.formatted_address;
+    console.log('Formatted address:', formattedAddress);
+
+    // Populate the input field
+    if (input) {
+      input.value = formattedAddress;
+      
+      // Trigger input event to update any listeners
+      const inputEvent = new Event('input', { bubbles: true });
+      input.dispatchEvent(inputEvent);
+    }
+
+    // Wait a moment for the input to be fully updated
+    await new Promise(resolve => setTimeout(resolve, 100));
+
+    // Run the search function
+    await searchAngelTreeLocations();
+
+  } catch (error) {
+    console.error('Error getting location:', error);
+    
+    // Show user-friendly error messages
+    let errorMessage = 'Unable to get your location. ';
+    
+    if (error.code === 1) {
+      errorMessage += 'Location access was denied. Please enable location services and try again.';
+    } else if (error.code === 2) {
+      errorMessage += 'Location information is unavailable.';
+    } else if (error.code === 3) {
+      errorMessage += 'Location request timed out. Please try again.';
+    } else {
+      errorMessage += error.message || 'Please try again or enter your address manually.';
+    }
+    
+    // You can replace this alert with a more elegant notification system
+    alert(errorMessage);
+    
+  } finally {
+    // Reset button state
+    if (button) {
+      button.disabled = false;
+      button.innerHTML = `
+        <span class="material-symbols-outlined me-2">
+          my_location
+        </span> Use My Location
+      `;
+    }
+    
+    if (loader) loader.classList.add('d-none');
+  }
+};
+
+// Main search function - now much faster
+const searchAngelTreeLocations = async () => {
+  const loader = document.querySelector('.map-loader');
+  const cardsContainer = document.querySelector('#angel-tree-result');
+  const mapContentContainer = document.querySelector('#angel-tree-content');
+  const input = document.querySelector("#angel-tree__input");
+  const inputValue = input.value;
+  cardsContainer.setAttribute('style', 'height: 400px; max-height: 400px;');
+
+  cardsContainer.classList.remove('d-none');
+  mapContentContainer.classList.add('d-none');
+  
+  if (loader) loader.classList.remove('d-none');
+  
+  try {
+    // Clear existing markers
+    markerPool.clearAllMarkers();
+    console.log('Locations', items)
+    // Use preprocessed data for filtering
+    const { filteredLocations, centerCoordinates } = await filterLocationsByRadius(
+      items.processedData || [], 
+      inputValue
+    );
+    
+    if (filteredLocations.length > 0) {
+      const analyticsObject = {
+        search_term: inputValue,
+        total_results: filteredLocations.length
+      };
+
+      // Create markers efficiently
+      filteredLocations.forEach((item, index) => {
+        const marker = markerPool.createOrReuseMarker(
+          map, 
+          item.coordinates.lat, 
+          item.coordinates.lng, 
+          item.displayName
+        );
+        
+        marker.addListener('click', function() {
+          // Handle marker click
+          handleMarkerClick(index);
+          const searchInfo = {
+            searchTerm: inputValue,
+            totalResults: filteredLocations.length,
+            searchMethod: 'user-entered',
+            filterType: 'angel_tree',
+            filterValue: 'angel_tree'
+          };
+          console.log('Item Index', index);
+          const locationData = {
+            resultIndex: index || '1',
+            location_id: item.id || '',
+            name: item.displayName,
+            location_org_detail: item.organization_details || '',
+          }
+          
+          LocationTrackingMapClickEvent(locationData, searchInfo, 'angel_tree_map_click');
+        });
+      });
+      
+      // Update map view
+      map.setZoom(10);
+      map.setCenter(centerCoordinates);
+      
+      // Generate and display cards
+      const cardsHtml = generateCards(filteredLocations, analyticsObject);
+      cardsContainer.innerHTML = cardsHtml;
+      
+      input.setAttribute('data-search-term-type', inputValue);
+      input.setAttribute('data-search-filter-type', 'angel_tree');
+      input.setAttribute('data-search-results-type', filteredLocations.length);
+      input.setAttribute('data-search-method-type', 'user-entered');
+      input.setAttribute('data-search-type-type', 'location search - body');
+
+      LocationTrackingSearchEvent(input, 'angel_tree_search')
+    } else {
+      cardsContainer.innerHTML = '<p>No locations found within the specified radius.</p>';
+    }
+  } catch (error) {
+    console.error('Search error:', error);
+    cardsContainer.innerHTML = '<p>Error occurred during search. Please try again.</p>';
+  } finally {
+    if (loader) loader.classList.add('d-none');
+  }
+};
+
+function angelTreeInputAddressSuggestion() {
+  const input = document.querySelector('#angel-tree__input');
+
+  if (input) {
+    // Create session token to group autocomplete requests (reduces API costs)
+    let sessionToken = new google.maps.places.AutocompleteSessionToken();
+    const autocompleteService = new google.maps.places.AutocompleteService();
+
+    let debounceTimer;
+    const debounceDelay = 300; // Wait 300ms after user stops typing
+
+    // Create autocomplete dropdown container with enhanced styling
+    const autocompleteContainer = document.createElement('div');
+    autocompleteContainer.className = 'autocomplete-dropdown-container-angel-tree';
+    autocompleteContainer.style.cssText = `
+      position: absolute;
+      z-index: 1050;
+      background: white;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      max-height: 280px;
+      overflow-y: auto;
+      display: none;
+      width: 100%;
+      margin-top: 4px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    `;
+
+    // Add custom styles for angel tree dropdown
+    if (!document.getElementById('autocomplete-styles-angel-tree')) {
+      const style = document.createElement('style');
+      style.id = 'autocomplete-styles-angel-tree';
+      style.textContent = `
+        .autocomplete-dropdown-container-angel-tree::-webkit-scrollbar {
+          width: 8px;
+        }
+        .autocomplete-dropdown-container-angel-tree::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 4px;
+        }
+        .autocomplete-dropdown-container-angel-tree::-webkit-scrollbar-thumb {
+          background: #c1c1c1;
+          border-radius: 4px;
+        }
+        .autocomplete-dropdown-container-angel-tree::-webkit-scrollbar-thumb:hover {
+          background: #a8a8a8;
+        }
+        .autocomplete-item-angel-tree {
+          padding: 12px 16px;
+          cursor: pointer;
+          border-bottom: 1px solid #f3f4f6;
+          transition: background-color 0.15s ease;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .autocomplete-item-angel-tree:last-child {
+          border-bottom: none;
+        }
+        .autocomplete-item-angel-tree:hover {
+          background-color: #f9fafb;
+        }
+        .autocomplete-item-angel-tree:active {
+          background-color: #f3f4f6;
+        }
+        .autocomplete-icon-angel-tree {
+          width: 18px;
+          height: 18px;
+          color: #6b7280;
+          flex-shrink: 0;
+        }
+        .autocomplete-text-angel-tree {
+          color: #1f2937;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    input.parentNode.style.position = 'relative';
+    input.parentNode.appendChild(autocompleteContainer);
+
+    input.addEventListener('input', function() {
+      const value = this.value;
+
+      clearTimeout(debounceTimer);
+
+      if (value.length < 3) {
+        autocompleteContainer.style.display = 'none';
+        return;
+      }
+
+      // Debounce API call - only fire after user stops typing
+      debounceTimer = setTimeout(() => {
+        autocompleteService.getPlacePredictions({
+          input: value,
+          types: ['(regions)'],  // Regions type for city/ZIP searches (cheaper than geocode)
+          componentRestrictions: { country: 'US' },
+          sessionToken: sessionToken
+        }, (predictions, status) => {
+          if (status === google.maps.places.PlacesServiceStatus.OK && predictions) {
+            autocompleteContainer.innerHTML = '';
+            autocompleteContainer.style.display = 'block';
+
+            predictions.forEach(prediction => {
+              const item = document.createElement('div');
+              item.className = 'autocomplete-item-angel-tree';
+              item.innerHTML = `
+                <svg class="autocomplete-icon-angel-tree" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span class="autocomplete-text-angel-tree">${prediction.description}</span>
+              `;
+
+              item.addEventListener('click', function() {
+                input.value = prediction.description;
+                autocompleteContainer.style.display = 'none';
+
+                // Create new session token for next search
+                sessionToken = new google.maps.places.AutocompleteSessionToken();
+              });
+              autocompleteContainer.appendChild(item);
+            });
+          } else {
+            autocompleteContainer.style.display = 'none';
+          }
+        });
+      }, debounceDelay);
+    });
+
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (e.target !== input && !autocompleteContainer.contains(e.target)) {
+        autocompleteContainer.style.display = 'none';
+      }
+    });
+  }
+}
+
+// Initialize when map is ready
+window.addEventListener('mapReady', async (event) => {
+  map = event.detail.map;
+  const submitBtn = document.querySelector('#angel-tree__search-btn');
+  
+  if (map) {
+    const loader = document.querySelector('.map-loader');
+    if (loader) loader.classList.remove('d-none');
+    
+    try {
+      // Initialize the geocoder now that Google Maps is ready
+      if (!batchGeocoder.initialize()) {
+        throw new Error('Failed to initialize Google Maps geocoder');
+      }
+      
+      // Load raw data
+      const rawItems = await getData();
+      console.log("Raw Data", rawItems)
+      // Process with optimized function
+      const processedData = await preprocessLocationDataOptimized(rawItems);
+      
+      items = { 
+        data: rawItems, 
+        processedData: processedData 
+      };
+      
+      submitBtn.removeAttribute('disabled');
+      angelTreeInputAddressSuggestion();
+      console.log(`Ready! Processed ${processedData.length} locations.`);
+      
+    } catch (error) {
+      console.error('Initialization error:', error);
+    } finally {
+      if (loader) loader.classList.add('d-none');
+    }
+
+    const useLocationButton = document.querySelector('.use-my-location-angel');
+  
+    if (useLocationButton) {
+      // Remove any existing listeners to avoid duplicates
+      useLocationButton.removeEventListener('click', handleUseMyLocation);
+      useLocationButton.addEventListener('click', handleUseMyLocation);
+    }
+  }
+});
+</script>

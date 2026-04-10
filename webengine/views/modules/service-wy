@@ -1,0 +1,34 @@
+{{if {this.service_body} }}
+
+<div class="position-relative bg-light rounded-5 mb-16 p-md-8 p-sm-4 row mx-0">
+  {{if {this.territory} && {this.division} && {this.location} || {this.location} }}
+    <div class="col-lg-4 col-sm-12 mb-sm-8">
+      <h4>
+        {{locations.filter({!this.location}).name}}
+        {{ this.title }}
+        Information
+      </h4>
+    </div>
+    <div class="col-lg-8 col-sm-12 services-body">{{ this.service_body }}</div>
+  {{else if {this.division} && {this.territory} && {this.location} == '' }}
+    <div class="col-lg-4 col-sm-12 mb-sm-8">
+      <h4>
+        {{divisions.filter({!this.division}).name}}
+        {{ this.title }}
+        Information
+      </h4>
+    </div>
+    <div class="col-lg-8 col-sm-12 services-body">{{ this.service_body }}</div>
+  {{else if {this.territory} && {this.division} == '' && {this.location} == '' }}
+    <div class="col-lg-4 col-sm-12 mb-sm-8">
+      <h4>
+        {{territories.filter({!this.territory}).name}}
+        {{ this.title }}
+        Information
+      </h4>
+    </div>
+    <div class="col-lg-8 col-sm-12 services-body">{{ this.service_body }}</div>
+  {{/if}}
+  
+</div>
+{{/if}}

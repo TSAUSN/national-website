@@ -1,0 +1,16 @@
+{{include modules/hero-full-donate}}
+
+{{$locationZUID = {locations.filter({this.parent_zuid}).zuid} }}
+
+{{if {$locationZUID } && {this.parent_zuid} != 0 }}
+{{ include modules/service-wy }}
+{{else}}
+{{include modules/benefits-perks}}
+{{/if}}
+
+{{include modules/programs-schedule}}
+{{include modules/donate}}
+{{include modules/stats-modules}}
+
+(**{{include modules/news-cards}}**)
+{{ include modules/services }}

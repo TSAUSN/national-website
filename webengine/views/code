@@ -1,0 +1,48 @@
+{{$zuid = {request.queryParam(zuid)} }}
+
+
+{{$eventFoundIn = national}}
+{{if {$eventFoundIn} == 0 }}
+{{each locations as location WHERE z.zuid = '{$zuid}' LIMIT 1 }}
+{{$eventFoundIn = locations}}
+{{/each}}
+{{/if}}
+
+{{if {$eventFoundIn} == national }}
+{{each divisions as division WHERE z.zuid = '{$zuid}' LIMIT 1 }}
+{{$eventFoundIn = divisions}}
+{{/each}}
+{{/if}}
+
+{{if {$eventFoundIn} == national }}
+{{each territories as territory WHERE z.zuid = '{$zuid}' LIMIT 1 }}
+{{$eventFoundIn = territories}}
+{{/each}}
+{{/if}}
+
+
+{{if {$eventFoundIn} == locations }}
+    {{$territoryZUID = {locations.filter({$zuid}).territory} }}
+    {{$territoryCode = {territories.filter({$territoryZUID}).territory_code} }}
+
+    {{$divisionZUID = {locations.filter({$zuid}).division} }}
+    {{$divisionCode = {divisions.filter({$divisionZUID}).division_code} }}
+    {
+        "code": "SAL^{{$territoryCode}}^{{$divisionCode}}^{{locations.filter({$zuid}).name}}"
+    }
+{{else if {$eventFoundIn} == divisions }}
+    {{$territoryZUID = {divisions.filter({$zuid}).territory} }}
+    {{$territoryCode = {territories.filter({$territoryZUID}).territory_code} }}
+    {
+        "code": "SAL^{{$territoryCode}}^{{divisions.filter({$zuid}).division_code}}"
+    }
+
+{{else if {$eventFoundIn} == territories }}
+    {
+        "code": "SAL^{{territories.filter({$zuid}).territory_code}}"
+    }
+{{else}}
+    {
+        "code": "SAL^USN"
+    }
+{{/if}}

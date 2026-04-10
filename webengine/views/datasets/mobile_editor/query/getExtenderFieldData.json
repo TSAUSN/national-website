@@ -1,0 +1,80 @@
+{{$property = "" }}
+{{$division = "" }}
+{{$totalItems = 0}}
+{{$type = null}}
+
+
+{{if {request.queryParam(division)} }}
+{{$division = {request.queryParam(division)} }}
+{{end-if}}
+
+
+{{if {request.queryParam(property)} }}
+{{$property = {request.queryParam(property)} }}
+{{end-if}}
+
+
+{{if {request.queryParam(type)} }}
+{{$type = {request.queryParam(type)} }}
+{{end-if}}
+
+
+{{if {$type} == "heroSliders" }}
+    {
+    "data": [
+        {{each matrix_hero_sliders as heroSliders WHERE find_in_set('{$property}', display_on_locations) OR find_in_set('{$division}', display_on_divisions)  }}
+        {{$totalItems = {heroSliders._num} }}
+       
+        {
+            "data": {{matrix_hero_sliders.toJSON(1, true)}},
+            "meta": {
+                "ZUID": "{{heroSliders.zuid}}",
+                "masterZuid": "{{heroSliders.zuid}}",
+                "contentModelZuid": "{{heroSliders.set_zuid}}"
+                
+            }
+        }{{heroSliders._arraycomma}}
+        {{/each}}
+    ],
+    "_meta": {
+        "totalItems": {{$totalItems}},
+        "contentModelZuid": "6-d4c0fbbee5-8j61c9",
+        "datasetType": "{{$type}}"
+        }
+    }
+{{else if {$type} == "stats" }}
+    {
+    "data": [
+        {{each stats as stat WHERE find_in_set('{$property}', locations) OR find_in_set('{$division}', divisions)  }}
+        {{$totalItems = {stat._num} }}
+       
+        {
+            "data": {{stat.toJSON(1, true)}},
+            "meta": {
+                "ZUID": "{{stat.zuid}}",
+                "masterZuid": "{{stat.zuid}}",
+                "contentModelZuid": "{{stat.set_zuid}}"
+                
+            }
+        }{{stat._arraycomma}}
+        {{/each}}
+    ],
+    "_meta": {
+        "totalItems": {{$totalItems}},
+        "contentModelZuid": "6-d2dfc089be-s4p9pv",
+        "datasetType": "{{$type}}"
+        }
+    }
+{{else}}
+    {
+    "data": [],
+    "_meta": {
+        "totalItems": {{$totalItems}},
+        "contentModelZuid": "",
+        "datasetType": null
+        }
+    }
+{{end-if}}
+
+
+

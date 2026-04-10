@@ -1,0 +1,25 @@
+
+ [
+  {
+    "name": "Dashboard",
+    "navigationName": "/",
+    "icon": "view-dashboard",
+    "collapsable": false
+  },
+  {
+    "name": "Content",
+    "icon": "file-edit",
+    "collapsable": true,
+    "children": [
+      { "name": "About Us", "navigationName": "about-us", "modelZuid": "6-b29d85ada7-5kzkcc", "isDatasets": false },
+      { "name": "Events", "navigationName": "events", "modelZuid": "6-a2dbc1a6e2-x4pzmx", "isDatasets": false },
+      { "name": "Locations", "navigationName": "locations", "modelZuid": "6-b4c9aba69c-h2nqvm", "isDatasets": false },
+      { "name": "Divisions", "navigationName": "divisions", "modelZuid": "6-acb19a94bd-4q8ftj", "isDatasets": false },
+      { "name": "Territories", "navigationName": "territories", "modelZuid": "6-deab97cfd9-wb5km4", "isDatasets": false },
+      { "name": "Informational Pages", "navigationName": "informational-pages", "modelZuid": "6-c2b7f2a9ad-k4frxv", "isDatasets": false },
+      { "name": "Services", "navigationName": "services", "modelZuid": "6-fef1bbcecc-cjfmfq", "isDatasets": false },
+      { "name": "Staff and Community Leaders", "navigationName": "staff", "modelZuid": "6-98d1cbd695-tb73kj", "isDatasets": true },
+      { "name": "Stories", "navigationName": "stories", "modelZuid": "6-80c7e29486-k0pq6s", "isDatasets": false }
+    ]
+  }
+]

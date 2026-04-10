@@ -1,0 +1,86 @@
+<div class="card biograph-card h-100">
+  <div class="card-flip">
+    <!-- Front Side -->
+    <div class="card-front">
+      <div class="p-4">
+        <img
+          class="w-100 h-100 overflow-hidden rounded-3 object-fit-cover"
+          src="https://8hxvw8tw.media.zestyio.com/338x190.png"
+          alt="Dummy Image"
+        />
+      </div>
+      <div class="p-6 pt-2">
+        <div class="d-flex flex-column h-100 justify-content-between">
+          <div class="biograph-title mb-4">
+            <h6 class="fs-7 fw-normal">First and Last Name | Department</h6>
+            <span class="text-dark-50">Job Position</span>
+          </div>
+          <p class="biograph-desc text-dark-50">
+            Lorem ipsum dolor sit amet consectetur. Quis tellus viverra semper nec accumsan velit.
+            Tristique velit urna enim nunc. Faucibus urna... Lorem ipsum dolor sit amet consectetur.
+            Quis tellus viverra semper nec accumsan velit. Tristique velit urna enim nunc. Faucibus
+            urna...
+          </p>
+        </div>
+
+        <div class="d-flex justify-content-end mt-12">
+          <button
+            class="btn btn-info btn-sm d-flex align-items-center justify-content-center gap-2 flip-trigger"
+            data-location-type="body:community-leaders-section"
+            data-function-type="other"
+            data-format-type="button"
+            data-link-type="internal"
+            onclick="handleFlip(event, this); LinkTrackingClickEvent(this,'cta_click')"
+          >
+            <span class="material-symbols-outlined text-light"> add </span>
+            Read more
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back Side -->
+    <div class="card-back">
+      <div class="px-6 pt-8 pb-8 d-flex flex-column justify-content-between h-100">
+        <div class="d-flex flex-column justify-content-between overflow-auto">
+          <div class="biograph-title mb-4">
+            <h6 class="fs-7 fw-normal">First and Last Name | Department</h6>
+            <span class="text-dark-50">Job Position</span>
+          </div>
+          <p class="biograph-desc text-dark-50">
+            Lorem ipsum dolor sit amet consectetur. Quis tellus viverra semper nec accumsan velit.
+            Tristique velit urna enim nunc. Faucibus urna... Lorem ipsum dolor sit amet consectetur.
+            Quis tellus viverra semper nec accumsan velit. Tristique velit urna enim nunc. Faucibus
+            urna...
+          </p>
+        </div>
+
+        <div class="d-flex justify-content-end mt-12">
+          <button
+            class="btn btn-info btn-sm d-flex align-items-center justify-content-center gap-2 flip-trigger"
+            data-location-type="body:community-leaders-section"
+            data-function-type="other"
+            data-format-type="button"
+            data-link-type="internal"
+            onclick="handleFlip(event, this); LinkTrackingClickEvent(this,'cta_click')"
+          >
+            <span class="material-symbols-outlined text-light"> remove </span>
+            Read less
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function handleFlip(event, button) {
+  event.preventDefault();
+  event.stopPropagation();
+  
+  const card = button.closest('.biograph-card');
+  if (!card) return;
+  
+  card.classList.toggle('flipped');
+}
+</script>

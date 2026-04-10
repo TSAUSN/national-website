@@ -1,0 +1,7 @@
+{
+    "zuid": "{{stories.filter(property = '7-9e87f1fe95-7gc3j1').zuid} }}",
+    "zuidD": "{{stories.filter(divisions = '7-fcbb8f98c9-r7nxlf').zuid} }}",
+    "zuidT": "{{stories.filter('{z.territory}' = '7-b4aeafb8dd-033tjr').zuid} }}"
+
+
+}

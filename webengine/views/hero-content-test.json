@@ -1,0 +1,33 @@
+{{$zuid = {request.queryParam(zuid)} }}
+{{$page_model = {request.queryParam(page-model)} }}
+{{$parent_division = {request.queryParam(parent-division)} }}
+{{$parent_territory = {request.queryParam(parent-territory)} }}
+{{$homepage = 'homepage hit'}}
+[
+  {{if {$page_model} == 'locations'}}
+    {{$count = 0 }}
+    {{$location_division = {locations.filter({zuid}).division} }}
+    {{$location_territory = {locations.filter({zuid}).territory} }}
+    {{$locations_hero_content = {matrix_hero_sliders.filter(display_on_locations = '{$zuid}').zuid} }}
+    {{$locations_division_hero_content = {matrix_hero_sliders.filter(display_on_divisions = '{$location_division}').zuid} }}
+    {{$locations_territory_hero_content = {matrix_hero_sliders.filter(display_on_territories = '{$location_territory}').zuid} }}
+
+    {{if {$locations_hero_content} }}
+      {{each matrix_hero_sliders as banner_content WHERE find_in_set(display_on_locations, '{$zuid}')}}
+        {{banner_content.toJSON()}}{{banner_content._arraycomma}}
+      {{/each}}
+    {{else-if {$locations_hero_content} == 0 && {$locations_division_hero_content} }}
+      {{each matrix_hero_sliders as banner_content WHERE find_in_set(display_on_divisions, '{$location_division}') }}
+        {{banner_content.toJSON()}}{{banner_content._arraycomma}}
+      {{/each}}
+    {{else-if {$locations_hero_content} == 0 && {$locations_division_hero_content} == 0 && {$locations_territory_hero_content} }}
+      {{each matrix_hero_sliders as banner_content WHERE find_in_set(display_on_territories, '{$location_territory}') }}
+        {{banner_content.toJSON()}}{{banner_content._arraycomma}}
+      {{/each}}
+    {{else}}
+      {{each matrix_hero_sliders as banner_content WHERE banner_content.display_on_national = 1 }}
+        {{banner_content.toJSON()}}{{banner_content._arraycomma}}
+      {{/each}}
+    {{/if}}
+  {{/if}}
+]

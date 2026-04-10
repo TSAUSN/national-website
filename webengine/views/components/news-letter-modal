@@ -1,0 +1,83 @@
+<div
+  class="modal fade"
+  id="newsletterModal"
+  tabindex="-1"
+  aria-labelledby="newsletterModalLabel"
+  aria-hidden="true"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+>
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md modal-fullscreen-lg-down">
+    <div class="modal-content bg-light rounded-lg-5 overflow-y-auto">
+      <!-- Close Button -->
+      <button
+        type="button"
+        class="btn-close position-absolute end-0 m-3 newsletter-modal-close-button z-2"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+
+      <!-- <div class="modal-title text-center p-6 fs-5">
+        <h2 class="fs-5 text-center m-0">
+        Newsletter Form
+        </h2>
+      </div> -->
+      <!-- Modal Body -->
+      <div
+        class="modal-body p-4 d-flex align-items-start justify-content-center"
+        id="newsletter-container"
+      >
+        <div id='tsa-newsletter'></div>
+        <div
+          id="newsletter-loader"
+          class="spinner-border"
+          role="status"
+        ></div>
+
+        <script>
+          // Show loading initially
+          document.getElementById('newsletter-loader').style.display = 'block';
+          document.getElementById('tsa-newsletter').style.display = 'none';
+
+          // Function to check if form is rendered
+          function checkFormReady() {
+              const container = document.getElementById('tsa-newsletter');
+              if (container.children.length > 0) {
+                  document.getElementById('newsletter-loader').style.display = 'none';
+                  document.getElementById('tsa-newsletter').style.display = 'block';
+                  return true;
+              }
+              return false;
+          }
+
+          // Load the script dynamically to have better control
+          const script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/npm/@feathery/react@latest/umd/index.js';
+          script.onload = function() {
+              Feathery.init('b97e273c-baaf-4174-ad15-2f285f6686c8');
+              const loginEnabled = false;
+              Feathery.renderAt('tsa-newsletter', { formId: 'CdNLvi' }, loginEnabled);
+              
+              const checkInterval = setInterval(() => {
+                  if (checkFormReady()) {
+                      clearInterval(checkInterval);
+                  }
+              }, 100);
+              
+              setTimeout(() => {
+                  clearInterval(checkInterval);
+                  document.getElementById('newsletter-loader').style.display = 'none';
+                  document.getElementById('tsa-newsletter').style.display = 'block';
+              }, 10000);
+          };
+
+          script.onerror = function() {
+              document.getElementById('newsletter-loader').innerHTML = 'Error loading form';
+          };
+
+          document.head.appendChild(script);
+        </script>
+      </div>
+    </div>
+  </div>
+</div>

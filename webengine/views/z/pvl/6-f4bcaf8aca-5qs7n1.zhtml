@@ -1,0 +1,9 @@
+<div className={styles.pvlRoot}>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<img width="100%" src="https://apps.zesty.io/freestyle/images/embed-placeholder.jpg" alt="placeholder" />
+		</div>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+[
+  {{each locations as location }}
+  {
+    "zuid": "{{location.zuid}}",
+    "name": "{{location.name.htmlentities()}}",
+    "latitude": "{{location.latitude}}",
+    "longitude": "{{location.longitude}}",
+    "hours_of_operation": "{{location.hours_of_operation.escapeForJs()}}",
+    "address": "{{location.address.htmlentities().escapeForJs()}}",
+    "contact_number": "{{location.contact_number.escapeForJs() }}",
+    "property_type": "{{location.property_type}}",
+    "state": "{{states.filter(z.zuid = "{location.state}").state_code}}",
+    "city": "{{cities.filter(z.zuid = "{location.city}").title}}",
+    "territory": "{{location.territory}}",
+    "division": "{{location.division}}",
+    "url": "{{location.getUrl()}}",
+    "redirect_url": "{{location.redirect_url.htmlentities().escapeForJs()}}",
+    "service_types": "{{location.services_offered}}",
+    "zipcode": "{{location.zipcode}}"
+  }{{location._arraycomma}}
+  {{/each}}
+]

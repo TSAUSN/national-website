@@ -1,0 +1,32 @@
+body {
+  background-color: #d9d9d9;
+  font-family: 'Creato Display', sans-serif;
+  font-weight: unset;
+}
+
+.main-container-404 {
+  margin-top: 8rem;
+}
+
+.main-container {
+  margin-top: 12rem;
+}
+
+.header-container {
+  max-width: 1850px;
+}
+
+@media screen and (max-width: 1440px) {
+  .main-container {
+    margin-top: 9rem;
+  }
+}
+
+#view-content-button {
+  background-color: rgb(255, 93, 10);
+  color: white;
+
+  img {
+    filter: brightness(0) invert(1);
+  }
+}

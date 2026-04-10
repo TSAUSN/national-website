@@ -1,0 +1,150 @@
+<div class="mb-18">
+  {{if {this.title} }}
+  <h4 class="fw-normal px-md-5 px-sm-0 mb-8">{{this.title}}</h4>
+  {{/if}}
+  <div class="bg-light rounded-2 p-2 flex gap-3 mb-4">
+    {{each {this.services} as service sort by find_in_set(z.zuid,'{this.services}') }}
+    <button
+      {{if {service._index} == 0}}
+    class="btn btn-primary p-2 service-selector-button"
+    {{else}}
+    class="btn p-2 service-selector-button"
+    {{/if}}
+    data-index="{{service._index}}"
+    >
+      {{service.title}}
+    </button>
+    {{/each}}
+  </div>
+
+  <div class="bg-light rounded-3 p-6">
+    {{each {this.services} as service sort by find_in_set(z.zuid,'{this.services}') }}
+    <div 
+      {{if {service._index} == 0}}
+      class="row service-selector-body"
+      {{else}}
+      class="row service-selector-body d-none"
+      {{/if}}
+      data-index="{{service._index}}"
+    >
+      <div class="col-lg-4 col-12 mb-4 mb-lg-0">
+        <h4>{{service.title}}</h4>
+        <p class="text-dark-50">{{service.subtitle}}</p>
+        {{if {service.primary_cta_name} && {service.primary_cta_link} }}
+        <a
+          class="btn btn-secondary btn-sm mt-2"
+          href="{{service.primary_cta_link}}"
+          >{{service.primary_cta_name}}</a
+        >
+        {{/if}}
+      </div>
+
+	  <div class="col-lg-1 col-12"></div>
+
+    <div class="col-lg-7 col-12">
+        {{if {service.matrix_program_schedule} }}
+        <div
+          id="ps-accordion-block"
+          class="accordion accordion-flush border-bottom"
+        >
+
+          {{each {service.matrix_program_schedule} as ps sort by find_in_set(z.zuid,'{service.matrix_program_schedule}')  }}
+
+          <div 
+            class="accordion-item p-0">
+            <h2 class="accordion-header py-5">
+              <button
+                class="accordion-button collapsed p-0 fw-normal accordion-button-partners"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#general-accordion-{{service.zuid}}-{{ps._index}}"
+                aria-expanded="false"
+                aria-controls="flush-collapse{{service._index}}-{{ps._index}}"
+              >
+                <div>
+                  <p class="display-2 mb-2 fw-bold">{{ ps.title }}</p>
+                  <h6 class="fw-bold display-2 mb-0">
+                    Schedule:
+                    <span class="fw-normal multiselect_days">{{ ps.pseudo_multiselect_days }}</span>
+                    <span>{{ ps.time }}</span>
+                  </h6>
+                </div>
+              </button>
+            </h2>
+
+            <div id="general-accordion-{{service.zuid}}-{{ps._index}}" {{if {ps._length == 1} }}
+            class="accordion-collapse collapse show" {{else}} class="accordion-collapse collapse"
+            {{/if}} data-bs-parent="#ps-accordion-block" >
+            <div class="accordion-body p-0">
+              <div class="mb-4">
+                <div class="text-dark-100 d-flex flex-column gap-4">
+                  <h6 class="fw-bold display-2">
+                    Timezone: <span class="fw-normal">{{ ps.timezone }} </span>
+                  </h6>
+                  <h6 class="fw-bold display-2">
+                    Location:
+                    <span class="fw-normal"> {{ locations.filter({service.location}).name }} </span>
+                  </h6>
+                  {{if {ps.link} && {ps.link} != "#" }}
+                  <h6 class="fw-bold display-2">
+                    Link:
+                    <span class="fw-normal"
+                      ><a
+                        href="{{ ps.link }}"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        >{{ ps.link }}</a
+                      ></span
+                    >
+                  </h6>
+                  {{/if}}
+                  <div>{{ ps.description }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
+    </div>
+
+  </div>
+	{{/each}}
+</div>
+</div>
+
+
+<script>
+  const serviceSelectorButtons = document.querySelectorAll(".service-selector-button")
+  const serviceSelectorBody = document.querySelectorAll(".service-selector-body")
+
+  const resetButtons = (index) =>{
+    serviceSelectorButtons.forEach((btn) =>{
+      if(index === btn.dataset.index){
+        btn.className = "btn btn-primary p-2 service-selector-button"
+      }else{
+        btn.className = "btn p-2 service-selector-button"
+      }
+    })
+
+    serviceSelectorBody.forEach((body) =>{
+      if(index === body.dataset.index){
+        body.className = "row service-selector-body"
+      }else{
+        body.className = "row service-selector-body d-none"
+      }
+
+    })
+  }
+
+  serviceSelectorButtons.forEach((btn) =>{
+
+    btn.addEventListener("click", () =>{
+
+      console.log(btn.dataset.index)
+      resetButtons(btn.dataset.index)
+    })
+  })
+
+</script>

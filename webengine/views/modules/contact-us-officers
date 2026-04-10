@@ -1,0 +1,34 @@
+{{$count = 0}}
+
+{{each staffs as staffUser WHERE staff_role_type = "7-e2ffeef790-hxrrx7" AND find_in_set("{this.parent_zuid}", member_locations ) LIMIT 1 }}
+  {{$count = 1}}
+{{/each}}
+
+{{if {$count} == 1 }}
+<div id="contact-us-officers" class="officers-container mb-15">
+  <h4 class="mb-8 font-normal">{{locations.filter({this.parent_zuid}).name}} Officers</h4>
+  <div class="officers-grid">
+    {{each staffs as staffUser WHERE staff_role_type = "7-e2ffeef790-hxrrx7" AND find_in_set("{this.parent_zuid}", member_locations ) }}
+    <div class="officer-card rounded-5 p-6 bg-light">
+      <h6 class="text-secondary-200 fw-normal fs-7">{{ staffUser.first_name }} {{ staffUser.middle_name }} {{ staffUser.last_name }}</h6>
+      <div class="text-dark-50">
+        <span>{{ staffUser.email }}</span>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+<style>
+  .officers-container {
+    margin-bottom: 15px;
+  }
+
+  .officers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); /* Adjusts columns dynamically */
+    gap: 16px; /* Controls spacing between cards */
+    max-width: calc(330px * 4 + 60px); 
+  }
+</style>
+{{/if}}

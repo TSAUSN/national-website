@@ -1,0 +1,246 @@
+<div id="community-leaders" class="mb-18">
+  {{if {this.title} }}
+  <h4 class="fw-normal mb-0 px-4">{{this.title}}</h4>
+  {{/if}}
+  <div class="leaders-list col-md-12 mt-8 mb-5">
+    <div class="row gap-sm-4 gap-lg-0 d-none d-lg-flex">
+      {{each {this.staff_and_community_leaders} as staff where display_on_website sort by find_in_set(z.zuid,'{this.staff_and_community_leaders}') }}
+      <div class="col-lg-4">
+        <div class="card biograph-card h-100">
+          <div class="card-flip">
+            <!-- Front Side -->
+            <div class="card-front">
+              <div class="p-4 overflow-hidden rounded-4">
+                <img class="card-img-top img-cover ratio ration-4x3 w-100 h-100 overflow-hidden
+                rounded-4 object-fit-cover" 
+				{{if {staff.portrait_image} }}
+                src="{{staff.portrait_image.getImage()}}?width=424&height=319&crop=4:3,smart&quality=100"
+                {{else}}
+                src="https://8hxvw8tw.media.zestyio.com/SAL_EmptyStates_SAL_Insert_332x200_Red.jpg?width=424&height=319&crop=4:3,smart&quality=100"
+                {{/if}} alt="{{staff.first_name}}" />
+              </div>
+              <div class="p-6 pt-2">
+                <div class="d-flex flex-column h-100 justify-content-between">
+                  <div class="biograph-title mb-4">
+                    <h6 class="fs-7 fw-normal">
+                      {{staff.first_name}} {{if {staff.middle_name} }}{{staff.middle_name}}
+                      {{/if}}{{staff._last_name}}
+                    </h6>
+                    <span class="text-dark-50">{{staff.job_role}}</span>
+                  </div>
+                  <div class="biograph-desc text-dark-50 text-truncate-3">{{staff.about}}</div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-12">
+                  <button
+                    class="btn btn-info btn-sm d-flex align-items-center justify-content-center gap-2 flip-trigger"
+                    data-location-type="body:community-leaders-section"
+                    data-function-type="other"
+                    data-format-type="button"
+                    data-link-type="internal"
+                    onclick="LinkTrackingClickEvent(this,'cta_click')"
+                  >
+                    <span class="material-symbols-outlined text-light"> add </span>
+                    Read more
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Back Side -->
+            <div class="card-back">
+              <div class="px-6 pt-8 pb-8 d-flex flex-column justify-content-between h-100">
+                <div
+                  class="d-flex flex-column overflow-auto h-100"
+                  style="overflow: auto"
+                >
+                  <div class="biograph-title mb-4">
+                    <h6 class="fs-7 fw-normal">
+                      {{staff.first_name}} {{if {staff.middle_name} }}{{staff.middle_name}} {{/if}}{{staff._last_name}}
+                    </h6>
+                    <span class="text-dark-50">{{staff.job_role}}</span>
+                  </div>
+                  <div class="biograph-desc text-dark-50">{{staff.about}}</div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-12">
+                  <button
+                    class="btn btn-info btn-sm d-flex align-items-center justify-content-center gap-2 flip-trigger"
+                    data-location-type="body:community-leaders-section"
+                    data-function-type="other"
+                    data-format-type="button"
+                    data-link-type="internal"
+                    onclick="LinkTrackingClickEvent(this,'cta_click')"
+                  >
+                    <span class="material-symbols-outlined text-light"> remove </span>
+                    Read less
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+
+    <!-- Mobile -->
+
+    <div class="swiper community-leaders-swiper d-sm-flex d-lg-none">
+      <div class="swiper-wrapper">
+        {{each {this.staff_and_community_leaders} as staff where display_on_website sort by find_in_set(z.zuid,'{this.staff_and_community_leaders}') }}
+        <div class="swiper-slide align-items-start">
+          <div class="col-lg-4">
+            <div class="card biograph-card h-100">
+              <div class="card-flip">
+                <!-- Front Side -->
+                <div class="card-front">
+                  <div class="p-4 rounded-4 overflow-hidden mb-4">
+                    <img
+                      class="card-img-top img-cover ratio ratio-4x3 overflow-hidden rounded-4 object-fit-cover"
+                      	{{if {staff.portrait_image} }}
+						src="{{staff.portrait_image.getImage()}}?width=364&height=273&crop=4:3,smart&quality=100"
+						{{else}}
+						src="https://8hxvw8tw.media.zestyio.com/SAL_Leaders_Mobile-1.png?width=364&height=273&crop=4:3,smart&quality=100"
+						{{/if}} alt="{{staff.first_name}}" />
+                  </div>
+                  <div class="p-4 pt-2">
+                    <div class="d-flex flex-column h-100 justify-content-between text-start">
+                      <div class="biograph-title mb-4">
+                        <h6 class="fs-7 fw-normal"> {{staff.first_name}} {{if {staff.middle_name} }}{{staff.middle_name}} {{/if}}{{staff._last_name}}</h6>
+                        <span class="text-dark-50">{{staff.job_role}}</span>
+                      </div>
+                      <div class="biograph-desc text-dark-50 text-truncate-3">{{staff.about}}</div>
+                    </div>
+
+                    <div class="d-flex justify-content-end mt-12">
+                      <button
+                        class="btn btn-info btn-sm d-flex align-items-center justify-content-center gap-2 flip-trigger"
+                        data-location-type="body:community-leaders-section"
+                        data-function-type="other"
+                        data-format-type="button"
+                        data-link-type="internal"
+                        onclick="LinkTrackingClickEvent(this,'cta_click')"
+                      >
+                        <span class="material-symbols-outlined text-light"> add </span>
+                        Read more
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Back Side -->
+                <div class="card-back">
+                  <div class="px-6 pt-8 pb-8 d-flex flex-column justify-content-between h-100">
+                    <div
+                      class="d-flex flex-column overflow-auto h-100"
+                      style="overflow: auto"
+                    >
+                      <div class="biograph-title mb-4 text-start">
+                        <h6 class="fs-7 fw-normal"> {{staff.first_name}} {{if {staff.middle_name} }}{{staff.middle_name}} {{/if}}{{staff._last_name}}</h6>
+                        <span class="text-dark-50">{{staff.job_role}}</span>
+                      </div>
+                      <div class="biograph-desc text-dark-50 text-start">{{staff.about}}</div>
+                    </div>
+
+                    <div class="d-flex justify-content-end mt-12">
+                      <button
+                        class="btn btn-info btn-sm d-flex align-items-center justify-content-center gap-2 flip-trigger"
+                        data-location-type="body:community-leaders-section"
+                        data-function-type="other"
+                        data-format-type="button"
+                        data-link-type="internal"
+                        onclick="LinkTrackingClickEvent(this,'cta_click')"
+                      >
+                        <span class="material-symbols-outlined text-light"> remove </span>
+                        Read less
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+
+        
+      </div>
+  
+    </div>
+    <div class="community-leaders-swiper__nav d-flex w-100 justify-content-end align-items-center mt-5 d-lg-none">
+              <div class="swiper-button-prev leaders-prev-button position-relative bg-opacity-60 bg-light me-4">
+                <i
+                  data-location-type="body:community-leaders"
+                  data-function-type="other"
+                  data-format-type="icon-block"
+                  data-page-componentType-type="community-leaders component"
+                  data-page-componentHeading-type=null
+                  data-page-componentSubheading-type=null
+                  data-page-componentIndex-type=null
+                  onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                  class="material-symbols-outlined text-dark-100"
+                  >arrow_back</i
+                >
+              </div>
+              <div class="swiper-pagination community-leaders-pagination position-relative px-4 rounded-14"></div>
+              <div class="swiper-button-next leaders-next-button position-relative bg-opacity-60 bg-light ms-4">
+                <i
+                  data-location-type="body:community-leaders"
+                  data-function-type="other"
+                  data-format-type="icon-block"
+                  data-page-componentType-type="community-leaders component"
+                  data-page-componentHeading-type=null
+                  data-page-componentSubheading-type=null
+                  data-page-componentIndex-type=null
+                  onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                  class="material-symbols-outlined text-dark-100"
+                  >arrow_forward</i
+                >
+              </div>
+            </div>
+    <script>
+      const flipButtons = document.querySelectorAll('.flip-trigger');
+      for (let index = 0; index < flipButtons.length; index++) {
+        flipButtons[index].addEventListener('click', function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+
+          const card = this.closest('.biograph-card');
+          if (!card) return;
+
+          card.classList.toggle('flipped');
+        });
+      }
+
+      console.log(flipButtons);
+
+	  const s = new Swiper('.community-leaders-swiper', {
+        spaceBetween: 20,
+        pagination: {
+          el: '.community-leaders-swiper__nav .swiper-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.leaders-next-button',
+          prevEl: '.leaders-prev-button'
+        },
+        breakpoints: {
+          1024: {
+            slidesPerView: 2
+          },
+          768: {
+            slidesPerView: 2
+          },
+          576: {
+            slidesPerView: 1
+          },
+          320: {
+            slidesPerView: 1
+          }
+        }
+      });
+    
+    </script>
+  </div>
+</div>

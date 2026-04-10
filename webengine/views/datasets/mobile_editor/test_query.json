@@ -1,0 +1,20 @@
+
+{
+    "data": [
+        {{each services as service WHERE service.location IS NOT NULL AND service.division IS NULL AND service.territory IS NULL }}
+        {{$totalItems = {service._num} }}
+        {
+            "data": {
+                "zuid": "{{service.zuid}}",
+                "title": "{{service.title.escapeForJs()}}",
+                "location": "{{service.location}}",
+                "division": "{{service.division}}",
+                "territory":  "{{service.territory}}"
+            }
+        } {{service._arraycomma}}
+        {{/each}}
+    ],
+    "_meta": {
+        "totalItems": {{$totalItems}}
+    }
+}

@@ -1,0 +1,178 @@
+<script>
+  class ServicesSubject {
+    constructor() {
+      this.observers = [];
+      this.latest = null;
+    }
+
+    subscribe(observer) {
+      this.observers.push(observer);
+
+      if (this.latest !== null) {
+        observer(this.latest);
+      }
+
+      return () => {
+        this.observers = this.observers.filter((o) => o !== observer);
+      };
+    }
+
+    notify(data) {
+      this.latest = data;
+      this.observers.forEach((observer) => observer(data));
+    }
+  }
+
+  class ServicesDB {
+    static instance;
+
+    constructor() {
+      if (ServicesDB.instance) {
+        return ServicesDB.instance;
+      }
+
+      this.db = null;
+      ServicesDB.instance = this;
+    }
+
+    async init() {
+      if (this.db) {
+        return this.db;
+      }
+
+      return new Promise((resolve, reject) => {
+        const request = window.indexedDB.open('services', 1);
+
+        request.onerror = () => reject('Unable to open services DB');
+        request.onsuccess = () => {
+          this.db = request.result;
+          resolve(this.db);
+        };
+
+        request.onupgradeneeded = (event) => {
+          this.db = event.target.result;
+
+          if (!this.db.objectStoreNames.contains('servicesItems')) {
+            this.db.createObjectStore('servicesItems', { keyPath: 'id' });
+          }
+
+          if (!this.db.objectStoreNames.contains('servicesMeta')) {
+            this.db.createObjectStore('servicesMeta', { keyPath: 'id' });
+          }
+        };
+      });
+    }
+
+    static getInstance() {
+      if (!ServicesDB.instance) {
+        ServicesDB.instance = new ServicesDB();
+      }
+      return ServicesDB.instance;
+    }
+
+    async fetchAndStoreServices(locationZUID, modelZUID) {
+      let url = "";
+
+      switch(modelZUID){
+        case "6-deab97cfd9-wb5km4": // Territories
+          url = `https://{{instance.domain}}/get-services-territories.json?zuid=${locationZUID}`;
+        break;
+         
+        case "6-acb19a94bd-4q8ftj": // Divisions
+          url = `https://{{instance.domain}}/get-services-divisions.json?zuid=${locationZUID}`;
+        break;
+
+        case "6-b4c9aba69c-h2nqvm": // Locations
+          url = `https://{{instance.domain}}/get-services-locations.json?zuid=${locationZUID}`;
+        break;
+
+        default:
+          url = `https://{{instance.domain}}/get-services-national.json?zuid=${locationZUID}`;
+        break;
+      }
+
+
+      try {
+        const response = await fetch(url);
+        const result = await response.json();
+        if (!result.data || result.data.length === 0) {
+          console.warn('No services returned from API');
+          return;
+        }
+
+        // Save metadata
+        await new Promise((resolve, reject) => {
+          const tx = this.db.transaction(['servicesMeta'], 'readwrite');
+          const store = tx.objectStore('servicesMeta');
+          store.put({
+            id: 'meta',
+            model_zuid: result.model_zuid,
+            location_zuid: result.location_zuid,
+            total_items: result.total_items,
+            date_requested: result.date_requested
+          });
+          tx.oncomplete = resolve;
+          tx.onerror = reject;
+        });
+        console.log(result.data)
+
+        await this.addServices(result.data);
+        document.dispatchEvent(new CustomEvent('servicesSetupComplete', { detail: result.data }));
+      } catch (error) {
+        console.error('Error fetching services:', error);
+      }
+    }
+
+    async addServices(servicesArray) {
+      return new Promise((resolve, reject) => {
+        const transaction = this.db.transaction(['servicesItems'], 'readwrite');
+        const objectStore = transaction.objectStore('servicesItems');
+
+        // servicesArray.forEach((service) => {
+        //   objectStore.put(service);
+        // });
+
+        objectStore.put({ id: 'all', services: servicesArray });
+
+        transaction.oncomplete = resolve;
+        transaction.onerror = () => reject('Error adding services');
+      });
+    }
+
+    async getAllServices() {
+      return new Promise((resolve, reject) => {
+        const transaction = this.db.transaction('servicesItems', 'readonly');
+        const objectStore = transaction.objectStore('servicesItems');
+        const request = objectStore.get('all');
+
+        request.onsuccess = () => {
+          resolve(request.result ? request.result.services : []);
+        };
+
+        request.onerror = () => reject(request.error);
+      });
+    }
+
+    async getMetadata() {
+      return new Promise((resolve, reject) => {
+        const tx = this.db.transaction(['servicesMeta'], 'readonly');
+        const store = tx.objectStore('servicesMeta');
+        const request = store.get('meta');
+
+        request.onsuccess = () => resolve(request.result || null);
+        request.onerror = () => reject(request.error);
+      });
+    }
+
+    async initServices(locationZUID, modelZUID) {
+      await this.init();
+      const metadata = await this.getMetadata();
+  
+      await this.fetchAndStoreServices(locationZUID, modelZUID);
+      
+
+      const services = await this.getAllServices();
+      ServicesObserver.notify(services);
+    }
+  }
+</script>

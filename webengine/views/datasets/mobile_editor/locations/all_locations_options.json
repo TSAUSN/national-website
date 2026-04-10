@@ -1,0 +1,11 @@
+{
+   "data": [     
+        {{each locations as location }}
+            {
+                "value": "{{location.zuid}}",
+                "label": "{{location.name.escapeForJs()}}",
+                "parent_division": "{{location.division}}"
+            } {{location._arraycomma}}
+        {{/each}}    
+   ]
+}

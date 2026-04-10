@@ -1,0 +1,765 @@
+<div class="bg-white p-6 rounded-5">
+  <form>
+    <div class="input-group">
+      <span
+        class="input-group-text bg-photo-overlay text-white"
+        id="basic-addon3"
+        >https://{{ instance.domain }}/generate-csv.json</span
+      >
+      <select
+        class="form-select"
+        id="select-model"
+      >
+        {{ each territories as t }}
+        <option value="{{ t.zuid }}">{{ t.name }}</option>
+        {{/each}}
+      </select>
+      <select
+        class="form-select"
+        id="select-zuid-d"
+      >
+        <option value="">Select a Division</option>
+        {{ each divisions as d }}
+        <option
+          data-territory="{{ d.territory }}"
+          value="{{ d.zuid }}"
+        >
+          {{ d.name }}
+        </option>
+        {{/each}}
+      </select>
+      <select
+        class="form-select"
+        id="select-zuid-l"
+        disabled
+      >
+        <option value="">Select a Location</option>
+
+        {{ each locations as l }}
+        <option
+          data-territory="{{ d.territory }}"
+          data-division="{{ d.division }}"
+          value="{{ l.zuid }}"
+        >
+          {{ l.name }}
+        </option>
+        {{/each}}
+      </select>
+      <button
+        id="csv-submit-btn"
+        type="button"
+        class="btn btn-primary"
+      >
+        Generate
+      </button>
+    </div>
+    <div class="d-flex mt-3 justify-content-between">
+      <div class="dropdown">
+        <button
+          class="btn btn-primary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Filter Models
+        </button>
+        <ul
+          class="dropdown-menu p-2"
+          style="min-width: 250px; max-height: 300px; overflow-y: auto"
+        >
+          <li>
+            <div class="form-check">
+              <input
+                class="form-check-input model-filter"
+                type="checkbox"
+                value="territories"
+                id="filterTerritories"
+                disabled
+                checked
+              /><label
+                class="form-check-label"
+                for="filterTerritories"
+                >Territories</label
+              >
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input
+                class="form-check-input model-filter"
+                type="checkbox"
+                value="divisions"
+                id="filterDivisions"
+                checked
+              /><label
+                class="form-check-label"
+                for="filterDivisions"
+                >Divisions</label
+              >
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input
+                class="form-check-input model-filter"
+                type="checkbox"
+                value="locations"
+                id="filterLocations"
+                checked
+              /><label
+                class="form-check-label"
+                for="filterLocations"
+                >Locations</label
+              >
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input
+                class="form-check-input model-filter"
+                type="checkbox"
+                value="about_us"
+                id="filterAboutUs"
+                checked
+              /><label
+                class="form-check-label"
+                for="filterAboutUs"
+                >About Us</label
+              >
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input
+                class="form-check-input model-filter"
+                type="checkbox"
+                value="contact_us"
+                id="filterContactUs"
+                checked
+              /><label
+                class="form-check-label"
+                for="filterContactUs"
+                >Contact Us</label
+              >
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input
+                class="form-check-input model-filter"
+                type="checkbox"
+                value="informational_pages"
+                id="filterInfoPages"
+                checked
+              /><label
+                class="form-check-label"
+                for="filterInfoPages"
+                >Informational Pages</label
+              >
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input
+                class="form-check-input model-filter"
+                type="checkbox"
+                value="stories_landing_page"
+                id="filterStories"
+                checked
+              /><label
+                class="form-check-label"
+                for="filterStories"
+                >Stories Landing Page</label
+              >
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input
+                class="form-check-input model-filter"
+                type="checkbox"
+                value="events_landing_page"
+                id="filterEvents"
+                checked
+              /><label
+                class="form-check-label"
+                for="filterEvents"
+                >Events Landing Page</label
+              >
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input
+                class="form-check-input model-filter"
+                type="checkbox"
+                value="leadership_landing_page"
+                id="filterLeadership"
+                checked
+              /><label
+                class="form-check-label"
+                for="filterLeadership"
+                >Leadership Landing Page</label
+              >
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input
+                class="form-check-input model-filter"
+                type="checkbox"
+                value="services"
+                id="filterServices"
+                checked
+              /><label
+                class="form-check-label"
+                for="filterServices"
+                >Services</label
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+      <button
+        id="download-csv-btn"
+        type="button"
+        class="btn btn-primary d-none"
+      >
+        Download CSV
+      </button>
+    </div>
+  </form>
+  <!-- Loader spinner -->
+  <div
+    id="csv-loader"
+    class="d-none justify-content-center align-items-center"
+  >
+    <div
+      class="spinner-border text-primary"
+      role="status"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <table
+    class="d-none table table-bordered table-striped mt-16"
+    id="dataTable"
+  >
+    <thead>
+      <tr>
+        <th
+          data-key="model"
+          class="sortable"
+        >
+          <span>Model</span
+          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
+        </th>
+        <th
+          data-key="zuid"
+          class="sortable"
+        >
+          <span>ZUID</span
+          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
+        </th>
+        <th
+          data-key="title"
+          class="sortable"
+        >
+          <span>Title</span
+          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
+        </th>
+        <th
+          data-key="territory"
+          class="sortable"
+        >
+          <span>Territory</span
+          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
+        </th>
+        <th
+          data-key="division"
+          class="sortable"
+        >
+          <span>Division</span
+          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
+        </th>
+        <th
+          data-key="location"
+          class="sortable"
+        >
+          <span>Location</span
+          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
+        </th>
+        <th
+          data-key="path_part"
+          class="sortable"
+        >
+          <span>Path Part</span
+          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
+        </th>
+        <th
+          data-key="url"
+          class="sortable"
+        >
+          <span>URL</span
+          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody></tbody>
+  </table>
+
+  <nav>
+    <ul
+      class="pagination"
+      id="pagination"
+    ></ul>
+  </nav>
+</div>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+<script>
+  const selectModel = document.getElementById('select-model');
+  const selectZuidD = document.getElementById('select-zuid-d');
+  const selectDivisonData = selectZuidD.querySelectorAll('[data-territory]');
+  const selectZuidL = document.getElementById('select-zuid-l');
+  const selectLocationData = selectZuidL.querySelectorAll('[data-division]');
+  const modelCheckboxes = document.querySelectorAll('.model-filter');
+
+  selectDivisonData.forEach((opt) => {
+    if (opt.getAttribute('data-territory') !== selectModel[selectModel.selectedIndex].value) {
+      opt.classList.add('d-none');
+    } else {
+      opt.classList.remove('d-none');
+    }
+  });
+
+  selectLocationData.forEach((opt) => {
+    if ((selectZuidD.selectedIndex = 0)) {
+      opt.classList.remove('d-none');
+      return;
+    }
+
+    if (opt.getAttribute('data-division') !== selectZuidD[selectZuidD.selectedIndex].value) {
+      opt.classList.add('d-none');
+    } else {
+      opt.classList.remove('d-none');
+    }
+  });
+
+  const handleModelSelection = (dValue, tValue) => {
+    modelCheckboxes.forEach((checkbox) => {
+      const value = checkbox.value;
+      checkbox.disabled = false;
+      checkbox.checkbox = true;
+
+      if (value === 'territories') {
+        checkbox.checked = true;
+        checkbox.disabled = true;
+      }
+
+      if (dValue) {
+        if (value === 'divisions') {
+          checkbox.checked = true;
+          checkbox.disabled = true;
+        }
+      }
+
+      if (tValue) {
+        if (value === 'locations') {
+          checkbox.checked = true;
+          checkbox.disabled = true;
+        }
+      }
+    });
+  };
+  let locationTomSelect = null;
+
+  selectModel.addEventListener('change', (e) => {
+    const selectedModel = e.target.value;
+    selectZuidD.selectedIndex = 0;
+    selectZuidL.selectedIndex = 0;
+    handleModelSelection(
+      selectZuidD[selectZuidD.selectedIndex].value,
+      selectZuidL[selectZuidL.selectedIndex].value
+    );
+
+    if (selectZuidD.selectedIndex === 0) {
+      selectZuidL.setAttribute('disabled', '');
+    } else {
+      selectZuidL.removeAttribute('disabled');
+    }
+
+    selectDivisonData.forEach((opt) => {
+      if (opt.getAttribute('data-territory') !== selectedModel) {
+        opt.classList.add('d-none');
+      } else {
+        opt.classList.remove('d-none');
+      }
+    });
+  });
+
+  selectZuidD.addEventListener('change', (e) => {
+    const selectedModel = e.target.value;
+    selectZuidL.selectedIndex = 0;
+
+    handleModelSelection(
+      selectZuidD[selectZuidD.selectedIndex].value,
+      selectZuidL[selectZuidL.selectedIndex].value
+    );
+
+    if (selectZuidD.selectedIndex === 0) {
+      selectZuidL.setAttribute('disabled', '');
+    } else {
+      selectZuidL.removeAttribute('disabled');
+    }
+
+    selectLocationData.forEach((opt) => {
+      if (opt.getAttribute('data-division') !== selectedModel) {
+        opt.classList.add('d-none');
+      } else {
+        opt.classList.remove('d-none');
+      }
+    });
+  });
+
+  selectZuidL.addEventListener('change', (e) => {
+    const selectedModel = e.target.value;
+    handleModelSelection(
+      selectZuidD[selectZuidD.selectedIndex].value,
+      selectZuidL[selectZuidL.selectedIndex].value
+    );
+  });
+
+  function getSelectedModelsQuery() {
+    const selectedModels = Array.from(document.querySelectorAll('.model-filter:checked')).map(
+      (cb) => cb.value
+    );
+    return selectedModels.map((model) => `${model}=1`).join('&');
+  }
+
+  const baseURL = `https://{{instance.domain}}/generate-csv.json`;
+  const dataTableBody = document.querySelector('#dataTable tbody');
+  const pagination = document.getElementById('pagination');
+  const loader = document.getElementById('csv-loader');
+  const dataTable = document.getElementById('dataTable');
+
+  const rowsPerPage = 20;
+  let currentPage = 1;
+  let data = [];
+
+  function fixMalformedJSON(rawText) {
+    try {
+      // Step 1: Normalize whitespace
+      let cleaned = rawText.replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ');
+
+      // Step 2: Replace multiple commas (,, or , , ,) with a single comma
+      cleaned = cleaned.replace(/,\s*,+/g, ',');
+
+      // Step 3: Remove comma(s) before closing brackets/braces
+      cleaned = cleaned.replace(/(,)+\s*(?=[}\]])/g, '');
+
+      // Step 4: Remove comma(s) after opening brackets/braces
+      cleaned = cleaned.replace(/([\[{])\s*(,)+/g, '$1');
+
+      // Step 5: Remove standalone commas between objects
+      cleaned = cleaned.replace(/},\s*,\s*{/g, '}, {');
+
+      // Step 6: Remove commas at the start or end of the array
+      cleaned = cleaned.replace(/^\s*,|,\s*$/g, '');
+      cleaned = cleaned.replace(/(,\s*)+(?=[}\]])/g, '');
+
+      // Step 7: Final trim
+      cleaned = cleaned.trim();
+
+      // Parse JSON
+      return JSON.parse(cleaned);
+    } catch (err) {
+      console.error('Failed to parse JSON:', err.message);
+      return null;
+    }
+  }
+
+  // Show loader and fetch data
+  async function fetchData(zuid, zuidD, zuidL) {
+    const query = getSelectedModelsQuery();
+    let fullURL;
+    if (zuid && zuidD && zuidL) {
+      fullURL = `${baseURL}?${query}&zuid=${zuid}&divisionzuid=${zuidD}&locationzuid=${zuidL}`;
+    } else if (zuid && zuidD && !zuidL) {
+      fullURL = `${baseURL}?${query}&zuid=${zuid}&divisionzuid=${zuidD}`;
+    } else if (zuid && !zuidD && !zuidL) {
+      fullURL = `${baseURL}?${query}&zuid=${zuid}`;
+    }
+
+    try {
+      loader.classList.add('d-flex');
+      loader.classList.remove('d-none');
+
+      dataTable.classList.remove('table');
+      dataTable.classList.add('d-none');
+
+      pagination.classList.add('d-none');
+
+      const res = await fetch(fullURL);
+      const rawText = await res.text();
+      const fixedData = fixMalformedJSON(rawText);
+
+      if (!fixedData) {
+        throw new Error('Invalid JSON format.');
+      }
+
+      data = fixedData;
+      console.log(data);
+      renderTable();
+      renderPagination();
+      document.getElementById('download-csv-btn').classList.remove('d-none');
+    } catch (err) {
+      console.error('Error fetching data:', err);
+    } finally {
+      // Ensure the loader is hidden and table is shown
+      dataTable.classList.add('table');
+      dataTable.classList.remove('d-none');
+
+      pagination.classList.remove('d-none');
+      loader.classList.remove('d-flex');
+      loader.classList.add('d-none');
+    }
+  }
+
+  function renderTable() {
+    dataTableBody.innerHTML = '';
+    const start = (currentPage - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+    const paginatedData = data.slice(start, end);
+
+    paginatedData.forEach((row) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+          <td class="text-center">${row.model || ''}</td>
+          <td class="text-center">${row.zuid || ''}</td>
+          <td class="text-center">${row.title || ''}</td>
+          <td class="text-center">${row.territory || ''}</td>
+          <td class="text-center">${row.division || ''}</td>
+          <td class="text-center">${row.location || ''}</td>
+          <td class="text-center">${row.path_part || ''}</td>
+          <td class="text-center"><a href="${
+            row.url
+          }" target="_blank" rel="noopener">Visit Page</a></td>
+        `;
+      dataTableBody.appendChild(tr);
+    });
+  }
+
+  function renderPagination() {
+    pagination.innerHTML = '';
+    const pageCount = Math.ceil(data.length / rowsPerPage);
+    const maxPagesToShow = 5; // Limit the number of page links to 5
+    const offset = Math.floor(maxPagesToShow / 2);
+    let startPage = Math.max(currentPage - offset, 1);
+    let endPage = Math.min(startPage + maxPagesToShow - 1, pageCount);
+
+    if (endPage - startPage < maxPagesToShow - 1) {
+      startPage = Math.max(endPage - maxPagesToShow + 1, 1);
+    }
+
+    // First button
+    const firstButton = document.createElement('li');
+    firstButton.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+    firstButton.innerHTML = `<a class="page-link" href="#">First</a>`;
+    firstButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentPage = 1;
+      renderTable();
+      renderPagination();
+      scrollToTop();
+    });
+    pagination.appendChild(firstButton);
+
+    // Previous button
+    const prevButton = document.createElement('li');
+    prevButton.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+    prevButton.innerHTML = `<a class="page-link" href="#">Previous</a>`;
+    prevButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (currentPage > 1) {
+        currentPage--;
+        renderTable();
+        renderPagination();
+        scrollToTop();
+      }
+    });
+    pagination.appendChild(prevButton);
+
+    // Page buttons
+    for (let i = startPage; i <= endPage; i++) {
+      const li = document.createElement('li');
+      li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+      li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+      li.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentPage = i;
+        renderTable();
+        renderPagination();
+        scrollToTop();
+      });
+      pagination.appendChild(li);
+    }
+
+    // Next button
+    const nextButton = document.createElement('li');
+    nextButton.className = `page-item ${currentPage === pageCount ? 'disabled' : ''}`;
+    nextButton.innerHTML = `<a class="page-link" href="#">Next</a>`;
+    nextButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (currentPage < pageCount) {
+        currentPage++;
+        renderTable();
+        renderPagination();
+        scrollToTop();
+      }
+    });
+    pagination.appendChild(nextButton);
+
+    // Last button
+    const lastButton = document.createElement('li');
+    lastButton.className = `page-item ${currentPage === pageCount ? 'disabled' : ''}`;
+    lastButton.innerHTML = `<a class="page-link" href="#">Last</a>`;
+    lastButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentPage = pageCount;
+      renderTable();
+      renderPagination();
+      scrollToTop();
+    });
+    pagination.appendChild(lastButton);
+  }
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Smooth scroll effect
+    });
+  }
+
+  document.getElementById('download-csv-btn').addEventListener('click', () => {
+    if (!data.length) {
+      alert('No data to export. Please generate data first.');
+      return;
+    }
+
+    const csv = convertToCSV(data);
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'salvationarmy-data.csv');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+
+  function convertToCSV(arr) {
+    const headers = Object.keys(arr[0]).join(',');
+    const rows = arr.map((obj) =>
+      Object.values(obj)
+        .map((val) => `"${(val ?? '').toString().replace(/"/g, '""')}"`)
+        .join(',')
+    );
+    return [headers, ...rows].join('\r\n');
+  }
+
+  document.getElementById('csv-submit-btn').addEventListener('click', async () => {
+    currentPage = 1; // reset pagination
+
+    await fetchData(
+      document.getElementById('select-model').value,
+      document.getElementById('select-zuid-d').value,
+      document.getElementById('select-zuid-l').value
+    );
+  });
+
+  let currentSort = { key: '', asc: true };
+
+  document.querySelectorAll('th.sortable').forEach((th) => {
+    th.style.cursor = 'pointer';
+    th.addEventListener('click', () => {
+      const key = th.getAttribute('data-key');
+      const isSameKey = currentSort.key === key;
+      currentSort.asc = isSameKey ? !currentSort.asc : true;
+      currentSort.key = key;
+
+      data.sort((a, b) => {
+        const valA = (a[key] || '').toString().toLowerCase();
+        const valB = (b[key] || '').toString().toLowerCase();
+        if (valA < valB) return currentSort.asc ? -1 : 1;
+        if (valA > valB) return currentSort.asc ? 1 : -1;
+        return 0;
+      });
+
+      // Reset header classes
+      document.querySelectorAll('th.sortable').forEach((header) => {
+        header.classList.remove('active-asc', 'active-desc');
+      });
+
+      // Set active class on clicked header
+      th.classList.add(currentSort.asc ? 'active-asc' : 'active-desc');
+
+      renderTable();
+      renderPagination();
+    });
+  });
+</script>
+
+<style>
+  /* Bootstrap table styling */
+  .table {
+    table-layout: fixed; /* Ensure columns have equal width */
+    width: 100%; /* Full width */
+  }
+
+  .table th,
+  .table td {
+    text-align: center; /* Center align text */
+    padding: 10px; /* Add padding for better readability */
+    border: 1px solid #ddd; /* Border between cells */
+    height: 50px; /* Ensure the cells have the same height */
+    vertical-align: middle; /* Vertically center the text */
+  }
+
+  .pagination {
+    justify-content: center; /* Center pagination controls */
+  }
+
+  .pagination .page-item {
+    cursor: pointer;
+  }
+
+  /* Loader Styling */
+  #loader {
+    height: 100px; /* Adjust height of loader container */
+  }
+
+  .sort-icon {
+    margin-left: 5px;
+    font-size: 0.75rem;
+    opacity: 0.6;
+  }
+
+  .sort-icon .up,
+  .sort-icon .down {
+    margin-left: 2px;
+    color: #ccc;
+  }
+
+  th.active-asc .sort-icon .up,
+  th.active-desc .sort-icon .down {
+    color: #000; /* or use theme color */
+    font-weight: bold;
+  }
+</style>

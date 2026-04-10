@@ -1,0 +1,165 @@
+header {
+  z-index: 10;
+  box-shadow: 0px 4px 4px -1px rgba(36, 104, 147, 0.04);
+  margin: 0 2rem;
+}
+
+#search-input {
+  border: none;
+  width: 100%;
+  font-size: 20px;
+  line-height: 30px;
+  text-wrap: nowrap;
+  color: rgba(28, 27, 31, 0.6);
+}
+
+#search-input:focus {
+  outline: none;
+}
+
+#header-search-container,
+#header-help-container,
+#header-donate-drawer {
+  transition: all 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  left: 0;
+  top: 6.6rem;
+}
+
+#header-search-container.active,
+#header-help-container.active,
+#header-donate-drawer.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.header-cta-buttons.active,
+.header-search-close-button.active {
+  display: flex;
+}
+
+.header-cta-buttons,
+.header-search-close-button {
+  display: none;
+}
+
+.header-dropdown-heading {
+  cursor: none !important;
+  pointer-events: none !important;
+}
+
+.cta-section__desktop {
+    display: flex;
+  }
+  .cta-section__mobile {
+    display: none;
+  }
+
+
+
+  #hero-full-image,
+  .contact-us-hero-image,
+  .states__banner {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 1;
+  }
+
+  .prop-type-simplified .hide-special-prop-type {
+    display: none !important;
+  }
+
+
+.dropdown-ready span.material-symbols-outlined,
+.dropdown-active span.material-symbols-outlined {
+    transition: all .25s ease;
+}
+
+
+
+button.dropdown-active span.material-symbols-outlined {
+    transform: rotate(180deg);
+    padding-right: 6px;
+}
+
+.donate-price-pill {
+    background-color: var(--bs-gray-200);
+    border: none;
+    display: flex;
+    font-size: 1rem;
+    color: var(--bs-dark);
+}
+
+.donate-price-pill.active {
+    background-color: var(--bs-secondary-200);
+    color: var(--bs-white);
+}
+
+input.donate-price-pill::-webkit-outer-spin-button,
+input.donate-price-pill::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+input.donate-price-pill::placeholder {
+    color: var(--bs-white);
+    overflow: none;
+}
+.goods-wrapper .form-row button {
+    border-radius: var(--bs-border-radius);
+}
+
+
+.donate-header h6 {
+    border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+}
+
+.amnt-buttons input.form-control {
+    text-align: center;
+    line-height: 1.1;
+}
+
+.form-switch .form-check-input:not(:checked) {
+    background-color: var(--bs-primary-300);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+.goods-wrapper {
+    border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+}
+
+  @media (max-width: 768px) {
+    #hero-full-image,
+    .contact-us-hero-image,
+    .states__banner {
+      aspect-ratio: 3 / 2;
+    }
+  }
+
+@media screen and (max-width: 1440px) {
+  #header-search-container,
+  #header-help-container {
+    top: 4.6rem;
+    overflow-y: scroll;
+    height: 90vh !important;
+    z-index: unset;
+  }
+  #header-help-container {
+    z-index: 10;
+  }
+  #help-close-btn {
+    right: 2rem;
+  }
+  header {
+    margin: 0 0rem;
+  }
+  .header-location {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .location-title {
+    max-width: 120px;
+  }
+}

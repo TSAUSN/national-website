@@ -1,0 +1,447 @@
+<script>
+    // Configuration
+const CONFIG = {
+    QB_TOKEN: 'b5pbkw_mn6f_0_d67g9cncyknfqjdun7kwsdzrkqqb',
+    QB_REALM: 'saapps.quickbase.com',
+    QB_TABLE_ID: 'bvcc49pvf',
+    MAX_GEOCODERS: 5,
+    RATE_LIMIT_MS: 100,
+    MAX_CONCURRENT: 10,
+    CHUNK_SIZE: 50
+};
+
+// Global variables
+let geocoders = [];
+let geocoder = null;
+let map = null;
+
+// Initialize geocoders (assumes Google Maps is already loaded)
+const initializeGeocoders = () => {
+    if (window.google && window.google.maps) {
+        // Create multiple geocoder instances
+        geocoders = [];
+        for (let i = 0; i < CONFIG.MAX_GEOCODERS; i++) {
+            geocoders.push(new google.maps.Geocoder());
+        }
+        geocoder = geocoders[0]; // Keep backward compatibility
+        console.log(`Initialized ${geocoders.length} geocoder instances`);
+        return true;
+    }
+    console.error('Google Maps API not available for geocoder initialization');
+    return false;
+};
+
+// Data fetching
+const getQuickbaseData = async () => {
+    try {
+        const response = await fetch(`https://api.quickbase.com/v1/records/query`, {
+            method: "POST",
+            headers: {
+                'QB-Realm-Hostname': CONFIG.QB_REALM,
+                'Authorization': `QB-USER-TOKEN ${CONFIG.QB_TOKEN}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "from": CONFIG.QB_TABLE_ID,
+                "select": [130, 153, 152, 15, 121, 122, 31, 18, 32, 16, 17],
+                "where": "{52.CampaignType.'Online Angel Tree'}"
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const { data, fields } = await response.json();
+        console.log(`Fetched ${data.length} records from QuickBase`);
+        return data;
+    } catch (error) {
+        console.error("ERROR fetching Angel Tree data:", error.message);
+        throw error;
+    }
+};
+
+// Build address string
+const buildAddressString = (location) => {
+    const parts = [];
+    if (location[121]?.value) parts.push(location[121].value); // Street
+    if (location[122]?.value) parts.push(location[122].value); // City
+    if (location[31]?.value) parts.push(location[31].value);   // State
+    if (location[153]?.value) parts.push(location[153].value); // Zip
+    return parts.length > 0 ? parts.join(', ') : '';
+};
+
+// ADDRESS DEDUPLICATION
+const deduplicateAddresses = (locations) => {
+    const addressMap = new Map();
+    const uniqueAddresses = [];
+    const duplicateMapping = new Map();
+    
+    locations.forEach((location, index) => {
+        const address = buildAddressString(location);
+        if (!address) return;
+        
+        if (addressMap.has(address)) {
+            const originalIndex = addressMap.get(address);
+            if (!duplicateMapping.has(originalIndex)) {
+                duplicateMapping.set(originalIndex, []);
+            }
+            duplicateMapping.get(originalIndex).push(index);
+        } else {
+            addressMap.set(address, uniqueAddresses.length);
+            uniqueAddresses.push({ location, originalIndex: index, address });
+        }
+    });
+    
+    console.log(`Deduplicated ${locations.length} locations to ${uniqueAddresses.length} unique addresses`);
+    return { uniqueAddresses, duplicateMapping };
+};
+
+// Single geocode function
+const geocodeSingle = async (address, geocoderInstance = geocoder) => {
+    return new Promise((resolve) => {
+        const delay = Math.random() * CONFIG.RATE_LIMIT_MS;
+        
+        setTimeout(() => {
+            geocoderInstance.geocode({ address }, (results, status) => {
+                let result = null;
+                if (status === google.maps.GeocoderStatus.OK && results?.length > 0) {
+                    result = {
+                        lat: results[0].geometry.location.lat(),
+                        lng: results[0].geometry.location.lng(),
+                        formatted_address: results[0].formatted_address
+                    };
+                }
+                resolve(result);
+            });
+        }, delay);
+    });
+};
+
+// Utility function to chunk arrays
+const chunkArray = (array, size) => {
+    const chunks = [];
+    for (let i = 0; i < array.length; i += size) {
+        chunks.push(array.slice(i, i + size));
+    }
+    return chunks;
+};
+
+// Batch geocoding with progress callback
+const geocodeBatch = async (addresses, onProgress = null) => {
+    const results = new Map();
+    
+    if (addresses.length === 0) {
+        return results;
+    }
+
+    const chunks = chunkArray(addresses, CONFIG.MAX_CONCURRENT);
+    let processed = 0;
+    
+    console.log(`Starting batch geocoding of ${addresses.length} addresses in ${chunks.length} chunks`);
+    
+    for (let chunkIndex = 0; chunkIndex < chunks.length; chunkIndex++) {
+        const chunk = chunks[chunkIndex];
+        
+        // Process chunk in parallel with geocoder rotation
+        const chunkPromises = chunk.map((address, index) => {
+            const geocoderInstance = geocoders[index % geocoders.length];
+            return geocodeSingle(address, geocoderInstance);
+        });
+        
+        const chunkResults = await Promise.all(chunkPromises);
+        
+        // Store results
+        chunk.forEach((address, index) => {
+            results.set(address, chunkResults[index]);
+            processed++;
+            
+            if (onProgress) {
+                onProgress(processed, addresses.length, chunkResults[index] ? 1 : 0);
+            }
+        });
+        
+        // Log progress
+        const progress = Math.round((processed / addresses.length) * 100);
+        console.log(`Geocoding progress: ${progress}% (${processed}/${addresses.length})`);
+        
+        // Small delay between chunks to prevent overwhelming the API
+        if (chunkIndex < chunks.length - 1) {
+            await new Promise(resolve => setTimeout(resolve, 50));
+        }
+    }
+
+    return results;
+};
+
+// Progressive location processor
+const createProgressiveLocationProcessor = () => {
+    let processedCount = 0;
+    let totalCount = 0;
+    let successCount = 0;
+
+    const processLocationsProgressively = async (locations, onProgress = null) => {
+        totalCount = locations.length;
+        processedCount = 0;
+        successCount = 0;
+        const processedLocations = [];
+        
+        // Pre-extract all addresses
+        const locationAddressMap = new Map();
+        locations.forEach((location, index) => {
+            const address = buildAddressString(location);
+            if (address) {
+                locationAddressMap.set(index, address);
+            }
+        });
+
+        // Process in chunks
+        const chunks = chunkArray(locations, CONFIG.CHUNK_SIZE);
+        
+        for (let i = 0; i < chunks.length; i++) {
+            const chunk = chunks[i];
+            const chunkStartIndex = i * CONFIG.CHUNK_SIZE;
+            
+            // Get addresses for this chunk
+            const chunkAddresses = chunk
+                .map((_, chunkIndex) => {
+                    const globalIndex = chunkStartIndex + chunkIndex;
+                    return locationAddressMap.get(globalIndex);
+                })
+                .filter(Boolean);
+            
+            // Batch geocode chunk addresses
+            const geocodeResults = await geocodeBatch(chunkAddresses, (processed, total, success) => {
+                if (success) successCount++;
+            });
+            
+            // Process chunk results
+            const chunkProcessed = chunk
+                .map((location, chunkIndex) => {
+                    const globalIndex = chunkStartIndex + chunkIndex;
+                    const fullAddress = locationAddressMap.get(globalIndex);
+                    
+                    if (!fullAddress) return null;
+                    
+                    const coordinates = geocodeResults.get(fullAddress);
+                    if (coordinates) {
+                        // Create a new location object with the original structure
+                        const processedLocation = { ...location };
+                        
+                        // Add coordinates and organization details as array fields
+                        processedLocation[254] = { value: coordinates.lat };
+                        processedLocation[255] = { value: coordinates.lng };
+                        processedLocation[256] = { value: `SAL^${location[16]?.value}` || 'SAL' };
+                        
+                        return processedLocation;
+                    }
+                    return null;
+                })
+                .filter(Boolean);
+            
+            processedLocations.push(...chunkProcessed);
+            processedCount += chunk.length;
+            
+            // Progress callback
+            if (onProgress) {
+                const progress = Math.round((processedCount / totalCount) * 100);
+                onProgress(progress, processedCount, totalCount, chunkProcessed, successCount);
+            }
+            
+            // Small delay between chunks
+            await new Promise(resolve => setTimeout(resolve, 100));
+        }
+        
+        return processedLocations;
+    };
+
+    return { processLocationsProgressively };
+};
+
+// Main preprocessing function
+const preprocessLocationDataOptimized = async (locations, onProgress = null) => {
+    console.log('Starting optimized preprocessing...');
+    const startTime = Date.now();
+    
+    // Deduplicate addresses first
+    const { uniqueAddresses, duplicateMapping } = deduplicateAddresses(locations);
+    
+    // Initialize progressive processor
+    const processor = createProgressiveLocationProcessor();
+    
+    const processedLocations = [];
+    
+    // Process unique locations
+    await processor.processLocationsProgressively(
+        uniqueAddresses.map(item => item.location),
+        (progress, processed, total, chunkResults, successCount) => {
+            console.log(`Processing: ${progress}% (${processed}/${total}) - Success: ${successCount}`);
+            processedLocations.push(...chunkResults);
+            
+            if (onProgress) {
+                onProgress(progress, processed, total, successCount);
+            }
+        }
+    );
+    
+    // Create lookup map for processed locations by address
+    const processedLocationMap = new Map();
+    processedLocations.forEach((location, index) => {
+        const address = buildAddressString(location);
+        if (address) {
+            processedLocationMap.set(address, location);
+        }
+    });
+    
+    // Build final results with duplicates
+    const finalResults = [];
+    uniqueAddresses.forEach((uniqueItem, index) => {
+        const processedLocation = processedLocationMap.get(uniqueItem.address);
+        if (processedLocation) {
+            finalResults.push(processedLocation);
+            
+            // Apply same geocoding result to duplicates
+            if (duplicateMapping.has(index)) {
+                duplicateMapping.get(index).forEach(duplicateIndex => {
+                    const originalLocation = locations[duplicateIndex];
+                    const duplicateLocation = { ...originalLocation };
+                    
+                    // Add the same geocoding results to duplicates
+                    duplicateLocation[254] = { value: processedLocation[254].value }; // lat
+                    duplicateLocation[255] = { value: processedLocation[255].value }; // lng
+                    duplicateLocation[256] = { value: `SAL^${originalLocation[16]?.value}` || 'SAL' }; // org details
+                    
+                    finalResults.push(duplicateLocation);
+                });
+            }
+        }
+    });
+    
+    const endTime = Date.now();
+    const processingTime = (endTime - startTime) / 1000;
+    console.log(`Preprocessing complete: ${finalResults.length} locations processed in ${processingTime.toFixed(2)}s`);
+    
+    return finalResults;
+};
+
+// Main processing function
+const processAngelTreeData = async (onProgress = null) => {
+    try {
+        console.log('Starting Angel Tree data processing...');
+        
+        // Step 1: Initialize geocoders (assumes Google Maps is already loaded)
+        if (onProgress) onProgress('Initializing geocoders...', 0);
+        if (!initializeGeocoders()) {
+            throw new Error('Failed to initialize Google Maps geocoders - Google Maps API not available');
+        }
+        console.log('Geocoders initialized');
+        
+        // Step 2: Fetch data
+        if (onProgress) onProgress('Fetching data from QuickBase...', 5);
+        const rawItems = await getQuickbaseData();
+        
+        if (!rawItems || rawItems.length === 0) {
+            throw new Error("No data received from QuickBase");
+        }
+        
+        console.log(`Loaded ${rawItems.length} raw locations`);
+        
+        // Step 3: Process locations
+        if (onProgress) onProgress('Processing locations...', 10);
+        
+        const finalData = await preprocessLocationDataOptimized(rawItems, (progress, processed, total, successCount) => {
+            const overallProgress = 10 + Math.round(progress * 0.85); // Scale to 10-95%
+            if (onProgress) {
+                onProgress(`Processing locations: ${processed}/${total} (${successCount} successful)`, overallProgress);
+            }
+        });
+        
+        if (onProgress) onProgress('Processing complete!', 100);
+        
+        console.log('=== PROCESSING SUMMARY ===');
+        console.log(`Total raw locations: ${rawItems.length}`);
+        console.log(`Final processed locations: ${finalData.length}`);
+        console.log(`Success rate: ${Math.round((finalData.length / rawItems.length) * 100)}%`);
+        
+        return finalData;
+        
+    } catch (error) {
+        console.error('Processing failed:', error);
+        if (onProgress) onProgress(`Error: ${error.message}`, -1);
+        throw error;
+    }
+};
+
+// Export/Download utilities (updated to work with array structure)
+const exportToJSON = (data, filename = 'angel_tree_locations.json') => {
+    const dataStr = JSON.stringify(data, null, 2);
+    const dataBlob = new Blob([dataStr], {type: 'application/json'});
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.click();
+    URL.revokeObjectURL(url);
+    console.log(`Exported ${data.length} locations to ${filename}`);
+};
+
+const exportToCSV = (data, filename = 'angel_tree_locations.csv') => {
+    if (data.length === 0) return;
+    
+    const headers = ['displayName', 'fullAddress', 'latitude', 'longitude', 'giveUrl', 'organization_details'];
+    
+    const csvContent = [
+        headers.join(','),
+        ...data.map(location => {
+            const fullAddress = buildAddressString(location);
+            return [
+                `"${(location[15]?.value || 'Unknown Location').replace(/"/g, '""')}"`,
+                `"${(fullAddress || '').replace(/"/g, '""')}"`,
+                location[254]?.value || '',
+                location[255]?.value || '',
+                `"${(location[32]?.value || '#').replace(/"/g, '""')}"`,
+                `"${(location[256]?.value || 'SAL').replace(/"/g, '""')}"`
+            ].join(',');
+        })
+    ].join('\n');
+    
+    const dataBlob = new Blob([csvContent], {type: 'text/csv'});
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.click();
+    URL.revokeObjectURL(url);
+    console.log(`Exported ${data.length} locations to ${filename}`);
+};
+
+// Listen for mapReady event and initialize
+window.addEventListener('mapReady', async (event) => {
+    map = event.detail.map;
+    const submitBtn = document.querySelector('#angel-tree__search-btn');
+    
+    if (map) {      
+      try {
+          // Process Angel Tree data
+          const results = await processAngelTreeData((message, progress) => {
+              if (progress >= 0) {
+                  console.log(`${progress}% - ${message}`);
+              } else {
+                  console.error(`${message}`);
+              }
+          });
+          
+          // Store results globally if needed
+          window.angelTreeData = results;
+          
+          console.log(`Ready! Processed ${results.length} locations.`);
+          console.log("Result Object:", results);
+          
+      } catch (error) {
+          console.error('Angel Tree initialization error:', error);
+      } finally {
+          if (loader) loader.classList.add('d-none');
+      }
+    }
+});
+</script>

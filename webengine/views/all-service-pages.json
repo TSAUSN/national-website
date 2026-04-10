@@ -1,0 +1,15 @@
+[
+    {{each services as service limit {get_var.start},{get_var.end} }}
+    {{$territory = {locations.filter(z.zuid = '{service.location}').territory} }}
+    {{$division = {locations.filter(z.zuid = '{service.location}').division} }}
+
+    {
+        "location":"{{locations.filter(z.zuid = '{service.location}').name}}",
+        "territory": "{{territories.filter(z.zuid = '{$territory}').name}} ",
+        "division": "{{divisions.filter(z.zuid = '{$division}').name}} ",
+        "url":"{{service.getUrl()}}",
+        "index":{{service._num}}
+
+    }{{service._arraycomma}}
+    {{/each}}
+]

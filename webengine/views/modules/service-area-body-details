@@ -1,0 +1,10 @@
+
+{{if {this.body} || {this.contact_number} || {this.email} || {this.contact_name} }}
+<div class="d-flex align-items-center justify-content-center">
+  {{include components/service-area-contact-detail}}
+
+  {{if {this.body} }}
+    {{include components/service-area-body}}
+  {{/if}}
+</div>
+{{/if}}

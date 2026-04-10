@@ -1,0 +1,65 @@
+{{if {this.seo_meta_title} }}
+<div
+  class="featured-article bg-opacity-25 mb-4 position-relative rounded-5 position-relative overflow-hidden mb-15"
+>
+  <img id="hero-full-image"  class="w-100 rounded-5 object-fit-cover states__banner"
+  src="{{ this.hero_image.getImage() }}"
+  alt="Featured Article"
+  fetchpriority="high"
+  decoding="async"
+  loading="eager" />
+  <div
+    class="image-overlay position-absolute bg-opacity-50 bg-dark top-0 start-0 w-100 h-100"
+  ></div>
+  <div
+    class="px-6 py-8 position-absolute top-0 left-0 w-100 h-100 d-inline-flex flex-column align-items-start justify-content-center z-3"
+  >
+    <div class="w-75">
+      <h1 class="fs-4 mt-3 mb-2 text-white city-card-name">
+       Locations in {{ this.seo_meta_title }}
+      </h1>
+      <p class="mb-3 text-white display-1 w-lg-75 w-sm-100 city-card-name">
+        This page lists all of The Salvation Army locations in the city of {{this.seo_meta_title}}. Click below to visit a location's official website.
+      </p>
+       <a
+        href="/location-finder"
+        class="btn btn-primary hero-full-cta-button"
+        data-location-type="body:hero-section"
+        data-function-type="navigation"
+        data-format-type="button"
+        data-link-type="internal"
+        onclick="LinkTrackingClickEvent(this,'cta_click')"
+        >Location Finder</a
+      >
+    </div>
+  </div>
+  {{/if}}
+
+  <script>
+ function resolveImages() {
+    let defaultImages = [];
+    // populate default images
+    {{ each media.{clippings.hero_fallback_image} as media }}
+      defaultImages.push("{{ media.image.getImage() }}");
+    {{ end-each }}
+    const imageDOM = document.querySelector('.states__banner');
+    imageDOM.setAttribute('src', defaultImages[Math.floor(Math.random()*defaultImages.length)])
+  }
+  {{if !{this.hero_image} }}
+    resolveImages();
+  {{else}}
+    const imageDOM = document.querySelector('.states__banner');
+    imageDOM.setAttribute('src', {{this.hero_image.getImage()}})
+  {{/if}}
+  </script>
+<style>
+  .featured-article{
+    height: 365px;
+  }
+
+  .featured-article img {
+    height: 100%;
+  }
+</style>
+
+</div>

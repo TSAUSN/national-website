@@ -1,0 +1,511 @@
+<div
+  class="module events"
+  id="events"
+  data-component-type="events"
+>
+  <div class="d-flex px-3 mb-8">
+    <h4 class="mb-6 fw-normal">
+      {{if {$page_type_detail} == "events_landing_pages"}}
+      Upcoming Events
+      {{else}}
+      Other Events
+      {{/if}}
+    </h4>
+  </div>
+  <div class="events-swiper overflow-hidden gap-4 events-section">
+    <div class="swiper-wrapper events-swipper-wrapper flex-row">
+      <div
+      id="events-loader"
+      class="d-none justify-content-center align-items-center w-100"
+    >
+      <div
+        class="spinner-border text-primary"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="events-swiper__nav d-flex w-100 justify-content-end align-items-center mt-5">
+    <div
+      class="swiper-button-prev position-relative {{if {$page_type_detail} != "events_landing_pages" }} bg-area {{else}}bg-light {{/if}} bg-opacity-60 me-4"
+      data-location-type="body:events"
+      data-function-type="other"
+      data-format-type="icon-block"
+      data-page-componentType-type="events component"
+      data-page-componentHeading-type="null"
+      data-page-componentSubheading-type="null"
+      data-page-componentIndex-type="null"
+      onclick="LinkTrackingClickEvent(this,'view_content_click')"
+    >
+      <i class="material-symbols-outlined text-dark-100">arrow_back</i>
+    </div>
+
+    <div
+      class="swiper-pagination events-pagination {{if {$page_type_detail} != "events_landing_pages" }} bg-area {{/if}} position-relative px-4 rounded-14"
+      data-location-type="body:events"
+      data-function-type="other"
+      data-format-type="icon-block"
+      data-page-componentType-type="events component"
+      data-page-componentHeading-type="null"
+      data-page-componentSubheading-type="null"
+      data-page-componentIndex-type="null"
+      onclick="LinkTrackingClickEvent(this,'view_content_click')"
+    ></div>
+
+    <div
+      class="swiper-button-next {{if {$page_type_detail} != "events_landing_pages" }} bg-area {{else}}bg-light {{/if}} position-relative bg-opacity-60  ms-4"
+      data-location-type="body:events"
+      data-function-type="other"
+      data-format-type="icon-block"
+      data-page-componentType-type="events component"
+      data-page-componentHeading-type="null"
+      data-page-componentSubheading-type="null"
+      data-page-componentIndex-type="null"
+      onclick="LinkTrackingClickEvent(this,'view_content_click')"
+    >
+      <i class="material-symbols-outlined text-dark-100">arrow_forward</i>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/luxon@3/build/global/luxon.min.js"></script>
+
+<script>
+
+function isUpcomingEvent(dateTimeSummary) {
+  if (!dateTimeSummary) return false;
+
+  // Match date patterns like "6/8/2025 1 PM"
+  const rangeRegex = /(\d{1,2}\/\d{1,2}\/\d{4} \d{1,2}(?::\d{2})? ?[APMapm]{2})/g;
+  const matches = dateTimeSummary.match(rangeRegex);
+
+  if (!matches || matches.length < 2) return false;
+
+  const endDate = new Date(matches[1]);
+  return endDate > new Date();
+}
+
+
+
+  function resolveBrokenImages() {
+   let defaultImages = [];
+   // populate default images
+   {{ each media.{clippings.default_images} as media }}
+   	defaultImages.push("{{ media.image.getImage() }}");
+   {{ end-each }}
+  return defaultImages[Math.floor(Math.random()*defaultImages.length)];
+  }
+
+  const loader = document.getElementById("events-loader")
+async function initEvents() {
+  try {
+    const eventsSwiperContainer = document.querySelector('.events-swipper-wrapper');
+    loader.classList.add('d-flex');
+    loader.classList.remove('d-none');
+    const data = await fetchEvents();
+
+    // Sort events by start date ascending
+    const sortedData = data.sort((a, b) => {
+      const getEventDate = (event) =>
+        new Date(
+          event.content.event_date_with_time ||
+          event.content.event_end_date_with_time ||
+          0
+        );
+      return getEventDate(a) - getEventDate(b);
+    });
+
+    sortedData.forEach((event) => {
+      let isDateTimeSummary = false;
+      let isUpcoming = false;
+
+
+       if (event.content.event_end_date_with_time) {
+        isUpcoming = new Date(event.content.event_end_date_with_time) > new Date();
+      } else if (!event.content.event_end_date_with_time && event.content.event_date_with_time){
+        isUpcoming = new Date(event.content.event_date_with_time) > new Date();
+      }
+
+      if (!event.content.event_date_with_time && event.content.event_end_date_with_time) {
+        isUpcoming = isUpcomingEvent(event.content.date_time_summary);
+        isDateTimeSummary = true;
+      }
+
+      if (!isUpcoming) return;
+
+      const imageUrl = event.content.image
+        ? event.content.image?.data
+          ? event.content.image.data[0].url
+          : event.content.image
+        : resolveBrokenImages();
+
+      console.log(event)
+  const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
+
+      const newEvent = `
+        <div class="card event-card swiper-slide h-100 rounded-5 p-0 mb-sm-5 bg-area">
+          <div class="card-img-top bg-secondary bg-opacity-25 position-relative overflow-hidden">
+            <img class="w-100 h-100" src="${imageUrl}" alt="${event.content.title}" />
+          </div>
+          <div class="card-body px-6 pt-6">
+            <h5 class="card-title display-2 text-start text-dark-100 fw-normal">${event.content.title}</h5>
+            <p class="card-text text-dark-50 display-3 text-start event-date">
+              ${isDateTimeSummary ? formatEventRange(event.content.date_time_summary) : event.date}
+            </p>
+            <p class="card-text text-dark-50 display-3 text-start">
+              ${event.content.address || ''}${event.city ? `, ${event.city.replace(regex, (word) => {
+                  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();})}` : ''}${event.state ? `, ${event.state.replace(regex, (word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();})}` : ''}
+            </p>
+          </div>
+          <div class="card-footer w-100 bg-transparent border-0 px-6 pb-6">
+            <a
+              href="${event.content.meta.web.url}"
+              class="btn btn-secondary text-white w-100"
+              data-location-type="body:news-section"
+              data-function-type="navigation"
+              data-format-type="button"
+              data-link-type="internal"
+              onclick="LinkTrackingClickEvent(this,'cta_click')"
+            >
+              View Event
+            </a>
+          </div>
+        </div>
+      `;
+
+      {{ if {$page_type_detail} != "events_landing_pages" }}
+        if (event.content.meta.zuid !== "{{this.zuid}}") {
+          eventsSwiperContainer.insertAdjacentHTML('beforeend', newEvent);
+        }
+      {{ else }}
+        eventsSwiperContainer.insertAdjacentHTML('beforeend', newEvent);
+      {{ /if }}
+    });
+
+    const eventCards = document.querySelectorAll('.event-card');
+    if (eventCards.length === 0) {
+      document.querySelector('.events-section').innerHTML = `
+        <div class="text-center w-100 py-5">
+          <p class="text-secondary mb-0">There are no upcoming events at this location</p>
+        </div>
+      `;
+    }
+  } finally {
+    loader.classList.remove('d-flex');
+    loader.classList.add('d-none');
+  }
+}
+
+initEvents();
+
+   const eventsCards = document.querySelectorAll('.events-swiper .card');
+
+   // Swiper Object
+   const eventsPagination = document.querySelector('.events-swiper__nav .swiper-pagination');
+
+   const eventsSwiper = new Swiper('.events-swiper', {
+     slidesPerView: 3,
+     spaceBetween: 30,
+     centeredSlides: false,
+     centeredSlidesBounds: false,
+     grid: {
+       rows: 2,
+       fill: 'row'
+     },
+     loop: false,
+     pagination: {
+       type: 'custom',
+       el: '.events-pagination',
+       renderCustom: function (swiper, current, total) {
+       const maxVisible = 5;
+       let pages = [];
+
+       if (total <= maxVisible) {
+         for (let i = 1; i <= total; i++) {
+           pages.push(i);
+         }
+       } else {
+         if (current <= 2) {
+           // Near the beginning, show first few numbers
+           pages = [1, 2, 3, '...', total];
+         } else if (current >= total - 1) {
+           // Near the end, show last few numbers
+           pages = [1, '...', total - 2, total - 1, total];
+         } else {
+           // Middle, dynamically shifting numbers
+           pages = [1, '...', current - 1, current, current + 1, '...', total];
+         }
+       }
+
+       return pages
+         .map((num) =>
+           num === current
+             ? `<span role="button" class="swiper-pagination-bullet-active swiper-pagination-bullet" data-index="${num}">${num}</span>`
+             : typeof num === 'number'
+             ? `<span role="button" class="clickable swiper-pagination-bullet" data-index="${num}">${num}</span>`
+             : `<span class="ellipsis swiper-pagination-bullet">${num}</span>`
+         )
+         .join(' ');
+     }
+     },
+     navigation: {
+       nextEl: '.events-swiper__nav .swiper-button-next',
+       prevEl: '.events-swiper__nav .swiper-button-prev'
+     },
+     breakpoints: {
+       1024: {
+         slidesPerView: 3,
+         grid: {
+           rows: 2,
+           fill: 'row'
+         }
+       },
+       768: {
+         slidesPerView: 3,
+         grid: {
+           rows: 2,
+           fill: 'row'
+         },
+         loopFillGroupWithBlank: true
+       },
+       425: {
+         grid: {
+           rows: 1
+         },
+         slidesPerView: 2,
+         spaceBetween: 30
+       },
+       0: {
+         grid: {
+           rows: 1
+         },
+         slidesPerView: 1
+       }
+     }
+   });
+
+   function toggleButtonState(button, isDisabled) {
+     button.classList.toggle('swiper-button-disabled', isDisabled);
+     button.setAttribute('aria-disabled', isDisabled.toString());
+   }
+
+
+
+   function handleSlideChange() {
+     const swiper = eventsSwiper;
+     const totalSlides = swiper.slides.length;
+     const visibleSlides = swiper.params.slidesPerView;
+     const remainingSlides = totalSlides - swiper.activeIndex - visibleSlides;
+
+     const nextButton = document.querySelector('.events-swiper__nav .swiper-button-next');
+     const prevButton = document.querySelector('.events-swiper__nav .swiper-button-prev');
+
+     toggleButtonState(nextButton, remainingSlides <= 0);
+     toggleButtonState(prevButton, eventsSwiper.activeIndex === 0);
+
+     swiper.update()
+   }
+
+   async function fetchEvents() {
+     try {
+       const model = await fetch(
+         `https://{{instance.domain}}/events.json?zuid=${cookieManager.get(
+           cookieKeys.locationZUID
+         )}&model=${cookieManager.get(cookieKeys.locationModel)}`
+       );
+
+       const data = await model.json();
+       return data;
+     } catch (error) {
+       console.error('Error in fetchPageData:', error);
+       return false;
+     }
+   }
+
+   function formatDateRange(input) {
+  if (input.includes('Weekly') || input.includes('Monthly')) {
+    return input;
+  }
+
+  // Split the input into parts by " - "
+  const parts = input.split(' - ');
+
+  if (parts.length === 2) {
+    // Check if the second part contains just a time (no date)
+    const isSingleDayRange = parts[1].trim().match(/^\d{1,2}:\d{2} (AM|PM)$/);
+    if (isSingleDayRange) {
+      // Single-day range with a time span
+      const startDate = new Date(parts[0]);
+      const optionsDate = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+      const optionsTime = { hour: 'numeric', minute: 'numeric', hour12: true };
+
+      const formattedStartDate = startDate.toLocaleString('en-US', optionsDate);
+      // const formattedEndTime = new Date(`${parts[0]} ${parts[1]}`).toLocaleString("en-US", optionsTime);
+
+      return formattedStartDate;
+    } else {
+      // Full date range
+      const startDate = new Date(parts[0]);
+      const endDate = new Date(parts[1]);
+
+      const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+
+      const formattedStart = startDate.toLocaleString('en-US', options);
+      const formattedEnd = endDate.toLocaleString('en-US', options);
+
+      return `${formattedStart} - ${formattedEnd}`;
+    }
+  } else {
+    try {
+      const date = new Date(input.trim());
+
+      const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+
+      const formattedDate = date.toLocaleString('en-US', options);
+      return formattedDate;
+    } catch {
+      // Invalid input format
+      return 'Invalid input format.';
+    }
+  }
+}
+function fixInvalidDate(dateString) {
+  // Match the date and time parts of the string using regex
+  const regex = /(\d{1,2}\/\d{1,2}\/\d{4}) (\d{1,2})\s([APM]{2})/;
+  return dateString.replace(regex, (match, date, hour, period) => {
+    // Ensure the hour is two digits
+    const fixedHour = hour.padStart(2, '0');
+    // Ensure the minutes are always "00"
+    return `${date} ${fixedHour}:00 ${period}`;
+  });
+}
+
+
+
+function formatEventRange(dateRangeStr) {
+  dateRangeStr = dateRangeStr.trim();
+
+  // Helper to parse dates as local (to avoid timezone shift issues)
+  function parseLocalDate(str) {
+    const parsed = Date.parse(str);
+    if (!isNaN(parsed)) return new Date(parsed);
+
+    const parts = str.match(/([A-Za-z]+)\s+(\d{1,2})(?:,)?(?:\s+(\d{4}))?/);
+    if (!parts) return new Date('Invalid Date');
+    const [, monthStr, day, yearStr] = parts;
+
+    const month = new Date(`${monthStr} 1`).getMonth();
+    const year = yearStr ? parseInt(yearStr) : new Date().getFullYear();
+    return new Date(year, month, parseInt(day));
+  }
+
+  // Handle shorthand like: "May 12-18, 2025"
+  const shorthandMatch = dateRangeStr.match(/^([A-Za-z]+)\s+(\d{1,2})[-–](\d{1,2}),\s*(\d{4})$/);
+  if (shorthandMatch) {
+    const [, month, startDay, endDay, year] = shorthandMatch;
+    return `${month} ${startDay} – ${endDay}, ${year}`;
+  }
+
+  // Handle single date or general text
+  if (!dateRangeStr.includes('–') && !dateRangeStr.includes('-')) {
+    const singleDate = parseLocalDate(fixInvalidDate( dateRangeStr));
+    return isNaN(singleDate)
+      ? dateRangeStr
+      : singleDate.toLocaleString('en-US', {
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric',
+          ...(dateRangeStr.toLowerCase().includes('am') || dateRangeStr.toLowerCase().includes('pm')
+            ? {
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true,
+              }
+            : {}),
+        });
+  }
+
+  // Handle standard range
+  const [startStrRaw, endStrRaw] = dateRangeStr.split(/\s*[-–]\s*/);
+  const startStr = startStrRaw.trim();
+  const endStr = endStrRaw ? endStrRaw.trim() : '';
+
+  const start = parseLocalDate(fixInvalidDate(startStr));
+  const end = parseLocalDate(fixInvalidDate(endStr));
+
+  if (isNaN(start)) return dateRangeStr;
+
+  const includeTime = (str) =>
+    str.toLowerCase().includes('am') || str.toLowerCase().includes('pm');
+
+  const startOptions = {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    ...(includeTime(startStr) && {
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+    }),
+  };
+
+  if (isNaN(end)) {
+    return start.toLocaleString('en-US', startOptions);
+  }
+
+  const sameMonth = start.getMonth() === end.getMonth();
+  const sameYear = start.getFullYear() === end.getFullYear();
+
+  const endOptions = {
+    day: 'numeric',
+    ...(includeTime(endStr) && {
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+    }),
+  };
+
+  if (!sameMonth || !sameYear) endOptions.month = 'long';
+  if (!sameYear) endOptions.year = 'numeric';
+
+  if (start.getTime() === end.getTime()) {
+    return start.toLocaleString('en-US', startOptions);
+  }
+
+  return `${start.toLocaleString('en-US', startOptions)} – ${end.toLocaleString('en-US', startOptions)}`;
+}
+
+
+function validateDate(dateString){
+    const [start, end] = dateString.split("-");
+
+    const startDate = new Date(start)
+    const endDate = new Date(end)
+
+    if(endDate.getDate() < startDate.getDate()){
+      return "Invalid End Date"
+    }
+
+    return dateString
+}
+
+
+
+
+
+
+</script>

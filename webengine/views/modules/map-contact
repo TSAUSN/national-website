@@ -1,0 +1,136 @@
+{{$territory = {territories.filter({@location_zuid}).zuid} }}
+{{$division = {divisions.filter({@location_zuid}).zuid} }}
+
+<div
+  data-component-type="map"
+  class="map module mb-16 px-2"
+>
+  <div class="px-lg-5 px-sm-0 d-flex mb-8 align-items-center justify-content-between">
+    <h4>Find a Location</h4>
+    <a
+      href="/location-finder/"
+      class="d-flex align-items-center text-dark-50 text-decoration-none"
+      data-location-type="body:map-contact"
+      data-function-type="event"
+      data-format-type="text"
+      data-link-type="internal"
+      onclick="LinkTrackingClickEvent(this,'cta_click');"
+      ><span>Search Locations by Services</span>
+      <span class="material-symbols-outlined ms-2 fs-7 text-dark-50"> arrow_outward </span>
+    </a>
+  </div>
+
+  <div class="d-flex flex-sm-column flex-lg-row rounded-5 p-sm-4 p-lg-7 bg-light row">
+    <div
+      class="map-content-wrapper col-sm-12 col-lg-6 pe-0 pe-md-12 d-flex flex-column p-0 order-sm-2 order-lg-1 mt-sm-4"
+    >
+      <div class="map-init-content d-flex flex-column p-0 order-sm-2 order-lg-1 h-100">
+        <div class="">
+          <h4 class="mb-6">
+            {{ if {$territory} }}
+                {{territories.filter({$territory}).map_excerpt_subtext}}
+            {{else if {$division} }}
+                {{divisions.filter({$division}).map_excerpt_subtext}}
+            {{else}}
+                {{homepage.first().map_excerpt_subtext}}
+            {{/if}}
+            
+        </h4>
+          <div class="w-sm-100 pe-lg-16 pe-sm-0 text-dark-50 fs-7 map-description f-ajenson">
+            {{ if {$territory} }}
+                {{territories.filter({$territory}).map_excerpt_description}}
+            {{else if {$division} }}
+                {{divisions.filter({$division}).map_excerpt_description}}
+            {{else}}
+                {{homepage.first().map_excerpt_description}}
+
+            {{/if}}
+          </div>
+        </div>
+
+        <div class="mt-lg-auto mt-sm-11">
+          <form
+            class="row g-3 align-items-center"
+            onsubmit="event.preventDefault(); searchLocation(document.getElementById('pac-input').value);"
+          >
+            <div class="col-lg-8 col-sm-6">
+              <div class="input-group w-100">
+                <span class="input-group-text border-start-1 rounded-start-4 pe-2 ps-4">
+                  <span class="material-symbols-outlined text-dark-50 fs-7"> location_on </span>
+                </span>
+                <input
+                  id="pac-input"
+                  type="text"
+                  class="form-control rounded-end-4 text-dark border-start-0 ps-0"
+                  placeholder="City or ZIP Code Search"
+                  data-search-term-type=""
+                  data-search-results-type=""
+                  data-search-type-type="location search - body"
+                  data-search-method-type="user-entered"
+                  data-filter-type-type=""
+                  data-filter-value-type=""
+                />
+              </div>
+              <!-- <button type="button" class="btn btn-link text-secondary p-0 mt-2 use-my-location">
+                <span class="material-symbols-outlined align-middle fs-7">my_location</span>
+                Use my location
+              </button> -->
+            </div>
+            <div class="col-lg-4 col-sm-6">
+              <button
+                type="submit"
+                class="btn btn-secondary text-white rounded-3 w-100 display-3 map-search-button"
+              >
+                See What's Happening
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-lg-6 p-0 order-sm-1 order-lg-2 position-relative">
+      <button id="map__reset" class="map__reset position-absolute end-4 top-4 bg-primary-200 text-white border-0 rounded-2 px-4 py-2 d-flex align-items-center d-none" onclick="resetMap()"><span class="material-symbols-outlined me-2">
+        reply
+        </span>Return</button>
+      <div class="rounded-5 contact-form__map goggle-map"></div>
+      <div class="map-loader d-none">
+        <div class="map-loader__spinner"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  async function getPageZuid() {
+    const model = await fetch(`https://{{instance.domain}}/model-info.json?zuid={{this.zuid}}`);
+    const pageData = await model.json();
+
+    if (pageData) {
+      return pageData;
+    } else {
+      return false;
+    }
+  }
+  function getLocationAddress() {
+    const address = `
+            {{ if {$territory} }}
+                {{territories.filter({$territory}).address}}
+            {{else if {$division} }}
+                {{divisions.filter({$division}).address}}
+            {{else}}
+                {{homepage.first().address}}
+            {{/if}}
+    `;
+    if (address) {
+      return address;
+    } else {
+      return false;
+    }
+  }
+  getPageZuid();
+</script>
+
+<style>
+  .map-description {
+    font-family: 'AJensonPro', sans-serif;
+  }
+</style>

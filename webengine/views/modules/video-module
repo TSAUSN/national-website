@@ -1,0 +1,24 @@
+<div class="mb-15 p-8 bg-light rounded-5 d-flex justify-content-between gap-8">
+  <div class="w-50">
+    <h3 class="fw-normal">[FPO] See What it’s Like to Work at The Army</h3>
+    <p class="text-dark-50">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+  </div>
+  <div class="w-50 rounded-5 overflow-hidden">
+    <video
+      width="100%"
+      height="auto"
+      controls
+      class="rounded-5"
+    >
+      <source
+        src="https://via.placeholder.com/640x360.mp4"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>

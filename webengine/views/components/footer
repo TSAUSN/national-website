@@ -1,0 +1,1122 @@
+{{$contactImage = {homepage.first().contact_us_image.getImage()} }}
+<footer
+  class="bg-light-gray py-5"
+  data-component-type="footer"
+  id="footer"
+>
+  <div class="p-0">
+    <div
+      class="contact-us align-items-center position-relative rounded-5 overflow-hidden mb-3"
+    >
+      <div class="placeholder-glow contact-us-image-placeholder">
+      <span class="placeholder col-12" style="height: 440px;"></span>
+    </div>
+    <div class="ratio ratio-16x9"> 
+
+      <img
+      class="img-fluid contact-us-footer-image object-fit-cover"
+      src="{{ $contactImage }}"
+      alt="The Salvation Army"
+      style="object-fit: cover; object-position:center;"
+      />
+    </div>
+      <div
+        class="position-absolute top-0 left-0 w-100 h-100 d-flex flex-column justify-content-between z-3 p-6 p-lg-8 hide-special-prop-type"
+      >
+        <div class="col-auto">
+          <img
+            src="https://8hxvw8tw.media.zestyio.com/shield-1.svg"
+            alt="The Salvation Army"
+            class="salvation-army-logo"
+            width="59"
+            height="96"
+          />
+        </div>
+        <div class="col-auto d-flex align-items-center justify-content-between">
+          <h1 class="fs-1 fs-sm-5 text-light text-white mb-0 contact-us-title">
+            {{ homepage.first().contact_us_title }}
+          </h1>
+          <div class="contact-us__cta d-flex align-items-center p-4 rounded-4">
+            <span class="me-4 d-none d-lg-block contact-us-cta-header">{{ homepage.first().contact_us_cta_header }}</span>
+            <a
+              class="btn btn-primary text-light footer-contact-us"
+              data-location-type="nav-foot"
+              data-function-type="contact"
+              data-format-type="button"
+              data-link-type="internal"
+              href="#"
+              onclick="LinkTrackingClickEvent(this,'contact_click')"
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 row gx-3">
+        <div class="col-lg-5 mb-3 mb-lg-0">
+          <div
+            class="h-100 bg-white rounded-4 py-6 px-8 d-flex align-items-center"
+          >
+            <div class="col-sm-6 col-md-8">
+              <h5 class="fw-normal mb-0 fs-sm-7 fs-lg-6 text-dark-100">Sign Up For Our Newsletter</h5>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <a
+                  class="btn btn-secondary text-white rounded-3 w-100"
+                  id="newsletterModalBtn"
+                  data-bs-toggle="modal" data-bs-target="#newsletterModal"
+                  data-location-type="body:newsletter"
+                  data-function-type="email subscriber"
+                  data-format-type="button"
+                  data-link-type="external"
+                  onclick="LinkTrackingClickEvent(this,'cta_click')"
+                >
+                  Sign Up
+                </a>
+              </div>
+          </div>
+        </div>
+        <div class="col-lg-7" >
+          <div
+            class="h-100 bg-primary-200 text-white py-5 px-8 rounded-4"
+          >
+            <h5 class="fw-normal fs-6 mb-3">{{clippings.our_mission_title}}</h5>
+            <p class="mb-0 small">{{clippings.our_mission_description}}</p>
+          </div>
+        </div>
+      
+    </div>
+
+    <div class="mb-3 hide-special-prop-type">
+      <nav
+        class="d-none d-md-flex nav nav-pills justify-content-evenly mb-3 bg-white rounded-4 py-6 px-8 footer-nav-pill"
+      >
+        <a
+          class="nav-link fs-7 home-footer-link"
+          href="/"
+          data-page-componentType-type="footer component"
+          data-page-componentHeading-type="Home"
+          data-page-componentSubheading-type="null"
+          data-page-componentIndex-type="null"
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="internal"
+          data-slug="home"
+          onclick="LinkTrackingClickEvent(this,'view_content_click')"
+          >Home</a
+        >
+        <a
+          class="nav-link fs-7 wtg-footer-link"
+          href="#"
+          data-page-componentType-type="footer component"
+          data-page-componentHeading-type="Ways To Give"
+          data-page-componentSubheading-type="null"
+          data-page-componentIndex-type="null"
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="internal"
+          data-slug="ways-to-give"
+          onclick="LinkTrackingClickEvent(this,'view_content_click')"
+          >Ways To Give</a
+        >
+        <a
+          class="nav-link fs-7 about-us-footer-link"
+          href="#"
+          data-page-componentType-type="footer component"
+          data-page-componentHeading-type="About Us"
+          data-page-componentSubheading-type="null"
+          data-page-componentIndex-type="null"
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="internal"
+          data-slug="about-us"
+          onclick="LinkTrackingClickEvent(this,'view_content_click')"
+          >About Us</a
+        >
+        <a
+          class="nav-link fs-7 employment-footer-link"
+          href="#"
+          data-page-componentType-type="footer component"
+          data-page-componentHeading-type="Employment Opportunities"
+          data-page-componentSubheading-type="null"
+          data-page-componentIndex-type="null"
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="internal"
+          data-slug="employment-opportunities"
+          onclick="LinkTrackingClickEvent(this,'view_content_click')"
+          >Employment Opportunities</a
+        >
+        <a
+          class="nav-link fs-7 d-none"
+          href="#"
+          data-page-componentType-type="footer component"
+          data-page-componentHeading-type="Services"
+          data-page-componentSubheading-type="null"
+          data-page-componentIndex-type="null"
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="internal"
+          data-slug="services"
+          onclick="LinkTrackingClickEvent(this,'view_content_click')"
+          >Services</a
+        >
+        <a
+          class="nav-link fs-7 volunteer-footer-link"
+          href="#"
+          data-page-componentType-type="footer component"
+          data-page-componentHeading-type="Volunteer"
+          data-page-componentSubheading-type="null"
+          data-page-componentIndex-type="null"
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="internal"
+          data-slug="volunteer"
+          onclick="LinkTrackingClickEvent(this,'view_content_click')"
+          >Volunteer</a
+        >
+        <a
+          class="nav-link fs-7 d-none"
+          href="#"
+          data-page-componentType-type="footer component"
+          data-page-componentHeading-type="Accessibility"
+          data-page-componentSubheading-type="null"
+          data-page-componentIndex-type="null"
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="internal"
+          data-slug="accessibility"
+          onclick="LinkTrackingClickEvent(this,'view_content_click')"
+          >Accessibility</a
+        >
+      </nav>
+      <div
+        id="mobileAccordion"
+        class="accordion"
+      >
+        <div class="accordion-item rounded-4">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed bg-light text-dark-100 rounded-4 d-inline-flex align-items-center justify-content-between"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseMenu"
+              aria-expanded="false"
+              aria-controls="collapseMenu"
+              data-location-type="nav-foot"
+              data-function-type="other"
+              data-format-type="dropdown"
+              data-link-type="internal"
+              data-page-componentHeading-type="View Pages"
+              data-page-componentSubheading-type="null"
+              data-page-componentType-type="accordion component"
+              data-page-componentIndex-type="1"
+              onclick="LinkTrackingClickEvent(this,'view_content_click')"
+            >
+              <span class="fs-7 text-dark-50">View Pages</span>
+            </button>
+          </h2>
+          <div
+            id="collapseMenu"
+            class="accordion-collapse collapse"
+          >
+            <div class="accordion-body">
+              <div class="d-flex flex-column footer-nav-pill">
+                <a
+                  class="nav-link mb-2 home-footer-link"
+                  data-page-componentType-type="footer component"
+                  data-page-componentHeading-type="Home"
+                  data-page-componentSubheading-type="null"
+                  data-page-componentIndex-type="null"
+                  data-location-type="nav-foot"
+                  data-function-type="navigation"
+                  data-format-type="text"
+                  data-link-type="internal"
+                  data-slug="home"
+                  onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                  href="/"
+                  >Home</a
+                >
+                <a
+                  class="nav-link mb-2 wtg-footer-link"
+                  data-page-componentType-type="footer component"
+                  data-page-componentHeading-type="Ways To Give"
+                  data-page-componentSubheading-type="null"
+                  data-page-componentIndex-type="null"
+                  data-location-type="nav-foot"
+                  data-function-type="navigation"
+                  data-format-type="text"
+                  data-link-type="internal"
+                  data-slug="ways-to-give"
+                  onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                  href="#"
+                  >Ways To Give</a
+                >
+                <a
+                  class="nav-link mb-2 about-us-footer-link"
+                  data-page-componentType-type="footer component"
+                  data-page-componentHeading-type="About Us"
+                  data-page-componentSubheading-type="null"
+                  data-page-componentIndex-type="null"
+                  data-location-type="nav-foot"
+                  data-function-type="navigation"
+                  data-format-type="text"
+                  data-link-type="internal"
+                  data-slug="about-us"
+                  onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                  href="#"
+                  >About Us</a
+                >
+                <a
+                  class="nav-link mb-2 employment-footer-link"
+                  data-page-componentType-type="footer component"
+                  data-page-componentHeading-type="Employment Opportunities"
+                  data-page-componentSubheading-type="null"
+                  data-page-componentIndex-type="null"
+                  data-location-type="nav-foot"
+                  data-function-type="navigation"
+                  data-format-type="text"
+                  data-link-type="internal"
+                  data-slug="employment-opportunities"
+                  onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                  href="#"
+                  >Employment Opportunities</a
+                >
+                <a
+                  class="nav-link mb-2 d-none"
+                  data-page-componentType-type="footer component"
+                  data-page-componentHeading-type="Services"
+                  data-page-componentSubheading-type="null"
+                  data-page-componentIndex-type="null"
+                  data-location-type="nav-foot"
+                  data-function-type="navigation"
+                  data-format-type="text"
+                  data-link-type="internal"
+                  data-slug="services"
+                  onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                  href="#"
+                  >Services</a
+                >
+                <a
+                  class="nav-link mb-2 volunteer-footer-link"
+                  data-page-componentType-type="footer component"
+                  data-page-componentHeading-type="Volunteer"
+                  data-page-componentSubheading-type="null"
+                  data-page-componentIndex-type="null"
+                  data-location-type="nav-foot"
+                  data-function-type="navigation"
+                  data-format-type="text"
+                  data-link-type="internal"
+                  data-slug="volunteer"
+                  onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                  href="#"
+                  >Volunteer</a
+                >
+                <a
+                  class="nav-link d-none"
+                  data-page-componentType-type="footer component"
+                  data-page-componentHeading-type="Accessibility"
+                  data-page-componentSubheading-type="null"
+                  data-page-componentIndex-type="null"
+                  data-location-type="nav-foot"
+                  data-function-type="navigation"
+                  data-format-type="text"
+                  data-link-type="internal"
+                  data-slug="accessibility"
+                  onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                  href="#"
+                  >Accessibility</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="d-lg-flex d-sm-none flex-sm-column flex-lg-row justify-content-between align-items-center bg-white rounded-4 px-8 py-6 mb-3"
+    >
+      <div class="d-flex justify-content-center">
+        <a
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="icon-block"
+          data-link-type="external"
+          data-link-text="Facebook"
+          onclick="LinkTrackingClickEvent(this,'social_share')"
+          href="{{ homepage.first().facebook_url_link }}"
+          target="_blank"
+          class="facebook-link social-icon me-11 fs-5 text-dark-50"
+          ><i class="bi bi-facebook"></i
+        ></a>
+        <a
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="icon-block"
+          data-link-type="external"
+          data-link-text="X/Twiiter"
+          onclick="LinkTrackingClickEvent(this,'social_share')"
+          href="{{ homepage.first().twitter_url_link }}"
+          target="_blank"
+          class="twitter-link social-icon fs-5 me-11 text-dark-50"
+          ><i class="bi bi-twitter-x"></i
+        ></a>
+        <a
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="icon-block"
+          data-link-type="external"
+          data-link-text="Linkedin"
+          onclick="LinkTrackingClickEvent(this,'social_share')"
+          href="{{ homepage.first().linkedin_url_link }}"
+          target="_blank"
+          class="linkedin-link social-icon fs-5 me-11 text-dark-50"
+          ><i class="bi bi-linkedin"></i
+        ></a>
+        <a
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="icon-block"
+          data-link-type="external"
+          data-link-text="Youtube"
+          onclick="LinkTrackingClickEvent(this,'social_share')"
+          href="{{ homepage.first().youtube_url_link }}"
+          target="_blank"
+          class="youtube-link social-icon fs-5 me-11 text-dark-50"
+          ><i class="bi bi-youtube"></i
+        ></a>
+        <a
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="icon-block"
+          data-link-type="external"
+          data-link-text="Instagram"
+          onclick="LinkTrackingClickEvent(this,'social_share')"
+          href="{{ homepage.first().instagram_url_link }}"
+          target="_blank"
+          class="instagram-link social-icon fs-5 me-11 text-dark-50"
+          ><i class="bi bi-instagram"></i
+        ></a>
+      </div>
+
+      <div class="text-center footer-text small flex-grow-1">
+        <p class="mb-0 footer__address"></p>
+        <p class="mb-0">
+          <a
+            class="text-decoration-none text-dark-100"
+            href="{{ truepath(7-a6a5ef9b80-f04ndj) }}"
+            >Privacy Policy</a
+          >
+          | © The Salvation Army National Headquarters
+        </p>
+      </div>
+
+      <div class="d-flex justify-content-center align-items-center">
+        <a
+          class="ecfa"
+          href="{{ homepage.first().ecfa_url_link }}"
+          target="_blank"
+        >
+          <img
+            src="https://mgfrnv8q.media.zestyio.com/image-3.png"
+            alt="ECFA Accredited"
+            class="me-3 ecfa-image"
+            style="height: 40px"
+          />
+        </a>
+        <a
+          class="candid"
+          href="{{ homepage.first().candid_url_link }}"
+          target="_blank"
+        >
+          <img
+            src="https://mgfrnv8q.media.zestyio.com/image-4.png"
+            alt="GuideStar Platinum"
+            class="me-3 candid-image"
+            style="height: 40px"
+          />
+        </a>
+        <a
+          class="bbb"
+          href="{{ homepage.first().bbb_url_link }}"
+          target="_blank"
+        >
+          <img
+            src="https://mgfrnv8q.media.zestyio.com/image-5.png"
+            class="bbb-image"
+            alt="Better Business Bureau Accredited Charity"
+            style="height: 40px"
+          />
+        </a>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <div
+        class="d-sm-none d-md-flex flex-wrap align-items-center justify-content-between bg-white rounded-4 py-6 px-8 affiliate-links"
+      >
+        <h6 class="fs-7 fw-normal mb-0">Affiliate Links</h6>
+        <a
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="external"
+          onclick="LinkTrackingClickEvent(this,'footer_click')"
+          href="{{clippings.salvation_army_usa_url}}"
+          target="_blank"
+          class="me-4 text-decoration-none text-primary-200 fs-7"
+          >{{clippings.salvation_army_usa_url_name}}</a
+        >
+        <a
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="external"
+          onclick="LinkTrackingClickEvent(this,'footer_click')"
+          href="{{clippings.satruck_url_link}}"
+          target="_blank"
+          class="me-4 text-decoration-none text-dark-50 fs-7 d-flex align-items-center"
+          >{{clippings.satruck_url_name}} <i class="material-icons ms-2 text-dark-100">arrow_outward</i></a
+        >
+        <a
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="external"
+          onclick="LinkTrackingClickEvent(this,'footer_click')"
+          href="{{clippings.sawso_url_link}}"
+          target="_blank"
+          class="me-4 text-decoration-none text-dark-50 fs-7 d-flex align-items-center"
+          >{{clippings.sawso_url_name}} <i class="material-icons ms-2 text-dark-100">arrow_outward</i></a
+        >
+        <a
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="external"
+          onclick="LinkTrackingClickEvent(this,'footer_click')"
+          href="{{clippings.disaster_salvation_army_url_link}}"
+          target="_blank"
+          class="me-4 text-decoration-none text-dark-50 fs-7 d-flex align-items-center"
+          >{{clippings.disaster_salvation_army_url_name}}
+          <i class="material-icons ms-2 text-dark-100">arrow_outward</i></a
+        >
+        <a
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="external"
+          onclick="LinkTrackingClickEvent(this,'footer_click')"
+          href="{{clippings.kroccenter_url_link}}"
+          target="_blank"
+          class="text-decoration-none text-dark-50 fs-7 d-flex align-items-center"
+          >{{clippings.kroccenter_url_name}} <i class="material-icons ms-2 text-dark-100">arrow_outward</i></a
+        >
+      </div>
+      <div
+        id="mobileAccordion2"
+        class="accordion"
+      >
+        <div class="accordion-item rounded-5">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed bg-light text-dark-100 rounded-4 d-inline-flex align-items-center justify-content-between"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseMenu2"
+              aria-expanded="false"
+              aria-controls="collapseMenu"
+              data-location-type="nav-foot"
+              data-function-type="navigation"
+              data-format-type="dropdown"
+              data-link-type="internal"
+              onclick="LinkTrackingClickEvent(this,'footer_click')"
+            >
+              <span class="fs-7 text-dark-50">Affiliate Sites</span>
+            </button>
+          </h2>
+          <div
+            id="collapseMenu2"
+            class="accordion-collapse collapse"
+          >
+            <div class="accordion-body">
+              <div class="d-flex flex-column">
+                <a
+                  data-location-type="nav-foot"
+                  data-function-type="navigation"
+                  data-format-type="text"
+                  data-link-type="external"
+                  onclick="LinkTrackingClickEvent(this,'footer_click')"
+                  href="{{clippiings.salvation_army_usa_url}}"
+                  class="me-4 text-decoration-none text-dark-50 fs-7"
+                  >{{clippings.salvation_army_usa_url_name}} </a
+                >
+                <a
+                  data-location-type="nav-foot"
+                  data-function-type="navigation"
+                  data-format-type="text"
+                  data-link-type="external"
+                  onclick="LinkTrackingClickEvent(this,'footer_click')"
+                  href="{{clippings.satruck_url_link}}"
+                  class="me-4 text-decoration-none text-dark-50 fs-7 d-flex align-items-center"
+                  >{{clippings.satruck_url_name}} <i class="material-icons ms-2 text-dark-100">arrow_outward</i></a
+                >
+                <a
+                  data-location-type="nav-foot"
+                  data-function-type="navigation"
+                  data-format-type="text"
+                  data-link-type="external"
+                  onclick="LinkTrackingClickEvent(this,'footer_click')"
+                  href="{{clippings.sawso_url_link}}"
+                  class="me-4 text-decoration-none text-dark-50 fs-7 d-flex align-items-center"
+                  >{{clippings.sawso_url_name}} <i class="material-icons ms-2 text-dark-100">arrow_outward</i></a
+                >
+
+                <a
+                  data-location-type="nav-foot"
+                  data-function-type="navigation"
+                  data-format-type="text"
+                  data-link-type="external"
+                  onclick="LinkTrackingClickEvent(this,'footer_click')"
+                  href="{{clippings.disaster_salvation_army_url_link}}"
+                  class="me-4 text-decoration-none text-dark-50 fs-7 d-flex align-items-center"
+                  >{{clippings.disaster_salvation_army_url_name}}
+                  <i class="material-icons ms-2 text-dark-100">arrow_outward</i></a
+                >
+                <a
+                  data-location-type="nav-foot"
+                  data-function-type="navigation"
+                  data-format-type="text"
+                  data-link-type="external"
+                  onclick="LinkTrackingClickEvent(this,'footer_click')"
+                  href="{{clippings.kroccenter_url_link}}"
+                  class="text-decoration-none text-dark-50 fs-7 d-flex align-items-center"
+                  >{{clippings.kroccenter_url_name}} <i class="material-icons ms-2 text-dark-100">arrow_outward</i></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-light d-lg-none d-sm-block px-8 py-3 rounded-4 mb-3">
+      <div class="d-flex justify-content-between align-items-center">
+        <a
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="icon-block"
+          data-link-type="external"
+          data-link-text="Facebook"
+          onclick="LinkTrackingClickEvent(this,'social_share')"
+          href="{{ homepage.first().facebook_url_link }}"
+          target="_blank"
+          class="facebook-link social-icon fs-5 text-dark-50"
+          ><i class="bi bi-facebook"></i
+        ></a>
+        <a
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="icon-block"
+          data-link-type="external"
+          data-link-text="X/Twitter"
+          onclick="LinkTrackingClickEvent(this,'social_share')"
+          href="{{ homepage.first().twitter_url_link }}"
+          target="_blank"
+          class="twitter-link social-icon fs-5 text-dark-50"
+          ><i class="bi bi-twitter-x"></i
+        ></a>
+        <a
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="icon-block"
+          data-link-type="external"
+          data-link-text="Linkedin"
+          onclick="LinkTrackingClickEvent(this,'social_share')"
+          href="{{ homepage.first().linkedin_url_link }}"
+          target="_blank"
+          class="linkedin-link social-icon fs-5 text-dark-50"
+          ><i class="bi bi-linkedin"></i
+        ></a>
+        <a
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="icon-block"
+          data-link-type="external"
+          data-link-text="Youtube"
+          onclick="LinkTrackingClickEvent(this,'social_share')"
+          href="{{ homepage.first().youtube_url_link }}"
+          target="_blank"
+          class="youtube-link social-icon fs-5 text-dark-50"
+          ><i class="bi bi-youtube"></i
+        ></a>
+        <a
+          data-location-type="nav-foot"
+          data-function-type="navigation"
+          data-format-type="icon-block"
+          data-link-type="external"
+          data-link-text="Instagram"
+          onclick="LinkTrackingClickEvent(this,'social_share')"
+          href="{{ homepage.first().instagram_url_link }}"
+          target="_blank"
+          class="instagram-link social-icon fs-5 text-dark-50"
+          ><i class="bi bi-instagram"></i
+        ></a>
+      </div>
+    </div>
+
+    <div
+      class="d-sm-flex d-lg-none flex-row justify-content-between align-items-center bg-white rounded-5 px-4 py-5 mb-3"
+    >
+      <div
+        class="footer-text small w-100"
+        style="font-size: 12px"
+      >
+        <p class="mb-0 d-inline footer__address"></p>
+        <p class="mb-0 d-inline"><a     class="text-decoration-none text-dark-100" href="{{ truepath(7-a6a5ef9b80-f04ndj) }}">Privacy Policy</a> | © The Salvation Army National Headquarters</p>
+      </div>
+
+      <div class="d-flex justify-content-center align-items-center w-100">
+        <a
+          class="ecfa"
+          href="{{ homepage.first().ecfa_url_link }}"
+          target="_blank"
+        >
+          <img
+            src="https://mgfrnv8q.media.zestyio.com/image-3.png"
+            alt="ECFA Accredited"
+            class="me-3 ecfa-image"
+            style="height: 40px"
+          />
+        </a>
+        <a
+          class="candid"
+          href="{{ homepage.first().candid_url_link }}"
+          target="_blank"
+        >
+          <img
+            src="https://mgfrnv8q.media.zestyio.com/image-4.png"
+            alt="GuideStar Platinum"
+            class="me-3 candid-image"
+            style="height: 40px"
+          />
+        </a>
+        <a
+        class="bbb"
+        href="{{ homepage.first().bbb_url_link }}"
+        target="_blank"
+      >
+        <img
+          src="https://mgfrnv8q.media.zestyio.com/image-5.png"
+          class="bbb-image"
+          alt="Better Business Bureau Accredited Charity"
+          style="height: 30px"
+        />
+      </a>
+      </div>
+    </div>
+  </div>
+    {{include components/news-letter-modal}}
+</footer>
+
+<script>
+  const affiliateLinks = document.querySelectorAll('.affiliate-links a');
+
+  function resetAffiliateLinks() {
+    affiliateLinks.forEach((link) => {
+      link.classList.add('text-dark-50');
+      link.classList.remove('text-primary-200');
+    });
+  }
+
+  affiliateLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      resetAffiliateLinks();
+      link.classList.remove('text-dark-50');
+      link.classList.add('text-primary-200');
+    });
+  });
+
+  const signUpForm = document.querySelector('.sign-up-form');
+  const footer = document.querySelector('footer');
+  function signUpFormOnSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(signUpForm);
+
+    utag.link({
+      event: 'form_interaction',
+      form_formName: 'sign up',
+      form_id: signUpForm.id,
+      form_section: 'footer module',
+      form_component: 'sign up'
+    });
+  }
+
+  if(signUpForm)
+  signUpForm.addEventListener('submit', signUpFormOnSubmit);
+
+
+</script>
+
+<script>
+    const locationNameCookieFooter = getCookieByName('location_name');
+  const footerHomes = document.querySelectorAll('.home-footer-link');
+  const footerContactUs = document.querySelector('.footer-contact-us');
+  const footerAboutUsButtons = document.querySelectorAll('.about-us-footer-link');
+  const footerEmploymentButtons = document.querySelectorAll('.employment-footer-link');
+  const footerVolunteerButtons = document.querySelectorAll('.volunteer-footer-link');
+  const waysToGiveButtons = document.querySelectorAll('.wtg-footer-link');
+
+
+  if (locationNameCookieFooter == 'NATIONAL' || !locationNameCookieFooter) {
+    
+    footerContactUs.setAttribute('href', '/contact-us');
+    
+    footerAboutUsButtons.forEach((footerAboutUs) => {
+      footerAboutUs.setAttribute('href', '/about-us');
+    });
+  } else {
+    footerContactUs.setAttribute('href', getCookieByName('location_home_url') + 'contact-us');
+    footerAboutUsButtons.forEach((footerAboutUs) => {
+      footerAboutUs.setAttribute('href', getCookieByName('location_home_url') + 'about-us');
+    });
+  }
+
+  footerEmploymentButtons.forEach((employmentLink) => {
+    employmentLink.setAttribute('href', getCookieByName('employment_url'));
+  });
+  footerVolunteerButtons.forEach((volunteerLink) => {
+    volunteerLink.setAttribute('href', getCookieByName('volunteer_url'));
+  });
+  
+  waysToGiveButtons.forEach((waysToGiveLink) => {
+    waysToGiveLink.setAttribute('href', getCookieByName('wtg_url'));
+  });
+
+  footerHomes.forEach((footerHome) => {  
+    footerHome.setAttribute('href', getCookieByName("location_home_url"));
+  });
+
+  const urlPathArray = window.location.href.split('/');
+</script>
+
+
+
+<script>
+   async function checkUrl(url) {
+    try {
+      const response = await fetch(url, { method: 'HEAD' }); // Only get headers
+      if (response.ok) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      return false;
+    }
+  }
+
+async function getCurrentPageModel() {
+  try {
+    const locationZuid = cookieManager?.get?.(cookieKeys.locationZUID);
+    if (!locationZuid) return null;
+
+    const result = await fetch(`https://{{instance.domain}}/model-info.json?zuid=${locationZuid}`);
+    if (!result.ok) return null;
+
+    const page = await result.json();
+    return page;
+  } catch (err) {
+    console.error('Error:', err);
+    return null;
+  }
+}
+
+async function getModelByID(id) {
+  try {
+    if (!id) return null;
+    const result = await fetch(`https://{{instance.domain}}/model-info.json?zuid=${id}`);
+    if (!result.ok) return null;
+    const page = await result.json();
+
+    return page;
+  } catch (err) {
+    console.error('Error:', err);
+    return null;
+  }
+}
+
+function getValidURL(models, key) {
+  // Check if models is an array
+  if (!Array.isArray(models)) {
+    throw new TypeError('Expected models to be an array.');
+  }
+
+  // Iterate through the models safely
+  for (const model of models) {
+    // Check if the model exists and has the key
+    if (model && key in model && model[key]) {
+      return model[key];
+    }
+  }
+
+  return null;
+}
+function updateURL(identifier, url) {
+  const elements = document.querySelectorAll(`.${identifier}`);
+  elements?.forEach((element) => {
+    element.setAttribute('href', url);
+  });
+}
+
+function setFooterSocialLinksLoading(isLoading) {
+  if (!footer) return;
+
+  const socialLinks = footer.querySelectorAll(
+    '.facebook-link, .twitter-link, .linkedin-link, .youtube-link, .instagram-link, .bbb, .ecfa, .candid'
+  );
+
+  socialLinks.forEach((link) => {
+    if (isLoading) {
+      if (link.dataset.loadingState === 'true') return;
+
+      link.dataset.loadingState = 'true';
+      if (!link.dataset.originalHtml) {
+        link.dataset.originalHtml = link.innerHTML;
+      }
+
+      link.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
+      link.setAttribute('aria-busy', 'true');
+      link.setAttribute('aria-disabled', 'true');
+      link.setAttribute('tabindex', '-1');
+      link.classList.add('disabled');
+    } else {
+      if (link.dataset.loadingState !== 'true') return;
+
+      link.dataset.loadingState = 'false';
+      if (link.dataset.originalHtml) {
+        link.innerHTML = link.dataset.originalHtml;
+      }
+
+      link.removeAttribute('aria-busy');
+      link.removeAttribute('aria-disabled');
+      link.removeAttribute('tabindex');
+      link.classList.remove('disabled');
+    }
+  });
+}
+
+async function updateSocialLinkURL() {
+  setFooterSocialLinksLoading(true);
+  const pageModel = await getCurrentPageModel();
+  if (!pageModel) {
+    setFooterSocialLinksLoading(false);
+    return;
+  }
+
+  const divisionId = pageModel?.division?.data?.[0]?.meta?.zuid;
+  const territoryId = pageModel?.territory?.data?.[0]?.meta?.zuid;
+  const models = [
+    pageModel,
+    divisionId ? await getModelByID(divisionId) : null,
+    territoryId ? await getModelByID(territoryId) : null
+  ].filter(Boolean);
+
+  // Facebook
+  const facebookURL = getValidURL(models, 'facebook_url_link');
+  if (facebookURL) updateURL('facebook-link', facebookURL);
+  // Twiiter
+  const twitterURL = getValidURL(models, 'twitter_url_link');
+  if (twitterURL) updateURL('twitter-link', twitterURL);
+
+  // Linkedin
+  const linkedinURL = getValidURL(models, 'linkedin_url_link');
+  if (linkedinURL) updateURL('linkedin-link', linkedinURL);
+
+  // Youtube
+  const youtubeURL = getValidURL(models, 'youtube_url_link');
+  if (youtubeURL) updateURL('youtube-link', youtubeURL);
+
+  // Instagram
+  const instagramURL = getValidURL(models, 'instagram_url_link');
+  if (instagramURL) updateURL('instagram-link', instagramURL);
+
+  // BBB
+  const bbbURL = getValidURL(models, 'bbb_url_link');
+  if (bbbURL) updateURL('bbb', bbbURL);
+
+  // ECFA
+  const ecfaURL = getValidURL(models, 'ecfa_url_link');
+  if (ecfaURL) updateURL('ecfa', ecfaURL);
+
+  // Candid
+  const candidURL = getValidURL(models, 'candid_url_link');
+  if (candidURL) updateURL('candid', candidURL);
+
+  // Candid Image
+  const candidImageURL = getValidURL(models, 'candid_image_url_link');
+  const candidImgs = document.querySelectorAll(".candid-image")
+  if (candidImageURL){
+    candidImgs.forEach((candidImg) =>{
+      candidImg.setAttribute("src", candidImageURL)
+    })
+  } 
+  else{
+    candidImgs.forEach((candidImg) =>{
+      candidImg.setAttribute("src", "https://mgfrnv8q.media.zestyio.com/image-4.png")
+    })
+  }
+  
+  // ECFA Image
+  const ecfaImageURL = getValidURL(models, 'ecfa_image_url_link');
+  const ecfaImgs = document.querySelectorAll(".ecfa-image")
+  if (ecfaImageURL){
+    ecfaImgs.forEach((img) =>{
+      img.setAttribute("src", ecfaImageURL)
+    })
+  } 
+  else{
+    ecfaImgs.forEach((img) =>{
+      img.setAttribute("src", "https://mgfrnv8q.media.zestyio.com/image-3.png")
+    })
+  }
+  
+  // ECFA Image
+  const bbbImageURL = getValidURL(models, 'bbb_image_url_link');
+  const bbbImgs = document.querySelectorAll(".bbb-image")
+  if (bbbImageURL){
+    bbbImgs.forEach((img) =>{
+      img.setAttribute("src", bbbImageURL)
+    })
+  } 
+  else{
+    bbbImgs.forEach((img) =>{
+      img.setAttribute("src", "https://mgfrnv8q.media.zestyio.com/image-5.png")
+    })
+  }
+  const contactUsTitleText = getValidURL(models, "contact_us_title")
+  const contactUsTitleElement = footer.querySelector(".contact-us-title")
+
+  contactUsTitleElement.textContent =  (getCookieByName('contact_us_title') && getCookieByName('contact_us_title') != "null")  ? getCookieByName('contact_us_title') : contactUsTitleText;
+
+  const contactUsTextIssues = getValidURL(models, "contact_us_cta_header")
+  const contactUsTextIssuesElement = footer.querySelector(".contact-us-cta-header")
+
+
+  if(getCookieByName('contact_us_header')){
+     contactUsTextIssuesElement.textContent = (getCookieByName('contact_us_header') && getCookieByName('contact_us_header') != "null") ? getCookieByName('contact_us_header') : "Having Issues?";
+  }else if(contactUsTextIssues && !getCookieByName('contact_us_header')){
+     contactUsTextIssuesElement.textContent = contactUsTextIssues;
+  }
+
+  const contactUsImageUrl = getValidURL(models, 'contact_us_image');
+  const contactUsFooterImage = footer.querySelector(`.contact-us-footer-image`);
+
+  if(await checkUrl(cookieManager.get(cookieKeys.contactUsImage))){
+    contactUsFooterImage.setAttribute('src', cookieManager.get(cookieKeys.contactUsImage));
+  }else{
+    contactUsFooterImage.setAttribute('src', "https://8hxvw8tw.media.zestyio.com/SAL_MediaCards_FullLength_Shield-5-2x.png");
+  }
+    footer.querySelector(".contact-us-image-placeholder").classList.add("d-none")
+    setFooterSocialLinksLoading(false);
+
+}
+
+function setFooterNavStatus() {
+  const footerNavLinks = document.querySelectorAll('.footer-nav-pill .nav-link');
+  const pageSlug = getSlug();
+
+  footerNavLinks.forEach((navItem) => {
+    const navSlug = navItem.getAttribute('data-slug');
+    if(navSlug == pageSlug) {
+      navItem.classList.add('active');
+    }
+  });
+}
+function getSlug() {
+  const fullPath = window.location.pathname;
+  const homeUrlPath = getCookieByName('location_home_url');
+  // Handle main homepage case (where cookie value is '/')
+  if (homeUrlPath === '/') {
+    let slug = "";
+    const cleanPath = fullPath.startsWith('/') ? fullPath.substring(1) : fullPath;
+    
+    const parts = cleanPath.split('/');
+    if (parts.length > 0) {
+      if (parts[0] != '') {
+        slug = parts[0];
+      } else {
+        slug = 'home';
+      }
+    }
+    return slug;
+  } 
+  else if (fullPath.startsWith(homeUrlPath)) {
+    const remainingPath = fullPath.substring(homeUrlPath.length);
+
+    if (!remainingPath) return 'home';
+
+    const cleanPath = remainingPath.startsWith('/') ? remainingPath.substring(1) : remainingPath;
+    
+    const firstSlug = cleanPath.split('/')[0];
+    
+    return firstSlug;
+  } else {
+    const cleanPath = fullPath.startsWith('/') ? fullPath.substring(1) : fullPath;
+    
+    const parts = cleanPath.split('/');
+    return parts.length > 0 ? parts[0] : '';
+  }
+  
+  return '';
+}
+function footerAddress() {
+  const city = getCookieByName('location_city');
+  const state = getCookieByName('location_state');
+  const address = getCookieByName('location_address');
+  const zipcode = getCookieByName('location_zipcode'); 
+  let fullAddress = '';
+  const fullAddressContainers = document.querySelectorAll('.footer__address');
+
+  if (city && state && address) {
+    let addrArr = [];
+    let cityText = `<span class="text-title-case">${city}</span>`
+    let stateText = `${state} ${zipcode}`;
+    addrArr.push(address);
+    addrArr.push(cityText);
+    addrArr.push(stateText);
+    fullAddress = addrArr.join(", ");
+  } else {
+    fullAddress = "615 Slaters Lane, Alexandria, Virginia 22314"
+  }
+  fullAddress += " | 1-800-SAL-ARMY |";
+  
+  fullAddressContainers.forEach((fullAddressContainer) =>{
+
+    fullAddressContainer.innerHTML = fullAddress;
+  })
+}
+footerAddress();
+setFooterNavStatus();
+updateSocialLinkURL();
+      document.querySelectorAll('a').forEach(link => {
+      if (!link.hasAttribute('rel')) {
+        link.setAttribute('rel', 'noopener noreferrer');
+      }
+
+      link.addEventListener('mouseup', () => link.blur());
+    });
+
+      document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('mouseup', () => btn.blur());
+      
+      })
+</script>

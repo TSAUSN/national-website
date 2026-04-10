@@ -1,0 +1,90 @@
+{{$zuid = {request.queryParam(zuid)} }}
+
+
+{{$eventFoundIn = 0}}
+{{if {$eventFoundIn} == 0 }}
+{{each events as event WHERE find_in_set('{$zuid}', property) LIMIT 1 }}
+{{$eventFoundIn = 1 }}
+{{/each}}
+{{/if}}
+
+{{if {$eventFoundIn} == 0 }}
+{{each events as event WHERE find_in_set('{$zuid}', divisions) LIMIT 1 }}
+{{$eventFoundIn = 2 }}
+{{/each}}
+{{/if}}
+
+{{if {$eventFoundIn} == 0 }}
+{{each events as event WHERE find_in_set('{$zuid}', territories) LIMIT 1 }}
+{{$eventFoundIn = 3 }}
+{{/each}}
+{{/if}}
+
+
+{{if {$eventFoundIn} == 1 }}
+{
+    {{$territoryZUID = {locations.filter({$zuid}).territory} }}
+    {{$territoryCode = {territories.filter({$territoryZUID}).territory_code} }}
+
+    {{$divisionZUID = {locations.filter({$zuid}).division} }}
+    {{$divisionCode = {divisions.filter({$divisionZUID}).division_code} }}
+
+    "event_found_at": "locations",
+    "property_type": "{{ locations.filter({$zuid}).page_layout }}",
+    "contact_us_image": "{{ locations.filter({$zuid}).contact_us_image.getImage() }}",
+    "contact_us_title": "{{ locations.filter({$zuid}).contact_us_title }}",
+    "contact_us_header": "{{ locations.filter({$zuid}).contact_us_cta_header }}",
+    "path": "{{truepath({$zuid})}}",
+    "name": "{{ locations.filter({$zuid}).name }}",
+    "redirect_url": "{{ locations.filter({$zuid}).redirect_url }}",
+    "territoryZUID": "{{$territoryZUID}}",
+    "divisionName": "{{divisions.filter({$divisionZUID}).name }}",
+    "territoryName": "{{ territories.filter({$territoryZUID}).name }}",
+    "divisionZUID": "{{$divisionZUID}}",
+    "address": "{{ locations.filter({$zuid}).address  }}",
+    "zipcode": "{{ locations.filter({$zuid}).zipcode  }}",
+    "city": "{{ cities.filter({locations.filter({$zuid}).city}).title  }}",
+    "state": "{{ states.filter({locations.filter({$zuid}).state}).name  }}",
+    "code": "SAL^{{$territoryCode}}^{{$divisionCode}}^{{locations.filter({$zuid}).name}}"
+}
+
+{{else-if {$eventFoundIn} == 2 }}
+{
+    {{$territoryZUID = {divisions.filter({$zuid}).territory} }}
+    {{$territoryCode = {territories.filter({$territoryZUID}).territory_code} }}
+
+    "event_found_at": "divisions",
+    "contact_us_image": "{{ divisions.filter({$zuid}).contact_us_image.getImage() }}",
+    "contact_us_title": "{{ divisions.filter({$zuid}).contact_us_title }}",
+    "contact_us_header": "{{ divisions.filter({$zuid}).contact_us_cta_header }}",
+    "path": "{{truepath({$zuid})}}",
+    "name": "{{ divisions.filter({$zuid}).name }}",
+    "territoryZUID": "{{$territoryZUID}}",
+    "territoryName": "{{ territories.filter({$territoryZUID}).name }}",
+    "address": "{{ divisions.filter({$zuid}).address  }}",
+    "zipcode": "{{ divisions.filter({$zuid}).zipcode  }}",
+    "city": "{{ cities.filter({divisions.filter({$zuid}).city}).title  }}",
+    "state": "{{ states.filter({divisions.filter({$zuid}).state}).name  }}",
+    "code": "SAL^{{$territoryCode}}^{{divisions.filter({$zuid}).division_code}}"
+}
+
+{{else-if {$eventFoundIn} == 3 }}
+{
+    "event_found_at": "territories",
+    "contact_us_image": "{{ territories.filter({$zuid}).contact_us_image.getImage() }}",
+    "contact_us_title": "{{ territories.filter({$zuid}).contact_us_title }}",
+    "contact_us_header": "{{ territories.filter({$zuid}).contact_us_cta_header }}",
+    "path": "{{truepath({$zuid})}}",
+    "name": "{{ territories.filter({$zuid}).name }}",
+    "territoryZUID": "{{$zuid}}",
+    "address": "{{ territories.filter({$zuid}).address  }}",
+    "zipcode": "{{ territories.filter({$zuid}).zipcode  }}",
+    "city": "{{ cities.filter({territories.filter({$zuid}).city}).title  }}",
+    "state": "{{ states.filter({territories.filter({$zuid}).state}).name  }}",
+    "code": "SAL^{{territories.filter({$zuid}).territory_code}}"
+}
+{{else}}
+{
+    "code": "SAL^USN"
+}
+{{/if}}

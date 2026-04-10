@@ -1,0 +1,58 @@
+.biograph-card {
+  padding: 0;
+  .biograph-title {
+    span {
+      font-size: 14px;
+    }
+  }
+  &.card {
+    border: none;
+    border-radius: 1.25rem;
+    overflow: hidden;
+  }
+  .biograph-desc {
+    font-size: 14px;
+
+    max-height: 80px;
+  }
+
+  // Flip card styles
+  perspective: 1000px;
+  background-color: transparent;
+  min-height: 400px;
+
+  .card-flip {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 1.25rem;
+  }
+
+  .card-front {
+    position: relative;
+  }
+
+  .card-back {
+    position: absolute;
+    top: 0;
+    transform: rotateY(180deg);
+    background: #efefef;
+  }
+
+  &.flipped .card-flip {
+    transform: rotateY(180deg);
+  }
+}

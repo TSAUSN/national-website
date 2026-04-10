@@ -1,0 +1,10 @@
+<div className={styles.pvlRoot}>
+	<img width="100%" src="https://8hxvw8tw.media.zestyio.com/camp-2.png" alt="placeholder">
+	<div class="row my-3">
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			<div class="pvlRichtext"></div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12"></div>
+		<div class="col-lg-4 col-md-6 col-sm-12"></div>
+	</div>
+</div>

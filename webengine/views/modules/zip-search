@@ -1,0 +1,70 @@
+<!-- <div class="bg-light p-8 rounded-5 d-flex align-items-center justify-content-between">
+    <div class="w-100">
+        <h1 class="fs-4">Search by ZIP Code</h1>
+        <p class="text-dark-50">Enter ZIP code to find locations in your area</p>
+    </div>
+    <div class="w-100">
+        <form
+        class="row g-3 align-items-center"
+      >
+        <div class="col-md-8 col-sm-6">
+          <div class="input-group w-100">
+            <span class="input-group-text border-start-1 rounded-start-4 pe-2 ps-4">
+              <span class="material-symbols-outlined text-dark-50 fs-7"> location_on </span>
+            </span>
+            <input
+              type="text"
+              class="form-control rounded-end-4 text-dark border-start-0 ps-0"
+              placeholder="ZIP Code Search"
+              data-search-results-type="0"
+              data-search-type-type="location search - body"
+              data-search-method-type="user-entered"
+              data-filter-type-type="none"
+              data-filter-value-type="none"
+            />
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <button
+            type="submit"
+            class="btn btn-secondary text-white rounded-3 w-100 display-3 map-search-button"
+          >
+            Search
+          </button>
+        </div>
+      </form>
+    </div>
+</div> -->
+
+<div class="mt-16">
+  <!-- <h1 class="fs-4 ms-8 mb-6">Searh Results for "Z5005":</h1> -->
+  <div class="bg-light p-8 rounded-5 align-items-center gap-4">
+    <div class="row g-3">
+      {{each locations as location sort by name ASC where find_in_set('{page.zuid}', city )}}
+      <div class="col-12 col-md-4 col-lg-3">
+        <div class="bg-area p-6 rounded-5 h-100">
+          <a
+            class="text-secondary city-card-name"
+            href="{{truepath({location.zuid})}} "
+            >{{ location.name }}</a
+          >
+          <p class="m-0 text-dark-50 text-capitalize">{{ location.address }}</p>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+<script>
+  const cityCardNames = document.querySelectorAll('.city-card-name');
+  const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
+
+  cityCardNames.forEach((cityCardName) => {
+    const result = cityCardName.textContent.replace(regex, (word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    });
+
+    cityCardName.textContent = result;
+  });
+</script>

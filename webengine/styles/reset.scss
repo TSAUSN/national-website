@@ -1,0 +1,229 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  font-weight: unset;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+// body,
+// h1,
+// h2,
+// h3,
+// h4,
+// p,
+// figure,
+// blockquote,
+// dl,
+// dd {
+//   margin-block-end: 0;
+// }
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+// h1,
+// h2,
+// h3,
+// h4 {
+//   text-wrap: balance;
+//   font-weight: inherit;
+// }
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: #022056;
+  text-decoration: none;
+  border-bottom: 1px solid #ef3e42;
+}
+a:not([class]):hover {
+  color: #535353;
+  tranisition: 0.3s;
+  border-bottom: 1px solid #535353;
+}
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+div.form-control {
+  width: 100%;
+  height: auto;
+  border: none;
+  resize: none;
+  white-space: pre-line;
+  background: transparent;
+  padding: 0;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+/* Set ul styling on accordion body */
+.accordion-body {
+  .news-dropdown {
+    list-style: none;
+  }
+}
+
+.input-group-text {
+  border: none;
+}
+.form-control {
+  border: none;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  right: 50px;
+  width: auto !important;
+  left: auto !important;
+  margin: 0;
+}
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background-color: #fff;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.swiper-button-next {
+  right: 10px;
+}
+.swiper-button-prev {
+  left: 10px;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  top: unset;
+  bottom: unset;
+  left: unset;
+  right: unset;
+  margin: 0;
+  z-index: 1;
+  &::after {
+    display: none;
+  }
+}
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: unset !important;
+  top: unset !important;
+  left: unset !important;
+  right: unset !important;
+  width: auto;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(18, 18, 18, 0.6);
+  border-top: 10px solid rgba(0, 0, 0, 0);
+  border-bottom: 10px solid rgba(0, 0, 0, 0);
+  box-sizing: content-box;
+  background-clip: padding-box;
+
+  &-active {
+    background-color: #000000;
+  }
+}
+
+@media (min-width: 768px) {
+  #mobileAccordion {
+    display: none;
+  }
+  #mobileAccordion2 {
+    display: none;
+  }
+  #desktopNav {
+    display: flex;
+  }
+}
+@media (max-width: 767px) {
+  #mobileAccordion {
+    display: block;
+  }
+  #desktopNav {
+    display: none;
+  }
+}

@@ -1,0 +1,3 @@
+[{{each service_types as service index}}
+{"name": "{{service.title}}", "zuid": "{{service.zuid}}"}{{if index < service_types.length - 1}},
+{{/each}}]

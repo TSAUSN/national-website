@@ -1,0 +1,112 @@
+<div class="d-md-flex d-none align-items-center">
+    
+    <a
+        data-socials="facebook"
+        data-location-type="nav-foot"
+        data-function-type="social"
+        data-format-type="icon-block"
+        data-link-type="external"
+        onclick="LinkTrackingClickEvent(this,'social_share')"
+        href="{{ homepage.first().facebook_url_link }}"
+        target="_blank"
+        class="social-icon fs-5 text-dark-50 mx-3"
+    >
+        <i class="bi bi-facebook"></i>
+    </a>
+    <a
+        data-socials="twitter"
+        data-location-type="nav-foot"
+        data-function-type="social"
+        data-format-type="icon-block"
+        data-link-type="external"
+        onclick="LinkTrackingClickEvent(this,'social_share')"
+        href="{{ homepage.first().twitter_url_link }}"
+        target="_blank"
+        class="twitter-link social-icon fs-5 text-dark-50 mx-3"
+    >
+        <i class="bi bi-twitter-x"></i>
+    </a>
+    <a
+        data-socials="linkedin"
+        data-location-type="nav-foot"
+        data-function-type="social"
+        data-format-type="icon-block"
+        data-link-type="external"
+        onclick="LinkTrackingClickEvent(this,'social_share')"
+        href="{{ homepage.first().linkedin_url_link }}"
+        target="_blank"
+        class="linkedin-link social-icon fs-5 text-dark-50 mx-3"
+    >
+        <i class="bi bi-linkedin"></i>
+    </a>
+</div>
+
+<div class="d-md-none d-flex">
+    <a
+        data-socials="mobile-share"
+        data-location-type="nav-foot"
+        data-function-type="social"
+        data-format-type="icon-block"
+        data-link-type="external"
+        href="#"
+        target="_blank"
+        class="display-3 text-dark-50 mx-3 d-flex align-items-center gap-1 text-decoration-none"
+    >
+        Share Story
+        <span class="material-symbols-outlined">share</span>
+    </a>
+</div>
+
+<script>
+    const shareData = {
+        url: window.location.href,
+        title: "{{this.title}}",
+    };
+    function formatShareLinks() {
+        const facebookLink = document.querySelector('[data-socials="facebook"]');
+        const twitterLink = document.querySelector('[data-socials="twitter"]');
+        const linkedinLink = document.querySelector('[data-socials="linkedin"]');
+        console.log("Facebook Link", facebookLink.href, facebookLink);
+        if (facebookLink) {
+            facebookLink.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareData.url)}&quote=${encodeURIComponent(shareData.title)}`;
+        }
+
+        if (twitterLink) {
+            twitterLink.href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareData.url)}&text=${encodeURIComponent(shareData.title)}`;
+        }
+
+        if (linkedinLink) {
+            linkedinLink.href = `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(shareData.title + " " + shareData.url)}`;
+        }
+        console.log("Facebook Link After", facebookLink.href, facebookLink);
+    }
+
+    async function shareStoryMobile(e) {
+        e.preventDefault();
+        try {
+            LinkTrackingClickEvent(e.currentTarget, "social_share");
+        } catch (err) {
+        } finally {
+            if (navigator.share) {
+                await navigator.share(shareData);
+            }
+        }
+    }
+    function initializeShareLinks() {
+        formatShareLinks();
+    
+        const mobileShareBtn = document.querySelector('[data-socials="mobile-share"]');
+        if (mobileShareBtn) {
+            mobileShareBtn.addEventListener("click", shareStoryMobile);
+        }
+    }
+
+    // Check if DOM is already loaded
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeShareLinks);
+    } else {
+        // DOM is already loaded, execute immediately
+        initializeShareLinks();
+    }
+
+</script>

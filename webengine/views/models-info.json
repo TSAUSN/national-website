@@ -1,0 +1,7 @@
+[
+{{ each models as model }}
+    {
+        "zuid": "{{model.zuid}}"
+    }
+{{ /each }}
+]

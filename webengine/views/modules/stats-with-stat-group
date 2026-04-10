@@ -1,0 +1,45 @@
+<div
+  id="stats"
+  class="module stats mb-16"
+  data-id="stats"
+  data-component-type="stats-with-stat-group"
+>
+  <div class="px-lg-5 d-flex mb-8 align-items-center justify-content-between gap-sm-12">
+    <h4>Our Impact</h4>
+    <nav class="stats-filter flex-nowrap nav nav-pills justify-content-between gap-4">
+      <button class="nav-link active">All</button>
+      <button class="nav-link text-dark-50">Disaster Relief</button>
+      <button class="nav-link text-dark-50">Family Services</button>
+
+      <button class="nav-link text-dark-50">Giving Back</button>
+      <button class="nav-link text-dark-50">Holiday Giving</button>
+      <button class="nav-link text-dark-50">Hunger</button>
+    </nav>
+  </div>
+
+  <div class="">
+    <div class="row g-0">
+      <div class="col-md-6 position-relative rounded-5 overflow-hidden">
+        <div
+          class="d-flex flex-column justify-content-between h-100 position-absolute top-0 left-0 z-2"
+        >
+          <div class="p-12 p-sm-8">
+            <div class="stat-number fs-1 text-light">7 Million</div>
+            <p class="fs-4 text-light">Americans are affected by depression over the age of 65</p>
+          </div>
+        </div>
+        <img
+          class="w-100 h-100"
+          src="https://8hxvw8tw.media.zestyio.com/websiteplanet-dummy-692X692--1-.png"
+        />
+      </div>
+      <div class="col-md-6 ps-4">
+        <div class="d-flex flex-column justify-content-between h-100 gap-2">
+          {{include components/stat-group}}
+          {{include components/stat-group}}
+          {{include components/stat-group}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

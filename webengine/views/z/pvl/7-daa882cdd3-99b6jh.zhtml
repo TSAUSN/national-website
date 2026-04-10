@@ -1,0 +1,25 @@
+<div className={styles.pvlRoot}>
+	<div>{{block('/-/block/hero_full.html?variant=7-ccbd808bb3-7mvwqz')}}</div>
+	<div>{{block('/-/block/fundraising_thermometer_block.html?variant=7-a4eca5a4e7-1mrl1k')}}</div>
+	<p><div class="big-section" style="position: relative; background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee'); background-size: cover; background-position: center; padding: 120px 20px; color: #ffffff; border-radius: 20px; overflow: hidden;"><!-- overlay -->
+<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.55);"></div>
+<!-- content -->
+<div style="position: relative; max-width: 800px; margin: 0 auto; text-align: center;">
+<h1 style="font-size: 48px; margin-bottom: 20px; line-height: 1.2;">Lorem ipsum</h1>
+<p style="font-size: 20px; line-height: 1.6; opacity: 0.95;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+</div></p>
+	<hr>
+	<h3>Heading 3</h3>
+	<div class="row my-3">
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<div id="oq7hhlsivOq3QhJBLkTJ4" classy="767304"></div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+	</div>
+	<hr>
+	{{block('/-/block/stats_block.html?variant=7-a4e0f3f5a5-5kdzc4')}}
+	<div>{{block('/-/block/general_accordion.html?variant=7-b2859ef087-j37ncj')}}</div>
+</div>

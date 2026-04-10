@@ -1,0 +1,78 @@
+
+<div id="location-finder" class="location-finder container" data-component-type="location-finder">
+  {{if {request.queryParam(zuid)} }}
+    <div class="mb-15">
+      <h1 class="location-finder__title fs-4 mb-8"></h1>
+      {{ include components/current-location-card }}
+    </div>
+  {{/if}}
+  <h1 class="fs-4 mb-8">Find A Salvation Army Near You</h1>
+  <div class="rounded-5 overflow-hidden ">
+    <div class="services-filter row bg-light p-8">
+      <h2 class="mb-4 fs-4">What Services Are You Looking For?</h2>
+      <div class="col-md-8"> 
+        <span class="mb-5 text-dark-50 display-2 d-inline-block">Which services would be helpful to you?</span>
+        <!-- Desktop view (unchanged) -->
+        <div class="services-list d-none d-md-block">
+          <div class="row">
+            
+          </div>
+        </div>
+        <!-- Mobile view (unchanged) -->
+        <div class="services-list--mobile d-md-none mb-4">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle w-100 text-start bg-dark-100 p-0 rounded-9 bg-opacity-5 d-flex align-items-center justify-content-between border-0" type="button" id="servicesDropdown2" data-bs-toggle="dropdown" aria-expanded="false"><span class="rounded-9 px-6 py-3">Services</span></button>
+            <div class="dropdown-menu w-100 bg-dark-100 bg-opacity-5 border-0" aria-labelledby="servicesDropdown">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mt-4">
+        <h4 class="display-2 text-dark-50 mb-2">Find local help</h4>
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter your city, address, or ZIP code"
+            aria-label="Enter your city, address, or ZIP code"
+            id="location-finder__input"
+            data-search-term-type=""
+            data-search-results-type=""
+            data-search-type="location search - body"
+            data-search-method-type="user-entered"
+            data-search-filter-type="Services"
+            data-search-filter-value-type=""
+            onkeydown="if(event.key === 'Enter') { debouncedSearchServices(); event.preventDefault(); }"
+          >
+        </div>
+        <button class="btn btn-outline-danger w-100 mb-3 d-flex align-items-center justify-content-end text-primary-200 display-1 use-my-location-2">
+          <span class="material-symbols-outlined me-2">
+            my_location
+          </span> Use My Location
+        </button>
+        <button id="location-finder__search-btn" class="btn btn-primary w-100" onclick="debouncedSearchServices()">
+          Search Services
+        </button>
+        <div id="no-service-area-container" class="text-primary-200 mt-5"></div>
+        <div id="no-results-container" class="text-primary-200 mt-2"></div>
+      </div>
+    </div>
+    <div class="position-relative">
+      <div class="location-finder__map goggle-map"></div>
+      <div class="map-loader d-none">
+        <div class="map-loader__spinner"></div>
+      </div>
+    </div>
+  </div>
+  <div id="location-results" class="location-results mt-15" style="display: none;">
+    <div class="fs-4 result-text mb-8"></div>
+    <div class="location-results__list row gx-4">
+      <!-- Location results will be dynamically inserted here -->
+    </div>
+  </div>
+</div>
+
+
+{{ include modules/location-finder-script }}
+{{ include modules/utility-scripts }}

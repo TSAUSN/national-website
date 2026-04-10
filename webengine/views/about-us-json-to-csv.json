@@ -1,0 +1,10 @@
+[
+  {{each about_us as au}}
+    {
+      "territory": "{{territories.filter(z.zuid = "{au.territory}").name.escapeForJs()}}",
+      "division": "{{divisions.filter(z.zuid = "{au.division}").name.escapeForJs()}}",
+      "location": "{{locations.filter(z.zuid = "{au.location}").name.escapeForJs()}}",
+      "url_path": "{{au.getUrl()}}"
+    }{{au._arraycomma}}
+  {{/each}}
+]

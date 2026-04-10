@@ -1,0 +1,64 @@
+<div
+  class="mb-15 overflow-hidden rounded-5 position-relative become-member p-8 d-flex align-items-center"
+>
+  <img
+    class="w-100 rounded-5 object-fit-cover position-absolute top-0 start-0 img-background"
+    src="{{!this.image_button_text_full_image.getImage()}}"
+    alt="Featured Article"
+  />
+  <div class="bg-light p-8 rounded-5 position-relative z-3 w-50 h-100 d-flex flex-column">
+    <div>
+      <h5 class="leadership-parent__title">Leaderships</h5>
+      <div class="leadership-parent__content"></div>
+    </div>
+    <div class="mt-auto">
+      <a
+          data-location-type="body:card-section"
+          data-function-type="navigation"
+          data-format-type="button"
+          data-link-type="internal"
+          onclick="LinkTrackingClickEvent(this,'cta_click')"
+          href="#"
+          class="btn btn-secondary leadership-parent__cta">View Leadership</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  async function getParentLeadership() {
+    try {
+      let url = 'https://{{instance.domain}}/leadership-parent.json';
+      const params = new URLSearchParams();
+      const division = '{{!this.division}}';
+      const territory = '{{!this.territory}}';
+
+      if(territory !== '') {
+        params.append('territory', territory);
+      }
+      if(division !== '') {
+        params.append('division', division);
+      }
+      if (params.toString()) {
+          url += '?' + params.toString();
+      }
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if(data) {
+        let link = document.querySelector('.leadership-parent__cta');
+        link.setAttribute('href', data[0].meta.web.url);
+        let body = document.querySelector('.leadership-parent__content');
+        body.innerHTML = data[0].body;
+        let title = document.querySelector('.leadership-parent__title');
+        title.innerHTML = data[0].title
+      }
+      
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  
+  document.addEventListener('DOMContentLoaded', async function() {
+    getParentLeadership()
+  });
+</script>

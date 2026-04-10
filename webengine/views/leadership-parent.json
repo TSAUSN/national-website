@@ -1,0 +1,54 @@
+{{$division = {request.queryParam(division)} }}
+{{$territory = {request.queryParam(territory)} }}
+
+[
+{{if {$division} }}
+  {{$nextStep = 0}}
+    {{each leadership_landing_page as landing_page WHERE landing_page.division = '{$division}' limit 1 }}
+      {{$nextStep = 1}}
+    {{/each}}
+
+  {{if {$nextStep} === 0 }}
+    {{each leadership_landing_page as landing_page WHERE landing_page.territory = '{$territory}' limit 1 }}
+      {{$nextStep = 2}}
+    {{/each}}
+  {{/if}}
+  {{if {$nextStep} === 1 }}
+    {{each leadership_landing_page as landing_page WHERE landing_page.division = '{$division}' AND landing_page.location IS NULL}}
+      {{landing_page.toJSON(1)}}{{landing_page._arraycomma}}
+    {{/each}}
+  {{else-fi {$nextStep} === 2 }}
+    {{each leadership_landing_page as landing_page WHERE landing_page.territory = '{$territory}' AND landing_page.location IS NULL }}
+      {{landing_page.toJSON(1)}}{{landing_page._arraycomma}}
+    {{/each}}
+  {{else}}
+    {{each leadership_landing_page as landing_page WHERE landing_page.territory = null AND landing_page.division = null AND landing_page.location IS NULL }}
+      {{landing_page.toJSON(1)}}{{landing_page._arraycomma}}
+    {{/each}}
+  {{/if}}
+{{/if}}
+
+{{if !{$division} && {$territory} }}
+  {{$nextStep = 0}}
+
+  {{each leadership_landing_page as landing_page WHERE landing_page.territory = '{$territory}' limit 1 }}
+    {{$nextStep = 1}}
+  {{/each}}
+
+  {{if {$nextStep} === 1}}
+    {{each leadership_landing_page as landing_page WHERE landing_page.territory = '{$territory}' AND landing_page.location IS NULL}}
+      {{landing_page.toJSON(1)}}{{landing_page._arraycomma}}
+    {{/each}}
+  {{else}}
+    {{each leadership_landing_page as landing_page WHERE landing_page.territory = null AND landing_page.division = null AND landing_page.location IS NULL }}
+      {{landing_page.toJSON(1)}}{{landing_page._arraycomma}}
+    {{/each}}
+  {{/if}}
+{{/if}}
+
+{{if !{$division} && !{$territory} }}
+  {{each leadership_landing_page as landing_page WHERE landing_page.territory IS null AND landing_page.division IS null AND landing_page.location IS NULL }}
+    {{landing_page.toJSON(1)}}{{landing_page._arraycomma}}
+  {{/each}}
+{{/if}}
+]

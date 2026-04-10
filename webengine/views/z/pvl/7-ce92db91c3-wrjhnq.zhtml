@@ -1,0 +1,892 @@
+<div className={styles.pvlRoot}>
+	<!-- Dropdown Navigation as Heading -->
+<div class="nav-dropdown"><select id="sectionDropdown" aria-label="Jump to Section">
+<option value="#overview">Overview</option>
+<option value="#theme">Theme</option>
+<option value="#trailer">Trailer Promo</option>
+<option value="#gallery">Photo Gallery</option>
+<option value="#register">Register</option>
+<option value="#schedule">Event Schedule</option>
+<option value="#guests">Special Guests</option>
+<option value="#cadets">Cadets Session</option>
+<option value="#youngadults">Young Adults</option>
+<option value="#youth">Youth Conference</option>
+<option value="#lodging">Lodging</option>
+<option value="#guides">Program Guides</option>
+<option value="#watch">Watch Live</option>
+<option value="#trade">Trade Store</option>
+<option value="#share">Spread The Word</option>
+<option value="#recordings">Recordings from 2025</option>
+<option value="#southernspirit">The Southern Spirit</option>
+<option value="#upcoming">Upcoming Events</option>
+<option value="#announcements">Announcements</option>
+</select></div>
+<div>
+<section id="overview" class="tab-section active">
+<div class="mainImage"><img src="https://8hxvw8tw.media.zestyio.com/COMM26Main-Graphic.png" alt="Commissioning Weekend 2026 Image" style="max-width: 100%; border-radius: 16px;"></div>
+</section>
+<!-- Carousel Script for Announcements -->
+<script>
+      // Generate indicators dynamically for Announcements carousel
+      document.addEventListener('DOMContentLoaded', function () {
+        const carousel = document.querySelector('#carouselExampleCaptions');
+        if (!carousel) return;
+        const indicators = carousel.querySelector('.carousel-indicators');
+        const items = carousel.querySelectorAll('.carousel-inner .carousel-item');
+        if (!indicators || !items.length) return;
+        indicators.innerHTML = '';
+        items.forEach((_, index) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.setAttribute('data-bs-target', '#carouselExampleCaptions');
+          button.setAttribute('data-bs-slide-to', index);
+          button.setAttribute('aria-label', `Slide ${index + 1}`);
+          if (index === 0) {
+            button.classList.add('active');
+            button.setAttribute('aria-current', 'true');
+          }
+          indicators.appendChild(button);
+        });
+      });
+    </script>
+<section id="theme" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center; display: none;">Theme</h4>
+<h2 style="text-align: center;">Southern Territorial Ordination &amp; Commissioning of the Keepers of the Covenant</h2>
+<p style="text-align: center;"><span style="font-size: 20px;">Loving Like Jesus</span><span style="font-size: 20px;"><br>1 John 4:11-12</span></p>
+<p style="text-align: center;"><span style="font-size: 18px;"><cite>“My dear, dear friends. If God loved us like this, we certainly ought to love each other. No one has seen God, ever. But if we love one another, God dwells deeply within us, and his love becomes complete in us-<em>perfect love!</em>”</cite></span></p>
+</div>
+</div>
+</section>
+<section id="trailer" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center; display: none;">Trailer Promo</h4>
+<div class="container-youtube-video">
+<div> </div>
+<div class="youtube-video-container"><iframe width="560" height="315" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/J6rzTklLD6o?si=iQujN7BmimsrSGTo&amp;autoplay=0&amp;loop=1&amp;mute=0&amp;playlist=J6rzTklLD6o" title="YouTube video player"></iframe></div>
+<div> </div>
+</div>
+</div>
+</div>
+</section>
+<section id="gallery" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center;">Photo Gallery</h4>
+<div class="gallery-modern-masonry">
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/20250608-Ordination---Commissioning-DF-23.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/2025060-Main-Session-2-KA-54.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/20250608-Ordination---Commissioning-AH-86.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/250606-JrCommissioning-HiRes-8.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/250608-JrCommissioning-HiRes-79.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/250608-JrCommissioning-HiRes-59.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/250606-JrCommissioning-HiRes-6.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/20250607-Outreach-AH-39.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/20250607-Outreach-AH-6.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/20250607-Main-Session-3-KA-40.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/2025060-Main-Session-2-KA-6.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/20250607-Main-Session-3-AH-29.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/20250608-Ordination---Commissioning-KA-48.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/20250606-Main-Session-1-DF-20.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/2025060-Main-Session-2-KA-6.B1KFCAvSWg.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/20250606-LD-0007.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/20250606-Main-Session-1-KA-39.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/20250605-AH-0445.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/20250606-Main-Session-1-DF-20.jpg" alt="Event moment"></div>
+<div class="gallery-modern-item"><img src="https://8hxvw8tw.media.zestyio.com/20250606-LD-0079.jpg" alt="Event moment"></div>
+</div>
+<!-- Modern Modal/Lightbox for Gallery -->
+<div id="comm26-lightbox"><button id="comm26-close" aria-label="Close gallery">✕</button> <button id="comm26-prev" aria-label="Previous image">‹</button> <img id="comm26-lightbox-img" alt="Gallery image"> <button id="comm26-next" aria-label="Next image">›</button></div>
+<script>
+            // Modern gallery modal/carousel JS for masonry gallery
+            (function () {
+              const items = Array.from(document.querySelectorAll('.gallery-modern-masonry .gallery-modern-item img'));
+              const lightbox = document.getElementById('comm26-lightbox');
+              const lightboxImg = document.getElementById('comm26-lightbox-img');
+              const closeBtn = document.getElementById('comm26-close');
+              const prevBtn = document.getElementById('comm26-prev');
+              const nextBtn = document.getElementById('comm26-next');
+              let currentIndex = 0;
+              function openLightbox(index) {
+                currentIndex = index;
+                lightboxImg.src = items[index].src;
+                lightbox.classList.add('active');
+                lightboxImg.focus();
+              }
+              function closeLightbox() {
+                lightbox.classList.remove('active');
+                lightboxImg.src = '';
+              }
+              function showNext() {
+                currentIndex = (currentIndex + 1) % items.length;
+                lightboxImg.src = items[currentIndex].src;
+              }
+              function showPrev() {
+                currentIndex = (currentIndex - 1 + items.length) % items.length;
+                lightboxImg.src = items[currentIndex].src;
+              }
+              items.forEach((img, index) => {
+                img.addEventListener('click', () => openLightbox(index));
+                img.style.cursor = 'pointer';
+              });
+              closeBtn.addEventListener('click', closeLightbox);
+              nextBtn.addEventListener('click', showNext);
+              prevBtn.addEventListener('click', showPrev);
+              lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+              document.addEventListener('keydown', e => {
+                if (!lightbox.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') showNext();
+                if (e.key === 'ArrowLeft') showPrev();
+              });
+            })();
+          </script>
+</div>
+<!-- CSS moved to commissioning-weekend-26-m.css --> <!-- Lightbox ...existing code... -->
+<div id="comm26-lightbox"><button id="comm26-close2" aria-label="Close gallery">✕</button> <button id="comm26-prev2" aria-label="Previous image">‹</button> <img id="comm26-lightbox-img2" alt="Gallery image"> <button id="comm26-next2" aria-label="Next image">›</button></div>
+<script>
+          // Modern gallery modal/carousel JS
+          (function () {
+            const items = Array.from(document.querySelectorAll('.comm26-scroll-item img'));
+            const lightbox = document.getElementById('comm26-lightbox');
+            const lightboxImg = document.getElementById('comm26-lightbox-img2');
+            const closeBtn = document.getElementById('comm26-close2');
+            const prevBtn = document.getElementById('comm26-prev2');
+            const nextBtn = document.getElementById('comm26-next2');
+            let currentIndex = 0;
+            function openLightbox(index) {
+              currentIndex = index;
+              lightboxImg.src = items[index].src;
+              lightbox.classList.add('active');
+              lightboxImg.focus();
+            }
+            function closeLightbox() {
+              lightbox.classList.remove('active');
+              lightboxImg.src = '';
+            }
+            function showNext() {
+              currentIndex = (currentIndex + 1) % items.length;
+              lightboxImg.src = items[currentIndex].src;
+            }
+            function showPrev() {
+              currentIndex = (currentIndex - 1 + items.length) % items.length;
+              lightboxImg.src = items[currentIndex].src;
+            }
+            items.forEach((img, index) => {
+              img.addEventListener('click', () => openLightbox(index));
+              img.style.cursor = 'pointer';
+            });
+            closeBtn.addEventListener('click', closeLightbox);
+            nextBtn.addEventListener('click', showNext);
+            prevBtn.addEventListener('click', showPrev);
+            lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+            document.addEventListener('keydown', e => {
+              if (!lightbox.classList.contains('active')) return;
+              if (e.key === 'Escape') closeLightbox();
+              if (e.key === 'ArrowRight') showNext();
+              if (e.key === 'ArrowLeft') showPrev();
+            });
+          })();
+        </script>
+</div>
+</section>
+</div>
+<section id="register" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center; display: none;">Register</h4>
+<h4 style="text-align: center;" class="pt-4">Celebrate God’s Work. Honor Service. Be Inspired.</h4>
+<p style="text-align: center;">Join us for Commissioning Weekend as we celebrate God’s call on the lives of new leaders in The Salvation Army. Together, we’ll honor faithful service, welcome newly commissioned officers, and recognize the volunteers and congregations whose support has made this journey possible. Experience vibrant worship, uplifting messages, and meaningful connection—celebrating faith, shared life, and the joy of serving God in community.</p>
+<p style="text-align: center;"><strong>Location</strong>: Atlanta Temple, <a href="https://maps.app.goo.gl/mcJYvwAYsiAVLy2M8" target="_blank" rel="noopener">2090 N. Druid Hills Rd. N.E., Brookhaven, GA, 30329</a></p>
+<p style="text-align: center;"><strong>Date</strong>: June 5 – June 7, 2026</p>
+<p style="text-align: center;">✅ Reserve your seat today!</p>
+<p style="text-align: center;"><a href="https://salarmy.us/registration-uss-commissioning-2026" target="_blank" class="btn btn-lg btn-primary mt-3 mb-5" rel="noopener">Register Here</a></p>
+</div>
+</div>
+</section>
+<section id="schedule" class="tab-section">
+<div class="container-schedule middle-column-schedule" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Main-Graphics---Red-and-White-Ribbon-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center;">Event Schedule</h4>
+<p style="text-align: center;">Join us for a meaningful weekend of shared moments, renewed purpose, and celebration!</p>
+<!-- ...existing code for accordion schedule... -->
+<div class="accordion" id="scheduleAccordion"><!-- Friday -->
+<div class="accordion-item">
+<h2 class="accordion-header" id="headingFriday"><button aria-controls="collapseFriday" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseFriday" data-bs-toggle="collapse" type="button"> Friday, June 5 </button></h2>
+<div aria-labelledby="headingFriday" class="accordion-collapse collapse" data-bs-parent="#scheduleAccordion" id="collapseFriday">
+<div class="accordion-body">
+<p><strong>8:30am – 6:30pm</strong> Trade Store Open @ THQ</p>
+<p><strong>10:00am – 12:00pm</strong> Commencement Service @ Atlanta Temple</p>
+<p><strong>12:00pm – 1:30pm</strong> Silver Star Luncheon @ THQ Magnolia Room (<em>By Invitation only</em>)</p>
+<p><strong>7:00pm – 8:30pm</strong> Main Session @ Atlanta Temple</p>
+<p><strong>7:00pm – 8:30pm</strong> Youth Conference Main Session @ THQ Conference Center (<em>Must be pre-registered</em>)</p>
+<p><strong>8:30pm – 10:30pm</strong> Territorial Priority Party @ Atlanta Temple</p>
+<p><strong>*After evening session</strong> Trade Open @ Atlanta Temple</p>
+<p><strong>*Registration/Event Check-in Times @ Atlanta Temple:</strong></p>
+<ul>
+<li>8:45am – 10:00am</li>
+<li>11:30am – 12:30pm</li>
+<li>5:00pm – 7:30pm</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Saturday -->
+<div class="accordion-item">
+<h2 class="accordion-header" id="headingSaturday"><button aria-controls="collapseSaturday" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseSaturday" data-bs-toggle="collapse" type="button"> Saturday, June 6 </button></h2>
+<div aria-labelledby="headingSaturday" class="accordion-collapse collapse" data-bs-parent="#scheduleAccordion" id="collapseSaturday">
+<div class="accordion-body">
+<p><strong>10:00am – 12:00pm</strong> Main Session @ Atlanta Temple</p>
+<p><strong>10:00am – 12:00pm</strong> Youth Conference Main Session @ THQ Conference Center (<em>Must be pre-registered</em>)</p>
+<p><strong>12:00pm – 1:30pm</strong> Lunch Provided for ALL attendees @ Atlanta Temple</p>
+<p><strong>12:00pm – 3:00pm</strong> Trade Store Open @ THQ</p>
+<p><strong>Afternoon</strong> Free with available optional activities</p>
+<p><strong>4:00pm – 6:00pm</strong> Long Service Recognition Dinner @ THQ Magnolia Room (<em>By Invitation only</em>)</p>
+<p><strong>7:00pm – 9:00pm</strong> Main Session @ Atlanta Temple</p>
+<p><strong>7:00pm – 9:00pm</strong> Youth Conference Main Session @ THQ Conference Center (<em>Must be pre-registered</em>)</p>
+<p><strong>*Registration/Event Check-in Time @ Atlanta Temple:</strong></p>
+<ul>
+<li>9:00am – 10:30am</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Sunday -->
+<div class="accordion-item">
+<h2 class="accordion-header" id="headingSunday"><button aria-controls="collapseSunday" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseSunday" data-bs-toggle="collapse" type="button"> Sunday, June 7 </button></h2>
+<div aria-labelledby="headingSunday" class="accordion-collapse collapse" data-bs-parent="#scheduleAccordion" id="collapseSunday">
+<div class="accordion-body">
+<p><strong>9:30am – 12:00pm</strong> Commissioning &amp; Ordination Service</p>
+<p><strong>Keepers of the Covenant Session</strong></p>
+</div>
+</div>
+</div>
+</div>
+<p style="text-align: center;">Download the schedule and share with friends to make sure no one misses out!</p>
+<p style="text-align: center;"><a href="https://salarmy.us/Schedule-1-Commissioning-Weekend-USS-2026" target="_blank" class="btn btn-lg btn-secondary my-3" rel="noopener">Download Schedule</a></p>
+</div>
+</section>
+<section id="guests" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center;">Special Guests</h4>
+<div class="guests-grid"><!-- Captain Shinyoung Kang -->
+<div class="guest-card"><img src="https://8hxvw8tw.media.zestyio.com/Shinyoung-Kang-Square.jpg" alt="Captain Shinyoung Kang" class="guest-photo">
+<div class="guest-info">
+<h5>Captain Shinyoung Kang</h5>
+<p>Captain Shinyoung Kang is a dedicated Salvation Army officer of <a href="https://salvationarmyhouston.org/houston/international" target="_blank" rel="noopener">Houston International Corps</a>. She is known for her passionate leadership and commitment to community service. She has served in various capacities, inspiring others through her faith, compassion, and innovative ministry. Her work has impacted many lives, and she continues to be a role model in her field.</p>
+<button class="btn btn-outline-primary mt-2 view-more-btn" data-guest="kang">View More</button></div>
+</div>
+<!-- Matt Ayars -->
+<div class="guest-card"><img src="https://8hxvw8tw.media.zestyio.com/Matt-Ayars-Headshot-Square.jpeg" alt="Matt Ayars" class="guest-photo">
+<div class="guest-info">
+<h5>Matt Ayars</h5>
+<p>Matt Ayars is the Lead Pastor of <a href="https://wellspringms.church" target="_blank" rel="noopener">Wellspring Church</a>. He previously served as President of Wesley Biblical Seminary and Emmaus University of Haiti, and is the author of several books. Matt earned a BA from Asbury University, an MA in Biblical Literature from Wesley Biblical Seminary, and a PhD in Old Testament Studies from the University of Chester.</p>
+<button class="btn btn-outline-primary mt-2 view-more-btn" data-guest="ayers">View More</button></div>
+</div>
+<!-- Walter Kim -->
+<div class="guest-card"><img src="https://8hxvw8tw.media.zestyio.com/WalterKim-Headshots-15.JPG" alt="Walter Kim" class="guest-photo">
+<div class="guest-info">
+<h5>Walter Kim</h5>
+<p>Walter Kim is President of the <a href="http://nae.org/" target="_blank" rel="noopener">National Association of Evangelicals</a>. He earned his PhD at Harvard, was a chaplain at Yale, and has served in diverse pastoral ministries. He is on the board of World Relief, Christianity Today, and The Salvation Army, USA. He is often sought out for his theological and cultural commentary on issues facing the church and society.</p>
+<button class="btn btn-outline-primary mt-2 view-more-btn" data-guest="kim">View More</button></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Guest Modals -->
+<div id="guest-modal" class="modal fade" aria-hidden="true" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="guest-modal-title"></h5>
+<button id="guest-modal-close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+<div class="modal-body" id="guest-modal-body"></div>
+</div>
+</div>
+</div>
+<!-- Modal backdrop for fallback mode -->
+<div id="guest-modal-backdrop" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(33,37,41,0.5); z-index: 1040;"></div>
+</section>
+<section id="cadets" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center; display: none;">Cadets Session</h4>
+<div class="container-champion">
+<div class="middle-column-champion"><!-- Gallery Wrapper --> <!--<h2 style="text-align: center;">Champions of the Mission</h2>-->
+<p><img src="https://8hxvw8tw.media.zestyio.com/The-Salvation-Army-Champions-of-the-Mission-Logo.svg?width=300" data-id="3-138cc7da-3cpv3d" title="The Salvation Army Champions of the Mission Logo" alt="The-Salvation-Army-Champions-of-the-Mission-Logo.svg" width="300" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: -30px;" height="300"></p>
+<blockquote>
+<p style="text-align: center;"><em>The <span class="small-caps">Lord</span> will march out like a champion, like a warrior he will stir up his zeal; with a shout he will raise the battle cry and will triumph over his enemies. - Isaiah 42:13</em></p>
+</blockquote>
+<!-- Expand All / Collapse All Button -->
+<div style="text-align: center; margin: 1rem 0;"><button id="toggleAllBios" class="btn btn-light" style="padding: 0.5rem 1rem; font-size: 1rem;"> Expand All </button></div>
+<!--<p style="text-align: center;"><sub>Click a photo for more information.</sub></p>-->
+<div class="scroll-hint" style="text-align: center;">← Swipe to view more →</div>
+<div class="comm25-gallery-wrapper">
+<div class="comm25-gallery-section" aria-label="Commissioning Gallery">
+<div class="comm25-card"><input type="checkbox" id="toggle-1" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-1" aria-controls="details-1" aria-expanded="false" aria-label="Toggle details for Cadet Kathy Bryant" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Kathy Bryant"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details comm25-bio-content h-80" id="details-1" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Georgetown, TX</p>
+<p><strong>Appointment:</strong> Corps Officer - Gaffney, SC</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-2" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-2" aria-controls="details-2" aria-expanded="false" aria-label="Toggle details for Cadet Chelsea Carter" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Chelsea Carter"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details h-80" id="details-2" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Atlanta International, GA</p>
+<p><strong>Appointment:</strong> Assistant Corps Officer - Savannah, GA</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-3" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-3" aria-controls="details-3" aria-expanded="false" aria-label="Toggle details for Cadet Lorine Desardouin" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Lorine Desardouin"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details h-80" id="details-3" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Memphis Purdue, TN</p>
+<p><strong>Appointment:</strong> Corps Officer - Nashville (Citadel), TN</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-4" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-4" aria-controls="details-4" aria-expanded="false" aria-label="Toggle details for Cadet Danielle Farrington" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Danielle Farrington"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details h-80" id="details-4" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Atlanta International, GA</p>
+<p><strong>Appointment:</strong> Corps Officer - Danville, VA</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-5" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-5" aria-controls="details-5" aria-expanded="false" aria-label="Toggle details for Cadet Patrick Lewandowski" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Patrick Lewandowski"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details h-80" id="details-5" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Memphis Kroc, TN</p>
+<p><strong>Appointment:</strong> Corps Officer - Clarksville, TN</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-6" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-6" aria-controls="details-6" aria-expanded="false" aria-label="Toggle details for Cadet Richard Li" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Richard Li"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-6" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Richmond, VA</p>
+<p><strong>Appointment:</strong> Corps Officer - Danville, VA</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 7 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-7" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-7" aria-controls="details-7" aria-expanded="false" aria-label="Toggle details for Cadet Christopher Roman" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Christopher Roman"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-7" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Waco, TX</p>
+<p><strong>Appointment:</strong> Corps Officer - Houston (Temple), TX</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 8 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-8" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-8" aria-controls="details-8" aria-expanded="false" aria-label="Toggle details for Cadet Brian Shea" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Brian Shea"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-8" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> San Antonio Center of Hope, TX</p>
+<p><strong>Appointment:</strong> Corps Officer - Sherman, TX</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 9 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-9" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-9" aria-controls="details-9" aria-expanded="false" aria-label="Toggle details for Cadet Donna Shea" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Donna Shea"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-9" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> San Antonio Center of Hope, TX</p>
+<p><strong>Appointment:</strong> Corps Officer - Sherman, TX</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 10 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-10" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-10" aria-controls="details-10" aria-expanded="false" aria-label="Toggle details for Cadet Ryan Thorson" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Ryan Thorson"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-10" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Norman, OK</p>
+<p><strong>Appointment:</strong> Corps Officer - Muskogee, OK</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 11 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-11" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-11" aria-controls="details-11" aria-expanded="false" aria-label="Toggle details for Cadet Sarresa Thorson" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Sarresa Thorson"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-11" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Norman, OK</p>
+<p><strong>Appointment:</strong> Corps Officer - Muskogee, OK</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 12 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-12" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-12" aria-controls="details-12" aria-expanded="false" aria-label="Toggle details for Cadet Jeremy Warf" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Jeremy Warf"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-12" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Louisville Sanders Mission, KY</p>
+<p><strong>Appointment:</strong> Corps Officer - Arlington, TX</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 13 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-13" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-13" aria-controls="details-13" aria-expanded="false" aria-label="Toggle details for Cadet Jillian Warf" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Jillian Warf"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-13" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Louisville Sanders Mission, KY</p>
+<p><strong>Appointment:</strong> Corps Officer - Arlington, TX</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 14 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-14" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-14" aria-controls="details-14" aria-expanded="false" aria-label="Toggle details for Cadet Jillian Warf" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Jillian Warf"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-14" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Louisville Sanders Mission, KY</p>
+<p><strong>Appointment:</strong> Corps Officer - Arlington, TX</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 15 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-15" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-15" aria-controls="details-15" aria-expanded="false" aria-label="Toggle details for Cadet Jillian Warf" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Jillian Warf"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-15" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Louisville Sanders Mission, KY</p>
+<p><strong>Appointment:</strong> Corps Officer - Arlington, TX</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 16 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-16" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-16" aria-controls="details-16" aria-expanded="false" aria-label="Toggle details for Cadet Jillian Warf" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Jillian Warf"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-16" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Louisville Sanders Mission, KY</p>
+<p><strong>Appointment:</strong> Corps Officer - Arlington, TX</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 17 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-17" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-17" aria-controls="details-17" aria-expanded="false" aria-label="Toggle details for Cadet Jillian Warf" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Jillian Warf"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-17" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Louisville Sanders Mission, KY</p>
+<p><strong>Appointment:</strong> Corps Officer - Arlington, TX</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 18 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-18" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-18" aria-controls="details-18" aria-expanded="false" aria-label="Toggle details for Cadet Jillian Warf" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Jillian Warf"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-18" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Louisville Sanders Mission, KY</p>
+<p><strong>Appointment:</strong> Corps Officer - Arlington, TX</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 19 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-19" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-19" aria-controls="details-19" aria-expanded="false" aria-label="Toggle details for Cadet Jillian Warf" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Jillian Warf"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-19" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Louisville Sanders Mission, KY</p>
+<p><strong>Appointment:</strong> Corps Officer - Arlington, TX</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 20 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-20" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-20" aria-controls="details-20" aria-expanded="false" aria-label="Toggle details for Cadet Jillian Warf" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Jillian Warf"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-20" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Louisville Sanders Mission, KY</p>
+<p><strong>Appointment:</strong> Corps Officer - Arlington, TX</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 21 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-21" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-21" aria-controls="details-21" aria-expanded="false" aria-label="Toggle details for Cadet Jillian Warf" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Jillian Warf"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-21" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Louisville Sanders Mission, KY</p>
+<p><strong>Appointment:</strong> Corps Officer - Arlington, TX</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+<!-- Card 22 -->
+<div class="comm25-card"><input type="checkbox" id="toggle-22" class="comm25-toggle"> <label class="comm25-image-wrapper" for="toggle-22" aria-controls="details-22" aria-expanded="false" aria-label="Toggle details for Cadet Jillian Warf" tabindex="0"> <img src="https://8hxvw8tw.media.zestyio.com/USS-Cadet-Champions-1.jpg?crop=faces,entropy&amp;fit=crop&amp;w=600&amp;h=800" alt="Cadet Jillian Warf"> </label>
+<div class="comm25-card-body">
+<div class="comm25-title">Cadet<br>Jamie Doe</div>
+<div class="comm25-details" id="details-22" role="region" aria-live="polite">
+<p><strong>Home Corps:</strong> Louisville Sanders Mission, KY</p>
+<p><strong>Appointment:</strong> Corps Officer - Arlington, TX</p>
+<!--<p><strong>Scripture:</strong> Jeremiah 29:11</p>--></div>
+</div>
+</div>
+</div>
+</div>
+<p style="text-align: center;"><sub>Appointments effective Monday, June 22, 2026</sub></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="youngadults" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center;">Young Adults</h4>
+<!-- <div class="youtube-video-container mb-4"><iframe width="560" height="315"
+            src="https://www.youtube.com/embed/z3cXNUCrgaU?si=4pd830L4g0x5S5vN" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="allowfullscreen"></iframe></div>
+            -->
+<p style="text-align: center;"><strong>This Is Your Moment.</strong></p>
+<p style="text-align: center;">At <strong>Commissioning 2026</strong>, you’re invited to be part of a powerful weekend of worship, connection, and purpose—with <strong>Saturday featuring special experiences for young adults</strong>. From community outreach and shared meals to passionate worship and send-offs for this year’s Summer Service Corps teams, it’s a day that puts your generation in the spotlight.</p>
+<p style="text-align: center;">While the whole weekend brings us together, <strong>Saturday is a time to connect with others in your season of life</strong>, ask big questions, and lean into what God might be saying to you right now.</p>
+<p style="text-align: center;"><strong>Pastors, mentors, leaders—encourage the young adults in your circles to show up.</strong><br>This isn’t a side track or a youth event. It’s a meaningful invitation to step fully into the life of the Church and the mission we share.</p>
+<p style="text-align: center;">Don’t sit this one out.<br><strong>Come be part of something bigger at Commissioning 2026.</strong></p>
+<p style="text-align: center;"><a href="https://salarmy.us/registration-uss-commissioning-2026" target="_blank" rel="noopener" class="btn btn-lg btn-light my-3">Register Now</a></p>
+</div>
+</div>
+</section>
+<section id="youth" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p><img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/a519d42a-bb90-40df-8e12-f7c3d1b23a5d_Youth-Conference-at-Commissioning-2025-Logo.png" style="width: 314px; display: none; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center;">Youth Conference</h4>
+<p style="text-align: center;">At Commissioning 2026, the Youth Conference offers an exciting, Christ-centered experience tailored for children ages 5–12, with loving and secure childcare available for little ones aged 6 months to 4 years. While you engage in powerful worship and teaching, your kids will be growing in their own faith through age-appropriate activities, dynamic Bible lessons, music, and new friendships in a safe, nurturing environment.</p>
+<p style="text-align: center;"><strong>Parents and pastors</strong>—this is more than childcare. It’s an investment in the next generation of disciples.</p>
+<p style="text-align: center;"><span style="font-size: 16px;"><strong>Spots are limited!</strong> Pre-registration and completed paperwork are <strong>REQUIRED </strong>by <strong>Friday, May 29th</strong>—no exceptions.</span></p>
+<p style="text-align: center;">Don’t miss this opportunity for your children to be part of something unforgettable.<br><!--Register now and let their faith journey grow alongside yours at Commissioning 2026!--></p>
+<!-- <p style="text-align: center;"><a href="https://salarmy.us/registration-uss-commissioning-2026" target="" class="btn btn-lg btn-light my-3">Sign Up Today</a></p> --></div>
+</div>
+</section>
+<section id="lodging" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center;">Lodging Information</h4>
+<p style="text-align: center;">All General Attendees are welcome to book their own hotel rooms at a discounted rate at the following hotel. If you are booking for someone else, please ensure the reservation(s) are made in the name of the individual(s) staying in the room.<br><br><span style="font-size: 18px;"><strong>Marriott Courtyard</strong><br>1236 Executive Park Dr NE<br>Atlanta, GA 30329</span><br><br>To book, please click the "lodging details" button OR feel free to call the hotel directly at 888-236-2427;<br>and use the group name "Salvation Army Southern Territorial Headquarters Commissioning Event" to receive our special group rate!</p>
+<p style="text-align: center;"><strong>GROUP RATE DEADLINE:</strong><br>Thursday, June 4, 2026</p>
+<p style="text-align: center;">Please note that our event's hotel room block booking period may fill quickly. We recommend booking early to secure your accommodations. We look forward to welcoming you to Commissioning Weekend.</p>
+<p style="text-align: center;"><a href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1727367293186&amp;key=GRP&amp;guestreslink2=true" target="_blank" class="btn btn-lg btn-light my-3" rel="noopener">Lodging Details</a></p>
+</div>
+</div>
+</section>
+<section id="guides" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center;">Program Guides</h4>
+<p>Details coming soon!</p>
+</div>
+</div>
+</section>
+<section id="watch" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center; display: none;">Watch Live</h4>
+<!-- Live Video Gallery -->
+<div>
+<div>
+<section class="comm25-video-gallery container py-5">
+<h3 class="text-center mb-4">Watch Live</h3>
+<!-- Featured Video -->
+<div class="comm25-featured-video mb-4"><iframe id="comm25-main-video" src="https://www.youtube.com/embed/J6rzTklLD6o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen="allowfullscreen"></iframe></div>
+<!-- Scroll hint -->
+<div class="scroll-hint d-sm-none">← Scroll to see all recordings →</div>
+<!-- Scrollable Thumbnail Row -->
+<div>
+<div class="comm25-thumbnails-wrapper">
+<div class="comm25-thumbnails-section" aria-label="Commissioning Recordings Gallery">
+<div class="comm25-thumbnail" data-video-id="J6rzTklLD6o"><img src="https://img.youtube.com/vi/J6rzTklLD6o/hqdefault.jpg" alt="Recording 1"></div>
+<div class="comm25-thumbnail" data-video-id="J6rzTklLD6o"><img src="https://img.youtube.com/vi/J6rzTklLD6o/hqdefault.jpg" alt="Recording 2"></div>
+<div class="comm25-thumbnail" data-video-id="J6rzTklLD6o"><img src="https://img.youtube.com/vi/J6rzTklLD6o/hqdefault.jpg" alt="Recording 3"></div>
+<div class="comm25-thumbnail" data-video-id="J6rzTklLD6o"><img src="https://img.youtube.com/vi/J6rzTklLD6o/hqdefault.jpg" alt="Recording 4"></div>
+<div class="comm25-thumbnail" data-video-id="J6rzTklLD6o"><img src="https://img.youtube.com/vi/J6rzTklLD6o/hqdefault.jpg" alt="Recording 5"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="trade" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center; display: none;">Trade Store</h4>
+<div style="text-align: center; margin-bottom: 1.5rem;"><img src="https://8hxvw8tw.media.zestyio.com/Visit-Trade-South-Commissioning-Weekend.png" alt="Trade Store Hours: Tuesday, Wednesday, and Thursday from 9:00am to 4:00pm; Friday from 8:30am to 6:30pm" style="width: 85%; border-radius: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.10);"></div>
+<div style="text-align: center; margin-bottom: 2rem;">
+<h5 style="font-weight: bold; margin-bottom: 0.5rem;">Shop Online &amp; Pick Up In Store</h5>
+<p style="max-width: 500px; margin: 0 auto 1rem auto; font-size: 1.1rem;">Order your event essentials, gifts, and uniforms online at Trade South and pick up your order at the event! Skip the line and guarantee your items are ready for you.</p>
+<a href="https://www.mytradesouth.com/" target="_blank" rel="noopener" class="btn btn-secondary btn-lg" style="padding-left: 2.5em; padding-right: 2.5em;">Shop Trade South Online</a></div>
+</div>
+</div>
+</section>
+<section id="share" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center;">Spread the Word</h4>
+<p style="text-align: center;">Help us invite others to this incredible event! Local community and church leaders play a vital role in sharing the excitement and encouraging attendance. We’ve made it easy for you to promote the event with ready-to-use promotional materials!<br><br><span style="font-size: 18px;"><strong>What’s Available?</strong></span><br>✔️ Event Flyer – Perfect for digital sharing or printing.<br>✔️ Announcement Slide – Use it during Sunday worship, Bible studies, or other gatherings.<span style="font-size: 18px;"></span></p>
+<p style="text-align: center;">Your support in spreading the word ensures that more people can experience this powerful time of worship, teaching, and fellowship. Thank you for partnering with us!</p>
+<p style="text-align: center;"><strong>Downloadable Resources</strong></p>
+<p style="text-align: center;"><a href="https://www.ministrytoolkit.org/assets/share/asset/ndwzhqw29l" target="_blank" class="btn btn-lg btn-light my-3 me-1" rel="noopener">Event Flyer</a><a href="https://www.ministrytoolkit.org/assets/share/asset/1pvj0wxtci" target="_blank" class="btn btn-lg btn-light my-3" rel="noopener">Announcement Slide</a></p>
+</div>
+</div>
+</section>
+<section id="recordings" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<!-- Recordings Video Gallery (adapted from 2025 live streams) -->
+<div>
+<div>
+<section class="comm25-video-gallery container py-5">
+<h3 class="text-center mb-4">Watch 2025 Recordings</h3>
+<!-- Featured Video -->
+<div class="comm25-featured-video mb-4"><iframe id="comm25-main-video" src="https://www.youtube.com/embed/moZNO-vq2Nw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen="allowfullscreen"></iframe></div>
+<!-- Scroll hint -->
+<div class="scroll-hint d-sm-none">← Scroll to see all recordings →</div>
+<!-- Scrollable Thumbnail Row -->
+<div>
+<div class="comm25-thumbnails-wrapper">
+<div class="comm25-thumbnails-section" aria-label="Commissioning Recordings Gallery">
+<div class="comm25-thumbnail" data-video-id="moZNO-vq2Nw"><img src="https://img.youtube.com/vi/moZNO-vq2Nw/hqdefault.jpg" alt="Recording 1"></div>
+<div class="comm25-thumbnail" data-video-id="28Pm1UKCICo"><img src="https://img.youtube.com/vi/28Pm1UKCICo/hqdefault.jpg" alt="Recording 2"></div>
+<div class="comm25-thumbnail" data-video-id="u85trzV2aE0"><img src="https://img.youtube.com/vi/u85trzV2aE0/hqdefault.jpg" alt="Recording 3"></div>
+<div class="comm25-thumbnail" data-video-id="8fcOUaMZmTQ"><img src="https://img.youtube.com/vi/8fcOUaMZmTQ/hqdefault.jpg" alt="Recording 4"></div>
+<div class="comm25-thumbnail" data-video-id="IKW5ElYv-Ng"><img src="https://img.youtube.com/vi/IKW5ElYv-Ng/hqdefault.jpg" alt="Recording 5"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="southernspirit" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center; display: none;">The Southern Spirit</h4>
+<p><img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/d24e0afd-ea19-4878-8fd8-a2bd8d97f285_Header.png" alt="The Southern Spirit" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 25px; width: 350px;"></p>
+<div class="container px-0">
+<div class="row g-3 news-archive-list justify-content-center" id="southernspirit-articles-grid"><!-- 2026 Southern Spirit articles go here -->
+<div class="card me-2 mb-2 rounded-5 overflow-hidden d-flex align-items-stretch" style="width: 32%; min-width: 320px; max-width: 420px; height: 490px;">
+<div class="card-img-top card-img-top__large bg-secondary bg-opacity-25 position-relative overflow-hidden" style="min-height: 180px;">
+<div class="position-absolute bottom-4 start-0 d-flex align-items-center justify-content-between w-100 px-4 text-light display-4 z-3" style="font-size: 1rem;"><span class="d-block">May 2026</span> <span class="d-block">By Southern Spirit Staff</span></div>
+<div class="ratio ratio-16x9 h-100"><img class="img-fluid" src="https://8hxvw8tw.media.zestyio.com/9b0690de-39d9-4f11-8b80-b18d5d0a1e12_COMM26Main-Graphic.jpeg" alt="Celebrate New Officers and Love Like Jesus at Commissioning 2026" style="object-fit: cover; margin-left: 0; margin-right: 0;"></div>
+</div>
+<div class="card-body px-4 pt-4">
+<h5 class="card-title display-2 text-start text-dark-100 fw-normal">Celebrate New Officers and Love Like Jesus at Commissioning 2026</h5>
+<div class="card-text text-dark display-3 text-start"><!-- A look ahead at the theme, guests, and highlights for this year’s Commissioning Weekend in Atlanta. --> "Registration for Commissioning 2026 is now open!"</div>
+</div>
+<div class="card-footer bg-transparent border-0 px-4 pb-4"><a href="https://www.southernspiritonline.org/commissioning-2026-preview/" class="btn btn-secondary text-white w-100" target="_blank" rel="noopener">Read Article</a></div>
+</div>
+<!-- Add more 2026 articles below as they become available, using the same card structure --></div>
+</div>
+</div>
+</div>
+</section>
+<section id="upcoming" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center;">Upcoming Events</h4>
+<div class="module events" id="events" data-component-type="events" data-component-index="2">
+<div class="d-flex px-3 mb-8">
+<h4 class="mb-6 fw-normal">Upcoming Events</h4>
+</div>
+<div class="events-swiper overflow-hidden gap-4 events-section swiper-initialized swiper-horizontal swiper-backface-hidden">
+<div class="swiper-wrapper events-swipper-wrapper flex-row" id="swiper-wrapper-3681f7768d277674" aria-live="polite" style="transition-duration: 0ms; transition-delay: 0ms; transform: translate3d(0px, 0px, 0px); width: 1470px;">
+<div id="events-loader" class="justify-content-center align-items-center w-100 d-none">
+<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
+</div>
+<div class="card event-card swiper-slide h-100 rounded-5 p-0 mb-sm-5 bg-area swiper-slide-active" role="group" aria-label="1 / 3" style="width: 220.5px; margin-right: 30px;">
+<div class="card-img-top bg-secondary bg-opacity-25 position-relative overflow-hidden"><img class="w-100 h-100" src="https://8hxvw8tw.media.zestyio.com/COMM26Main-Graphic.png" alt="Commissioning Weekend 2026"></div>
+<div class="card-body px-6 pt-6">
+<h5 class="card-title display-2 text-start text-dark-100 fw-normal">Commissioning Weekend 2026</h5>
+<p class="card-text text-dark-50 display-3 text-start event-date">June 5, 2026 10:00 AM - June 7, 2026 12:30 PM</p>
+<p class="card-text text-dark-50 display-3 text-start">2090 N. Druid Hills Rd. N.E., Brookhaven, Georgia</p>
+</div>
+<div class="card-footer w-100 bg-transparent border-0 px-6 pb-6"><a href="https://www.salvationarmyusa.org/events/commissioning-weekend-2026/" class="btn btn-secondary text-white w-100" data-location-type="body:news-section" data-function-type="navigation" data-format-type="button" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'cta_click')"> View Event </a></div>
+</div>
+<div class="card event-card swiper-slide h-100 rounded-5 p-0 mb-sm-5 bg-area swiper-slide-next" role="group" aria-label="2 / 3" style="width: 220.5px; margin-right: 30px;">
+<div class="card-img-top bg-secondary bg-opacity-25 position-relative overflow-hidden"><img class="w-100 h-100" src="https://8hxvw8tw.media.zestyio.com/Bible-Conference2026.png" alt="Bible Conference 2026"></div>
+<div class="card-body px-6 pt-6">
+<h5 class="card-title display-2 text-start text-dark-100 fw-normal">Bible Conference 2026</h5>
+<p class="card-text text-dark-50 display-3 text-start event-date">August 9, 2026 1:30 PM - August 15, 2026 9:00 PM</p>
+<p class="card-text text-dark-50 display-3 text-start">91 North Lakeshore Drive, Lake Junaluska, North Carolina</p>
+</div>
+<div class="card-footer w-100 bg-transparent border-0 px-6 pb-6"><a href="https://www.salvationarmyusa.org/events/bible-conference-2026/" class="btn btn-secondary text-white w-100" data-location-type="body:news-section" data-function-type="navigation" data-format-type="button" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'cta_click')"> View Event </a></div>
+</div>
+<div class="card event-card swiper-slide h-100 rounded-5 p-0 mb-sm-5 bg-area" role="group" aria-label="3 / 3" style="width: 220.5px; margin-right: 30px;">
+<div class="card-img-top bg-secondary bg-opacity-25 position-relative overflow-hidden"><img class="w-100 h-100" src="https://8hxvw8tw.media.zestyio.com/Red_All-For-Jesus_Centennial-Celebration_Graphic.png" alt="Centennial Celebration"></div>
+<div class="card-body px-6 pt-6">
+<h5 class="card-title display-2 text-start text-dark-100 fw-normal">Centennial Celebration</h5>
+<p class="card-text text-dark-50 display-3 text-start event-date">June 4, 2027 10:00 AM - June 6, 2027 1:00 PM</p>
+<p class="card-text text-dark-50 display-3 text-start">Georgia World Congress Center 285 Andrew Young International Blvd NW, Atlanta, Georgia</p>
+</div>
+<div class="card-footer w-100 bg-transparent border-0 px-6 pb-6"><a href="https://www.salvationarmyusa.org/events/centennial-celebration/" class="btn btn-secondary text-white w-100" data-location-type="body:news-section" data-function-type="navigation" data-format-type="button" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'cta_click')"> View Event </a></div>
+</div>
+</div>
+<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+<div class="events-swiper__nav d-flex w-100 justify-content-end align-items-center mt-5">
+<div class="swiper-button-prev position-relative bg-light bg-opacity-60 me-4 swiper-button-disabled" data-location-type="body:events" data-function-type="other" data-format-type="icon-block" data-page-componenttype-type="events component" data-page-componentheading-type="null" data-page-componentsubheading-type="null" data-page-componentindex-type="null" onclick="LinkTrackingClickEvent(this,'view_content_click')" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-3681f7768d277674" aria-disabled="true" tabindex="-1"><i class="material-symbols-outlined text-dark-100">arrow_back</i></div>
+<div class="swiper-pagination events-pagination position-relative px-4 rounded-14 swiper-pagination-custom swiper-pagination-horizontal" data-location-type="body:events" data-function-type="other" data-format-type="icon-block" data-page-componenttype-type="events component" data-page-componentheading-type="null" data-page-componentsubheading-type="null" data-page-componentindex-type="null" onclick="LinkTrackingClickEvent(this,'view_content_click')"><span role="button" class="swiper-pagination-bullet-active swiper-pagination-bullet" data-index="1">1</span> <span role="button" class="clickable swiper-pagination-bullet" data-index="2">2</span></div>
+<div class="swiper-button-next bg-light position-relative bg-opacity-60 ms-4" data-location-type="body:events" data-function-type="other" data-format-type="icon-block" data-page-componenttype-type="events component" data-page-componentheading-type="null" data-page-componentsubheading-type="null" data-page-componentindex-type="null" onclick="LinkTrackingClickEvent(this,'view_content_click')" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-3681f7768d277674" aria-disabled="false" tabindex="0"><i class="material-symbols-outlined text-dark-100">arrow_forward</i></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="announcements" class="tab-section">
+<div class="container-registration rounded mt-2" style="background-image: url('https://8hxvw8tw.media.zestyio.com/COMM26-Red-White-Opaque-Background.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="middle-column-registration">
+<p><img src="https://8hxvw8tw.media.zestyio.com/Loving-Like-Jesus-Commissioning-2026-Logo.png?width=327" alt="Loving-Like-Jesus-Commissioning-2026-Logo.png" width="327" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h4 style="text-align: center;">Announcements</h4>
+<!-- Announcement Slides Carousel -->
+<article class="my-3" id="carousel">
+<div>
+<div class="bd-example-snippet bd-code-snippet">
+<div class="bd-example m-0 border-0">
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+<div class="carousel-control-container"><button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev"> <span class="material-symbols-outlined">arrow_back</span> <span class="visually-hidden">Previous</span> </button>
+<div class="carousel-indicators"></div>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next"> <span class="material-symbols-outlined">arrow_forward</span> <span class="visually-hidden">Next</span> </button></div>
+<div class="carousel-inner rounded overflow-hidden">
+<div class="carousel-item active"><a href="https://salarmy.us/Soundcast-Heartbeat-QR"> <img src="https://8hxvw8tw.media.zestyio.com/Soundcast---Heartbeat-Ad-Version-1.jpg" class="d-block w-100" alt="Soundcast Heartbeat Podcast"> </a></div>
+<div class="carousel-item"><a href="https://salarmy.us/4kRMknt"> <img src="https://8hxvw8tw.media.zestyio.com/Bible-Conference-Announcement-2025.jpg" class="d-block w-100" alt="Bible Conference 2025"> </a></div>
+<div class="carousel-item"><a href="https://salarmy.us/EQUIP-Online-Training-USS"> <img src="https://8hxvw8tw.media.zestyio.com/Youth---Equip-Online-Commissioning-Slide.jpg" class="d-block w-100" alt="EQUIP Online Youth Worker Training"> </a></div>
+<div class="carousel-item"><img src="https://8hxvw8tw.media.zestyio.com/Youth-EQUIP-2026-Slide.jpg" class="d-block w-100" alt="Equip Youth Workers Conference 2026"></div>
+<div class="carousel-item"><a href="https://salarmy.us/Social-Stay-Connected-USS"> <img src="https://8hxvw8tw.media.zestyio.com/social-media-commissioning-screens--1-.png" class="d-block w-100" alt="Stay Connected"> </a></div>
+<div class="carousel-item"><a href="https://salarmy.us/kroc-south"> <img src="https://8hxvw8tw.media.zestyio.com/Kroc1.png" class="d-block w-100" alt="Kroc South"> </a></div>
+<div class="carousel-item"><img src="https://8hxvw8tw.media.zestyio.com/Ministry-to-Women---Open-Air-Podcast-Promotional-Slide.png" class="d-block w-100" alt="Open Air Podcast"></div>
+<div class="carousel-item"><a href="https://salarmy.us/feet-on-the-street-outreach-resource-uss"> <img src="https://8hxvw8tw.media.zestyio.com/MECM.png" class="d-block w-100" alt="Evangelistic Outreach Ministry Resource"> </a></div>
+<div class="carousel-item"><a href="https://salarmy.us/Ministry-to-Women-Linktree"> <img src="https://8hxvw8tw.media.zestyio.com/Ministry-to-Women---LinkTree-Promotional-Slides.png" class="d-block w-100" alt="Ministry to Women Linktree"> </a></div>
+<div class="carousel-item"><a href="https://salarmy.us/eds-uss"> <img src="https://8hxvw8tw.media.zestyio.com/EDS.png" class="d-block w-100" alt="The Salvation Army USA Emergency Disaster Services"> </a></div>
+<div class="carousel-item"><a href="https://salarmy.us/ministry-toolkit-uss"> <img src="https://8hxvw8tw.media.zestyio.com/MTK-Commissioning-25-Slide_2-2.png" class="d-block w-100" alt="Canva and Ministry Toolkit"> </a></div>
+<div class="carousel-item"><a href="https://salarmy.us/words-of-life-soundcast-podcast-qr"> <img src="https://8hxvw8tw.media.zestyio.com/Soundcast---Words-of-Life-Comm-Slide.jpg" class="d-block w-100" alt="Words of Life Soundcast Podcast"> </a></div>
+<div class="carousel-item"><img src="https://8hxvw8tw.media.zestyio.com/COMM26_main-graphic.png" class="d-block w-100" alt="Commissioning Weekend 2026 - Loving like Jesus"></div>
+<!-- Add up to 10+ slides here... --></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Live Streams Javascript -->
+<p>
+<script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const thumbnails = document.querySelectorAll(".comm25-thumbnail");
+        const mainVideo = document.getElementById("comm25-main-video");
+
+        thumbnails.forEach((thumb) => {
+          thumb.addEventListener("click", () => {
+            const videoId = thumb.getAttribute("data-video-id");
+            mainVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+            // Update active thumbnail
+            thumbnails.forEach((t) => t.classList.remove("comm25-active"));
+            thumb.classList.add("comm25-active");
+          });
+        });
+
+        // Set the first as active initially
+        if (thumbnails[0]) {
+          thumbnails[0].classList.add("comm25-active");
+        }
+      });
+    </script>
+</p>
+<!-- Carousel Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Generate indicators dynamically
+      const carousel = document.querySelector('#carouselExampleCaptions');
+      if (!carousel) return;
+      const indicators = carousel.querySelector('.carousel-indicators');
+      const items = carousel.querySelectorAll('.carousel-inner .carousel-item');
+      if (!indicators || !items.length) return;
+      indicators.innerHTML = '';
+      items.forEach((_, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.setAttribute('data-bs-target', '#carouselExampleCaptions');
+        button.setAttribute('data-bs-slide-to', index);
+        button.setAttribute('aria-label', `Slide ${index + 1}`);
+        if (index === 0) {
+          button.classList.add('active');
+          button.setAttribute('aria-current', 'true');
+        }
+        indicators.appendChild(button);
+      });
+    });
+  </script>
+<!-- End of Carousel Script -->
+<p></p>
+<!-- Cadet Session Expand All Button Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggleButton = document.getElementById("toggleAllBios");
+      const checkboxes = document.querySelectorAll(".comm25-toggle");
+      let expanded = false;
+
+      toggleButton.addEventListener("click", function () {
+        expanded = !expanded;
+
+        checkboxes.forEach((cb) => {
+          cb.checked = expanded;
+          // Also manually update aria-expanded for accessibility
+          const label = document.querySelector(`label[for="${cb.id}"]`);
+          if (label) {
+            label.setAttribute("aria-expanded", expanded.toString());
+          }
+        });
+
+        toggleButton.textContent = expanded ? "Collapse All" : "Expand All";
+      });
+    });
+  </script>
+<!-- End of Cadet Session Script -->
+</div>

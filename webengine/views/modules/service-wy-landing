@@ -1,0 +1,18 @@
+<style>
+ 
+</style>
+
+{{if {this.featured_article} }}
+<div id="service-content-landing" class="position-relative bg-light rounded-5 mb-16 p-8 row mx-0">
+  <div class="col-lg-4 col-sm-12 mb-sm-8">
+    <h4>
+      {{ this.name }}
+      {{services.filter({this.featured_article}).title}}
+      Information
+    </h4>
+  </div>
+  <div class="col-lg-8 col-sm-12 services-body">
+    {{ services.filter({this.featured_article}).service_body }}
+  </div>
+</div>
+{{/if}}

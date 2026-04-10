@@ -1,0 +1,8 @@
+<div className={styles.pvlRoot}>
+	<div>{{block('/-/block/fundraising_thermometer_block.html?variant=7-9ef595f0e1-9t2qzs')}}</div>
+	<div>{{block('/-/block/theater_space_block.html?variant=7-b2e9cac0d8-jn7qjm')}}</div>
+	<div>{{block('/-/block/general_accordion.html?variant=7-b2859ef087-j37ncj')}}</div>
+	<div>{{block('/-/block/annual_reports_blocks.html?variant=7-e8b5e49ab2-zlddpf')}}</div>
+	<div>{{block('/-/block/stories_carousel.html?variant=7-dac9d4dfaa-dchf03')}}</div>
+	<div>{{block('/-/block/mobile_desktop_videos.html?variant=7-f28dcbcafa-826zs3')}}</div>
+</div>

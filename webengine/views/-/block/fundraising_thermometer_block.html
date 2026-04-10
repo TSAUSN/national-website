@@ -1,0 +1,119 @@
+<style>
+    .thermometer-container {
+        margin: auto;
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+
+    .thermometer-bar-bg {
+        background-color: #ccc;
+        height: 18px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 10px 0;
+    }
+
+    .thermometer-bar {
+        height: 18px;
+        background-color: #ef3e42;
+    	 width: 0%;
+        transition: width 0.8s ease-in-out;
+    }
+
+    .thermometer-stats {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+    }
+
+	
+    .thermometer-stats .raisedDisplayContainer {
+        flex: 1;
+		
+        text-align: left;
+    }
+
+    .thermometer-stats .percentDisplayContainer {
+        flex: 1;
+        text-align: center;
+    }
+
+    .thermometer-stats .daysDisplayContainer {
+        flex: 1;
+        text-align: right;
+    }
+
+    .donate-btn {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 15px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 4px;
+    }
+
+    .donate-btn:hover {
+        background-color: darkred;
+    }
+</style>
+
+<div class="mb-18">
+    {{if {this.title} }}
+     <h1 class="fs-4 px-md-5 px-sm-0 mb-8">
+        {{ this.title }}
+      </h1>
+    {{/if}}
+    <div id="thermometer_block" class="thermometer-container bg-light p-8 rounded-5">
+        <h3 id="goalDisplay" class="ms-auto fw-normal text-end"></h3>
+        <div class="thermometer-bar-bg">
+            <div class="thermometer-bar" id="thermometerFill"></div>
+        </div>
+
+        <div class="thermometer-stats">
+            <div class="raisedDisplayContainer p-1">
+                <strong id="raisedDisplay"></strong><br>Raised
+            </div>
+            <div class="percentDisplayContainer p-1">
+                <strong id="percentDisplay"></strong><br>Funded
+            </div>
+            <div class="daysDisplayContainer p-1">
+                <strong id="daysDisplay"></strong><br>Days to Go
+            </div>
+        </div>
+
+        <a onclick="LinkTrackingClickEvent(this,'donate_money_click')" data-location-type="thermometer-block" data-function-type="other" data-format-type="button" href="{{this.donate_button_url}}" class="btn btn-primary btn-lg mt-8" target="_blank">
+            {{if {this.donate_button_text} }}
+            {{this.donate_button_text}}
+            {{else}}
+            Donate
+            {{/if}}
+        </a>
+    </div>
+</div>
+
+<script>
+    const goal = {{this.goal}};
+    const raised = {{this.raised}};
+    const campaignEndDate  = new Date("{{this.end_date.date(F j, Y)}}");
+
+    const percentFunded = Math.min((raised / goal) * 100, 100).toFixed(0);
+
+    const actualPercent = ((raised / goal) * 100).toFixed(0);
+
+    const barWidth = Math.min(actualPercent, 100);
+
+    const today = new Date();
+    const timeDiff = campaignEndDate - today;
+    const daysLeft = Math.max(Math.ceil(timeDiff / (1000 * 60 * 60 * 24)), 0);
+
+    document.getElementById("goalDisplay").textContent = `$${goal.toLocaleString()}`;
+    document.getElementById("raisedDisplay").textContent = `$${raised.toLocaleString()}`;
+    document.getElementById("percentDisplay").textContent = `${actualPercent}%`;
+    document.getElementById("daysDisplay").textContent = daysLeft;
+
+ setTimeout(() => {
+        document.getElementById("thermometerFill").style.width = barWidth + "%";
+    }, 100); 
+</script>

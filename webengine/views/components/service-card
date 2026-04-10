@@ -1,0 +1,70 @@
+<div
+  class="swiper-slide rounded-5 service-card service-module-item"
+  data-sort="{{service_types.filter({service.service_type}).sort_order}}"
+  data-service-type="{{ service_types.filter({service.service_type}).zuid }}"
+  data-meta-title="{{ services.seo_meta_title }}"
+  data-meta-description="{{ services.seo_meta_description }}"
+  data-meta-keywords="{{ services.seo_meta_keywords }}"
+>
+  <div class="rounded-5 p-6 border d-flex flex-column justify-content-between h-100 w-100">
+    <div class="mb-1 d-flex justify-content-between">
+      <h6 class="fs-7 card-title text-start">{{ service.title }}</h6>
+      <span class="material-symbols-outlined text-dark-100 service-icon">
+        {{if {service.service_page_icon} }} {{service.service_page_icon}} {{else}}   {{service_types.filter({service.service_type}).icon_name}} {{/if}}
+        </span>
+    </div>
+
+    <p class="display-3 card-text text-start text-truncate-3">
+      {{ service.subtitle }}
+    </p>
+
+    
+    <div class="mt-4 d-flex flex-column flex-lg-row align-items-center justify-content-between gap-2 text-nowrap">
+      <a
+        class="location-finder-button btn btn-info btn-sm w-100 p-3 z-1"
+        data-location-type="body:services-section"
+        data-function-type="navigation"
+        data-format-type="button"
+        data-link-type="internal"
+        href="/location-finder?services={{ service.service_type }}"
+        onclick="LinkTrackingClickEvent(this,'find_help_click')"
+      >
+        <div class="d-flex align-items-center justify-content-center">
+          <span class="material-symbols-outlined me-1"> location_on </span>
+          <span>Find Location</span>
+        </div>
+      </a>
+      <a
+        class="learn-more-button btn btn-secondary btn-sm w-100 p-3 z-1"
+        data-link-location-type="body:services-section"
+        data-link-function-type="navigation"
+        data-link-format-type="button"
+        data-link-type-type="internal"
+        data-link-url-type="{{ service.getUrl() }}"
+        data-link-text-type="Learn More"
+        data-search-type-type="site search - body"
+        data-search-method-type="user-entered"
+        data-search-term-type="all"
+        data-search-result-index-type="{{service._index}}"
+        data-search-results-type="{{service._length}}"
+        href="{{ service.getUrl() }}"
+        onclick="searchResultClick(this)"
+      >
+        Learn More
+      </a>
+    </div>
+  </div>
+</div>
+<style>
+  .service-card {
+    height: 220px;
+  }
+  @media (max-width: 1024px) {
+    .service-card {
+    height: 280px;
+  }
+  }
+  .service-icon {
+    font-size: 24px !important;
+  }
+</style>

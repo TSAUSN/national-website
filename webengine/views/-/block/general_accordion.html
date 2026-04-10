@@ -1,0 +1,57 @@
+<div id="faq" class="p-6 rounded-5 bg-light mb-18">
+  {{if {this.title} }}
+    <h5 class="mb-2">{{this.title}}</h5>
+  {{/if}} 
+
+  {{if {this.accordion_items} }}
+  <div class="accordion accordion-flush" id="general-accordion-{{this.zuid}}">
+    {{each {this.accordion_items} as ai sort by find_in_set(z.zuid,'{this.accordion_items}')}}
+      <div class="accordion-item border-bottom">
+        <h2 class="accordion-header" id="heading-{{ai.zuid}}">
+          <button
+            {{if {this.open_first_accordion_item} == 1 && {ai._index} == 0}}
+              class="accordion-button p-3 fw-normal accordion-button-partners"
+            {{else}}
+              class="accordion-button collapsed p-3 fw-normal accordion-button-partners"
+            {{/if}}
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse-{{ai.zuid}}"
+            aria-expanded="{{if {this.open_first_accordion_item} == 1 && {ai._index} == 0}}true{{else}}false{{/if}}"
+            aria-controls="collapse-{{ai.zuid}}"
+            data-location-type="body:accordion"
+            data-function-type="other"
+            data-format-type="accordion-block"
+            data-page-componentType-type="accordion component"
+            data-page-componentHeading-type="{{ai.title}}"
+            data-page-componentSubheading-type="null"
+            data-page-componentIndex-type="{{ai._index}}"
+            onclick="LinkTrackingClickEvent(this,'view_content_click')"
+          >
+            <div class="d-flex flex-column">
+              <p class="fs-7 mb-2">{{ai.title}}</p>
+              <p class="text-dark-50 mb-0">{{ai.subtitle}}</p>
+            </div>
+          </button>
+        </h2>
+        <div
+          id="collapse-{{ai.zuid}}"
+          {{if {this.open_first_accordion_item} == 1 && {ai._index} == 0}}
+            class="accordion-collapse collapse show"
+          {{else}}
+            class="accordion-collapse collapse"
+          {{/if}}
+          aria-labelledby="heading-{{ai.zuid}}"
+          data-bs-parent="#general-accordion-{{this.zuid}}"
+        >
+          <div class="accordion-body pt-0">
+            <div class="mb-4">
+              <div class="text-dark-50">{{ai.description}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>

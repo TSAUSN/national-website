@@ -1,0 +1,130 @@
+<style>
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+    border-radius: 1rem;
+  }
+
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+  }
+</style>
+
+<div
+  id="mobile-desktop-videos"
+  class="mb-18"
+>
+  {{if {this.title} }}
+  <h4 class="fw-normal px-md-5 px-sm-0 mb-8">{{this.title}}</h4>
+  {{/if}}
+
+  <div class="bg-white rounded-5 p-6">
+
+
+  <div class="row g-4 ">
+    {{if {this.media_1} }}
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="video-container">
+        <video
+          class="media-video"
+          controls
+          data-video-name="{{this.media_1_title}}"
+          data-video-content-type="{{this.media_1_title}}"
+        >
+          <source src="{{this.media_1.getImage()}}" />
+        </video>
+      </div>
+      {{if {this.media_1_title} }}
+      <h5 class="display-1 my-4">{{this.media_1_title}}</h5>
+      {{/if}}
+    </div>
+    {{/if}} {{if {this.media_2} }}
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="video-container">
+        <video
+           controls
+            class="media-video"
+            data-video-name="{{this.media_2_title}}"
+            data-video-content-type="{{this.media_2_title}}"
+        >
+          <source src="{{this.media_2.getImage()}}" />
+        </video>
+      </div>
+      {{if {this.media_2_title} }}
+      <h5 class="display-1 my-4">{{this.media_2_title}}</h5>
+      {{/if}}
+    </div>
+    {{/if}} {{if {this.media_3} }}
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="video-container">
+        <video
+            controls
+          class="media-video"
+          data-video-name="{{this.media_3_title}}"
+          data-video-content-type="{{this.media_3_title}}"
+        >
+          <source src="{{this.media_3.getImage()}}" />
+        </video>
+      </div>
+      {{if {this.media_3_title} }}
+      <h5 class="display-1 my-4">{{this.media_3_title}}</h5>
+      {{/if}}
+    </div>
+    {{/if}}
+  </div>
+  </div>
+</div>
+
+<script>
+const videos = document.querySelectorAll('.media-video');
+
+videos.forEach((video) => {
+  let hasStarted = false; // tracks if video_start has fired
+  let seeking = false;    // tracks if the user is seeking
+
+  // --- START / RESUME ---
+  video.addEventListener('playing', () => {
+    // If video is starting fresh (not from a seek)
+    if (!hasStarted) {
+      videoEvents(video, 'video_start');
+      hasStarted = true;
+    } else if (!seeking) {
+      videoEvents(video, 'video_resume');
+    }
+    seeking = false;
+  });
+
+  // --- PROGRESS (after user seeks) ---
+  video.addEventListener('seeked', () => {
+    // Only mark seeking if video is already playing
+    if (hasStarted) {
+      seeking = true;
+      videoEvents(video, 'video_progress');
+    }
+  });
+
+  // --- PAUSE (ignore if ended) ---
+  video.addEventListener('pause', () => {
+    if (!video.ended) {
+      videoEvents(video, 'video_pause');
+    }
+  });
+
+  // --- COMPLETE ---
+  video.addEventListener('ended', () => {
+    videoEvents(video, 'video_complete');
+    // Reset flags so next play triggers video_start again
+    hasStarted = false;
+    seeking = false;
+  });
+});
+
+
+</script>

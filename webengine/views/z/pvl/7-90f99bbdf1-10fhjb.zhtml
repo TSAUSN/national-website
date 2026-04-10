@@ -1,0 +1,15 @@
+<div className={styles.pvlRoot}>
+	<h1 style="font-size:40px;font-style:normal;">Community Resources</h1>
+	<br>
+	<div class="row my-3">
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Flyer---Join-The-Big-Ring.jpg" alt="placeholder">
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Thanksgiving-Dinner-Flyer.jpg" alt="placeholder">
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/register-to-ring.B1kx8oGyZe.jpg" alt="placeholder">
+		</div>
+	</div>
+</div>

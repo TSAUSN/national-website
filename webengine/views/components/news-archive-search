@@ -1,0 +1,121 @@
+<div class="container mt-4 news-archive-search">
+    <h2 class="mb-4 fs-4">News Archive</h2>
+    <div class="row">
+        <div class="col-12">
+            <form id="newsSearchForm">
+                <div class="row g-3">
+                    <div class="row g-3 d-flex align-items-center justify-content-between bg-light p-6 rounded-5">
+                        <h2 class="fs-7 text-dark-100 mb-4">Search News</h2>
+                        <!-- Search Input -->
+                        <div class="col-md-10 mt-0 mb-sm-4">
+                            <label for="searchNews" class="form-label text-dark-100">Search News</label>
+                            <div class="input-group">
+                                <div class="input-group-text ps-4 pe-0 rounded-start-2">
+                                    <span class="material-symbols-outlined">
+                                        search
+                                        </span>
+                                </div>
+                                <input type="text" class="form-control p-4 rounded-end-2" id="searchNews" placeholder="&quot;Salvation Army Impact&quot;">
+                            </div>
+                        </div>
+
+                        <!-- Content Type Filter -->
+                        <div class="d-none col-md-5 mt-0 mb-sm-4">
+                            <label class="form-label">Filter by Content Type</label>
+                            <div class="custom-select-wrapper">
+                                <input type="hidden" id="contentType" name="contentType" value="" placeholder="">
+                                <input type="hidden" id="selectedDate" name="selectedDate" value="">
+                                <div class="custom-select-trigger bg-area p-4 rounded-2" tabindex="0" role="combobox" aria-haspopup="listbox" aria-expanded="false">
+                                    <span class="selected-text">Select Content Type</span>
+                                    <i class="bi bi-chevron-right arrow"></i>
+                                </div>
+                                <div class="custom-options bg-area rounded-5 p-1" role="listbox">
+                                    <div class="option parent-option rounded-18 d-flex align-items-center" role="option" tabindex="0" data-value="most-recent">
+                                        <span class="material-symbols-outlined text-primary-200 me-3">
+                                        alarm
+                                        </span>
+                                        <span class="option__text">Most Recent</span>
+                                    </div>
+
+                                    <div class="option parent-option rounded-18 d-flex align-items-center" role="option" tabindex="0">
+                                        <span class="material-symbols-outlined text-primary-200 me-3">
+                                        category
+                                        </span>
+                                        <span class="option__text">Categories</span>
+                                    </div>
+                                    <div class="child-options" id="categoryOptions">
+                                        <!-- Categories will be dynamically populated here -->
+                                    </div>
+
+                                    <!-- <div class="option parent-option rounded-18 d-flex align-items-center" role="option" tabindex="0">
+                                        <span class="material-symbols-outlined text-primary-200 me-3">
+                                        location_on
+                                        </span>
+                                        <span class="option__text">Location</span>
+                                    </div> -->
+
+                                    <div class="option parent-option rounded-18 d-flex align-items-center" role="option" tabindex="0" data-value="date">
+                                        <span class="material-symbols-outlined text-primary-200 me-3">
+                                        calendar_month
+                                        </span>
+                                        <span class="option__text">Date</span>
+                                    </div>
+                                    <div class="child-options" id="datePickerOptions">
+                                        <div id="datepicker" class="datepicker-inline py-4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Search Button -->
+                        <div class="col-lg-2 col-md-12 mt-2">
+                            <button id="search-stories-button" type="submit"
+                            class="btn btn-primary px-4 py-4 display-2 w-100" style="background-color: #002A5C; border-color: #002A5C;">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Results Container -->
+            <div id="searchResults" class="mt-8">
+                <!-- Results will be dynamically inserted here -->
+                {{ include components/news-archive-list }}
+            </div>
+        </div>
+        <div id="parent-news" class="col-12 mt-15 d-none">
+            <div class="d-inline-flex align-items-center justify-content-between w-100">
+                <h4 class="parent-news__heading"></h4>
+                <a id="parent-news__link" href="" class="d-flex align-items-center text-dark-50 text-decoration-none"><span>View More</span>
+                    <span class="material-symbols-outlined ms-2 fs-7 text-dark-50"> arrow_outward </span>
+                </a>
+            </div>
+            
+            <div class="news-cards-swiper">
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.datepicker-inline {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+</style>
+
+
+<script>
+    const searchNewsButton = document.getElementById("search-stories-button");
+    const newsSearchInput = document.getElementById("searchNews");
+
+    // searchNewsButton.addEventListener("click", () =>{
+    //     console.log(newsSearchInput.value)
+    //     utag.link({
+    //         event: 'news_search',
+    //         news_search_term: newsSearchInput.value,
+    //         news_search_filter_type: null,
+    //         news_search_filter_value: null,
+    //     })
+    // })
+</script>

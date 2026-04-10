@@ -1,0 +1,5 @@
+{{if {this.body} }}
+<div id="generic-info" class="position-relative bg-light rounded-5 mb-16 py-8 px-md-12 px-sm-8 row mx-0">
+  <div class="px-md-12 px-sm-0 services-body content-analytics">{{ this.body }}</div>
+</div>
+{{/if}}

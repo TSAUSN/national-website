@@ -1,0 +1,6 @@
+<div className={styles.pvlRoot}>
+	<div>{{block('/-/block/hero_full.html?variant=7-94acc8b1cf-r866ng')}}</div>
+	<div>{{block('/-/block/fundraising_thermometer_block.html?variant=7-9ef595f0e1-9t2qzs')}}</div>
+	<div>{{block('/-/block/generic_image_text_button_block.html?variant=7-98b2d1d2dd-b9z9nz')}}</div>
+	<div>{{block('/-/block/mobile_desktop_videos.html?variant=7-f28dcbcafa-826zs3')}}</div>
+</div>

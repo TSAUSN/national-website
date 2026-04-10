@@ -1,0 +1,94 @@
+.stats {
+  &__left {
+    .carousel-item {
+      &::before {
+        background: rgba(28, 27, 31, 0.5);
+        content: '';
+        height: 100%;
+        width: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        pointer-events: none;
+      }
+      .stat-box {
+        z-index: 20;
+      }
+    }
+  }
+  .carousel-control-container {
+    position: relative;
+    bottom: unset;
+    top: unset;
+    left: unset;
+    justify-content: end;
+    width: 100%;
+  }
+  .carousel-indicators {
+    background-color: rgba(255, 255, 255, 0.6);
+    height: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .active {
+      background-color: rgba(0, 0, 0, 1);
+    }
+    button {
+      background-color: rgba(18, 18, 18, 0.6);
+    }
+  }
+  .carousel-control-prev {
+    background-color: rgba(255, 255, 255, 0.6);
+
+    .material-symbols-outlined {
+      color: rgba(28, 27, 31, 1);
+    }
+  }
+  .carousel-control-next {
+    background-color: rgba(255, 255, 255, 0.6);
+    .material-symbols-outlined {
+      color: rgba(28, 27, 31, 1);
+    }
+  }
+
+  // .hide {
+  //     opacity: 0;
+  //     pointer-events: none;
+  // }
+}
+.stat-box {
+  p {
+    line-height: 1.2;
+    font-size: 1.5rem;
+  }
+}
+
+.stats-filter {
+  overflow-x: auto;
+}
+.stat-number {
+  @media (max-width: 768px) {
+    font-size: 3rem !important;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .stats-filter {
+    overflow-x: scroll;
+    .active {
+      padding: 4px 12px !important;
+      border-radius: 52px !important;
+    }
+    .nav-link {
+      font-size: 14px !important;
+    }
+  }
+}
+
+@supports (content-visibility: auto) {
+  #stats {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 900px;
+  }
+}

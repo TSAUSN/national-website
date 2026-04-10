@@ -1,0 +1,13 @@
+[
+    {{each informational_pages as ipage }}
+    {
+        "national":"{{service.national}}",
+        "territory": "{{territories.filter(z.zuid = '{ipage.territory}').name.escapeForJs()}}",
+        "division": "{{divisions.filter(z.zuid = '{ipage.division}').name.escapeForJs()}} ",
+        "location":"{{locations.filter(z.zuid = '{ipage.location}').name.escapeForJs()}}",
+        "page_title":"{{ipage.title.escapeForJs()}}",
+        "url":"{{service.getUrl()}}"
+
+    }{{service._arraycomma}}
+    {{/each}}
+]

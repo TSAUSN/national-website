@@ -1,0 +1,6 @@
+<div class="leadership-landing-page">
+  {{$location = {locations.filter({this.parent_zuid}).zuid} }}
+
+  {{ include modules/hero-full-leadership }}
+  {{include modules/leadership-list}}
+</div>

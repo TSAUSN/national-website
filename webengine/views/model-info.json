@@ -1,0 +1,13 @@
+{{ if !{request.queryParam(zuid)} }}
+  {'error': 'Request Parameter is empty!'}
+{{ else }}
+  {{ $index = 0 }}
+  {{ each models as model }}
+
+    {{ $model_name = {model.name} }}
+    {{ $model_zuid = {model.zuid} }}
+    {{ each {$model_name} as item where z.zuid='{request.queryParam(zuid)}' }}
+      {{item.toJSON()}}
+    {{/each}}
+  {{/each}}  
+{{/if}}

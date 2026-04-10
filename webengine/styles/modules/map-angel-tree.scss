@@ -1,0 +1,11 @@
+
+.angel-tree {
+  &__items {
+    &.active {
+      // border: 2px solid #ef3e42 !important;
+      // box-shadow: 0 0 15px rgba(0, 123, 255, 0.3) !important;
+      transform: scale(1.02);
+      transition: all 0.3s ease;
+    }
+  }
+}

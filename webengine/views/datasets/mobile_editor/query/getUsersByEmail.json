@@ -1,0 +1,30 @@
+{{$email = "example@gmail.com"}}
+{{$totalItems = 0 }}
+
+{{if {request.queryParam(email)} }}
+{{$email = "{request.queryParam(email)}" }}
+{{else}}
+{{$email = "example@email" }}
+{{end-if}}
+
+
+
+
+{
+    "data": [
+        {{each staffs as staffUser WHERE staffUser.email = {$email}  }}
+        {{$totalItems = {staffUser._num} }}
+        {
+            "data": {{staffUser.toJSON(2, true)}},
+            "meta": {
+                "ZUID": "{{staffUser.zuid}}",
+                "masterZuid": "{{staffUser.zuid}}",
+                "contentModelZuid": "{{staffUser.set_zuid}}"
+            }
+        }{{staffUser._arraycomma}}
+        {{/each}}
+    ],
+    "_meta": {
+        "totalItems": {{$totalItems}}
+    }
+}

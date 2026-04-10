@@ -1,0 +1,167 @@
+{{each {this.service_info_cards} as info_card sort by find_in_set(z.zuid,'{service.matrix_program_schedule}') }}
+
+{{$hasServices = {info_card._length} }}
+
+{{/each}}
+
+{{if {$hasServices} > 0 }}
+<div class="mb-15">
+  <h4 class="fw-normal mb-8">How We Serve</h4>
+  <div class="rounded-5 bg-light p-6 benefits-container-block">
+{{each {this.service_info_cards} as info_card sort by find_in_set(z.zuid,'{service.matrix_program_schedule}') }}
+    <div class="rounded-5 bg-area p-6 info_card">
+      <span class="material-symbols-outlined info-icon">
+        {{ info_card.icon_name }}
+      </span>
+
+      <div class="mt-3">
+        <p class="mb-2 info-title">{{ info_card.title }}</p>
+        <div class="text-dark-50 info-description">
+          {{ info_card.description }}
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+{{/if}}
+<style>
+  .benefits-container-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  /* Adjust grid spans dynamically */
+  .info_card[data-length='short'] {
+    grid-column: span 1; /* 1 items per row */
+  }
+
+  .info_card[data-length='medium'] {
+    grid-column: span 2; /* 2 items per row */
+  }
+
+  .info_card[data-length='large'] {
+    grid-column: 1 / -1; /* Full-width */
+  }
+  .info_card.single-item {
+    grid-column: 1 / -1;
+  }
+
+  .info_card .info-icon {
+    font-size: 32px;
+  }
+
+  .info_card .info-title {
+    font-size: 20px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1552px) {
+    .benefits-container-block {
+      grid-template-columns: 1fr !important; /* Stack items on smaller screens */
+    }
+    .info_card {
+      grid-column: span 1 !important; /* Reset spans for mobile */
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const benefitsContainer = document.querySelector('.benefits-container-block');
+    const cards = document.querySelectorAll('.info_card');
+    cards.forEach((card) => {
+      const description = card.querySelector('.info-description');
+      
+      if (description) {
+        
+        const links = description.querySelectorAll("a");
+
+        links.forEach((link) => {
+          link.setAttribute("data-location-type", "body:ways-to-give-block");
+          link.setAttribute("data-function-type", "navigation");
+          link.setAttribute("data-format-type", "button");
+          link.setAttribute("data-link-type", "internal");
+          link.setAttribute("onclick", "LinkTrackingClickEvent(this,'cta_click')");
+        });
+
+        const textLength = description.textContent.trim().length;
+        if (textLength <= 400) {
+          card.setAttribute('data-length', 'short');
+        } else if (textLength <= 700) {
+          card.setAttribute('data-length', 'medium');
+        } else {
+          card.setAttribute('data-length', 'large');
+        }
+      }
+    });
+
+    if (cards[0].nextElementSibling?.getAttribute('data-length') === 'large') {
+      cards[0].setAttribute('data-length', 'large');
+    }
+
+    const calculateColSize = () => {
+      const gridComputedStyle = getComputedStyle(benefitsContainer);
+      const columnCount = parseInt(
+        gridComputedStyle.getPropertyValue('grid-template-columns').split(' ').length,
+        10
+      );
+
+      // Reset all cards first
+      cards.forEach((card) => card.classList.remove('single-item'));
+
+      // Group items by rows based on column span
+      let rowItems = [];
+      let currentRowSpan = 0;
+      let currentRowIndex = 0;
+
+      cards.forEach((card) => {
+        // Get the span value based on the `data-length` attribute
+        const span =
+          card.getAttribute('data-length') === 'large'
+            ? columnCount
+            : card.getAttribute('data-length') === 'medium'
+            ? 2
+            : 1;
+
+        // Add card to the current row
+        currentRowSpan += span;
+        if (currentRowSpan > columnCount) {
+          currentRowIndex++;
+          rowItems[currentRowIndex] = rowItems[currentRowIndex] || [];
+          rowItems[currentRowIndex].push({ card, span });
+          currentRowSpan = 0;
+        } else {
+          rowItems[currentRowIndex] = rowItems[currentRowIndex] || [];
+          rowItems[currentRowIndex].push({ card, span });
+
+          // If the current row is filled, move to the next row
+          if (currentRowSpan == columnCount) {
+            currentRowSpan = 0;
+            currentRowIndex++;
+          }
+        }
+      });
+
+      rowItems.forEach((row) => {
+        const totalSpan = row.reduce((acc, item) => acc + item.span, 0);
+        // Checking if there are only 2 items on the row and if it contains a combination of small and medium
+        if (totalSpan <= 3 && row.length === 2) {
+          if (row.some((item) => item.span < 2)) {
+            row.forEach(({ card }) => card.setAttribute('data-length', 'medium'));
+          }
+        }
+        // Apply the `single-item` class to rows with only one item
+
+        if (row.length === 1 || (totalSpan < columnCount && row.some((item) => item.span > 1))) {
+          row.forEach(({ card }) => card.classList.add('single-item'));
+        }
+      });
+    };
+
+    calculateColSize();
+    window.addEventListener('resize', calculateColSize);
+    calculateColSize();
+  });
+</script>

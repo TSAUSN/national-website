@@ -1,0 +1,718 @@
+<div
+  id="stats"
+  class="module stats mb-16"
+  data-component-type="stats"
+>
+  <div class="px-lg-5 d-flex mb-8 align-items-center justify-content-between gap-sm-12">
+    <h4>Our Impact</h4>
+    <nav class="stats-filter flex-nowrap nav nav-pills justify-content-between gap-4 d-none"></nav>
+  </div>
+
+  <div
+    id="stats-carousel-parent"
+    class="card shadow rounded-5 overflow-hidden"
+  >
+    <div class="row g-0">
+      <div
+        class="stats__left col-md-6 position-relative"
+        style="height: 480px"
+      >
+        <div
+          class="carousel slide h-100 carousel-fade"
+          data-bs-ride="false"
+        >
+          <div
+            id="stats-carousel-left"
+            class="carousel-inner h-100"
+          ></div>
+        </div>
+      </div>
+
+      <div class="col-md-6 p-16 p-sm-6">
+        <div class="h-100">
+          <div
+            id="stats-carousel"
+            class="carousel slide h-100"
+            data-bs-ride="false"
+          >
+            <div
+              id="stats-carousel-right"
+              class="carousel-inner h-100"
+            >
+              <div
+                class="carousel-item active d-flex justify-content-center align-items-center position-absolute"
+              >
+                <div
+                  class="spinner-border text-primary position-absolute end-0 start-0"
+                  role="status"
+                >
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-control-container mt-5">
+    <button
+      class="carousel-control-prev hide"
+      type="button"
+      data-bs-target="#stats-carousel"
+      data-bs-slide="prev"
+      data-location-type="body:stats"
+      data-function-type="other"
+      data-format-type="icon-block"
+      data-page-componentType-type="stats component"
+      data-page-componentHeading-type="Previous"
+      data-page-componentSubheading-type=null
+      data-page-componentIndex-type=null
+      onclick="LinkTrackingClickEvent(this,
+      'view_content_click')"
+    >
+      <span class="material-symbols-outlined">arrow_back</span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+
+    <div
+      id="stats-carousel-indicators"
+      class="carousel-indicators"
+    ></div>
+
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#stats-carousel"
+      data-bs-slide="next"
+      data-location-type="body:stats"
+      data-function-type="other"
+      data-format-type="icon-block"
+      data-page-componentType-type="stats component"
+      data-page-componentHeading-type="Next"
+      data-page-componentSubheading-type=null
+      data-page-componentIndex-type=null
+      onclick="LinkTrackingClickEvent(this,'view_content_click')"
+    >
+      <span class="material-symbols-outlined">arrow_forward</span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<script>
+  let shareData = {};
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const statsCarouselContainer = document.getElementById('stats');
+
+    const statsFilterContainer = statsCarouselContainer.querySelector('.stats-filter');
+
+    const statsCarouselInnerLeft = document.getElementById('stats-carousel-left');
+    const statsCarouselInnerRight = document.getElementById('stats-carousel-right');
+
+    const indicatorContainer = document.getElementById('stats-carousel-indicators');
+    const statsPrevCarouselBtn = statsCarouselContainer.querySelector('.carousel-control-prev');
+    const statsNextCarouselBtn = statsCarouselContainer.querySelector('.carousel-control-next');
+
+    const cookieLocationZUID = getCookieByName('location_zuid');
+    const cookieLocation = getCookieByName('location_model');
+    const cookieLocationDivision = getCookieByName('division_zuid');
+    const cookieLocationTerritory = getCookieByName('territory_zuid');
+
+    let stats;
+
+    
+
+    function getStatQuery() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('stat');
+    }
+
+    async function getStats() {
+      try {
+        let fetchUrl = ``;
+
+        if (cookieLocation === '6-b4c9aba69c-h2nqvm') { //Locations
+          fetchUrl += `https://{{instance.domain}}/stats-info.json?zuid=${cookieLocationZUID}&page-model=6-b4c9aba69c-h2nqvm&parent-division=${cookieLocationDivision}&parent-territory=${cookieLocationTerritory}`;
+        }
+
+        if (cookieLocation === '6-acb19a94bd-4q8ftj') { // Divisions
+          fetchUrl += `https://{{instance.domain}}/stats-info.json?zuid=${cookieLocationZUID}&page-model=6-acb19a94bd-4q8ftj&parent-territory=${cookieLocationTerritory}`;
+        }
+
+        if (cookieLocation === '6-deab97cfd9-wb5km4') { // Territories 
+          fetchUrl += `https://{{instance.domain}}/stats-info.json?zuid=${cookieLocationZUID}&page-model=6-deab97cfd9-wb5km4`;
+        }
+
+        if ( cookieLocation === '6-a0898ca2c1-krnm0f') { // Territories and Homepage
+          fetchUrl += `https://{{instance.domain}}/stats-info.json?zuid=${cookieLocationZUID}&page-model=6-a0898ca2c1-krnm0f`;
+        }
+    
+
+        const result = await fetch(fetchUrl);
+        const stats = await result.json();
+
+        return stats;
+      } catch (err) {
+        console.error('Error:', err);
+      }
+    }
+
+    async function getCurrentPageModel(zuid) {
+      try {
+        const result = await fetch(`https://{{instance.domain}}/model-info.json?zuid=${zuid}`);
+        const page = await result.json();
+
+        return page;
+      } catch (err) {
+        console.error('Error:', err);
+      }
+    }
+
+    let filters;
+    let activeFilter = '';
+    function generateFilters(stats) {
+      const mappedFilters = stats.map((stat) => stat.categories);
+
+      filters = Array.from(new Set(mappedFilters));
+
+      const allFilter = `<button
+          data-location-type="body:stats"
+          data-function-type="other"
+          data-format-type="text"
+          onclick="LinkTrackingClickEvent(this,'cta_click')"
+          class="nav-link active"
+        >
+          All
+        </button>`;
+      statsFilterContainer.insertAdjacentHTML('beforeend', allFilter);
+      filters.forEach((filter) => {
+        const filterElement = /* html*/ `
+        <button
+          data-location-type="body:stats"
+          data-function-type="other"
+          data-format-type="text"
+          onclick="LinkTrackingClickEvent(this,'cta_click')"
+          class="nav-link text-dark-50 text-capitalize"
+        >
+          ${filter}
+        </button>
+        `;
+        statsFilterContainer.insertAdjacentHTML('beforeend', filterElement);
+      });
+    }
+
+function filterCarousel(stats) {
+  const statFilters = statsCarouselContainer.querySelectorAll('.stats-filter .nav-link');
+
+  statFilters.forEach((filter) => {
+    filter.addEventListener('click', (event) => {
+      if (!filter.classList.contains('active') && filter.contains(event.target)) {
+        // Remove active class from the currently active filter
+        statFilters.forEach((f) => {
+          if (f.classList.contains('active')) {
+            f.classList.remove('active');
+            f.classList.add('text-dark-50');
+          }
+        });
+
+        // Add active class to the clicked filter
+        filter.classList.add('active');
+        filter.classList.remove('text-dark-50');
+
+        // Update active filter value
+        activeFilter = event.target.textContent.trim().toLowerCase();
+
+        // Regenerate carousel items and indicators
+        const filteredStats = filterStats(stats);
+        generateCarouselItems(filteredStats);
+        generateIndicators(filteredStats);
+      }
+    });
+  });
+}
+
+    let indicators;
+    function generateIndicators(stats) {
+      indicatorContainer.replaceChildren();
+
+      const indicatorsArr = stats.map((stat, index) => {
+        const queryStat = getStatQuery()
+        const activeCriteria = queryStat ? queryStat === stat.stats_name : index === 0
+        return /*html*/ `
+        <button
+          type="button"
+          data-bs-target="#stats-carousel"
+          data-bs-slide-to="${index}"
+          class="stat-pagination-bullet ${activeCriteria ? 'active' : ''}"
+          aria-label="Slide 1"
+          aria-current="true"
+          data-location-type="body:stats"
+          data-function-type="other"
+          data-format-type="icon-block"
+          data-page-componentType-type="stats component"
+          data-page-componentHeading-type=null
+          data-page-componentSubheading-type=null
+          data-page-componentIndex-type="${index}"
+          onclick="LinkTrackingClickEvent(this,'view_content_click')"
+        ></button>`;
+      });
+
+      indicatorsArr.forEach((indicator) => {
+        indicatorContainer.insertAdjacentHTML('beforeend', indicator);
+      });
+
+      indicators = statsCarouselContainer.querySelectorAll('.carousel-indicators button');
+      if (indicatorsArr.length === 1) {
+        indicatorContainer.classList.add('hide');
+        statsPrevCarouselBtn.classList.add('hide');
+        statsNextCarouselBtn.classList.add('hide');
+      } else if (indicatorsArr.length > 1) {
+        indicatorContainer.classList.remove('hide');
+        statsPrevCarouselBtn.classList.add('hide');
+        statsNextCarouselBtn.classList.remove('hide');
+      }
+    }
+
+    function filterStats(stats) {
+      if (activeFilter === 'all') {
+        return stats.filter((stat) => stat?.general_statistic === '1');
+      } else {
+        return stats.filter((stat) => stat.categories.trim().toLowerCase() === activeFilter);
+      }
+    }
+
+    let carouselItemsRight;
+    let carouselItemsLeft;
+    function generateCarouselItems(stats) {
+      const isHomepage = "{{if {homepage.first().zuid} == {this.zuid} }} true {{else}} false {{/if}}";
+      const queryStat = getStatQuery()
+      statsCarouselInnerRight.replaceChildren();
+      statsCarouselInnerLeft.replaceChildren();
+      const itemsLeft = stats.map((stat, index) => {
+        const activeCriteria = queryStat ? queryStat === stat.stats_name : index === 0
+        const statsPriorityAttr =
+          activeCriteria && isHomepage !== 'true'
+            ? 'fetchpriority="high" loading="eager"'
+            : 'loading="lazy"';
+        return /*html*/ `
+        <div
+                class="carousel-item ${activeCriteria? 'active' : ''}"
+                data-stat-category="${stat.categories}"
+                data-stat-name="${stat.stats_name}"
+              >
+                <div
+                  class="stat-box d-flex flex-column justify-content-between h-100 position-absolute top-0 left-0 z-20"
+                >
+                  <div class="p-12 p-sm-8">
+                    <h1 class="stat-number fs-1 text-light mb-4 lh-1">${stat.stats_sub_text}</h1>
+                    <div class="fs-4 text-light lh-sm">
+                      ${stat.description}
+                    </div>
+                  </div>
+                </div>
+                
+                <img
+                 ${statsPriorityAttr}
+                  class="w-100 h-100"
+                  style="object-fit: cover"
+                  src="${stat.image || ''}"
+                  width="1200"
+                  height="900"
+                  decoding="async"
+                  alt=""
+                />
+              </div>`;
+      });
+
+
+      const itemsRight = stats.map((stat, index) => {
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.set("stat", stat.stats_name);
+        currentUrl.hash = "stats";
+        shareData = {
+          title: stat.right_side_header,
+          url: currentUrl.toString()
+        };
+
+        const facebookShareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareData.url)}&quote=${encodeURIComponent(shareData.title)}`
+        const twitterShareLink = `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareData.url)}&text=${encodeURIComponent(shareData.title)}`
+        const linkedInShareLink = `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(shareData.title + " " + shareData.url)}`
+        const activeCriteria = queryStat ? queryStat === stat.stats_name : index === 0
+        return /*html*/ `
+        <div
+                  class="carousel-item ${activeCriteria ? 'active' : ''}"
+                  data-stat-category="${stat.categories}"
+                  data-stat-name="${stat.stats_name}"
+                >
+                  <div class="card-body p-0 d-flex flex-column justify-content-between h-100">
+                    <h5 class="card-title fs-md-4 fs-sm-6 fw-normal">
+                      ${stat.right_side_header}
+                    </h5>
+                    <p></p>
+                    <div>
+                      <div>
+                        <div class="mb-16 fs-7 f-ajenson text-dark-50 ">
+                          ${stat.right_side_content}
+                        </div>
+                      </div>
+                      <div class="mt-4 d-flex justify-content-between">
+                        <div class="d-flex align-items-center stat-share__wrapper">
+                          <div class="d-md-flex d-none align-items-center">
+                            <a
+                                data-social="facebook"
+                                data-location-type="body:stats"
+                                data-function-type="social"
+                                data-format-type="icon-block"
+                                data-link-type="external"
+                                data-link-text="Facebook"
+                                onclick="LinkTrackingClickEvent(this,'social_share')"
+                                href=${facebookShareLink}
+                                target="_blank"
+                                class="facebook-link social-icon fs-5 text-dark-50 mx-3"
+                            >
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a
+                                data-social="twitter"
+                                data-location-type="body:stats"
+                                data-function-type="social"
+                                data-format-type="icon-block"
+                                data-link-type="external"
+                                data-link-text="Twitter/X"
+                                onclick="LinkTrackingClickEvent(this,'social_share')"
+                                href=${twitterShareLink}
+                                target="_blank"
+                                class="twitter-link social-icon fs-5 text-dark-50 mx-3"
+                            >
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+                            <a
+                                data-social="linkedin"
+                                data-location-type="body:stats"
+                                data-function-type="social"
+                                data-format-type="icon-block"
+                                data-link-type="external"
+                                data-link-text="LinkedIn"
+                                onclick="LinkTrackingClickEvent(this,'social_share')"
+                                href=${linkedInShareLink}
+                                target="_blank"
+                                class="linkedin-link social-icon fs-5 text-dark-50 mx-3"
+                            >
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                          </div>
+                          <div class="d-md-none d-flex">
+                            <a
+                                data-social="mobile-share"
+                                data-location-type="nav-foot"
+                                data-function-type="social"
+                                data-format-type="icon-block"
+                                data-link-type="external"
+                                href="#"
+                                class="display-3 text-dark-50 mx-3 d-flex align-items-center gap-1 text-decoration-none mobile-share-btn"  
+                            >
+                                Share Story
+                                <span class="material-symbols-outlined">share</span>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <a
+                            class="${stat.learn_more_url ? "d-inline-flex": "d-none"} btn btn-secondary me-2 px-5 py-4 px-sm-5 py-sm-3 d-inline-flex align-items-center display-sm-3"
+                            data-location-type="body:stats"
+                            data-function-type="navigation"
+                            data-format-type="button"
+                            href="${stat.learn_more_url}"
+                            target="_blank"
+                            onclick="LinkTrackingClickEvent(this,'cta_click')"
+                          >
+                            <i class="material-icons me-2 text-light">arrow_outward</i>Learn
+                            More
+                          </a>
+                          <a
+                            href="https://give.salvationarmyusa.org/campaign/676125/donate?c_src=NT26TZOAAC&c_src2=USNhomepageStatsModule"
+                            target="_blank"
+                            data-link-type="external"
+                            data-location-type="body:stats"
+                            data-function-type="donation"
+                            data-format-type="button"
+                            onclick="LinkTrackingClickEvent(this,'donate_money_click')"
+                            class="btn btn-primary px-5 py-4 px-sm-5 py-sm-3 display-sm-3"
+                          >
+                            Donate
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        `;
+      });
+
+      itemsLeft.forEach((item) => {
+        statsCarouselInnerLeft.insertAdjacentHTML('beforeend', item);
+      });
+
+      itemsRight.forEach((item) => {
+        statsCarouselInnerRight.insertAdjacentHTML('beforeend', item);
+      });
+
+      carouselItemsRight = statsCarouselContainer.querySelectorAll(
+        '#stats-carousel .carousel-item'
+      );
+      carouselItemsLeft = statsCarouselContainer.querySelectorAll(
+        '#stats-carousel-left .carousel-item'
+      );
+
+      // Mobile share button handler
+      document.querySelectorAll('.mobile-share-btn').forEach(button => {
+        button.addEventListener('click', async function(e) {
+          e.preventDefault();
+          try {
+            LinkTrackingClickEvent(this, "social_share");
+            if (navigator.share) {
+              await navigator.share(shareData);
+            }
+          } catch (err) {
+            console.error("Error sharing:", err);
+          }
+        });
+      });
+    }
+
+    async function generateCarousel(stats) {
+
+      let territoryStats = [];
+      let divisionStats = [];
+      let locationStats = [];
+      if (cookieLocation == '6-a0898ca2c1-krnm0f') {
+        filterCarousel(stats);
+        generateCarouselItems(stats);
+        generateIndicators(stats);
+      } else if (cookieLocation == '6-deab97cfd9-wb5km4') {
+   
+        territoryStats = stats
+          .map((stat) => {
+            if (
+              !stat.territories ||
+              stat.territories.type !== 'relationship' ||
+              !stat.territories.data
+            ) {
+              return undefined;
+            }
+
+            const found = stat.territories.data.some(
+              (territory) => territory.meta?.zuid === cookieLocationZUID
+            );
+
+            if (found) {
+              return stat;
+            }
+            return undefined;
+          })
+          .filter(Boolean);
+
+        if (territoryStats.length > 0) {
+          filterCarousel(territoryStats);
+          generateCarouselItems(territoryStats);
+          generateIndicators(territoryStats);
+        } else {
+          generateFilters(stats);
+          filterCarousel(stats);
+          generateCarouselItems(stats);
+          generateIndicators(stats);
+        }
+      } else if (cookieLocation == '6-acb19a94bd-4q8ftj') {
+        divisionStats = stats
+          .map((stat) => {
+            if (!stat.divisions || stat.divisions.type !== 'relationship' || !stat.divisions.data) {
+              return undefined;
+            }
+            const found = stat.divisions.data.some(
+              (division) => division.meta?.zuid === cookieLocationZUID
+            );
+
+            if (found) {
+              return stat;
+            }
+            return undefined;
+          })
+          .filter(Boolean);
+
+        if (divisionStats.length > 0) {
+          filterCarousel(divisionStats);
+          generateCarouselItems(divisionStats);
+          generateIndicators(divisionStats);
+        } else {
+          territoryStats = stats
+            .map((stat) => {
+              if (
+                !stat.territories ||
+                stat.territories.type !== 'relationship' ||
+                !stat.territories.data
+              ) {
+                return undefined;
+              }
+              const found = stat.territories.data.some(
+                (territory) => territory.meta?.zuid === cookieLocationZUID
+              );
+
+              if (found) {
+                return stat;
+              }
+              return undefined;
+            })
+            .filter(Boolean);
+
+          if (territoryStats.length > 0) {
+            filterCarousel(territoryStats);
+            generateCarouselItems(territoryStats);
+            generateIndicators(territoryStats);
+          } else {
+            generateFilters(stats);
+            filterCarousel(stats);
+            generateCarouselItems(stats);
+            generateIndicators(stats);
+          }
+        }
+      } else if (cookieLocation == '6-b4c9aba69c-h2nqvm') {
+        locationStats = stats
+          .map((stat) => {
+            if (!stat.locations || stat.locations.type !== 'relationship' || !stat.locations.data) {
+              return undefined;
+            }
+
+            const found = stat.locations.data.some(
+              (location) => location.meta?.zuid === cookieLocationZUID
+            );
+
+            if (found) {
+              return stat;
+            }
+            return undefined;
+          })
+          .filter(Boolean);
+      }
+
+      if (locationStats.length > 0) {
+        filterCarousel(locationStats);
+        generateCarouselItems(locationStats);
+        generateIndicators(locationStats);
+      } else {
+        divisionStats = stats
+          .map((stat) => {
+            if (!stat.divisions || stat.divisions.type !== 'relationship' || !stat.divisions.data) {
+              return undefined;
+            }
+
+            const found = stat.divisions.data.some(
+              (division) => division.meta?.zuid === cookieLocationZUID
+            );
+
+            if (found) {
+              return stat;
+            }
+            return undefined;
+          })
+          .filter(Boolean);
+
+        if (divisionStats.length > 0) {
+          generateFilters(divisionStats);
+          filterCarousel(divisionStats);
+          generateCarouselItems(divisionStats);
+          generateIndicators(divisionStats);
+        } else {
+          territoryStats = stats
+            .map((stat) => {
+              if (
+                !stat.territories ||
+                stat.territories.type !== 'relationship' ||
+                !stat.territories.data
+              ) {
+                return undefined;
+              }
+
+              const found = stat.territories.data.some(
+                (territory) => territory.meta?.zuid === cookieLocationZUID
+              );
+
+              if (found) {
+                return stat;
+              }
+              return undefined;
+            })
+            .filter(Boolean);
+
+          if (territoryStats.length > 0) {
+            generateFilters(territoryStats);
+            filterCarousel(territoryStats);
+            generateCarouselItems(territoryStats);
+            generateIndicators(territoryStats);
+          } else {
+            generateFilters(stats);
+            filterCarousel(stats);
+            generateCarouselItems(stats);
+            generateIndicators(stats);
+          }
+        }
+      }
+    }
+
+    async function renderCarousel() {
+      const stats = await getStats();
+      console.log(stats)
+      generateCarousel(stats);
+    }
+
+    renderCarousel();
+
+    // Carousel logic
+
+    const carouselRight = new bootstrap.Carousel('#stats-carousel');
+    const carouselLeft = new bootstrap.Carousel('#stats-carousel-left');
+
+    const filterButtons = statsCarouselContainer.querySelectorAll('.stats-filter button');
+
+    statsCarouselContainer.addEventListener('slide.bs.carousel', (event) => {
+      const activeIndex = event.to;
+
+      carouselLeft.to(event.to);
+      if (activeIndex === 0) {
+        statsPrevCarouselBtn.classList.add('hide');
+      } else {
+        statsPrevCarouselBtn.classList.remove('hide');
+      }
+
+      if (event.to === carouselItemsRight.length - 1) {
+        statsNextCarouselBtn.classList.add('hide');
+      } else {
+        statsNextCarouselBtn.classList.remove('hide');
+      }
+      indicators.forEach((indicator, index) => {
+        if (index === activeIndex) {
+          indicator.classList.add('active');
+          indicator.setAttribute('aria-current', 'true');
+        } else {
+          indicator.classList.remove('active');
+          indicator.removeAttribute('aria-current');
+        }
+      });
+    });
+
+    // sharing
+    if (window.location.hash.includes("#hash")) {
+      const statsModule = document.getElementById("stats");
+      if (!statsModule){
+        return 
+      }
+      statsModule.scrollIntoView({
+        behavior: "smooth", 
+        block: "start", 
+      });
+    }
+  });
+  
+</script>

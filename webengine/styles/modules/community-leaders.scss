@@ -1,0 +1,34 @@
+.community-leaders-swiper {
+}
+
+.community-leaders-swiper .swiper-pagination {
+  bottom: 0;
+}
+
+.community-leaders-swiper .swiper-slide {
+  height: auto;
+  background: transparent;
+}
+
+#community-leaders img.card-img-top {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto !important;
+  min-height: 0;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media screen and (max-width: 991px) {
+  #community-leaders img.card-img-top {
+    aspect-ratio: auto;
+    object-fit: contain !important;
+  }
+}
+
+/* Lerma QA line 73 */
+.biograph-card {
+  padding: 1rem 0;
+}

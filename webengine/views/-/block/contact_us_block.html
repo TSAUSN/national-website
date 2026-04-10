@@ -1,0 +1,23 @@
+
+<div id="contact" class="bg-light rounded-5 p-6 mb-18">
+
+  <div class="row ">
+    <div class="col-12 col-lg-5">
+      <h2 class="fs-4">{{this.title}}</h2>
+      <p>{{this.subtitle}}</p>
+    </div>
+    
+    <div class="col-12 col-lg-7">
+      <div class="container" id='container'></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@feathery/react@latest/umd/index.js"></script>
+<script>
+(() => {
+    Feathery.init('b97e273c-baaf-4174-ad15-2f285f6686c8')
+    const loginEnabled = false;
+    Feathery.renderAt('container', { formId: "{{this.feathery_id}}" }, loginEnabled);
+})();
+</script>

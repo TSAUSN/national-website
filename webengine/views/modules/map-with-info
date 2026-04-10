@@ -1,0 +1,128 @@
+<div
+  class="map module mb-16 px-2"
+  data-component-type="map-with-info"
+  id="map-with-info"
+>
+  <div class="px-lg-5 px-sm-0 d-flex mb-8 align-items-center justify-content-between">
+    <h4>Find a Location</h4>
+    <a
+      href="{{truepath(7-98f9deb1a1-66md0n)}}"
+      class="d-flex align-items-center text-dark-50 text-decoration-none"
+      ><span>Search Locations by Services</span>
+      <span class="material-symbols-outlined ms-2 fs-7 text-dark-50"> arrow_outward </span>
+    </a>
+  </div>
+
+  <div class="d-flex flex-sm-column flex-lg-row rounded-5 p-sm-4 p-lg-7 bg-light row">
+    <div
+      class="map-content-wrapper col-sm-12 col-lg-6 pe-0 pe-md-12 d-flex flex-column p-0 order-sm-2 order-lg-1 mt-sm-4"
+    >
+      <div class="map-init-content">
+        {{include components/map-contact-information}}
+      </div>
+    </div>
+    <div
+      class="b-0 bg-light rounded-5 bottom-5 py-2 mb-4 px-2 start-4 end-12 d-sm-block d-lg-none"
+      style="z-index: 2"
+    >
+      <form class="row g-3" onsubmit="event.preventDefault(); searchLocation(document.getElementById('pac-input-mobile').value);">
+        <div class="col-8">
+          <div class="input-group w-100">
+            <span class="input-group-text border-start-1 rounded-start-4 pe-2 ps-4">
+              <span class="material-symbols-outlined text-dark-50 fs-7"> location_on </span>
+            </span>
+            <input
+              id="pac-input-mobile"
+              type="text"
+              class="form-control rounded-end-4 text-dark border-start-0 ps-0"
+              placeholder="City or ZIP Code Search"
+              data-search-term-type=""
+              data-search-results-type=""
+              data-search-type-type="location search - body"
+              data-search-method-type="user-entered"
+              data-filter-type-type=""
+              data-filter-value-type=""
+            />
+          </div>
+          <button type="button" class="btn btn-link text-secondary p-0 mt-2 use-my-location">
+            <span class="material-symbols-outlined align-middle fs-7">my_location</span>
+            Use my location
+          </button>
+        </div>
+        <div class="col-4">
+          <button
+            type="submit"
+            class="btn btn-secondary text-white rounded-3 w-100 display-3 map-search-button"
+          >
+            Search
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-12 col-lg-6 p-0 order-sm-1 order-lg-2 position-relative">
+      <div
+        class="position-absolute b-0 bg-light rounded-5 bottom-5 py-2 px-4 start-4 end-12 d-sm-none d-lg-block"
+        style="z-index: 2"
+      >
+        <form class="row g-3" onsubmit="event.preventDefault(); searchLocation(document.getElementById('pac-input').value);">
+          <div class="col-lg-8 col-sm-6">
+            <div class="input-group w-100">
+              <span class="input-group-text border-start-1 rounded-start-4 pe-2 ps-4">
+                <span class="material-symbols-outlined text-dark-50 fs-7"> location_on </span>
+              </span>
+              <input
+                id="pac-input"
+                type="text"
+                class="form-control rounded-end-4 text-dark border-start-0 ps-0"
+                placeholder="City or Zip Code Search"
+                data-search-term-type=""
+                data-search-results-type=""
+                data-search-type-type="location search - body"
+                data-search-method-type="user-entered"
+                data-filter-type-type=""
+                data-filter-value-type=""
+              />
+            </div>
+            <button type="button" class="btn btn-link text-secondary p-0 mt-2 use-my-location">
+              <span class="material-symbols-outlined align-middle fs-7">my_location</span>
+              Use my location
+            </button>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <button
+              type="submit"
+              class="btn btn-secondary text-white rounded-3 w-100 display-3 map-search-button"
+            >
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-12 col-md-12 p-0 order-sm-1 order-md-2 position-relative">
+      <div class="rounded-5 map-info__map goggle-map"></div>
+      <div class="map-loader d-none">
+        <div class="map-loader__spinner"></div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+<script>
+  function getLocationAddress() {
+    const city = getCookieByName('location_city');
+    const state = getCookieByName('location_state');
+    const address = getCookieByName('location_address');
+    let fullAddress = '';
+    if (city && state && address) {
+      let addrArr = [];
+      let cityText = `<span class="text-title-case">${city}</span>`
+      addrArr.push(address);
+      addrArr.push(cityText);
+      addrArr.push(state);
+      return fullAddress = addrArr.join(", ");
+    } else {
+      return fullAddress = "615 Slaters Lane, Alexandria, Virginia 22314"
+    }
+  }
+  window.getLocationAddress = getLocationAddress;
+</script>

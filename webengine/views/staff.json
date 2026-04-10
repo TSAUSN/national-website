@@ -1,0 +1,114 @@
+{{ $property = {request.queryParam(property)} }}
+{{ $model = {request.queryParam(model)} }}
+{{$hasProperty = 0}}
+{{if {request.queryParam(limit)} }}
+  {{$limit = {request.queryParam(limit)} }}
+{{else}}
+{{$limit = 15 }}
+{{/if}}
+
+{{if {$model} }}
+  {{if {$model} == '6-b4c9aba69c-h2nqvm' }}
+    {{$findInSet = member_locations}}
+  {{else-if {$model} == '6-acb19a94bd-4q8ftj' }}
+    {{$findInSet = member_divisions}}
+  {{else-if {$model} == '6-deab97cfd9-wb5km4' }}
+    {{$findInSet = member_territories}}
+  {{/if}}
+{{else}}
+  {{$findInSet = member_locations }}
+{{/if}}
+{{if {$findInSet} }}
+  {{$staffChecking = {staffs.filter( {$findInSet} LIKE "%{$property}%").zuid} }}
+{{/if}}
+
+{{if {$staffChecking} }}
+  {{$hasProperty = 1}}
+{{/if}}
+
+[
+  {{if {$hasProperty} == 1 }}
+      {{ each staffs as staff where find_in_set("{$property}", {$findInSet} ) OR title_rank LIKE '%General%' OR national_member=1 sort by sort_order asc }}
+      {{$about =  {staff.about.escapeForJs()} }}
+        {{if {staff.display_on_website} == 1}}
+          {
+            "fullname": "{{staff.first_name}} {{staff.last_name}}",
+            "title_rank": "{{staff.title_rank}}",
+            "has": "property",
+            "job_role": "{{staff.job_role}}",
+            "email": "{{staff.email}}",
+            "about": "{{ $about.html_entity_decode() }}",
+            "portrait_image": "{{staff.portrait_image.getMediaURL()}}",
+            "member_locations": "{{staff.member_locations}}",
+            "sort_order": "{{staff.sort_order}}",
+            "display_on_website": {{staff.display_on_website}},
+            {{if {staff.staff_role_type} !== null }}
+              "staff_role_type": [{{each staff_role_types as staff_role_type WHERE z.zuid = "{staff.staff_role_type}" }}
+                {
+                  "role_name": "{{staff_role_type.role_name}}",
+                  "zuid": "{{staff_role_type.zuid}}"
+                }{{staff_role_type._arraycomma}}
+              {{/each}}]
+            {{else}}
+              "staff_role_type": null
+            {{/if}}
+            
+          }{{staff._arraycomma}}
+        {{/if}}
+      {{/each}}
+  {{else-if {$hasProperty} == 0 && {$property} }}
+    {{ each staffs as staff where national_member=1 OR title_rank LIKE '%General%' order by sort_order desc limit {$limit} }}
+      {{$about =  {staff.about.escapeForJs()} }}
+        {
+          "fullname": "{{staff.first_name}} {{staff.last_name}}",
+          "title_rank": "{{staff.title_rank}}",
+          "job_role": "{{staff.job_role}}",
+          "email": "{{staff.email}}",
+          "about": "{{ $about.html_entity_decode() }}",
+          "portrait_image": "{{staff.portrait_image.getMediaURL()}}",
+          "member_locations": "{{staff.member_locations}}",
+          "sort_order": "{{staff.sort_order}}",
+          "display_on_website": {{staff.display_on_website}},
+          {{if {staff.staff_role_type} !== null }}
+            "staff_role_type": [{{each staff_role_types as staff_role_type WHERE z.zuid = "{staff.staff_role_type}" }}
+              {
+                "role_name": "{{staff_role_type.role_name}}",
+                "zuid": "{{staff_role_type.zuid}}"
+              }{{staff_role_type._arraycomma}}
+            {{/each}}]
+          {{else}}
+            "staff_role_type": null
+          {{/if}}
+          
+        }{{staff._arraycomma}}
+      {{/each}}
+  {{else-if {$hasProperty} == 0 && !{$property} }}
+    {{ each staffs as staff where national_member=1 OR title_rank LIKE '%General%' order by sort_order asc limit {$limit} }}
+      {{$about =  {staff.about.escapeForJs()} }}
+
+      {
+        "fullname": "{{staff.first_name}} {{staff.last_name}}",
+        "title_rank": "{{staff.title_rank}}",
+        "job_role": "{{staff.job_role}}",
+        "email": "{{staff.email}}",
+        "about": "{{ $about.html_entity_decode()  }}",
+        "portrait_image": "{{staff.portrait_image.getMediaURL()}}",
+        "member_locations": "{{staff.member_locations}}",
+        "sort_order": "{{staff.sort_order}}",
+        "display_on_website": {{staff.display_on_website}},
+        {{if {staff.staff_role_type} !== null }}
+          "staff_role_type": [{{each staff_role_types as staff_role_type WHERE z.zuid = "{staff.staff_role_type}" }}
+            {
+              "role_name": "{{staff_role_type.role_name}}",
+              "zuid": "{{staff_role_type.zuid}}"
+            }{{staff_role_type._arraycomma}}
+          {{/each}}]
+        {{else}}
+          "staff_role_type": null
+        {{/if}}
+        
+      }{{staff._arraycomma}}
+    {{/each}}
+  {{/if}} 
+
+]

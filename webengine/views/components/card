@@ -1,0 +1,43 @@
+<div class="card h-100 rounded-5 overflow-hidden">
+  <div class="card-img-top bg-secondary bg-opacity-25 position-relative overflow-hidden">
+    <div
+      class="d-flex align-items-center badge bg-white text-danger rounded-5 position-absolute top-3 start-3 px-4 py-2 z-3"
+    >
+      <i class="material-symbols-outlined me-2 text-primary-200 display-4">landslide</i>
+      <span class="text-dark-100 display-4 fw-normal">Disaster Relief</span>
+    </div>
+
+    <div
+      class="position-absolute bottom-4 start-0 d-flex align-items-center justify-content-between w-100 px-6 text-light display-4 z-3"
+    >
+      <span class="d-block">March 2024</span>
+      <span>By Dale Bannon</span>
+    </div>
+    <div class="ratio ratio-4x3 bg-secondary bg-opacity-25 position-relative overflow-hidden">
+    <img
+      class="w-100 h-100 object-fit-cover"
+      src="https://8hxvw8tw.media.zestyio.com/338x190.png"
+      alt="Dummy Image"
+    />
+    </div>
+  </div>
+  <div class="card-body px-6 pt-6">
+    <h5 class="card-title display-2 text-start text-dark-100 fw-normal">Title</h5>
+    <p class="card-text text-dark display-3 text-start">
+      Lorem ipsum dolor sit amet consectetur. Id mattis et praesent lectus aliquet enim morbi quis
+      diam. Iaculis convallis erat eu pellentesque morbi et.
+    </p>
+  </div>
+  <div class="card-footer bg-transparent border-0 px-6 pb-6">
+    <a
+      href="#"
+      class="btn btn-secondary text-white w-100"
+      data-location-type="body:news-section"
+      data-function-type="navigation"
+      data-format-type="button"
+      data-link-type="internal"
+      onclick="LinkTrackingClickEvent(this,'cta_click')"
+      >Read Article</a
+    >
+  </div>
+</div>

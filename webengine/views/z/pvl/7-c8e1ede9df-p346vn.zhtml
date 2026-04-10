@@ -1,0 +1,327 @@
+<div className={styles.pvlRoot}>
+	<div>{{block('/-/block/dynamic_stories_carousel.html?variant=7-b4bfa5dc89-j9rncv')}}</div>
+	<!-- Theater Space - slides -->
+<div id="Theater-Space-1" class="mb-5 mx-2">
+<div id="carousel-8a8080198c5c88a1018c6eed6d4d0268" class="carousel slide" data-bs-ride="carousel">
+<div class="carousel-inner rounded overflow-hidden">
+<div class="carousel-item active">
+<div class="position-relative d-none d-md-block w-100" style="aspect-ratio: 1300/508; overflow: hidden;"><img class="slide-thumbnail" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/207193df-212e-404b-845a-b22b86f95dfb_header+banner.png" alt="Slide 1" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.style.display='none'"></div>
+<div class="position-relative d-block d-md-none w-100" style="aspect-ratio: 500/425; overflow: hidden;"><img class="slide-thumbnail" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/207193df-212e-404b-845a-b22b86f95dfb_header+banner.png" alt="Slide 1" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.style.display='none'"></div>
+</div>
+</div>
+</div>
+<!-- JS: Hide indicators and controls immediately after first slide load, show only on hover -->
+<script>
+  const carousel_8a8080198c5c88a1018c6eed6d4d0268 = document.getElementById('carousel-8a8080198c5c88a1018c6eed6d4d0268');
+  const indicators_8a8080198c5c88a1018c6eed6d4d0268 = document.getElementById('carouselIndicators-8a8080198c5c88a1018c6eed6d4d0268');
+  const prevBtn_8a8080198c5c88a1018c6eed6d4d0268 = document.getElementById('prevBtn-8a8080198c5c88a1018c6eed6d4d0268');
+  const nextBtn_8a8080198c5c88a1018c6eed6d4d0268 = document.getElementById('nextBtn-8a8080198c5c88a1018c6eed6d4d0268');
+
+  // Hide immediately after first render
+  window.addEventListener('load', () => {
+    if(indicators_8a8080198c5c88a1018c6eed6d4d0268) indicators_8a8080198c5c88a1018c6eed6d4d0268.style.display = 'none';
+    if(prevBtn_8a8080198c5c88a1018c6eed6d4d0268) prevBtn_8a8080198c5c88a1018c6eed6d4d0268.style.display = 'none';
+    if(nextBtn_8a8080198c5c88a1018c6eed6d4d0268) nextBtn_8a8080198c5c88a1018c6eed6d4d0268.style.display = 'none';
+  });
+
+  // Show on hover (ONLY if more than 1 slide)
+  if(carousel_8a8080198c5c88a1018c6eed6d4d0268 && 1 > 1) {
+      carousel_8a8080198c5c88a1018c6eed6d4d0268.addEventListener('mouseenter', () => {
+        if(indicators_8a8080198c5c88a1018c6eed6d4d0268) indicators_8a8080198c5c88a1018c6eed6d4d0268.style.display = 'flex';
+        if(prevBtn_8a8080198c5c88a1018c6eed6d4d0268) prevBtn_8a8080198c5c88a1018c6eed6d4d0268.style.display = 'flex';
+        if(nextBtn_8a8080198c5c88a1018c6eed6d4d0268) nextBtn_8a8080198c5c88a1018c6eed6d4d0268.style.display = 'flex';
+      });
+
+      carousel_8a8080198c5c88a1018c6eed6d4d0268.addEventListener('mouseleave', () => {
+        if(indicators_8a8080198c5c88a1018c6eed6d4d0268) indicators_8a8080198c5c88a1018c6eed6d4d0268.style.display = 'none';
+        if(prevBtn_8a8080198c5c88a1018c6eed6d4d0268) prevBtn_8a8080198c5c88a1018c6eed6d4d0268.style.display = 'none';
+        if(nextBtn_8a8080198c5c88a1018c6eed6d4d0268) nextBtn_8a8080198c5c88a1018c6eed6d4d0268.style.display = 'none';
+      });
+  }
+</script>
+</div>
+<!-- Creating a Brighter Future - freetextarea -->
+<div id="Free-Text-Area-1" class="mb-5 mx-2 rounded overflow-hidden p-4" style="background-color: #ffffff;">
+<h2 style="text-align: center;"><span style="color: #ed1c2b;">Creating a Brighter Future for North Texas</span></h2>
+<p style="text-align: center;">For more than 130 years, The Salvation Army of North Texas has demonstrated a proven history of doing the most good for the most people. As the region's largest social service provider, our impact radiates across North Texas.</p>
+<p style="text-align: center;">While much of North Texas is flourishing, many are left behind. The needs are particularly acute in Dallas County, but we face a battle across multiple fronts.</p>
+<p style="text-align: center;"><a href="https://give.salvationarmytexas.org/One-Army-Many-Fronts" target="" class="btn btn-blue my-2 mx-1 btn-primary text-white" style="text-decoration: none;"><span class="btn-blue">SUPPORT THE CAMPAIGN</span></a></p>
+</div>
+<!-- Cards - cards -->
+<div id="Cards" class="mb-5 mx-2">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+<div class="col mb-2">
+<div class="card h-100 border-0 shadow-sm rounded-3 text-white" style="background-color: #f89728;">
+<div class="card-body d-flex flex-column h-100 p-5">
+<h5 class="card-title fw-bold">poverty</h5>
+<div class="card-text">
+<p style="text-align: center;">628,000<span style="color: #111111;"><br>NORTH TEXANS ARE EXPERIENCING FOOD INSECURITY<span style="color: #111111;">, AND 115,000 ARE AT RISK OF EVICTION.</span></span></p>
+</div>
+<div class="mt-auto pt-3 d-flex flex-wrap gap-2"></div>
+</div>
+</div>
+</div>
+<div class="col mb-2">
+<div class="card h-100 border-0 shadow-sm rounded-3 text-white" style="background-color: #f89728;">
+<div class="card-body d-flex flex-column h-100 p-5">
+<h5 class="card-title fw-bold">addiction</h5>
+<div class="card-text">
+<p style="text-align: center;">1 in 5<span style="color: #111111;"><br>NORTH TEXAS CHILDREN LIVE IN A HOME WHERE SOMEONE IS ABUSING DRUGS OR ALCOHOL.</span></p>
+</div>
+<div class="mt-auto pt-3 d-flex flex-wrap gap-2"></div>
+</div>
+</div>
+</div>
+<div class="col mb-2">
+<div class="card h-100 border-0 shadow-sm rounded-3 text-white" style="background-color: #f89728;">
+<div class="card-body d-flex flex-column h-100 p-5">
+<h5 class="card-title fw-bold">homelessness</h5>
+<div class="card-text">
+<p style="text-align: center;">2 MILLION<span style="color: #111111;"><br>NORTH TEXAS ADULTS HAVE DIFFICULTY AFFORDING BASIC HOUSEHOLD NEEDS.</span></p>
+</div>
+<div class="mt-auto pt-3 d-flex flex-wrap gap-2"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bold Campaign Goals - freetextarea -->
+<div id="Free-Text-Area-2" class="mb-5 mx-2 rounded overflow-hidden p-4" style="background-color: #ffffff;">
+<h2 id="about;" style="text-align: center;"><span style="color: #ed1c2b;">Bold Goals</span></h2>
+<p style="text-align: center;"><span style="color: #111111;">To help our neighbors in crisis and meet the growing demand for our services, we developed a comprehensive strategic plan with bold goals to revolutionize our people, programs, partnerships, and places to advance the well-being of North Texans for decades to come. </span>This visionary campaign will drive maximum impact and sustainable growth, enabling us to more than double the number of individuals and families lifted out of homelessness each year.<span style="color: #111111;"></span></p>
+</div>
+<!-- A New Dallas Campus - freetextarea -->
+<div id="Free-Text-Area-3" class="mb-5 mx-2 rounded overflow-hidden p-4" style="background-color: #ffffff;">
+<div id="DallasCampus"> </div>
+<h2 style="text-align: center;"><span style="color: #ed1c2b;">A New Dallas Campus</span></h2>
+<p style="text-align: center;">As the cornerstone of the campaign, we will create a new flagship campus on a generously donated 21-acre parcel of land, designed to provide centralized, high-capacity services. The Salvation Army of North Texas Dallas Social Service Center will feature emergency shelter, recovery programs, and family services, and will act as a hub for our enhanced programs and services, expanding our scope across North Texas. By addressing multiple needs under one roof, The Salvation Army aims to set a new standard for integrated social services, serving as a model for the region while fostering community engagement through volunteer opportunities and partnerships. This initiative reflects The Salvation Army's mission to serve without discrimination, reduce barriers to assistance, and provide comprehensive, life-changing support.</p>
+</div>
+<!-- Join Us - freetextarea -->
+<div id="Free-Text-Area-4" class="mb-5 mx-2 rounded overflow-hidden p-4" style="background-color: #ffffff;">
+<h2 style="text-align: center;"><span style="color: #ed1c2b;">Join Us</span></h2>
+<p style="text-align: center;">You are integral to our transformative plan, which centers around three growing challenges: poverty, addiction, and homelessness. This campaign is a long-term investment in the community, ensuring the sustainability of enhanced facilities and programs for generations to come. Join us today and<span style="color: #111111;"> become part of a renewed vision for North Texas. Together, we are one army across many fronts.</span><span style="color: black;"></span></p>
+<p style="text-align: center;">Reach out to our team: <a href="mailto:NTXCampaign@uss.salvationarmy.org" target="">NTXCampaign@uss.salvationarmy.org</a>.</p>
+<p style="text-align: center;">Make a donation: <span style="background: white;"><span style="color: #57687d;"><a href="https://give.salvationarmytexas.org/One-Army-Many-Fronts">give.salvationarmytexas.org/One-Army-Many-Fronts</a></span></span><span style="background: white;">.</span></p>
+<p style="text-align: center;"><i>Cash, pledges, planned and deferred gifts are welcome at any level. Unique naming opportunities are available for leadership gifts that help set the pace for support. </i></p>
+</div>
+<!-- Michal Powell Quote - freetextarea -->
+<div id="Free-Text-Area-5" class="mb-5">
+<div class="rounded overflow-hidden mb-4 d-grid position-relative" style="grid-template-columns: 100%; min- background-color: #f8f9fa;"><!-- Desktop Aspect Ratio Spacer (enforces MINIMUM ~1300/512 ratio) -->
+<div class="d-none d-md-block" style="grid-area: 1/1; width: 100%; aspect-ratio: 2.54 / 1; pointer-events: none;"></div>
+<!-- Mobile Aspect Ratio Spacer (enforces MINIMUM natural image ratio) --> <img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/1d373194-dfd0-4d5d-befd-fc7a8447a57f_Clint+Riley+-+Campaign+-+01+-+Admin+Entry+Night_RGB.jpg" class="w-100 d-block d-md-none" style="grid-area: 1 / 1; visibility: hidden; pointer-events: none; display: block; margin-left: 0px; margin-right: auto;"> <!-- Desktop Background (Contain + Tiling) -->
+<div class="d-none d-md-block" style="grid-area: 1/1; background: url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/1d373194-dfd0-4d5d-befd-fc7a8447a57f_Clint+Riley+-+Campaign+-+01+-+Admin+Entry+Night_RGB.jpg') repeat center center; background-size: contain; z-index: 1;"></div>
+<!-- Mobile Background (Cover + Tiling) -->
+<div class="d-block d-md-none" style="grid-area: 1/1; background: url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/1d373194-dfd0-4d5d-befd-fc7a8447a57f_Clint+Riley+-+Campaign+-+01+-+Admin+Entry+Night_RGB.jpg') repeat center center; background-size: cover; z-index: 1;"></div>
+<div class="position-absolute inset-0" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.4); z-index: 2;"></div>
+<!-- Content Wrapper: Flow-based so it stretches the parent if needed -->
+<div class="d-flex align-items-center justify-content-start" style="grid-area: 1/1; z-index: 3;">
+<div class="w-100 p-4 p-md-5 text-white text-start">
+<h2 style="text-align: center;" class="text-white"><span>"With the funds raised through this campaign, along with the expertise of The Salvation Army, Dallas will revolutionize the way in which it cares for the most vulnerable in our community</span><span>."</span></h2>
+<p style="text-align: center;" class="text-white"><span>– Michal Powell, Campaign Co-Chair</span></p>
+</div>
+</div>
+</div>
+</div>
+<!-- Measurable Outcomes - freetextarea -->
+<div id="Free-Text-Area-6" class="mb-5 mx-2 rounded overflow-hidden p-4" style="background-color: #ffffff;">
+<div id="MeasurableOutcomes"> </div>
+<h2 style="text-align: center;"><span style="color: #ed1c2b;">Measurable Outcomes</span></h2>
+</div>
+<!-- Cards - cards -->
+<div id="Cards-2" class="mb-5 mx-2">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+<div class="col mb-2">
+<div class="card h-100 border-0 shadow-sm rounded-3" style="background-color: #5eb6e4;">
+<div class="card-body d-flex flex-column h-100 p-5">
+<h5 class="card-title text-primary-emphasis fw-bold">Alleviate Poverty</h5>
+<div class="card-text text-muted"><img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/d6cb4cfb-c49b-4d2b-a134-b5a49b506541_Artboard+3%402x.png" class="d-block mx-auto mb-3">
+<p style="text-align: center;">Grinding poverty often passes from one generation to the next. Your support helps us offer clients spaces, programs, and services to alleviate poverty with sustainable steps forward.</p>
+</div>
+<div class="mt-auto pt-3 d-flex flex-wrap gap-2"></div>
+</div>
+</div>
+</div>
+<div class="col mb-2">
+<div class="card h-100 border-0 shadow-sm rounded-3" style="background-color: #5eb6e4;">
+<div class="card-body d-flex flex-column h-100 p-5">
+<h5 class="card-title text-primary-emphasis fw-bold">Fight Addiction</h5>
+<div class="card-text text-muted"><img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/05f3d288-25af-4bed-b65c-680ad5232005_Artboard+4%402x.png" class="d-block mx-auto mb-3">
+<p style="text-align: center;">Any number of factors can lead to addiction for neighbors near you, which tears at the fabric of families. Your support helps clients fight addiction and paves the way to a fresh start through evidence-based programs.</p>
+</div>
+<div class="mt-auto pt-3 d-flex flex-wrap gap-2"></div>
+</div>
+</div>
+</div>
+<div class="col mb-2">
+<div class="card h-100 border-0 shadow-sm rounded-3" style="background-color: #5eb6e4;">
+<div class="card-body d-flex flex-column h-100 p-5">
+<h5 class="card-title text-primary-emphasis fw-bold">Reverse Homelessness</h5>
+<div class="card-text text-muted"><img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/65d30c66-2c39-4f73-b1e4-bfb5c2948da6_Artboard+6%402x.png" class="d-block mx-auto mb-3">
+<p style="text-align: center;">Hundreds of thousands of North Texans struggle with poverty each year, falling behind on rent or turning to high-interest lenders. The homelessness that results traumatizes those affected, especially children. Your support helps clients rise above economic instability and homelessness to self-sufficiency through our housing services, safe shelters that keep families intact, and innovative programming.</p>
+</div>
+<div class="mt-auto pt-3 d-flex flex-wrap gap-2"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Buttons - freetextarea -->
+<div id="Free-Text-Area-7" class="mb-5 mx-2 rounded overflow-hidden p-4" style="background-color: #ffffff;">
+<div class="container-fluid p-0">
+<div class="row row-1">
+<div class="col-md-6 col-12">
+<div class="content">
+<p style="text-align: center;"><a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/6caaf015-9f94-4720-927b-674856cbc499_2024_impact_report_FINAL.pdf" class="btn btn-blue my-2 mx-1 btn-secondary text-white" style="text-decoration: none;">VIEW IMPACT REPORT</a></p>
+</div>
+</div>
+<div class="col-md-6 col-12">
+<div class="content">
+<p style="text-align: center;"><a href="https://salvationarmyntx.org/north-texas/newsletter" target="" class="btn btn-blue my-2 mx-1 btn-secondary text-white" style="text-decoration: none;"><span class="btn-blue">READ CLIENT STORIES</span></a></p>
+</div>
+</div>
+</div>
+</div>
+<p style="text-align: center;"> </p>
+</div>
+<!-- Bernie DiFiore Quote - freetextarea -->
+<div id="Free-Text-Area-8" class="mb-5">
+<div class="rounded overflow-hidden mb-4 d-grid position-relative" style="grid-template-columns: 100%; min- background-color: #f8f9fa;"><!-- Desktop Aspect Ratio Spacer (enforces MINIMUM ~1300/512 ratio) -->
+<div class="d-none d-md-block" style="grid-area: 1/1; width: 100%; aspect-ratio: 2.54 / 1; pointer-events: none;"></div>
+<!-- Mobile Aspect Ratio Spacer (enforces MINIMUM natural image ratio) --> <img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/da9edb36-372e-4b54-8377-e315ac47519a_20121204_gc_163_rgb-tinted.jpg" class="w-100 d-block d-md-none" style="grid-area: 1 / 1; visibility: hidden; pointer-events: none; display: block; margin-left: 0px; margin-right: auto;"> <!-- Desktop Background (Contain + Tiling) -->
+<div class="d-none d-md-block" style="grid-area: 1/1; background: url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/da9edb36-372e-4b54-8377-e315ac47519a_20121204_gc_163_rgb-tinted.jpg') repeat center center; background-size: contain; z-index: 1;"></div>
+<!-- Mobile Background (Cover + Tiling) -->
+<div class="d-block d-md-none" style="grid-area: 1/1; background: url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/da9edb36-372e-4b54-8377-e315ac47519a_20121204_gc_163_rgb-tinted.jpg') repeat center center; background-size: cover; z-index: 1;"></div>
+<div class="position-absolute inset-0" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.4); z-index: 2;"></div>
+<!-- Content Wrapper: Flow-based so it stretches the parent if needed -->
+<div class="d-flex align-items-center justify-content-start" style="grid-area: 1/1; z-index: 3;">
+<div class="w-100 p-4 p-md-5 text-white text-start">
+<h2 style="text-align: center;" class="text-white"><span>“The Salvation Army has developed a new strategic plan to change our organizational structure and services, allowing us to expand and improve our outreach to thousands of individuals, giving them a truly life-changing pathway to hope.”</span></h2>
+<p style="text-align: center;" class="text-white"><span>– Bernie DiFiore, Campaign Co-Chair</span></p>
+</div>
+</div>
+</div>
+</div>
+<!-- Leadership - freetextarea -->
+<div id="Free-Text-Area-9" class="mb-5 mx-2 rounded overflow-hidden p-4" style="background-color: #ffffff;">
+<h2 style="text-align: center;"><span style="color: #ed1c2b;">Campaign Leadership</span></h2>
+<div class="container-fluid p-0">
+<div class="row row-1">
+<div class="col-md-3 col-12">
+<div class="content"><img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/af70daa7-282f-4b31-81e5-abc274c3787a_lt+col+william+mockabee.jpg" class="d-block mx-auto mb-3">
+<p style="text-align: center;"><strong>Lt. Colonel William Mockabee</strong><br><em>Executive Officer for the Campaign</em></p>
+</div>
+</div>
+<div class="col-md-3 col-12">
+<div class="content"><img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/c2ed6a3e-ac78-404c-be30-5c9f66433b83_SA-headshots-website3.jpg" class="d-block mx-auto mb-3">
+<p style="text-align: center;"><strong>Michal Powell</strong><br><em>Campaign Co-Chair</em></p>
+</div>
+</div>
+<div class="col-md-3 col-12">
+<div class="content"><img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/40a1e10d-41fb-4f5c-9d10-f79c059cc251_SNTX_Bernie+DiFiore-2.jpg" class="d-block mx-auto mb-3">
+<p style="text-align: center;"><strong>Bernie DiFiore</strong><br><em>Campaign Co-Chair</em></p>
+</div>
+</div>
+<div class="col-md-3 col-12">
+<div class="content"><img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/2756714a-386d-41be-b243-8f2e9f5bb663_SNTX_Mark+Schortman-06.jpg" class="d-block mx-auto mb-3">
+<p style="text-align: center;"><strong>Mark Schortman</strong><br><em>Dallas Advisory Board Chair</em></p>
+</div>
+</div>
+</div>
+<div class="row row-2">
+<div class="col-md-3 col-12">
+<div class="content"><img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/7d6fc757-8b6d-4a0c-802f-dce1f86b2c76_SA-headshots-website.jpg" class="d-block mx-auto mb-3">
+<p style="text-align: center;"><strong>William Ross</strong><br><em>Executive Committee Co-Chair</em></p>
+</div>
+</div>
+<div class="col-md-3 col-12">
+<div class="content"><img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/5fe79c48-e029-49cc-a497-049e68940fdd_SNTX_Judy+Gibbs-06.jpg" class="d-block mx-auto mb-3">
+<p style="text-align: center;"><strong>Judy Gibbs</strong><br><em>Dallas Advisory Board<br>Campaign Chair</em></p>
+</div>
+</div>
+<div class="col-md-3 col-12">
+<div class="content"><img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/e5487dad-a1cc-4d3c-ad1d-6ebdce0dcccb_SA-headshots-website2.jpg" class="d-block mx-auto mb-3">
+<p style="text-align: center;"><strong>Christina Cavalier</strong><br><i>Managing Director</i></p>
+</div>
+</div>
+<div class="col-md-3 col-12">
+<div class="content">
+<p> </p>
+</div>
+</div>
+</div>
+</div>
+<p> </p>
+</div>
+<!-- Ambassadors Accordian - accordiongroup -->
+<div id="Accordion" class="mb-5 mx-2">
+<div class="accordion my-3" id="accordion-8a808019">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading-8a808019-1"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-8a808019-1" aria-expanded="false" aria-controls="collapse-8a808019-1"> Campaign Ambassadors </button></h2>
+<div id="collapse-8a808019-1" class="accordion-collapse collapse" aria-labelledby="heading-8a808019-1" data-bs-parent="#accordion-8a808019">
+<div class="accordion-body">
+<h2 style="text-align: center;"><span style="color: #ed1c2b;">Campaign Ambassadors</span></h2>
+<div class="container-fluid p-0">
+<div class="row row-1">
+<div class="col-md-4 col-12">
+<div class="content">
+<p><span style="color: black;">Liz Beauchamp</span></p>
+<p><span style="color: black;">Robert Best</span></p>
+<p><span style="color: black;">Nancy Bierman</span></p>
+<p><span style="color: black;">Lisa Cooley</span></p>
+<p><span style="color: black;">Richard L. Davis</span></p>
+<p><span style="color: black;">Jennifer Dix</span></p>
+<p><span style="color: black;">Mary Clare Finney</span></p>
+<p><span style="color: black;">Alan Friedman</span></p>
+</div>
+</div>
+<div class="col-md-4 col-12">
+<div class="content">
+<p><span style="color: black;">Heather Furniss</span></p>
+<p><span style="color: black;">Elizabeth Reding Gambrell</span></p>
+<p><span style="color: black;">Louise Spence Griffeth</span></p>
+<p><span style="color: black;">John Hawkins</span></p>
+<p><span style="color: black;">Jean Hobby</span></p>
+<p><span style="color: black;">Raj Kalyandurg</span></p>
+<p><span style="color: black;">Barbara McAfee</span></p>
+<p><span style="color: black;">Preston McAfee</span></p>
+<p> </p>
+</div>
+</div>
+<div class="col-md-4 col-12">
+<div class="content">
+<p><span style="color: black;">J.D. McCaslin</span></p>
+<p><span style="color: black;">Roland Parrish</span></p>
+<p><span style="color: black;">Carol Seay</span></p>
+<p><span style="color: black;">Lisa Singleton</span></p>
+<p><span style="color: black;">Philip D. Swatzell</span></p>
+<p><span style="color: black;">Taylor Turner</span></p>
+</div>
+</div>
+</div>
+</div>
+<p> </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Campaign News - freetextarea -->
+<div id="Free-Text-Area-10" class="mb-5 mx-2 rounded overflow-hidden p-4" style="background-color: #ffffff;">
+<h2 style="text-align: center;"><span style="color: #ed1c2b;">Campaign News</span></h2>
+<p style="text-align: center;"><a href="https://salvationarmyntx.org/north-texas/field-reports" target="" class="btn btn-blue my-2 mx-1 btn-secondary text-white" style="text-decoration: none;"><span class="btn-blue">VIEW CAMPAIGN NEWS</span></a></p>
+</div>
+<!-- Page Details - Page Details -->
+<div class="section">
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+<h2 style="text-align: center;"><span style="color: #ed1c2b;">Get Involved</span></h2>
+<p style="text-align: center;">The love we have for our community and one another can transform people’s lives and the future of our region. We invite you to join us as part of One Army, Many Fronts as we strive to Do the Most Good.</p>
+<p style="text-align: center;">If you're interested in joining the campaign or learning more, please email us below or call us at 214-637-8131.</p>
+<p style="text-align: center;"><span class="btn btn-solid btn-blue"><a href="mailto:NTXCampaign@uss.salvationarmy.org" target="">EMAIL US</a></span></p>
+<p style="text-align: center;"><a href="https://give.salvationarmytexas.org/One-Army-Many-Fronts" target=""><span class="btn btn-solid btn-blue">DONATE</span></a></p>
+</div>
+</div>
+</div>
+</div>
+</div>

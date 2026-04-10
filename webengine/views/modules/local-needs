@@ -1,0 +1,124 @@
+ {{if {this.local_need_title_1} || {this.local_need_title_3} || {this.local_need_title_2} }}
+<div
+  id="local-needs"
+  class="rounded-5 bg-light p-5 my-15 d-flex flex-column flex-md-row justify-content-between align-items-start"
+>
+  {{if {this.local_need_icon_name_1} && {this.local_need_title_1} && {this.local_need_subtitle_1} }}
+  <div class="p-6 w-100">
+    <span class="material-symbols-outlined">
+      {{ this.local_need_icon_name_1 }}
+    </span>
+    <h3 class="mt-6 mb-2 text-secondary-200 fs-7">
+      {{ this.local_need_title_1 }}
+    </h3>
+    <div class="d-flex flex-column text-dark-50">
+      <p>
+        {{ this.local_need_subtitle_1 }}
+      </p>
+    </div>
+    <div class="d-inline-flex flex-column align-items-start justify-content-center w-100 text-dark-50">
+
+      {{if {this.local_need_link_text_1} && {this.local_need_link_1} && {this.local_need_external_link_1} == "" }}
+      <a
+        href="{{truepath({this.local_need_link_1})}}"
+        class="btn btn-secondary"
+        data-location-type="body:about-us-page"
+        data-function-type="other"
+        data-format-type="button"
+        data-link-type="internal"
+        onclick="LinkTrackingClickEvent(this,'cta_click')"
+      >{{this.local_need_link_text_1}}</a>
+      {{else-if {this.local_need_link_text_1} && {this.local_need_external_link_1} }}
+      <a
+        href="{{this.local_need_external_link_1}}"
+        class="btn btn-secondary"
+        data-location-type="body:about-us-page"
+        data-function-type="other"
+        data-format-type="button"
+        data-link-type="internal"
+        onclick="LinkTrackingClickEvent(this,'cta_click')"
+      >{{this.local_need_link_text_1}}</a>
+      {{/if}}
+    </div>
+  </div>
+  {{/if}}
+
+  {{if {this.local_need_icon_name_2} && {this.local_need_title_2} && {this.local_need_subtitle_2} }}
+  <div class="p-6 w-100">
+    <span class="material-symbols-outlined">
+      {{ this.local_need_icon_name_2 }}
+    </span>
+    <h3 class="mt-6 mb-2 text-secondary-200 fs-7">
+      {{ this.local_need_title_2 }}
+    </h3>
+    <div class="d-flex flex-column text-dark-50">
+      <p>
+        {{ this.local_need_subtitle_2 }}
+      </p>
+    </div>
+    <div class="d-inline-flex flex-column align-items-start justify-content-center w-100 text-dark-50">
+      {{if {this.local_need_link_text_2} && {this.local_need_link_2} && {this.local_need_external_link_2} == "" }}
+      <a
+        href="{{truepath({this.local_need_link_2.getUrl})}}"
+        class="btn btn-secondary"
+        data-location-type="body:about-us-page"
+        data-function-type="other"
+        data-format-type="button"
+        data-link-type="internal"
+        onclick="LinkTrackingClickEvent(this,'cta_click')"
+      >{{this.local_need_link_text_2}}</a>
+      {{else-if {this.local_need_link_text_2} && {this.local_need_external_link_2} }}
+      <a
+        href="{{this.local_need_external_link_2}}"
+        class="btn btn-secondary"
+        data-location-type="body:about-us-page"
+        data-function-type="other"
+        data-format-type="button"
+        data-link-type="internal"
+        onclick="LinkTrackingClickEvent(this,'cta_click')"
+      >{{this.local_need_link_text_2}}</a>
+      {{/if}}
+    </div>
+  </div>
+  {{/if}}
+
+  {{if {this.local_need_icon_name_3} && {this.local_need_title_3} && {this.local_need_subtitle_3} }}
+  <div class="p-6 w-100">
+    <span class="material-symbols-outlined">
+      {{ this.local_need_icon_name_3 }}
+    </span>
+    <h3 class="mt-6 mb-2 text-secondary-200 fs-7">
+      {{ this.local_need_title_3 }}
+    </h3>
+    <div class="d-flex flex-column text-dark-50">
+      <p>
+        {{ this.local_need_subtitle_3 }}
+      </p>
+    </div>
+    <div class="d-inline-flex flex-column align-items-start justify-content-center w-100 text-dark-50">
+      {{if {this.local_need_link_text_3} && {this.local_need_link_3} && {this.local_need_external_link_3} == "" }}
+      <a
+        href="{{truepath({this.local_need_link_3})}}"
+        class="btn btn-secondary"
+        data-location-type="body:about-us-page"
+        data-function-type="other"
+        data-format-type="button"
+        data-link-type="internal"
+        onclick="LinkTrackingClickEvent(this,'cta_click')"
+      >{{this.local_need_link_text_3}}</a>
+      {{else-if {this.local_need_link_text_3} && {this.local_need_external_link_3} }}
+      <a
+        href="{{this.local_need_external_link_3}}"
+        class="btn btn-secondary"
+        data-location-type="body:about-us-page"
+        data-function-type="other"
+        data-format-type="button"
+        data-link-type="internal"
+        onclick="LinkTrackingClickEvent(this,'cta_click')"
+      >{{this.local_need_link_text_3}}</a>
+      {{/if}}
+    </div>
+  </div>
+  {{/if}}
+</div>
+{{/if}}

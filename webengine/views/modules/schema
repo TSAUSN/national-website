@@ -1,0 +1,214 @@
+{{$cityZUID = {cities.filter({this.parent_zuid}).zuid} }}
+{{$locationZUID = {locations.filter({this.parent_zuid}).zuid} }}
+{{$divisionZUID = {divisions.filter({this.zuid}).zuid} }}
+{{$divisionAsParentZUID = {divisions.filter({this.parent_zuid}).zuid} }}
+{{$territoryZUID = {territories.filter({this.zuid}).zuid} }}
+{{$territoryAsParentZUID = {territories.filter({this.parent_zuid}).zuid} }}
+<script>
+
+   let jsonLd = {
+     '@context': 'https://schema.org',
+     '@graph': [
+      {
+         "@type": "Organization",
+         "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization",
+         "name": "{{this._meta_title}}",
+         "url": "https://{{instance.domain}}{{truepath({this.zuid})}}"
+       },
+       {
+         "@type": "WebSite",
+         "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#website",
+         "url": "https://{{instance.domain}}{{truepath({this.zuid})}}",
+         "name": "{{this._meta_title}}",
+         "publisher": {
+           "@id": "https://{{instance.domain}}{{ truepath({this.zuid}) }}#organization"
+         }
+       },
+       {
+         "@type": "WebPage",
+         "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#webpage",
+         "url": "https://{{instance.domain}}{{truepath({this.zuid})}}",
+         "name": "{{this._meta_title}}",
+         "isPartOf": {
+           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#website"
+         },
+         "about": {
+           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
+         }
+       },
+       {
+         "@type": "DonateAction",
+         "target": {
+           "@type": "EntryPoint",
+           "urlTemplate": "{{@location_donate_form}}",
+           "inLanguage": "en",
+           "actionPlatform": [
+             "http://schema.org/DesktopWebPlatform",
+             "http://schema.org/MobileWebPlatform"
+           ]
+         },
+         "recipient": {
+           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
+         },
+         "name": "Donate to " + cookieManager.get(cookieKeys.locationName)
+       },
+       {{if {$model_name} == '6-c2b7f2a9ad-k4frxv'}}
+       {
+         "@type": "DonateAction",
+         "target": {
+           "@type": "EntryPoint",
+           "urlTemplate": "{{@location_donate_form}}",
+           "inLanguage": "en",
+           "actionPlatform": [
+             "http://schema.org/DesktopWebPlatform",
+             "http://schema.org/MobileWebPlatform"
+           ]
+         },
+         "recipient": {
+           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
+         },
+         "name": "Donate to " + cookieManager.get(cookieKeys.locationName)
+       },
+       {
+         "@type": "DonateAction",
+         "name": "One-Time Donation",
+         "target": {
+           "@type": "EntryPoint",
+           "urlTemplate": "{{@location_donate_form}}"
+         },
+         "recipient": {
+           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
+         }
+       },
+       {
+         "@type": "DonateAction",
+         "name": "Monthly Giving",
+         "target": {
+           "@type": "EntryPoint",
+           "urlTemplate": "{{@location_donate_form}}"
+         },
+         "recipient": {
+           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
+         }
+       },
+       {
+         "@type": "DonateAction",
+         "name": "Corporate Sponsorships",
+         "target": {
+           "@type": "EntryPoint",
+           "urlTemplate": "https://{{instance.domain}}{{truepath({7-e4ee949cae-vm5klq})}}"
+         },
+         "recipient": {
+           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
+         }
+       },
+       {
+         "@type": "DonateAction",
+         "name": "Planned Giving",
+         "target": {
+           "@type": "EntryPoint",
+           "urlTemplate": "https://{{instance.domain}}{{truepath({7-82ce8e98ae-tvqz03})}}"
+         },
+         "recipient": {
+           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
+         }
+       },
+       {
+         "@type": "DonateAction",
+         "name": "Stock or Cryptocurrency Donations",
+         "target": {
+           "@type": "EntryPoint",
+           "urlTemplate": "https://{{instance.domain}}{{truepath(7-908ef4edec-70r71l)}}"
+         },
+         "recipient": {
+           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
+         }
+       },
+
+         {
+           "@type": "AboutPage",
+           "name": "About Us",
+           "url": "https://{{instance.domain}}{{truepath(7-90eff9e999-tpj14d)}}",
+           "isPartOf": {
+             "@id": "https://{{instance.domain}}#website"
+           },
+           "mainEntity": {
+             "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
+           }
+         },
+         {
+           "@type": "FAQPage",
+           "name": "Frequently Asked Questions",
+           "url": "https://{{instance.domain}}{{truepath(7-a2e6fdb4d7-03cvlv)/#faq}}",
+           "isPartOf": {
+             "@id": "https://{{instance.domain}}#website"
+           },
+         },
+       {{/if}}
+       {{if {$model_name} == '6-b4c9aba69c-h2nqvm'}}
+         {
+           "@type": "LocalBusiness",
+           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#localbusiness",
+           "name": "{{this._meta_title}}",
+           "url": "https://{{instance.domain}}{{truepath({this.zuid})}}",
+           "address": {
+             "@type": "PostalAddress",
+             "streetAddress": "{{this.address}}",
+             "addressLocality": "{{cities.filter({this.city}).name }}",
+             "addressRegion": "{states.filter({this.state}).name }}",
+             "postalCode": "{{this.zipcode}}",
+             "addressCountry": "US"
+           },
+           "telephone": "{{this.contact_number}}",
+           "parentOrganization": {
+             "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
+           }
+         },
+       {{/if}}
+
+       {{if {$model_name} == '6-80c7e29486-k0pq6s'}}
+          {
+           "@type": "NewsArticle",
+           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#news",
+           "headline": "{{!this._meta_title}}",
+           "description": "{{!this.meta_description}}",
+           "datePublished": "{{!this.story_date_picker}}",
+           "author": {
+             "@type": "Person",
+             "name": "{{!this.author}}"
+           },
+           "publisher": {
+             "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
+           },
+           "mainEntityOfPage": {
+             "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#webpage"
+           },
+           "image": {
+             "@type": "ImageObject",
+             "url": "{{this.image.getImage()}}"
+           }
+           },
+       {{/if}}
+
+     ]
+   };
+
+  //   ServicesObserver.subscribe((services) => {
+  //     const mappedServices = services?.map((service, index) =>({
+  //       "@type": "Service",
+  //       "@id": "https://{{instance.domain}}{{ truepath({service.zuid}) }}",
+  //       "name": service.meta_title,
+  //       "provider": {
+  //         "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
+  //       },
+  //       "serviceType": service.service_type_name
+  //     }))
+
+  //    jsonLd["@graph"] = [...jsonLd["@graph"], ...mappedServices]
+
+  //     const script = document.createElement("script");
+  //     script.type = "application/ld+json";
+  //     script.text = JSON.stringify(jsonLd, null, 2);
+  //     document.body?.appendChild(script);
+  //  });
+</script>

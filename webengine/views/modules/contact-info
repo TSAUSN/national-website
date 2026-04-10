@@ -1,0 +1,73 @@
+{{$territory = {territories.filter({@location_zuid}).zuid} }}
+{{$division = {divisions.filter({@location_zuid}).zuid} }}
+
+<div id="contact-info" class="rounded-5 bg-light p-5 my-15 d-flex justify-content-between">
+  <div class="p-6 w-100">
+    <span class="material-symbols-outlined"> alarm </span>
+    <p class="mt-6">General Hours</p>
+    {{clippings.national_general_hours}}
+  </div>
+  <div class="p-6 w-100">
+    <span class="material-symbols-outlined"> location_on </span>
+    <p class="mt-6">Address</p>
+    <div class="d-flex flex-column text-dark-50 mb-4 mt-2">
+      {{ if {$territory} }}
+      {{territories.filter({$territory}).address}}
+      {{else if {$division} }}
+      {{divisions.filter({$division}).address}}
+      {{else}}
+      615 Slaters Lane, Alexandria, VA 22314
+      {{/if}}
+    </div>
+    <div class="d-flex gap-1 text-dark-50">
+      <a
+        href="https://www.google.com/maps?dirflg=w&q=  {{ if {$territory} }}
+      {{territories.filter({$territory}).address}}
+      {{else if {$division} }}
+      {{divisions.filter({$division}).address}}
+      {{else}}
+      615 Slaters Lane, Alexandria, VA 22314
+      {{/if}}"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Walking</a
+      >
+      |
+      <a
+        href="https://www.google.com/maps?dirflg=d&q={{ if {$territory} }}
+      {{territories.filter({$territory}).address}}
+      {{else if {$division} }}
+      {{divisions.filter({$division}).address}}
+      {{else}}
+        {{clippings.national_address}}
+      {{/if}}"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Driving</a
+      >
+      |
+      <a
+        href="https://www.google.com/maps?dirflg=r&q={{ if {$territory} }}
+      {{territories.filter({$territory}).address}}
+      {{else if {$division} }}
+      {{divisions.filter({$division}).address}}
+      {{else}}
+      {{clippings.national_address}}
+      {{/if}}"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Public Transport</a
+      >
+    </div>
+  </div>
+  <div class="p-6 w-100">
+    <span class="material-symbols-outlined"> call </span>
+    <p class="mt-6">Contact Us</p>
+    <div class="d-flex flex-column text-dark-50 mb-4 mt-2">
+      <span>{{clippings.national_contact_number}}</span>
+    </div>
+    <div class="d-flex flex-column text-dark-50">
+      <a href="#contact">Send Us A message</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+
+{{if {request.queryParam(location)} }}
+  {{ $location_zuid = {request.queryParam(location)} }}
+{{else}}
+  {{ $location_zuid = null }}
+{{/if}}
+
+{{if {request.queryParam(serviceTypes)} }}
+  {{ $service_types = {request.queryParam(serviceTypes)} }}
+{{else}}
+  {{ $service_types =  }}
+{{/if}}
+
+[{{each services as service where service.location = '{$location_zuid}' }}
+  {{service.toJSON()}}{{service._arraycomma}}
+{{/each}}]

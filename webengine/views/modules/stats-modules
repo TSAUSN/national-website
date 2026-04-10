@@ -1,0 +1,43 @@
+{{if {this.stat_title_1} || {this.stat_title_2} || {this.stat_title_3} }}
+
+<div id="stats-module" class="mb-15">
+  <h2 class="text-start mb-8 fs-4 px-4">Stats</h2>
+  <div class="bg-light rounded-5 py-3 px-3 px-md-4 py-md-4">
+    <div class="d-flex flex-md-row flex-sm-column justify-content-between flex-wrap">
+      {{if {this.stat_title_1} && {this.stat_subtitle_1} }}
+      <div class="col me-auto d-flex">
+        <div class="p-6">
+          <h2 class="card-title text-secondary-200 fw-normal mb-2">
+            {{ this.stat_title_1 }}
+          </h2>
+          <p class="text-secondary-200 fs-7">
+            {{ this.stat_subtitle_1 }}
+          </p>
+        </div>
+      </div>
+      {{/if}}
+      {{if {this.stat_title_2} && {this.stat_subtitle_2} }}
+      <div class="col me-auto d-flex">
+        <div class="p-6">
+          <h2 class="card-title text-secondary-200 fw-normal mb-2">{{ this.stat_title_2 }}</h2>
+          <p class="text-secondary-200 fs-7">
+            {{ this.stat_subtitle_2 }}
+          </p>
+        </div>
+      </div>
+      {{/if}}
+      {{if {this.stat_title_3} && {this.stat_subtitle_3} }}
+
+      <div class="col me-auto d-flex">
+        <div class="p-6">
+          <h2 class="card-title text-secondary-200 fw-normal mb-2">{{ this.stat_title_3 }}</h2>
+          <p class="text-secondary-200 fs-7">
+            {{ this.stat_subtitle_3 }}
+          </p>
+        </div>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</div>
+{{/if}}

@@ -1,0 +1,9 @@
+{{if {request.queryParam(zuid)} }}
+  {{$where = z.zuid = '{request.queryParam(zuid)}' }}
+{{/if}}
+
+[
+{{each service_types as service_type WHERE {$where} }}
+  {{service_type.toJSON()}}{{service_type._arraycomma}}
+{{/each}}
+]

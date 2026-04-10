@@ -1,0 +1,142 @@
+<div class="container mt-4 d-none d-md-block">
+  <div
+    class="accordion-flush accordion"
+    id="filtersAccordion"
+  >
+    <!-- Most Recent -->
+    <div class="accordion-item bg-transparent border-0 mb-3">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button accordion-button-filter collapsed bg-light text-dark-100 rounded-2 d-inline-flex align-items-center justify-content-between py-5"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mostRecent"
+          aria-expanded="false"
+          data-search-term="Sort By"
+          data-search-filter-type="Sort By"
+          data-search-filter-value="Sort By"
+          onclick="newsFilterEvent(this)"
+        >
+          <div class="d-inline-flex align-items-center">
+            <i class="material-symbols-outlined me-2 text-primary-200">alarm</i>
+            <span class="display-1"> Sort By </span>
+          </div>
+          <i class="material-symbols-outlined me-2 toggle-icon">arrow_right_alt</i>
+        </button>
+      </h2>
+      <div
+        id="mostRecent"
+        class="accordion-collapse collapse"
+        data-bs-parent="#filtersAccordion"
+      >
+        <div class="accordion-body">
+          <ul class="list-group display-1 news-dropdown">
+            <li>
+              <button
+                class="newest-btn list-group-item list-group-item-action bg-light rounded-2 mb-3 py-2 px-6 d-flex align-items-center"
+                data-value="newest"
+                data-location-type="body:news"
+                data-search-term="newest"
+                data-search-filter-type="newest"
+                data-search-filter-value="newest"
+                onclick="newsFilterEvent(this)"
+                id="newest-btn"
+              >
+                <span class="material-symbols-outlined me-2 text-primary-200">
+                digital_wellbeing
+                </span>
+                Newest
+              </button>
+            </li>
+            <li>
+              <button
+                class="oldest-btn list-group-item list-group-item-action bg-light rounded-2 mb-3 py-2 px-6 d-flex align-items-center"
+                data-value="oldest"
+                data-search-term="oldest"
+                data-search-filter-type="oldest"
+                data-search-filter-value="oldest"
+                onclick="newsFilterEvent(this)"
+                id="oldest-btn"
+              >
+                <span class="material-symbols-outlined me-2 text-primary-200">
+                  alarm
+                </span>
+                Oldest
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="d-none accordion-item bg-transparent border-0 mb-3">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button accordion-button-filter collapsed bg-light text-dark-100 d-inline-flex align-items-center justify-content-between rounded-2 py-5"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#categories"
+          aria-expanded="false"
+          data-search-term="categories"
+          data-search-filter-type="categories"
+          data-search-filter-value="categories"
+          onclick="newsFilterEvent(this)"
+        >
+          <div class="d-inline-flex align-items-center">
+            <i class="material-symbols-outlined me-2 text-primary-200">category</i>
+            <span class="display-1"> Categories </span>
+          </div>
+          <i class="material-symbols-outlined me-2 toggle-icon">arrow_right_alt</i>
+        </button>
+      </h2>
+      <div
+        id="categories"
+        class="accordion-collapse collapse"
+        data-bs-parent="#filtersAccordion"
+      >
+        <div class="accordion-body">
+          <div class="categories__wrapper">
+            <ul class="list-group display-1 news-dropdown">
+              <!-- Dynamic service types -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Date -->
+    <div class="d-none accordion-item bg-transparent border-0 mb-3">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button accordion-button-filter collapsed bg-light text-dark-100 rounded-2 d-inline-flex align-items-center justify-content-between py-5"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#news-date"
+          aria-expanded="false"
+          data-search-term="date"
+          data-search-filter-type="date"
+          data-search-filter-value="date"
+          onclick="newsFilterEvent(this)"
+        >
+          <div class="d-inline-flex align-items-center">
+            <i class="material-symbols-outlined me-2 text-primary-200">event</i>
+            <span class="display-1"> Date </span>
+          </div>
+          <i class="material-symbols-outlined me-2 toggle-icon">arrow_right_alt</i>
+        </button>
+      </h2>
+      <div
+        id="news-date"
+        class="accordion-collapse collapse"
+        data-bs-parent="#filtersAccordion"
+      >
+        <div class="accordion-body">
+          <div class="datepicker-container">
+            <div id="news-filter-datepicker"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

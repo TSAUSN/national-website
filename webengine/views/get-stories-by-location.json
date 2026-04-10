@@ -1,0 +1,6 @@
+[{{ each stories as story where find_in_set('7-dcb3daeee7-3l9t49', story.territory) limit 0, 10000}}
+  {
+    "item_zuid": "{{story.zuid}}",
+    "totalItems": "{{story._length}}"
+  }{{story._arraycomma}}
+{{/each}}]
