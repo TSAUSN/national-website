@@ -1,17 +1,20 @@
 [
   {
+    "type": "menu",
     "key": "home",
     "page_name": "Home",
     "page-zuid": "7-8cb2cdb7d3-v7g7zn",
     "parent": null
   },
   {
+    "type": "menu",
     "key": "services",
     "page_name": "Services",
     "page-zuid": null,
     "parent": null
   },
   {
+    "type": "menu",
     "key": null,
     "page_name": "Hunger | /usa-southern-territory/texas/hunger/",
     "page-zuid": "7-f6baa8a68e-w7vsb1",
@@ -19,6 +22,7 @@
     "parent": "services"
   },
   {
+    "type": "menu",
     "key": null,
     "page_name": "Correctional Services | /usa-southern-territory/texas/correctional-services/",
     "page-zuid": "7-c8b1bda68e-2qzw4b",
@@ -26,6 +30,7 @@
     "parent": "services"
   },
   {
+    "type": "menu",
     "key": null,
     "page_name": "Utility Rent Assistance | /usa-southern-territory/texas/utility-rent-assistance/",
     "page-zuid": "7-eaddcaa68e-vpn2g7",
@@ -33,6 +38,7 @@
     "parent": "services"
   },
   {
+    "type": "menu",
     "key": null,
     "page_name": "Disaster Relief | /usa-southern-territory/texas/disaster-relief/",
     "page-zuid": "7-ecd2e0a68e-t03hnn",
@@ -40,6 +46,7 @@
     "parent": "services"
   },
   {
+    "type": "menu",
     "key": null,
     "page_name": "Domestic Violence | /usa-southern-territory/texas/domestic-violence/",
     "page-zuid": "7-b893f4a68e-8p4m69",
@@ -47,6 +54,7 @@
     "parent": "services"
   },
   {
+    "type": "menu",
     "key": null,
     "page_name": "Health Services | /usa-southern-territory/texas/health-services/",
     "page-zuid": "7-eecf8998d6-hqjxjn",
@@ -54,6 +62,7 @@
     "parent": "services"
   },
   {
+    "type": "menu",
     "key": null,
     "page_name": "Youth Services | /usa-southern-territory/texas/youth-services/",
     "page-zuid": "7-e0d7a398d6-4f1j34",
@@ -61,6 +70,7 @@
     "parent": "services"
   },
   {
+    "type": "menu",
     "key": null,
     "page_name": "Recovery | /usa-southern-territory/texas/recovery/",
     "page-zuid": "7-c091b498d6-tqzmfs",
@@ -68,6 +78,7 @@
     "parent": "services"
   },
   {
+    "type": "menu",
     "key": null,
     "page_name": "Senior Services | /usa-southern-territory/texas/senior-services/",
     "page-zuid": "7-888bd598d6-z8b66j",
@@ -75,6 +86,7 @@
     "parent": "services"
   },
   {
+    "type": "menu",
     "key": null,
     "page_name": "Family Counseling | /usa-southern-territory/texas/family-counseling/",
     "page-zuid": "7-ac97e698d6-njxv2v",
@@ -82,12 +94,20 @@
     "parent": "services"
   },
   {
+    "type": "menu",
     "key": "about_us",
     "page_name": "About Us",
     "page-zuid": null,
     "parent": null
   },
   {
+    "type": "view-all",
+    "page_name": "About Us | Texas | /usa-southern-territory/texas/about-us/",
+    "page-zuid": "7-c0dcade2ab-d2l6nq",
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
     "key": null,
     "page_name": "About The Salvation Army",
     "page-zuid": null,
@@ -95,6 +115,7 @@
     "parent": "about_us"
   },
   {
+    "type": "menu",
     "key": null,
     "page_name": "Commitment to all",
     "page-zuid": "7-90eff9e999-tpj14d",
@@ -102,6 +123,7 @@
     "parent": "about_us"
   },
   {
+    "type": "menu",
     "key": null,
     "page_name": "Leadership | Texas | /usa-southern-territory/texas/leadership/",
     "page-zuid": "7-a8fa94adba-wx96gp",
@@ -109,6 +131,7 @@
     "parent": "about_us"
   },
   {
+    "type": "menu",
     "key": null,
     "page_name": "History",
     "page-zuid": "7-b8c09b84c2-fp57hm",
@@ -116,6 +139,7 @@
     "parent": "about_us"
   },
   {
+    "type": "menu",
     "key": null,
     "page_name": "New Submenu Item",
     "page-zuid": null,
@@ -123,24 +147,28 @@
     "parent": "about_us"
   },
   {
+    "type": "menu",
     "key": "events",
     "page_name": "Events",
     "page-zuid": null,
     "parent": null
   },
   {
+    "type": "menu",
     "key": "newsroom",
     "page_name": "Newsroom",
     "page-zuid": null,
     "parent": null
   },
   {
+    "type": "menu",
     "key": "ways_to_give",
     "page_name": "Ways to give",
     "page-zuid": null,
     "parent": null
   },
   {
+    "type": "menu",
     "key": "contact_us",
     "page_name": "Contact Us",
     "page-zuid": null,
