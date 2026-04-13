@@ -2,7 +2,7 @@
 {{$model = {request.queryParam(model)} }}
 {{$this = here me}}
 
-{{$this}}
+
 [
 {{if {$model} == "6-deab97cfd9-wb5km4" }}
     {{each events as event WHERE find_in_set('{$zuid}', territories) }}
@@ -25,6 +25,7 @@
         }{{event._arraycomma}}
     {{/each}}
 {{else if {$model} == "6-b4c9aba69c-h2nqvm"}}
+{{$this}}
     {{each events as event WHERE find_in_set('{$zuid}', property) }}
         {
             "content":{{event.toJSON()}},
