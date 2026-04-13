@@ -14,10 +14,16 @@
     "parent": null
   },
   {
+    "type": "view-all",
+    "page_name": "",
+    "page-zuid": null,
+    "parent": "services"
+  },
+  {
     "type": "menu",
     "key": null,
-    "page_name": "Hunger | /usa-southern-territory/texas/hunger/",
-    "page-zuid": "7-f6baa8a68e-w7vsb1",
+    "page_name": "Domestic Violence | /usa-southern-territory/texas/domestic-violence/",
+    "page-zuid": "7-b893f4a68e-8p4m69",
     "sort": 0,
     "parent": "services"
   },
@@ -40,16 +46,16 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "Disaster Relief | /usa-southern-territory/texas/disaster-relief/",
-    "page-zuid": "7-ecd2e0a68e-t03hnn",
+    "page_name": "Hunger | /usa-southern-territory/texas/hunger/",
+    "page-zuid": "7-f6baa8a68e-w7vsb1",
     "sort": 3,
     "parent": "services"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Domestic Violence | /usa-southern-territory/texas/domestic-violence/",
-    "page-zuid": "7-b893f4a68e-8p4m69",
+    "page_name": "Disaster Relief | /usa-southern-territory/texas/disaster-relief/",
+    "page-zuid": "7-ecd2e0a68e-t03hnn",
     "sort": 4,
     "parent": "services"
   },
@@ -109,16 +115,16 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "About The Salvation Army",
-    "page-zuid": null,
+    "page_name": "Privacy Policy",
+    "page-zuid": "7-a494b3d0d5-tzqfsw",
     "sort": 0,
     "parent": "about_us"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Commitment to all",
-    "page-zuid": "7-90eff9e999-tpj14d",
+    "page_name": "About The Salvation Army",
+    "page-zuid": null,
     "sort": 1,
     "parent": "about_us"
   },
@@ -133,16 +139,16 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "History",
-    "page-zuid": "7-b8c09b84c2-fp57hm",
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
     "sort": 3,
     "parent": "about_us"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "New Submenu Item",
-    "page-zuid": null,
+    "page_name": "History",
+    "page-zuid": "7-b8c09b84c2-fp57hm",
     "sort": 4,
     "parent": "about_us"
   },
@@ -168,10 +174,53 @@
     "parent": null
   },
   {
+    "type": "view-all",
+    "page_name": "",
+    "page-zuid": null,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "New Submenu Item",
+    "page-zuid": null,
+    "sort": 0,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "New Submenu Item",
+    "page-zuid": null,
+    "sort": 1,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "New Submenu Item",
+    "page-zuid": null,
+    "sort": 2,
+    "parent": "ways_to_give"
+  },
+  {
     "type": "menu",
     "key": "contact_us",
     "page_name": "Contact Us",
     "page-zuid": null,
     "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "more",
+    "page_name": "More",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "view-all",
+    "page_name": "",
+    "page-zuid": null,
+    "parent": "more"
   }
 ]
