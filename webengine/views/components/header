@@ -809,7 +809,7 @@
         icon.textContent = service.icon || 'local_offer';
 
         const text = document.createElement('span');
-        text.className = 'flex-grow-1';
+        text.className = 'flex-grow-1 text-wrap';
         text.textContent = service.title;
 
         const input = createCheckboxInput(service, containerType);
