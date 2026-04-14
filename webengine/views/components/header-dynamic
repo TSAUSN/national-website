@@ -1,3 +1,25 @@
+
+
+{{$url = https://8hxvw8tw-dev.webengine.zesty.io/menu-config/{@location_zuid}.json?zpw=tsasecret123 }}
+{{$newsRoomURL =  }}
+{{$contactUsURL =  }}
+{{$eventsURL =  }}
+
+{{each api.json.get({$url}) as obj }}
+  {{if {obj.type} ==  'view-all' && {obj.parent} == "ways_to_give"}}
+    {{$viewAllWaysToGive = {truepath(obj.page-zuid)} }}
+  {{/if}}
+  {{if {obj.key} == 'newsroom' }}
+    {{$newsRoomURL = {truepath(obj.page-zuid)} }}
+  {{/if}}
+  {{if {obj.key} == 'events' }}
+    {{$eventsURL = {truepath(obj.page-zuid)} }}
+  {{/if}}
+  {{if {obj.key} == 'contact_us' }}
+    {{$contactUsURL = {truepath(obj.page-zuid)} }}
+  {{/if}}
+{{/each}}  
+
 <header
   id="header"
   data-component-type="header"
@@ -65,14 +87,14 @@
               <hr class="dropdown-divider" />
             </li>
             
-            <li class=" services_dropdown-item__container pe-auto services-dropdown-li">
-              {{$url = https://8hxvw8tw-dev.webengine.zesty.io/menu-config/7-8cb2cdb7d3-v7g7zn.json?zpw=tsasecret123 }}
+            <li class=" services_dropdown-item__container pe-auto">
+              
               {{each api.json.get({$url}) as obj }}
               {{if {obj.parent} ==  'services'}}
-              {{$url = {truepath({obj.page-zuid})} }}
+              {{$serviceUrl = {truepath({obj.page-zuid})} }}
               {{$service_type = {services.filter({obj.page-zuid}).service_type} }}
               {{$service_icon = {service_types.filter({$service_type}).icon_name} }}
-              <a class="dropdown-item py-2 px-2 d-flex align-items-center gap-2 header-service-item mb-4" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-sort="{{obj.sort}}" aria-current="page" href="{{$url}}" onclick="LinkTrackingClickEvent(this,'header_click')"><span class="material-symbols-outlined text-primary-200">{{$service_icon}}</span><span>{{obj.page_name}}</span></a>
+              <a class="dropdown-item py-2 px-2 d-flex align-items-center gap-2 header-service-item mb-4" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-sort="{{obj.sort}}" aria-current="page" href="{{$serviceUrl}}" onclick="LinkTrackingClickEvent(this,'header_click')"><span class="material-symbols-outlined text-primary-200">{{$service_icon}}</span><span>{{obj.page_name}}</span></a>
               {{/if}}
               {{/each}}  
             </li> 
@@ -97,111 +119,56 @@
             aria-expanded="false"
             >About Us</a
           >
-          <ul class="dropdown-menu  px-8 py-4 rounded-6 pe-none">
+          <ul class="dropdown-menu px-8 py-4 rounded-6 pe-none">
             <li><span class="p-0 mb-4 d-block text-dark-50">About Us</span></li>
             <li>
               <hr class="dropdown-divider" />
             </li>
 
             <li class="dropdown-item__container dropdown-item__container-repeat-3 pe-auto about-us-item-container">
-              <a
-                class="dropdown-item py-2 px-2 about-the-salvation-link"
-                href="#"
-                data-location-type="nav-top"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >About The Salvation Army</a
-              >
-              <a
-                class="dropdown-item py-2 px-2 leadership-link"
-                href="#"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >Leadership</a
-              >
-              <a
-                class="dropdown-item py-2 px-2 history-link"
-                href="{{ truepath(7-b8c09b84c2-fp57hm) }}"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >History</a
-              >
-              <a
-                class="dropdown-item py-2 px-2 employment-link"
-                href="#"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >Employment Opportunities</a
-              >
-              <a
-                class="dropdown-item py-2 px-2 love-beyond-link d-none"
-                href="{{ truepath(7-ec948cc4c0-lm28pm) }}"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >Love Beyond</a
-              >
-              <a
-                class="dropdown-item py-2 px-2"
-                href="/give-with-joy"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >Give With Joy</a
-              >
-              <a
-                class="dropdown-item py-2 px-2 sub-newsroom-link d-none"
-                href="#"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >Newsroom</a
-              >
-
-              <p class="dropdown-item placeholder-glow component-placeholder p-0">
-                <span
-                  class="placeholder h-100"
-                  style="width: 10rem"
-                ></span>
-              </p>
-
-              <a
-              class="dropdown-item py-2 px-2"
-              href="{{truepath(7-98f6a2b4bf-8xvb3r)}}"
-              data-function-type="navigation"
-              data-format-type="text"
-              data-link-type="internal"
-              onclick="LinkTrackingClickEvent(this,'header_click')"
-              >Commitment to Serving All</a
-            >
+              {{each api.json.get({$url}) as obj }}
+                {{if {obj.parent} == "about_us" && {obj.type} == 'menu'}}
+                {{$aboutUsUrl = {truepath({obj.page-zuid})} }}
+                <a class="dropdown-item py-2 px-2" href="{{$aboutUsUrl}}" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'header_click')" rel="noopener noreferrer">{{obj.page_name}}</a>
+                {{/if}}
+              {{/each}}
             </li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a
-            class="nav-link fw-normal newsroom-link"
-            aria-current="page"
-            data-location-type="nav-top"
-            data-function-type="navigation"
-            data-format-type="text"
-            data-link-type="internal"
-            aria-current="page"
-            href="#"
-            onclick="LinkTrackingClickEvent(this,'header_click')"
-            >Newsroom</a
-          >
-        </li>
+        {{if {$eventsURL} }}
+          <li class="nav-item">
+            <a
+              class="nav-link fw-normal"
+              aria-current="page"
+              data-location-type="nav-top"
+              data-function-type="navigation"
+              data-format-type="text"
+              data-link-type="internal"
+              aria-current="page"
+              href="{{$eventsURL}}"
+              onclick="LinkTrackingClickEvent(this,'header_click')"
+              >Events</a
+            >
+          </li>
+        {{/if}}
+          {{$newsRoomURL}}
+        {{if {$newsRoomURL} }}
+          <li class="nav-item">
+            <a
+              class="nav-link fw-normal"
+              aria-current="page"
+              data-location-type="nav-top"
+              data-function-type="navigation"
+              data-format-type="text"
+              data-link-type="internal"
+              aria-current="page"
+              href="{{$newsRoomURL}}"
+              onclick="LinkTrackingClickEvent(this,'header_click')"
+              >Newsroom</a
+            >
+          </li>
+        {{/if}}
+        
         <li class="nav-item dropdown">
           <a
             class="nav-link  header-dropdown dropdown-toggle fw-normal header-wtg-dropdown"
@@ -311,20 +278,22 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a
-            class="nav-link fw-normal contact-us-link"
-            aria-current="page"
-            data-location-type="nav-top"
-            data-function-type="navigation"
-            data-format-type="text"
-            data-link-type="internal"
-            aria-current="page"
-            href="#"
-            onclick="LinkTrackingClickEvent(this,'header_click')"
-            >Contact Us</a
-          >
-        </li>
+        {{if {$contactUsURL} }}
+          <li class="nav-item">
+            <a
+              class="nav-link fw-normal contact-us-link"
+              aria-current="page"
+              data-location-type="nav-top"
+              data-function-type="navigation"
+              data-format-type="text"
+              data-link-type="internal"
+              aria-current="page"
+              href="#"
+              onclick="LinkTrackingClickEvent(this,'header_click')"
+              >Contact Us</a
+            >
+          </li>
+        {{/if}}
 
         <li class="nav-item  dropdown d-none informational-links-more-parent">
           <a
@@ -621,4 +590,596 @@
 
   </div>
 
-</header>      
+</header>
+
+<script>
+  async function buildServiceCheckboxes() {
+    try {
+      const response = await fetch(
+        'https://{{instance.domain}}/-/instant/6-f0f2e8c49b-sdbvrb.json'
+      );
+      const { data } = await response.json();
+      
+      // Function to create checkbox with tracking
+      function createCheckboxInput(service, containerType) {
+        const input = document.createElement('input');
+        input.className = 'input form-check-input';
+        input.type = 'checkbox';
+        let serviceZUID = '';
+        let serviceTitle = '';
+        //  console.log('Service Content:', containerType);
+        if (containerType == 'mobile') {
+          serviceZUID = service?.zuid;
+          serviceTitle = service?.title;
+        } else {
+          serviceZUID = service.content.zuid.data[0].zuid;
+          serviceTitle = service.content?.title;
+        }
+       
+        input.value = serviceZUID;
+
+        // Add data attributes for tracking
+        input.setAttribute(
+          'data-search-type-type',
+          containerType === 'header'
+            ? 'location search - header'
+            : containerType === 'mobile'
+            ? 'location search - overlay'
+            : 'location search - body'
+        );
+        input.setAttribute('data-search-method-type', 'user-entered');
+        input.setAttribute('data-filter-type-type', 'location search');
+        input.setAttribute('data-filter-value-type', serviceZUID);
+        input.setAttribute('data-search-term-type', serviceTitle);
+
+        // Add click event listener
+        input.addEventListener('click', function () {
+          LocationTrackingSearchEvent(this, 'location_search_filter');
+        });
+
+        input.addEventListener('change', function () {
+          if (this.checked) {
+              applySelectedServices(this);
+          } else {
+              handleResetServices(this);
+          }
+        });
+        
+        return input;
+      }
+
+      // Function to build column content
+      function buildColumn(services, containerType) {
+        const columnDiv = document.createElement('div');
+        columnDiv.className = 'col border-end d-none d-md-flex';
+
+        const innerDiv = document.createElement('div');
+        innerDiv.className = 'd-flex mt-4 gap-4 flex-column w-100';
+
+        services.forEach((service) => {
+          
+          const label = document.createElement('label');
+          label.className = 'd-flex align-items-center justify-content-between form-check-label';
+
+          const iconDiv = document.createElement('div');
+          iconDiv.className = 'd-flex align-items-center justify-content-center gap-2';
+
+          const icon = document.createElement('span');
+          icon.className = 'material-symbols-outlined text-primary-200 fs-7 display-md-1';
+          icon.textContent = service.content.icon_name || 'local_offer';
+
+          const text = document.createElement('span');
+          text.className = 'display-3 display-md-2 me-2'
+          text.textContent = service.content.title;
+
+          const input = createCheckboxInput(service, containerType);
+
+          iconDiv.appendChild(icon);
+          iconDiv.appendChild(text);
+          label.appendChild(iconDiv);
+          label.appendChild(input);
+          innerDiv.appendChild(label);
+        });
+
+        columnDiv.appendChild(innerDiv);
+        return columnDiv;
+      }
+
+      // Function to split services into columns
+      function splitIntoColumns(services, numColumns) {
+        const servicesPerColumn = Math.ceil(services.length / numColumns);
+        const columns = Array(numColumns)
+          .fill()
+          .map(() => []);
+
+       const sortedServices = services.filter((service) => service.content.show_on_menus === "1").sort((a,b)=> Number(a.content.sort_order) - Number(b.content.sort_order))
+        sortedServices.forEach((service, index) => {
+          const columnIndex = Math.floor(index / servicesPerColumn);
+          columns[columnIndex].push(service);
+        });
+
+        return columns;
+      }
+
+      // Update services in location finder
+      const locationFinderContainer = document.querySelector('.d-none.d-md-block .row');
+      if (locationFinderContainer) {
+        locationFinderContainer.innerHTML = '';
+        const columns = splitIntoColumns(data, 3);
+        columns.forEach((columnServices) => {
+          locationFinderContainer.appendChild(buildColumn(columnServices, 'body'));
+        });
+      }
+
+      // Update services in header find help modal
+      const headerModalContainer = document.querySelector('.services-filter__header .row');
+      if (headerModalContainer) {
+        const formColumn = headerModalContainer.querySelector('.col:last-child');
+        headerModalContainer.innerHTML = '';
+        const columns = splitIntoColumns(data, 3);
+        columns.forEach((columnServices) => {
+          headerModalContainer.appendChild(buildColumn(columnServices, 'header'));
+        });
+        if (formColumn) {
+          headerModalContainer.appendChild(formColumn);
+        }
+      }
+
+      // Function to create mobile item
+      function createMobileItem(service, containerType) {
+        const item = document.createElement('div');
+        item.className = 'dropdown-item';
+
+        const label = document.createElement('label');
+        label.className = 'd-flex align-items-center w-100';
+
+        const icon = document.createElement('span');
+        icon.className = 'material-symbols-outlined me-4 text-primary-200';
+        icon.textContent = service.icon || 'local_offer';
+
+        const text = document.createElement('span');
+        text.className = 'flex-grow-1';
+        text.textContent = service.title;
+
+        const input = createCheckboxInput(service, containerType);
+        input.className = 'form-check-input';
+        
+        label.appendChild(icon);
+        label.appendChild(text);
+        label.appendChild(input);
+        item.appendChild(label);
+        return item;
+      }
+
+      // Update mobile containers
+      const mobileContainers = [
+        {
+          selector: '.d-md-none .dropdown-menu .dropdown-menu__wrapper',
+          type: 'mobile'
+        },
+        {
+          selector: '.services-list--mobile .dropdown-menu',
+          type: 'mobile'
+        },
+        {
+          selector: '.services-list__header--mobile .dropdown-menu .dropdown-menu__wrapper',
+          type: 'mobile'
+        }
+      ];
+
+      mobileContainers.forEach(({ selector, type }) => {
+        const container = document.querySelector(selector);
+        if (container) {
+          container.innerHTML = '';
+           ServicesObserver.subscribe((services) => {
+            services.forEach((service) => {
+            container.appendChild(createMobileItem(service, type));
+          });
+
+          });
+ 
+
+          // Add action buttons
+          const actionDiv = document.createElement('div');
+          actionDiv.className = 'dropdown-item';
+          actionDiv.innerHTML = `
+          <div class="d-flex justify-content-between mt-3">
+            <button type="button" class="btn btn-secondary flex-grow-1 me-2">Reset</button>
+            <button type="button" class="btn btn-primary flex-grow-1" onclick="applySelectedServices()">Apply</button>
+          </div>
+        `;
+          // container.appendChild(actionDiv);
+        }
+      });
+
+      const address = '{{request.queryParam(address)}}';
+      const services = '{{request.queryParam(services)}}';
+
+      if (address || services) {
+        const servicesList = decodeURIComponent(services).split(',').map(s => s.trim().toLowerCase());
+          const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+          let servicesApplied = false;
+          
+          checkboxes.forEach(checkbox => {
+            if (servicesList.includes(checkbox.value.toLowerCase())) {
+              checkbox.checked = true;
+              checkbox.setAttribute('checked', 'checked');
+              servicesApplied = true;
+            }
+          });
+      }
+    } catch (error) {
+      console.error('Error building service checkboxes:', error);
+    }
+  }
+  async function fetchPageData() {
+    try {
+      const model = await fetch(`https://{{instance.domain}}/model-info.json?zuid={{this.zuid}}`);
+
+      const data = await model.json();
+      if (data) {
+        return data;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      console.error('Error in fetchPageData:', error);
+      return false;
+    }
+  }
+  // Initialize when the page loads
+  document.addEventListener('DOMContentLoaded', async function () {
+    setTimeout(async () => {
+      await buildServiceCheckboxes();
+    }, 1000);
+  });
+</script>
+
+<script>
+  async function fetchInformationalLinks(zuid, navParent) {
+    try {
+      const res = await fetch(
+        `https://{{instance.domain}}/get-informational-page-links.json?zuid=${zuid}&navParent=${navParent}`
+      );
+      const body = await res.json();
+
+      return body;
+    } catch (err) {
+      console.error('error: ', err);
+    }
+  }
+
+  function getCookiesReadyPromise() {
+    if (window.cookiesReady && typeof window.cookiesReady.then === 'function') {
+      return window.cookiesReady;
+    }
+    if (typeof initCookies === 'function') {
+      return Promise.resolve(initCookies());
+    }
+    return Promise.resolve();
+  }
+
+  function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  function getCookieByName(name) {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      cookie = cookie.trim();
+      if (cookie.startsWith(name + '=')) {
+        const value = cookie.substring(name.length + 1);
+        return decodeURIComponent(value);
+      }
+    }
+    return null;
+  }
+
+  function setUpCookieValues() {
+    const headerLocations = document.querySelectorAll('.header-location');
+    const headerLocationNames = document.querySelectorAll('.header-salvation-name');
+
+    const headerHomeButton = document.querySelector('.header-home-link');
+    const headerHomeImage = document.querySelector('.header-home-image');
+
+    const locationCookie = getCookieByName('location_name');
+    const locationModel = getCookieByName('model');
+
+    if (!locationCookie || locationCookie === 'null' || locationCookie === 'undefined') {
+      return false;
+    }
+
+    headerLocations.forEach((headerLocation) => {
+      headerLocation.textContent = locationCookie;
+
+    const formattedText = headerLocation.textContent.replace(/\b[\w']+\b/g, (word) => {
+      if (word.toLowerCase() === 'usa') {
+        return 'USA';
+      }
+
+      return word.charAt(0).toUpperCase() +
+            word.slice(1).toLowerCase();
+    });
+
+      headerLocation.textContent = formattedText;
+    })
+
+
+    if (locationCookie == 'NATIONAL') {
+      headerLocationNames.forEach((headerLocationName) => {
+        headerLocationName.textContent = 'Salvation Army';
+      });
+    } else {
+      headerLocationNames.forEach((headerLocationName) => {
+        headerLocationName.textContent = '';
+      });
+    }
+  
+    return true;
+  }
+
+  function clearPlaceholders() {
+    const placeholders = document.querySelectorAll('.component-placeholder');
+    placeholders.forEach((p) => {
+      p.classList.add('d-none');
+    });
+  }
+
+  async function syncHeaderCookieValues(maxAttempts = 12, delayMs = 150) {
+    for (let attempt = 0; attempt < maxAttempts; attempt++) {
+      const isReady = setUpCookieValues();
+      if (isReady) {
+        clearPlaceholders();
+        return true;
+      }
+      await wait(delayMs);
+    }
+
+    // Avoid a permanent loading skeleton even if cookies fail to resolve.
+    clearPlaceholders();
+    return false;
+  }
+
+function applySelectedServices(checkbox) {
+  // e.preventDefault();
+
+  const findHelpDropdown = document.querySelector("#servicesDropdown");
+  const locationFinderDropdown = document.querySelector("#servicesDropdown2");
+  const findHelpButton = document.querySelector('.header-find-help-btn');
+  
+  // console.log("Hit fires", findHelpButton)
+  if (findHelpButton && findHelpButton.offsetParent === null && findHelpButton !== document.body) {
+    
+    const headerCheckboxes = document.querySelectorAll('#header-help-container .services-list__header--mobile .form-check-input');
+    const headerServicesChecked = []
+
+    headerCheckboxes.forEach((cb) => {
+    if(cb.checked) {
+        headerServicesChecked.push(cb.getAttribute('data-search-term-type'));
+      }
+    })
+
+    if (headerServicesChecked.length === 0) return '';
+    if (headerServicesChecked.length === 1) findHelpDropdown.innerHTML =  `<div class="selected-pills py-3 px-1"><span class="bg-secondary-200 text-light rounded-9 px-6 py-3">${headerServicesChecked[0]}</span></div>`;
+    if (headerServicesChecked.length > 1) findHelpDropdown.innerHTML = `<div class="selected-pills py-3 px-1"><span class="bg-secondary-200 text-light rounded-9 px-6 py-3">${headerServicesChecked[0]}</span> +${headerServicesChecked.length - 1}</div>`;
+    
+  }
+  if (locationFinderDropdown) {
+    const locationFinderCheckboxes = document.querySelectorAll('.location-finder .services-list--mobile .form-check-input');
+    const locationFinderServicesChecked = [];
+
+    locationFinderCheckboxes.forEach((cb) => {
+      if(cb.checked) {
+        locationFinderServicesChecked.push(cb.getAttribute('data-search-term-type'));
+      }
+    });
+    if (locationFinderServicesChecked.length === 0) return '';
+    if (locationFinderServicesChecked.length === 1) locationFinderDropdown.innerHTML = `<div class="selected-pills py-3 px-1"><span class="bg-secondary-200 text-light rounded-9 px-6 py-3">${locationFinderServicesChecked[0]}</span></div>`;
+    if (locationFinderServicesChecked.length > 1) locationFinderDropdown.innerHTML = `<div class="selected-pills py-3 px-1"><span class="bg-secondary-200 text-light rounded-9 px-6 py-3">${locationFinderServicesChecked[0]}</span> +${locationFinderServicesChecked.length - 1}</div>`;
+
+    searchServices();
+  }
+  
+}
+
+function handleResetServices(checkbox) {
+  const isMobile = window.innerWidth < 768;
+  const findHelpDropdown = document.querySelector("#servicesDropdown");
+  
+  // Clear checkboxes based on view
+  const checkboxes = document.querySelectorAll('.services-list__header--mobile .form-check-input');
+  const checkedServices = [];
+
+  checkboxes.forEach(cb => {
+    if (checkbox.value == cb.value) {
+      cb.checked = false;
+    }
+
+    if (cb.checked) {
+      checkedServices.push(cb.getAttribute('data-search-term-type'));
+    }
+  });
+ 
+  if (checkedServices.length == 0) {
+    // Reset dropdown button text
+    const dropdownToggle = document.querySelector('#servicesDropdown');
+    if (dropdownToggle) {
+      dropdownToggle.innerHTML = '<span class="rounded-9 px-6 py-3">Services</span>';
+    }
+  } else {
+    if (checkedServices.length === 1) findHelpDropdown.innerHTML =  `<div class="selected-pills py-3 px-1"><span class="bg-secondary-200 text-light rounded-9 px-6 py-3">${checkedServices[0]}</span></div>`;
+    if (checkedServices.length > 1) findHelpDropdown.innerHTML = `<div class="selected-pills py-3 px-1"><span class="bg-secondary-200 text-light rounded-9 px-6 py-3">${checkedServices[0]}</span> +${checkedServices.length - 1}</div>`;
+  }
+  
+  // Track filter reset
+  const searchInput = document.getElementById('location-finder__input');
+  const searchInputMobile = document.getElementById('pac-input-mobile');
+  const activeInput = searchInput;
+  const searchTerm = activeInput?.value || '';
+  if (searchInput) {
+    LocationTrackingFilterEvent(
+        searchTerm,
+        allFilteredLocations?.length || 0,
+        'location search - body',
+        'user-entered',
+        '',  // No filter type when resetting
+        ''   // No filter value when resetting
+    );
+    
+
+    // Trigger a new search when services are reset
+    const addressInput = document.getElementById('location-finder__input');
+    if (addressInput && addressInput.value) {
+      searchServices();
+    }
+  }
+  
+}
+
+
+  const services = document.querySelectorAll('.header-service-item')
+  const servicesDropdownContainer = document.querySelector('.services-dropdown-li')
+
+
+  function sortServices () {
+   const sortedServices = Array.from(servicesDropdownContainer.children).sort((a,b) =>{
+    return Number(a.dataset.sort) - Number(b.dataset.sort)
+   })
+
+   sortedServices.forEach(item => servicesDropdownContainer.appendChild(item));
+  }
+
+async function setupServices(serivces){
+  // const db = new ServicesDB();  
+  // const locationZUID = cookieManager.get(cookieKeys.locationZUID)
+  // const modelZUID = cookieManager.get(cookieKeys.locationModel)
+
+  // await db.initServices(locationZUID, modelZUID);
+
+  // const metadata = await db.getMetadata();
+
+  // const serivces = await db.getAllServices();
+  const servicesDropdownContainer = document.querySelector('.services-dropdown-li')
+  const servicesDropdownContainerMobile = document.querySelector(".services-mobile-container")
+  const sortedServices = serivces.toSorted((a,b) => a.sort_order - b.sort_order);
+
+  sortedServices.forEach((service) =>{
+    const el = document.createElement("a");
+    el.className = "dropdown-item py-2 px-2 d-flex align-items-center gap-2 header-service-item mb-4";
+    el.setAttribute("data-location-type", "nav-top");
+    el.setAttribute("data-function-type", "navigation");
+    el.setAttribute("data-format-type", "text");
+    el.setAttribute("data-sort", service.sort_order);
+    el.setAttribute("aria-current", "page");
+    el.setAttribute("href", service.url);
+    el.setAttribute("onclick", "LinkTrackingClickEvent(this,'header_click')");
+
+    const spanIconEL = document.createElement("span");
+    spanIconEL.className = "material-symbols-outlined text-primary-200";
+    spanIconEL.textContent = service.icon;
+    el.appendChild(spanIconEL)
+
+    const spanNameEL = document.createElement("span");
+    spanNameEL.textContent = service.title;
+    el.appendChild(spanNameEL)
+
+    if(service.display_on_nav === 1){
+      const clonedEL = el.cloneNode(true);
+      servicesDropdownContainer.appendChild(el)
+      servicesDropdownContainerMobile.appendChild(clonedEL);
+    }
+  })
+
+  // Set dynamic column count based on number of items
+  setDynamicColumnCount();
+}
+
+function setDynamicColumnCount() {
+  const servicesDropdownContainer = document.querySelector('.services-dropdown-li');
+  if (!servicesDropdownContainer) return;
+
+  const itemCount = servicesDropdownContainer.querySelectorAll('.header-service-item').length;
+
+  // Remove any existing column count classes
+  servicesDropdownContainer.classList.remove('columns-1', 'columns-2', 'columns-3');
+}
+
+  async function init() {
+    await getCookiesReadyPromise();
+    await syncHeaderCookieValues();
+    const mainHeaderContainer = document.querySelector(".header-main-container")
+    
+    mainHeaderContainer.classList.add("d-flex")
+    mainHeaderContainer.classList.remove("d-none")
+
+    const navbarNav = document.querySelector('.header-navbar-nav ');
+    const locationIndicator =  document.querySelector(".location-indicator");
+
+
+    if(!navbarNav.classList.contains("d-none")){
+      locationIndicator.classList.add("me-auto")
+      locationIndicator.classList.remove("me-18")
+    }else{
+      locationIndicator.classList.remove("me-auto")
+      locationIndicator.classList.add("me-18")
+    }
+
+    if(window.location.pathname === "{{location_finder.first().getUrl()}}"){
+      const findHelpButtons = document.querySelectorAll('.header-find-help-btn');
+
+      findHelpButtons.forEach(button =>{
+        button.remove();
+      })
+    }
+  }
+  init();
+  // ServicesObserver.subscribe((services) => {
+  //   setupServices(services);
+  // });
+
+  // Toggle caret icon rotation
+  function toggleCaret(button) {
+    const caretIcon = button.querySelector('.caret-icon');
+    if (caretIcon) {
+      if (caretIcon.classList.contains('bi-chevron-down')) {
+        caretIcon.classList.remove('bi-chevron-down');
+        caretIcon.classList.add('bi-chevron-up');
+      } else {
+        caretIcon.classList.remove('bi-chevron-up');
+        caretIcon.classList.add('bi-chevron-down');
+      }
+    }
+  }
+
+  // Reset donate button chevron when modal is closed
+  document.addEventListener('DOMContentLoaded', function() {
+    const donateModalCloseButton = document.querySelector('.donate-modal-close-button');
+    if (donateModalCloseButton) {
+      donateModalCloseButton.addEventListener('click', function() {
+        const donateButtons = document.querySelectorAll('.header-donate-button');
+        donateButtons.forEach(button => {
+          const caretIcon = button.querySelector('.caret-icon');
+          if (caretIcon && caretIcon.classList.contains('bi-chevron-up')) {
+            caretIcon.classList.remove('bi-chevron-up');
+            caretIcon.classList.add('bi-chevron-down');
+          }
+        });
+      });
+    }
+
+    // Also reset when modal backdrop is clicked or ESC is pressed
+    const donateModal = document.getElementById('donateModal');
+    if (donateModal) {
+      donateModal.addEventListener('hidden.bs.modal', function() {
+        const donateButtons = document.querySelectorAll('.header-donate-button');
+        donateButtons.forEach(button => {
+          const caretIcon = button.querySelector('.caret-icon');
+          if (caretIcon && caretIcon.classList.contains('bi-chevron-up')) {
+            caretIcon.classList.remove('bi-chevron-up');
+            caretIcon.classList.add('bi-chevron-down');
+          }
+        });
+      });
+    }
+  });
+</script>
