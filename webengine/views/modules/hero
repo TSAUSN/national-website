@@ -231,6 +231,7 @@
             if (!zuid) throw new Error("No ZUID"); // Skip invalid inputs
 
             const modelJson = await fetch(`${instantUrl}/${zuid}.json`).then(r => r.json());
+            console.log("Card Return:", modelJson);
             const primaryCard = modelJson?.data?.[0]?.content?.primary_card;
             const primaryCardText = modelJson?.data?.[0]?.content?.primary_card_cta_text || "View";
 
