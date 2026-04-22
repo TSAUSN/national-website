@@ -964,6 +964,8 @@ async function updateSocialLinkURL() {
   // Candid Image
   const candidImageURL = getValidURL(models, 'candid_image_url_link');
   const candidImgs = document.querySelectorAll(".candid-image")
+
+  console.log(candidImageURL)
   if (candidImageURL){
     candidImgs.forEach((candidImg) =>{
       candidImg.setAttribute("src", candidImageURL)
