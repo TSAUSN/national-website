@@ -243,12 +243,18 @@
             return { cardData: cardRes, cardText: primaryCardText };
           };
 
-          // 3️⃣ Launch all requests concurrently and return first successful one
-          const trySources = [divisionZuid, territoryZuid, nationalZuid]
-            .filter(Boolean) // skip nulls
-            .map(loadPrimaryCard);
-
-          const { cardData: fastestCard, cardText: fastestText } = await Promise.any(trySources);
+          // 3️⃣ Try each source in priority order (division → territory → national), stop at first success
+          let fastestCard, fastestText;
+          for (const zuid of [divisionZuid, territoryZuid, nationalZuid]) {
+            try {
+              const result = await loadPrimaryCard(zuid);
+              fastestCard = result.cardData;
+              fastestText = result.cardText;
+              break;
+            } catch (_) {
+              // No card data for this Zuid, try next
+            }
+          }
 
           // 4️⃣ Assign results
           cardData = fastestCard;
