@@ -881,7 +881,7 @@ function setFooterSocialLinksLoading(isLoading) {
   if (!footer) return;
 
   const socialLinks = footer.querySelectorAll(
-    '.facebook-link, .twitter-link, .linkedin-link, .youtube-link, .instagram-link, .bbb, .ecfa, .candid'
+    '.facebook-link, .twitter-link, .linkedin-link, .youtube-link, .instagram-link'
   );
 
   socialLinks.forEach((link) => {
@@ -964,9 +964,7 @@ async function updateSocialLinkURL() {
   // Candid Image
   const candidImageURL = getValidURL(models, 'candid_image_url_link');
   const candidImgs = document.querySelectorAll(".candid-image")
-  
-  console.log(candidImageURL,models)
-  if (!!candidImageURL || candidImageURL !== ""){
+  if (candidImageURL){
     candidImgs.forEach((candidImg) =>{
       candidImg.setAttribute("src", candidImageURL)
     })
