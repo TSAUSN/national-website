@@ -1,0 +1,726 @@
+<div class="py-2 px-4 fixed-bottom d-lg-none nav-mobile__container hide-special-prop-type">
+  <nav class="navbar bg-white py-2 mobile-nav rounded-3">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center justify-content-between w-100">
+        <a
+          data-location-type="nav-menu"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="internal"
+          onclick="LinkTrackingClickEvent(this,'header_click')"
+          class="nav-link d-flex align-items-center header-home-link-mobile p-0"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-primary-200">family_home</span>
+          <span class="ms-2 text-primary-200">Home</span>
+        </a>
+        <div class="divider bg-black opacity-30"></div>
+        <a
+          data-location-type="nav-menu"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="internal"
+          onclick="LinkTrackingClickEvent(this,'header_click')"
+          class="nav-link p-2 d-flex align-items-center justify-content-center text-nowrap"
+          href="#"
+          id="about-us-toggle"
+          >About Us<span class="material-symbols-outlined"> keyboard_arrow_down </span></a
+        >
+        <div class="divider bg-black opacity-30"></div>
+        <a
+          data-location-type="nav-menu"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="internal"
+          onclick="LinkTrackingClickEvent(this,'header_click')"
+          class="nav-link d-flex align-items-center justify-content-center"
+          href="#"
+          id="services-toggle"
+          >Services<span class="material-symbols-outlined"> keyboard_arrow_down </span></a
+        >
+        <a
+          data-location-type="nav-menu"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="internal"
+          onclick="LinkTrackingClickEvent(this,'header_click')"
+          class="nav-link nav-btn-more toggle-menu rounded-3"
+          href="#"
+          >More</a
+        >
+      </div>
+    </div>
+  </nav>
+</div>
+
+<nav
+  class="nav-menu bg-light rounded-top-3 d-flex d-lg-none flex-column justify-content-between"
+  id="navMenu"
+>
+  <button
+    class="d-flex align-items-center justify-content-center btn btn-sm p-0 end-6 position-absolute top-4 mobile-nav-close-btn"
+  >
+    <span class="material-symbols-outlined text-dark-50 fs-5">close</span>
+  </button>
+  <div class="nav-menu-grabber__wrapper d-flex w-full justify-content-center pt-4 pb-8 bg-light">
+    <div class="nav-menu-grabber__inner"></div>
+  </div>
+
+  <div class="nav-menu__wrapper pb-4 overflow-y-auto">
+    <div class="main-nav">
+      <div class="home mb-3">
+        <a
+          data-location-type="nav-menu"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="internal"
+          onclick="LinkTrackingClickEvent(this,'header_click')"
+          href="#"
+          class="text-primary-200 display-1 fw-normal toggle-menu d-flex align-items-center justify-content-start header-home-link-mobile"
+          ><span class="material-symbols-outlined text-primary-200 me-3"> family_home </span>Home</a
+        >
+      </div>
+      <div
+        class="nav-item py-3 px-4 mb-3"
+        data-id="our-team"
+      >
+        About Us
+        <span class="material-symbols-outlined toggle-submenu"> add </span>
+      </div>
+      {{if {$newsRoomURL} }}
+          <div
+            class="nav-item py-3 px-4 mb-3"
+            data-id="newsroom"
+          >
+          <a
+            href="{{$newsRoomURL}}"
+            class="text-dark-100 text-decoration-none mobile-newsroom-link"
+            data-location-type="nav-menu"
+            data-function-type="navigation"
+            data-format-type="text"
+            data-link-type="internal"
+            onclick="LinkTrackingClickEvent(this,'header_click')"
+          >
+            Newsroom
+          </a>
+          </div>
+      {{/if}}
+      
+      <div
+        class="nav-item py-3 px-4 mb-3"
+        data-id="ways-to-give"
+      >
+        Ways to Give
+        <span class="material-symbols-outlined toggle-submenu"> add </span>
+      </div>
+      <div
+        class="nav-item py-3 px-4 mb-3"
+        data-id="ways-we-help"
+      >
+        Services
+        <span class="material-symbols-outlined toggle-submenu"> add </span>
+      </div>
+      <div class="nav-item px-4 mb-6">
+        <a class="service-center-mobile py-3 text-decoration-none text-dark-100"
+          >Find My Local Salvation Army</a
+        >
+      </div>
+      <div class="nav-item py-3 px-4 mb-3 d-none">Thrift Store Locator*</div>
+      <!-- <div class="nav-item py-3 px-4 mb-3">Visit National Site</div> -->
+        
+      {{if {$contactUsURL} }}
+        <a
+        aria-current="page"
+        data-location-type="nav-top"
+        data-function-type="navigation"
+        data-format-type="text"
+        data-link-type="internal"
+        onclick="LinkTrackingClickEvent(this,'header_click')"
+        aria-current="page"
+        href="{{$contactUsURL}}"
+        class="nav-item py-3 px-4 mb-3 fw-normal contact-us-link text-decoration-none text-dark-100 contact-us-link-mobile"
+        >
+          Contact Us
+        </a>
+      {{/if}}
+       <div
+        class="nav-item py-3 px-4 mt-3 informational-links-more-parent"
+        data-id="more"
+      >
+        More
+        <span class="material-symbols-outlined toggle-submenu"> add </span>
+      </div>
+    </div>
+
+    <div
+      class="sub-menu"
+      id="our-team"
+    >
+      <div class="home mb-3 d-flex align-items-center justify-content-between">
+        <a
+          data-location-type="nav-menu"
+          data-function-type="navigation"
+          data-format-type="text"
+          data-link-type="internal"
+          onclick="LinkTrackingClickEvent(this,'header_click')"
+          href="#"
+          class="text-primary-200 display-1 fw-normal d-flex align-items-center justify-content-start sub-menu__heading"
+        >
+          <span class="material-symbols-outlined me-3"> reply </span>About Us
+        </a>
+        <!-- <span class="material-symbols-outlined">remove</span> -->
+      </div>
+
+      <div class="nav-items__wrapper ">
+        {{each api.json.get({$url}) as obj }}
+          {{if {obj.parent} == "about_us" && {obj.type} == 'menu'}}
+          {{$aboutUsUrl = {truepath({obj.page-zuid})} }}
+          <div class="nav-item py-3 px-4 mb-3">
+            <a
+              href="{{$aboutUsUrl}}"
+              class="text-decoration-none text-dark-100 footer-leadership"
+              data-location-type="nav-menu"
+              data-function-type="navigation"
+              data-format-type="text"
+              data-link-type="internal"
+              onclick="LinkTrackingClickEvent(this,'header_click')"
+              >{{obj.page_name}}</a
+            >
+          </div>
+          {{/if}}
+        {{/each}}
+        <div class="about-us-item-container px-2 d-flex flex-column gap-4">
+          
+        </div>
+        <div
+          class="nav-item py-3 px-4 mb-3 text-primary-200 display-2 text-decoration-none view-all d-none"
+        >
+          View All
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="sub-menu"
+      id="ways-to-give"
+    >
+      <div class="home mb-3 d-flex align-items-center justify-content-between">
+        <a
+          href="#"
+          class="text-primary-200 display-1 fw-normal d-flex align-items-center justify-content-start sub-menu__heading"
+          data-location-type="nav-menu"
+          data-function-type="navigation"
+          data-format-type="text"
+          ata-link-type="internal"
+          onclick="LinkTrackingClickEvent(this,'header_click')"
+          >
+          <span class="material-symbols-outlined me-3"> reply </span>Ways to Give
+        </a>
+      </div>
+      <div class="nav-items__wrapper">
+        
+        <div class="nav-item text-primary-200 display-2 text-decoration-none view-all"></div>
+        
+        <div class="nav-item py-3 px-4 mb-3">
+          <span 
+            data-location-type="nav-top"
+            data-function-type="other"
+            data-format-type="button"
+            onclick="LinkTrackingClickEvent(this,'donate_money_click')"
+           class="text-decoration-none text-dark-100 header-donate-button">Donate Money</span>
+        </div>
+        {{each api.json.get({$url}) as obj }}
+          {{if {obj.parent} == "ways_to_give" && {obj.type} == 'menu'}}
+          {{$aboutUsUrl = {truepath({obj.page-zuid})} }}
+          <div class="nav-item py-3 px-4 mb-3 {{if {this.zuid} == '7-ae82da90c9-zjnfr3'}} d-none {{/if}}">
+              <a
+              class="donate-goods-link text-decoration-none text-dark-100"
+              href="{{$aboutUsUrl}}"
+              data-function-type="navigation"
+              data-format-type="text"
+              data-link-type="internal"
+              onclick="LinkTrackingClickEvent(this,'header_click')"
+              >{{obj.page_name}}</a>
+          </div>
+          {{/if}}
+        {{/each}}
+        <div class="ways-to-give-container px-2 d-flex flex-column gap-4"></div>
+      
+        <div
+          class="nav-item py-3 px-4 mb-3 text-primary-200 display-2 text-decoration-none view-all d-none"
+        >
+          View All
+        </div>
+      </div>
+  </div>
+
+    <div
+      class="sub-menu"
+      id="ways-we-help"
+    >
+      <div class="home mb-3 d-flex align-items-center justify-content-between">
+        <a
+          href="#"
+          class="text-primary-200 display-1 fw-normal d-flex align-items-center justify-content-start sub-menu__heading"
+          ><span class="material-symbols-outlined me-3"> reply </span>Services</a
+        >
+        <!-- <span class="material-symbols-outlined">remove</span> -->
+      </div>
+      
+      <div class="nav-items__wrapper">
+        <div
+          class="nav-item py-3 px-4 mb-3 text-primary-200 display-2 text-decoration-none view-all d-none"
+        >
+          View All
+        </div>
+          <div class="services-mobile-container">
+            {{each api.json.get({$url}) as obj }}
+            {{if {obj.parent} ==  'services' && {obj.type} == 'menu'}}
+            {{$serviceUrl = {truepath({obj.page-zuid})} }}
+            {{$sort = {obj.sort} }}
+            {{$service_type = {services.filter({obj.page-zuid}).service_type} }}
+            {{$service_icon = {service_types.filter({$service_type}).icon_name} }}
+              <a class="dropdown-item py-2 px-2 d-flex align-items-center gap-2 header-service-item mb-4" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-sort="{{obj.sort}}" aria-current="page" href="{{$serviceUrl}}" onclick="LinkTrackingClickEvent(this,'header_click')" style="order: {{$sort}};"><span class="material-symbols-outlined text-primary-200">{{$service_icon}}</span><span>{{obj.page_name}}</span></a>
+            {{/if}}
+            {{/each}}  
+          </div>
+
+        <div
+          class="nav-item py-3 px-4 mb-3 text-primary-200 display-2 text-decoration-none view-all d-none"
+        >
+          View All
+        </div>
+      </div>
+    </div>
+
+
+    <div
+      class="sub-menu"
+      id="more"
+    >
+      <div class="home mb-3 d-flex align-items-center justify-content-between">
+        <a
+          href="#"
+          class="text-primary-200 display-1 fw-normal d-flex align-items-center justify-content-start sub-menu__heading"
+          data-location-type="nav-menu"
+          data-function-type="navigation"
+          data-format-type="text"
+          ata-link-type="internal"
+          onclick="LinkTrackingClickEvent(this,'header_click')"
+          ><span class="material-symbols-outlined me-3"> reply </span>More</a
+        >
+        <!-- <span class="material-symbols-outlined">remove</span> -->
+      </div>
+
+      <div class="nav-items__wrapper">
+        <div
+          class="nav-item py-3 px-4 mb-3 text-primary-200 display-2 text-decoration-none view-all d-none"
+        >
+          View All
+        </div>
+       
+        <div class="d-flex flex-column gap-4 informational-links-more">
+          {{$lastParentMenu}}
+          {{each api.json.get({$url}) as obj }}
+            {{if {obj.parent} == 'custom_menu' && {obj.type} == 'menu'}}
+              <a class="dropdown-item py-2 px-2" href="{{truepath({obj.page-zuid})}}" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'header_click')" rel="noopener noreferrer">{{obj.page_name}}</a>
+            {{/if}}
+          {{/each}}
+        </div>
+
+        <div
+        class="nav-item py-3 px-4 mb-3 text-primary-200 display-2 text-decoration-none view-all d-none"
+      >
+        View All
+      </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center py-4">
+    <div class="social-icons">
+      <div class="d-flex justify-content-center">
+        <a
+          data-location-type="nav-menu"
+          data-function-type="navigation"
+          data-format-type="icon-block"
+          data-link-type="external"
+          onclick="LinkTrackingClickEvent(this,'header_click')"
+          href="{{ homepage.first().facebook_url_link }}"
+          target="_blank"
+          class="facebook-link me-5 social-icon display-2"
+          ><i class="bi bi-facebook"></i
+        ></a>
+        <a
+          data-location-type="nav-menu"
+          data-function-type="navigation"
+          data-format-type="icon-block"
+          data-link-type="external"
+          onclick="LinkTrackingClickEvent(this,'header_click')"
+          href="{{ homepage.first().twitter_url_link }}"
+          target="_blank"
+          class="twitter-link me-5 social-icon display-2"
+          ><i class="bi bi-twitter-x"></i
+        ></a>
+        <a
+          data-location-type="nav-menu"
+          data-function-type="navigation"
+          data-format-type="icon-block"
+          data-link-type="external"
+          onclick="LinkTrackingClickEvent(this,'header_click')"
+          href="{{ homepage.first().linkedin_url_link }}"
+          target="_blank"
+          class="linkedin-link me-5 social-icon display-2"
+          ><i class="bi bi-linkedin"></i
+        ></a>
+        <a
+          data-location-type="nav-menu"
+          data-function-type="navigation"
+          data-format-type="icon-block"
+          data-link-type="external"
+          onclick="LinkTrackingClickEvent(this,'header_click')"
+          href="{{ homepage.first().youtube_url_link }}"
+          target="_blank"
+          class="youtube-link me-5 social-icon display-2"
+          ><i class="bi bi-youtube"></i
+        ></a>
+        <a
+          data-location-type="nav-menu"
+          data-function-type="navigation"
+          data-format-type="icon-block"
+          data-link-type="external"
+          onclick="LinkTrackingClickEvent(this,'header_click')"
+          href="{{ homepage.first().instagram_url_link }}"
+          target="_blank"
+          class="instagram-link me-5 social-icon display-2"
+          ><i class="bi bi-instagram"></i
+        ></a>
+      </div>
+    </div>
+    <!-- Future Phase -->
+    <div
+      class="dropdown future-phase d-none"
+      bis_skin_checked="1"
+    >
+      <button
+        class="bg-area rounded-7 btn py-2 px-3 dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        data-location-type="nav-menu"
+        data-function-type="other"
+        data-format-type="dropdown"
+        onclick="LinkTrackingClickEvent(this,'header_click')"
+        href="#"
+      >
+        <div class="d-inline-block">
+          <div class="d-flex align-items-center justify-content-center">
+            <span
+              class="material-symbols-outlined me-2"
+              style="font-size: 14px"
+            >
+              g_translate
+            </span>
+            <span>English</span>
+          </div>
+        </div>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a
+            data-location-type="nav-menu"
+            data-function-type="event"
+            data-format-type="text"
+            onclick="LinkTrackingClickEvent(this,'header_click')"
+            href="#"
+            class="dropdown-item"
+            href="#"
+            >Spanish</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!-- end future-phase -->
+  </div>
+</nav>
+
+<script>
+  const toggleMenus = document.querySelectorAll('.toggle-menu');
+  const navMenu = document.getElementById('navMenu');
+  const navItems = document.querySelectorAll('.main-nav .nav-item');
+  const subMenus = document.querySelectorAll('.sub-menu');
+  const subMenuHeadings = document.querySelectorAll('.sub-menu__heading');
+  const mainNav = document.querySelector('.main-nav');
+  const aboutUsToggle = document.getElementById('about-us-toggle');
+  const servicesToggle = document.getElementById('services-toggle');
+  const aboutUsSubMenu = document.getElementById('our-team');
+  const servicesSubMenu = document.getElementById('ways-we-help');
+  const mobileNavCloseBtn = document.querySelector('.mobile-nav-close-btn');
+
+  aboutUsToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    navMenu.style.transform = 'unset';
+    navMenu.classList.toggle('active');
+    mainNav.style.display = 'none';
+    aboutUsSubMenu.classList.add('active');
+    aboutUsSubMenu.classList.add('fade-in-left');
+  });
+
+  servicesToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    navMenu.style.transform = 'unset';
+    navMenu.classList.toggle('active');
+    mainNav.style.display = 'none';
+    servicesSubMenu.classList.add('active');
+    servicesSubMenu.classList.add('fade-in-left');
+  });
+
+  toggleMenus.forEach((toggle) => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      navMenu.style.transform = 'unset';
+      navMenu.classList.toggle('active');
+    });
+  });
+
+  mobileNavCloseBtn.addEventListener('click', () => {
+    navMenu.style.transform = 'unset';
+    navMenu.classList.toggle('active');
+
+ 
+      subMenus.forEach((subMenu)=>{
+        subMenu.classList.add('fade-out-left');
+        subMenu.classList.remove('fade-in-left');
+        const navItemsWrapper = subMenu.querySelector('.nav-items__wrapper');
+
+        const viewAlls = navItemsWrapper.querySelectorAll('.view-all');
+        
+        
+        setTimeout(() => {
+        
+        if (viewAlls.length) {
+          viewAlls.forEach((viewAll) => viewAll.classList.add('d-none'));
+        }
+        
+        subMenu.classList.remove('active', 'fade-out-left');
+        mainNav.style.display = 'block';
+        resolve();
+      }, 500);
+    })
+    
+  });
+
+  navItems.forEach((navItem) => {
+    navItem.addEventListener('click', async (e) => {
+      const subMenuId = e.currentTarget.dataset.id;
+      const subMenu = document.getElementById(subMenuId);
+
+      if (!subMenu) return;
+
+      mainNav.style.display = 'none';
+      subMenu.classList.add('active');
+
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          subMenu.classList.add('fade-in-left');
+          resolve();
+        }, 10);
+      });
+
+      const activeSubMenuItems = Array.from(
+        document.querySelectorAll('.sub-menu.active .nav-item:not(.view-all)')
+      );
+
+
+      // if (activeSubMenuItems.length > 6) {
+      //   activeSubMenuItems.slice(6).forEach((item) => {
+      //     item.classList.add('d-none');
+      //   });
+
+      //   const navItemsWrapper = subMenu.querySelector('.nav-items__wrapper');
+      //   const viewAlls = navItemsWrapper.querySelectorAll('.view-all');
+
+      //   viewAlls[1].classList.remove('d-none');
+
+      //   viewAlls[1].addEventListener('click', () => {
+      //     activeSubMenuItems.slice(6).forEach((item) => {
+      //       item.classList.remove('d-none');
+      //     });
+      //     viewAlls[0].classList.remove('d-none');
+      //     viewAlls[1].classList.add('d-none');
+      //   });
+      // }
+    });
+  });
+
+  subMenuHeadings.forEach((heading) => {
+    heading.addEventListener('click', async (e) => {
+      e.preventDefault();
+      subMenus.forEach((subMenu)=>{
+        subMenu.classList.add('fade-out-left');
+        subMenu.classList.remove('fade-in-left');
+        const navItemsWrapper = subMenu.querySelector('.nav-items__wrapper');
+
+        const viewAlls = navItemsWrapper.querySelectorAll('.view-all');
+        
+        
+        setTimeout(() => {
+
+        
+        if (viewAlls.length) {
+          viewAlls.forEach((viewAll) => viewAll.classList.add('d-none'));
+        }
+        
+        subMenu.classList.remove('active', 'fade-out-left');
+        mainNav.style.display = 'block';
+        resolve();
+      }, 500);
+    })
+    });
+  });
+
+  // drag down nav menu
+  const dragBtn = document.querySelector('.nav-menu-grabber__wrapper');
+
+  let isDragging = false;
+  let hasDragged = false;
+  let startY;
+  let deltaY;
+
+  function handleStart(e) {
+    isDragging = true;
+    hasDragged = false;
+    startY = e.type === 'mousedown' ? e.clientY : e.touches[0].clientY;
+  }
+
+  function handleMove(e) {
+    if (!isDragging) return;
+
+    const currentY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
+    deltaY = currentY - startY;
+
+    if (deltaY > 0) {
+      hasDragged = true;
+      navMenu.style.transform = `translateY(${deltaY}px)`;
+    }
+  }
+
+  function handleEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+    if (hasDragged && deltaY > 50) {
+      navMenu.classList.remove('active');
+    }
+    deltaY = 0;
+  }
+
+  dragBtn.addEventListener('mousedown', handleStart);
+  document.addEventListener('mousemove', handleMove);
+  document.addEventListener('mouseup', handleEnd);
+
+  dragBtn.addEventListener('touchstart', handleStart);
+  document.addEventListener('touchmove', handleMove);
+  document.addEventListener('touchend', handleEnd);
+</script>
+
+<script>
+  function getCookieByName(name) {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      cookie = cookie.trim();
+      if (cookie.startsWith(name + '=')) {
+        const value = cookie.substring(name.length + 1);
+        return decodeURIComponent(value); // Decode the URL-encoded value
+      }
+    }
+    return null;
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+
+ 
+
+  const locationCookieMobile = getCookieByName('location_name');
+  const locationModelMobile = getCookieByName('model');
+  const locationModel2Mobile = getCookieByName('location_model');
+
+  const headerHomeButtonsMobile = document.querySelectorAll('.header-home-link-mobile');
+  const serviceCenterButton = document.querySelector('.service-center-mobile');
+
+  const contactUsButtonMobile = document.querySelector('.contact-us-link-mobile');
+  const subNewsRoomMobileLink = document.querySelector('.sub-mobile-newsroom')
+
+  const aboutUsFooterLink = document.querySelector('.footer-about-us');
+  const leadershipMobileLink = document.querySelector('.footer-leadership');
+  const employmentMobileLink = document.querySelector('.footer-employment');
+  const volunteerMobileLink = document.querySelector('.footer-volunteer');
+  const newsRoomMobileLink = document.querySelector('.mobile-newsroom-link')
+  
+  employmentMobileLink.setAttribute("href", getCookieByName("employment_url"))
+  volunteerMobileLink.setAttribute("href", getCookieByName("volunteer_url"))
+
+  if (locationCookieMobile === 'NATIONAL') {
+    headerHomeButtonsMobile.forEach((headerHomeButtonMobile) => {
+      headerHomeButtonMobile.setAttribute('href', '/');
+    });
+
+    aboutUsFooterLink.setAttribute('href', '/about-us');
+    // newsRoomMobileLink.setAttribute("href", "/stories")
+    // newsRoomMobileLink.textContent = "Newsroom"
+    // subNewsRoomMobileLink.classList.add("d-none")
+  } else {
+    headerHomeButtonsMobile.forEach((headerHomeButtonMobile) => {
+      headerHomeButtonMobile.setAttribute('href', getCookieByName('location_home_url'));
+    });
+
+    aboutUsFooterLink.setAttribute('href', getCookieByName('location_home_url') + 'about-us');
+
+    // newsRoomMobileLink.setAttribute("href", getCookieByName("location_home_url")+"events")
+    // newsRoomMobileLink.textContent = "Events"
+
+    // subNewsRoomMobileLink.classList.remove("d-none")
+    // subNewsRoomMobileLink.querySelector('a').setAttribute("href", getCookieByName("location_home_url")+"stories")
+  }
+
+  if (
+    locationCookieMobile != 'NATIONAL' &&
+    locationModelMobile != 'territories' &&
+    locationModelMobile != 'divisions'
+  ) {
+    headerHomeButtonsMobile.forEach((headerHomeButtonMobile) => {
+      headerHomeButtonMobile.setAttribute('href', getCookieByName('location_home_url'));
+    });
+  }
+
+  if (locationModel2Mobile == 'locations') {
+    contactUsButtonMobile.setAttribute('href', '/contact-us');
+
+    // contactUsButtonMobile.setAttribute('href', getCookieByName('location_home_url') + 'contact-us');
+  } else {
+    contactUsButtonMobile.setAttribute('href', '/contact-us');
+  }
+
+  // serviceCenterButton.setAttribute('href', getCookieByName('location_finder_url'));
+  serviceCenterButton.setAttribute('href', '/location-finder');
+  leadershipMobileLink.setAttribute('href', '/leadership');
+
+   })
+
+  const servicesMobile = document.querySelectorAll('.header-service-item-mobile')
+  const servicesDropdownContainerMobile = document.querySelector('.services-mobile-container')
+
+
+  function sortServices () {
+   const sortedServices = Array.from(servicesMobile).sort((a,b) =>{
+    return Number(a.dataset.sortOrder) - Number(b.dataset.sortOrder)
+   })
+
+   sortedServices.forEach(item => servicesDropdownContainerMobile.appendChild(item));
+
+  }
+
+  sortServices();
+</script>
+
+

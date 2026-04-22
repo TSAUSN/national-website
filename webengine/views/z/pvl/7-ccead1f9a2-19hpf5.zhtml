@@ -1,0 +1,475 @@
+<div className={styles.pvlRoot}>
+	<p style="text-align:center;">How We Help</p>
+	<p style="text-align:center;">
+	In 2017 <strong>Alabama Power</strong> and the rural electric cooperatives formed a partnership with&nbsp;<strong>The Salvation Army Greater Birmingham Area Command&nbsp;</strong>to administer the <strong>Project SHARE</strong> (Service to Help Alabamians with Relief on Energy) program in the state of Alabama.&nbsp;<br>
+	&nbsp;
+</p>
+	<div>{{block('/-/block/hero_full.html?variant=7-facf93f2fd-rtvcg2')}}</div>
+	<p style="text-align:center;">
+	<br>
+	<strong>Requirements for Assistance</strong>
+</p>
+	<p style="text-align:center;">
+	In order to qualify for Project SHARE the applicant must be 60 years of age or older or a disabled Alabamian.<br>
+	&nbsp;
+</p>
+	<div style="position: relative; overflow: hidden; min-height: 520px; background-image: url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ac31a503-e3a6-4b71-ac2f-c91f7c2cabac_Untitled+5.png'); background-position: center center; background-repeat: repeat; background-size: cover;">
+<div style="position: absolute; inset: 0; z-index: 2;"></div>
+<div style="position: relative; z-index: 3; display: flex; align-items: center; justify-content: flex-start; min-height: 520px;">
+<div style="width: 100%; padding: 40px; color: #ffffff;">
+<p style="text-align: center; ;color: #fff&gt;&lt;strong&gt;Give Hope in Your Community&lt;/strong&gt;&lt;/p&gt;&lt;p style=;" text-align:center;;color:#fff="">Emergencies and challenging economic times often make it difficult for people to acquire food, shelter, clothing and medical supplies or even pay their utility bills. But programs like Project SHARE provide a way for you to help those truly in need.</p>
+</div>
+</div>
+</div>
+	<div class="my-2"></div>
+	<p style="text-align:center;"><strong><br>
+	Here's How You Can Help</strong><br><strong>Project SHARE</strong> is funded primarily by contributions from the customers of Alabama Power Company. Customers simply pledge to donate $1, $2, $5, $10 or any other whole-dollar amount to <strong>Project SHARE </strong>by checking the box on their monthly utility bill. This amount is automatically added to each monthly bill, and all such donations will be forwarded to The Salvation Army. <strong>Project SHARE</strong> provides emergency energy assistance to elderly and disabled Alabamians in peak winter and summer months. The program assists Alabamians in 57 counties statewide.</p>
+	<p style="text-align:center;">You can help your neighbors by supporting Project SHARE.</p>
+	<p style="text-align:center;">Donate via your Alabama Power online account.</p>
+	<p style="text-align:center;">
+	You can also mail your donation to:<br>
+	Project SHARE<br>
+	P.O. Box 11005<br>
+	Birmingham, AL 35202<br>
+	&nbsp;
+</p>
+	<p style="text-align:center;">
+	You can apply for assistance from Project SHARE at your local Project SHARE Office. Please see the list below for the local office in your county or you can call <a href="tel:+12053282420" target="">205-328-2420</a> and press extension number 2 to get the contact information of your local Project SHARE office.
+</p>
+	<div class="py-5"></div>
+	<h5 style="text-align:center;">Community Partners by County</h5>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Autauga</strong></p>
+			<p style="text-align:center;">Community Action Partnership</p>
+			<p style="text-align:center;">of Middle Alabama</p>
+			<p style="text-align:center;"><a href="tel:2052870139">205-287-0139</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Baldwin</strong></p>
+			<p style="text-align:center;">Community Action Agency</p>
+			<p style="text-align:center;">of South Alabama</p>
+			<p style="text-align:center;"><a href="tel:2516262646">251-626-2646</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Barbour</strong></p>
+			<p style="text-align:center;">Family Service Center/</p>
+			<p style="text-align:center;">United Way Clearing House</p>
+			<p style="text-align:center;"><a href="tel:3346872896">334-687-2896</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Barbour</strong></p>
+			<p style="text-align:center;">Southeast Alabama</p>
+			<p style="text-align:center;">Community&nbsp;Action Partnership</p>
+			<p style="text-align:center;"><a href="tel:3348972667">334-897-2667</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Bibb</strong></p>
+			<p style="text-align:center;">Community Service Programs</p>
+			<p style="text-align:center;">of West Alabama</p>
+			<p style="text-align:center;"><a href="tel:2059269384">205-926-9384</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Bullock</strong></p>
+			<p style="text-align:center;">Bullock County</p>
+			<p style="text-align:center;">Aging Program</p>
+			<p style="text-align:center;"><a href="tel:3347382928">334-738-2928</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Butler</strong></p>
+			<p style="text-align:center;">Butler County Department</p>
+			<p style="text-align:center;">of Human Resources</p>
+			<p style="text-align:center;"><a href="tel:3343824419">334-382-4419</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Calhoun</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Anniston</p>
+			<p style="text-align:center;"><a href="tel:2562365643">256-236-5643</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Chambers</strong></p>
+			<p style="text-align:center;">Circle of Care Center</p>
+			<p style="text-align:center;">for Families</p>
+			<p style="text-align:center;"><a href="tel:3344721034">334-472-1034</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Chilton</strong></p>
+			<p style="text-align:center;">Community Action&nbsp;Partnership</p>
+			<p style="text-align:center;">of Middle Alabama</p>
+			<p style="text-align:center;"><a href="tel:2052585198">205-258-5198</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Choctaw</strong></p>
+			<p style="text-align:center;">Community Service Programs</p>
+			<p style="text-align:center;">of West Alabama</p>
+			<p style="text-align:center;"><a href="tel:2059323218">205-932-3218</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Clarke</strong></p>
+			<p style="text-align:center;">Community Action Agency</p>
+			<p style="text-align:center;">of South Alabama</p>
+			<p style="text-align:center;"><a href="tel:2512758498">251-275-8498</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Clay</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Anniston</p>
+			<p style="text-align:center;"><a href="tel:2562365643">256-236-5643</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Cleburne</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Anniston</p>
+			<p style="text-align:center;"><a href="tel:2562365643">256-236-5643</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Coffee</strong></p>
+			<p style="text-align:center;">The Salvation Army Dale</p>
+			<p style="text-align:center;">and Coffee Counties</p>
+			<p style="text-align:center;"><a href="tel:3344453070">334-445-3070</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Coffee</strong></p>
+			<p style="text-align:center;">Southeast Alabama</p>
+			<p style="text-align:center;">Community&nbsp;Action Partnership</p>
+			<p style="text-align:center;"><a href="tel:3343470881">334-347-0881</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Conecuh</strong></p>
+			<p style="text-align:center;">Community Action Agency</p>
+			<p style="text-align:center;">of South Alabama</p>
+			<p style="text-align:center;"><a href="tel:2515782331">251-578-2331</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Coosa</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Coosa County</p>
+			<p style="text-align:center;"><a href="tel:2562153730">256-215-3730</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Covington</strong></p>
+			<p style="text-align:center;">Organized Community Action</p>
+			<p style="text-align:center;">Program Covington County</p>
+			<p style="text-align:center;"><a href="tel:3344282660">334-428-2660</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Crenshaw</strong></p>
+			<p style="text-align:center;">Crenshaw County Department</p>
+			<p style="text-align:center;">of Human Resources</p>
+			<p style="text-align:center;"><a href="tel:3343357000">334-335-7000</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Dale</strong></p>
+			<p style="text-align:center;">The Salvation Army Dale</p>
+			<p style="text-align:center;">and Coffee Counties</p>
+			<p style="text-align:center;"><a href="tel:3343890732">334-389-0732</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Dallas</strong></p>
+			<p style="text-align:center;">Dallas County</p>
+			<p style="text-align:center;">Family Resource Center</p>
+			<p style="text-align:center;"><a href="tel:3345264567">334-526-4567</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Elmore</strong></p>
+			<p style="text-align:center;">Community Action Partnership</p>
+			<p style="text-align:center;">of Middle Alabama</p>
+			<p style="text-align:center;"><a href="tel:3345145906">334-514-5906</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Escambia</strong></p>
+			<p style="text-align:center;">Community Action Agency</p>
+			<p style="text-align:center;">of South Alabama</p>
+			<p style="text-align:center;"><a href="tel:2518674759">251-867-4759</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Etowah</strong></p>
+			<p style="text-align:center;">Etowah County</p>
+			<p style="text-align:center;">Baptist Mission</p>
+			<p style="text-align:center;"><a href="tel:2565465404">256-546-5404</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Etowah</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Etowah County</p>
+			<p style="text-align:center;"><a href="tel:2565464673">256-546-4673</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Fayette</strong></p>
+			<p style="text-align:center;">Community Service Programs</p>
+			<p style="text-align:center;">of West Alabama</p>
+			<p style="text-align:center;"><a href="tel:2059323218">205-932-3218</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Geneva</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Dothan</p>
+			<p style="text-align:center;"><a href="tel:3347921911">334-792-1911</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Geneva</strong></p>
+			<p style="text-align:center;">Southeast Alabama</p>
+			<p style="text-align:center;">Community Action Partnership</p>
+			<p style="text-align:center;"><a href="tel:3343470881">334-347-0881</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Greene</strong></p>
+			<p style="text-align:center;">Community Service Programs</p>
+			<p style="text-align:center;">of West Alabama</p>
+			<p style="text-align:center;"><a href="tel:2053724562">205-372-4562</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Hale</strong></p>
+			<p style="text-align:center;">Community Service Programs</p>
+			<p style="text-align:center;">of West Alabama</p>
+			<p style="text-align:center;"><a href="tel:3346244455">334-624-4455</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Henry</strong></p>
+			<p style="text-align:center;">Henry County Department</p>
+			<p style="text-align:center;">of Human Resources</p>
+			<p style="text-align:center;"><a href="tel:3345854121">334-585-4121</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Henry</strong></p>
+			<p style="text-align:center;">Southeast Alabama</p>
+			<p style="text-align:center;">Community Action Partnership</p>
+			<p style="text-align:center;"><a href="tel:3343470881">334-347-0881</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Houston</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Dothan</p>
+			<p style="text-align:center;"><a href="tel:3347921911">334-792-1911</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Houston</strong></p>
+			<p style="text-align:center;">Southeast Alabama</p>
+			<p style="text-align:center;">Community Action Partnership</p>
+			<p style="text-align:center;"><a href="tel:3343470881">334-347-0881</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Jefferson</strong></p>
+			<p style="text-align:center;">Positive Maturity</p>
+			<p style="text-align:center;"><a href="tel:2058031665">205-803-1665</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Jefferson</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Bessemer Service Center</p>
+			<p style="text-align:center;"><a href="tel:2054254303">205-425-4303</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Jefferson</strong></p>
+			<p style="text-align:center;">Urban Ministry</p>
+			<p style="text-align:center;"><a href="tel:2057810517">205-781-0517</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Lamar</strong></p>
+			<p style="text-align:center;">Community Service Programs</p>
+			<p style="text-align:center;">of West Alabama</p>
+			<p style="text-align:center;"><a href="tel:2056959573">205-695-9573</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Lee</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">of LEE County</p>
+			<p style="text-align:center;"><a href="tel:6019617711">601-961-7711</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Lowndes</strong></p>
+			<p style="text-align:center;">Organized Community</p>
+			<p style="text-align:center;">Action Program</p>
+			<p style="text-align:center;"><a href="tel:3345482768">334-548-2768</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Macon</strong></p>
+			<p style="text-align:center;">Macon-Russell</p>
+			<p style="text-align:center;">Community Action Agency</p>
+			<p style="text-align:center;"><a href="tel:3347276100">334-727-6100</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Marengo</strong></p>
+			<p style="text-align:center;">Community Action Agency</p>
+			<p style="text-align:center;">of South Alabama</p>
+			<p style="text-align:center;"><a href="tel:3342952244">334-295-2244</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Marion</strong></p>
+			<p style="text-align:center;">Community Action Agency</p>
+			<p style="text-align:center;">of North Alabama</p>
+			<p style="text-align:center;"><a href="tel:2059214224">205-921-4224</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Mobile</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Mobile</p>
+			<p style="text-align:center;"><a href="tel:2514381625">251-438-1625</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Monroe</strong></p>
+			<p style="text-align:center;">Community Action Agency</p>
+			<p style="text-align:center;">of South Alabama</p>
+			<p style="text-align:center;"><a href="tel:2517433137">251-743-3137</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Montgomery</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Montgomery</p>
+			<p style="text-align:center;"><a href="tel:3342650281">334-265-0281</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Perry</strong></p>
+			<p style="text-align:center;">Sowing Seeds of Hope</p>
+			<p style="text-align:center;"><a href="tel:3346834666">334-683-4666</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Pickens</strong></p>
+			<p style="text-align:center;">Community Action Agency</p>
+			<p style="text-align:center;">of Pickens County</p>
+			<p style="text-align:center;"><a href="tel:2053678166">205-367-8166</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Pike</strong></p>
+			<p style="text-align:center;">Organized Community</p>
+			<p style="text-align:center;">Action Program</p>
+			<p style="text-align:center;"><a href="tel:3345661712">334-566-1712</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Russell</strong></p>
+			<p style="text-align:center;">Macon-Russell</p>
+			<p style="text-align:center;">Community Action Agency</p>
+			<p style="text-align:center;"><a href="tel:3347276100">334-727-6100</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Russell</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Columbus, GA</p>
+			<p style="text-align:center;"><a href="tel:7065619026">706-561-9026</a>&nbsp;</p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Shelby</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Alabaster Corps</p>
+			<p style="text-align:center;"><a href="tel:2056637105">205-663-7105</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Sumter</strong></p>
+			<p style="text-align:center;">Community Service Programs</p>
+			<p style="text-align:center;">of West Alabama</p>
+			<p style="text-align:center;"><a href="tel:2056521346">205-652-1346</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Talladega</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Anniston</p>
+			<p style="text-align:center;"><a href="tel:2562365643">256-236-5643</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Tallapoosa</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Tallapoos</p>
+			<p style="text-align:center;"><a href="tel:2562153730">256-215-3730</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Tuscaloosa</strong></p>
+			<p style="text-align:center;">Community Service Programs</p>
+			<p style="text-align:center;">of West Alabama</p>
+			<p style="text-align:center;"><a href="tel:2057525429">205-752-5429</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Tuscaloosa</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Tuscaloosa</p>
+			<p style="text-align:center;"><a href="tel:2056323691">205-632-3691</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Walker</strong></p>
+			<p style="text-align:center;">The Salvation Army</p>
+			<p style="text-align:center;">Walker</p>
+			<p style="text-align:center;"><a href="tel:2052217737">205-221-7737</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Washington</strong></p>
+			<p style="text-align:center;">Mobile Community</p>
+			<p style="text-align:center;">Action Agency</p>
+			<p style="text-align:center;"><a href="tel:2518295418">251-829-5418</a></p>
+		</div>
+	</div>
+	<div class="py-5"></div>
+	<div style="display:flex" className={styles.pvlRow}>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Wilcox</strong></p>
+			<p style="text-align:center;">Community Action Agency</p>
+			<p style="text-align:center;">of South Alabama</p>
+			<p style="text-align:center;"><a href="tel:3346824863">334-682-4863</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p style="text-align:center;"><strong>Winston</strong></p>
+			<p style="text-align:center;">Community Action Agency</p>
+			<p style="text-align:center;">of North Alabama</p>
+			<p style="text-align:center;"><a href="tel:2054867239">205-486-7239</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<div class="py-5"></div>
+		</div>
+	</div>
+</div>

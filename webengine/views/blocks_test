@@ -1,2 +1,1 @@
-{{ block({this.block}) }}
-{{ block({this.block_2}) }}
+{{this.autolayout(auto)}}

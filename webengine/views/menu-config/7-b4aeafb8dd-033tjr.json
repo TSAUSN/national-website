@@ -3,7 +3,7 @@
     "type": "menu",
     "key": "home",
     "page_name": "Home",
-    "page-zuid": "7-8cb2cdb7d3-v7g7zn",
+    "page-zuid": "7-b4aeafb8dd-033tjr",
     "parent": null
   },
   {
@@ -14,16 +14,10 @@
     "parent": null
   },
   {
-    "type": "view-all",
-    "page_name": "",
-    "page-zuid": null,
-    "parent": "services"
-  },
-  {
     "type": "menu",
     "key": null,
-    "page_name": "Hunger",
-    "page-zuid": "7-f6baa8a68e-w7vsb1",
+    "page_name": "Domestic Violence",
+    "page-zuid": "7-e6b2b19a9d-bgnngx",
     "sort": 0,
     "parent": "services"
   },
@@ -31,7 +25,7 @@
     "type": "menu",
     "key": null,
     "page_name": "Correctional Services",
-    "page-zuid": "7-c8b1bda68e-2qzw4b",
+    "page-zuid": "7-8caffb999d-0kthnp",
     "sort": 1,
     "parent": "services"
   },
@@ -39,7 +33,7 @@
     "type": "menu",
     "key": null,
     "page_name": "Utility Rent Assistance",
-    "page-zuid": "7-eaddcaa68e-vpn2g7",
+    "page-zuid": "7-be958d9a9d-389j9k",
     "sort": 2,
     "parent": "services"
   },
@@ -47,55 +41,55 @@
     "type": "menu",
     "key": null,
     "page_name": "Disaster Relief",
-    "page-zuid": "7-ecd2e0a68e-t03hnn",
+    "page-zuid": "7-98999f9a9d-ptll4k",
     "sort": 3,
     "parent": "services"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Domestic Violence",
-    "page-zuid": "7-b893f4a68e-8p4m69",
+    "page_name": "Health Services",
+    "page-zuid": "7-98bb95f4df-qjfzcz",
     "sort": 4,
     "parent": "services"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Health Services",
-    "page-zuid": "7-eecf8998d6-hqjxjn",
+    "page_name": "Youth Services",
+    "page-zuid": "7-acefadf4df-psn11b",
     "sort": 5,
     "parent": "services"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Youth Services",
-    "page-zuid": "7-e0d7a398d6-4f1j34",
+    "page_name": "Recovery",
+    "page-zuid": "7-a2e1c9f4df-tb4rl8",
     "sort": 6,
     "parent": "services"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Recovery",
-    "page-zuid": "7-c091b498d6-tqzmfs",
+    "page_name": "Senior Services",
+    "page-zuid": "7-d6fcf1f4df-p8spch",
     "sort": 7,
     "parent": "services"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Senior Services",
-    "page-zuid": "7-888bd598d6-z8b66j",
+    "page_name": "Family Counseling",
+    "page-zuid": "7-e0e284f5df-wrqdvd",
     "sort": 8,
     "parent": "services"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Family Counseling",
-    "page-zuid": "7-ac97e698d6-njxv2v",
+    "page_name": "Spiritual and Worship Services",
+    "page-zuid": "7-daea96f5df-0tk8gp",
     "sort": 9,
     "parent": "services"
   },
@@ -107,15 +101,9 @@
     "parent": null
   },
   {
-    "type": "view-all",
-    "page_name": "About Us",
-    "page-zuid": null,
-    "parent": "about_us"
-  },
-  {
     "type": "menu",
     "key": null,
-    "page_name": "Camp Hoblitzelle",
+    "page_name": "About Us",
     "page-zuid": null,
     "sort": 0,
     "parent": "about_us"
@@ -123,7 +111,7 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "Kettle-Con 2025 Video Archive",
+    "page_name": "Commitment to all",
     "page-zuid": null,
     "sort": 1,
     "parent": "about_us"
@@ -131,7 +119,7 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "Kettle Con",
+    "page_name": "Leadership",
     "page-zuid": null,
     "sort": 2,
     "parent": "about_us"
@@ -146,24 +134,16 @@
   },
   {
     "type": "menu",
-    "key": null,
-    "page_name": "Privacy Policy",
-    "page-zuid": null,
-    "sort": 4,
-    "parent": "about_us"
-  },
-  {
-    "type": "menu",
     "key": "events",
-    "page_name": "Texas",
-    "page-zuid": "7-f896fca8e8-597lwj",
+    "page_name": "USA Southern Territory",
+    "page-zuid": "7-9e9df8a68e-2kb878",
     "parent": null
   },
   {
     "type": "menu",
     "key": "newsroom",
-    "page_name": "Texas",
-    "page-zuid": "7-f4fbd1fa82-hvj4kl",
+    "page_name": "USA Southern Territory",
+    "page-zuid": "7-8ef1d4bdd4-lhhqkw",
     "parent": null
   },
   {
@@ -174,15 +154,9 @@
     "parent": null
   },
   {
-    "type": "view-all",
-    "page_name": "",
-    "page-zuid": null,
-    "parent": "ways_to_give"
-  },
-  {
     "type": "menu",
     "key": null,
-    "page_name": "Kettle-Con 2025 Video Archive",
+    "page_name": "MIssionaries",
     "page-zuid": null,
     "sort": 0,
     "parent": "ways_to_give"
@@ -190,55 +164,23 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "Camp Hoblitzelle",
+    "page_name": "Corps Connect",
     "page-zuid": null,
     "sort": 1,
-    "parent": "ways_to_give"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Kettle Con",
-    "page-zuid": null,
-    "sort": 2,
     "parent": "ways_to_give"
   },
   {
     "type": "menu",
     "key": "contact_us",
     "page_name": "Contact Us",
-    "page-zuid": "7-dab4c5cba1-7ktz0j",
+    "page-zuid": "7-ecdd9f81d4-qvbll0",
     "parent": null
   },
   {
     "type": "menu",
-    "key": "custom_menu",
-    "page_name": "More",
+    "key": "volunteer",
+    "page_name": "Volunteer",
     "page-zuid": null,
     "parent": null
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Kettle Con",
-    "page-zuid": "7-a08dc4e9e4-lkzmd2",
-    "sort": 0,
-    "parent": "custom_menu"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Camp Hoblitzelle",
-    "page-zuid": "7-bcc3e2ada5-nqsphh",
-    "sort": 1,
-    "parent": "custom_menu"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Adult Rehabilitation Centers",
-    "page-zuid": "7-d8f98c9dfc-c2bp7m",
-    "sort": 2,
-    "parent": "custom_menu"
   }
 ]

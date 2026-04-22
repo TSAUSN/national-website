@@ -4,7 +4,7 @@
 {{$divisionAsParentZUID = {divisions.filter({!this.parent_zuid}).zuid} }}
 {{$territoryZUID = {territories.filter({!this.zuid}).zuid} }}
 {{$territoryAsParentZUID = {territories.filter({!this.parent_zuid}).zuid} }}
-{{$console = 'hit here services'}}
+
 
 <header
   id="header"
@@ -226,9 +226,8 @@
             </li>
             <li class="dropdown-item__container dropdown-item__container-repeat-3 pe-auto ways-to-give-container">
               <a
-              class="dropdown-item py-2 px-2"
-                href="https://give.salvationarmyusa.org/campaign/676125/donate?c_src=NT26TZOAAC&c_src2=USAWaystoGiveNavigation"
-                target="_blank"
+              class="dropdown-item py-2 px-2 header-donate-button"
+                href="#"
                 data-location-type="nav-top"
                 data-function-type="other"
                 data-format-type="text"
@@ -809,7 +808,7 @@
         icon.textContent = service.icon || 'local_offer';
 
         const text = document.createElement('span');
-        text.className = 'flex-grow-1';
+        text.className = 'flex-grow-1 text-wrap';
         text.textContent = service.title;
 
         const input = createCheckboxInput(service, containerType);
