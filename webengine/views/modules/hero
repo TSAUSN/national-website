@@ -372,17 +372,18 @@
             return { cardData: cardRes, cardText: secText };
           };
 
-          // 3️⃣ Fire all requests in parallel and get the first valid card
-          const trySources = [divisionZuid, territoryZuid, nationalZuid]
-            .filter(Boolean)
-            .map(loadSecondaryCard)
-            .map(p =>
-              p.catch(() => {
-                throw new Error("Invalid card");
-              })
-            );
-
-          const { cardData: fastestCard, cardText: fastestText } = await Promise.any(trySources);
+          // 3️⃣ Try each source in priority order (division → territory → national), stop at first success
+          let fastestCard, fastestText;
+          for (const zuid of [divisionZuid, territoryZuid, nationalZuid]) {
+            try {
+              const result = await loadSecondaryCard(zuid);
+              fastestCard = result.cardData;
+              fastestText = result.cardText;
+              break;
+            } catch (_) {
+              // No card data for this Zuid, try next
+            }
+          }
 
           // 4️⃣ Apply the result
           cardData = fastestCard;
