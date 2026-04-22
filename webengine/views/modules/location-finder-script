@@ -148,11 +148,11 @@ async function renderServicesForLocation(loc, services, index) {
       if (!title) continue;
 
       servicesInnerHTML.push(`<div class="col">
-          <div class="d-flex align-items-start">
-            <span class="material-symbols-outlined text-primary-200 display-6">${iconName}</span>
+          <div class="d-flex align-items-center">
+            <span class="material-symbols-outlined text-primary-200 fs-7 fs-md-7">${iconName}</span>
             <a
               href="${matchingService.meta?.web?.url || '#'}"
-              class="display-4 text-dark-100 display-md-1 ms-2"
+              class="display-4 text-dark-100 display-md-2 ms-2"
               data-location-type="body:location-finder"
               data-function-type="other"
               data-format-type="button"
@@ -167,9 +167,9 @@ async function renderServicesForLocation(loc, services, index) {
       if (!label) continue;
 
       servicesInnerHTML.push(`<div class="col">
-          <div class="d-flex align-items-start">
-            <span class="material-symbols-outlined text-primary-200 display-6">${iconName}</span>
-            <span class="display-4 text-dark-100 display-md-1 ms-2">${label}</span>
+          <div class="d-flex align-items-center">
+            <span class="material-symbols-outlined text-primary-200 fs-7 fs-md-7">${iconName}</span>
+            <span class="display-4 text-dark-100 display-md-2 ms-2">${label}</span>
           </div>
         </div>
       `);
@@ -474,14 +474,14 @@ async function displayLocations(locations, selectedServices) {
                 </div>
                 <div class="mb-auto">
                   <div class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-3">
-                    <span class="display-4 display-md-1">Description</span>
+                    <span class="display-4 display-md-2">Description</span>
                     <div class="text-dark-50 ms-auto me-2 display-4 display-md-1">
                       <span>${area.description || 'No description available'}</span>
                     </div>
                   </div>
                   ${area.contact_name ? `
                     <div class="d-flex align-items-center justify-content-between py-3">
-                      <span class="display-4 display-md-1">Contact Name</span>
+                      <span class="display-4 display-md-2">Contact Name</span>
                       <div class="text-dark-50 display-4 display-md-1">
                         <span>${area.contact_name}</span>
                       </div>
@@ -497,8 +497,8 @@ async function displayLocations(locations, selectedServices) {
                   ` : ''}
                   ${area.email ? `
                     <div class="d-flex align-items-center justify-content-between py-3">
-                      <span class="display-4 display-md-1">Email Address</span>
-                      <div class="text-dark-50 display-4 display-md-1">
+                      <span class="display-4 display-md-2">Email Address</span>
+                      <div class="text-dark-50 display-4 display-md-2">
                         <span>${area.email}</span>
                       </div>
                     </div>
@@ -539,8 +539,8 @@ async function displayLocations(locations, selectedServices) {
                   serviceListContainer.innerHTML = areaServices.map(service => `
                     <div class="col">
                       <div class="d-flex align-items-center">
-                        <span class="material-symbols-outlined text-primary-200 display-6">${service.content.icon_name}</span>
-                        <span class="display-4 display-md-1 ms-2">${service.meta.title}</span>
+                        <span class="material-symbols-outlined text-primary-200 fs-7">${service.content.icon_name}</span>
+                        <span class="display-4 display-md-2 ms-2">${service.meta.title}</span>
                       </div>
                     </div>
                   `).join('');
@@ -625,14 +625,14 @@ async function displayLocations(locations, selectedServices) {
         <div class="location-finder-results bg-light rounded-5 overflow-hidden p-8">
           <div class="d-flex flex-column gap-4 justify-content-between h-100">
             <div>
-              <h4 class="display-1 fs-md-7 d-flex align-items-center">
+              <h4 class="fs-7 fs-md-6 d-flex align-items-center mb-4">
                 <div class="pin-icon"></div>
                 <span class="fw-bold">${loc.name || 'Salvation Army Location'}</span>
               </h4>
-              <p class="display-4 display-md-2 text-primary-200">${distance} miles away from your location</p>
+              <p class="display-3 display-md-2 text-primary-200 mb-4 mb-md-0">${distance} miles away from your location</p>
             </div>
-            <div class="border-top border-2 border-dark-50 py-3 ${hasServiceTypes ? '' : 'd-none'}" id="servicesSection${index}">
-                <span class="display-md-1 display-4 fw-bold">Services Offered</span>
+            <div class="border-top border-2 border-dark-50 pt-4 py-md-4 ${hasServiceTypes ? '' : 'd-none'}" id="servicesSection${index}">
+                <span class="display-md-1 display-1 fw-bold">Services Offered</span>
                 <div class="pt-3">
                   <div class="row row-cols-2 row-cols-md-3 g-3" id="services-container-${index}">
                     <div class="col">Loading services...</div>
@@ -640,16 +640,16 @@ async function displayLocations(locations, selectedServices) {
                 </div>
               </div>
             <div class="mb-auto">
-              <div class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-3">
+              <div class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between pb-2 pt-4 pb-md-3 pt-md-4">
                 <div class="d-flex align-items-start form-control ms-auto">
-                  <span class="display-4 display-md-1 fw-bold me-2">General Hours:</span>
-                  <span class="text-dark-50 display-4 display-md-1">${generalHours || 'Hours not available'}</span>
+                  <span class="display-4 display-md-2 fw-bold me-2">General Hours:</span>
+                  <span class="text-dark-50 display-4 display-md-2">${generalHours || 'Hours not available'}</span>
                 </div>
                 
               </div>
-              <div class="d-flex align-items-center justify-content-between py-3">
+              <div class="d-flex align-items-center justify-content-between py-3 py-md-3">
                 <div class="d-flex align-items-center">
-                  <span class="display-4 display-md-1 fw-bold me-2">Phone:</span>
+                  <span class="display-4 display-md-2 fw-bold me-2">Phone:</span>
                   <a 
                     href="tel:${loc.contact_number}"
                     target="_blank"
@@ -663,15 +663,15 @@ async function displayLocations(locations, selectedServices) {
                     data-location-org-detail="${orgDetails}"
                     data-location-services="${services}"
                     onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
-                    class="text-secondary-200 display-4 display-md-1 text-decoration-none"
+                    class="text-secondary-200 display-4 display-md-2 text-decoration-none"
                   >
                       <span class="border-bottom border-primary-100">${loc.contact_number || 'Phone not available'}</span>
                   </a>
                 </div>
               </div>
-              <div class="d-flex align-items-center justify-content-between py-3">
+              <div class="d-flex align-items-center justify-content-between py-3 py-md-3">
                 <div class="d-flex align-items-center">
-                  <span class="display-4 display-md-1 fw-bold me-2">Address:</span>
+                  <span class="display-4 display-md-2 fw-bold me-2">Address:</span>
                   <a 
                       href="https://www.google.com/maps?q=${address}" 
                       target="_blank"
@@ -685,15 +685,15 @@ async function displayLocations(locations, selectedServices) {
                       data-location-org-detail="${orgDetails}"
                       data-location-services="${services}"
                       onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
-                      class="text-secondary-200 display-4 display-md-1 text-decoration-none"
+                      class="text-secondary-200 display-4 display-md-2 text-decoration-none"
                   >
                       <span class="border-bottom border-primary-100">${address || 'Address not available'}</span>
                   </a>
                 </div>
               </div>
-              <div class="d-flex align-items-center justify-content-between py-3">
+              <div class="d-flex align-items-center justify-content-between py-3 py-md-3">
                 <div class="d-flex align-items-center">
-                  <span class="display-4 display-md-1 fw-bold me-2">Directions:</span>
+                  <span class="display-4 display-md-2 fw-bold me-2">Directions:</span>
                   <a
                           href="https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${address}&travelmode=walking"
                           target="_blank"
@@ -707,7 +707,7 @@ async function displayLocations(locations, selectedServices) {
                           data-location-org-detail="${orgDetails}"
                           data-location-services="${services}"
                           onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
-                          class="text-dark-50 me-2 display-4 fs-md-7"
+                          class="text-dark-50 me-2 display-4 display-md-2"
                       >Walking</a>
                       <a
                           href="https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${address}&travelmode=driving"
@@ -722,7 +722,7 @@ async function displayLocations(locations, selectedServices) {
                           data-location-org-detail="${orgDetails}"
                           data-location-services="${services}"
                           onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
-                          class="text-dark-50 me-2 display-4 fs-md-7 "
+                          class="text-dark-50 me-2 display-4 display-md-2 "
                       >Driving</a>
                       <a
                           href="https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${address}&travelmode=transit"
@@ -737,7 +737,7 @@ async function displayLocations(locations, selectedServices) {
                           data-location-org-detail="${orgDetails}"
                           data-location-services="${services}"
                           onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
-                          class="text-dark-50 me-2 display-4 fs-md-7"
+                          class="text-dark-50 me-2 display-4 display-md-2"
                       >Public Transport</a>
                 </div>
               </div>

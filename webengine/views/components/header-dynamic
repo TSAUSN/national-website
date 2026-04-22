@@ -4,22 +4,32 @@
 {{$newsRoomURL =  }}
 {{$contactUsURL =  }}
 {{$eventsURL =  }}
+{{$cntParent = 0 }}
+{{$lastParentMenu = }}
 
 {{each api.json.get({$url}) as obj }}
+  {{if {obj.key} && {obj.parent} == null }}
+    {{ $cntParent = {$cntParent} + 1 }}
+  {{/if}}
+  
   {{if {obj.type} ==  'view-all' && {obj.parent} == "ways_to_give"}}
-    {{$viewAllWaysToGive = {truepath(obj.page-zuid)} }}
+    {{$viewAllWaysToGive = {truepath({obj.page-zuid})} }}
   {{/if}}
   {{if {obj.key} == 'newsroom' }}
-    {{$newsRoomURL = {truepath(obj.page-zuid)} }}
+    {{$newsRoomURL = {truepath({obj.page-zuid})} }}
   {{/if}}
   {{if {obj.key} == 'events' }}
-    {{$eventsURL = {truepath(obj.page-zuid)} }}
+    {{$eventsURL = {truepath({obj.page-zuid})} }}
   {{/if}}
   {{if {obj.key} == 'contact_us' }}
-    {{$contactUsURL = {truepath(obj.page-zuid)} }}
+    {{$contactUsURL = {truepath({obj.page-zuid})} }}
   {{/if}}
-{{/each}}  
-
+  {{if {$cntParent} > 7}}
+    {{ $lastParentMenu = {obj.key} }}
+  {{/if}}
+  
+  
+{{/each}}
 <header
   id="header"
   data-component-type="header"
@@ -87,14 +97,15 @@
               <hr class="dropdown-divider" />
             </li>
             
-            <li class=" services_dropdown-item__container pe-auto">
+            <li class=" services_dropdown-item__container pe-auto d-grid gap-0" style="grid-template-columns: repeat(3, 1fr);">
               
               {{each api.json.get({$url}) as obj }}
-              {{if {obj.parent} ==  'services'}}
+              {{if {obj.parent} ==  'services' && {obj.type} == 'menu'}}
               {{$serviceUrl = {truepath({obj.page-zuid})} }}
+              {{$sort = {obj.sort} }}
               {{$service_type = {services.filter({obj.page-zuid}).service_type} }}
               {{$service_icon = {service_types.filter({$service_type}).icon_name} }}
-              <a class="dropdown-item py-2 px-2 d-flex align-items-center gap-2 header-service-item mb-4" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-sort="{{obj.sort}}" aria-current="page" href="{{$serviceUrl}}" onclick="LinkTrackingClickEvent(this,'header_click')"><span class="material-symbols-outlined text-primary-200">{{$service_icon}}</span><span>{{obj.page_name}}</span></a>
+                <a class="dropdown-item py-2 px-2 d-flex align-items-center gap-2 header-service-item mb-4" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-sort="{{obj.sort}}" aria-current="page" href="{{$serviceUrl}}" onclick="LinkTrackingClickEvent(this,'header_click')" style="order: {{$sort}};"><span class="material-symbols-outlined text-primary-200">{{$service_icon}}</span><span>{{obj.page_name}}</span></a>
               {{/if}}
               {{/each}}  
             </li> 
@@ -151,7 +162,6 @@
             >
           </li>
         {{/if}}
-          {{$newsRoomURL}}
         {{if {$newsRoomURL} }}
           <li class="nav-item">
             <a
@@ -194,7 +204,7 @@
             <li class="dropdown-item__container dropdown-item__container-repeat-3 pe-auto ways-to-give-container">
               <a
               class="dropdown-item py-2 px-2"
-                href="https://give.salvationarmyusa.org/campaign/676125/donate?c_src=NT26TZOAAC&c_src2=USAWaystoGiveNavigation"
+                href="{{@location_donate_form}}"
                 target="_blank"
                 data-location-type="nav-top"
                 data-function-type="other"
@@ -213,53 +223,12 @@
                 onclick="LinkTrackingClickEvent(this,'header_click')"
                 >Donate Goods</a
               >
-              
-                  <a
-                class="fundraiser-link dropdown-item py-2 px-2"
-                href="https://give.salvationarmyusa.org/campaign/fundraise-for-good/c175635"
-                target="_blank"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="external"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >Become a Fundraiser</a
-              >
-              <a
-                class="donate-goods-link dropdown-item py-2 px-2 {{if {this.zuid} == '7-ae82da90c9-zjnfr3'}} d-none {{/if}}"
-                href="#"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >Gift Stocks & Bonds</a
-              >
-              <a
-                class="dropdown-item py-2 px-2 volunteer-link"
-                href="#"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >Volunteer</a
-              >
-              <a
-                class="planned-giving-link dropdown-item py-2 px-2"
-                href="#"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >Planned Giving</a
-              >
-              <a
-                class="angel-tree-link dropdown-item py-2 px-2 d-none"
-                href="/walmart-angel-tree/"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >Angel Tree Campaign</a
-              >
+              {{each api.json.get({$url}) as obj }}
+                {{if {obj.parent} == "ways_to_give" && {obj.type} == 'menu'}}
+                {{$aboutUsUrl = {truepath({obj.page-zuid})} }}
+                <a class="dropdown-item py-2 px-2" href="{{$aboutUsUrl}}" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'header_click')" rel="noopener noreferrer">{{obj.page_name}}</a>
+                {{/if}}
+              {{/each}}
               <a
                 class="dropdown-item py-2 px-2 ways-to-give-link"
                 href="#"
@@ -288,7 +257,7 @@
               data-format-type="text"
               data-link-type="internal"
               aria-current="page"
-              href="#"
+              href="{{$contactUsURL}}"
               onclick="LinkTrackingClickEvent(this,'header_click')"
               >Contact Us</a
             >
@@ -583,7 +552,7 @@
       </div>
     </div>
 
-    {{include components/nav-mobile}}
+    {{include components/nav-mobile-dynamic}}
     {{include components/header-find-help-modal}}
     {{include components/header-search-modal}}
     {{include components/header-donate-drawer-modal}}
