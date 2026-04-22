@@ -1375,7 +1375,10 @@ function setDynamicColumnCount() {
       });
     }
     
-    hLoader.classList.add("d-none")
+    if(hLoader){
+
+      hLoader.classList.add("d-none")
+    }
     mainHeaderContainer.classList.add("d-flex")
     mainHeaderContainer.classList.remove("d-none")
 
