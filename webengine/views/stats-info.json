@@ -22,7 +22,7 @@
         {{$count = 3}}
       {{/each}}
     {{/if}}
-    
+
     {{if {$count} === 1 }}
       {{each stats as stat WHERE stat.locations = '{$zuid}' }}
     {
@@ -102,7 +102,7 @@
           {{$count = 1}}
       {{/each}}
     
-    {{if $count === 0 }}
+    {{if {$count} === 0 }}
       {{each stats as stat WHERE stat.territories = '{$parent_territory}' limit 1 }}
         {{$count = 2}}
       {{/each}}
