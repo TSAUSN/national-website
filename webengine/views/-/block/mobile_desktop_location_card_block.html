@@ -1,7 +1,14 @@
 {{$LoR = {locations.filter({this.locations}).redirect_url}  }}
 
 
-<div class="location-finder-results bg-light rounded-5 overflow-hidden p-8 mb-18">
+<div
+  class="location-finder-results location-card-instance bg-light rounded-5 overflow-hidden p-8 mb-18"
+  data-address="{{locations.filter({this.locations}).address}}"
+  data-city="{{cities.filter({locations.filter({this.locations}).city}).title}}"
+  data-state="{{states.filter({locations.filter({this.locations}).state}).name}}"
+  data-latitude="{{ locations.filter({this.locations}).latitude }}"
+  data-longitude="{{ locations.filter({this.locations}).longitude }}"
+>
   <div class="d-flex flex-column gap-4 justify-content-between h-100">
     <div>
       <h4 class="display-1 fs-md-7 d-flex align-items-center">
@@ -209,126 +216,33 @@
 </div>
 
 <script>
+(function initLocationCardBlock(retryCount) {
+  var maxRetries = 30;
+  var retryDelay = 300;
 
-	console.log("{{$LoR}}")
-
-function addressBuilder(address = '', city = '', state = '', zipcode = '') {
-  let addressArr = [address, city, state, zipcode];
-  let filteredAddressInfo = addressArr.filter((item) => item !== '' && item !== null);
-  const fullAddress = filteredAddressInfo.join(', ');
-  return fullAddress;
-}
-
-	"{{ locations.filter({this.locations}).city }}"
-	"{{ locations.filter({this.locations}).state }}"
-
-	const locationCardAddress = document.querySelector(".location-card-address")
-
-
-
-	const address = addressBuilder("{{locations.filter({this.locations}).address}}", "{{cities.filter({locations.filter({this.locations}).city}).title}}", "{{states.filter({locations.filter({this.locations}).state}).name}}");
-	locationCardAddress.innerHTML = address;
-	locationCardAddress.setAttribute("href", `https://www.google.com/maps?q=${address}`);
-
-
-	const locationCardTransport = document.querySelector(".location-card-transport");
-	locationCardTransport.setAttribute("href", `https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${address}&travelmode=transit`);
-	
-	const locationCardWalking = document.querySelector(".location-card-walking");
-	locationCardWalking.setAttribute("href", `https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${address}&travelmode=walking`);
-	
-	const locationCardDriving = document.querySelector(".location-card-driving");
-	locationCardDriving.setAttribute("href", `https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${address}&travelmode=driving`);
-
-
-(async function initDistanceChecker(retryCount = 0) {
-  // Max retries to prevent infinite loops
-  const MAX_RETRIES = 10;
-  const RETRY_DELAY = 1000; // in ms (1 second)
-
-  if (!(window.google && window.google.maps)) {
-    if (retryCount < MAX_RETRIES) {
-      console.warn(`Google Maps not loaded yet. Retrying... (${retryCount + 1}/${MAX_RETRIES})`);
-      setTimeout(() => initDistanceChecker(retryCount + 1), RETRY_DELAY);
-    } else {
-      console.error("Failed to load Google Maps API after multiple retries.");
+  if (!(window.google && window.google.maps) && !window.__mapsRequested) {
+    if (typeof loadGoogleMapsAPI === 'function') {
+      window.__mapsRequested = true;
+      loadGoogleMapsAPI();
     }
+  }
+
+  if (!(window.google && window.google.maps) && retryCount < maxRetries) {
+    setTimeout(function () {
+      initLocationCardBlock(retryCount + 1);
+    }, retryDelay);
     return;
   }
 
-  // Google Maps is ready — run your distance calculation
-  const locationDistance = document.querySelector(".location-distance");
-  const geocoder = new google.maps.Geocoder();
-
-  try {
-// Wrap in async function if not already
-const geocodeResult = await new Promise((resolve, reject) => {
-  // Get current location
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-        const latlng = { lat: latitude, lng: longitude };
-
-        // Reverse geocode to get a formatted location (optional)
-        geocoder.geocode({ location: latlng }, (results, status) => {
-          if (status === "OK" && results.length > 0) {
-            resolve(results[0].geometry.location);
-          } else {
-            reject(new Error(`Reverse geocoding failed: ${status}`));
-          }
-        });
-      },
-      (error) => {
-        reject(new Error("Error getting current location: " + error.message));
-      }
-    );
-  } else {
-    reject(new Error("Geolocation is not supported by this browser."));
+  if (typeof window.__globalLocationCardInit === 'function') {
+    window.__globalLocationCardInit();
+    return;
   }
-});
 
-
-    // Ensure these are valid numeric values
-    const latitude = parseFloat("{{ locations.filter({this.locations}).latitude }}");
-    const longitude = parseFloat("{{ locations.filter({this.locations}).longitude }}");
-
-    if (!isNaN(latitude) && !isNaN(longitude)) {
-      const distance = window
-        .calculateDistance(
-          geocodeResult.lat(),
-          geocodeResult.lng(),
-          latitude,
-          longitude
-        )
-        .toFixed(1);
-
-      if (locationDistance) {
-        locationDistance.innerHTML = `${distance} miles away from your location`;
-      }
-    } else {
-      locationDistance.classList.add("d-none");
-      console.error("Invalid latitude or longitude values provided.");
-    }
-  } catch (error) {
-    locationDistance.classList.add("d-none");
-    console.error("Error calculating distance:", error);
+  if (retryCount < maxRetries) {
+    setTimeout(function () {
+      initLocationCardBlock(retryCount + 1);
+    }, retryDelay);
   }
-})();
-
-</script>
-
-
-
-<script>
-  const cityCardNames = document.querySelectorAll('.city-card-name');
-const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
-
-  cityCardNames.forEach((cityCardName) => {
-    const result = cityCardName.textContent.replace(regex, (word) => {
-      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-    });
-
-    cityCardName.textContent = result;
-  });
+})(0);
 </script>

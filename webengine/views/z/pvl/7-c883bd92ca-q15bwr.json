@@ -1,0 +1,543 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div className={styles.pvlRoot}>*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:93:0:98": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-e2abd2a288-pz625t')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-e2abd2a288-pz625t')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:93:0:98",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:34:59": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:34:59",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:34:59-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:columns:3 Columns:6:4": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 0,
+								"fullName": "design:columns:3 Columns:6:4",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:34:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:6:4-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:1:71": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p><strong>Center of Hope Family Shelter</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Center of Hope Family Shelter",
+												"position": 0,
+												"fullName": "content:textarea:1:71",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:1:71",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:6:4-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:6:4-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:2:90": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p>Email: <a href=\"mailto:melissa.burgess@uss.salvationarmy.org\">melissa.burgess@uss.salvationarmy.org</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p>Email: <a href=\"mailto:melissa.burgess@uss.salvationarmy.org\">melissa.burgess@uss.salvationarmy.org</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:2:90",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:2:90",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:6:4-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:6:4-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:4:4": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p>Phone: <a href=\"tel:3367778611\">(336) 777-8611</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p>Phone: <a href=\"tel:3367778611\">(336) 777-8611</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:4:4",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:4:4",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:6:4-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"content:text:7:18": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">We Offer Hope &amp; Refuge</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "We Offer Hope &amp; Refuge",
+								"position": 1,
+								"fullName": "content:text:7:18",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:7:18",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:34:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:8:70": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t\tThe Salvation Army Center of Hope Family Shelter is the only family emergency shelter in Forsyth County. It provides a safe refuge and the resources to give families and individuals a fresh start and a return to permanent housing and stability. The Center of Hope gives shelter to single mothers, single fathers, and parents with children.&nbsp;\n\t</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army Center of Hope Family Shelter is the only family emergency shelter in Forsyth County. It provides a safe refuge and the resources to give families and individuals a fresh start and a return to permanent housing and stability. The Center of Hope gives shelter to single mothers, single fathers, and parents with children.&nbsp;",
+								"position": 2,
+								"fullName": "content:textarea:8:70",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:8:70",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:34:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:14:25": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 3,
+								"fullName": "design:design:whitespace-sm:14:25",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:34:59-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:18:32": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 4,
+								"fullName": "design:columns:2columns:18:32",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:34:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:18:32-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:9:52": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img width=\"61\" height=\"61\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/d3332bd7-1830-4d92-9d7c-497ca03083bf_download.png\" alt=\"placeholder\" class=\"img-fluid d-block m-auto my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" />",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/d3332bd7-1830-4d92-9d7c-497ca03083bf_download.png",
+												"position": 0,
+												"fullName": "content:images:9:52",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:2columns:18:32-1:2 Columns - Equal:0",
+												"oldLoc": "bank"
+											},
+											"design:design:whitespace-sm:15:56": {
+												"uid": "351",
+												"name": "Whitespace - Small",
+												"type": "design",
+												"classes": "my-2",
+												"html": "<div class=\"my-2\"></div>",
+												"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+												"droppable": true,
+												"position": 1,
+												"fullName": "design:design:whitespace-sm:15:56",
+												"primarytype": "design",
+												"newLoc": "design:columns:2columns:18:32-1:2 Columns - Equal:0",
+												"oldLoc": "bank"
+											},
+											"content:textarea:10:14": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\"><strong>WHERE TO FIND US</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "WHERE TO FIND US",
+												"position": 2,
+												"fullName": "content:textarea:10:14",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:10:14",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:18:32-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:11:63": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\">1255 Trade St NW</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "1255 Trade St NW",
+												"position": 3,
+												"fullName": "content:textarea:11:63",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:11:63",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:18:32-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:12:50": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\">Winston-Salem, NC 27101</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Winston-Salem, NC 27101",
+												"position": 4,
+												"fullName": "content:textarea:12:50",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:12:50",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:18:32-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:wysiwyg_basic:13:51": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">\n\t<a href=\"https://www.google.com/maps/place/1255+Trade+St+NW,+Winston-Salem,+NC+27101/@36.1099105,-80.2483879,17z/data=!3m1!4b1!4m6!3m5!1s0x8853ae6f21ad91d3:0x3ed4bc5e5b41b253!8m2!3d36.1099062!4d-80.245813!16s%2Fg%2F11c5chhyx1?entry=ttu\"><span class=\"btn btn-solid btn-red\">Directions</span></a>\n</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">\n\t<a href=\"https://www.google.com/maps/place/1255+Trade+St+NW,+Winston-Salem,+NC+27101/@36.1099105,-80.2483879,17z/data=!3m1!4b1!4m6!3m5!1s0x8853ae6f21ad91d3:0x3ed4bc5e5b41b253!8m2!3d36.1099062!4d-80.245813!16s%2Fg%2F11c5chhyx1?entry=ttu\"><span class=\"btn btn-solid btn-red\">Directions</span></a>\n</p>",
+												"model": "6",
+												"position": 5,
+												"fullName": "content:wysiwyg_basic:13:51",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:13:51",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:18:32-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:18:32-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:16:25": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/9a8d1c33-8d54-4c8d-b51e-16d2f0eaadb4_IMG_0021.JPG\" alt=\"placeholder\" class=\"img-fluid d-block m-auto my-3\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" />",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/9a8d1c33-8d54-4c8d-b51e-16d2f0eaadb4_IMG_0021.JPG",
+												"position": 0,
+												"fullName": "content:images:16:25",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:2columns:18:32-1:2 Columns - Equal:1",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"content:text:19:69": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5>How we help equip families</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "How we help equip families",
+								"position": 5,
+								"fullName": "content:text:19:69",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:19:69",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:34:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:20:11": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tWhile at the Center of Hope, families and individuals participate in customized programs and life skills classes&nbsp;to promote self-sufficiency and personal development. Each resident meets with our on-site caseworker and together they develop an extensive goal-oriented program designed to identify and overcome the barriers to safe, permanent housing. The Center of Hope is more than just a roof over their heads and warm bed -&nbsp;it is the first step on the journey to overcoming poverty and homelessness.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "While at the Center of Hope, families and individuals participate in customized programs and life skills classes&nbsp;to promote self-sufficiency and personal development. Each resident meets with our on-site caseworker and together they develop an extensive goal-oriented program designed to identify and overcome the barriers to safe, permanent housing. The Center of Hope is more than just a roof over their heads and warm bed -&nbsp;it is the first step on the journey to overcoming poverty and homelessness.",
+								"position": 6,
+								"fullName": "content:textarea:20:11",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:20:11",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:34:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:21:96": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p>\n\t<a href=\"https://give.salvationarmycarolinas.org/give/424184/#!/donation/checkout\"><span class=\"btn btn-solid btn-red\">Give Hope</span></a>\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p>\n\t<a href=\"https://give.salvationarmycarolinas.org/give/424184/#!/donation/checkout\"><span class=\"btn btn-solid btn-red\">Give Hope</span></a>\n</p>",
+								"model": "6",
+								"position": 7,
+								"fullName": "content:wysiwyg_basic:21:96",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:21:96",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:34:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:22:61": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 8,
+								"fullName": "design:design:whitespace-sm:22:61",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:34:59-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:24:52": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5>Basic Supplies are Always Needed</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Basic Supplies are Always Needed",
+								"position": 9,
+								"fullName": "content:text:24:52",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:24:52",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:34:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:25:63": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThe Center of Hope is committed to providing a safe haven for families in crisis and helping them get back on their feet. We are the only whole-family emergency center in Forsyth County, so we sometimes struggle to keep up with a sustainable inventory of basic supplies to meet the need for simple household supplies.&nbsp; If you can, please purchase as many items as you can from our list of basic household supplies that are always needed.&nbsp; Click the link below to find our lists on Amazon.com and Walmart.com.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Center of Hope is committed to providing a safe haven for families in crisis and helping them get back on their feet. We are the only whole-family emergency center in Forsyth County, so we sometimes struggle to keep up with a sustainable inventory of basic supplies to meet the need for simple household supplies.&nbsp; If you can, please purchase as many items as you can from our list of basic household supplies that are always needed.&nbsp; Click the link below to find our lists on Amazon.com and Walmart.com.",
+								"position": 10,
+								"fullName": "content:textarea:25:63",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:25:63",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:34:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:26:86": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p>\n\t<a href=\"https://southernusa.salvationarmy.org/winston-salem/summer-camp-1\"><span class=\"btn btn-solid btn-blue\">Give Supplies</span></a>\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p>\n\t<a href=\"https://southernusa.salvationarmy.org/winston-salem/summer-camp-1\"><span class=\"btn btn-solid btn-blue\">Give Supplies</span></a>\n</p>",
+								"model": "6",
+								"position": 11,
+								"fullName": "content:wysiwyg_basic:26:86",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:26:86",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:34:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

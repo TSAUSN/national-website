@@ -14,12 +14,6 @@
     "parent": null
   },
   {
-    "type": "view-all",
-    "page_name": "",
-    "page-zuid": null,
-    "parent": "services"
-  },
-  {
     "type": "menu",
     "key": null,
     "page_name": "Hunger",
@@ -107,32 +101,26 @@
     "parent": null
   },
   {
-    "type": "view-all",
-    "page_name": "About Us",
-    "page-zuid": null,
-    "parent": "about_us"
-  },
-  {
     "type": "menu",
     "key": null,
-    "page_name": "Camp Hoblitzelle",
-    "page-zuid": null,
+    "page_name": "About Us",
+    "page-zuid": "7-c0dcade2ab-d2l6nq",
     "sort": 0,
     "parent": "about_us"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Kettle-Con 2025 Video Archive",
-    "page-zuid": null,
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
     "sort": 1,
     "parent": "about_us"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Kettle Con",
-    "page-zuid": null,
+    "page_name": "Leadership",
+    "page-zuid": "7-a8fa94adba-wx96gp",
     "sort": 2,
     "parent": "about_us"
   },
@@ -140,16 +128,57 @@
     "type": "menu",
     "key": null,
     "page_name": "History",
-    "page-zuid": null,
+    "page-zuid": "7-b8c09b84c2-fp57hm",
     "sort": 3,
     "parent": "about_us"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Privacy Policy",
-    "page-zuid": null,
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-88deb6e6f5-l6xv5v",
     "sort": 4,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Give With Joy",
+    "page-zuid": "give_with_joy",
+    "sort": 5,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "About Texas Division",
+    "page-zuid": "7-f4df918eb0-1wbr7g",
+    "sort": 6,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Texas Service Extensions",
+    "page-zuid": "7-cc8aedaef4-mtfd3w",
+    "sort": 7,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Our Privacy Policy",
+    "page-zuid": "7-a494b3d0d5-tzqfsw",
+    "sort": 8,
+    "parent": "about_us",
+    "external_link": "https://www.salvationarmyusa.org/usa-southern-territory/our-privacy-policy/"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Locations in Texas",
+    "page-zuid": "7-8aefe8f9ff-g8f9lb",
+    "sort": 9,
     "parent": "about_us"
   },
   {
@@ -174,33 +203,59 @@
     "parent": null
   },
   {
-    "type": "view-all",
-    "page_name": "",
-    "page-zuid": null,
-    "parent": "ways_to_give"
-  },
-  {
     "type": "menu",
     "key": null,
-    "page_name": "Kettle-Con 2025 Video Archive",
-    "page-zuid": null,
+    "page_name": "Donate Money",
+    "page-zuid": "donate_money",
     "sort": 0,
     "parent": "ways_to_give"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Camp Hoblitzelle",
-    "page-zuid": null,
+    "page_name": "Donate Goods",
+    "page-zuid": "donate_goods",
     "sort": 1,
     "parent": "ways_to_give"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Kettle Con",
-    "page-zuid": null,
+    "page_name": "Become a Fundraiser",
+    "page-zuid": "become_fundraiser",
     "sort": 2,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Planned Giving",
+    "page-zuid": "7-deb1f3c292-8n177t",
+    "sort": 3,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Gift Stocks & Bonds",
+    "page-zuid": "7-e8b8d68ccc-t4mw4d",
+    "sort": 4,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Volunteer",
+    "page-zuid": "7-e486fce0d9-h2mflh",
+    "sort": 5,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "View All Ways to Give",
+    "page-zuid": "7-eceab6f8eb-03112w",
+    "sort": 6,
     "parent": "ways_to_give"
   },
   {
@@ -220,8 +275,8 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "Kettle Con",
-    "page-zuid": "7-a08dc4e9e4-lkzmd2",
+    "page_name": "Prayer Requests",
+    "page-zuid": "7-9c85f3a0d0-bn9b0b",
     "sort": 0,
     "parent": "custom_menu"
   },
@@ -231,7 +286,8 @@
     "page_name": "Camp Hoblitzelle",
     "page-zuid": "7-bcc3e2ada5-nqsphh",
     "sort": 1,
-    "parent": "custom_menu"
+    "parent": "custom_menu",
+    "external_link": "https://www.camphoblitzelle.com/"
   },
   {
     "type": "menu",
@@ -239,6 +295,15 @@
     "page_name": "Adult Rehabilitation Centers",
     "page-zuid": "7-d8f98c9dfc-c2bp7m",
     "sort": 2,
+    "parent": "custom_menu",
+    "external_link": "https://arcsouth.org/"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Red Shield Youth Centers",
+    "page-zuid": "7-fe949cb7ff-5r5bzt",
+    "sort": 3,
     "parent": "custom_menu"
   }
 ]

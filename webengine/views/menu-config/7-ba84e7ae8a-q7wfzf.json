@@ -1,106 +1,203 @@
-{
-  "menu_fixed-services": {
-    "view_all": [],
-    "page-zuid": "",
-    "page_name": "menu_fixed-services",
-    "children": [
-      {
-        "page-zuid": "7-84ded4d6ba-3k5xtr",
-        "page_name": "Family Services | /family-services/",
-        "sort": 0,
-        "children": []
-      },
-      {
-        "page-zuid": "7-d2dc9bf8a1-jn2l4z",
-        "page_name": "Thrift Stores | /thrift-stores/",
-        "sort": 1,
-        "children": []
-      },
-      {
-        "page-zuid": "7-c0d0e991c1-xplk27",
-        "page_name": "Giving Back | /giving-back/",
-        "sort": 2,
-        "children": []
-      },
-      {
-        "page-zuid": "7-ca8089bead-bw72c8",
-        "page_name": "Anti-Human Trafficking | /human-trafficking/",
-        "sort": 3,
-        "children": []
-      },
-      {
-        "page-zuid": "7-94a7ea8895-zlcjn2",
-        "page_name": "Family Counseling | /family-counseling/",
-        "sort": 4,
-        "children": []
-      },
-      {
-        "page-zuid": "7-b0f880a4ee-f3xfbn",
-        "page_name": "Senior Services | /senior-services/",
-        "sort": 5,
-        "children": []
-      },
-      {
-        "page-zuid": "7-808eaac7c7-77lg31",
-        "page_name": "Holiday Giving | /holiday-giving/",
-        "sort": 6,
-        "children": []
-      },
-      {
-        "page-zuid": "7-9cc7fff1e7-5v9103",
-        "page_name": "Recovery | /recovery/",
-        "sort": 7,
-        "children": []
-      },
-      {
-        "page-zuid": "7-82b2adb49b-1ktpxr",
-        "page_name": "Domestic Violence | /domestic-violence/",
-        "sort": 8,
-        "children": []
-      },
-      {
-        "page-zuid": "7-dcf789a2fb-r8rdch",
-        "page_name": "Utility Rent Assistance | /utility-rent-assistance/",
-        "sort": 9,
-        "children": []
-      }
-    ]
+[
+  {
+    "type": "menu",
+    "key": "home",
+    "page_name": "Home",
+    "page-zuid": "7-ba84e7ae8a-q7wfzf",
+    "parent": null
   },
-  "menu_fixed-about-us": {
-    "view_all": [],
-    "page-zuid": "",
-    "page_name": "menu_fixed-about-us",
-    "children": [
-      {
-        "page-zuid": "",
-        "page_name": "About The Salvation Army",
-        "sort": 0,
-        "children": []
-      },
-      {
-        "page-zuid": "7-90eff9e999-tpj14d",
-        "page_name": "Commitment to all",
-        "sort": 1,
-        "children": []
-      },
-      {
-        "page-zuid": "",
-        "page_name": "New Submenu Item",
-        "sort": 2,
-        "children": []
-      },
-      {
-        "page-zuid": "",
-        "page_name": "Leadership",
-        "sort": 3,
-        "children": []
-      },
-      {
-        "page-zuid": "7-b8c09b84c2-fp57hm",
-        "page_name": "History",
-        "sort": 4,
-        "children": []
-      }
-    ]
+  {
+    "type": "menu",
+    "key": "services",
+    "page_name": "Services",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Spiritual Healing",
+    "page-zuid": "7-9ccba1abbc-spfrft",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Senior Services",
+    "page-zuid": "7-b8eb8981b6-635kg6",
+    "sort": 1,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Food Pantries",
+    "page-zuid": "7-f4bdbedbaf-9zk86f",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Counseling",
+    "page-zuid": "7-ccb9baddc2-z6snpx",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Youth Services",
+    "page-zuid": "7-dcd8bcffc8-0sszdj",
+    "sort": 4,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Disaster Relief",
+    "page-zuid": "7-d8c5fb8ba9-j6tn7b",
+    "sort": 5,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": "about_us",
+    "page_name": "About Us",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "About Us",
+    "page-zuid": "7-f2c894a1fe-6btkhw",
+    "sort": 0,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
+    "sort": 1,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Leadership",
+    "page-zuid": "7-a8aadf9c88-797qm2",
+    "sort": 2,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "History",
+    "page-zuid": "7-b8c09b84c2-fp57hm",
+    "sort": 3,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-88deb6e6f5-l6xv5v",
+    "sort": 4,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Give With Joy",
+    "page-zuid": "give_with_joy",
+    "sort": 5,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": "events",
+    "page_name": "Texas City Corps",
+    "page-zuid": "7-a8acd7a7ae-6cbmx0",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "newsroom",
+    "page_name": "Texas City Corps",
+    "page-zuid": "7-b29f91f093-xk4vfj",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "ways_to_give",
+    "page_name": "Ways to give",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Money",
+    "page-zuid": "donate_money",
+    "sort": 0,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Goods",
+    "page-zuid": "donate_goods",
+    "sort": 1,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Become a Fundraiser",
+    "page-zuid": "become_fundraiser",
+    "sort": 2,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Planned Giving",
+    "page-zuid": "7-deb1f3c292-8n177t",
+    "sort": 3,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Gift Stocks & Bonds",
+    "page-zuid": "7-e8b8d68ccc-t4mw4d",
+    "sort": 4,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Volunteer",
+    "page-zuid": "7-e486fce0d9-h2mflh",
+    "sort": 5,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "View All Ways to Give",
+    "page-zuid": "7-eceab6f8eb-03112w",
+    "sort": 6,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": "contact_us",
+    "page_name": "Contact Us",
+    "page-zuid": "7-9cfcbbe396-2qq3rh",
+    "parent": null
   }
-}
+]

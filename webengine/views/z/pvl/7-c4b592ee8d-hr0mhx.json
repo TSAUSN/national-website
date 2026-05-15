@@ -1,0 +1,531 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:62:0:10": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-dcfab89eac-2bqf6s')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-dcfab89eac-2bqf6s')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:62:0:10",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:32:37": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:32:37",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:32:37-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:31:31": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:31:31",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:32:37-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:1:72": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Angel Tree Program of Oconee County</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Angel Tree Program of Oconee County",
+								"position": 1,
+								"fullName": "content:text:1:72",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:1:72",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:32:37-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:51": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tHolidays often bring added stress to already difficult financial situations. The Salvation Army is here to lend a helping hand to families struggling during this time. We provide Christmas gifts, coats and shoes to children ages 0 to 12 years of age and clothing and household items to vulnerable adults in our communities.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Holidays often bring added stress to already difficult financial situations. The Salvation Army is here to lend a helping hand to families struggling during this time. We provide Christmas gifts, coats and shoes to children ages 0 to 12 years of age and clothing and household items to vulnerable adults in our communities.",
+								"position": 2,
+								"fullName": "content:textarea:2:51",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:51",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:32:37-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:text:3:18": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">How Does Angel Tree Work?</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "How Does Angel Tree Work?",
+								"position": 3,
+								"fullName": "content:text:3:18",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:3:18",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:32:37-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:4:96": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\">\n\tAngel and Golden Angel tags are created for each of participant and include the first name, age, clothing sizes, and gift wishes. Tags are placed on trees throughout local businesses or are made available through various industries. Families, churches, groups and employees can select tags to make Christmas joyous for those in need. In November each year, Angel Tags are made available at Walmart and other locations in November. For a list of participating businesses, contact us at <a href=\"tel:8648821160\">864-882-1160</a>.\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\">\n\tAngel and Golden Angel tags are created for each of participant and include the first name, age, clothing sizes, and gift wishes. Tags are placed on trees throughout local businesses or are made available through various industries. Families, churches, groups and employees can select tags to make Christmas joyous for those in need. In November each year, Angel Tags are made available at Walmart and other locations in November. For a list of participating businesses, contact us at <a href=\"tel:8648821160\">864-882-1160</a>.\n</p>",
+								"model": "6",
+								"position": 4,
+								"fullName": "content:wysiwyg_basic:4:96",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:4:96",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:32:37-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:5:63": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 5,
+								"fullName": "design:design:whitespace-sm:5:63",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:32:37-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:8:10": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">How Can I Help?</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "How Can I Help?",
+								"position": 6,
+								"fullName": "content:text:8:10",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:8:10",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:32:37-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:9:66": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tThere are multiple ways to support Oconee County’s Angel Tree program. Check below to find the way that best suits you, your group or business.&nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "There are multiple ways to support Oconee County’s Angel Tree program. Check below to find the way that best suits you, your group or business.&nbsp;",
+								"position": 7,
+								"fullName": "content:textarea:9:66",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:9:66",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:32:37-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:11:91": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 8,
+								"fullName": "design:design:whitespace-sm:11:91",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:32:37-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:16:49": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 9,
+								"fullName": "design:columns:3 Columns:16:49",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:32:37-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:16:49-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:10:65": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5 style=\"text-align:center;\">Adopt An Angel</h5>\n\n<p>\n\t1. Choose the tag(s) of a <strong>CHILD</strong>.\n</p>\n\n<p>\n\t2.&nbsp;Purchase age-appropriate toys and clothes for each child. (NEW ITEMS ONLY, no candy or food items)\n</p>\n\n<p>\n\t3. Place the Angel Tag number and name of child on all bag(s) items.\n</p>\n\n<p>\n\t4. Deliver unwrapped gifts to the Service Center at 100 Debra Street, Seneca or The Salvation Army Family Store at 513 Bypass Hwy 123, Seneca. You can find a list of suggested toys below.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/80959371-da8f-4b6b-943d-c7ea936851f6_Be+a+Wish+Maker+COMBINED.pdf\" class=\"btn btn-secondary gap-1 mt-2\">Toy List</a></p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5 style=\"text-align:center;\">Adopt An Angel</h5>\n\n<p>\n\t1. Choose the tag(s) of a <strong>CHILD</strong>.\n</p>\n\n<p>\n\t2.&nbsp;Purchase age-appropriate toys and clothes for each child. (NEW ITEMS ONLY, no candy or food items)\n</p>\n\n<p>\n\t3. Place the Angel Tag number and name of child on all bag(s) items.\n</p>\n\n<p>\n\t4. Deliver unwrapped gifts to the Service Center at 100 Debra Street, Seneca or The Salvation Army Family Store at 513 Bypass Hwy 123, Seneca. You can find a list of suggested toys below.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/80959371-da8f-4b6b-943d-c7ea936851f6_Be+a+Wish+Maker+COMBINED.pdf\" class=\"btn btn-secondary gap-1 mt-2\">Toy List</a></p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:10:65",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:10:65",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:16:49-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:16:49-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:12:58": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5 style=\"text-align:center;\">Adopt A Golden Angel</h5>\n\n<p>\n\t1. Choose the tag(s) of a vulnerable <strong>ADULT</strong>.\n</p>\n\n<p>\n\t2. Purchase age appropriate gifts and clothes for each adult. (NEW ITEMS ONLY)\n</p>\n\n<p>\n\t3. Place the Golden Angel Tag number and name of adult on all bag(s) items.\n</p>\n\n<p>\n\t4. Deliver unwrapped gifts to the Service Center at 100 Debra Street, Seneca or The Salvation Army Family Store at 513 Bypass Hwy 123, Seneca. You can find a list of suggested gifts and household items below.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/7f8c2103-2557-442b-ae55-5b9fd907b532_Be+a+Wish+Maker+GOLDEN+COMBINED.pdf\" class=\"btn btn-secondary gap-1 mt-2\">Gift List</a></p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5 style=\"text-align:center;\">Adopt A Golden Angel</h5>\n\n<p>\n\t1. Choose the tag(s) of a vulnerable <strong>ADULT</strong>.\n</p>\n\n<p>\n\t2. Purchase age appropriate gifts and clothes for each adult. (NEW ITEMS ONLY)\n</p>\n\n<p>\n\t3. Place the Golden Angel Tag number and name of adult on all bag(s) items.\n</p>\n\n<p>\n\t4. Deliver unwrapped gifts to the Service Center at 100 Debra Street, Seneca or The Salvation Army Family Store at 513 Bypass Hwy 123, Seneca. You can find a list of suggested gifts and household items below.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/7f8c2103-2557-442b-ae55-5b9fd907b532_Be+a+Wish+Maker+GOLDEN+COMBINED.pdf\" class=\"btn btn-secondary gap-1 mt-2\">Gift List</a></p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:12:58",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:12:58",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:16:49-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:16:49-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:14:8": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5 style=\"text-align:center;\">Coordinate A Gift&nbsp;Drive</h5>\n\n<p>\n\tAdditional toys or gift items are always needed to help supplement a child or adult’s gift bag if tags are not returned or are returned still needing items. Individuals, churches, groups and businesses can help us fill those gaps by hosting a drive.\n</p>\n\n<p>\n\tDrives can be held for children’s toys or for vulnerable adult's household items during the month of November. Donated items are requested returned on or before the first Saturday in December.\n</p>\n\n<p>\n\tFor ideas on what toys or household items are needed, just click on the gift list and wish list to the left. Call us if you would like to host a drive for Oconee Angels!&nbsp;\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5 style=\"text-align:center;\">Coordinate A Gift&nbsp;Drive</h5>\n\n<p>\n\tAdditional toys or gift items are always needed to help supplement a child or adult’s gift bag if tags are not returned or are returned still needing items. Individuals, churches, groups and businesses can help us fill those gaps by hosting a drive.\n</p>\n\n<p>\n\tDrives can be held for children’s toys or for vulnerable adult's household items during the month of November. Donated items are requested returned on or before the first Saturday in December.\n</p>\n\n<p>\n\tFor ideas on what toys or household items are needed, just click on the gift list and wish list to the left. Call us if you would like to host a drive for Oconee Angels!&nbsp;\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:14:8",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:14:8",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:16:49-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:design:whitespace-sm:18:37": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 10,
+								"fullName": "design:design:whitespace-sm:18:37",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:32:37-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:23:98": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 11,
+								"fullName": "design:columns:3 Columns:23:98",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:32:37-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:23:98-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:17:70": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5 style=\"text-align:center;\">Volunteer to Help</h5>\n\n<p>\n\t<strong>Work in the Angel Tree Toy Store</strong> during November and December. This involves setup of store, processing tags, receiving donated toys/items, distribution to families.\n</p>\n\n<p>\n\tThe toy store will be located in Seneca and will operate November to mid-December. Details and hours yet to be determined.\n</p>\n\n<p>\n\t<strong>Be a translator.</strong> We have numerous non-English speaking families who qualify for Christmas assistance. If you speak fluent Spanish, we need your help with sign ups the first two weeks in October and on site during distribution.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5 style=\"text-align:center;\">Volunteer to Help</h5>\n\n<p>\n\t<strong>Work in the Angel Tree Toy Store</strong> during November and December. This involves setup of store, processing tags, receiving donated toys/items, distribution to families.\n</p>\n\n<p>\n\tThe toy store will be located in Seneca and will operate November to mid-December. Details and hours yet to be determined.\n</p>\n\n<p>\n\t<strong>Be a translator.</strong> We have numerous non-English speaking families who qualify for Christmas assistance. If you speak fluent Spanish, we need your help with sign ups the first two weeks in October and on site during distribution.\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:17:70",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:17:70",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:23:98-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:23:98-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:19:35": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5 style=\"text-align:center;\">Be A Last Minute Shopper</h5>\n\n<p>\n\tEach year there are tags that are taken but not returned. Often we can fill those tags in house, but sometimes we need shoppers who are willing to take an entire tag and purchase items for that child or vulnerable adult.\n</p>\n\n<p>\n\tWe don’t have a lot of lead time on those tags. Last Minute Shoppers need to be able to shop for items within a few days of being contacted.\n</p>\n\n<p>\n\tThese shoppers are lifesavers for us as we juggle all that is involved with Angel Tree in the days just prior to distribution.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5 style=\"text-align:center;\">Be A Last Minute Shopper</h5>\n\n<p>\n\tEach year there are tags that are taken but not returned. Often we can fill those tags in house, but sometimes we need shoppers who are willing to take an entire tag and purchase items for that child or vulnerable adult.\n</p>\n\n<p>\n\tWe don’t have a lot of lead time on those tags. Last Minute Shoppers need to be able to shop for items within a few days of being contacted.\n</p>\n\n<p>\n\tThese shoppers are lifesavers for us as we juggle all that is involved with Angel Tree in the days just prior to distribution.\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:19:35",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:19:35",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:23:98-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:23:98-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:21:30": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-primary-200 text-light\" style=\"text-align:center;\"><h5 style=\"text-align:center;\">Contact Us</h5>\n\n<p>\n\tIf you’d like to help support The Salvation Army’s Christmas Assistance in Oconee, just let us know how you would like to volunteer.\n</p>\n\n<p>\n\tCall: <u><a href=\"tel:864-882-1160\" target=\"\"><span style=\"color:#ffffff;\">864-882-1160</span></a></u>\n</p>\n\n<p>\n\tDonating funds to Angel Tree is always a valuable way to support the Angel Tree Program. Simply click below to donate.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/364745/#!/donation/checkout\" class=\"btn btn-light gap-1 mt-2\">Donate</a></p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-primary-200 text-light\" style=\"text-align:center;\"><h5 style=\"text-align:center;\">Contact Us</h5>\n\n<p>\n\tIf you’d like to help support The Salvation Army’s Christmas Assistance in Oconee, just let us know how you would like to volunteer.\n</p>\n\n<p>\n\tCall: <u><a href=\"tel:864-882-1160\" target=\"\"><span style=\"color:#ffffff;\">864-882-1160</span></a></u>\n</p>\n\n<p>\n\tDonating funds to Angel Tree is always a valuable way to support the Angel Tree Program. Simply click below to donate.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/364745/#!/donation/checkout\" class=\"btn btn-light gap-1 mt-2\">Donate</a></p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:21:30",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:21:30",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:23:98-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:design:whitespace-md:24:50": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 12,
+								"fullName": "design:design:whitespace-md:24:50",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:32:37-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:24:43": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img width=\"880\" height=\"1005\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/ccec6e29-5937-463d-b682-cc06480653ce_Angel+Tree+Partners.jpeg\" alt=\"placeholder\" class=\"img-fluid d-block my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/ccec6e29-5937-463d-b682-cc06480653ce_Angel+Tree+Partners.jpeg",
+								"position": 13,
+								"fullName": "content:images:24:43",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:32:37-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

@@ -1,0 +1,39 @@
+<div className={styles.pvlRoot}>
+	<div style="display:flex" classname="{styles.pvlRow}" class="container bg-light rounded-5 mt-12 mb-12 p-6 column-gap-6">
+		<div style="flex:1" className={styles.pvlColumn}>
+			<h1 class="fs-4">We Pride Ourselves On Creativity, Intuition, and Determination</h1>
+			<hr>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p><img src="https://picsum.photos/id/48/300/175" class="rounded img-fluid"></p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+			<p><a href="#" class="btn btn-primary col-12">Lorem ipsum dolor</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p><img class="rounded img-fluid shadow-sm" src="https://picsum.photos/id/22/300/175"></p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+			<p><a href="#" class="btn btn-primary col-12">Lorem ipsum dolor</a></p>
+		</div>
+		<div style="flex:1" className={styles.pvlColumn}>
+			<p><img class="rounded img-fluid shadow-sm" src="https://picsum.photos/id/103/300/175"></p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+			<p><a href="#" class="btn btn-primary col-12">Lorem ipsum dolor</a></p>
+		</div>
+	</div>
+	<div class="bg-light p-6 rounded-5 container mt-12 mb-12">
+		<div class="column">
+			<div class="row my-3">
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<p><img src="https://picsum.photos/id/48/600/400" class="rounded img-fluid"></p>
+				</div>
+				<div class="col-lg-8 col-md-6 col-sm-12">
+					<h3>Solution focused legal thinking</h3>
+<p><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae massa et augue pharetra facilisis. Ut ac lacinia dolor. Praesent sed leo et dui rhoncus finibus vel pulvinar nisl. Maecenas fermentum iaculis laoreet. Praesent sed leo et dui rhoncus finibus vel pulvinar nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae massa et augue pharetra facilisis. Ut ac lacinia dolor. Praesent sed leo et dui rhoncus finibus vel pulvinar nisl. Maecenas fermentum iaculis laoreet. Praesent sed leo et dui rhoncus finibus vel pulvinar nisl.</p>
+<p></p>
+<p><a class="btn" href="#">Apply Today</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

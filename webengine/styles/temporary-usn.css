@@ -713,8 +713,12 @@ border-radius: 10px;}
  .kona {background-image: url(https://8hxvw8tw.media.zestyio.com/a93e0d92-2646-11f1-a3ff-0a58a9feac02.webp
  ); background-position: center center;}
 
+ .enid {background-image: url(https://8hxvw8tw.media.zestyio.com/enid.jpeg); background-position: center center;}
+
+.georgia {background-image: url(https://8hxvw8tw.media.zestyio.com/ARC-beneficiaries-serve-meals-and-strengthen-purpose-after-California-wildfires-1920x1024.jpg); background-position: center center;}
 
 
+.missTornado {background-image: url(https://salarmyeds.org/wp-content/uploads/2026/05/image000002-copy.jpg); background-position: center center;}
 
 
 .disasterCardImg {
@@ -1224,4 +1228,10 @@ color: #535353;
   .services .services-swiper .swiper-slide>div, .services .services-swiper .swiper-slide>div {
     background: white !important;
   }
+}
+
+a.jaHeroLink {
+    color: white;
+    text-decoration: none;
+    border-bottom: 2px solid white;
 }

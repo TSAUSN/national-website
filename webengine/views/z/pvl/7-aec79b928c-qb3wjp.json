@@ -1,0 +1,303 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:28:0:29": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-e29cc98df3-df08qs')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-e29cc98df3-df08qs')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:28:0:29",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:19:55": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:19:55",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:19:55-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:images:1:69": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/9339c0ae-de4a-44c6-a956-1aa81667e0b1_Food+Pantry+icon.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/9339c0ae-de4a-44c6-a956-1aa81667e0b1_Food+Pantry+icon.png",
+								"position": 0,
+								"fullName": "content:images:1:69",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:55-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:3:94": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 1,
+								"fullName": "design:design:whitespace-sm:3:94",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:55-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:4:43": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Food Pantry Assistance In Oconee County</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Food Pantry Assistance In Oconee County",
+								"position": 2,
+								"fullName": "content:text:4:43",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:4:43",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:55-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:5:39": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p>\n\tDuring times of crisis, The Salvation Army is here to lend a helping hand. We help residents with emergency need of non perishable grocery items. Applications for help are done by appointment only. Required documents are listed below. For an appointment, call <a href=\"tel:8648821160\">864-882-1160</a>.\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p>\n\tDuring times of crisis, The Salvation Army is here to lend a helping hand. We help residents with emergency need of non perishable grocery items. Applications for help are done by appointment only. Required documents are listed below. For an appointment, call <a href=\"tel:8648821160\">864-882-1160</a>.\n</p>",
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:5:39",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:5:39",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:55-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:6:90": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:6:90",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:55-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:7:51": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\t<strong>Documentation Required for Food Assistance:</strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Documentation Required for Food Assistance:",
+								"position": 5,
+								"fullName": "content:textarea:7:51",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:7:51",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:55-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:8:89": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tCurrent&nbsp;<strong>Photo ID</strong>&nbsp;of client applying for assistance\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Current&nbsp;Photo ID&nbsp;of client applying for assistance",
+								"position": 6,
+								"fullName": "content:textarea:8:89",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:8:89",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:55-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:9:7": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tProof of&nbsp;<strong>ALL</strong>&nbsp;household&nbsp;<strong>income</strong>&nbsp;(including food stamps, child support, disability and&nbsp;<strong>ANY</strong>&nbsp;other sources of income, including assistance from other non-profit organizations, churches, family, etc.)\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Proof of&nbsp;ALL&nbsp;household&nbsp;income&nbsp;(including food stamps, child support, disability and&nbsp;ANY&nbsp;other sources of income, including assistance from other non-profit organizations, churches, family, etc.)",
+								"position": 7,
+								"fullName": "content:textarea:9:7",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:9:7",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:55-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:10:16": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tProof of&nbsp;<strong>Expenses</strong>&nbsp;(utility, water, cable, car payment, insurance, phone, internet, etc.)\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Proof of&nbsp;Expenses&nbsp;(utility, water, cable, car payment, insurance, phone, internet, etc.)",
+								"position": 8,
+								"fullName": "content:textarea:10:16",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:10:16",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:55-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:11:19": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tProof of&nbsp;<strong>Residence</strong>&nbsp;(rental/lease agreement, mortgage/title/deed)\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Proof of&nbsp;Residence&nbsp;(rental/lease agreement, mortgage/title/deed)",
+								"position": 9,
+								"fullName": "content:textarea:11:19",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:11:19",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:55-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:12:88": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tProof of <strong>Emergency</strong> (identify specific emergency outside your control that has occurred within the past 30 days and has kept you from paying a bill or being unable to manage your regular monthly expenses.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Proof of Emergency (identify specific emergency outside your control that has occurred within the past 30 days and has kept you from paying a bill or being unable to manage your regular monthly expenses.",
+								"position": 10,
+								"fullName": "content:textarea:12:88",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:12:88",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:55-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:13:26": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tFor long-term food assistance, you may also want to reach out to Golden Corner Food Pantry.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "For long-term food assistance, you may also want to reach out to Golden Corner Food Pantry.",
+								"position": 11,
+								"fullName": "content:textarea:13:26",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:13:26",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:55-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:14:92": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://goldencornerpantry.org/\" class=\"btn btn-secondary gap-1 mt-2\">Golden Corner Food Pantry</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://goldencornerpantry.org/\" class=\"btn btn-secondary gap-1 mt-2\">Golden Corner Food Pantry</a></p>",
+								"model": "6",
+								"position": 12,
+								"fullName": "content:wysiwyg_basic:14:92",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:14:92",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:55-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

@@ -1,0 +1,1022 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:38:0:87": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-f8fab6fb9a-dfhd1q')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-f8fab6fb9a-dfhd1q')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:38:0:87",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:62:21": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:62:21",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:61:48": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:61:48",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:1:44": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Membership Levels</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Membership Levels",
+								"position": 1,
+								"fullName": "content:text:1:44",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:1:44",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:40": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tAnnual Membership ($85.00 per fiscal year)\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Annual Membership ($85.00 per fiscal year)",
+								"position": 2,
+								"fullName": "content:textarea:2:40",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:40",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:3:90": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tLifetime Membership ($1,000)\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Lifetime Membership ($1,000)",
+								"position": 3,
+								"fullName": "content:textarea:3:90",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:3:90",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:4:45": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t*Annual membership is from Oct 1st – Sept 30th (fiscal year). If the joining date is after July 1, 2026, membership payment will cover the following fiscal year (Oct 1, 2026 - Sept 30, 2027)\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "*Annual membership is from Oct 1st – Sept 30th (fiscal year). If the joining date is after July 1, 2026, membership payment will cover the following fiscal year (Oct 1, 2026 - Sept 30, 2027)",
+								"position": 4,
+								"fullName": "content:textarea:4:45",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:4:45",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:horizontalrule:5:65": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 5,
+								"fullName": "design:design:horizontalrule:5:65",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:6:97": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\" id=\"form\">Join or Renew Membership Now</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Join or Renew Membership Now",
+								"position": 6,
+								"fullName": "content:text:6:97",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:6:97",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:7:51": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tComplete the form below to renew your current membership, or apply for new membership\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Complete the form below to renew your current membership, or apply for new membership",
+								"position": 7,
+								"fullName": "content:textarea:7:51",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:7:51",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:text:8:62": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\">Membership Payment</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Membership Payment",
+								"position": 8,
+								"fullName": "content:text:8:62",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:8:62",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:9:56": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>You can pay your Member Dues through the following options:</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "You can pay your Member Dues through the following options:",
+								"position": 9,
+								"fullName": "content:textarea:9:56",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:9:56",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:10:34": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p><strong>1) Cash or check in person</strong></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "1) Cash or check in person",
+								"position": 10,
+								"fullName": "content:textarea:10:34",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:10:34",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:11:90": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tYou can also mail membership checks addressed to SAWA, 501 Rutherford St., Greenville, SC 29609.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "You can also mail membership checks addressed to SAWA, 501 Rutherford St., Greenville, SC 29609.",
+								"position": 11,
+								"fullName": "content:textarea:11:90",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:11:90",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:12:79": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\t<strong>2) Pay online through the button below</strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "2) Pay online through the button below",
+								"position": 12,
+								"fullName": "content:textarea:12:79",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:12:79",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:13:45": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\t<em>*(Please be sure to type in the correct payment amount, and then select the membership type in the drop-down box)</em>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "*(Please be sure to type in the correct payment amount, and then select the membership type in the drop-down box)",
+								"position": 13,
+								"fullName": "content:textarea:13:45",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:13:45",
+								"styles": {
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:14:5": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://fundraise.givesmart.com/form/jiuzcg?vid=1i9w6c\" class=\"btn btn-secondary gap-1 mt-2\">Pay Online</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://fundraise.givesmart.com/form/jiuzcg?vid=1i9w6c\" class=\"btn btn-secondary gap-1 mt-2\">Pay Online</a></p>",
+								"model": "6",
+								"position": 14,
+								"fullName": "content:wysiwyg_basic:14:5",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:14:5",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:15:47": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 15,
+								"fullName": "design:design:whitespace-sm:15:47",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:16:43": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\t<strong>3) Venmo through the button below</strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "3) Venmo through the button below",
+								"position": 16,
+								"fullName": "content:textarea:16:43",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:16:43",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:17:13": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://venmo.com/sawagvl\" class=\"btn btn-secondary gap-1 mt-2\">Venmo @SAWAGVL</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://venmo.com/sawagvl\" class=\"btn btn-secondary gap-1 mt-2\">Venmo @SAWAGVL</a></p>",
+								"model": "6",
+								"position": 17,
+								"fullName": "content:wysiwyg_basic:17:13",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:17:13",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:18:37": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 18,
+								"fullName": "design:design:whitespace-sm:18:37",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:20:57": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tIf you'd rather download the SAWA membership or renewal forms, click the buttons below. You can also click the button to gift a membership to someone else.&nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "If you'd rather download the SAWA membership or renewal forms, click the buttons below. You can also click the button to gift a membership to someone else.&nbsp;",
+								"position": 19,
+								"fullName": "content:textarea:20:57",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:20:57",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:21:28": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 20,
+								"fullName": "design:design:whitespace-sm:21:28",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:28:85": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 21,
+								"fullName": "design:columns:2columns:28:85",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:28:85-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:22:8": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">\n\t\t\t\t\t<strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/ef2e91f8-6b5f-487a-9d77-164d24bae6cb_SAWA+Membership+Application+2025-2026.pdf\" class=\"btn btn-secondary gap-1 mt-2\">New Membership Form</a></strong>\n\t\t\t\t</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">\n\t\t\t\t\t<strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/ef2e91f8-6b5f-487a-9d77-164d24bae6cb_SAWA+Membership+Application+2025-2026.pdf\" class=\"btn btn-secondary gap-1 mt-2\">New Membership Form</a></strong>\n\t\t\t\t</p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:22:8",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:22:8",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:28:85-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:wysiwyg_basic:24:12": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">\n\t\t\t\t\t<strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5fad091d-29c5-420b-9b15-22699d4895e0_Renewal+Form+2025-2026.pdf\" class=\"btn btn-secondary gap-1 mt-2\">Renewal Form</a></strong>\n\t\t\t\t</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">\n\t\t\t\t\t<strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5fad091d-29c5-420b-9b15-22699d4895e0_Renewal+Form+2025-2026.pdf\" class=\"btn btn-secondary gap-1 mt-2\">Renewal Form</a></strong>\n\t\t\t\t</p>",
+												"model": "6",
+												"position": 1,
+												"fullName": "content:wysiwyg_basic:24:12",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:24:12",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:28:85-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:28:85-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:26:26": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">\n\t\t\t\t\t<strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/82679cd7-6d24-454b-82b9-b41c8544677c_Gift+Membership+2024.pdf\" class=\"btn btn-secondary gap-1 mt-2\">Gift Membership</a></strong>\n\t\t\t\t</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">\n\t\t\t\t\t<strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/82679cd7-6d24-454b-82b9-b41c8544677c_Gift+Membership+2024.pdf\" class=\"btn btn-secondary gap-1 mt-2\">Gift Membership</a></strong>\n\t\t\t\t</p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:26:26",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:26:26",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:28:85-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:whitespace-md:29:33": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 22,
+								"fullName": "design:design:whitespace-md:29:33",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:29:61": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/c4a02428-0cda-4d45-83fd-e68589b97216_IMG_4411.JPG\" alt=\"placeholder\" class=\"img-fluid d-block my-3\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/c4a02428-0cda-4d45-83fd-e68589b97216_IMG_4411.JPG",
+								"position": 23,
+								"fullName": "content:images:29:61",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:31:93": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 24,
+								"fullName": "design:design:whitespace-sm:31:93",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:32:93": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">WHO WE ARE &amp; WHAT WE DO</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "WHO WE ARE &amp; WHAT WE DO",
+								"position": 25,
+								"fullName": "content:text:32:93",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:32:93",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:33:29": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tSAWA is the volunteer, educational and fundraising arm of The Salvation Army of Greenville, SC, supporting initiatives that enrich the lives of those individuals living in in our community by meeting them at their point of need.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "SAWA is the volunteer, educational and fundraising arm of The Salvation Army of Greenville, SC, supporting initiatives that enrich the lives of those individuals living in in our community by meeting them at their point of need.",
+								"position": 26,
+								"fullName": "content:textarea:33:29",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:33:29",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:34:22": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tAs a member of SAWA, you are among Greenville's most influential and active community leaders, women with a generous spirit and determination to be “doing the most good.\" Meetings are held on the 2nd Wednesday of each month (except July) at 11:30 a.m. at the Kroc Center located at 42 Westfield Street in Greenville (lunch is served).&nbsp;&nbsp;Members have many opportunities throughout the year to volunteer and attend social events and meetings.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "As a member of SAWA, you are among Greenville's most influential and active community leaders, women with a generous spirit and determination to be “doing the most good.\" Meetings are held on the 2nd Wednesday of each month (except July) at 11:30 a.m. at the Kroc Center located at 42 Westfield Street in Greenville (lunch is served).&nbsp;&nbsp;Members have many opportunities throughout the year to volunteer and attend social events and meetings.",
+								"position": 27,
+								"fullName": "content:textarea:34:22",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:34:22",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:35:12": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 28,
+								"fullName": "design:design:whitespace-sm:35:12",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:42:76": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 29,
+								"fullName": "design:columns:3 Columns:42:76",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:42:76-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:36:26": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/f715147e-bace-4d10-87b4-408eebbe11ec_9D8299FD-15BD-463E-8846-9B96B55FDF94.jpg\" alt=\"placeholder\" class=\"img-fluid d-block my-3\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/f715147e-bace-4d10-87b4-408eebbe11ec_9D8299FD-15BD-463E-8846-9B96B55FDF94.jpg",
+												"position": 0,
+												"fullName": "content:images:36:26",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:3 Columns:42:76-1:3 Columns:0",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:42:76-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:38:98": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/0e4c1a1c-fd00-4c4d-8bb9-86c386ee8050_IMG_2378.jpg\" alt=\"placeholder\" class=\"img-fluid d-block my-3\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/0e4c1a1c-fd00-4c4d-8bb9-86c386ee8050_IMG_2378.jpg",
+												"position": 0,
+												"fullName": "content:images:38:98",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:3 Columns:42:76-1:3 Columns:1",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:42:76-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:40:85": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/ce7f30e2-ea7a-48d5-9b7a-1d357d60cba3_IMG_1223.JPG\" alt=\"placeholder\" class=\"img-fluid d-block my-3\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/ce7f30e2-ea7a-48d5-9b7a-1d357d60cba3_IMG_1223.JPG",
+												"position": 0,
+												"fullName": "content:images:40:85",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:3 Columns:42:76-1:3 Columns:2",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:design:whitespace-sm:43:14": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 30,
+								"fullName": "design:design:whitespace-sm:43:14",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:47:63": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 31,
+								"fullName": "design:columns:3 Columns:47:63",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:47:63-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:text:44:93": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h5>Fellowship Opportunities</h5>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "Fellowship Opportunities",
+												"position": 0,
+												"fullName": "content:text:44:93",
+												"htmlElement": "h5",
+												"primarytype": "content",
+												"id": "content:text:44:93",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:47:63-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:47:63-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:text:45:55": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h5>Supporting Shelter Services</h5>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "Supporting Shelter Services",
+												"position": 0,
+												"fullName": "content:text:45:55",
+												"htmlElement": "h5",
+												"primarytype": "content",
+												"id": "content:text:45:55",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:47:63-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:47:63-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:text:46:35": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h5>Community Service</h5>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "Community Service",
+												"position": 0,
+												"fullName": "content:text:46:35",
+												"htmlElement": "h5",
+												"primarytype": "content",
+												"id": "content:text:46:35",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:47:63-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:design:horizontalrule:48:52": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 32,
+								"fullName": "design:design:horizontalrule:48:52",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:49:35": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 33,
+								"fullName": "design:design:whitespace-xl:49:35",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:50:3": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Connect with Us</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Connect with Us",
+								"position": 34,
+								"fullName": "content:text:50:3",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:50:3",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:51:28": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p>\n\tFollow The Salvation Army Women's Auxiliary on <a href=\"https://www.facebook.com/GVLWomensAux\" target=\"\">Facebook</a> and <a href=\"http://www.instagram.com/gvlwomensaux\" target=\"\">Instagram</a>.\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p>\n\tFollow The Salvation Army Women's Auxiliary on <a href=\"https://www.facebook.com/GVLWomensAux\" target=\"\">Facebook</a> and <a href=\"http://www.instagram.com/gvlwomensaux\" target=\"\">Instagram</a>.\n</p>",
+								"model": "6",
+								"position": 35,
+								"fullName": "content:wysiwyg_basic:51:28",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:51:28",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:52:35": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 36,
+								"fullName": "design:design:whitespace-sm:52:35",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:53:25": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p>\n\tFor more information about SAWA memberships, please email the Women's Auxiliary Coordinator:&nbsp;<a href=\"mailto:amanda.link@uss.salvationarmy.org\" target=\"\">Amanda Link</a>\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p>\n\tFor more information about SAWA memberships, please email the Women's Auxiliary Coordinator:&nbsp;<a href=\"mailto:amanda.link@uss.salvationarmy.org\" target=\"\">Amanda Link</a>\n</p>",
+								"model": "6",
+								"position": 37,
+								"fullName": "content:wysiwyg_basic:53:25",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:53:25",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:62:21-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

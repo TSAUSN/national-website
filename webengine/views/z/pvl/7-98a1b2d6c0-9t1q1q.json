@@ -1,0 +1,330 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:HERO_PLACEHOLDER:0:0": {
+				"html": "",
+				"content": "",
+				"name": "Hero Block",
+				"position": 0,
+				"fullName": "content:block:HERO_PLACEHOLDER:0:0",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank"
+			},
+			"design:columns:1 column - 1 row my-3:19:87": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:19:87",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:19:87-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:wysiwyg_basic:1:41": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<h5 style=\"text-align:center;\"><a href=\"https://tsansc.wufoo.com/forms/zgg9zhu1pa0rv3/\" target=\"\"><strong>CLICK HERE</strong> for Volunteer Application Form</a></h5>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<h5 style=\"text-align:center;\"><a href=\"https://tsansc.wufoo.com/forms/zgg9zhu1pa0rv3/\" target=\"\"><strong>CLICK HERE</strong> for Volunteer Application Form</a></h5>",
+								"model": "6",
+								"position": 0,
+								"fullName": "content:wysiwyg_basic:1:41",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:1:41",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:87-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:2:89": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 1,
+								"fullName": "design:design:whitespace-sm:2:89",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:87-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:8:66": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 2,
+								"fullName": "design:columns:3 Columns:8:66",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:87-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:8:66-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:3:35": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\"><strong>Volunteer Coordinator</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Volunteer Coordinator",
+												"position": 0,
+												"fullName": "content:textarea:3:35",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:3:35",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:8:66-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:8:66-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:4:75": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">Email: <a href=\"mailto:joni.hunter@uss.salvationarmy.org\">joni.hunter@uss.salvationarmy.org</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">Email: <a href=\"mailto:joni.hunter@uss.salvationarmy.org\">joni.hunter@uss.salvationarmy.org</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:4:75",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:4:75",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:8:66-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:8:66-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:6:12": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">Phone: <a href=\"tel:3362452083\">(336) 245-2083</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">Phone: <a href=\"tel:3362452083\">(336) 245-2083</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:6:12",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:6:12",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:8:66-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"content:textarea:9:60": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t<strong>Need Approval to Volunteer?&nbsp;</strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Need Approval to Volunteer?&nbsp;",
+								"position": 3,
+								"fullName": "content:textarea:9:60",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:9:60",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:87-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:10:2": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tSome of our volunteer opportunities require a specific application, a&nbsp;background check, and Safe From Harm Training.&nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Some of our volunteer opportunities require a specific application, a&nbsp;background check, and Safe From Harm Training.&nbsp;",
+								"position": 4,
+								"fullName": "content:textarea:10:2",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:10:2",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:87-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:11:71": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<ol>\n\t<li>Fill out our <a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/2149300e-0851-40fb-add1-882838baa3c2_Volunteer+Application+for+Children.pdf\">Volunteer Application for Working with Children</a> </li>\n\t<li>Complete the Background Check (The link will be sent to your email address provided on the application)</li>\n\t<li>Participate in Safe from Harm Training (Our Volunteer Coordinator will contact you once all the forms are completed and approved!)</li>\n</ol>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<ol>\n\t<li>Fill out our <a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/2149300e-0851-40fb-add1-882838baa3c2_Volunteer+Application+for+Children.pdf\">Volunteer Application for Working with Children</a> </li>\n\t<li>Complete the Background Check (The link will be sent to your email address provided on the application)</li>\n\t<li>Participate in Safe from Harm Training (Our Volunteer Coordinator will contact you once all the forms are completed and approved!)</li>\n</ol>",
+								"model": "6",
+								"position": 5,
+								"fullName": "content:wysiwyg_basic:11:71",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:11:71",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:87-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:12:74": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 6,
+								"fullName": "design:design:whitespace-sm:12:74",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:87-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:13:8": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:520px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/97e830c6-246a-4e08-83c4-2e4d8bd2b72b_IMG_0806.JPG');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:520px;\">\n                <div style=\"width:100%;padding:40px;color:#ffffff;\">\n                    \n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"text-white\" style=\"position:relative;overflow:hidden;min-height:520px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/97e830c6-246a-4e08-83c4-2e4d8bd2b72b_IMG_0806.JPG');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:520px;\">\n                <div style=\"width:100%;padding:40px;color:#ffffff;\">\n                    \n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"position": 7,
+								"fullName": "content:wysiwyg_basic:13:8",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:13:8",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "520px",
+									"background": "#f8f9fa url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/97e830c6-246a-4e08-83c4-2e4d8bd2b72b_IMG_0806.JPG') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/97e830c6-246a-4e08-83c4-2e4d8bd2b72b_IMG_0806.JPG')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover"
+								},
+								"classes": "text-white",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:87-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

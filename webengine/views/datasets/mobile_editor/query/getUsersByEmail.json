@@ -15,7 +15,7 @@
         {{each staffs as staffUser WHERE staffUser.email = {$email}  }}
         {{$totalItems = {staffUser._num} }}
         {
-            "data": {{staffUser.toJSON(2, true)}},
+            "data": {{staffUser.toJSON(3, true)}},
             "meta": {
                 "ZUID": "{{staffUser.zuid}}",
                 "masterZuid": "{{staffUser.zuid}}",

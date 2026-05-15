@@ -1,0 +1,272 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div className={styles.pvlRoot}>*</div>",
+		"children": {
+			"design:columns:1 column - 1 row my-3:20:4": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 0,
+				"fullName": "design:columns:1 column - 1 row my-3:20:4",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:20:4-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:wysiwyg_basic:1:11": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/45c43581-46e9-441c-9e00-69d7210bc879_Advent+%28Web+Banner%2C+v.6%29.png\" alt=\"Theater Image\" class=\"filter filter-none img-fluid w-100\" style=\"display:block;max-width:100%;height:auto;margin:1rem auto;\" loading=\"lazy\">",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/45c43581-46e9-441c-9e00-69d7210bc879_Advent+%28Web+Banner%2C+v.6%29.png\" alt=\"Theater Image\" class=\"filter filter-none img-fluid w-100\" style=\"display:block;max-width:100%;height:auto;margin:1rem auto;\" loading=\"lazy\">",
+								"model": "6",
+								"position": 0,
+								"fullName": "content:wysiwyg_basic:1:11",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:1:11",
+								"styles": {
+									"display": "block",
+									"maxWidth": "100%",
+									"height": "auto",
+									"margin": "1rem auto"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:20:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:2:94": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 1,
+								"fullName": "design:design:whitespace-sm:2:94",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:20:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:3:30": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\" class=\"text-white\">\n\tChristmas is the perfect time to tell the story of Jesus, spread the Good News, and share the joy He brings.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Christmas is the perfect time to tell the story of Jesus, spread the Good News, and share the joy He brings.",
+								"position": 2,
+								"fullName": "content:textarea:3:30",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:3:30",
+								"styles": {
+									"textAlign": "center"
+								},
+								"classes": "text-white",
+								"newLoc": "design:columns:1 column - 1 row my-3:20:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-md:4:85": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:whitespace-md:4:85",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:20:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:5:83": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\" class=\"text-white\">\n\tWhat better way to do this than our Advent devotional activity workbook!\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "What better way to do this than our Advent devotional activity workbook!",
+								"position": 4,
+								"fullName": "content:textarea:5:83",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:5:83",
+								"styles": {
+									"textAlign": "center"
+								},
+								"classes": "text-white",
+								"newLoc": "design:columns:1 column - 1 row my-3:20:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:6:87": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\" class=\"text-white\">\n\tIt is designed for kids of all ages to learn about Jesus through Arts &amp; Crafts projects and all of the stories of Jesus throughout the Advent season.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "It is designed for kids of all ages to learn about Jesus through Arts &amp; Crafts projects and all of the stories of Jesus throughout the Advent season.",
+								"position": 5,
+								"fullName": "content:textarea:6:87",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:6:87",
+								"styles": {
+									"textAlign": "center"
+								},
+								"classes": "text-white",
+								"newLoc": "design:columns:1 column - 1 row my-3:20:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:7:13": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\" class=\"text-white\">\n\tDownload the devotional activity book and share it with as many people as you can.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Download the devotional activity book and share it with as many people as you can.",
+								"position": 6,
+								"fullName": "content:textarea:7:13",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:7:13",
+								"styles": {
+									"textAlign": "center"
+								},
+								"classes": "text-white",
+								"newLoc": "design:columns:1 column - 1 row my-3:20:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:8:90": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\" class=\"text-white\">\n\tThis is a wonderful way to get our kids excited about Jesus and the reasons we celebrate Him.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "This is a wonderful way to get our kids excited about Jesus and the reasons we celebrate Him.",
+								"position": 7,
+								"fullName": "content:textarea:8:90",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:8:90",
+								"styles": {
+									"textAlign": "center"
+								},
+								"classes": "text-white",
+								"newLoc": "design:columns:1 column - 1 row my-3:20:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-md:9:72": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 8,
+								"fullName": "design:design:whitespace-md:9:72",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:20:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:10:61": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<h6 style=\"text-align:center;\" class=\"text-white\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/e3089e2c-308e-4af4-bc2a-c66bd791e10e_2025-advent.pdf\"><span class=\"btn btn-solid btn-red\">CLICK HERE to Download the Activity Book</span></a></h6>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<h6 style=\"text-align:center;\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/e3089e2c-308e-4af4-bc2a-c66bd791e10e_2025-advent.pdf\"><span class=\"btn btn-solid btn-red\">CLICK HERE to Download the Activity Book</span></a></h6>",
+								"model": "6",
+								"position": 9,
+								"fullName": "content:wysiwyg_basic:10:61",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:10:61",
+								"styles": {
+									"textAlign": "center"
+								},
+								"classes": "text-white",
+								"newLoc": "design:columns:1 column - 1 row my-3:20:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:11:86": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 10,
+								"fullName": "design:design:whitespace-sm:11:86",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:20:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:12:1": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a5b36b14-27ad-4e03-9e80-5dccc3029aa9_Advent+Workbook+Cover.png\" alt=\"placeholder\" class=\"img-fluid d-block m-auto my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" />",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/a5b36b14-27ad-4e03-9e80-5dccc3029aa9_Advent+Workbook+Cover.png",
+								"position": 11,
+								"fullName": "content:images:12:1",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:20:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

@@ -16,17 +16,9 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "Domestic Violence",
-    "page-zuid": "7-e6b2b19a9d-bgnngx",
-    "sort": 0,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
     "page_name": "Correctional Services",
     "page-zuid": "7-8caffb999d-0kthnp",
-    "sort": 1,
+    "sort": 0,
     "parent": "services"
   },
   {
@@ -34,7 +26,7 @@
     "key": null,
     "page_name": "Utility Rent Assistance",
     "page-zuid": "7-be958d9a9d-389j9k",
-    "sort": 2,
+    "sort": 1,
     "parent": "services"
   },
   {
@@ -42,6 +34,14 @@
     "key": null,
     "page_name": "Disaster Relief",
     "page-zuid": "7-98999f9a9d-ptll4k",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Domestic Violence",
+    "page-zuid": "7-e6b2b19a9d-bgnngx",
     "sort": 3,
     "parent": "services"
   },
@@ -104,7 +104,7 @@
     "type": "menu",
     "key": null,
     "page_name": "About Us",
-    "page-zuid": null,
+    "page-zuid": "7-a8c4eeb7fb-55ss8z",
     "sort": 0,
     "parent": "about_us"
   },
@@ -112,7 +112,7 @@
     "type": "menu",
     "key": null,
     "page_name": "Commitment to all",
-    "page-zuid": null,
+    "page-zuid": "7-90eff9e999-tpj14d",
     "sort": 1,
     "parent": "about_us"
   },
@@ -120,7 +120,7 @@
     "type": "menu",
     "key": null,
     "page_name": "Leadership",
-    "page-zuid": null,
+    "page-zuid": "7-b8ba94d4f2-x5pqhf",
     "sort": 2,
     "parent": "about_us"
   },
@@ -128,8 +128,56 @@
     "type": "menu",
     "key": null,
     "page_name": "History",
-    "page-zuid": null,
+    "page-zuid": "7-b8c09b84c2-fp57hm",
     "sort": 3,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-88deb6e6f5-l6xv5v",
+    "sort": 4,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Give With Joy",
+    "page-zuid": "give_with_joy",
+    "sort": 5,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "National Advisory Board",
+    "page-zuid": "7-b0c7e6c6f7-46nsz5",
+    "sort": 6,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Media Contacts",
+    "page-zuid": "7-ec8cf6dec3-4qdl40",
+    "sort": 7,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Annual Reports",
+    "page-zuid": "7-deb081a3e2-96xdp6",
+    "sort": 8,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Who We Are",
+    "page-zuid": "7-f6d3ecd2b5-8ddsbf",
+    "sort": 9,
     "parent": "about_us"
   },
   {
@@ -156,17 +204,65 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "MIssionaries",
-    "page-zuid": null,
+    "page_name": "Donate Money",
+    "page-zuid": "donate_money",
     "sort": 0,
     "parent": "ways_to_give"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Corps Connect",
-    "page-zuid": null,
+    "page_name": "Donate Goods",
+    "page-zuid": "donate_goods",
     "sort": 1,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Become a Fundraiser",
+    "page-zuid": "become_fundraiser",
+    "sort": 2,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Planned Giving",
+    "page-zuid": "7-deb1f3c292-8n177t",
+    "sort": 3,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Gift Stocks & Bonds",
+    "page-zuid": "7-e8b8d68ccc-t4mw4d",
+    "sort": 4,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Volunteer",
+    "page-zuid": "7-e486fce0d9-h2mflh",
+    "sort": 5,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "View All Ways to Give",
+    "page-zuid": "7-eceab6f8eb-03112w",
+    "sort": 6,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Corporate Partnerships",
+    "page-zuid": "7-e4ee949cae-vm5klq",
+    "sort": 7,
     "parent": "ways_to_give"
   },
   {
@@ -174,13 +270,6 @@
     "key": "contact_us",
     "page_name": "Contact Us",
     "page-zuid": "7-ecdd9f81d4-qvbll0",
-    "parent": null
-  },
-  {
-    "type": "menu",
-    "key": "volunteer",
-    "page_name": "Volunteer",
-    "page-zuid": null,
     "parent": null
   }
 ]

@@ -1,0 +1,19 @@
+{{$totalItems = 0}}
+
+
+{
+    "data": [
+        {{each gdos_category_map as gdos}}
+        {
+            "gdos_category": "{{gdos.gdos_category}}",
+            "gdos_subcategory": "{{gdos.gdos_subcategory}}",
+            "service_type": "{{gdos.service_types}}"
+        }
+        {{gdos._arraycomma}}
+        {{$totalItems = {gdos._num} }}
+        {{/each}}
+    ],
+    "meta": {
+        "total_items": {{$totalItems}}
+    }
+}

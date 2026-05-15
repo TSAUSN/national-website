@@ -1,10 +1,16 @@
 
 
-{{$url = https://8hxvw8tw-dev.webengine.zesty.io/menu-config/{@location_zuid}.json?zpw=tsasecret123 }}
+{{if {$model_name} == "national" || {$model_name} == "territories" || {$model_name} == "divisions" || {$model_name} == "locations" }}
+  {{$locZUID = {this.zuid} }}
+{{else}}
+  {{$locZUID = {this.parent_zuid} }}
+{{/if}}
+{{$url = https://8hxvw8tw-dev.webengine.zesty.io/menu-config/{$locZUID}.json?zpw=tsasecret123 }}
+
 {{$newsRoomURL =  }}
 {{$contactUsURL =  }}
 {{$eventsURL =  }}
-{{$cntParent = 0 }}
+{{$cntParent = }}
 {{$lastParentMenu = }}
 
 {{each api.json.get({$url}) as obj }}
@@ -14,7 +20,17 @@
   
   {{if {obj.type} ==  'view-all' && {obj.parent} == "ways_to_give"}}
     {{$viewAllWaysToGive = {truepath({obj.page-zuid})} }}
+    {{$viewAllCustomMenuName = {obj.page_name} }}
   {{/if}}
+  {{if {obj.type} ==  'view-all' && {obj.parent} == "about_us"}}
+    {{$viewAllAboutUs = {truepath({obj.page-zuid})} }}
+    {{$viewAllCustomMenuName = {obj.page_name} }}
+  {{/if}}
+  {{if {obj.type} ==  'view-all' && {obj.parent} == "services"}}
+    {{$viewAllServices = {truepath({obj.page-zuid})} }}
+    {{$viewAllServicesName = {obj.page_name} }}
+  {{/if}}
+
   {{if {obj.key} == 'newsroom' }}
     {{$newsRoomURL = {truepath({obj.page-zuid})} }}
   {{/if}}
@@ -24,12 +40,18 @@
   {{if {obj.key} == 'contact_us' }}
     {{$contactUsURL = {truepath({obj.page-zuid})} }}
   {{/if}}
-  {{if {$cntParent} > 7}}
+
+  {{if {obj.key} == 'custom_menu'}}
     {{ $lastParentMenu = {obj.key} }}
+    {{ $lastParentMenuName = {obj.page_name} }}
+    {{if {obj.type} ==  'view-all' && {obj.parent} == "custom_menu"}}
+      {{$viewAllCustomMenu = {truepath({obj.page-zuid})} }}
+      {{$viewAllCustomMenuName = {obj.page_name} }}
+    {{/if}}
   {{/if}}
-  
-  
+
 {{/each}}
+
 <header
   id="header"
   data-component-type="header"
@@ -38,7 +60,7 @@
   <div class="header__wrapper d-flex justify-content-between align-items-center w-100">
     <nav class="navbar navbar-expand-lg py-0">
       <a
-        href="/"
+        href="{{truepath({$locZUID})}}"
         class="me-8 header-home-image"
         ><img
           src="https://8hxvw8tw.media.zestyio.com/shield-1.svg"
@@ -56,7 +78,7 @@
             data-format-type="text"
             data-link-type="internal"
             aria-current="page"
-            href="#"
+            href="{{truepath({$locZUID})}}"
             onclick="LinkTrackingClickEvent(this,'header_click')"
             >Home</a
           >
@@ -80,18 +102,19 @@
           <ul class="dropdown-menu header-services-dropdown  px-8 py-4 rounded-6 pe-none">
             <li class="d-flex align-items-center justify-content-between mb-4">
               <span class="p-0 d-block text-dark-50">Services</span>
-              <a
-                href="#"
+              {{if {$viewAllServices} }}
+                <a
                 data-location-type="nav-top"
                 data-function-type="navigation"
                 data-format-type="text"
                 data-link-type="internal"
-                href="#"
+                href="{{$viewAllServices}}"
                 onclick="LinkTrackingClickEvent(this,'header_click')"
                 role="button"
                 class="d-flex align-items-center justify-content-between text-primary-200 display-2 text-decoration-none services-view-all pe-auto"
-                >View All<span class="material-symbols-outlined ms-4 fs-6"> arrow_outward </span></a
+                >{{$viewAllServicesName}}<span class="material-symbols-outlined ms-4 fs-6"> arrow_outward </span></a
               >
+              {{/if}}
             </li>
             <li>
               <hr class="dropdown-divider" />
@@ -109,7 +132,7 @@
               {{/if}}
               {{/each}}  
             </li> 
-            <li class="services-scroll-indicator" aria-hidden="true" role="presentation">
+            <li class="services-scroll-indicator d-none" aria-hidden="true" role="presentation">
               <span class="material-symbols-outlined text-primary-200">keyboard_arrow_down</span>
             </li>
           </ul>
@@ -131,7 +154,22 @@
             >About Us</a
           >
           <ul class="dropdown-menu px-8 py-4 rounded-6 pe-none">
-            <li><span class="p-0 mb-4 d-block text-dark-50">About Us</span></li>
+            <li class="d-flex align-items-center justify-content-between mb-4">
+              <span class="p-0 mb-4 d-block text-dark-50">About Us</span>
+              {{if {$viewAllServices} }}
+                <a
+                data-location-type="nav-top"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                href="{{$viewAllServices}}"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                role="button"
+                class="d-flex align-items-center justify-content-between text-primary-200 display-2 text-decoration-none services-view-all pe-auto"
+                >{{$viewAllServicesName}}<span class="material-symbols-outlined ms-4 fs-6"> arrow_outward </span></a
+              >
+              {{/if}}
+            </li>
             <li>
               <hr class="dropdown-divider" />
             </li>
@@ -139,8 +177,21 @@
             <li class="dropdown-item__container dropdown-item__container-repeat-3 pe-auto about-us-item-container">
               {{each api.json.get({$url}) as obj }}
                 {{if {obj.parent} == "about_us" && {obj.type} == 'menu'}}
-                {{$aboutUsUrl = {truepath({obj.page-zuid})} }}
-                <a class="dropdown-item py-2 px-2" href="{{$aboutUsUrl}}" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'header_click')" rel="noopener noreferrer">{{obj.page_name}}</a>
+                  {{$aboutUsUrl = {truepath({obj.page-zuid})} }}
+                  {{$sort = {obj.sort} }}
+                  {{if {obj.page-zuid} == 'give_with_joy'}}
+                    <a
+                      class="dropdown-item py-2 px-2"
+                      href="/give-with-joy"
+                      data-function-type="navigation"
+                      data-format-type="text"
+                      data-link-type="internal"
+                      onclick="LinkTrackingClickEvent(this,'header_click')"
+                      >Give With Joy</a
+                    >
+                  {{else}}
+                  <a class="dropdown-item py-2 px-2" href="{{$aboutUsUrl}}" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'header_click')" rel="noopener noreferrer" style="order: {{$sort}};">{{obj.page_name}}</a>
+                  {{/if}}
                 {{/if}}
               {{/each}}
             </li>
@@ -202,33 +253,77 @@
               <hr class="dropdown-divider" />
             </li>
             <li class="dropdown-item__container dropdown-item__container-repeat-3 pe-auto ways-to-give-container">
-              <a
-              class="dropdown-item py-2 px-2"
-                href="{{@location_donate_form}}"
-                target="_blank"
-                data-location-type="nav-top"
-                data-function-type="other"
-                data-format-type="text"
-                data-link-type="external"
-                onclick="LinkTrackingClickEvent(this,'donate_money_click')"
-               >Donate Money</a>
-              
-              <a
-                class="dropoff-link dropdown-item py-2 px-2"
-                href="https://satruck.org"
-                target="_blank"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="external"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >Donate Goods</a
-              >
               {{each api.json.get({$url}) as obj }}
                 {{if {obj.parent} == "ways_to_give" && {obj.type} == 'menu'}}
-                {{$aboutUsUrl = {truepath({obj.page-zuid})} }}
-                <a class="dropdown-item py-2 px-2" href="{{$aboutUsUrl}}" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'header_click')" rel="noopener noreferrer">{{obj.page_name}}</a>
+                  {{$aboutUsUrl = {truepath({obj.page-zuid})} }}
+                  {{$sort = {obj.sort} + 2 }}
+                  {{if {obj.page-zuid} == 'donate_money'}}
+                    <a
+                    class="dropdown-item py-2 px-2"
+                      href="{{@location_donate_form}}"
+                      target="_blank"
+                      data-location-type="nav-top"
+                      data-function-type="other"
+                      data-format-type="text"
+                      data-link-type="external"
+                      onclick="LinkTrackingClickEvent(this,'donate_money_click')"
+                    >Donate Money</a>
+                  {{else-if {obj.page-zuid} == 'donate_goods' }}
+                    <a
+                      class="dropoff-link dropdown-item py-2 px-2"
+                      href="https://satruck.org"
+                      target="_blank"
+                      data-function-type="navigation"
+                      data-format-type="text"
+                      data-link-type="external"
+                      onclick="LinkTrackingClickEvent(this,'header_click')"
+                      >Donate Goods</a
+                    >
+                  {{else-if {obj.page-zuid} == 'become_fundraiser'}}
+                    <a
+                      class="fundraiser-link dropdown-item py-2 px-2"
+                      href="https://give.salvationarmyusa.org/campaign/fundraise-for-good/c175635"
+                      target="_blank"
+                      data-function-type="navigation"
+                      data-format-type="text"
+                      data-link-type="external"
+                      onclick="LinkTrackingClickEvent(this,'header_click')"
+                      >Become a Fundraiser</a
+                    >
+                  {{else}}
+                    <a class="dropdown-item py-2 px-2" href="{{$aboutUsUrl}}" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'header_click')" rel="noopener noreferrer" style="order: {{$sort}};">{{obj.page_name}}</a>
+                  {{/if}}
+                
                 {{/if}}
               {{/each}}
+              
+              <!-- <a
+                class="donate-goods-link dropdown-item py-2 px-2 {{if {this.zuid} == '7-ae82da90c9-zjnfr3'}} d-none {{/if}}"
+                href="#"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >Gift Stocks & Bonds</a
+              >
+              <a
+                class="dropdown-item py-2 px-2 volunteer-link"
+                href="#"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >Volunteer</a
+              >
+              <a
+                class="planned-giving-link dropdown-item py-2 px-2"
+                href="#"
+                data-function-type="navigation"
+                data-format-type="text"
+                data-link-type="internal"
+                onclick="LinkTrackingClickEvent(this,'header_click')"
+                >Planned Giving</a
+              >
               <a
                 class="dropdown-item py-2 px-2 ways-to-give-link"
                 href="#"
@@ -237,7 +332,7 @@
                 data-link-type="internal"
                 onclick="LinkTrackingClickEvent(this,'header_click')"
                 >View All Ways to Give</a
-              >
+              > -->
               <p class="dropdown-item placeholder-glow component-placeholder p-2">
                 <span
                   class="placeholder h-100"
@@ -263,33 +358,36 @@
             >
           </li>
         {{/if}}
-
-        <li class="nav-item  dropdown d-none informational-links-more-parent">
-          <a
-            class="nav-link header-dropdown header-dropdown-more dropdown-toggle fw-normal"
-            data-location-type="nav-top"
-            data-function-type="navigation"
-            data-format-type="text"
-            data-link-type="internal"
-            aria-current="page"
-            href="#"
-            onclick="LinkTrackingClickEvent(this,'header_click')"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            >More</a
-          >
-          <ul class="dropdown-menu dropdown-menu-more px-8 py-4 rounded-6 pe-none">
-            <li class="dropdown-item__container dropdown-item__container-repeat-3 pe-auto informational-links-more">
-              <p class="dropdown-item placeholder-glow component-placeholder p-0">
-                <span
-                  class="placeholder h-100"
-                  style="width: 10rem"
-                ></span>
-              </p>
-            </li>
-          </ul>
-        </li>
+        {{if {$lastParentMenu} }}
+          <li class="nav-item dropdown informational-links-more-parent">
+            <a
+              class="nav-link header-dropdown header-dropdown-more dropdown-toggle fw-normal"
+              data-location-type="nav-top"
+              data-function-type="navigation"
+              data-format-type="text"
+              data-link-type="internal"
+              aria-current="page"
+              href="#"
+              onclick="LinkTrackingClickEvent(this,'header_click')"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              >{{$lastParentMenuName}}</a
+            >
+            <ul class="dropdown-menu dropdown-menu-more px-8 py-4 rounded-6 pe-none">
+              <li class="dropdown-item__container dropdown-item__container-repeat-3 pe-auto informational-links-more">
+                {{each api.json.get({$url}) as obj}}
+                  {{if {obj.parent} == "custom_menu" && {obj.type} == 'menu'}}
+                  {{$customMenuUrl = {truepath({obj.page-zuid})} }}
+                  {{$sort = {obj.sort} + 2 }}
+                  <a class="dropdown-item py-2 px-2" href="{{$customMenuUrl}}" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'header_click')" style="order: {{$sort}};">{{obj.page_name}}</a>
+                  {{/if}}
+                {{/each}}
+              </li>
+            </ul>
+          </li>
+        {{/if}}
+        
       </ul>
     </nav>
     
@@ -853,6 +951,10 @@
 
     const locationCookie = getCookieByName('location_name');
     const locationModel = getCookieByName('model');
+    // const plannedGivingLinks = document.querySelectorAll('.planned-giving-link');
+    // const donateGoodsLinks = document.querySelectorAll('.donate-goods-link');
+    
+    // const volunteerLink = document.querySelector('.volunteer-link');
 
     if (!locationCookie || locationCookie === 'null' || locationCookie === 'undefined') {
       return false;
@@ -873,7 +975,8 @@
       headerLocation.textContent = formattedText;
     })
 
-
+    // volunteerLink.setAttribute('href', getCookieByName('volunteer_url'));
+    
     if (locationCookie == 'NATIONAL') {
       headerLocationNames.forEach((headerLocationName) => {
         headerLocationName.textContent = 'Salvation Army';

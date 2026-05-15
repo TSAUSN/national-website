@@ -1,136 +1,155 @@
-{
-  "home": {
-    "view_all": [],
-    "page-zuid": "7-80828cfaf0-skfgsp",
+[
+  {
+    "type": "menu",
+    "key": "home",
     "page_name": "Home",
-    "children": []
+    "page-zuid": "7-80828cfaf0-skfgsp",
+    "parent": null
   },
-  "services": {
-    "view_all": [],
-    "page-zuid": "",
+  {
+    "type": "menu",
+    "key": "services",
     "page_name": "Services",
-    "children": [
-      {
-        "page-zuid": "7-a6fd80a8c5-w5r6w0",
-        "page_name": "Holiday Assistance | /usa-eastern-territory/greater-new-york/holiday-assistance-2025-12-22t18-26-05-621z-2025-12-22t18-47-28-540z-2025-12-22t18-56-29-826z-2025-12-23t16-50-01-087z-2025-12-29t16-15-36-333z-2025-12-29t16-21-40-612z/",
-        "sort": 0,
-        "children": []
-      },
-      {
-        "page-zuid": "7-c6be908590-dcwvs3",
-        "page_name": "Disaster Relief | /usa-eastern-territory/greater-new-york/disaster-relief-2026-01-30t16-31-27-506z-2026-01-30t17-07-07-838z-2026-01-30t17-11-17-805z-2026-01-30t17-13-31-079z-2026-01-30t17-15-14-058z/",
-        "sort": 1,
-        "children": []
-      },
-      {
-        "page-zuid": "7-b6fa81d2e7-6fltpq",
-        "page_name": "Disaster Relief | /usa-eastern-territory/greater-new-york/disaster-relief-2026-01-30t16-31-27-506z-2026-01-30t16-35-31-013z-2026-01-30t16-38-51-247z-2026-01-30t16-42-42-342z-2026-01-30t16-47-57-646z-2026-01-30t16-52-14-253z/",
-        "sort": 2,
-        "children": []
-      },
-      {
-        "page-zuid": "7-9ad789bb80-q8t7wq",
-        "page_name": "Holiday Assistance | /usa-eastern-territory/greater-new-york/holiday-assistance-2025-12-22t18-26-05-621z-2025-12-22t18-47-28-540z-2025-12-22t18-56-29-826z-2025-12-23t16-50-01-087z-2025-12-29t14-53-51-397z-2025-12-29t14-57-45-278z-2025-12-29t15-06-13-096z/",
-        "sort": 3,
-        "children": []
-      },
-      {
-        "page-zuid": "7-babff9c9e5-gxg3wf",
-        "page_name": "Spiritual Healing | /mt/billings/6th-avenue-n-corps/spiritual-healing-2026-03-06t19-10-32-292z/",
-        "sort": 4,
-        "children": []
-      },
-      {
-        "page-zuid": "7-ca8089bead-bw72c8",
-        "page_name": "Anti-Human Trafficking | /human-trafficking/",
-        "sort": 5,
-        "children": []
-      },
-      {
-        "page-zuid": "7-92fbfaa1b4-xhpj5z",
-        "page_name": "Disaster Relief | /disaster-relief/",
-        "sort": 6,
-        "children": []
-      },
-      {
-        "page-zuid": "7-d2dc9bf8a1-jn2l4z",
-        "page_name": "Thrift Stores | /thrift-stores/",
-        "sort": 7,
-        "children": []
-      },
-      {
-        "page-zuid": "7-84ded4d6ba-3k5xtr",
-        "page_name": "Family Services | /family-services/",
-        "sort": 8,
-        "children": []
-      },
-      {
-        "page-zuid": "7-8a93a6da81-lkfrzz",
-        "page_name": "Adult Program Services | /adult-program-services/",
-        "sort": 9,
-        "children": []
-      }
-    ]
+    "page-zuid": null,
+    "parent": null
   },
-  "about_us": {
-    "view_all": [],
-    "page-zuid": "",
+  {
+    "type": "menu",
+    "key": "about_us",
     "page_name": "About Us",
-    "children": [
-      {
-        "page-zuid": "",
-        "page_name": "About The Salvation Army",
-        "sort": 0,
-        "children": []
-      },
-      {
-        "page-zuid": "7-90eff9e999-tpj14d",
-        "page_name": "Commitment to all",
-        "sort": 1,
-        "children": []
-      },
-      {
-        "page-zuid": "",
-        "page_name": "Leadership",
-        "sort": 2,
-        "children": []
-      },
-      {
-        "page-zuid": "7-b8c09b84c2-fp57hm",
-        "page_name": "History",
-        "sort": 3,
-        "children": []
-      },
-      {
-        "page-zuid": "7-90eff9e999-tpj14d",
-        "page_name": "About The Salvation Army | /about-us/",
-        "sort": 4,
-        "children": []
-      }
-    ]
+    "page-zuid": null,
+    "parent": null
   },
-  "events": {
-    "view_all": [],
-    "page-zuid": "",
-    "page_name": "Events",
-    "children": []
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "About Us",
+    "page-zuid": "7-eecc81e198-68zchm",
+    "sort": 0,
+    "parent": "about_us"
   },
-  "newsroom": {
-    "view_all": [],
-    "page-zuid": "",
-    "page_name": "Newsroom",
-    "children": []
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
+    "sort": 1,
+    "parent": "about_us"
   },
-  "ways_to_give": {
-    "view_all": [],
-    "page-zuid": "",
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Leadership",
+    "page-zuid": "7-b4b88eb9fd-d6598t",
+    "sort": 2,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "History",
+    "page-zuid": "7-b8c09b84c2-fp57hm",
+    "sort": 3,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-88deb6e6f5-l6xv5v",
+    "sort": 4,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Give With Joy",
+    "page-zuid": "give_with_joy",
+    "sort": 5,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": "events",
+    "page_name": "Austin Thrift Store 5",
+    "page-zuid": "7-8cda84ea90-qxb76f",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "newsroom",
+    "page_name": "Austin Thrift Store 5",
+    "page-zuid": "7-ee89eacf89-g41m5g",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "ways_to_give",
     "page_name": "Ways to give",
-    "children": []
+    "page-zuid": null,
+    "parent": null
   },
-  "contact_us": {
-    "view_all": [],
-    "page-zuid": "7-a2e6fdb4d7-03cvlv",
-    "page_name": "Contact Us | /contact-us/",
-    "children": []
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Money",
+    "page-zuid": "donate_money",
+    "sort": 0,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Goods",
+    "page-zuid": "donate_goods",
+    "sort": 1,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Become a Fundraiser",
+    "page-zuid": "become_fundraiser",
+    "sort": 2,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Planned Giving",
+    "page-zuid": "7-deb1f3c292-8n177t",
+    "sort": 3,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Gift Stocks & Bonds",
+    "page-zuid": "7-e8b8d68ccc-t4mw4d",
+    "sort": 4,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Volunteer",
+    "page-zuid": "7-e486fce0d9-h2mflh",
+    "sort": 5,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "View All Ways to Give",
+    "page-zuid": "7-eceab6f8eb-03112w",
+    "sort": 6,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": "contact_us",
+    "page_name": "Contact Us",
+    "page-zuid": "7-c4a9b089f6-sr7krq",
+    "parent": null
   }
-}
+]

@@ -1,0 +1,3277 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div className={styles.pvlRoot}>*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:94:0:19": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-86f598cdb6-l7c9w4')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-86f598cdb6-l7c9w4')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:94:0:19",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:182:4": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:182:4",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:177:37": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:177:37",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:1:21": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Help Us Raise $2.5&nbsp;million in 2026!</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Help Us Raise $2.5&nbsp;million in 2026!",
+								"position": 1,
+								"fullName": "content:text:1:21",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:1:21",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:4:10": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 2,
+								"fullName": "design:design:whitespace-sm:4:10",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:5:79": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 3,
+								"fullName": "design:columns:2columns:5:79",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:5:79-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:2:13": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\tWe have successfully raised $14&nbsp;million towards our <span style=\"color:#ed1c2b;\"><strong>Rebuilding Hope Restoring Lives </strong></span>shelter renovation project. However, we cannot break ground until we reach our goal of raising the remaining $2.5&nbsp;million. Help us provide a place for Greenville families to get back on their feet. Make a pledge today!\n</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "We have successfully raised $14&nbsp;million towards our Rebuilding Hope Restoring Lives shelter renovation project. However, we cannot break ground until we reach our goal of raising the remaining $2.5&nbsp;million. Help us provide a place for Greenville families to get back on their feet. Make a pledge today!",
+												"position": 0,
+												"fullName": "content:textarea:2:13",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:2:13",
+												"styles": {
+													"color": "#ed1c2b",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:5:79-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:5:79-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:3:69": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">\n\t<a href=\"https://fundraise.givesmart.com/form/SlufyQ?vid=1kddst\"><span class=\"btn btn-solid btn-red\">Donate Now</span></a>\n</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">\n\t<a href=\"https://fundraise.givesmart.com/form/SlufyQ?vid=1kddst\"><span class=\"btn btn-solid btn-red\">Donate Now</span></a>\n</p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:3:69",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:3:69",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:5:79-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"content:embed:6:14": {
+								"icon": "embed",
+								"name": "Embed",
+								"type": "embed",
+								"html": "<iframe src=\"https://www.youtube.com/embed/oWW32ShJn3g\" style=\"border:0;\" loading=\"lazy\" allowfullscreen referrerpolicy=\"no-referrer-when-downgrade\" class=\"w-100 h-100\"></iframe>",
+								"description": "Embedded content (iframe)",
+								"draggable": true,
+								"content": "<iframe src=\"https://www.youtube.com/embed/oWW32ShJn3g\" style=\"border:0;\" loading=\"lazy\" allowfullscreen referrerpolicy=\"no-referrer-when-downgrade\" class=\"w-100 h-100\"></iframe>",
+								"position": 4,
+								"fullName": "content:embed:6:14",
+								"htmlElement": "iframe",
+								"classes": "w-100 h-100",
+								"primarytype": "content",
+								"id": "content:embed:6:14",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-md:7:54": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 5,
+								"fullName": "design:design:whitespace-md:7:54",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:15:60": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 6,
+								"fullName": "design:columns:3 Columns:15:60",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:15:60-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:9:53": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">\n\t\t\t\t\t<a href=\"https://southernusa.salvationarmy.org/greenvillesc/tsa-greenville-shelter-campus-project#Free-Text-Area-3\"><span class=\"btn btn-solid btn-red\">Campaign Breakdown</span></a>\n\t\t\t\t</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">\n\t\t\t\t\t<a href=\"https://southernusa.salvationarmy.org/greenvillesc/tsa-greenville-shelter-campus-project#Free-Text-Area-3\"><span class=\"btn btn-solid btn-red\">Campaign Breakdown</span></a>\n\t\t\t\t</p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:9:53",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:9:53",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:15:60-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:15:60-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:11:87": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">\n\t\t\t\t\t<a href=\"https://southernusa.salvationarmy.org/greenvillesc/tsa-greenville-shelter-campus-project#Free-Text-Area-5\"><span class=\"btn btn-solid btn-red\">How You Can Help</span></a>\n\t\t\t\t</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">\n\t\t\t\t\t<a href=\"https://southernusa.salvationarmy.org/greenvillesc/tsa-greenville-shelter-campus-project#Free-Text-Area-5\"><span class=\"btn btn-solid btn-red\">How You Can Help</span></a>\n\t\t\t\t</p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:11:87",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:11:87",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:15:60-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:15:60-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:13:52": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">\n\t\t\t\t\t<a href=\"https://southernusa.salvationarmy.org/greenvillesc/tsa-greenville-shelter-campus-project#Free-Text-Area-4\"><span class=\"btn btn-solid btn-red\">Courage of Second Chances</span></a>\n\t\t\t\t</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">\n\t\t\t\t\t<a href=\"https://southernusa.salvationarmy.org/greenvillesc/tsa-greenville-shelter-campus-project#Free-Text-Area-4\"><span class=\"btn btn-solid btn-red\">Courage of Second Chances</span></a>\n\t\t\t\t</p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:13:52",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:13:52",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:15:60-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"content:text:16:52": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\">Alone. Unseen.</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Alone. Unseen.",
+								"position": 7,
+								"fullName": "content:text:16:52",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:16:52",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:17:18": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tFor those on the streets, it’s not just the cold, heat, or even the hunger, but the weight of uncertainty.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "For those on the streets, it’s not just the cold, heat, or even the hunger, but the weight of uncertainty.",
+								"position": 8,
+								"fullName": "content:textarea:17:18",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:17:18",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:18:77": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tWaking up each morning unsure of where you will lay your head, if you’ll eat, or how you’ll care for your children. Wondering if you have the strength to take another step.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Waking up each morning unsure of where you will lay your head, if you’ll eat, or how you’ll care for your children. Wondering if you have the strength to take another step.",
+								"position": 9,
+								"fullName": "content:textarea:18:77",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:18:77",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:19:39": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tIt’s a daily struggle, filled with unimaginable stress—a burden no person should have to carry alone.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "It’s a daily struggle, filled with unimaginable stress—a burden no person should have to carry alone.",
+								"position": 10,
+								"fullName": "content:textarea:19:39",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:19:39",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-md:20:82": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 11,
+								"fullName": "design:design:whitespace-md:20:82",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:21:46": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">The Need is <span style=\"color:#ed1c2b;\">Acute</span>.</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "The Need is Acute.",
+								"position": 12,
+								"fullName": "content:text:21:46",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:21:46",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:22:23": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tIn Greenville County, homelessness has a face that may surprise you. It’s often who you least expect. It could be a child in your son’s classroom, a woman you pass in the grocery store, or a veteran who once served our country. For some, all it takes is a lost job, an unexpected illness, or a past mistake to end up on the streets.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "In Greenville County, homelessness has a face that may surprise you. It’s often who you least expect. It could be a child in your son’s classroom, a woman you pass in the grocery store, or a veteran who once served our country. For some, all it takes is a lost job, an unexpected illness, or a past mistake to end up on the streets.",
+								"position": 13,
+								"fullName": "content:textarea:22:23",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:22:23",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:23:78": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tLast year alone,&nbsp;<strong>4,100 people experienced homelessness in Greenville</strong> (a 19.9 percent increase over three years).\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Last year alone,&nbsp;4,100 people experienced homelessness in Greenville (a 19.9 percent increase over three years).",
+								"position": 14,
+								"fullName": "content:textarea:23:78",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:23:78",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:24:67": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tOf them:\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Of them:",
+								"position": 15,
+								"fullName": "content:textarea:24:67",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:24:67",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:25:15": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<ul style=\"text-align:center;\">\n\t<li>1 in 3 was a woman</li>\n\t<li>1 in 2 had a disability</li>\n\t<li>1 in 8 was a child</li>\n\t<li>1 in 17 was a veteran</li>\n</ul>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<ul style=\"text-align:center;\">\n\t<li>1 in 3 was a woman</li>\n\t<li>1 in 2 had a disability</li>\n\t<li>1 in 8 was a child</li>\n\t<li>1 in 17 was a veteran</li>\n</ul>",
+								"model": "6",
+								"position": 16,
+								"fullName": "content:wysiwyg_basic:25:15",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:25:15",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:26:73": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 17,
+								"fullName": "design:design:whitespace-sm:26:73",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:27:21": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tThese statistics are a clear signal that our neighbors are in trouble.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "These statistics are a clear signal that our neighbors are in trouble.",
+								"position": 18,
+								"fullName": "content:textarea:27:21",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:27:21",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:28:40": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">At The Salvation Army of Greenville County, our shelters are always at full capacity. Every week, we face the painful reality of turning people away—each one a person in desperate need of safety, stability, and hope. And the pressures are only growing. Rapid inflation is forcing many families to choose between food, medicine, and housing.</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "At The Salvation Army of Greenville County, our shelters are always at full capacity. Every week, we face the painful reality of turning people away—each one a person in desperate need of safety, stability, and hope. And the pressures are only growing. Rapid inflation is forcing many families to choose between food, medicine, and housing.",
+								"position": 19,
+								"fullName": "content:textarea:28:40",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:28:40",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:29:26": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><strong>We cannot look away.</strong></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "We cannot look away.",
+								"position": 20,
+								"fullName": "content:textarea:29:26",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:29:26",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:30:36": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><strong>We cannot wait.</strong></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "We cannot wait.",
+								"position": 21,
+								"fullName": "content:textarea:30:36",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:30:36",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:31:36": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">The lives of our neighbors hang in the balance.</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The lives of our neighbors hang in the balance.",
+								"position": 22,
+								"fullName": "content:textarea:31:36",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:31:36",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:text:32:40": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Building a Legacy of Generosity</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Building a Legacy of Generosity",
+								"position": 23,
+								"fullName": "content:text:32:40",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:32:40",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:33:27": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 24,
+								"fullName": "design:design:whitespace-sm:33:27",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:47:39": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 25,
+								"fullName": "design:columns:2columns:47:39",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:47:39-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:34:39": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/edc54d4e-2d8f-4f02-b993-f854fe10bd18_Felicia+Robbins+TSA+Co+Chair+Capital+Campaign+Steering+Committee.png\" alt=\"placeholder\" class=\"img-fluid d-block m-auto my-3\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" />",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/edc54d4e-2d8f-4f02-b993-f854fe10bd18_Felicia+Robbins+TSA+Co+Chair+Capital+Campaign+Steering+Committee.png",
+												"position": 0,
+												"fullName": "content:images:34:39",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:2columns:47:39-1:2 Columns - Equal:0",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:47:39-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:36:42": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tFelicia Collins Robbins has a deep personal connection to The Salvation Army’s mission.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Felicia Collins Robbins has a deep personal connection to The Salvation Army’s mission.",
+												"position": 0,
+												"fullName": "content:textarea:36:42",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:36:42",
+												"styles": {},
+												"newLoc": "design:columns:2columns:47:39-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:37:20": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tHer father’s life was dramatically shaped by the organization after he lost his mother at a young age. Fred Collins was taken in by the orphanage operated by The Salvation Army. He lived there experiencing a loving, nurturing environment until he was reunited with his father.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Her father’s life was dramatically shaped by the organization after he lost his mother at a young age. Fred Collins was taken in by the orphanage operated by The Salvation Army. He lived there experiencing a loving, nurturing environment until he was reunited with his father.",
+												"position": 1,
+												"fullName": "content:textarea:37:20",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:37:20",
+												"styles": {},
+												"newLoc": "design:columns:2columns:47:39-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:38:67": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\t“My dad credits The Salvation Army with learning about the love of God,” Felicia said. “I don’t know what my life would have been like if it hadn’t been for The Salvation Army.”\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "“My dad credits The Salvation Army with learning about the love of God,” Felicia said. “I don’t know what my life would have been like if it hadn’t been for The Salvation Army.”",
+												"position": 2,
+												"fullName": "content:textarea:38:67",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:38:67",
+												"styles": {},
+												"newLoc": "design:columns:2columns:47:39-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:39:1": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tHer father’s journey—from facing hardships during his youth to becoming a successful businessman—serves as a testament to the power of The Salvation Army’s support.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Her father’s journey—from facing hardships during his youth to becoming a successful businessman—serves as a testament to the power of The Salvation Army’s support.",
+												"position": 3,
+												"fullName": "content:textarea:39:1",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:39:1",
+												"styles": {},
+												"newLoc": "design:columns:2columns:47:39-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:40:15": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\t“My dad went from living on the wrong side of the tracks and living in an orphanage to establishing a foundation to help charities in our region,” she said.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "“My dad went from living on the wrong side of the tracks and living in an orphanage to establishing a foundation to help charities in our region,” she said.",
+												"position": 4,
+												"fullName": "content:textarea:40:15",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:40:15",
+												"styles": {},
+												"newLoc": "design:columns:2columns:47:39-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:41:47": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tLike her father, Felicia believes that everyone deserves the chance to succeed, regardless of their circumstances.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Like her father, Felicia believes that everyone deserves the chance to succeed, regardless of their circumstances.",
+												"position": 5,
+												"fullName": "content:textarea:41:47",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:41:47",
+												"styles": {},
+												"newLoc": "design:columns:2columns:47:39-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:42:93": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\t“You don’t know what an individual can become if they have the right resources,” she said.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "“You don’t know what an individual can become if they have the right resources,” she said.",
+												"position": 6,
+												"fullName": "content:textarea:42:93",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:42:93",
+												"styles": {},
+												"newLoc": "design:columns:2columns:47:39-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:43:91": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tThrough her leadership in the&nbsp;Rebuilding Hope Restoring Lives Campaign, she is helping ensure that others have the same opportunity her father did.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Through her leadership in the&nbsp;Rebuilding Hope Restoring Lives Campaign, she is helping ensure that others have the same opportunity her father did.",
+												"position": 7,
+												"fullName": "content:textarea:43:91",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:43:91",
+												"styles": {},
+												"newLoc": "design:columns:2columns:47:39-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:44:71": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\t“Your gift to this campaign is not just for the here and now,” she said. “You will help individuals and entire families. Your generosity will touch generations.”\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "“Your gift to this campaign is not just for the here and now,” she said. “You will help individuals and entire families. Your generosity will touch generations.”",
+												"position": 8,
+												"fullName": "content:textarea:44:71",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:44:71",
+												"styles": {},
+												"newLoc": "design:columns:2columns:47:39-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:wysiwyg_basic:45:87": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p>\n\t\t\t\t\t<a href=\"https://fundraise.givesmart.com/form/SlufyQ?vid=1lk10l\"><span class=\"btn btn-solid btn-red\">Donate Now</span></a>\n\t\t\t\t</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p>\n\t\t\t\t\t<a href=\"https://fundraise.givesmart.com/form/SlufyQ?vid=1lk10l\"><span class=\"btn btn-solid btn-red\">Donate Now</span></a>\n\t\t\t\t</p>",
+												"model": "6",
+												"position": 9,
+												"fullName": "content:wysiwyg_basic:45:87",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:45:87",
+												"styles": {},
+												"newLoc": "design:columns:2columns:47:39-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:whitespace-xl:48:15": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 26,
+								"fullName": "design:design:whitespace-xl:48:15",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:49:38": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Championing Hope for <span style=\"color:#ed1c2b;\">Families in Crisis</span></h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Championing Hope for Families in Crisis",
+								"position": 27,
+								"fullName": "content:text:49:38",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:49:38",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:50:86": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 28,
+								"fullName": "design:design:whitespace-sm:50:86",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:60:96": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 29,
+								"fullName": "design:columns:2columns:60:96",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:60:96-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:51:0": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tAs a retired commercial banking executive, Earle Harding brings a wealth of experience in financial stewardship. And for more than two decades, he has been consistently impressed with The Salvation Army Greenville County’s strong track record of fiscal responsibility.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "As a retired commercial banking executive, Earle Harding brings a wealth of experience in financial stewardship. And for more than two decades, he has been consistently impressed with The Salvation Army Greenville County’s strong track record of fiscal responsibility.",
+												"position": 0,
+												"fullName": "content:textarea:51:0",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:51:0",
+												"styles": {},
+												"newLoc": "design:columns:2columns:60:96-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:52:22": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\t“Everything they bring in the door locally gets spent locally,” Earle said. “They are incredibly efficient with every dollar raised.”\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "“Everything they bring in the door locally gets spent locally,” Earle said. “They are incredibly efficient with every dollar raised.”",
+												"position": 1,
+												"fullName": "content:textarea:52:22",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:52:22",
+												"styles": {},
+												"newLoc": "design:columns:2columns:60:96-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:53:0": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tRecently, during a tour of the current facility, his commitment to the mission deepened. As he stood in the hallway of the women and children’s shelter, a distraught woman rushed in, panic in her eyes.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Recently, during a tour of the current facility, his commitment to the mission deepened. As he stood in the hallway of the women and children’s shelter, a distraught woman rushed in, panic in her eyes.",
+												"position": 2,
+												"fullName": "content:textarea:53:0",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:53:0",
+												"styles": {},
+												"newLoc": "design:columns:2columns:60:96-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:54:86": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\t“She was terrified,” Earle recalled. “I personally have never experienced that kind of fear. The look on her face has really stayed with me.”\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "“She was terrified,” Earle recalled. “I personally have never experienced that kind of fear. The look on her face has really stayed with me.”",
+												"position": 3,
+												"fullName": "content:textarea:54:86",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:54:86",
+												"styles": {},
+												"newLoc": "design:columns:2columns:60:96-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:55:18": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tUnfortunately, because the women’s shelter was full that day, the name of the woman&nbsp;Earle saw was added to a waiting list—a stark reminder of the very real and urgent needs faced by people in our region every day.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Unfortunately, because the women’s shelter was full that day, the name of the woman&nbsp;Earle saw was added to a waiting list—a stark reminder of the very real and urgent needs faced by people in our region every day.",
+												"position": 4,
+												"fullName": "content:textarea:55:18",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:55:18",
+												"styles": {},
+												"newLoc": "design:columns:2columns:60:96-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:56:49": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tThat is one reason Earle firmly supports the&nbsp;Rebuilding Hope Restoring Lives Campaign.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "That is one reason Earle firmly supports the&nbsp;Rebuilding Hope Restoring Lives Campaign.",
+												"position": 5,
+												"fullName": "content:textarea:56:49",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:56:49",
+												"styles": {},
+												"newLoc": "design:columns:2columns:60:96-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:57:48": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\t“This campaign will provide a larger women’s and children’s shelter,” he said. “It will also create housing for men with children, who we currently cannot accommodate. The new Center of Hope will keep children off the street and make a lasting difference for families in our community.”\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "“This campaign will provide a larger women’s and children’s shelter,” he said. “It will also create housing for men with children, who we currently cannot accommodate. The new Center of Hope will keep children off the street and make a lasting difference for families in our community.”",
+												"position": 6,
+												"fullName": "content:textarea:57:48",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:57:48",
+												"styles": {},
+												"newLoc": "design:columns:2columns:60:96-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:60:96-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:58:36": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/db218445-2711-4041-a2d3-23328d455d14_Earle+Harding+Capital+Campaign+graphic.png\" alt=\"placeholder\" class=\"img-fluid d-block m-auto my-3\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" />",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/db218445-2711-4041-a2d3-23328d455d14_Earle+Harding+Capital+Campaign+graphic.png",
+												"position": 0,
+												"fullName": "content:images:58:36",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:2columns:60:96-1:2 Columns - Equal:1",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:horizontalrule:61:57": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 30,
+								"fullName": "design:design:horizontalrule:61:57",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:62:1": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\"><span style=\"color:#ed1c2b;\">Will You Answer the Call?</span></h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Will You Answer the Call?",
+								"position": 31,
+								"fullName": "content:text:62:1",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:62:1",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:63:25": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 32,
+								"fullName": "design:design:whitespace-sm:63:25",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:70:23": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 33,
+								"fullName": "design:columns:2columns:70:23",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:70:23-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:64:56": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/ca592596-4d5b-450c-9643-09593eee533c_TSA+Volunteers+Hugging.png\" alt=\"placeholder\" class=\"img-fluid d-block m-auto my-3\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" />",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/ca592596-4d5b-450c-9643-09593eee533c_TSA+Volunteers+Hugging.png",
+												"position": 0,
+												"fullName": "content:images:64:56",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:2columns:70:23-1:2 Columns - Equal:0",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:70:23-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:text:66:80": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h5>“Ultimately, if your heart is to help people, it’s what we do. This building—and the countless lives it represents—is an amazing opportunity. You can help change eternities for countless people for many years to come.”</h5>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "“Ultimately, if your heart is to help people, it’s what we do. This building—and the countless lives it represents—is an amazing opportunity. You can help change eternities for countless people for many years to come.”",
+												"position": 0,
+												"fullName": "content:text:66:80",
+												"htmlElement": "h5",
+												"primarytype": "content",
+												"id": "content:text:66:80",
+												"styles": {},
+												"newLoc": "design:columns:2columns:70:23-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:text:67:28": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h5>Major Mike Harris</h5>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "Major Mike Harris",
+												"position": 1,
+												"fullName": "content:text:67:28",
+												"htmlElement": "h5",
+												"primarytype": "content",
+												"id": "content:text:67:28",
+												"styles": {},
+												"newLoc": "design:columns:2columns:70:23-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:wysiwyg_basic:68:35": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p>\n\t\t\t\t\t<a href=\"https://fundraise.givesmart.com/form/SlufyQ?vid=1lk10l\"><span class=\"btn btn-solid btn-red\">Donate Now</span></a>\n\t\t\t\t</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p>\n\t\t\t\t\t<a href=\"https://fundraise.givesmart.com/form/SlufyQ?vid=1lk10l\"><span class=\"btn btn-solid btn-red\">Donate Now</span></a>\n\t\t\t\t</p>",
+												"model": "6",
+												"position": 2,
+												"fullName": "content:wysiwyg_basic:68:35",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:68:35",
+												"styles": {},
+												"newLoc": "design:columns:2columns:70:23-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:whitespace-xl:71:54": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 34,
+								"fullName": "design:design:whitespace-xl:71:54",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:72:67": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5>At The Salvation Army Greenville County, we believe that rebuilding hope isn’t merely a mission— <span style=\"color:#ed1c2b;\">it’s a calling.</span></h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "At The Salvation Army Greenville County, we believe that rebuilding hope isn’t merely a mission— it’s a calling.",
+								"position": 35,
+								"fullName": "content:text:72:67",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:72:67",
+								"styles": {
+									"color": "#ed1c2b"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:73:56": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tFor over a century, we have had the privilege of serving our region’s most vulnerable residents, helping thousands regain their footing and find their way forward.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "For over a century, we have had the privilege of serving our region’s most vulnerable residents, helping thousands regain their footing and find their way forward.",
+								"position": 36,
+								"fullName": "content:textarea:73:56",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:73:56",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:74:8": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tHowever, our aging facilities are currently stretched beyond their capacity. Too often we are forced to turn people away—among them children, women, and veterans. Without options, many are left to seek refuge on the streets.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "However, our aging facilities are currently stretched beyond their capacity. Too often we are forced to turn people away—among them children, women, and veterans. Without options, many are left to seek refuge on the streets.",
+								"position": 37,
+								"fullName": "content:textarea:74:8",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:74:8",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:75:38": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tToday, we want to change the narrative.&nbsp;Through the&nbsp;<span style=\"color:#ed1c2b;\"><strong>Rebuilding Hope Restoring Lives&nbsp;Campaign</strong></span>, a $16 million initiative, we want to replace our five aging buildings with a new 45,000 square foot “Center of Hope”—a sanctuary where 143 people can experience the power of God’s love and support. It will be the only shelter in Greenville that can offer emergency shelter to entire families together. It will also improve security and help those struggling with physical disabilities.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Today, we want to change the narrative.&nbsp;Through the&nbsp;Rebuilding Hope Restoring Lives&nbsp;Campaign, a $16 million initiative, we want to replace our five aging buildings with a new 45,000 square foot “Center of Hope”—a sanctuary where 143 people can experience the power of God’s love and support. It will be the only shelter in Greenville that can offer emergency shelter to entire families together. It will also improve security and help those struggling with physical disabilities.",
+								"position": 38,
+								"fullName": "content:textarea:75:38",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:75:38",
+								"styles": {
+									"color": "#ed1c2b",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:76:77": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThanks to the generosity of supporters like you, we’ve already raised over&nbsp;$14&nbsp;million&nbsp;toward this goal.&nbsp;With just&nbsp;$2.5&nbsp;million&nbsp;left to go, we’re closer than ever to bringing this vision to life.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Thanks to the generosity of supporters like you, we’ve already raised over&nbsp;$14&nbsp;million&nbsp;toward this goal.&nbsp;With just&nbsp;$2.5&nbsp;million&nbsp;left to go, we’re closer than ever to bringing this vision to life.",
+								"position": 39,
+								"fullName": "content:textarea:76:77",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:76:77",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-md:77:63": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 40,
+								"fullName": "design:design:whitespace-md:77:63",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:78:91": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\"><span style=\"color:#ed1c2b;\">Who We Serve: By the Numbers</span></h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Who We Serve: By the Numbers",
+								"position": 41,
+								"fullName": "content:text:78:91",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:78:91",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:79:91": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 42,
+								"fullName": "design:design:whitespace-sm:79:91",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:90:40": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 43,
+								"fullName": "design:columns:2columns:90:40",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:90:40-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:80:96": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tTransitional Housing for Women - 4\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Transitional Housing for Women - 4",
+												"position": 0,
+												"fullName": "content:textarea:80:96",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:80:96",
+												"styles": {},
+												"newLoc": "design:columns:2columns:90:40-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:81:91": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tSingle Mothers with Children - 20\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Single Mothers with Children - 20",
+												"position": 1,
+												"fullName": "content:textarea:81:91",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:81:91",
+												"styles": {},
+												"newLoc": "design:columns:2columns:90:40-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:82:7": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tWomen in a Single Occupancy Room - 2\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Women in a Single Occupancy Room - 2",
+												"position": 2,
+												"fullName": "content:textarea:82:7",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:82:7",
+												"styles": {},
+												"newLoc": "design:columns:2columns:90:40-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:83:4": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tMedical Respite Women - 4\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Medical Respite Women - 4",
+												"position": 3,
+												"fullName": "content:textarea:83:4",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:83:4",
+												"styles": {},
+												"newLoc": "design:columns:2columns:90:40-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:84:72": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tSingle Women with No Children - 30\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Single Women with No Children - 30",
+												"position": 4,
+												"fullName": "content:textarea:84:72",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:84:72",
+												"styles": {},
+												"newLoc": "design:columns:2columns:90:40-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:85:63": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tFamily Shelters - 15\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Family Shelters - 15",
+												"position": 5,
+												"fullName": "content:textarea:85:63",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:85:63",
+												"styles": {},
+												"newLoc": "design:columns:2columns:90:40-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:90:40-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:86:75": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tTransitional Housing for Men - 12\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Transitional Housing for Men - 12",
+												"position": 0,
+												"fullName": "content:textarea:86:75",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:86:75",
+												"styles": {},
+												"newLoc": "design:columns:2columns:90:40-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:87:16": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tMen in a Single Occupancy Room - 2\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Men in a Single Occupancy Room - 2",
+												"position": 1,
+												"fullName": "content:textarea:87:16",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:87:16",
+												"styles": {},
+												"newLoc": "design:columns:2columns:90:40-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:88:1": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tMedical Respite Men - 4\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Medical Respite Men - 4",
+												"position": 2,
+												"fullName": "content:textarea:88:1",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:88:1",
+												"styles": {},
+												"newLoc": "design:columns:2columns:90:40-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:89:97": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tSingle Men with No Children - 50\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Single Men with No Children - 50",
+												"position": 3,
+												"fullName": "content:textarea:89:97",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:89:97",
+												"styles": {},
+												"newLoc": "design:columns:2columns:90:40-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"content:textarea:91:5": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "</div>\n\n<p>\n\tTotal Beds Served: 143\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Total Beds Served: 143",
+								"position": 44,
+								"fullName": "content:textarea:91:5",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:91:5",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-md:92:14": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 45,
+								"fullName": "design:design:whitespace-md:92:14",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:92:85": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/62f90629-a41b-4f04-85ad-a0c7647e0ab4_2023-09-07_Salv+Army_Conceptual+Renderings+Page+004.jpg\" alt=\"placeholder\" class=\"img-fluid d-block m-auto my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" />",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/62f90629-a41b-4f04-85ad-a0c7647e0ab4_2023-09-07_Salv+Army_Conceptual+Renderings+Page+004.jpg",
+								"position": 46,
+								"fullName": "content:images:92:85",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:94:75": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 47,
+								"fullName": "design:design:whitespace-sm:94:75",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:95:95": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\"><span style=\"color:#ed1c2b;\">Rebuild. Restore. Renew.</span></h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Rebuild. Restore. Renew.",
+								"position": 48,
+								"fullName": "content:text:95:95",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:95:95",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:96:20": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tThe Salvation Army has served vulnerable neighbors in Greenville County for over 100 years. Today, the homeless population is rapidly increasing; however,&nbsp;our aging campus struggles to meet the demands.&nbsp;The current shelter campus comprises five separate buildings, which increases security risks for our participants and creates mobility issues for those with physical disabilities.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army has served vulnerable neighbors in Greenville County for over 100 years. Today, the homeless population is rapidly increasing; however,&nbsp;our aging campus struggles to meet the demands.&nbsp;The current shelter campus comprises five separate buildings, which increases security risks for our participants and creates mobility issues for those with physical disabilities.",
+								"position": 49,
+								"fullName": "content:textarea:96:20",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:96:20",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:97:30": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tRevitalizing the current campus will bring services under one roof, with corridors connecting the buildings—allowing us to serve more participants, safely and effectively.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Revitalizing the current campus will bring services under one roof, with corridors connecting the buildings—allowing us to serve more participants, safely and effectively.",
+								"position": 50,
+								"fullName": "content:textarea:97:30",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:97:30",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:98:53": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tThe increase in the bed capacity will provide&nbsp;individuals and families a safe place to sleep where the environment restores dignity. The updated, purposeful design will also provide much-needed new family and transitional housing.&nbsp;This is vital to empowering independent living.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The increase in the bed capacity will provide&nbsp;individuals and families a safe place to sleep where the environment restores dignity. The updated, purposeful design will also provide much-needed new family and transitional housing.&nbsp;This is vital to empowering independent living.",
+								"position": 51,
+								"fullName": "content:textarea:98:53",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:98:53",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:99:65": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tOverall, the revitalized Social Service Shelter Campus will provide more space strategically configured to stabilize vulnerable individuals. Besides providing greater missional effectiveness, the “Center of Hope” will be a place where families and individuals can rebuild their lives in a place that inspires and encourages.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Overall, the revitalized Social Service Shelter Campus will provide more space strategically configured to stabilize vulnerable individuals. Besides providing greater missional effectiveness, the “Center of Hope” will be a place where families and individuals can rebuild their lives in a place that inspires and encourages.",
+								"position": 52,
+								"fullName": "content:textarea:99:65",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:99:65",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-md:100:30": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 53,
+								"fullName": "design:design:whitespace-md:100:30",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:100:39": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/6557dcfc-84d7-4c6c-b621-0ed03847fcea_2023-09-07_Salv+Army_Conceptual+Renderings+Page+002.jpg\" alt=\"placeholder\" class=\"img-fluid d-block m-auto my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" />",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/6557dcfc-84d7-4c6c-b621-0ed03847fcea_2023-09-07_Salv+Army_Conceptual+Renderings+Page+002.jpg",
+								"position": 54,
+								"fullName": "content:images:100:39",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:102:89": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 55,
+								"fullName": "design:design:whitespace-sm:102:89",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:103:16": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\"><span style=\"color:#ed1c2b;\">From Hope to Reality</span></h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "From Hope to Reality",
+								"position": 56,
+								"fullName": "content:text:103:16",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:103:16",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:104:60": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tOur&nbsp;<span style=\"color:#ed1c2b;\"><strong>Rebuilding Hope Restoring Lives&nbsp;Campaign</strong></span>&nbsp;reflects our commitment to the vulnerable neighbors we serve.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Our&nbsp;Rebuilding Hope Restoring Lives&nbsp;Campaign&nbsp;reflects our commitment to the vulnerable neighbors we serve.",
+								"position": 57,
+								"fullName": "content:textarea:104:60",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:104:60",
+								"styles": {
+									"color": "#ed1c2b",
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:105:96": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tThe revitalized 45,000 square foot “Center of Hope” will provide greater security and cohesiveness. The new space will increase efficiency in daily operation, create greater security and accessibility, and allow for better engagement with our clients.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The revitalized 45,000 square foot “Center of Hope” will provide greater security and cohesiveness. The new space will increase efficiency in daily operation, create greater security and accessibility, and allow for better engagement with our clients.",
+								"position": 58,
+								"fullName": "content:textarea:105:96",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:105:96",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-md:106:28": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 59,
+								"fullName": "design:design:whitespace-md:106:28",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:107:36": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\"><span style=\"color:#ed1c2b;\">The New Social Services Campus Will Include:</span></h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "The New Social Services Campus Will Include:",
+								"position": 60,
+								"fullName": "content:text:107:36",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:107:36",
+								"styles": {
+									"color": "#ed1c2b",
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:108:54": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<ul style=\"text-align:center;\">\n\t<li>Family Shelters to keep households together (men with children, couples with children)</li>\n\t<li>Transitional Housing for those needing support for more time to become stable</li>\n\t<li>Single occupancy rooms for those who have experienced trauma</li>\n\t<li>Classroom for partner education programs and workshops</li>\n\t<li>Computer lab to aid in job search and enhance computer skills</li>\n\t<li>Library for residents to read their book of choice</li>\n\t<li>Medical Respite for individuals facing homelessness in need of a space to convalesce</li>\n\t<li>Day Shelter with showers and laundry facilities</li>\n\t<li>Double the number of those served annually</li>\n</ul>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<ul style=\"text-align:center;\">\n\t<li>Family Shelters to keep households together (men with children, couples with children)</li>\n\t<li>Transitional Housing for those needing support for more time to become stable</li>\n\t<li>Single occupancy rooms for those who have experienced trauma</li>\n\t<li>Classroom for partner education programs and workshops</li>\n\t<li>Computer lab to aid in job search and enhance computer skills</li>\n\t<li>Library for residents to read their book of choice</li>\n\t<li>Medical Respite for individuals facing homelessness in need of a space to convalesce</li>\n\t<li>Day Shelter with showers and laundry facilities</li>\n\t<li>Double the number of those served annually</li>\n</ul>",
+								"model": "6",
+								"position": 61,
+								"fullName": "content:wysiwyg_basic:108:54",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:108:54",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:109:87": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 62,
+								"fullName": "design:design:whitespace-sm:109:87",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:110:60": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5>Campaign Breakdown</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Campaign Breakdown",
+								"position": 63,
+								"fullName": "content:text:110:60",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:110:60",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:111:24": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tFinancial support from private donors, businesses, and foundations will enable The Salvation Army of Greenville County to adapt to the increasing demands.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Financial support from private donors, businesses, and foundations will enable The Salvation Army of Greenville County to adapt to the increasing demands.",
+								"position": 64,
+								"fullName": "content:textarea:111:24",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:111:24",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:112:95": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\t<cite>“You cannot warm the hearts of people with God’s love if they have an empty stomach and cold feet.”</cite>&nbsp;-- William Booth, Founder and First General of The Salvation Army\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "“You cannot warm the hearts of people with God’s love if they have an empty stomach and cold feet.”&nbsp;-- William Booth, Founder and First General of The Salvation Army",
+								"position": 65,
+								"fullName": "content:textarea:112:95",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:112:95",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:113:78": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tIn addition, a $2 million endowment will be established to sustain future operations for the Social Services campus.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "In addition, a $2 million endowment will be established to sustain future operations for the Social Services campus.",
+								"position": 66,
+								"fullName": "content:textarea:113:78",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:113:78",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:horizontalrule:114:1": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 67,
+								"fullName": "design:design:horizontalrule:114:1",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:115:78": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5>Budget Overview</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Budget Overview",
+								"position": 68,
+								"fullName": "content:text:115:78",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:115:78",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:116:24": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\t**Updated as of FEBRUARY 2026\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "**Updated as of FEBRUARY 2026",
+								"position": 69,
+								"fullName": "content:textarea:116:24",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:116:24",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:117:68": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 70,
+								"fullName": "design:design:whitespace-sm:117:68",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:120:65": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 71,
+								"fullName": "design:columns:2columns:120:65",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:120:65-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:118:94": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Budget -- Construction/Sustainability</strong></span>\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Budget -- Construction/Sustainability",
+												"position": 0,
+												"fullName": "content:textarea:118:94",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:118:94",
+												"styles": {
+													"color": "#ed1c2b",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:120:65-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:120:65-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:119:92": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\t<strong><span style=\"color:#ed1c2b;\">$16M Goal</span></strong>\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "$16M Goal",
+												"position": 0,
+												"fullName": "content:textarea:119:92",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:119:92",
+												"styles": {
+													"color": "#ed1c2b",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:120:65-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:columns:2columns:123:65": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 72,
+								"fullName": "design:columns:2columns:123:65",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:123:65-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:121:7": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tSocial Services Campus Construction - full\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Social Services Campus Construction - full",
+												"position": 0,
+												"fullName": "content:textarea:121:7",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:121:7",
+												"styles": {},
+												"newLoc": "design:columns:2columns:123:65-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:123:65-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {},
+										"position": 1
+									}
+								}
+							},
+							"design:columns:2columns:126:82": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 73,
+								"fullName": "design:columns:2columns:126:82",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:126:82-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:124:77": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tEndowment\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Endowment",
+												"position": 0,
+												"fullName": "content:textarea:124:77",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:124:77",
+												"styles": {},
+												"newLoc": "design:columns:2columns:126:82-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:126:82-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:125:15": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\t$2,000,000\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "$2,000,000",
+												"position": 0,
+												"fullName": "content:textarea:125:15",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:125:15",
+												"styles": {},
+												"newLoc": "design:columns:2columns:126:82-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:columns:2columns:128:97": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 74,
+								"fullName": "design:columns:2columns:128:97",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:128:97-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:127:89": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tTOTAL RAISED\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "TOTAL RAISED",
+												"position": 0,
+												"fullName": "content:textarea:127:89",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:127:89",
+												"styles": {},
+												"newLoc": "design:columns:2columns:128:97-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:128:97-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:122:13": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\t$14,000,000\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "$14,000,000",
+												"position": 0,
+												"fullName": "content:textarea:122:13",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:122:13",
+												"styles": {},
+												"newLoc": "design:columns:2columns:128:97-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:columns:2columns:131:32": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 75,
+								"fullName": "design:columns:2columns:131:32",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:131:32-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:129:85": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>TOTAL LEFT TO RAISE</strong></span>\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "TOTAL LEFT TO RAISE",
+												"position": 0,
+												"fullName": "content:textarea:129:85",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:129:85",
+												"styles": {
+													"color": "#ed1c2b",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:131:32-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:131:32-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:130:7": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\t<strong><span style=\"color:#ed1c2b;\">$2,000,000</span></strong>\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "$2,000,000",
+												"position": 0,
+												"fullName": "content:textarea:130:7",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:130:7",
+												"styles": {
+													"color": "#ed1c2b",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:131:32-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:columns:2columns:136:10": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 76,
+								"fullName": "design:columns:2columns:136:10",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:136:10-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"design:design:whitespace:133:97": {
+												"uid": "99",
+												"name": "White Space",
+												"type": "design",
+												"html": "<br>",
+												"preview": "<div style=\"border-style: dashed; height: 20px;\"></div>",
+												"classes": "",
+												"droppable": false,
+												"position": 0,
+												"fullName": "design:design:whitespace:133:97",
+												"primarytype": "design",
+												"newLoc": "design:columns:2columns:136:10-1:2 Columns - Equal:0",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:136:10-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"design:design:whitespace:135:36": {
+												"uid": "99",
+												"name": "White Space",
+												"type": "design",
+												"html": "<br>",
+												"preview": "<div style=\"border-style: dashed; height: 20px;\"></div>",
+												"classes": "",
+												"droppable": false,
+												"position": 0,
+												"fullName": "design:design:whitespace:135:36",
+												"primarytype": "design",
+												"newLoc": "design:columns:2columns:136:10-1:2 Columns - Equal:1",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:horizontalrule:137:78": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 77,
+								"fullName": "design:design:horizontalrule:137:78",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:138:56": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\"><span style=\"color:#ed1c2b;\">You Can Help</span></h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "You Can Help",
+								"position": 78,
+								"fullName": "content:text:138:56",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:138:56",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:139:68": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t<cite>“Dear children, let us not love with words or speech, but with actions and in truth.”</cite>—1 John 3:18\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "“Dear children, let us not love with words or speech, but with actions and in truth.”—1 John 3:18",
+								"position": 79,
+								"fullName": "content:textarea:139:68",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:139:68",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:140:69": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tThe Salvation Army of Greenville County’s&nbsp;<span style=\"color:#ed1c2b;\"><strong>Rebuilding Hope Restoring Lives&nbsp;Campaign</strong></span>&nbsp;will bring together community businesses, foundations, and private donors to accomplish this important redesign and expansion, improving services to our vulnerable neighbors.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army of Greenville County’s&nbsp;Rebuilding Hope Restoring Lives&nbsp;Campaign&nbsp;will bring together community businesses, foundations, and private donors to accomplish this important redesign and expansion, improving services to our vulnerable neighbors.",
+								"position": 80,
+								"fullName": "content:textarea:140:69",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:140:69",
+								"styles": {
+									"color": "#ed1c2b",
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:141:5": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tAs of August 2025, we still need the required&nbsp;$4 million&nbsp;to begin construction. We welcome assistance from the Upstate community to reach our construction goal, and more importantly, give a helping hand to the underserved in rebuilding their lives.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "As of August 2025, we still need the required&nbsp;$4 million&nbsp;to begin construction. We welcome assistance from the Upstate community to reach our construction goal, and more importantly, give a helping hand to the underserved in rebuilding their lives.",
+								"position": 81,
+								"fullName": "content:textarea:141:5",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:141:5",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:142:10": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tPlease consider making a major gift, which will have a profound impact on those who rely on our services. Your generous donation will move us quickly toward achieving our goal.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Please consider making a major gift, which will have a profound impact on those who rely on our services. Your generous donation will move us quickly toward achieving our goal.",
+								"position": 82,
+								"fullName": "content:textarea:142:10",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:142:10",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:143:30": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tYour partnership in the&nbsp;<span style=\"color:#ed1c2b;\"><strong>Rebuilding Hope Restoring Lives Campaign</strong></span>&nbsp;is essential. Today, please prayerfully consider investing in a new shelter that will\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Your partnership in the&nbsp;Rebuilding Hope Restoring Lives Campaign&nbsp;is essential. Today, please prayerfully consider investing in a new shelter that will",
+								"position": 83,
+								"fullName": "content:textarea:143:30",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:143:30",
+								"styles": {
+									"color": "#ed1c2b",
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:144:99": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t<span style=\"color:#ed1c2b;\">Rebuild. Restore. Renew</span> the lives of men, women, and children in our community.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Rebuild. Restore. Renew the lives of men, women, and children in our community.",
+								"position": 84,
+								"fullName": "content:textarea:144:99",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:144:99",
+								"styles": {
+									"color": "#ed1c2b",
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:145:11": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tIf you would like a campus tour, please contact us as soon as possible through the contact information provide below:\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "If you would like a campus tour, please contact us as soon as possible through the contact information provide below:",
+								"position": 85,
+								"fullName": "content:textarea:145:11",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:145:11",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:146:16": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tBea Walters Smith\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Bea Walters Smith",
+								"position": 86,
+								"fullName": "content:textarea:146:16",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:146:16",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:147:8": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tDirector of Community Relations and Development\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Director of Community Relations and Development",
+								"position": 87,
+								"fullName": "content:textarea:147:8",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:147:8",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:148:62": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tThe Salvation Army of Greenville County\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army of Greenville County",
+								"position": 88,
+								"fullName": "content:textarea:148:62",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:148:62",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:149:48": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tPO Box 1237 Greenville, SC 29602\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "PO Box 1237 Greenville, SC 29602",
+								"position": 89,
+								"fullName": "content:textarea:149:48",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:149:48",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:150:1": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\">\n\t<a href=\"tel:8642354803\">(864)235-4803</a> x66134\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\">\n\t<a href=\"tel:8642354803\">(864)235-4803</a> x66134\n</p>",
+								"model": "6",
+								"position": 90,
+								"fullName": "content:wysiwyg_basic:150:1",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:150:1",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:151:47": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 91,
+								"fullName": "design:design:whitespace-sm:151:47",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:152:22": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\">\n\t<a href=\"mailto://bea.walters-smith@uss.salvationarmy.org\" target=\"\">bea.walters-smith@uss.salvationarmy.org</a>\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\">\n\t<a href=\"mailto://bea.walters-smith@uss.salvationarmy.org\" target=\"\">bea.walters-smith@uss.salvationarmy.org</a>\n</p>",
+								"model": "6",
+								"position": 92,
+								"fullName": "content:wysiwyg_basic:152:22",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:152:22",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:153:67": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 93,
+								"fullName": "design:design:whitespace-sm:153:67",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:154:65": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\"><span style=\"color:#ed1c2b;\">Thank You...</span></h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Thank You...",
+								"position": 94,
+								"fullName": "content:text:154:65",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:154:65",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:155:51": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tYour investment will help us meet the needs of those we serve in building better lives for their future.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Your investment will help us meet the needs of those we serve in building better lives for their future.",
+								"position": 95,
+								"fullName": "content:textarea:155:51",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:155:51",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:156:71": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\">\n\t<a href=\"https://fundraise.givesmart.com/form/SlufyQ?vid=1lk0mg\"><span class=\"btn btn-solid btn-red\">Donate Now</span></a>\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\">\n\t<a href=\"https://fundraise.givesmart.com/form/SlufyQ?vid=1lk0mg\"><span class=\"btn btn-solid btn-red\">Donate Now</span></a>\n</p>",
+								"model": "6",
+								"position": 96,
+								"fullName": "content:wysiwyg_basic:156:71",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:156:71",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:157:88": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 97,
+								"fullName": "design:design:whitespace-sm:157:88",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:164:41": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 98,
+								"fullName": "design:columns:2columns:164:41",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:182:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:164:41-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:text:158:98": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h5>Courage for a Second Chance</h5>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "Courage for a Second Chance",
+												"position": 0,
+												"fullName": "content:text:158:98",
+												"htmlElement": "h5",
+												"primarytype": "content",
+												"id": "content:text:158:98",
+												"styles": {},
+												"newLoc": "design:columns:2columns:164:41-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:159:42": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\">Read Shawn's story about his search for shelter and hope, and what he found through The Salvation Army of Greenville.</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Read Shawn's story about his search for shelter and hope, and what he found through The Salvation Army of Greenville.",
+												"position": 1,
+												"fullName": "content:textarea:159:42",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:159:42",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:164:41-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:wysiwyg_basic:160:18": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\"><strong><a href=\"https://southernusa.salvationarmy.org/greenvillesc/news/courage-for-a-second-chance\"><span class=\"btn btn-solid btn-red\">Read more</span></a></strong></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\"><strong><a href=\"https://southernusa.salvationarmy.org/greenvillesc/news/courage-for-a-second-chance\"><span class=\"btn btn-solid btn-red\">Read more</span></a></strong></p>",
+												"model": "6",
+												"position": 2,
+												"fullName": "content:wysiwyg_basic:160:18",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:160:18",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:164:41-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:164:41-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:162:75": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/616e4a41-5010-45e0-8a02-f7dbe7f0b4db_Courage+for+a+Second+Chance+Shawn+Messer.png\" alt=\"placeholder\" class=\"img-fluid d-block m-auto my-3\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" />",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/616e4a41-5010-45e0-8a02-f7dbe7f0b4db_Courage+for+a+Second+Chance+Shawn+Messer.png",
+												"position": 0,
+												"fullName": "content:images:162:75",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:2columns:164:41-1:2 Columns - Equal:1",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 1
+									}
+								}
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

@@ -1,0 +1,82 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div className={styles.pvlRoot}>*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:51:0:6": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-ca98a6c18b-qwzv0j')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-ca98a6c18b-qwzv0j')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:51:0:6",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:5:14": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:5:14",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:5:14-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:wysiwyg_basic:2:67": {
+								"icon": "outdent",
+								"name": "Background Section",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"background-color:#2A313F;color:#FFFFFF;padding:40px;\"><p>\n\t<span style=\"font-size:24px;\"><strong>2026 Advisory Board Leadership Team</strong></span>\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-6\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<span style=\"font-size:18px;\"><strong>CHAIR:</strong>&nbsp; Jimmy Eggers</span>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-6\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<span style=\"font-size:18px;\"><strong>SECRETARY:&nbsp;</strong> Andrew Lopina</span>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-6\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<span style=\"font-size:18px;\"><strong>VICE-CHAIR:&nbsp;</strong> Jackson Sutton</span>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-6\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<span style=\"font-size:18px;\"><strong>TREASURER:</strong>&nbsp; Ryan Niland</span>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p>\n\t&nbsp;\n</p>\n\n<p>\n\t<span style=\"font-size:24px;\"><strong>2026 Advisory Board Members</strong></span>\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tJeff Cardwell\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tSandi Nance\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tJack Sutton\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tKen Carlson\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tMichelle Norwood\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tWayne Thomas\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-3\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tJamy Cassidy\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tMelissa Painter\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tRobert \"Bob\" Weiss\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-4\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tDebbie Clark\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tDr. Pam Peoples-Joyner\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tRob Welch\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-5\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tDiane Harper-Long\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tJoel Schneider\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tWin Welch\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-6\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tLinda Jackson-Barnes\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tAlycia Silman\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tPJ Williams\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-7\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tCal Jeffers\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tKaren Simon\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tDr. Timothy Williams\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-8\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tAlejandra Lobelo\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tJonathan Starnes\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t&nbsp;\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div></div>",
+								"content": "<div style=\"background-color:#2A313F;color:#FFFFFF;padding:40px;\"><p>\n\t<span style=\"font-size:24px;\"><strong>2026 Advisory Board Leadership Team</strong></span>\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-6\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<span style=\"font-size:18px;\"><strong>CHAIR:</strong>&nbsp; Jimmy Eggers</span>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-6\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<span style=\"font-size:18px;\"><strong>SECRETARY:&nbsp;</strong> Andrew Lopina</span>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-6\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<span style=\"font-size:18px;\"><strong>VICE-CHAIR:&nbsp;</strong> Jackson Sutton</span>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-6\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<span style=\"font-size:18px;\"><strong>TREASURER:</strong>&nbsp; Ryan Niland</span>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p>\n\t&nbsp;\n</p>\n\n<p>\n\t<span style=\"font-size:24px;\"><strong>2026 Advisory Board Members</strong></span>\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tJeff Cardwell\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tSandi Nance\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tJack Sutton\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tKen Carlson\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tMichelle Norwood\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tWayne Thomas\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-3\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tJamy Cassidy\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tMelissa Painter\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tRobert \"Bob\" Weiss\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-4\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tDebbie Clark\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tDr. Pam Peoples-Joyner\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tRob Welch\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-5\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tDiane Harper-Long\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tJoel Schneider\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tWin Welch\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-6\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tLinda Jackson-Barnes\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tAlycia Silman\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tPJ Williams\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-7\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tCal Jeffers\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tKaren Simon\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tDr. Timothy Williams\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-8\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tAlejandra Lobelo\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tJonathan Starnes\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t&nbsp;\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"noChildren": true,
+								"children": {},
+								"position": 0,
+								"fullName": "content:wysiwyg_basic:2:67",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:67",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:5:14-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

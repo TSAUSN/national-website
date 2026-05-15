@@ -1,0 +1,300 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:19:0:71": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-daf4b0d8c8-7n8dmn')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-daf4b0d8c8-7n8dmn')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:19:0:71",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:17:76": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:17:76",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:17:76-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:images:1:33": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/d1318637-e37b-4464-bdcb-a1c450ceb617_Clothing+Needs+Icon.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/d1318637-e37b-4464-bdcb-a1c450ceb617_Clothing+Needs+Icon.png",
+								"position": 0,
+								"fullName": "content:images:1:33",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:76-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:3:39": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 1,
+								"fullName": "design:design:whitespace-sm:3:39",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:76-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:4:80": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Clothing Needs in Oconee County</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Clothing Needs in Oconee County",
+								"position": 2,
+								"fullName": "content:text:4:80",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:4:80",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:5:87": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:whitespace-xl:5:87",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:76-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:6:66": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tThe Salvation Army helps Oconee residents in need of clothing. We utilize our Salvation Army Family Store in Seneca to provide vouchers for free clothing to those in emergency need. Applications for assistance are done by appointment only. Required documents are listed below.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army helps Oconee residents in need of clothing. We utilize our Salvation Army Family Store in Seneca to provide vouchers for free clothing to those in emergency need. Applications for assistance are done by appointment only. Required documents are listed below.",
+								"position": 4,
+								"fullName": "content:textarea:6:66",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:6:66",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:7:18": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\">\n\tFor an appointment, call <a href=\"tel:8648821160\">864-882-1160</a>.\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\">\n\tFor an appointment, call <a href=\"tel:8648821160\">864-882-1160</a>.\n</p>",
+								"model": "6",
+								"position": 5,
+								"fullName": "content:wysiwyg_basic:7:18",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:7:18",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:8:76": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 6,
+								"fullName": "design:design:whitespace-sm:8:76",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:76-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:9:59": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\t<strong>Documentation required for clothing assistance:</strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Documentation required for clothing assistance:",
+								"position": 7,
+								"fullName": "content:textarea:9:59",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:9:59",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:10:42": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tCurrent&nbsp;<strong>Photo ID</strong>&nbsp;of client applying for assistance\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Current&nbsp;Photo ID&nbsp;of client applying for assistance",
+								"position": 8,
+								"fullName": "content:textarea:10:42",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:10:42",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:11:78": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tProof of&nbsp;<strong>ALL</strong>&nbsp;household&nbsp;income&nbsp;(including food stamps, child support, disability and&nbsp;ANY&nbsp;other sources of income, including assistance from other non-profit organizations, churches, family, etc.)\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Proof of&nbsp;ALL&nbsp;household&nbsp;income&nbsp;(including food stamps, child support, disability and&nbsp;ANY&nbsp;other sources of income, including assistance from other non-profit organizations, churches, family, etc.)",
+								"position": 9,
+								"fullName": "content:textarea:11:78",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:11:78",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:12:77": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tProof of&nbsp;<strong>Expenses</strong>&nbsp;(utility, water, cable, car payment, insurance, phone, internet, etc.)\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Proof of&nbsp;Expenses&nbsp;(utility, water, cable, car payment, insurance, phone, internet, etc.)",
+								"position": 10,
+								"fullName": "content:textarea:12:77",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:12:77",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:13:78": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tProof of&nbsp;<strong>Residence</strong>&nbsp;(rental/lease agreement, mortgage/title/deed)\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Proof of&nbsp;Residence&nbsp;(rental/lease agreement, mortgage/title/deed)",
+								"position": 11,
+								"fullName": "content:textarea:13:78",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:13:78",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:14:19": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tProof of&nbsp;<strong>Emergency</strong>&nbsp;(identify specific emergency outside your control that has occurred within the past 30 days and has kept you from paying a bill or being unable to manage your regular monthly expenses)\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Proof of&nbsp;Emergency&nbsp;(identify specific emergency outside your control that has occurred within the past 30 days and has kept you from paying a bill or being unable to manage your regular monthly expenses)",
+								"position": 12,
+								"fullName": "content:textarea:14:19",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:14:19",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

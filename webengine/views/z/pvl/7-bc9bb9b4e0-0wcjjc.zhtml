@@ -1,0 +1,35 @@
+<div className={styles.pvlRoot}>
+	<div>{{block('/-/block/hero_full.html?variant=7-ace8e9c7db-cfl98p')}}</div>
+	<div class="bg-light p-6 rounded-5 mb-18 container">
+		<div class="column">
+			<p>The strength of our service in this community is fueled by the neighbors who serve alongside us. Whether you are looking to give back on a Saturday morning or want to find a consistent way to share your professional skills, we make it simple to connect your heart for service with a local need.</p>
+<p></p>
+<p>We utilize a digital volunteer portal that allows you to manage your own journey. From here, you can see exactly where help is needed today, sign up for shifts that fit your schedule, and track your total hours of impact in real-time.</p>
+<p></p>
+<p><strong>View Local Needs</strong></p>
+<p></p>
+<p><a class="btn btn-primary" href="https://volunteer.central.salvationarmyusa.org/" target="_blank" rel="noopener">Search Nearby Opportunities</a></p>
+		</div>
+	</div>
+	<div class="bg-light p-6 rounded-5 mb-18 container">
+		<div class="column">
+			<h2>Service on Your Terms</h2>
+<p></p>
+<p>We believe volunteering should be rewarding, not complicated. Our portal provides a transparent and user-friendly experience so you can focus on what matters most—helping others.</p>
+<p></p>
+<ul>
+<li><strong>Find Your Fit: </strong>Filter by ZIP code to see the specific opportunities closest to your home or office.</li>
+<li><strong>Claim Your Shift: </strong>Secure your spot with a mobile-friendly sign-up process.</li>
+<li><strong>Stay Flexible: </strong>View your upcoming schedule and adjust if your availability changes.</li>
+<li><strong>Serve Together: </strong>Easily identify projects with enough space for your family, coworkers, or civic group.</li>
+</ul>
+		</div>
+	</div>
+	<div class="bg-light p-6 rounded-5 mb-18 container">
+		<div class="column">
+			<h2>Questions?</h2>
+<p></p>
+<p>If you need assistance finding the right role, signing up or just have questions, our team is here to help. <a href="/in/princeton/s-gibson-street-corps/contact-us">Contact us to get help</a> or learn more about volunteering in our community.</p>
+		</div>
+	</div>
+</div>

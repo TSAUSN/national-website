@@ -1,126 +1,354 @@
-{
-  "services": {
-    "view_all": [],
-    "page-zuid": "",
+[
+  {
+    "type": "menu",
+    "key": "home",
+    "page_name": "Home",
+    "page-zuid": "7-e4a1c59bd4-02km0q",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "services",
     "page_name": "Services",
-    "children": [
-      {
-        "page-zuid": "7-f0b2ecb8af-vtv4kd",
-        "page_name": "Dev(Program Sched) | /devprogram-sched/",
-        "children": []
-      },
-      {
-        "page-zuid": "7-deadb5cbd4-9477sx",
-        "page_name": "Food Pantries and Hunger Relief | /hunger/",
-        "children": []
-      },
-      {
-        "page-zuid": "7-8c98d981ce-39r0km",
-        "page_name": "Homeless Shelters | /homelessness/",
-        "children": []
-      },
-      {
-        "page-zuid": "7-92bea993aa-dl08mm",
-        "page_name": "Youth Servicess | /youth-servicess/",
-        "children": []
-      },
-      {
-        "page-zuid": "7-e69c8fee9d-0dj694",
-        "page_name": "Comprehensive Social Services | /pa/allentown/north-8th-street-corps/adult-program-services/",
-        "children": []
-      },
-      {
-        "page-zuid": "7-bc8581d9f4-2thz7b",
-        "page_name": "Worship Services and Spiritual Programs | /spiritual-and-worship-services/",
-        "children": []
-      },
-      {
-        "page-zuid": "7-92fbfaa1b4-xhpj5z",
-        "page_name": "Disaster Relief | /disaster-relief/",
-        "children": []
-      },
-      {
-        "page-zuid": "7-9abfcc9a88-1bz9ln",
-        "page_name": "Kroc Center | /kroc-center/",
-        "children": []
-      },
-      {
-        "page-zuid": "7-9e9cf2aba8-34vx3d",
-        "page_name": "Donation Drop-off | /donation-dropoff/",
-        "children": []
-      },
-      {
-        "page-zuid": "7-c2e1a9c185-wbklp9",
-        "page_name": "Basic Needs | /basic-needs/",
-        "children": []
-      }
-    ]
+    "page-zuid": null,
+    "parent": null
   },
-  "about_us": {
-    "view_all": [],
-    "page-zuid": "",
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Holiday Giving",
+    "page-zuid": "7-8492d28fbd-sdqjdr",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Youth Services",
+    "page-zuid": "7-b490b78fbd-ct5kg2",
+    "sort": 1,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Kroc Center",
+    "page-zuid": "7-aabc9490bd-l9shht",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Utility Rent Assistance",
+    "page-zuid": "7-ae8ae5e1c1-611pt2",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Health Services",
+    "page-zuid": "7-8ce6a68fbd-jz4638",
+    "sort": 4,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Correctional Services",
+    "page-zuid": "7-a6ded7e1c1-mpxhtw",
+    "sort": 5,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Counseling",
+    "page-zuid": "7-a8a1f38fbd-7vc1rw",
+    "sort": 6,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donation Drop-off",
+    "page-zuid": "7-b0bae590bd-qr3rmb",
+    "sort": 7,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Adult Program Services",
+    "page-zuid": "7-c8a18591bd-rzczdd",
+    "sort": 8,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Domestic Violence",
+    "page-zuid": "7-e68594e2c1-rvghbc",
+    "sort": 9,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": "about_us",
     "page_name": "About Us",
-    "children": [
-      {
-        "page-zuid": "",
-        "page_name": "About The Salvation Army",
-        "children": []
-      },
-      {
-        "page-zuid": "7-90eff9e999-tpj14d",
-        "page_name": "Commitment to all",
-        "children": []
-      },
-      {
-        "page-zuid": "",
-        "page_name": "New Submenu Item",
-        "children": []
-      },
-      {
-        "page-zuid": "",
-        "page_name": "Leadership",
-        "children": []
-      },
-      {
-        "page-zuid": "",
-        "page_name": "New Submenu Item",
-        "children": []
-      },
-      {
-        "page-zuid": "",
-        "page_name": "History",
-        "children": []
-      }
-    ]
+    "page-zuid": null,
+    "parent": null
   },
-  "events": {
-    "view_all": [],
-    "page-zuid": "",
-    "page_name": "Events",
-    "children": []
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "About Us",
+    "page-zuid": "7-dc83e8d6f5-kvsl90",
+    "sort": 0,
+    "parent": "about_us"
   },
-  "newsroom": {
-    "view_all": [],
-    "page-zuid": "",
-    "page_name": "Newsroom",
-    "children": []
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
+    "sort": 1,
+    "parent": "about_us"
   },
-  "ways_to_give": {
-    "view_all": [],
-    "page-zuid": "",
-    "page_name": "Ways to give",
-    "children": []
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Leadership",
+    "page-zuid": "7-88cd918093-p8s2bs",
+    "sort": 2,
+    "parent": "about_us"
   },
-  "contact_us": {
-    "view_all": [],
-    "page-zuid": "",
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "History",
+    "page-zuid": "7-b8c09b84c2-fp57hm",
+    "sort": 3,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-909ec5bbc1-fv94h8",
+    "sort": 4,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Give With Joy",
+    "page-zuid": "give_with_joy",
+    "sort": 5,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Service Extension",
+    "page-zuid": "7-e490ad809d-sqch2p",
+    "sort": 6,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
     "page_name": "Contact Us",
-    "children": []
+    "page-zuid": "7-bcd1f5f0a5-3bwc92",
+    "sort": 7,
+    "parent": "about_us"
   },
-  "menu_item": {
-    "view_all": [],
-    "page-zuid": "",
-    "page_name": "Menu Item",
-    "children": []
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Who We Are",
+    "page-zuid": "7-aca88886ae-63nl70",
+    "sort": 8,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": "events",
+    "page_name": "Indiana",
+    "page-zuid": "7-dee59091be-1sm838",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "newsroom",
+    "page_name": "Indiana",
+    "page-zuid": "7-9486cfa9d9-030mcr",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "ways_to_give",
+    "page_name": "Ways to give",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Money",
+    "page-zuid": "donate_money",
+    "sort": 0,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Goods",
+    "page-zuid": "donate_goods",
+    "sort": 1,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Become a Fundraiser",
+    "page-zuid": "become_fundraiser",
+    "sort": 2,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Planned Giving",
+    "page-zuid": "7-b2c8f8c3a1-p70t2s",
+    "sort": 3,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Gift Stocks & Bonds",
+    "page-zuid": "7-c4bebbe989-d1cqdk",
+    "sort": 4,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Volunteer",
+    "page-zuid": "7-988aee8a8c-1gjgr8",
+    "sort": 5,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "View All Ways to Give",
+    "page-zuid": "7-8cb6efc8b0-bw9xct",
+    "sort": 6,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Volunteer in Indiana",
+    "page-zuid": "7-9ec080b5cc-8qvshw",
+    "sort": 7,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Bed & Bread Club",
+    "page-zuid": "7-daa385b7c6-r86129",
+    "sort": 8,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Gift Stocks & Bonds",
+    "page-zuid": "7-cad2a5f6e8-39f5k0",
+    "sort": 9,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Ways to Give",
+    "page-zuid": "7-f8dd8ae2bb-tkcbrh",
+    "sort": 10,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Gifts in Honor or Memory",
+    "page-zuid": "7-d2e4b6c9ac-836kzh",
+    "sort": 11,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "The William Booth Society",
+    "page-zuid": "7-aac98fdf9c-vqsk7v",
+    "sort": 12,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Angle Memorial Fund For Children",
+    "page-zuid": "7-bcea83acc7-ww2l5v",
+    "sort": 13,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Major Gifts",
+    "page-zuid": "7-a6e488fc84-lhqnpg",
+    "sort": 14,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Hometown Endowments",
+    "page-zuid": "7-ee909ae5b5-ltcnrh",
+    "sort": 15,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": "contact_us",
+    "page_name": "Contact Us",
+    "page-zuid": "7-c4c6f6a681-jsv7pc",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "More",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Prayer Requests",
+    "page-zuid": "7-a8b5cde680-cx3jpq",
+    "sort": 0,
+    "parent": "custom_menu"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Register for Emails ",
+    "page-zuid": "7-fcee82fe86-dq8g1l",
+    "sort": 1,
+    "parent": "custom_menu"
   }
-}
+]

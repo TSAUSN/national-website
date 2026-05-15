@@ -647,7 +647,7 @@ async function displayLocations(locations, selectedServices) {
                 </div>
                 
               </div>
-              <div class="d-flex align-items-center justify-content-between py-3 py-md-3">
+              <div class="d-flex align-items-center justify-content-between py-2 py-md-3">
                 <div class="d-flex align-items-center">
                   <span class="display-4 display-md-2 fw-bold me-2">Phone:</span>
                   <a 
@@ -669,7 +669,7 @@ async function displayLocations(locations, selectedServices) {
                   </a>
                 </div>
               </div>
-              <div class="d-flex align-items-center justify-content-between py-3 py-md-3">
+              <div class="d-flex align-items-center justify-content-between py-2 py-md-3">
                 <div class="d-flex align-items-center">
                   <span class="display-4 display-md-2 fw-bold me-2">Address:</span>
                   <a 
@@ -691,7 +691,7 @@ async function displayLocations(locations, selectedServices) {
                   </a>
                 </div>
               </div>
-              <div class="d-flex align-items-center justify-content-between py-3 py-md-3">
+              <div class="d-flex align-items-center justify-content-between py-2 py-md-3">
                 <div class="d-flex align-items-center">
                   <span class="display-4 display-md-2 fw-bold me-2">Directions:</span>
                   <a

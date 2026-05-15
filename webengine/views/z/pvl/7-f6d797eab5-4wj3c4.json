@@ -1,0 +1,264 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:14:0:17": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-cebbcec7ba-hpwqcd')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-cebbcec7ba-hpwqcd')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:14:0:17",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:18:15": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:18:15",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:18:15-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:2:95": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\"><i class=\"icon icon-center-heart\"></i><br>\n\t\t\t\t<br>\n\t\t\t\t<img style=\"max-width:100%;height:auto;\" class=\"img-fluid d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/4879e94e-efe3-43ae-b7f8-25a07d2e6f28_Field.jpg\"><br>\n\t\t\t\tFacility Rentals</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Facility Rentals",
+								"position": 0,
+								"fullName": "content:text:2:95",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:2:95",
+								"styles": {
+									"textAlign": "center",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:18:15-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:3:91": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t\t\t\t\tThe Salvation Army Greensboro Corps located at 1001 Freeman Mill Road has a variety of facilities available for rentals when not in use for programming.&nbsp; Whether you have a meeting, wedding reception, family reunion, birthday party, basketball tournament, soccer practice/games, and needing a concession stand, chances are we can accommodate your needs.\n\t\t\t\t</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army Greensboro Corps located at 1001 Freeman Mill Road has a variety of facilities available for rentals when not in use for programming.&nbsp; Whether you have a meeting, wedding reception, family reunion, birthday party, basketball tournament, soccer practice/games, and needing a concession stand, chances are we can accommodate your needs.",
+								"position": 1,
+								"fullName": "content:textarea:3:91",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:3:91",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:18:15-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-md:4:5": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-md:4:5",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:18:15-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:5:39": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/10b4b765-251d-4357-ad80-3fa83cd15d63_Fellowship+Hall+2.jpg\"><br>\n\t\t\t\tBooking in Advance</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Booking in Advance",
+								"position": 3,
+								"fullName": "content:text:5:39",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:5:39",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:18:15-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:6:42": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\">\n\t\t\t\t\tWe require that you book our facility centers two weeks in advance of your event to allow for proper staff scheduling. Please fill out the initial form <a href=\"https://forms.gle/VT2AYi9ex7miNJug9\" target=\"\">HERE</a> if you are interested in available dates and rates.\n\t\t\t\t</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\">\n\t\t\t\t\tWe require that you book our facility centers two weeks in advance of your event to allow for proper staff scheduling. Please fill out the initial form <a href=\"https://forms.gle/VT2AYi9ex7miNJug9\" target=\"\">HERE</a> if you are interested in available dates and rates.\n\t\t\t\t</p>",
+								"model": "6",
+								"position": 4,
+								"fullName": "content:wysiwyg_basic:6:42",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:6:42",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:18:15-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:7:51": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 5,
+								"fullName": "design:design:whitespace-sm:7:51",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:18:15-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:8:31": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/33582ecc-f05d-4e79-80b2-5730849a9254_Fellowship+Hall+3.jpg\" alt=\"placeholder\" class=\"img-fluid d-block my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/33582ecc-f05d-4e79-80b2-5730849a9254_Fellowship+Hall+3.jpg",
+								"position": 6,
+								"fullName": "content:images:8:31",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:18:15-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:10:40": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 7,
+								"fullName": "design:design:whitespace-sm:10:40",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:18:15-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:11:51": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\">Facility Information</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Facility Information",
+								"position": 8,
+								"fullName": "content:text:11:51",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:11:51",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:18:15-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:horizontalrule:12:68": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 9,
+								"fullName": "design:design:horizontalrule:12:68",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:18:15-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-md:13:80": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 10,
+								"fullName": "design:design:whitespace-md:13:80",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:18:15-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:13:66": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/ffdbf26c-b323-43ed-8941-c76163cb12a7_BGCfacilityrentalsrevised2.9.23.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/ffdbf26c-b323-43ed-8941-c76163cb12a7_BGCfacilityrentalsrevised2.9.23.png",
+								"position": 11,
+								"fullName": "content:images:13:66",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:18:15-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

@@ -1,0 +1,417 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:97:0:25": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-a6e1d3999d-2jt7km')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-a6e1d3999d-2jt7km')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:97:0:25",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:24:63": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:24:63",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:24:63-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:1:11": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\">Barbara L. Goodmon Family Shelter</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Barbara L. Goodmon Family Shelter",
+								"position": 0,
+								"fullName": "content:text:1:11",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:1:11",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:24:63-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:text:2:85": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:left;\">Donations Needed!</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Donations Needed!",
+								"position": 1,
+								"fullName": "content:text:2:85",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:2:85",
+								"styles": {
+									"textAlign": "left"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:24:63-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:3:93": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:left;\">\n\t\tWe are at capacity at our shelter and can use help with supplies. Please consider making a donation of any of the items below.&nbsp;You can drop off at our shelter at 1863 Capital Blvd. in Raleigh. Thank you for helping us help others!&nbsp;\n\t</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "We are at capacity at our shelter and can use help with supplies. Please consider making a donation of any of the items below.&nbsp;You can drop off at our shelter at 1863 Capital Blvd. in Raleigh. Thank you for helping us help others!&nbsp;",
+								"position": 2,
+								"fullName": "content:textarea:3:93",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:3:93",
+								"styles": {
+									"textAlign": "left"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:24:63-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:4:29": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<ul>\n\t\t<li style=\"text-align:left;\">Bleach</li>\n\t\t<li style=\"text-align:left;\">Cleaning Supplies</li>\n\t\t<li style=\"text-align:left;\">Comet</li>\n\t\t<li style=\"text-align:left;\">Disinfectant Spray</li>\n\t\t<li style=\"text-align:left;\">Disinfectant Wipes</li>\n\t\t<li style=\"text-align:left;\">Gloves</li>\n\t\t<li style=\"text-align:left;\">Lysol</li>\n\t\t<li style=\"text-align:left;\">Pine Sol</li>\n\t\t<li style=\"text-align:left;\">Sponges</li>\n\t\t<li style=\"text-align:left;\">Toilet brushes</li>\n\t\t<li style=\"text-align:left;\">Toilet bowl cleaning supplies</li>\n\t\t<li style=\"text-align:left;\">Wash Cloths</li>\n\t\t<li style=\"text-align:left;\">Washing Detergent</li>\n\t\t<li style=\"text-align:left;\">Windex</li>\n\t</ul>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<ul>\n\t\t<li style=\"text-align:left;\">Bleach</li>\n\t\t<li style=\"text-align:left;\">Cleaning Supplies</li>\n\t\t<li style=\"text-align:left;\">Comet</li>\n\t\t<li style=\"text-align:left;\">Disinfectant Spray</li>\n\t\t<li style=\"text-align:left;\">Disinfectant Wipes</li>\n\t\t<li style=\"text-align:left;\">Gloves</li>\n\t\t<li style=\"text-align:left;\">Lysol</li>\n\t\t<li style=\"text-align:left;\">Pine Sol</li>\n\t\t<li style=\"text-align:left;\">Sponges</li>\n\t\t<li style=\"text-align:left;\">Toilet brushes</li>\n\t\t<li style=\"text-align:left;\">Toilet bowl cleaning supplies</li>\n\t\t<li style=\"text-align:left;\">Wash Cloths</li>\n\t\t<li style=\"text-align:left;\">Washing Detergent</li>\n\t\t<li style=\"text-align:left;\">Windex</li>\n\t</ul>",
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:4:29",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:4:29",
+								"styles": {
+									"textAlign": "left"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:24:63-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:5:4": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:5:4",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:24:63-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:7:46": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:left;\">We Offer Hope &amp; Refuge</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "We Offer Hope &amp; Refuge",
+								"position": 5,
+								"fullName": "content:text:7:46",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:7:46",
+								"styles": {
+									"textAlign": "left"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:24:63-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:8:25": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:left;\">The Salvation Army of Wake County Barbara L. Goodmon Family Shelter&nbsp;programs are designed to provide&nbsp;emergency or transitional housing to families in need. Underlying this program is a motivation to identify the causes of homelessness and to work to eliminate homelessness at its source.&nbsp;</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army of Wake County Barbara L. Goodmon Family Shelter&nbsp;programs are designed to provide&nbsp;emergency or transitional housing to families in need. Underlying this program is a motivation to identify the causes of homelessness and to work to eliminate homelessness at its source.&nbsp;",
+								"position": 6,
+								"fullName": "content:textarea:8:25",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:8:25",
+								"styles": {
+									"textAlign": "left"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:24:63-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:9:57": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:left;\"><strong>IN&nbsp;2024</strong></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "IN&nbsp;2024",
+								"position": 7,
+								"fullName": "content:textarea:9:57",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:9:57",
+								"styles": {
+									"textAlign": "left",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:24:63-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:10:17": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<ul>\n\t\t<li style=\"text-align:left;\">373&nbsp;total persons served</li>\n\t\t<li style=\"text-align:left;\">127 adults and 246&nbsp;children</li>\n\t\t<li style=\"text-align:left;\">58% of our clients&nbsp;exited into permanent housing</li>\n\t\t<li style=\"text-align:left;\">65% gained or maintained income after&nbsp;exiting</li>\n\t\t<li style=\"text-align:left;\">77&nbsp;days was the average length of stay</li>\n\t\t<li style=\"text-align:left;\">16579 persons stayed in our drop in shelter</li>\n\t\t<li style=\"text-align:left;\">111 is the average number of days from referral to shelter entry</li>\n\t</ul>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<ul>\n\t\t<li style=\"text-align:left;\">373&nbsp;total persons served</li>\n\t\t<li style=\"text-align:left;\">127 adults and 246&nbsp;children</li>\n\t\t<li style=\"text-align:left;\">58% of our clients&nbsp;exited into permanent housing</li>\n\t\t<li style=\"text-align:left;\">65% gained or maintained income after&nbsp;exiting</li>\n\t\t<li style=\"text-align:left;\">77&nbsp;days was the average length of stay</li>\n\t\t<li style=\"text-align:left;\">16579 persons stayed in our drop in shelter</li>\n\t\t<li style=\"text-align:left;\">111 is the average number of days from referral to shelter entry</li>\n\t</ul>",
+								"model": "6",
+								"position": 8,
+								"fullName": "content:wysiwyg_basic:10:17",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:10:17",
+								"styles": {
+									"textAlign": "left"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:24:63-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:11:37": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 9,
+								"fullName": "design:design:whitespace-sm:11:37",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:24:63-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:12:46": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5>How we help equip families</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "How we help equip families",
+								"position": 10,
+								"fullName": "content:text:12:46",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:12:46",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:24:63-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:columns:2columns:18:36": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 11,
+								"fullName": "design:columns:2columns:18:36",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:24:63-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:18:36-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:13:45": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p data-ft-member-idx=\"0\"><strong>GET SHELTER</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "GET SHELTER",
+												"position": 0,
+												"fullName": "content:textarea:13:45",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:13:45",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:18:36-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:14:94": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p data-ft-part-idx=\"0-1\">The Barbara L. Goodmon Family Emergency Shelter&nbsp;at the Judy D. Zelnak Center of Hope assists homeless families and those fleeing&nbsp;domestic violence. In addition to providing basic necessities, we offer individual case management, parenting workshops, and tutoring opportunities for children.&nbsp;</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "The Barbara L. Goodmon Family Emergency Shelter&nbsp;at the Judy D. Zelnak Center of Hope assists homeless families and those fleeing&nbsp;domestic violence. In addition to providing basic necessities, we offer individual case management, parenting workshops, and tutoring opportunities for children.&nbsp;",
+												"position": 1,
+												"fullName": "content:textarea:14:94",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:14:94",
+												"styles": {},
+												"newLoc": "design:columns:2columns:18:36-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:18:36-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:15:89": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p data-ft-member-idx=\"1\"><strong>Judy D. Zelnak Center of Hope</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Judy D. Zelnak Center of Hope",
+												"position": 0,
+												"fullName": "content:textarea:15:89",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:15:89",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:18:36-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:16:29": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p data-ft-part-idx=\"1-1\">1863 Capital Blvd.</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "1863 Capital Blvd.",
+												"position": 1,
+												"fullName": "content:textarea:16:29",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:16:29",
+												"styles": {},
+												"newLoc": "design:columns:2columns:18:36-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:17:20": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p data-ft-part-idx=\"1-2\">Raleigh NC 27604</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Raleigh NC 27604",
+												"position": 2,
+												"fullName": "content:textarea:17:20",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:17:20",
+												"styles": {},
+												"newLoc": "design:columns:2columns:18:36-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}
