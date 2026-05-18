@@ -212,7 +212,7 @@
       // Overwrite address links
       const address = '{{!this.address}}';
       const city = '{{cities.filter({this.city}).title}}';
-      const state = '{{states.filter({this.state}).state_code}}';
+      const state = '{{states.filter({this.state}).state_code}}'.toUpperCase();
       const zipcode = '{{this.zipcode}}';
 
       const mapAddressText = document.querySelector('#map__address span');
@@ -230,10 +230,13 @@
 
 
       const mapAddresses = document.querySelectorAll('.mapAddress');
-      const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
+      const regex = /\b([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
+      const smallWordRegex = /^(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)$/i;
 
       mapAddresses.forEach((address) => {
         const result = address.textContent.replace(regex, (word) => {
+          if (word.toUpperCase() === state) return state;
+          if (smallWordRegex.test(word)) return word;
           return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
         });
 
