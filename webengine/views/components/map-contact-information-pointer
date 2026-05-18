@@ -223,12 +223,14 @@
       const mapTransit = document.querySelector('#map__transit');
       
       const fullAddress = addressBuilder(address, city, state, zipcode);
-      const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
+      const regex = /\b([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
+      const smallWordRegex = /^(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)$/i;
       mapAddressText.innerHTML = fullAddress.replace(regex, (word) =>{
       if (word.toUpperCase() === state) return state;
+      if (smallWordRegex.test(word)) return word;
       return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 
-      });;
+      });
       mapAddressLink.setAttribute('href', `https://www.google.com/maps?q=${fullAddress}`);
       mapWalking.setAttribute('href', `https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${fullAddress}&travelmode=walking`);
       mapDriving.setAttribute('href', `https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${fullAddress}&travelmode=driving`);
