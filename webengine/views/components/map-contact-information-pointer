@@ -59,7 +59,7 @@
             <span
               class="map-city"
               > {{ cities.filter({locations.filter({$location}).city}).name }}</span
-            >, <span>{{ states.filter({locations.filter({$location}).state}).state_code }}</span>, {{locations.filter({$location}).zipcode}}
+            >, <span class="text-uppercase">{{ states.filter({locations.filter({$location}).state}).state_code }}</span>, {{locations.filter({$location}).zipcode}}
           </span>
         </a>
       </div>
@@ -213,7 +213,7 @@
       // Overwrite address links
       const address = '{{locations.filter({$location}).address}}';
       const city = '{{cities.filter({locations.filter({$location}).city}).title}}';
-      const state = '{{states.filter({locations.filter({$location}).state}).state_code}}';
+      const state = '{{states.filter({locations.filter({$location}).state}).state_code}}'.toUpperCase();
       const zipcode = '{{locations.filter({$location}).zipcode}}';
 
       const mapAddressText = document.querySelector('#map__address span');
@@ -225,6 +225,7 @@
       const fullAddress = addressBuilder(address, city, state, zipcode);
       const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
       mapAddressText.innerHTML = fullAddress.replace(regex, (word) =>{
+      if (word.toUpperCase() === state) return state;
       return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 
       });;

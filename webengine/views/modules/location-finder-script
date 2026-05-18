@@ -15,6 +15,13 @@ function getCookieByName(name) {
   }
   return null;
 }
+
+function formatCityName(city = '') {
+  if (!city) return '';
+  const cityName = String(city);
+  return cityName.charAt(0).toUpperCase() + cityName.slice(1).toLowerCase();
+}
+
 async function getProperty() {
   try {
     const zuid = getCookieByName('location_zuid')
@@ -608,7 +615,7 @@ async function displayLocations(locations, selectedServices) {
       // Get the territory, division, and corps from location data
       const orgDetails = loc.organization_details || '';
       const services = loc.services ? loc.services.map(s => s.title).join(',') : '';
-      const address = addressBuilder(loc?.address, loc?.city, loc?.state, loc?.zipcode);
+      const address = addressBuilder(loc?.address, formatCityName(loc?.city), loc?.state, loc?.zipcode);
       const hasServiceTypes = !!(loc.service_types && loc.service_types.trim().length);
       // console.log(`LatLOng ${loc.name} ${address}`, loc.latitude,
       //   loc.longitude, window.currentSearchLocation.lat,
@@ -1032,7 +1039,7 @@ async function searchServices() {
         name: convertHtmlEntities(location.name) || '',
         organization_details: `SAL^${location.territory || ''}^${location.division || ''}^${location.corps || ''}`,
         services: location.services ? location.services.map(s => s.title).join(',') : '',
-        address: addressBuilder(location.address, location.city, location.state, location.zipcode) || '',
+        address: addressBuilder(location.address, formatCityName(location.city), location.state, location.zipcode) || '',
         contact_number: location.contact_number || '',
         hours_of_operation: location.hours_of_operation || '',
         url: window.location.origin + (location.url || '')
