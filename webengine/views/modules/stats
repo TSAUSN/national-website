@@ -123,7 +123,20 @@
 
     let stats;
 
-    
+    function hasAvailableStats(stats) {
+      return Array.isArray(stats) && stats.length > 0;
+    }
+
+    function hideStatsModule() {
+      statsCarouselContainer.classList.add('d-none');
+      statsCarouselContainer.setAttribute('aria-hidden', 'true');
+    }
+
+    function showStatsModule() {
+      statsCarouselContainer.classList.remove('d-none');
+      statsCarouselContainer.removeAttribute('aria-hidden');
+    }
+
 
     function getStatQuery() {
       const urlParams = new URLSearchParams(window.location.search);
@@ -238,6 +251,13 @@ function filterCarousel(stats) {
     function generateIndicators(stats) {
       indicatorContainer.replaceChildren();
 
+      if (!hasAvailableStats(stats)) {
+        indicatorContainer.classList.add('hide');
+        statsPrevCarouselBtn.classList.add('hide');
+        statsNextCarouselBtn.classList.add('hide');
+        return;
+      }
+
       const indicatorsArr = stats.map((stat, index) => {
         const queryStat = getStatQuery()
         const activeCriteria = queryStat ? queryStat === stat.stats_name : index === 0
@@ -291,6 +311,13 @@ function filterCarousel(stats) {
       const queryStat = getStatQuery()
       statsCarouselInnerRight.replaceChildren();
       statsCarouselInnerLeft.replaceChildren();
+
+      if (!hasAvailableStats(stats)) {
+        carouselItemsRight = [];
+        carouselItemsLeft = [];
+        return;
+      }
+
       const itemsLeft = stats.map((stat, index) => {
         const activeCriteria = queryStat ? queryStat === stat.stats_name : index === 0
         const statsPriorityAttr =
@@ -484,6 +511,12 @@ function filterCarousel(stats) {
     }
 
     async function generateCarousel(stats) {
+      if (!hasAvailableStats(stats)) {
+        hideStatsModule();
+        return;
+      }
+
+      showStatsModule();
 
       let territoryStats = [];
       let divisionStats = [];
@@ -663,7 +696,6 @@ function filterCarousel(stats) {
 
     async function renderCarousel() {
       const stats = await getStats();
-      console.log(stats)
       generateCarousel(stats);
     }
 
