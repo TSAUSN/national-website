@@ -1,91 +1,80 @@
 <div className={styles.pvlRoot}>
-	<div class="row my-3">
-		<div class="col-lg-12 col-md-12 col-sm-12">
+	<div class="row">
+		<div class="column p-6 rounded-5 bg-light mb-18">
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/soup-salvation0info-hero.HJI2jxDbMe.jpg" alt="placeholder">
 			<div class="py-5"></div>
-			<h5 style="text-align:center;" class="u-standardCase">Donate Money</h5>
-			<p style="text-align:center;" class="margin-bottom-xl padding-bottom-lg">Your donations&nbsp;help us serve the most vulnerable members of our community. Please choose the program you would like to donate to below. Thank you for helping The Salvation Army do the most good!</p>
-			<p style="text-align:center"><a class="btn btn-primary gap-1 mt-2" href="https://give.salvationarmycarolinas.org/give/175533/#!/donation/checkout" target="_blank" rel="noopener">Greenville County</a>&nbsp;<a class="btn btn-primary gap-1 mt-2" href="https://give.salvationarmycarolinas.org/give/364784/#!/donation/checkout" target="_blank" rel="noopener">Pickens County</a>&nbsp;<a class="btn btn-primary gap-1 mt-2" href="https://give.salvationarmycarolinas.org/give/364745/#!/donation/checkout" target="_blank" rel="noopener">Oconee County</a></p>
-			<div class="my-2"></div>
-			<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align:center"><a class="btn btn-secondary gap-1 mt-2" href="https://www.salvationarmycarolinas.org/greenvillesc/contribute/womens-auxiliary/" target="_blank" rel="noopener">Women's Auxiliary</a><a class="btn btn-primary gap-1 mt-2" href="https://give.salvationarmycarolinas.org/give/368112/#!/donation/checkout" target="_blank" rel="noopener">Red Shield Youth Center</a><a class="btn btn-primary gap-1 mt-2" href="https://give.salvationarmycarolinas.org/give/368114/#!/donation/checkout" target="_blank" rel="noopener">Kroc Scholarship</a></p>
-			<div class="my-2"></div>
-			<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align:center"><a class="btn btn-secondary gap-1 mt-2" href="https://fundraise.givesmart.com/form/bbxMsA?vid=10y71y" target="_blank" rel="noopener">Greenville Red Kettle Impact Campaign</a></p>
-<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://igfn.us/form/SlufyQ" target="_blank" rel="noopener">Rebuilding Hope Restoring Lives Shelter Renovation</a>&nbsp;&nbsp;</p>
-			<div class="my-2"></div>
-			<hr>
+			<h1 style="text-align:center">Ways To Give </h1>
 			<div class="py-5"></div>
-			<div class="row my-3">
-				<div class="col-md-6 col-sm-12">
-					<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/cf69c0e7-6c39-41cc-9fe4-3d4adf4e942d_Donor+Advised+Funds.png" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 mx-auto">
-					<div class="my-2"></div>
-					<p style="text-align:center;">Donor Advised Funds</p>
-					<p style="text-align:center;">Create a gift through your Donor Advised Fund.</p>
-					<p style="text-align:center;">You can also schedule a recurring gift through your DAF.</p>
-					<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align:center"><a class="btn btn-secondary gap-1 mt-2" href="https://bnymelloncharitablegiftfund.org/salvationarmy/">Learn More</a></p>
-				</div>
-				<div class="col-md-6 col-sm-12">
-					<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/151053b1-29a3-4663-ba2b-3e7ffbdec29d_donate+goods+and+clothing.png" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 mx-auto">
-					<div class="my-2"></div>
-					<p style="text-align:center;">Shop and Donate</p>
-					<p style="text-align:center;">Your donations to The Salvation Army Family thrift stores help fund life-saving programs in the community.</p>
-					<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align:center"><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/greenvillesc/family-stores-s">Learn More</a></p>
-				</div>
-			</div>
 			<div class="my-2"></div>
 			<div class="row my-3">
-				<div class="col-md-6 col-sm-12">
-					<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/9448f514-efc1-42bd-a8d9-06e126e7b8dc_bonds%2C+funds%2C+stocks.png" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 mx-auto">
-					<div class="my-2"></div>
-					<p style="text-align:center;">Bonds, Funds, Stocks, and IRA Rollover</p>
-					<p style="text-align:center;">You can make a gift of your bonds, funds, stocks, and other securities to help those who need it most.</p>
-					<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align:center"><a class="btn btn-primary gap-1 mt-2" href="https://southernusa.salvationarmy.org/uss/donate-stock">Learn More</a></p>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<h4 style="text-align:left">Donate Money</h4>
+<p>Your donations help us serve the most vulnerable members of our community. Please choose the program you would like to donate to below. Thank you for helping The Salvation Army do the most good!</p>
+<p><a href="https://give.salvationarmycarolinas.org/campaign/698428/donate?c_src=web-content&amp;c_src2=ways-to-give" target="_blank" rel="noopener">Greenville County</a><br><a href="https://give.salvationarmycarolinas.org/campaign/703841/donate?c_src=web-content&amp;c_src2=ways-to-give" target="_blank" rel="noopener">Pickens County</a><br><a href="https://give.salvationarmycarolinas.org/campaign/703848/donate?c_src=web-content&amp;c_src2=ways-to-give" target="_blank" rel="noopener">Oconee County</a><br><a href="https://give.salvationarmycarolinas.org/give/389338/donation/checkout?c_src=web-content&amp;c_src2=ways-to-give" target="_blank" rel="noopener">Women's Auxiliary</a><br><a href="https://give.salvationarmycarolinas.org/give/368112/#!/donation/checkout?c_src=web-content&amp;c_src2=ways-to-give" target="_blank" rel="noopener">Red Shield Youth Center</a><br><a href="https://give.salvationarmycarolinas.org/give/368114/#!/donation/checkout?c_src=web-content&amp;c_src2=ways-to-give" target="_blank" rel="noopener">Kroc Scholarship</a><br><a href="https://fundraise.givesmart.com/form/bbxMsA?vid=1qvwdt" target="_blank" rel="noopener">Red Kettle Impact Campaign</a><br><a href="https://fundraise.givesmart.com/form/SlufyQ?vid=1qsopo" target="_blank" rel="noopener">Rebuilding Hope Restoring Lives Shelter Renovation</a></p>
+<p><span style="font-size: 18px;">Please mail donation checks and other correspondence to:<br><strong>The Salvation Army of Greenville</strong><br>501 Rutherford St.<br>Greenville, SC 29609</span></p>
 				</div>
-				<div class="col-md-6 col-sm-12">
-					<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/df311b85-5fd7-49c9-93fa-43fe0fb50a95_Planning+Giving%2C+Wills+and+Gift+Annuities.png" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 mx-auto">
-					<div class="my-2"></div>
-					<p style="text-align:center;">Planned Giving, Wills, and Gift Annuities</p>
-					<p style="text-align:center;">When you consider a will or estate gift to The Salvation Army, you leave a legacy of love for those who need it.&nbsp;</p>
-					<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align:center"><a class="btn btn-secondary gap-1 mt-2" href="https://tsalegacyoflove.com/">Learn More</a></p>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<h4 style="text-align:center">Donor Advised Fund</h4>
+<p>Create a gift or schedule a recurring gift through your Donor Advised Fund.</p>
+<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://bnymelloncharitablegiftfund.org/salvationarmy/" target="_blank" rel="noopener">Learn More</a></p>
 				</div>
-			</div>
-			<div class="my-2"></div>
-			<div class="row my-3">
-				<div class="col-md-6 col-sm-12">
-					<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/88f31500-c740-4b2b-b864-6d822d4e8604_donate+your+vehicle+icon.png" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 mx-auto">
-					<div class="my-2"></div>
-					<p style="text-align:center;">Donate a Vehicle</p>
-					<p style="text-align:center;">We convert vehicles into cash, which becomes a welcome donation to Salvation Army.</p>
-					<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align:center"><a class="btn btn-secondary gap-1 mt-2" href="https://careasy.org/thesalvationarmygreenvillescareacommand">Learn More</a></p>
-				</div>
-				<div class="col-md-6 col-sm-12">
-					<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/b09f4579-8250-4e2e-af6b-c6f7c9c3061d_Cryptocurrency.png" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 mx-auto">
-					<div class="my-2"></div>
-					<p style="text-align:center;">Cryptocurrency</p>
-					<p style="text-align:center;">The Salvation Army now accepts donations via cryptocurrency such as Bitcoin.</p>
-					<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align:center"><a class="btn btn-primary gap-1 mt-2" href="https://platform.engiven.com/give/258/widget/156">Learn More</a></p>
-				</div>
-			</div>
-			<div class="my-2"></div>
-			<div class="row my-3">
-				<div class="col-md-6 col-sm-12">
-					<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/137c2fe2-8007-4117-8ac8-3e7d314d5e42_donate+money.png" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 mx-auto">
-					<div class="my-2"></div>
-					<p style="text-align:center;">Matching Gifts</p>
-					<p style="text-align:center;">Help us leverage your generous donation by getting your employer to match your contribution.</p>
-					<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align:center"><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/uss/matching-gifts?random=199">Learn More&nbsp;</a></p>
-				</div>
-				<div class="col-md-6 col-sm-12">
-					<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/cf69c0e7-6c39-41cc-9fe4-3d4adf4e942d_Donor+Advised+Funds.png" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 mx-auto">
-					<div class="my-2"></div>
-					<p style="text-align:center;">Volunteer</p>
-					<p style="text-align:center;">&nbsp;Donate your time to The Salvation Army to help create change and provide hope throughout your community.</p>
-					<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align:center"><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/greenvillesc/volunteer">Learn More</a></p>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<h4 style="text-align:center">Shop and Donate</h4>
+<p>Your donations to The Salvation Army Family thrift stores help fund life-saving programs in the community.</p>
+<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/greenvillesc/family-stores-s" target="_blank" rel="noopener">Learn More</a></p>
 				</div>
 			</div>
 			<div class="py-5"></div>
+			<div class="my-5"></div>
+			<div class="my-5"></div>
+			<div class="row my-3">
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<h4 style="text-align:center">Bonds, Funds, Stocks, and IRA Rollover</h4>
+<p>You can make a gift of your bonds, funds, stocks, and other securities to help those who need it most.</p>
+<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/uss/donate-stock" target="_blank" rel="noopener">Learn More</a></p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<h4 style="text-align:center">Planned Giving, Wills, and Gift Annuities</h4>
+<p>When you consider a will or estate gift to The Salvation Army, you leave a legacy of love for those who need it.</p>
+<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://tsalegacyoflove.com/" target="_blank" rel="noopener">Learn More</a></p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<h4 style="text-align:center">Donate a Vehicle</h4>
+<p>We convert vehicles into cash, which becomes a welcome donation to The Salvation Army.</p>
+<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://careasy.org/thesalvationarmygreenvillescareacommand" target="_blank" rel="noopener">Learn More</a></p>
+				</div>
+			</div>
 			<div class="py-5"></div>
-			<div class="rounded p-6 gap-3 bg-primary-200 text-light" style="color:#FFFFFF">
-<p style="text-align: center;"><span style="font-size: 16px;"><strong>Please mail donation checks and other correspondence to The Salvation Army of Greenville, 501 Rutherford St., Greenville, SC 29609.</strong></span></p>
-</div>
+			<div class="my-5"></div>
+			<div class="my-5"></div>
+			<div class="row my-3">
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<h4 style="text-align:center">Donate a Vehicle</h4>
+<p>We convert vehicles into cash, which becomes a welcome donation to The Salvation Army.</p>
+<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://careasy.org/thesalvationarmygreenvillescareacommand" target="_blank" rel="noopener">Learn More</a></p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<h4 style="text-align:center">Cryptocurrency</h4>
+<p>The Salvation Army now accepts donations via cryptocurrency such as Bitcoin.</p>
+<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://platform.engiven.com/give/258/widget/156" target="_blank" rel="noopener">Learn More</a></p>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<h4 style="text-align:center">Matching Gifts</h4>
+<p>Help us leverage your generous donation by getting your employer to match your contribution.</p>
+<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/uss/matching-gifts?random=199" target="_blank" rel="noopener">Learn More&nbsp;</a></p>
+				</div>
+			</div>
+			<div class="my-5"></div>
+			<div class="py-5"></div>
+			<div class="row">
+				<div class="column p-6 rounded-5 bg-light mb-18">
+					<h4 style="text-align:center">Volunteer</h4>
+<p style="text-align: center;">Donate your time to The Salvation Army to help create change and provide hope throughout your community.</p>
+<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start justify-content-center"><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/greenvillesc/volunteer" target="_blank" rel="noopener">Learn More</a></p>
+					<div class="my-2"></div>
+					<div class="my-2"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

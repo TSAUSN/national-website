@@ -1,0 +1,376 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:18:0:11": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-e4baa8c1e4-k9l9fr')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-e4baa8c1e4-k9l9fr')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:18:0:11",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:design:whitespace-sm:1:1534": {
+				"uid": "351",
+				"name": "Whitespace - Small",
+				"type": "design",
+				"classes": "my-2",
+				"html": "<div class=\"my-2\"></div>",
+				"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+				"droppable": true,
+				"position": 1,
+				"fullName": "design:design:whitespace-sm:1:1534",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank"
+			},
+			"design:columns:1 column - 1 row my-3:23:42": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 2,
+				"fullName": "design:columns:1 column - 1 row my-3:23:42",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:images:0:9163": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a2013fa3-caa8-4ced-a159-fea3dfe43ecc_Untitled+2.png\" alt=\"placeholder\" class=\"img-fluid w-100 d-block mx-auto mb-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/a2013fa3-caa8-4ced-a159-fea3dfe43ecc_Untitled+2.png",
+								"position": 0,
+								"fullName": "content:images:0:9163",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:1:72": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t<br>\n\t<span><strong><span>How We Help</span></strong></span>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "How We Help",
+								"position": 1,
+								"fullName": "content:textarea:1:72",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:1:72",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:16": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tIn 2017 <strong>Alabama Power</strong> and the rural electric cooperatives formed a partnership with&nbsp;<strong>The Salvation Army Greater Birmingham Area Command&nbsp;</strong>to administer the <strong>Project SHARE</strong> (Service to Help Alabamians with Relief on Energy) program in the state of Alabama.&nbsp;<br>\n\t&nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "In 2017 Alabama Power and the rural electric cooperatives formed a partnership with&nbsp;The Salvation Army Greater Birmingham Area Command&nbsp;to administer the Project SHARE (Service to Help Alabamians with Relief on Energy) program in the state of Alabama.&nbsp; &nbsp;",
+								"position": 2,
+								"fullName": "content:textarea:2:16",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:16",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:3:82": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ac31a503-e3a6-4b71-ac2f-c91f7c2cabac_Untitled+5.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#ffffff;\">\n                    <p style=\"text-align:center;color:#fff;\">\n\t<strong>Give Hope in Your Community</strong>\n</p>\n\n<p style=\"text-align:center;color:#fff;\">\n\tEmergencies and challenging economic times often make it difficult for people to acquire food, shelter, clothing and medical supplies or even pay their utility bills. But programs like Project share provide a way for you to help those truly in need.\n</p>\n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"text-white rounded p-6 gap-3 my-5\" style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ac31a503-e3a6-4b71-ac2f-c91f7c2cabac_Untitled+5.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#ffffff;\">\n                    <p style=\"text-align:center;color:#fff;\">\n\t<strong>Give Hope in Your Community</strong>\n</p>\n\n<p style=\"text-align:center;color:#fff;\">\n\tEmergencies and challenging economic times often make it difficult for people to acquire food, shelter, clothing and medical supplies or even pay their utility bills. But programs like Project share provide a way for you to help those truly in need.\n</p>\n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:3:82",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:3:82",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "300px",
+									"background": "#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ac31a503-e3a6-4b71-ac2f-c91f7c2cabac_Untitled+5.png') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ac31a503-e3a6-4b71-ac2f-c91f7c2cabac_Untitled+5.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover",
+									"fontWeight": "700"
+								},
+								"classes": "text-white rounded p-6 gap-3 my-5",
+								"newLoc": "design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:4:29": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:4:29",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:5:89": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t<br>\n\t<strong>Requirements for Assistance</strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Requirements for Assistance",
+								"position": 5,
+								"fullName": "content:textarea:5:89",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:5:89",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:6:32": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tIn order to qualify for Project share the applicant must be 60 years of age or older or a disabled Alabamian.<br>\n\t&nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "In order to qualify for Project share the applicant must be 60 years of age or older or a disabled Alabamian. &nbsp;",
+								"position": 6,
+								"fullName": "content:textarea:6:32",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:6:32",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:7:12": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><strong><br>\n\tHere's How You Can Help</strong><br><strong>Project share</strong> is funded primarily by contributions from the customers of Alabama Power Company. Customers simply pledge to donate $1, $2, $5, $10 or any other whole-dollar amount to <strong>Project SHARE </strong>by checking the box on their monthly utility bill. This amount is automatically added to each monthly bill, and all such donations will be forwarded to The Salvation Army. <strong>Project SHARE</strong> provides emergency energy assistance to elderly and disabled Alabamians in peak winter and summer months. The program assists Alabamians in 57 counties statewide.</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Here's How You Can HelpProject share is funded primarily by contributions from the customers of Alabama Power Company. Customers simply pledge to donate $1, $2, $5, $10 or any other whole-dollar amount to Project SHARE by checking the box on their monthly utility bill. This amount is automatically added to each monthly bill, and all such donations will be forwarded to The Salvation Army. Project SHARE provides emergency energy assistance to elderly and disabled Alabamians in peak winter and summer months. The program assists Alabamians in 57 counties statewide.",
+								"position": 7,
+								"fullName": "content:textarea:7:12",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:7:12",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:8:83": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">You can help your neighbors by supporting Project share.</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "You can help your neighbors by supporting Project share.",
+								"position": 8,
+								"fullName": "content:textarea:8:83",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:8:83",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:9:83": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">Donate via your Alabama Power online account.</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Donate via your Alabama Power online account.",
+								"position": 9,
+								"fullName": "content:textarea:9:83",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:9:83",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:10:41": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tYou can also mail your donation to:<br>\n\tProject share<br>\n\tP.O. Box 11005<br>\n\tBirmingham, AL 35202<br>\n\t&nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "You can also mail your donation to: Project share P.O. Box 11005 Birmingham, AL 35202 &nbsp;",
+								"position": 10,
+								"fullName": "content:textarea:10:41",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:10:41",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:11:65": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\">\n\tYou can apply for assistance from Project share at your local Project share Office. Please see the list below for the local office in your county or you can call <a href=\"tel:+12053282420\" target=\"\">205-328-2420</a> and press extension number 2 to get the contact information of your local Project SHARE office.\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\">\n\tYou can apply for assistance from Project share at your local Project share Office. Please see the list below for the local office in your county or you can call <a href=\"tel:+12053282420\" target=\"\">205-328-2420</a> and press extension number 2 to get the contact information of your local Project SHARE office.\n</p>",
+								"model": "6",
+								"position": 11,
+								"fullName": "content:wysiwyg_basic:11:65",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:11:65",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:12:13": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 12,
+								"fullName": "design:design:whitespace-sm:12:13",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:14:49": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Community Partners by County</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Community Partners by County",
+								"position": 13,
+								"fullName": "content:text:14:49",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:14:49",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:15:38": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"btgrid\" style=\"text-align:center;\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Autauga</strong><br>\n\t\t\t\t\tCommunity Action Partnership<br>\n\t\t\t\t\tOf Middle Alabama<br>\n\t\t\t\t\t<a href=\"tel:2052870139\">205-287-0139</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Baldwin</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf South Alabama<br>\n\t\t\t\t\t<a href=\"tel:2516262646\">251-626-2646</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Barbour</strong><br>\n\t\t\t\t\tFamily Service Center/<br>\n\t\t\t\t\tUnited Way Clearing House<br>\n\t\t\t\t\t<a href=\"tel:3346872896\">334-687-2896</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Barbour</strong><br>\n\t\t\t\t\tSoutheast Alabama<br>\n\t\t\t\t\tCommunity&nbsp;Action Partnership<br>\n\t\t\t\t\t<a href=\"tel:3348972667\">334-897-2667</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Bibb</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:2059269384\">205-926-9384</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Bullock</strong><br>\n\t\t\t\t\tBullock County<br>\n\t\t\t\t\tAging Program<br>\n\t\t\t\t\t<a href=\"tel:3347382928\">334-738-2928</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-3\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Butler</strong><br>\n\t\t\t\t\tButler County Department<br>\n\t\t\t\t\tOf Human Resources<br>\n\t\t\t\t\t<a href=\"tel:3343824419\">334-382-4419</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Calhoun</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tAnniston<br>\n\t\t\t\t\t<a href=\"tel:2562365643\">256-236-5643</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Chambers</strong><br>\n\t\t\t\t\tCircle of Care Center<br>\n\t\t\t\t\tFor Families<br>\n\t\t\t\t\t<a href=\"tel:3344721034\">334-472-1034</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-4\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Chilton</strong><br>\n\t\t\t\t\tCommunity Action&nbsp;Partnership<br>\n\t\t\t\t\tOf Middle Alabama<br>\n\t\t\t\t\t<a href=\"tel:2052585198\">205-258-5198</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Choctaw</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:2059323218\">205-932-3218</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Clarke</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf South Alabama<br>\n\t\t\t\t\t<a href=\"tel:2512758498\">251-275-8498</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-5\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Clay</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tAnniston<br>\n\t\t\t\t\t<a href=\"tel:2562365643\">256-236-5643</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Cleburne</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tAnniston<br>\n\t\t\t\t\t<a href=\"tel:2562365643\">256-236-5643</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Coffee</strong><br>\n\t\t\t\t\tThe Salvation Army Dale<br>\n\t\t\t\t\tAnd Coffee Counties<br>\n\t\t\t\t\t<a href=\"tel:3344453070\">334-445-3070</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-6\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Coffee</strong><br>\n\t\t\t\t\tSoutheast Alabama<br>\n\t\t\t\t\tCommunity&nbsp;Action Partnership<br>\n\t\t\t\t\t<a href=\"tel:3343470881\">334-347-0881</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Conecuh</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf South Alabama<br>\n\t\t\t\t\t<a href=\"tel:2515782331\">251-578-2331</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Coosa</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tCoosa County<br>\n\t\t\t\t\t<a href=\"tel:2562153730\">256-215-3730</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-7\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Covington</strong><br>\n\t\t\t\t\tOrganized Community Action<br>\n\t\t\t\t\tProgram Covington County<br>\n\t\t\t\t\t<a href=\"tel:3344282660\">334-428-2660</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Crenshaw</strong><br>\n\t\t\t\t\tCrenshaw County Department<br>\n\t\t\t\t\tOf Human Resources<br>\n\t\t\t\t\t<a href=\"tel:3343357000\">334-335-7000</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Dale</strong><br>\n\t\t\t\t\tThe Salvation Army Dale<br>\n\t\t\t\t\tAnd Coffee Counties<br>\n\t\t\t\t\t<a href=\"tel:3343890732\">334-389-0732</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-8\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Dallas</strong><br>\n\t\t\t\t\tDallas County<br>\n\t\t\t\t\tFamily Resource Center<br>\n\t\t\t\t\t<a href=\"tel:3345264567\">334-526-4567</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Elmore</strong><br>\n\t\t\t\t\tCommunity Action Partnership<br>\n\t\t\t\t\tOf Middle Alabama<br>\n\t\t\t\t\t<a href=\"tel:3345145906\">334-514-5906</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Escambia</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf South Alabama<br>\n\t\t\t\t\t<a href=\"tel:2518674759\">251-867-4759</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-9\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Etowah</strong><br>\n\t\t\t\t\tEtowah County<br>\n\t\t\t\t\tBaptist Mission<br>\n\t\t\t\t\t<a href=\"tel:2565465404\">256-546-5404</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Etowah</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tEtowah County<br>\n\t\t\t\t\t<a href=\"tel:2565464673\">256-546-4673</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Fayette</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:2059323218\">205-932-3218</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-10\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Geneva</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tDothan<br>\n\t\t\t\t\t<a href=\"tel:3347921911\">334-792-1911</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Geneva</strong><br>\n\t\t\t\t\tSoutheast Alabama<br>\n\t\t\t\t\tCommunity Action Partnership<br>\n\t\t\t\t\t<a href=\"tel:3343470881\">334-347-0881</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Greene</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:2053724562\">205-372-4562</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-11\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Hale</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:3346244455\">334-624-4455</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Henry</strong><br>\n\t\t\t\t\tHenry County Department<br>\n\t\t\t\t\tOf Human Resources<br>\n\t\t\t\t\t<a href=\"tel:3345854121\">334-585-4121</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Henry</strong><br>\n\t\t\t\t\tSoutheast Alabama<br>\n\t\t\t\t\tCommunity Action Partnership<br>\n\t\t\t\t\t<a href=\"tel:3343470881\">334-347-0881</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-12\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Houston</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tDothan<br>\n\t\t\t\t\t<a href=\"tel:3347921911\">334-792-1911</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Houston</strong><br>\n\t\t\t\t\tSoutheast Alabama<br>\n\t\t\t\t\tCommunity Action Partnership<br>\n\t\t\t\t\t<a href=\"tel:3343470881\">334-347-0881</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Jefferson</strong><br>\n\t\t\t\t\tPositive Maturity<br>\n\t\t\t\t\t<a href=\"tel:2058031665\">205-803-1665</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-13\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Jefferson</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tBessemer Service Center<br>\n\t\t\t\t\t<a href=\"tel:2054254303\">205-425-4303</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Jefferson</strong><br>\n\t\t\t\t\tUrban Ministry<br>\n\t\t\t\t\t<a href=\"tel:2057810517\">205-781-0517</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Lamar</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:2056959573\">205-695-9573</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-14\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Lee</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tOf lee County<br>\n\t\t\t\t\t<a href=\"tel:6019617711\">601-961-7711</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Lowndes</strong><br>\n\t\t\t\t\tOrganized Community<br>\n\t\t\t\t\tAction Program<br>\n\t\t\t\t\t<a href=\"tel:3345482768\">334-548-2768</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Macon</strong><br>\n\t\t\t\t\tMacon-Russell<br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\t<a href=\"tel:3347276100\">334-727-6100</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-15\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Marengo</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf South Alabama<br>\n\t\t\t\t\t<a href=\"tel:3342952244\">334-295-2244</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Marion</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf North Alabama<br>\n\t\t\t\t\t<a href=\"tel:2059214224\">205-921-4224</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Mobile</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tMobile<br>\n\t\t\t\t\t<a href=\"tel:2514381625\">251-438-1625</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-16\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Monroe</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf South Alabama<br>\n\t\t\t\t\t<a href=\"tel:2517433137\">251-743-3137</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Montgomery</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tMontgomery<br>\n\t\t\t\t\t<a href=\"tel:3342650281\">334-265-0281</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Perry</strong><br>\n\t\t\t\t\tSowing Seeds of Hope<br>\n\t\t\t\t\t<a href=\"tel:3346834666\">334-683-4666</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-17\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Pickens</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf Pickens County<br>\n\t\t\t\t\t<a href=\"tel:2053678166\">205-367-8166</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Pike</strong><br>\n\t\t\t\t\tOrganized Community<br>\n\t\t\t\t\tAction Program<br>\n\t\t\t\t\t<a href=\"tel:3345661712\">334-566-1712</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Russell</strong><br>\n\t\t\t\t\tMacon-Russell<br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\t<a href=\"tel:3347276100\">334-727-6100</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-18\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Russell</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tColumbus, GA<br>\n\t\t\t\t\t<a href=\"tel:7065619026\">706-561-9026</a>&nbsp;\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Shelby</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tAlabaster Corps<br>\n\t\t\t\t\t<a href=\"tel:2056637105\">205-663-7105</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Sumter</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:2056521346\">205-652-1346</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-19\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Talladega</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tAnniston<br>\n\t\t\t\t\t<a href=\"tel:2562365643\">256-236-5643</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Tallapoosa</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tTallapoos<br>\n\t\t\t\t\t<a href=\"tel:2562153730\">256-215-3730</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Tuscaloosa</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:2057525429\">205-752-5429</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-20\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Tuscaloosa</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tTuscaloosa<br>\n\t\t\t\t\t<a href=\"tel:2056323691\">205-632-3691</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Walker</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tWalker<br>\n\t\t\t\t\t<a href=\"tel:2052217737\">205-221-7737</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Washington</strong><br>\n\t\t\t\t\tMobile Community<br>\n\t\t\t\t\tAction Agency<br>\n\t\t\t\t\t<a href=\"tel:2518295418\">251-829-5418</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-21\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Wilcox</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf South Alabama<br>\n\t\t\t\t\t<a href=\"tel:3346824863\">334-682-4863</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Winston</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf North Alabama<br>\n\t\t\t\t\t<a href=\"tel:2054867239\">205-486-7239</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t&nbsp;\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"btgrid\" style=\"text-align:center;\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Autauga</strong><br>\n\t\t\t\t\tCommunity Action Partnership<br>\n\t\t\t\t\tOf Middle Alabama<br>\n\t\t\t\t\t<a href=\"tel:2052870139\">205-287-0139</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Baldwin</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf South Alabama<br>\n\t\t\t\t\t<a href=\"tel:2516262646\">251-626-2646</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Barbour</strong><br>\n\t\t\t\t\tFamily Service Center/<br>\n\t\t\t\t\tUnited Way Clearing House<br>\n\t\t\t\t\t<a href=\"tel:3346872896\">334-687-2896</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Barbour</strong><br>\n\t\t\t\t\tSoutheast Alabama<br>\n\t\t\t\t\tCommunity&nbsp;Action Partnership<br>\n\t\t\t\t\t<a href=\"tel:3348972667\">334-897-2667</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Bibb</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:2059269384\">205-926-9384</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Bullock</strong><br>\n\t\t\t\t\tBullock County<br>\n\t\t\t\t\tAging Program<br>\n\t\t\t\t\t<a href=\"tel:3347382928\">334-738-2928</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-3\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Butler</strong><br>\n\t\t\t\t\tButler County Department<br>\n\t\t\t\t\tOf Human Resources<br>\n\t\t\t\t\t<a href=\"tel:3343824419\">334-382-4419</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Calhoun</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tAnniston<br>\n\t\t\t\t\t<a href=\"tel:2562365643\">256-236-5643</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Chambers</strong><br>\n\t\t\t\t\tCircle of Care Center<br>\n\t\t\t\t\tFor Families<br>\n\t\t\t\t\t<a href=\"tel:3344721034\">334-472-1034</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-4\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Chilton</strong><br>\n\t\t\t\t\tCommunity Action&nbsp;Partnership<br>\n\t\t\t\t\tOf Middle Alabama<br>\n\t\t\t\t\t<a href=\"tel:2052585198\">205-258-5198</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Choctaw</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:2059323218\">205-932-3218</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Clarke</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf South Alabama<br>\n\t\t\t\t\t<a href=\"tel:2512758498\">251-275-8498</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-5\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Clay</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tAnniston<br>\n\t\t\t\t\t<a href=\"tel:2562365643\">256-236-5643</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Cleburne</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tAnniston<br>\n\t\t\t\t\t<a href=\"tel:2562365643\">256-236-5643</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Coffee</strong><br>\n\t\t\t\t\tThe Salvation Army Dale<br>\n\t\t\t\t\tAnd Coffee Counties<br>\n\t\t\t\t\t<a href=\"tel:3344453070\">334-445-3070</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-6\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Coffee</strong><br>\n\t\t\t\t\tSoutheast Alabama<br>\n\t\t\t\t\tCommunity&nbsp;Action Partnership<br>\n\t\t\t\t\t<a href=\"tel:3343470881\">334-347-0881</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Conecuh</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf South Alabama<br>\n\t\t\t\t\t<a href=\"tel:2515782331\">251-578-2331</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Coosa</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tCoosa County<br>\n\t\t\t\t\t<a href=\"tel:2562153730\">256-215-3730</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-7\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Covington</strong><br>\n\t\t\t\t\tOrganized Community Action<br>\n\t\t\t\t\tProgram Covington County<br>\n\t\t\t\t\t<a href=\"tel:3344282660\">334-428-2660</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Crenshaw</strong><br>\n\t\t\t\t\tCrenshaw County Department<br>\n\t\t\t\t\tOf Human Resources<br>\n\t\t\t\t\t<a href=\"tel:3343357000\">334-335-7000</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Dale</strong><br>\n\t\t\t\t\tThe Salvation Army Dale<br>\n\t\t\t\t\tAnd Coffee Counties<br>\n\t\t\t\t\t<a href=\"tel:3343890732\">334-389-0732</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-8\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Dallas</strong><br>\n\t\t\t\t\tDallas County<br>\n\t\t\t\t\tFamily Resource Center<br>\n\t\t\t\t\t<a href=\"tel:3345264567\">334-526-4567</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Elmore</strong><br>\n\t\t\t\t\tCommunity Action Partnership<br>\n\t\t\t\t\tOf Middle Alabama<br>\n\t\t\t\t\t<a href=\"tel:3345145906\">334-514-5906</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Escambia</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf South Alabama<br>\n\t\t\t\t\t<a href=\"tel:2518674759\">251-867-4759</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-9\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Etowah</strong><br>\n\t\t\t\t\tEtowah County<br>\n\t\t\t\t\tBaptist Mission<br>\n\t\t\t\t\t<a href=\"tel:2565465404\">256-546-5404</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Etowah</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tEtowah County<br>\n\t\t\t\t\t<a href=\"tel:2565464673\">256-546-4673</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Fayette</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:2059323218\">205-932-3218</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-10\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Geneva</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tDothan<br>\n\t\t\t\t\t<a href=\"tel:3347921911\">334-792-1911</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Geneva</strong><br>\n\t\t\t\t\tSoutheast Alabama<br>\n\t\t\t\t\tCommunity Action Partnership<br>\n\t\t\t\t\t<a href=\"tel:3343470881\">334-347-0881</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Greene</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:2053724562\">205-372-4562</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-11\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Hale</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:3346244455\">334-624-4455</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Henry</strong><br>\n\t\t\t\t\tHenry County Department<br>\n\t\t\t\t\tOf Human Resources<br>\n\t\t\t\t\t<a href=\"tel:3345854121\">334-585-4121</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Henry</strong><br>\n\t\t\t\t\tSoutheast Alabama<br>\n\t\t\t\t\tCommunity Action Partnership<br>\n\t\t\t\t\t<a href=\"tel:3343470881\">334-347-0881</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-12\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Houston</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tDothan<br>\n\t\t\t\t\t<a href=\"tel:3347921911\">334-792-1911</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Houston</strong><br>\n\t\t\t\t\tSoutheast Alabama<br>\n\t\t\t\t\tCommunity Action Partnership<br>\n\t\t\t\t\t<a href=\"tel:3343470881\">334-347-0881</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Jefferson</strong><br>\n\t\t\t\t\tPositive Maturity<br>\n\t\t\t\t\t<a href=\"tel:2058031665\">205-803-1665</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-13\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Jefferson</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tBessemer Service Center<br>\n\t\t\t\t\t<a href=\"tel:2054254303\">205-425-4303</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Jefferson</strong><br>\n\t\t\t\t\tUrban Ministry<br>\n\t\t\t\t\t<a href=\"tel:2057810517\">205-781-0517</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Lamar</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:2056959573\">205-695-9573</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-14\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Lee</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tOf lee County<br>\n\t\t\t\t\t<a href=\"tel:6019617711\">601-961-7711</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Lowndes</strong><br>\n\t\t\t\t\tOrganized Community<br>\n\t\t\t\t\tAction Program<br>\n\t\t\t\t\t<a href=\"tel:3345482768\">334-548-2768</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Macon</strong><br>\n\t\t\t\t\tMacon-Russell<br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\t<a href=\"tel:3347276100\">334-727-6100</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-15\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Marengo</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf South Alabama<br>\n\t\t\t\t\t<a href=\"tel:3342952244\">334-295-2244</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Marion</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf North Alabama<br>\n\t\t\t\t\t<a href=\"tel:2059214224\">205-921-4224</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Mobile</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tMobile<br>\n\t\t\t\t\t<a href=\"tel:2514381625\">251-438-1625</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-16\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Monroe</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf South Alabama<br>\n\t\t\t\t\t<a href=\"tel:2517433137\">251-743-3137</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Montgomery</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tMontgomery<br>\n\t\t\t\t\t<a href=\"tel:3342650281\">334-265-0281</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Perry</strong><br>\n\t\t\t\t\tSowing Seeds of Hope<br>\n\t\t\t\t\t<a href=\"tel:3346834666\">334-683-4666</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-17\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Pickens</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf Pickens County<br>\n\t\t\t\t\t<a href=\"tel:2053678166\">205-367-8166</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Pike</strong><br>\n\t\t\t\t\tOrganized Community<br>\n\t\t\t\t\tAction Program<br>\n\t\t\t\t\t<a href=\"tel:3345661712\">334-566-1712</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Russell</strong><br>\n\t\t\t\t\tMacon-Russell<br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\t<a href=\"tel:3347276100\">334-727-6100</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-18\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Russell</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tColumbus, GA<br>\n\t\t\t\t\t<a href=\"tel:7065619026\">706-561-9026</a>&nbsp;\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Shelby</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tAlabaster Corps<br>\n\t\t\t\t\t<a href=\"tel:2056637105\">205-663-7105</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Sumter</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:2056521346\">205-652-1346</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-19\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Talladega</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tAnniston<br>\n\t\t\t\t\t<a href=\"tel:2562365643\">256-236-5643</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Tallapoosa</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tTallapoos<br>\n\t\t\t\t\t<a href=\"tel:2562153730\">256-215-3730</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Tuscaloosa</strong><br>\n\t\t\t\t\tCommunity Service Programs<br>\n\t\t\t\t\tOf West Alabama<br>\n\t\t\t\t\t<a href=\"tel:2057525429\">205-752-5429</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-20\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Tuscaloosa</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tTuscaloosa<br>\n\t\t\t\t\t<a href=\"tel:2056323691\">205-632-3691</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Walker</strong><br>\n\t\t\t\t\tThe Salvation Army<br>\n\t\t\t\t\tWalker<br>\n\t\t\t\t\t<a href=\"tel:2052217737\">205-221-7737</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Washington</strong><br>\n\t\t\t\t\tMobile Community<br>\n\t\t\t\t\tAction Agency<br>\n\t\t\t\t\t<a href=\"tel:2518295418\">251-829-5418</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-21\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Wilcox</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf South Alabama<br>\n\t\t\t\t\t<a href=\"tel:3346824863\">334-682-4863</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<strong>Winston</strong><br>\n\t\t\t\t\tCommunity Action Agency<br>\n\t\t\t\t\tOf North Alabama<br>\n\t\t\t\t\t<a href=\"tel:2054867239\">205-486-7239</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t&nbsp;\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>",
+								"model": "6",
+								"position": 14,
+								"fullName": "content:wysiwyg_basic:15:38",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:15:38",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:23:42-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

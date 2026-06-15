@@ -1,5 +1,6 @@
 <div className={styles.pvlRoot}>
-	{{block('/-/block/hero_full.html?variant=7-d8f39fa1a8-2qf8vl&version=2')}}
+	{{block('/-/block/hero_full.html?variant=7-d8f39fa1a8-2qf8vl&version=4')}}
+	<br>
 	<div class="row my-3">
 		<div class="col-lg-12 col-md-12 col-sm-12">
 			<h5>The Women's Auxiliary Mission Statement</h5>
@@ -12,13 +13,13 @@
 			<p>The Salvation Army Women’s Auxiliary of Greenville is the only auxiliary in the state of South Carolina. &nbsp;It is a committed volunteer group dedicated to doing the most good in our community. Meetings are held on the 2nd Wednesday of each month (except July) at 11:30 a.m. at the Kroc Center located at 42 Westfield Street in Greenville (lunch is served).&nbsp;</p>
 			<p>For more information about SAWA memberships, please email the Women's Auxiliary Coordinator:&nbsp;<a href="mailto:amanda.link@uss.salvationarmy.org" target="">Amanda Link</a></p>
 			<div class="my-2"></div>
-			<h2>Membership Levels</h2>
+			<h5>Membership Levels</h5>
 <p>Annual Membership ($85.00 per fiscal year)</p>
 <p>Lifetime Membership ($1,000)</p>
 <p>*Annual membership is from Oct 1st – Sept 30th (fiscal year). If the joining date is after July 1, 2026, membership payment will cover the following fiscal year (Oct 1, 2026 - Sept 30, 2027</p>
 <p><a href="https://tsansc.wufoo.com/forms/z1r6005r1muio29/" target="_blank" rel="noopener">Complete the form</a> to renew your current membership or apply for a new membership.</p>
 			<hr>
-			<h3>Membership Payment</h3>
+			<h5>Membership Payment</h5>
 <p>You can pay your Member Dues through the following options:</p>
 <p><strong>1) Cash or check in person</strong></p>
 <p>You can also mail membership checks addressed to SAWA, 501 Rutherford St., Greenville, SC 29609. <a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/ef2e91f8-6b5f-487a-9d77-164d24bae6cb_SAWA+Membership+Application+2025-2026.pdf" target="_blank" rel="noopener">Download and complete</a> the Membership form.</p>
@@ -37,7 +38,7 @@
 			<div class="my-2"></div>
 			<h5>Donate</h5>
 			<p>When you make a financial contribution to The Women's Auxiliary of Greenville, your donation will be used to help your neighbors receive the help that they need.&nbsp;By mail at: The Salvation Army Women's Auxiliary | PO Box 1237 Greenville, SC, 29602.&nbsp;Click the red button below&nbsp;to donate online.</p>
-			<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align:center"><a class="btn btn-primary gap-1 mt-2" href="https://give.salvationarmycarolinas.org/give/389338/#!/donation/checkout">Donate to SAWA</a></p>
+			<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align:center"><a class="btn btn-secondary gap-1 mt-2" href="https://give.salvationarmycarolinas.org/give/389338/#!/donation/checkout">Donate to SAWA</a></p>
 			<div class="my-2"></div>
 			<p>SAWA is the volunteer, educational, and fundraising arm of The Salvation Army of Greenville, SC, supporting initiatives that enrich the lives of those individuals living in our community by meeting them at their point of need.</p>
 <p>As a member of SAWA, you are among Greenville's most influential and active community leaders, women with a generous spirit and determination to be “doing the most good." Meetings are held on the 2nd Wednesday of each month (except July) at 11:30 a.m. at the Kroc Center located at 42 Westfield Street in Greenville (lunch is served).&nbsp;&nbsp;Members have many opportunities throughout the year to volunteer and attend social events and meetings.</p>
@@ -49,5 +50,7 @@
 <p><a href="https://mailchi.mp/7084ece3f73f/sawa-february-2024-newsletter-13050296" target="_blank" rel="noopener">2025 Q3</a></p>
 <p><a href="https://mailchi.mp/28186e18dce4/sawa-february-2024-newsletter" target="_blank" rel="noopener">2024</a></p>
 <p><a href="https://us21.campaign-archive.com/?e=__test_email__&amp;u=5875778e73e64ff1f0189037a&amp;id=d7392386ac" target="_blank" rel="noopener">2023</a></p>
+<p>&nbsp;</p>
 	<img width="100%" src="https://8hxvw8tw.media.zestyio.com/TSA-GVL-SAWA-Fellowship-Image.jpg" alt="placeholder">
+	<div class="py-5"></div>
 </div>

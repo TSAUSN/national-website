@@ -1,0 +1,525 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:71:0:56": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-ccdde1b581-hk7nln')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-ccdde1b581-hk7nln')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:71:0:56",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:38:33": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:38:33",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:columns:2columnswideright:7:18": {
+								"uid": "14",
+								"name": "2 Columns - Left Small",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:2\"></div><div style=\"flex:4\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "2",
+										"html": "<div class=\"col-md-3 col-sm-12\">*</div>",
+										"classes": "col-md-3 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "4",
+										"html": "<div class=\"col-md-9 col-sm-12\">*</div>",
+										"classes": "col-md-9 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 0,
+								"fullName": "design:columns:2columnswideright:7:18",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columnswideright:7:18-2:2 Columns - Left Small:0": {
+										"width": "2",
+										"html": "<div class=\"col-md-3 col-sm-12\">*</div>",
+										"classes": "col-md-3 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:2:87": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\"><span style=\"font-size:60px;\"><span style=\"color:#666;\"><span style=\"font-size:48px;\">$</span></span>15</span></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "$15",
+												"position": 0,
+												"fullName": "content:textarea:2:87",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:2:87",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columnswideright:7:18-2:2 Columns - Left Small:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:3:98": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\"><span style=\"color:#666;\"><strong><span style=\"font-size:20px;\">Billion</span></strong></span></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Billion",
+												"position": 1,
+												"fullName": "content:textarea:3:98",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:3:98",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columnswideright:7:18-2:2 Columns - Left Small:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columnswideright:7:18-4:2 Columns - Left Small:1": {
+										"width": "4",
+										"html": "<div class=\"col-md-9 col-sm-12\">*</div>",
+										"classes": "col-md-9 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:text:4:40": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h6>Disaster Services</h6>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "Disaster Services",
+												"position": 0,
+												"fullName": "content:text:4:40",
+												"htmlElement": "h4",
+												"primarytype": "content",
+												"id": "content:text:4:40",
+												"styles": {},
+												"newLoc": "design:columns:2columnswideright:7:18-4:2 Columns - Left Small:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:text:5:86": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h5><span style=\"font-size:18px;\">Every year, natural disasters cost Americans $15 billion in insured losses.</span></h5>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "Every year, natural disasters cost Americans $15 billion in insured losses.",
+												"position": 1,
+												"fullName": "content:text:5:86",
+												"htmlElement": "h5",
+												"primarytype": "content",
+												"id": "content:text:5:86",
+												"styles": {
+													"fontSize": "18px"
+												},
+												"newLoc": "design:columns:2columnswideright:7:18-4:2 Columns - Left Small:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:6:21": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tEarthquakes, hurricanes, tornados, wildfires, droughts, flooding, and other natural disasters pose the greatest threat to our country.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Earthquakes, hurricanes, tornados, wildfires, droughts, flooding, and other natural disasters pose the greatest threat to our country.",
+												"position": 2,
+												"fullName": "content:textarea:6:21",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:6:21",
+												"styles": {},
+												"newLoc": "design:columns:2columnswideright:7:18-4:2 Columns - Left Small:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:horizontalrule:8:26": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 1,
+								"fullName": "design:design:horizontalrule:8:26",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:9:69": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\"><span style=\"font-size:24px;\">The Salvation Army helps meet the needs of disaster survivors through:</span></h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "The Salvation Army helps meet the needs of disaster survivors through:",
+								"position": 2,
+								"fullName": "content:text:9:69",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:9:69",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:11:20": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 3,
+								"fullName": "design:design:whitespace-sm:11:20",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:14:71": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 4,
+								"fullName": "design:columns:2columns:14:71",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:14:71-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:10:76": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h5><span style=\"font-size:20px;\">Emotional and Spiritual Care: the ESC Specialist (Clearwater)</span></h5>\n\n<ul class=\"text-start\">\n\t<li class=\"text-start\">Location: Clearwater</li>\n\t<li class=\"text-start\">Date: July 26th</li>\n\t<li class=\"text-start\">Time: 8:30am-4:30pm est</li>\n\t<li class=\"text-start\">Address: The Salvation Army, Clearwater Social Services Campus 1521 Druid Rd. Clearwater Florida 33765</li>\n</ul>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:18px;\"><strong><a href=\"https://disaster.salvationarmyusa.org/training/?classes&amp;state=FL\" target=\"_blank\">Register</a></strong></span>\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h5><span style=\"font-size:20px;\">Emotional and Spiritual Care: the ESC Specialist (Clearwater)</span></h5>\n\n<ul class=\"text-start\">\n\t<li class=\"text-start\">Location: Clearwater</li>\n\t<li class=\"text-start\">Date: July 26th</li>\n\t<li class=\"text-start\">Time: 8:30am-4:30pm est</li>\n\t<li class=\"text-start\">Address: The Salvation Army, Clearwater Social Services Campus 1521 Druid Rd. Clearwater Florida 33765</li>\n</ul>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:18px;\"><strong><a href=\"https://disaster.salvationarmyusa.org/training/?classes&amp;state=FL\" target=\"_blank\">Register</a></strong></span>\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:10:76",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:10:76",
+												"styles": {
+													"fontSize": "20px",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:14:71-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:14:71-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:12:58": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h5><span style=\"font-size:20px;\">Emotional and Spiritual Care: the ESC Specialist (Orlando)</span></h5>\n\n<ul class=\"text-start\">\n\t<li class=\"text-start\">Location: Orlando</li>\n\t<li class=\"text-start\">Date: July 28th</li>\n\t<li class=\"text-start\">Time: 8:30am-4:30pm est</li>\n\t<li class=\"text-start\">Address: The Salvation Army, Catherine Booth Towers 633 Lake Dot Circle Orlando Florida 32801 (Activities Room)</li>\n</ul>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:18px;\"><strong><a href=\"https://disaster.salvationarmyusa.org/training/?classes&amp;state=FL\" target=\"_blank\">Register</a></strong></span>\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h5><span style=\"font-size:20px;\">Emotional and Spiritual Care: the ESC Specialist (Orlando)</span></h5>\n\n<ul class=\"text-start\">\n\t<li class=\"text-start\">Location: Orlando</li>\n\t<li class=\"text-start\">Date: July 28th</li>\n\t<li class=\"text-start\">Time: 8:30am-4:30pm est</li>\n\t<li class=\"text-start\">Address: The Salvation Army, Catherine Booth Towers 633 Lake Dot Circle Orlando Florida 32801 (Activities Room)</li>\n</ul>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:18px;\"><strong><a href=\"https://disaster.salvationarmyusa.org/training/?classes&amp;state=FL\" target=\"_blank\">Register</a></strong></span>\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:12:58",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:12:58",
+												"styles": {
+													"fontSize": "20px",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:14:71-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:whitespace-sm:15:62": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 5,
+								"fullName": "design:design:whitespace-sm:15:62",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:16:27": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"button-action-section py-5\"><div class=\"d-flex justify-content-center gap-2 mt-2 flex-wrap\"><a href=\"http://disaster.salvationarmyusa.org/volunteer/new/\" class=\"btn btn-secondary gap-1 mt-2\">Volunteer</a><a href=\"http://helpsalvationarmy.org/\" class=\"btn btn-secondary gap-1 mt-2\">Donate</a><a href=\"http://disaster.salvationarmyusa.org/index.php\" class=\"btn btn-secondary gap-1 mt-2\">News</a><a href=\"http://disaster.salvationarmyusa.org/training/?classes&amp;state=FL\" class=\"btn btn-secondary gap-1 mt-2\">Training</a></div></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"button-action-section py-5\"><div class=\"d-flex justify-content-center gap-2 mt-2 flex-wrap\"><a href=\"http://disaster.salvationarmyusa.org/volunteer/new/\" class=\"btn btn-secondary gap-1 mt-2\">Volunteer</a><a href=\"http://helpsalvationarmy.org/\" class=\"btn btn-secondary gap-1 mt-2\">Donate</a><a href=\"http://disaster.salvationarmyusa.org/index.php\" class=\"btn btn-secondary gap-1 mt-2\">News</a><a href=\"http://disaster.salvationarmyusa.org/training/?classes&amp;state=FL\" class=\"btn btn-secondary gap-1 mt-2\">Training</a></div></div>",
+								"model": "6",
+								"position": 6,
+								"fullName": "content:wysiwyg_basic:16:27",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:16:27",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:23:66": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 7,
+								"fullName": "design:design:whitespace-sm:23:66",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:25:63": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\"><span style=\"font-size:36px;\">Meet the Team</span></h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Meet the Team",
+								"position": 8,
+								"fullName": "content:text:25:63",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:25:63",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:horizontalrule:26:12": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 9,
+								"fullName": "design:design:horizontalrule:26:12",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:27:48": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 10,
+								"fullName": "design:design:whitespace-sm:27:48",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:28:98": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\"><span style=\"font-size:24px;\">Steven Hartsook</span></h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Steven Hartsook",
+								"position": 11,
+								"fullName": "content:text:28:98",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:28:98",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:29:73": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t\t\t\t\tDivisional Director of Emergency Disaster Services (EDS)\n\t\t\t\t</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Divisional Director of Emergency Disaster Services (EDS)",
+								"position": 12,
+								"fullName": "content:textarea:29:73",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:29:73",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:30:78": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 13,
+								"fullName": "design:design:whitespace-sm:30:78",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:31:94": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"btgrid\" style=\"text-align:center;\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:24px;\">Deanna Roush</span></h5>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tAssistant Director / State Liaison\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:24px;\">Lynne Frost</span></h5>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tAdministrative Assistant &amp; Training Coordinator\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:24px;\">Alan Gregory</span></h5>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tEDS Warehouse Coordinator\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:24px;\">Zachary Harris</span></h5>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tDivisional EDS Logistics Assistant\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:24px;\">Kathy Holden</span></h5>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tAdministrative Assistant &amp; Accounting Clerk\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:24px;\">Thomas Eglinton</span></h5>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tLTR Program Coordinator\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-3\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\">&nbsp;</h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\">&nbsp;</h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\">&nbsp;</h5>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"btgrid\" style=\"text-align:center;\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:24px;\">Deanna Roush</span></h5>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tAssistant Director / State Liaison\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:24px;\">Lynne Frost</span></h5>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tAdministrative Assistant &amp; Training Coordinator\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:24px;\">Alan Gregory</span></h5>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tEDS Warehouse Coordinator\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:24px;\">Zachary Harris</span></h5>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tDivisional EDS Logistics Assistant\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:24px;\">Kathy Holden</span></h5>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tAdministrative Assistant &amp; Accounting Clerk\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:24px;\">Thomas Eglinton</span></h5>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tLTR Program Coordinator\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-3\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\">&nbsp;</h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\">&nbsp;</h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\">&nbsp;</h5>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>",
+								"model": "6",
+								"position": 14,
+								"fullName": "content:wysiwyg_basic:31:94",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:31:94",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:38:33-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

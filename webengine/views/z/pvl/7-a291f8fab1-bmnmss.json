@@ -1,0 +1,192 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:55:0:60": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-9cebdad6c5-g3wbv2')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-9cebdad6c5-g3wbv2')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:55:0:60",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:9:99": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:9:99",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:9:99-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:columns:3 Columns:7:14": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 0,
+								"fullName": "design:columns:3 Columns:7:14",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:9:99-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:7:14-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:1:65": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5 style=\"text-align:center;\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/3e8a969f-0841-4117-b0e5-fe38a320cfdb_Give+to+Virtual+Red+Kettle+resize.jpg\"></h5>\n\n<h5 style=\"text-align:center;\">Give to the Virtual Red Kettle</h5>\n\n<p style=\"text-align:center;\">\n\tHelp your neighbors in need this holiday season. Your donation will support families experiencing homelessness at the Center of Hope, youth programs and more.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/campaign/730505/donate?c_src=web-header&amp;c_src2=home\" class=\"btn btn-primary gap-1 mt-2\">Donate Now</a></p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5 style=\"text-align:center;\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/3e8a969f-0841-4117-b0e5-fe38a320cfdb_Give+to+Virtual+Red+Kettle+resize.jpg\"></h5>\n\n<h5 style=\"text-align:center;\">Give to the Virtual Red Kettle</h5>\n\n<p style=\"text-align:center;\">\n\tHelp your neighbors in need this holiday season. Your donation will support families experiencing homelessness at the Center of Hope, youth programs and more.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/campaign/730505/donate?c_src=web-header&amp;c_src2=home\" class=\"btn btn-primary gap-1 mt-2\">Donate Now</a></p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:1:65",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:1:65",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:7:14-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:7:14-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:3:33": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5 style=\"text-align:center;\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/d58f5988-5fdc-46ca-adc8-0ec14c2deb75_red+kettle+challenge.png\"></h5>\n\n<h5 style=\"text-align:center;\">Take the Red Kettle Challenge</h5>\n\n<p style=\"text-align:center;\">\n\tAre you up for the challenge? Build your own team, create your own virtual kettle and raise funds to support your neighbors in need.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/campaign/2025-red-kettle-challenge/c717247\" class=\"btn btn-primary gap-1 mt-2\">Set Up Your Page</a></p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5 style=\"text-align:center;\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/d58f5988-5fdc-46ca-adc8-0ec14c2deb75_red+kettle+challenge.png\"></h5>\n\n<h5 style=\"text-align:center;\">Take the Red Kettle Challenge</h5>\n\n<p style=\"text-align:center;\">\n\tAre you up for the challenge? Build your own team, create your own virtual kettle and raise funds to support your neighbors in need.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/campaign/2025-red-kettle-challenge/c717247\" class=\"btn btn-primary gap-1 mt-2\">Set Up Your Page</a></p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:3:33",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:3:33",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:7:14-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:7:14-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:5:16": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/e3efd234-63e0-4314-a154-90e381d1e19f_BellRinger+web+pic+2.jpg\"></h5>\n\n<h5 style=\"text-align:center;\">Volunteer</h5>\n\n<p style=\"text-align:center;\">\n\tWe have a number of bell-ringing volunteer opportunities for you, and your family or group. Sign up now to reserve your spot this holiday season.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.cervistech.com/acts/webreg/eventwebreglist.php?org_id=0160&amp;event_category_id=41\" class=\"btn btn-secondary gap-1 mt-2\">Learn More</a></p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><h5><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/e3efd234-63e0-4314-a154-90e381d1e19f_BellRinger+web+pic+2.jpg\"></h5>\n\n<h5 style=\"text-align:center;\">Volunteer</h5>\n\n<p style=\"text-align:center;\">\n\tWe have a number of bell-ringing volunteer opportunities for you, and your family or group. Sign up now to reserve your spot this holiday season.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.cervistech.com/acts/webreg/eventwebreglist.php?org_id=0160&amp;event_category_id=41\" class=\"btn btn-secondary gap-1 mt-2\">Learn More</a></p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:5:16",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:5:16",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:7:14-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

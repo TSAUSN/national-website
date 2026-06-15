@@ -1,0 +1,160 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"design:columns:1 column - 1 row my-3:8:22": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 0,
+				"fullName": "design:columns:1 column - 1 row my-3:8:22",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:8:22-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:1:88": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Canadian County Advisory Council&nbsp;Members</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Canadian County Advisory Council&nbsp;Members",
+								"position": 0,
+								"fullName": "content:text:1:88",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:1:88",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:8:22-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:71": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p class=\"u-textLg u-textGreyMedium no-margin-bottom padding-left-md padding-right-md\" style=\"text-align:center;max-width:768px;margin:auto;\">\n\tThe Salvation Army&nbsp;Advisory Council consists of a wide spectrum of hard-working men and women who share in the vision to transform and restore lives in Canadian County.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army&nbsp;Advisory Council consists of a wide spectrum of hard-working men and women who share in the vision to transform and restore lives in Canadian County.",
+								"position": 1,
+								"fullName": "content:textarea:2:71",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:71",
+								"styles": {
+									"textAlign": "center",
+									"maxWidth": "768px",
+									"margin": "auto"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:8:22-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:3:33": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"row my-3\" style=\"text-align:center;\"><div class=\"col-lg-4 col-md-12 col-sm-12\"><div class=\"board-member-card\"><figure class=\"mx-auto m-auto rounded\" style=\"width:100%;max-width:320px;aspect-ratio:9 / 16;overflow:hidden;border-radius:12px;\"><img src=\"https://8hxvw8tw.media.zestyio.com/SAL_Leaders_Desktop-2-USS.jpg\" alt=\"Mark Sorrels\" class=\"m-auto rounded img-fluid d-block my-3\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;max-width:100%;\"></figure><div class=\"board-member-details mt-2\"><p data-member-id=\"1647361397225\"><strong>Mark Sorrels</strong><br>Role: <strong>Council Chair</strong><br>Member Since 2022</p></div></div></div><div class=\"col-lg-4 col-md-12 col-sm-12\"><div class=\"board-member-card\"><figure class=\"mx-auto m-auto rounded\" style=\"width:100%;max-width:320px;aspect-ratio:9 / 16;overflow:hidden;border-radius:12px;\"><img src=\"https://8hxvw8tw.media.zestyio.com/SAL_Leaders_Desktop-2-USS.jpg\" alt=\"John Bishop\" class=\"m-auto rounded img-fluid d-block my-3\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;max-width:100%;\"></figure><div class=\"board-member-details mt-2\"><p data-member-id=\"1647361461506\"><strong>John Bishop</strong><br>Role: <strong>Council Member</strong><br>Member Since 2022</p></div></div></div><div class=\"col-lg-4 col-md-12 col-sm-12\"><div class=\"board-member-card\"><figure class=\"mx-auto m-auto rounded\" style=\"width:100%;max-width:320px;aspect-ratio:9 / 16;overflow:hidden;border-radius:12px;\"><img src=\"https://8hxvw8tw.media.zestyio.com/SAL_Leaders_Desktop-2-USS.jpg\" alt=\"Kirstein Haydon\" class=\"m-auto rounded img-fluid d-block my-3\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;max-width:100%;\"></figure><div class=\"board-member-details mt-2\"><p data-member-id=\"1647361488910\"><strong>Kirstein Haydon</strong><br>Role: <strong>Council Member</strong><br>Member Since 2022</p></div></div></div></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"row my-3\" style=\"text-align:center;\"><div class=\"col-lg-4 col-md-12 col-sm-12\"><div class=\"board-member-card\"><figure class=\"mx-auto m-auto rounded\" style=\"width:100%;max-width:320px;aspect-ratio:9 / 16;overflow:hidden;border-radius:12px;\"><img src=\"https://8hxvw8tw.media.zestyio.com/SAL_Leaders_Desktop-2-USS.jpg\" alt=\"Mark Sorrels\" class=\"m-auto rounded img-fluid d-block my-3\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;max-width:100%;\"></figure><div class=\"board-member-details mt-2\"><p data-member-id=\"1647361397225\"><strong>Mark Sorrels</strong><br>Role: <strong>Council Chair</strong><br>Member Since 2022</p></div></div></div><div class=\"col-lg-4 col-md-12 col-sm-12\"><div class=\"board-member-card\"><figure class=\"mx-auto m-auto rounded\" style=\"width:100%;max-width:320px;aspect-ratio:9 / 16;overflow:hidden;border-radius:12px;\"><img src=\"https://8hxvw8tw.media.zestyio.com/SAL_Leaders_Desktop-2-USS.jpg\" alt=\"John Bishop\" class=\"m-auto rounded img-fluid d-block my-3\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;max-width:100%;\"></figure><div class=\"board-member-details mt-2\"><p data-member-id=\"1647361461506\"><strong>John Bishop</strong><br>Role: <strong>Council Member</strong><br>Member Since 2022</p></div></div></div><div class=\"col-lg-4 col-md-12 col-sm-12\"><div class=\"board-member-card\"><figure class=\"mx-auto m-auto rounded\" style=\"width:100%;max-width:320px;aspect-ratio:9 / 16;overflow:hidden;border-radius:12px;\"><img src=\"https://8hxvw8tw.media.zestyio.com/SAL_Leaders_Desktop-2-USS.jpg\" alt=\"Kirstein Haydon\" class=\"m-auto rounded img-fluid d-block my-3\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;max-width:100%;\"></figure><div class=\"board-member-details mt-2\"><p data-member-id=\"1647361488910\"><strong>Kirstein Haydon</strong><br>Role: <strong>Council Member</strong><br>Member Since 2022</p></div></div></div></div>",
+								"model": "6",
+								"position": 2,
+								"fullName": "content:wysiwyg_basic:3:33",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:3:33",
+								"styles": {
+									"width": "100%",
+									"maxWidth": "320px",
+									"aspectRatio": "9 / 16",
+									"overflow": "hidden",
+									"borderRadius": "12px",
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:8:22-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:4:16": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 3,
+								"fullName": "design:design:whitespace-sm:4:16",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:8:22-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:5:82": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"row my-3\" style=\"text-align:center;\"><div class=\"col-lg-4 col-md-12 col-sm-12\"><div class=\"board-member-card\"><figure class=\"mx-auto m-auto rounded\" style=\"width:100%;max-width:320px;aspect-ratio:9 / 16;overflow:hidden;border-radius:12px;\"><img src=\"https://8hxvw8tw.media.zestyio.com/SAL_Leaders_Desktop-2-USS.jpg\" alt=\"Brooke Robertson\" class=\"m-auto rounded img-fluid d-block my-3\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;max-width:100%;\"></figure><div class=\"board-member-details mt-2\"><p data-member-id=\"1647361533157\"><strong>Brooke Robertson</strong><br>Role: <strong>Council Member</strong><br>Member Since 2022</p></div></div></div><div class=\"col-lg-4 col-md-12 col-sm-12\"><div class=\"board-member-card\"><figure class=\"mx-auto m-auto rounded\" style=\"width:100%;max-width:320px;aspect-ratio:9 / 16;overflow:hidden;border-radius:12px;\"><img src=\"https://8hxvw8tw.media.zestyio.com/SAL_Leaders_Desktop-2-USS.jpg\" alt=\"Jill Walker\" class=\"m-auto rounded img-fluid d-block my-3\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;max-width:100%;\"></figure><div class=\"board-member-details mt-2\"><p data-member-id=\"1647361556824\"><strong>Jill Walker</strong><br>Role: <strong>Council Member</strong><br>Member Since 2022</p></div></div></div></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"row my-3\" style=\"text-align:center;\"><div class=\"col-lg-4 col-md-12 col-sm-12\"><div class=\"board-member-card\"><figure class=\"mx-auto m-auto rounded\" style=\"width:100%;max-width:320px;aspect-ratio:9 / 16;overflow:hidden;border-radius:12px;\"><img src=\"https://8hxvw8tw.media.zestyio.com/SAL_Leaders_Desktop-2-USS.jpg\" alt=\"Brooke Robertson\" class=\"m-auto rounded img-fluid d-block my-3\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;max-width:100%;\"></figure><div class=\"board-member-details mt-2\"><p data-member-id=\"1647361533157\"><strong>Brooke Robertson</strong><br>Role: <strong>Council Member</strong><br>Member Since 2022</p></div></div></div><div class=\"col-lg-4 col-md-12 col-sm-12\"><div class=\"board-member-card\"><figure class=\"mx-auto m-auto rounded\" style=\"width:100%;max-width:320px;aspect-ratio:9 / 16;overflow:hidden;border-radius:12px;\"><img src=\"https://8hxvw8tw.media.zestyio.com/SAL_Leaders_Desktop-2-USS.jpg\" alt=\"Jill Walker\" class=\"m-auto rounded img-fluid d-block my-3\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;max-width:100%;\"></figure><div class=\"board-member-details mt-2\"><p data-member-id=\"1647361556824\"><strong>Jill Walker</strong><br>Role: <strong>Council Member</strong><br>Member Since 2022</p></div></div></div></div>",
+								"model": "6",
+								"position": 4,
+								"fullName": "content:wysiwyg_basic:5:82",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:5:82",
+								"styles": {
+									"width": "100%",
+									"maxWidth": "320px",
+									"aspectRatio": "9 / 16",
+									"overflow": "hidden",
+									"borderRadius": "12px",
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:8:22-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

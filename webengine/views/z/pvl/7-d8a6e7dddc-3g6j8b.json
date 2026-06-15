@@ -1,0 +1,331 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:46:0:93": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-a4a0efb5f2-lwpjhm')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-a4a0efb5f2-lwpjhm')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:46:0:93",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:17:37": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:17:37",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:17:37-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:1:71": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Mission</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Mission",
+								"position": 0,
+								"fullName": "content:text:1:71",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:1:71",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:37-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:46": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p class=\"u-textLg u-textGreyMedium no-margin-bottom padding-left-md padding-right-md\" style=\"text-align:center;max-width:768px;margin:auto;\">\n\tThe mission of The Salvation Army of Greater Charlotte is to meet human needs by offering hope, promoting dignity and providing opportunity – all in the name of Christ.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The mission of The Salvation Army of Greater Charlotte is to meet human needs by offering hope, promoting dignity and providing opportunity – all in the name of Christ.",
+								"position": 1,
+								"fullName": "content:textarea:2:46",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:46",
+								"styles": {
+									"textAlign": "center",
+									"maxWidth": "768px",
+									"margin": "auto"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:37-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:3:46": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:46",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:37-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:4:60": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Vision</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Vision",
+								"position": 3,
+								"fullName": "content:text:4:60",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:4:60",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:37-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:5:64": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p class=\"u-textLg u-textGreyMedium no-margin-bottom padding-left-md padding-right-md\" style=\"text-align:center;max-width:768px;margin:auto;\">\n\tTo be a catalyst for upward mobility by providing a safe environment for those who need us most to live, learn and experience the love of Christ.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "To be a catalyst for upward mobility by providing a safe environment for those who need us most to live, learn and experience the love of Christ.",
+								"position": 4,
+								"fullName": "content:textarea:5:64",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:5:64",
+								"styles": {
+									"textAlign": "center",
+									"maxWidth": "768px",
+									"margin": "auto"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:37-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:6:15": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"row my-3\" style=\"text-align:center;\"><div class=\"col-lg-4 col-md-12 col-sm-12\"><div class=\"board-member-card\"><figure class=\"mx-auto m-auto rounded\" style=\"width:100%;max-width:320px;aspect-ratio:9 / 16;overflow:hidden;border-radius:12px;\"><img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/04ab6def-5c35-4c1a-aaea-e63e305927e4_monica+chavis.jpg\" alt=\"Monica Chavis\" class=\"m-auto rounded img-fluid d-block my-3\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;max-width:100%;\"></figure><div class=\"board-member-details mt-2\"><p data-member-id=\"1638392588175\"><strong>Monica Chavis</strong><br>Role: <strong>Board Chair</strong><br>Member Since 2024</p></div></div></div><div class=\"col-lg-4 col-md-12 col-sm-12\"><div class=\"board-member-card\"><figure class=\"mx-auto m-auto rounded\" style=\"width:100%;max-width:320px;aspect-ratio:9 / 16;overflow:hidden;border-radius:12px;\"><img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/1b10d8e0-595c-40be-97d7-6c77a419288e_Andrew+%26+Hazel+Wiley.jpeg\" alt=\"Majors Andrew &amp; Hazel Wiley\" class=\"m-auto rounded img-fluid d-block my-3\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;max-width:100%;\"></figure><div class=\"board-member-details mt-2\"><p data-member-id=\"1638392706293\"><strong>Majors Andrew &amp; Hazel Wiley</strong><br>Role: <strong>Area Commanders</strong><br>Member Since 2021</p></div></div></div></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"row my-3\" style=\"text-align:center;\"><div class=\"col-lg-4 col-md-12 col-sm-12\"><div class=\"board-member-card\"><figure class=\"mx-auto m-auto rounded\" style=\"width:100%;max-width:320px;aspect-ratio:9 / 16;overflow:hidden;border-radius:12px;\"><img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/04ab6def-5c35-4c1a-aaea-e63e305927e4_monica+chavis.jpg\" alt=\"Monica Chavis\" class=\"m-auto rounded img-fluid d-block my-3\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;max-width:100%;\"></figure><div class=\"board-member-details mt-2\"><p data-member-id=\"1638392588175\"><strong>Monica Chavis</strong><br>Role: <strong>Board Chair</strong><br>Member Since 2024</p></div></div></div><div class=\"col-lg-4 col-md-12 col-sm-12\"><div class=\"board-member-card\"><figure class=\"mx-auto m-auto rounded\" style=\"width:100%;max-width:320px;aspect-ratio:9 / 16;overflow:hidden;border-radius:12px;\"><img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/1b10d8e0-595c-40be-97d7-6c77a419288e_Andrew+%26+Hazel+Wiley.jpeg\" alt=\"Majors Andrew &amp; Hazel Wiley\" class=\"m-auto rounded img-fluid d-block my-3\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;max-width:100%;\"></figure><div class=\"board-member-details mt-2\"><p data-member-id=\"1638392706293\"><strong>Majors Andrew &amp; Hazel Wiley</strong><br>Role: <strong>Area Commanders</strong><br>Member Since 2021</p></div></div></div></div>",
+								"model": "6",
+								"position": 5,
+								"fullName": "content:wysiwyg_basic:6:15",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:6:15",
+								"styles": {
+									"width": "100%",
+									"maxWidth": "320px",
+									"aspectRatio": "9 / 16",
+									"overflow": "hidden",
+									"borderRadius": "12px",
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:37-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:7:29": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 6,
+								"fullName": "design:design:whitespace-sm:7:29",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:37-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:14:84": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 7,
+								"fullName": "design:columns:3 Columns:14:84",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:37-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:14:84-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:8:28": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><p>\n\t<strong>Shri Ananpura</strong><br>\n\tMicrosoft\n</p>\n\n<p>\n\t<strong>Jim Bolt</strong><br>\n\tLife Member\n</p>\n\n<p>\n\t<strong>Caroline&nbsp;Boger</strong><br>\n\tDuke Energy\n</p>\n\n<p>\n\t<strong>Catherine Browning</strong><br>\n\tLife Member\n</p>\n\n<p>\n\t<strong>Bill Bundy</strong><br>\n\tBundy Group, llc,<br>\n\tRetired\n</p>\n\n<p>\n\t<strong>Tracie Campbell</strong><br>\n\tNicjr\n</p>\n\n<p>\n\t<strong>Monica Chavis</strong><br>\n\tChair<br>\n\tPorch Productions NC\n</p>\n\n<p>\n\t<strong>Kimberly Dawson-Munn</strong><br>\n\tNC Department of Commerce\n</p>\n\n<p>\n\t<strong>Tj Delcourt</strong><br>\n\tNovant Health Foundation\n</p>\n\n<p>\n\t<strong>Alisa Dent</strong><br>\n\tAtrium\n</p>\n\n<p>\n\t<strong>Jimario Dyson</strong><br>\n\tSsmg Commodities\n</p>\n\n<p>\n\t<strong>Jarrett Engel</strong><br>\n\tLpl\n</p>\n\n<p>\n\t<strong>Carol Fadden</strong><br>\n\tHomeTrust Bank\n</p>\n\n<p>\n\t<strong>Charles Fonville</strong><br>\n\tLife Member\n</p>\n\n<p>\n\t<strong>Chuck Fonville</strong><br>\n\tFonville &amp; Company\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><p>\n\t<strong>Shri Ananpura</strong><br>\n\tMicrosoft\n</p>\n\n<p>\n\t<strong>Jim Bolt</strong><br>\n\tLife Member\n</p>\n\n<p>\n\t<strong>Caroline&nbsp;Boger</strong><br>\n\tDuke Energy\n</p>\n\n<p>\n\t<strong>Catherine Browning</strong><br>\n\tLife Member\n</p>\n\n<p>\n\t<strong>Bill Bundy</strong><br>\n\tBundy Group, llc,<br>\n\tRetired\n</p>\n\n<p>\n\t<strong>Tracie Campbell</strong><br>\n\tNicjr\n</p>\n\n<p>\n\t<strong>Monica Chavis</strong><br>\n\tChair<br>\n\tPorch Productions NC\n</p>\n\n<p>\n\t<strong>Kimberly Dawson-Munn</strong><br>\n\tNC Department of Commerce\n</p>\n\n<p>\n\t<strong>Tj Delcourt</strong><br>\n\tNovant Health Foundation\n</p>\n\n<p>\n\t<strong>Alisa Dent</strong><br>\n\tAtrium\n</p>\n\n<p>\n\t<strong>Jimario Dyson</strong><br>\n\tSsmg Commodities\n</p>\n\n<p>\n\t<strong>Jarrett Engel</strong><br>\n\tLpl\n</p>\n\n<p>\n\t<strong>Carol Fadden</strong><br>\n\tHomeTrust Bank\n</p>\n\n<p>\n\t<strong>Charles Fonville</strong><br>\n\tLife Member\n</p>\n\n<p>\n\t<strong>Chuck Fonville</strong><br>\n\tFonville &amp; Company\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:8:28",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:8:28",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:14:84-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:14:84-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:10:44": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><p>\n\t<strong>Richard Gaskins, Jr.&nbsp;</strong><br>\n\tCatawba Riverkeeper,<br>\n\tRetired\n</p>\n\n<p>\n\t<strong>Alex Hickson</strong><br>\n\tH1 Building Group\n</p>\n\n<p>\n\t<strong>Robert Hoppe</strong><br>\n\tLife Member\n</p>\n\n<p>\n\t<strong>Christy Hubbard</strong><br>\n\tHarris Teeter\n</p>\n\n<p>\n\t<strong>Robert (Bob)&nbsp;James, Jr.</strong><br>\n\tRobert E. James Advisors, llc\n</p>\n\n<p>\n\t<strong>Ed Laity</strong><br>\n\tDva Navion\n</p>\n\n<p>\n\t<strong>Andy Largen</strong><br>\n\tEy (Ernst &amp; Young)\n</p>\n\n<p>\n\t<strong>Annetria Lattimore</strong><br>\n\tWomen’s Auxiliary Representative\n</p>\n\n<p>\n\t<strong>Debra Lemmon</strong><br>\n\tCatholic Charities\n</p>\n\n<p>\n\t<strong>Matt Lincoln</strong><br>\n\tWells Fargo\n</p>\n\n<p>\n\t<strong>Rhonda Lyle</strong><br>\n\tRetired\n</p>\n\n<p>\n\t<strong>Dimitri Mavropoulos&nbsp;</strong><br>\n\tSteelFab, Inc.\n</p>\n\n<p>\n\t<strong>Andrea McKinley-Brown</strong><br>\n\tAmn Healthcare\n</p>\n\n<p>\n\t<strong>April Meadows</strong><br>\n\tWells Fargo\n</p>\n\n<p>\n\t<strong>Matthew (Matt) Mollozzi</strong><br>\n\tMoore &amp; Van Allen\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><p>\n\t<strong>Richard Gaskins, Jr.&nbsp;</strong><br>\n\tCatawba Riverkeeper,<br>\n\tRetired\n</p>\n\n<p>\n\t<strong>Alex Hickson</strong><br>\n\tH1 Building Group\n</p>\n\n<p>\n\t<strong>Robert Hoppe</strong><br>\n\tLife Member\n</p>\n\n<p>\n\t<strong>Christy Hubbard</strong><br>\n\tHarris Teeter\n</p>\n\n<p>\n\t<strong>Robert (Bob)&nbsp;James, Jr.</strong><br>\n\tRobert E. James Advisors, llc\n</p>\n\n<p>\n\t<strong>Ed Laity</strong><br>\n\tDva Navion\n</p>\n\n<p>\n\t<strong>Andy Largen</strong><br>\n\tEy (Ernst &amp; Young)\n</p>\n\n<p>\n\t<strong>Annetria Lattimore</strong><br>\n\tWomen’s Auxiliary Representative\n</p>\n\n<p>\n\t<strong>Debra Lemmon</strong><br>\n\tCatholic Charities\n</p>\n\n<p>\n\t<strong>Matt Lincoln</strong><br>\n\tWells Fargo\n</p>\n\n<p>\n\t<strong>Rhonda Lyle</strong><br>\n\tRetired\n</p>\n\n<p>\n\t<strong>Dimitri Mavropoulos&nbsp;</strong><br>\n\tSteelFab, Inc.\n</p>\n\n<p>\n\t<strong>Andrea McKinley-Brown</strong><br>\n\tAmn Healthcare\n</p>\n\n<p>\n\t<strong>April Meadows</strong><br>\n\tWells Fargo\n</p>\n\n<p>\n\t<strong>Matthew (Matt) Mollozzi</strong><br>\n\tMoore &amp; Van Allen\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:10:44",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:10:44",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:14:84-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:14:84-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:12:78": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><p>\n\t<strong>William (Bill) Musgrave</strong><br>\n\tMusgrave Automotive Group\n</p>\n\n<p>\n\t<strong>Mark Norman</strong><br>\n\tJohnson &amp; Wales<br>\n\tRetired\n</p>\n\n<p>\n\t<strong>John Parker</strong><br>\n\tArc Council Representative<br>\n\tMerrill Lynch\n</p>\n\n<p>\n\t<strong>John M. Phillips</strong><br>\n\tPark Commercial Real Estate\n</p>\n\n<p>\n\t<strong>Roger Plott</strong><br>\n\tUs Bank\n</p>\n\n<p>\n\t<strong>Alethea Ramey</strong><br>\n\tInlivian\n</p>\n\n<p>\n\t<strong>Stephen Ratcliffe</strong><br>\n\tProvidence Capital Advisors\n</p>\n\n<p>\n\t<strong>Tamara Smith</strong><br>\n\tUnion County dhhs\n</p>\n\n<p>\n\t<strong>Jennings Snider</strong><br>\n\tEmeritus Member\n</p>\n\n<p>\n\t<strong>Todd Ulrich</strong><br>\n\tEy (Ernst &amp; Young)\n</p>\n\n<p>\n\t<strong>Ken Wayman</strong><br>\n\tElford, Inc.\n</p>\n\n<p>\n\t<strong>Thomas (Tom) Wilkens</strong><br>\n\tRsm us llp, Retired\n</p>\n\n<p>\n\t<strong>Ted Wozniak</strong><br>\n\tChancellor Partners<br>\n\tRetired\n</p>\n\n<p>\n\t<strong>David Zimmerman</strong><br>\n\tSouthern Shows\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><p>\n\t<strong>William (Bill) Musgrave</strong><br>\n\tMusgrave Automotive Group\n</p>\n\n<p>\n\t<strong>Mark Norman</strong><br>\n\tJohnson &amp; Wales<br>\n\tRetired\n</p>\n\n<p>\n\t<strong>John Parker</strong><br>\n\tArc Council Representative<br>\n\tMerrill Lynch\n</p>\n\n<p>\n\t<strong>John M. Phillips</strong><br>\n\tPark Commercial Real Estate\n</p>\n\n<p>\n\t<strong>Roger Plott</strong><br>\n\tUs Bank\n</p>\n\n<p>\n\t<strong>Alethea Ramey</strong><br>\n\tInlivian\n</p>\n\n<p>\n\t<strong>Stephen Ratcliffe</strong><br>\n\tProvidence Capital Advisors\n</p>\n\n<p>\n\t<strong>Tamara Smith</strong><br>\n\tUnion County dhhs\n</p>\n\n<p>\n\t<strong>Jennings Snider</strong><br>\n\tEmeritus Member\n</p>\n\n<p>\n\t<strong>Todd Ulrich</strong><br>\n\tEy (Ernst &amp; Young)\n</p>\n\n<p>\n\t<strong>Ken Wayman</strong><br>\n\tElford, Inc.\n</p>\n\n<p>\n\t<strong>Thomas (Tom) Wilkens</strong><br>\n\tRsm us llp, Retired\n</p>\n\n<p>\n\t<strong>Ted Wozniak</strong><br>\n\tChancellor Partners<br>\n\tRetired\n</p>\n\n<p>\n\t<strong>David Zimmerman</strong><br>\n\tSouthern Shows\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:12:78",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:12:78",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:14:84-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

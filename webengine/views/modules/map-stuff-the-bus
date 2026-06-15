@@ -39,11 +39,6 @@
       </div>
       <div class="d-none d-flex align-items-center flex-wrap gap-2 border-top pt-6 mt-6" id="stb-filterbar">
         <span class="text-secondary fw-semibold text-uppercase me-1" style="font-size:0.7rem;letter-spacing:0.08em;">Filter</span>
-        <button class="btn btn-sm border rounded d-flex align-items-center gap-2 px-3 py-1" data-filter="location">
-          <span class="rounded flex-shrink-0 bg-primary-200 d-block" style="width:11px;height:11px;"></span>
-          Location
-          <span class="text-secondary ms-1" style="font-size:0.82rem;" id="stb-count-location">0</span>
-        </button>
         <button class="btn btn-sm border rounded d-flex align-items-center gap-2 px-3 py-1" data-filter="store">
           <span class="rounded flex-shrink-0 bg-secondary-100 d-block" style="width:11px;height:11px;"></span>
           Drop-off store
@@ -74,7 +69,6 @@
 <script>
   let map = null;
   let allStores = [];
-  let allLocations = [];
   let allLocationsRegistry = [];
 
   // Data fetching (unchanged)
@@ -89,7 +83,7 @@
         },
         body: JSON.stringify({
           "from": "bvxwt6a5d",
-          "select": [130, 153, 158, 15, 121, 122, 31, 32, 16, 17, 156, 157, 162, 39, 132,132,133,170,23,24,25,26,149,8,177,178],
+          "select": [130, 153, 158, 15, 121, 122, 31, 32, 16, 17, 156, 157, 162, 39, 132,133,170,23,24,25,26,149,8,177,178],
           "where": "{52.CampaignType.'Stuff the Bus'} AND {39.flag. 'Yes'}"
         })
       });
@@ -160,34 +154,15 @@
       zip:         item["8"]?.value ?? "",
       latitude:    parseFloat(item["177"]?.value) || null,
       longitude:   parseFloat(item["178"]?.value) || null,
+      allDayJune:    item["132"]?.value ?? [],
+      afternoonJune: item["133"]?.value ?? [],
+      eveningJune:   item["170"]?.value ?? [],
     }));
+    console.log("Store Results:", result)
 
     return result;
   }
 
-  const getLocations = async (data) => {
-    const items = Array.isArray(data) ? data : Object.values(data);
-    const result = items.map(item => ({
-    unitID:        item["130"]?.value ?? "",
-    divisionCode:  item["158"]?.value ?? "",
-    unitName:      item["15"]?.value ?? "",
-    address:       item["121"]?.value ?? "",
-    city:          item["122"]?.value ?? "",
-    state:         item["31"]?.value ?? "",
-    registryURL:   item["32"]?.value ?? "",
-    division:      item["16"]?.value ?? "",
-    territory:     item["17"]?.value ?? "",
-    latitude:      parseFloat(item["156"]?.value) || null,
-    longitude:     parseFloat(item["157"]?.value) || null,
-    displayName:   item["162"]?.value ?? "",
-    participating: item["39"]?.value ?? "",
-    allDayJune:    item["132"]?.value ?? [],
-    afternoonJune: item["133"]?.value ?? [],
-    eveningJune:   item["170"]?.value ?? [],
-  }));
-
-  return result;
-};
 
   const createOptimizedBatchGeocoder = (rateLimitMs = 10) => {
     let geocoder = null;
@@ -271,7 +246,7 @@
     return { addMarker, clearAllMarkers, filterByTypes, showAllMarkers };
   })();
 
-  const filterByRadius = async (stores, locations, locationsRegistry, inputLocation, radiusMiles = 50) => {
+  const filterByRadius = async (stores, locationsRegistry, inputLocation, radiusMiles = 50) => {
     const center = await batchGeocoder.geocodeWithRateLimit(inputLocation);
     if (!center) throw new Error('Could not geocode input location');
 
@@ -287,31 +262,33 @@
 
     return {
       filteredStores: attachDistance(stores),
-      filteredLocations: attachDistance(locations),
       filteredLocationsRegistry: attachDistance(locationsRegistry),
       center
     };
   };
 
-  const generateResultCards = (filteredStores, filteredLocations, filteredLocationsRegistry) => {
+  const formatDropOffTimes = (store) => {
+    const sections = [
+      { label: 'All Day - June',     values: store.allDayJune },
+      { label: 'Afternoon - June',   values: store.afternoonJune },
+      { label: 'Evening - June',     values: store.eveningJune },
+    ].filter(s => Array.isArray(s.values) && s.values.length > 0);
+    if (sections.length === 0) return '';
+    const rows = sections.map(s =>
+      `<p class="text-muted mb-0 display-3"><strong>${s.label}:</strong> ${s.values.join(', ')}</p>`
+    ).join('');
+    return `<div class="mt-1"><p class="text-muted mb-1 display-3 fw-semibold">Drop off time:</p>${rows}</div>`;
+  };
+
+  const generateResultCards = (filteredStores, filteredLocationsRegistry) => {
     const storeCards = filteredStores.map((store, i) =>
       `<div class="stuff-the-bus__item card mb-2 mt-2" data-id="store-${i}" data-type="store">
         <div class="card-body">
           <span class="badge mb-1" style="background-color:#0071CE">Store</span>
-          <h5 class="card-title fw-bold text-secondary-200 mb-1 display-2">${store.storeName || 'Walmart Store'}</h5>
+          <h5 class="card-title fw-bold text-secondary-200 mb-1 display-2">${store.storeType || 'Walmart Store'}</h5>
           <p class="text-muted mb-0 display-3">${[store.address, store.city, store.state].filter(Boolean).join(', ')}</p>
           <p class="text-muted mb-0 display-3">${store.distance} mi away</p>
-        </div>
-      </div>`
-    ).join('');
-
-    const locationCards = filteredLocations.map((loc, i) =>
-      `<div class="stuff-the-bus__item card mb-2 mt-2" data-id="loc-${i}" data-type="location">
-        <div class="card-body">
-          <span class="badge mb-1" style="background-color:#E31837">Location</span>
-          <h5 class="card-title fw-bold text-secondary-200 mb-1 display-2">${loc.displayName || loc.unitName || 'Location'}</h5>
-          <p class="text-muted mb-0 display-3">${[loc.address, loc.city, loc.state].filter(Boolean).join(', ')}</p>
-          <p class="text-muted mb-0 display-3">${loc.distance} mi away</p>
+          ${formatDropOffTimes(store)}
         </div>
       </div>`
     ).join('');
@@ -328,22 +305,21 @@
       </div>`
     ).join('');
 
-    return storeCards + locationCards + registryCards;
+    return storeCards + registryCards;
   };
+
 
   const setupFilterBar = () => {
     const buttons = document.querySelectorAll('#stb-filterbar button[data-filter]');
 
     const activeColorMap = {
-      location: 'bg-primary-200',
-      store:    'bg-secondary-100',
-      online:   'bg-success'
+      store:  'bg-secondary-100',
+      online: 'bg-success'
     };
 
     const dotOriginalColorMap = {
-      location: 'bg-primary-200',
-      store:    'bg-secondary-100',
-      online:   'bg-success'
+      store:  'bg-secondary-100',
+      online: 'bg-success'
     };
 
     buttons.forEach(btn => {
@@ -404,9 +380,9 @@
 
     markerPool.clearAllMarkers();
 
-    const dotResetMap = { location: 'bg-primary-200', store: 'bg-secondary-100', online: 'bg-success' };
+    const dotResetMap = { store: 'bg-secondary-100', online: 'bg-success' };
     document.querySelectorAll('#stb-filterbar button[data-filter]').forEach(b => {
-      b.classList.remove('bg-primary-200', 'bg-secondary-100', 'bg-success', 'text-white', 'active');
+      b.classList.remove('bg-secondary-100', 'bg-success', 'text-white', 'active');
       b.classList.add('border');
       const dot = b.querySelector('span.d-block');
       if (dot) {
@@ -416,18 +392,13 @@
     });
 
     try {
-      const { filteredStores, filteredLocations, filteredLocationsRegistry, center } = await filterByRadius(allStores, allLocations, allLocationsRegistry, inputValue);
+      const { filteredStores, filteredLocationsRegistry, center } = await filterByRadius(allStores, allLocationsRegistry, inputValue);
 
       const storeIcon = createPinIcon('#77a9ee');
-      const locationIcon = createPinIcon('#eb2533');
       const locationRegistryIcon = createPinIcon('#12825F');
 
       filteredStores.forEach((store) => {
         markerPool.addMarker(map, store.latitude, store.longitude, store.storeName || 'Store', storeIcon, 'store');
-      });
-
-      filteredLocations.forEach((loc) => {
-        markerPool.addMarker(map, loc.latitude, loc.longitude, loc.displayName || loc.unitName || 'Location', locationIcon, 'location');
       });
 
       filteredLocationsRegistry.forEach((loc) => {
@@ -437,16 +408,14 @@
       map.setZoom(10);
       map.setCenter(center);
 
-      const total = filteredStores.length + filteredLocations.length + filteredLocationsRegistry.length;
+      const total = filteredStores.length + filteredLocationsRegistry.length;
       cardsContainer.innerHTML = total > 0
-        ? generateResultCards(filteredStores, filteredLocations, filteredLocationsRegistry)
+        ? generateResultCards(filteredStores, filteredLocationsRegistry)
         : '<p class="p-3">No locations found within 50 miles. Try a different address.</p>';
       if (filterbar) {
         filterbar.classList.toggle('d-none', total === 0);
-        const countLocation = document.querySelector('#stb-count-location');
         const countStore = document.querySelector('#stb-count-store');
         const countOnline = document.querySelector('#stb-count-online');
-        if (countLocation) countLocation.textContent = filteredLocations.length;
         if (countStore) countStore.textContent = filteredStores.length;
         if (countOnline) countOnline.textContent = filteredLocationsRegistry.length;
       }
@@ -600,9 +569,7 @@
 
       const response = await getData();
       allStores = await getStores(response);
-      allLocations = await getLocations(response);
       allLocationsRegistry = await getRegistryData();
-      
 
       if (submitBtn) submitBtn.removeAttribute('disabled');
       stuffTheBusInputAddressSuggestion();

@@ -1,0 +1,511 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:14:0:2": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-d6879088e0-31s017')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-d6879088e0-31s017')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:14:0:2",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:28:98": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:28:98",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:28:98-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:26:79": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:26:79",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:28:98-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:5:82": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 1,
+								"fullName": "design:columns:2columns:5:82",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:28:98-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:5:82-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:1:94": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><p>\n\t<img class=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/1b10d8e0-595c-40be-97d7-6c77a419288e_Andrew+%26+Hazel+Wiley.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</p>\n\n<h5>Majors Andrew&nbsp;&amp; Hazel&nbsp;Wiley</h5>\n\n<p>\n\tMajors Andrew &amp; Hazel Wiley have been appointed as the new Area Commanders for The Salvation Army of Greater Charlotte in June 2025. the leadership role includes overseeing all programs, services and operations for the organization: homelessness services and housing programs (Center of Hope, Booth Commons and ship); youth programs (Red Shield Youth Centers); Christmas assistance; emergency disaster response; and more.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><p>\n\t<img class=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/1b10d8e0-595c-40be-97d7-6c77a419288e_Andrew+%26+Hazel+Wiley.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</p>\n\n<h5>Majors Andrew&nbsp;&amp; Hazel&nbsp;Wiley</h5>\n\n<p>\n\tMajors Andrew &amp; Hazel Wiley have been appointed as the new Area Commanders for The Salvation Army of Greater Charlotte in June 2025. the leadership role includes overseeing all programs, services and operations for the organization: homelessness services and housing programs (Center of Hope, Booth Commons and ship); youth programs (Red Shield Youth Centers); Christmas assistance; emergency disaster response; and more.\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:1:94",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:1:94",
+												"styles": {
+													"display": "block",
+													"marginLeft": "auto",
+													"marginRight": "auto"
+												},
+												"newLoc": "design:columns:2columns:5:82-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:5:82-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:3:14": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><p>\n\tThe Wileys come to Charlotte Area Command having previously served the same role as Area Commanders in Winston-Salem, N.C. Major Andrew is a native of North Carolina, while Major Hazel is a native of Maryland. Major Andrew has been a Salvation Army Officer for more than 40 years, and Major Hazel for more than 37 years.\n</p>\n\n<p>\n\tThe Wileys have served The Salvation Army together in various appointments in the North and South Carolina Division over a period of more than 25 years before being appointed to the National Capital and Virginia Divisional Headquarters in Washington, D.C. Following their 6-year service in Washington, D.C., the Wileys were appointed to Territorial Headquarters in Atlanta, where Major Andrew was responsible for oversight for all social services programs across the southeastern United States, and Major Hazel was the Territorial Director of Older Adult Ministries.\n</p>\n\n<p>\n\tThe Wileys have two adult children who both serve in The Salvation Army - one serving as the Assistant Divisional Music Director for the Georgia Division and the other serving in the Music and Arts Department of The Salvation Army in Clearwater, Fla. When asked about their appointment as Area Commanders for The Salvation Army of Greater Charlotte, the Wileys state that they are very excited and honored to have been selected to lead the Army’s ministry in the area.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><p>\n\tThe Wileys come to Charlotte Area Command having previously served the same role as Area Commanders in Winston-Salem, N.C. Major Andrew is a native of North Carolina, while Major Hazel is a native of Maryland. Major Andrew has been a Salvation Army Officer for more than 40 years, and Major Hazel for more than 37 years.\n</p>\n\n<p>\n\tThe Wileys have served The Salvation Army together in various appointments in the North and South Carolina Division over a period of more than 25 years before being appointed to the National Capital and Virginia Divisional Headquarters in Washington, D.C. Following their 6-year service in Washington, D.C., the Wileys were appointed to Territorial Headquarters in Atlanta, where Major Andrew was responsible for oversight for all social services programs across the southeastern United States, and Major Hazel was the Territorial Director of Older Adult Ministries.\n</p>\n\n<p>\n\tThe Wileys have two adult children who both serve in The Salvation Army - one serving as the Assistant Divisional Music Director for the Georgia Division and the other serving in the Music and Arts Department of The Salvation Army in Clearwater, Fla. When asked about their appointment as Area Commanders for The Salvation Army of Greater Charlotte, the Wileys state that they are very excited and honored to have been selected to lead the Army’s ministry in the area.\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:3:14",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:3:14",
+												"styles": {},
+												"newLoc": "design:columns:2columns:5:82-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"content:text:6:80": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">The Leadership Team</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "The Leadership Team",
+								"position": 2,
+								"fullName": "content:text:6:80",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:6:80",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:28:98-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:8:73": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 3,
+								"fullName": "design:design:whitespace-sm:8:73",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:28:98-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:1 column - 1 row my-3:9:26": {
+								"uid": "301",
+								"name": "1 column - 1 row",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 1,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-12 d-flex flex-column\">*</div>",
+										"classes": "col-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 4,
+								"fullName": "design:columns:1 column - 1 row my-3:9:26",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:28:98-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:1 column - 1 row my-3:9:26-1:1 column - 1 row:0": {
+										"width": "1",
+										"html": "<div class=\"col-12 d-flex flex-column\">*</div>",
+										"classes": "col-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:7:76": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><p style=\"text-align:center;\">\n\t<strong>Majors Andrew&nbsp;&amp; Hazel Wiley</strong><br>\n\tArea Commanders<br>\n\t<a href=\"tel:7043344731\">704-334-4731</a>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Captains Mike &amp;&nbsp;Rebecca McGee</strong><br>\n\tCharlotte Temple Corps and Community Center<br>\n\t<a href=\"tel:7045230394\">704-523-0394</a><br>\n\t<a href=\"mailto:michael.mcgee@uss.salvationarmy.org\" target=\"_blank\">michael.mcgee@uss.salvationarmy.org</a><br>\n\t<a href=\"mailto:rebecca.mcgee@uss.salvationarmy.org\" target=\"_blank\">rebecca.mcgee@uss.salvationarmy.org</a>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Lieutenants Isaiah&nbsp;&amp; Rachel Rector</strong><br>\n\tBelmont Avenue Corps and Community Center<br>\n\t<a href=\"tel:7042951605\">704-295-1605</a><br>\n\t<a href=\"mailto:isaiah.rector@uss.salvationarmy.org\" target=\"_blank\">isaiah.rector@uss.salvationarmy.org</a><br>\n\t<a href=\"mailto:rachel.rector@uss.salvationarmy.org\" target=\"_blank\">rachel.rector@uss.salvationarmy.or</a>\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><p style=\"text-align:center;\">\n\t<strong>Majors Andrew&nbsp;&amp; Hazel Wiley</strong><br>\n\tArea Commanders<br>\n\t<a href=\"tel:7043344731\">704-334-4731</a>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Captains Mike &amp;&nbsp;Rebecca McGee</strong><br>\n\tCharlotte Temple Corps and Community Center<br>\n\t<a href=\"tel:7045230394\">704-523-0394</a><br>\n\t<a href=\"mailto:michael.mcgee@uss.salvationarmy.org\" target=\"_blank\">michael.mcgee@uss.salvationarmy.org</a><br>\n\t<a href=\"mailto:rebecca.mcgee@uss.salvationarmy.org\" target=\"_blank\">rebecca.mcgee@uss.salvationarmy.org</a>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Lieutenants Isaiah&nbsp;&amp; Rachel Rector</strong><br>\n\tBelmont Avenue Corps and Community Center<br>\n\t<a href=\"tel:7042951605\">704-295-1605</a><br>\n\t<a href=\"mailto:isaiah.rector@uss.salvationarmy.org\" target=\"_blank\">isaiah.rector@uss.salvationarmy.org</a><br>\n\t<a href=\"mailto:rachel.rector@uss.salvationarmy.org\" target=\"_blank\">rachel.rector@uss.salvationarmy.or</a>\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:7:76",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:7:76",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:1 column - 1 row my-3:9:26-1:1 column - 1 row:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									}
+								}
+							},
+							"design:design:whitespace-sm:11:86": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 5,
+								"fullName": "design:design:whitespace-sm:11:86",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:28:98-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:16:75": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 6,
+								"fullName": "design:columns:3 Columns:16:75",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:28:98-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:16:75-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:10:5": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><h5>Media Inquiries</h5>\n\n<p>\n\t<strong>Cierra Ivey</strong><br>\n\tPublic Relations Coordinator<br>\n\t<a href=\"tel:7047144707\">704-714-4707</a><br>\n\t<a href=\"mailto:cierra.ivey@uss.salvationarmy.org\" target=\"_blank\">cierra.ivey@uss.salvationarmy.org</a>\n</p>\n\n<p>\n\t<strong>Brent Rinehart</strong><br>\n\tDirector of Community&nbsp;Relations &amp; Development<br>\n\t<a href=\"tel:7047144727\">704-714-4727</a><br>\n\t<a href=\"mailto:brent.rinehart@uss.salvationarmy.org\" target=\"_blank\">brent.rinehart@uss.salvationarmy.org</a>\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><h5>Media Inquiries</h5>\n\n<p>\n\t<strong>Cierra Ivey</strong><br>\n\tPublic Relations Coordinator<br>\n\t<a href=\"tel:7047144707\">704-714-4707</a><br>\n\t<a href=\"mailto:cierra.ivey@uss.salvationarmy.org\" target=\"_blank\">cierra.ivey@uss.salvationarmy.org</a>\n</p>\n\n<p>\n\t<strong>Brent Rinehart</strong><br>\n\tDirector of Community&nbsp;Relations &amp; Development<br>\n\t<a href=\"tel:7047144727\">704-714-4727</a><br>\n\t<a href=\"mailto:brent.rinehart@uss.salvationarmy.org\" target=\"_blank\">brent.rinehart@uss.salvationarmy.org</a>\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:10:5",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:10:5",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:16:75-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:16:75-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:12:97": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><h5>Volunteers</h5>\n\n<p>\n\t<strong>Sarah Gamble</strong><br>\n\tDirector of Community Engagement &amp; Volunteer Services<br>\n\t<a href=\"tel:7047144736\">704-714-4736</a><br>\n\t<a href=\"mailto:sarah.gamble@uss.salvationarmy.org\" target=\"_blank\">sarah.gamble@uss.salvationarmy.org</a>\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><h5>Volunteers</h5>\n\n<p>\n\t<strong>Sarah Gamble</strong><br>\n\tDirector of Community Engagement &amp; Volunteer Services<br>\n\t<a href=\"tel:7047144736\">704-714-4736</a><br>\n\t<a href=\"mailto:sarah.gamble@uss.salvationarmy.org\" target=\"_blank\">sarah.gamble@uss.salvationarmy.org</a>\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:12:97",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:12:97",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:16:75-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:16:75-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:14:76": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><h5>Donations</h5>\n\n<p>\n\t<strong>Tanya Sastoque</strong><br>\n\tDirector of Major Gifts &amp; Donor Services<br>\n\t<a href=\"tel:7047144724\">704-714-4724</a><br>\n\t<a href=\"mailto:tanya.sastoque@uss.salvationarmy.org\" target=\"_blank\">tanya.sastoque@uss.salvationarmy.org</a>\n</p>\n\n<p>\n\t<strong>Lisa Huffman</strong><br>\n\tPlanned Giving Coordinator<br>\n\t<a href=\"tel:7049723433\">800-254-0229</a><br>\n\t<a href=\"mailto:donna.grove@uss.salvationarmy.org\" target=\"_blank\">lisa.huffman@uss.salvationarmy.org</a>\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><h5>Donations</h5>\n\n<p>\n\t<strong>Tanya Sastoque</strong><br>\n\tDirector of Major Gifts &amp; Donor Services<br>\n\t<a href=\"tel:7047144724\">704-714-4724</a><br>\n\t<a href=\"mailto:tanya.sastoque@uss.salvationarmy.org\" target=\"_blank\">tanya.sastoque@uss.salvationarmy.org</a>\n</p>\n\n<p>\n\t<strong>Lisa Huffman</strong><br>\n\tPlanned Giving Coordinator<br>\n\t<a href=\"tel:7049723433\">800-254-0229</a><br>\n\t<a href=\"mailto:donna.grove@uss.salvationarmy.org\" target=\"_blank\">lisa.huffman@uss.salvationarmy.org</a>\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:14:76",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:14:76",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:16:75-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:design:whitespace-sm:18:52": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 7,
+								"fullName": "design:design:whitespace-sm:18:52",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:28:98-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:21:74": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 8,
+								"fullName": "design:columns:2columns:21:74",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:28:98-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:21:74-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:17:60": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><h5>Mailing Address</h5>\n\n<p>\n\tThe Salvation Army<br>\n\tP.O. Box 31128<br>\n\tCharlotte, NC 28231\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><h5>Mailing Address</h5>\n\n<p>\n\tThe Salvation Army<br>\n\tP.O. Box 31128<br>\n\tCharlotte, NC 28231\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:17:60",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:17:60",
+												"styles": {},
+												"newLoc": "design:columns:2columns:21:74-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:21:74-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:19:94": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><h5>Office</h5>\n\n<p>\n\t4015 Stuart Andrew Blvd.<br>\n\tCharlotte, NC 28217<br>\n\tO:&nbsp;<a href=\"tel:7047162769\">704-716-2769</a>&nbsp;<br>\n\tF: <a href=\"tel:7042954922\">704-295-4922</a><br>\n\t<a href=\"mailto:salvationarmycharlotte@uss.salvationarmy.org\" target=\"_blank\">Email Us</a>\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><h5>Office</h5>\n\n<p>\n\t4015 Stuart Andrew Blvd.<br>\n\tCharlotte, NC 28217<br>\n\tO:&nbsp;<a href=\"tel:7047162769\">704-716-2769</a>&nbsp;<br>\n\tF: <a href=\"tel:7042954922\">704-295-4922</a><br>\n\t<a href=\"mailto:salvationarmycharlotte@uss.salvationarmy.org\" target=\"_blank\">Email Us</a>\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:19:94",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:19:94",
+												"styles": {},
+												"newLoc": "design:columns:2columns:21:74-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

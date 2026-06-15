@@ -1,0 +1,325 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:90:0:19": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-84f6d3c1e5-nqxvsv')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-84f6d3c1e5-nqxvsv')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:90:0:19",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:16:91": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:16:91",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:16:91-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:1:88": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\">Volunteer with The Salvation Army<br>\nOf Greater Charlotte</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Volunteer with The Salvation Army Of Greater Charlotte",
+								"position": 0,
+								"fullName": "content:text:1:88",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:1:88",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:16:91-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:9": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tChoose from serving meals at the Center of Hope, organizing collection drives for homeless families, or helping to empower youth through our Salvation Army Youth Programs.&nbsp;Your contribution can profoundly impact lives. Why not start today?\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Choose from serving meals at the Center of Hope, organizing collection drives for homeless families, or helping to empower youth through our Salvation Army Youth Programs.&nbsp;Your contribution can profoundly impact lives. Why not start today?",
+								"position": 1,
+								"fullName": "content:textarea:2:9",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:9",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:16:91-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:3:38": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a5b73512-5fdb-42af-9f17-1a71c5db544a_NEW+Volunteer+Application+Packet+9-25.pdf\" class=\"btn btn-secondary gap-1 mt-2\">Volunteer Application</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a5b73512-5fdb-42af-9f17-1a71c5db544a_NEW+Volunteer+Application+Packet+9-25.pdf\" class=\"btn btn-secondary gap-1 mt-2\">Volunteer Application</a></p>",
+								"model": "6",
+								"position": 2,
+								"fullName": "content:wysiwyg_basic:3:38",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:3:38",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:16:91-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:4:43": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 3,
+								"fullName": "design:design:whitespace-sm:4:43",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:16:91-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:5:55": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><strong>Additional Information:</strong></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Additional Information:",
+								"position": 4,
+								"fullName": "content:textarea:5:55",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:5:55",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:16:91-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:6:44": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\"><strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5f602b3d-cffc-4c64-aac2-22a9340a3f1c_Background+Check+Documents.pdf\">Background Check Documents</a></strong></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\"><strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5f602b3d-cffc-4c64-aac2-22a9340a3f1c_Background+Check+Documents.pdf\">Background Check Documents</a></strong></p>",
+								"model": "6",
+								"position": 5,
+								"fullName": "content:wysiwyg_basic:6:44",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:6:44",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:16:91-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:7:99": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 6,
+								"fullName": "design:design:whitespace-sm:7:99",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:16:91-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:8:60": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tPlease only complete the background check and volunteer application if you are planning on volunteering with our Salvation Army Youth Programs&nbsp;or the Center of Hope Shelter for Women and Children. <strong>You do not have to fill them out if you are volunteering at our Christmas Center.</strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Please only complete the background check and volunteer application if you are planning on volunteering with our Salvation Army Youth Programs&nbsp;or the Center of Hope Shelter for Women and Children. You do not have to fill them out if you are volunteering at our Christmas Center.",
+								"position": 7,
+								"fullName": "content:textarea:8:60",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:8:60",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:16:91-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:10:25": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 8,
+								"fullName": "design:design:whitespace-sm:10:25",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:16:91-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:13:39": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 9,
+								"fullName": "design:columns:2columns:13:39",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:16:91-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:13:39-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:9:27": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<iframe frameborder=\"0\" height=\"1000\" id=\"myFrame\" name=\"myFrame\" src=\"https://www.cervistech.com/acts/webreg/eventwebreglist.php?org_id=0160\" title=\"CERVIS Opportunity Registration\" width=\"750\"></iframe>\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<iframe frameborder=\"0\" height=\"1000\" id=\"myFrame\" name=\"myFrame\" src=\"https://www.cervistech.com/acts/webreg/eventwebreglist.php?org_id=0160\" title=\"CERVIS Opportunity Registration\" width=\"750\"></iframe>\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:9:27",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:9:27",
+												"styles": {},
+												"newLoc": "design:columns:2columns:13:39-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:13:39-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:11:56": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<img class=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/cec926a0-9da5-4ba6-87c3-be6204abbe7c_Meal+Service+Volunteer.png\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</p>\n\n<p>\n\t<strong>Please click the links below to view ways to engage and give back.</strong>\n</p>\n\n<p>\n\tThe Salvation Army is unable to accommodate court ordered and lawyer suggested community service requests.\n</p>\n\n<p>\n\t<strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/29e85ce4-6a51-44a7-8c18-d752056d7643_Center+of+Hope+Meal+Service.pdf\">Center of Hope Meal Service</a>:</strong>&nbsp;Providing nourishment and comfort to individuals and families experiencing homelessness.\n</p>\n\n<p>\n\t<strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/1702429a-e3a3-45a9-86dd-b69014149772_Group+Adopt+a+Meal+Overview.pdf\">Adopt a Meal Program</a>: </strong> This program provides a much-needed meal to the women and children at our Center of Hope Homeless Shelter. Organizations, church groups, corporate teams, and individuals are needed to provide meals for the families staying with us.&nbsp;\n</p>\n\n<p>\n\t<strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/c3583a11-357c-412c-bf39-0a9115f79577_Group+Engagement+Packet+2025.pdf\">Group Opportunities</a>:</strong>&nbsp;We can accommodate your group’s desire to do something good together – whether family, friends, coworkers, civic or church groups.&nbsp;\n</p>\n\n<p>\n\t<em><strong>Other Group and&nbsp;Individual Volunteer Opportunities:</strong></em>\n</p>\n\n<ul>\n\t<li><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/967d0613-4c56-4c75-91dd-34ad47624d00_Donation+Information.pdf\">Acceptable Donations for the Center of Hope</a></li>\n\t<li><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/82d5cfa3-5613-415a-9d88-c450f2e1db7d_Welcome+Home+Basket+Project+2025.pdf\">Welcome Home Baskets</a></li>\n\t<li><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/338c8689-3ad9-4ba4-94ff-b0fc28b471a9_Dignity+Drive+Flyer+2025.pdf\">Dignity Drive for new underwear</a></li>\n\t<li><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/821a35f8-2e25-41bb-99cf-7fa25fc66866_Hope+Bundles.pdf\">Hope Bundles</a></li>\n\t<li><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/ff0cd328-1459-44a9-b5d7-ea2467dde00a_Linen+and+Bedding+Drive.pdf\">Linen and Bedding Drive</a></li>\n\t<li><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/e61f67b0-8b8c-498d-a8e7-eabd85f52ac9_Snack+Pack+Program+Overview+NEW+4226.pdf\">Snack Pack Program</a></li>\n\t<li><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/19be9fd7-6c43-4c7b-b9bb-e9c01f04ecc1_Teen+Project+Instructions.pdf\">Teen Project Instructions</a></li>\n</ul></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<img class=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/cec926a0-9da5-4ba6-87c3-be6204abbe7c_Meal+Service+Volunteer.png\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</p>\n\n<p>\n\t<strong>Please click the links below to view ways to engage and give back.</strong>\n</p>\n\n<p>\n\tThe Salvation Army is unable to accommodate court ordered and lawyer suggested community service requests.\n</p>\n\n<p>\n\t<strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/29e85ce4-6a51-44a7-8c18-d752056d7643_Center+of+Hope+Meal+Service.pdf\">Center of Hope Meal Service</a>:</strong>&nbsp;Providing nourishment and comfort to individuals and families experiencing homelessness.\n</p>\n\n<p>\n\t<strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/1702429a-e3a3-45a9-86dd-b69014149772_Group+Adopt+a+Meal+Overview.pdf\">Adopt a Meal Program</a>: </strong> This program provides a much-needed meal to the women and children at our Center of Hope Homeless Shelter. Organizations, church groups, corporate teams, and individuals are needed to provide meals for the families staying with us.&nbsp;\n</p>\n\n<p>\n\t<strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/c3583a11-357c-412c-bf39-0a9115f79577_Group+Engagement+Packet+2025.pdf\">Group Opportunities</a>:</strong>&nbsp;We can accommodate your group’s desire to do something good together – whether family, friends, coworkers, civic or church groups.&nbsp;\n</p>\n\n<p>\n\t<em><strong>Other Group and&nbsp;Individual Volunteer Opportunities:</strong></em>\n</p>\n\n<ul>\n\t<li><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/967d0613-4c56-4c75-91dd-34ad47624d00_Donation+Information.pdf\">Acceptable Donations for the Center of Hope</a></li>\n\t<li><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/82d5cfa3-5613-415a-9d88-c450f2e1db7d_Welcome+Home+Basket+Project+2025.pdf\">Welcome Home Baskets</a></li>\n\t<li><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/338c8689-3ad9-4ba4-94ff-b0fc28b471a9_Dignity+Drive+Flyer+2025.pdf\">Dignity Drive for new underwear</a></li>\n\t<li><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/821a35f8-2e25-41bb-99cf-7fa25fc66866_Hope+Bundles.pdf\">Hope Bundles</a></li>\n\t<li><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/ff0cd328-1459-44a9-b5d7-ea2467dde00a_Linen+and+Bedding+Drive.pdf\">Linen and Bedding Drive</a></li>\n\t<li><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/e61f67b0-8b8c-498d-a8e7-eabd85f52ac9_Snack+Pack+Program+Overview+NEW+4226.pdf\">Snack Pack Program</a></li>\n\t<li><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/19be9fd7-6c43-4c7b-b9bb-e9c01f04ecc1_Teen+Project+Instructions.pdf\">Teen Project Instructions</a></li>\n</ul></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:11:56",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:11:56",
+												"styles": {
+													"display": "block",
+													"marginLeft": "auto",
+													"marginRight": "auto",
+													"fontWeight": "700",
+													"fontStyle": "italic"
+												},
+												"newLoc": "design:columns:2columns:13:39-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

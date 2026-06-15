@@ -1,0 +1,751 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:67:0:1": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-8291e89bd1-2tzfdx')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-8291e89bd1-2tzfdx')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:67:0:1",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:47:66": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:47:66",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:43:86": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:43:86",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:1:45": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/59de023e-8f2b-4048-bd8c-9b25a3d1974a_RSYC+Summer+Day+Camp+flyer+logo.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 rounded mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/59de023e-8f2b-4048-bd8c-9b25a3d1974a_RSYC+Summer+Day+Camp+flyer+logo.png",
+								"position": 1,
+								"fullName": "content:images:1:45",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:3:4": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 2,
+								"fullName": "design:design:whitespace-sm:3:4",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:4:63": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tJoin our Red Shield Youth Centers&nbsp;for an action-packed summer&nbsp;program, with steam activities, games, arts &amp; crafts, outdoor play, engaging programs and field trips. Daily snacks are provided. And scholarship opportunities&nbsp;are available.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Join our Red Shield Youth Centers&nbsp;for an action-packed summer&nbsp;program, with steam activities, games, arts &amp; crafts, outdoor play, engaging programs and field trips. Daily snacks are provided. And scholarship opportunities&nbsp;are available.",
+								"position": 3,
+								"fullName": "content:textarea:4:63",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:4:63",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:5:41": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><strong>June 15-August 14</strong></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "June 15-August 14",
+								"position": 4,
+								"fullName": "content:textarea:5:41",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:5:41",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:6:37": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">(Closed on June 19&nbsp;and the week of June 29-July 3)</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "(Closed on June 19&nbsp;and the week of June 29-July 3)",
+								"position": 5,
+								"fullName": "content:textarea:6:37",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:6:37",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:text:7:25": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\">Registration</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Registration",
+								"position": 6,
+								"fullName": "content:text:7:25",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:7:25",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:8:66": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><strong>Weekly Fees - $80 per week/child&nbsp;</strong></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Weekly Fees - $80 per week/child&nbsp;",
+								"position": 7,
+								"fullName": "content:textarea:8:66",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:8:66",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:9:16": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">Weekly fees are $80&nbsp;and should be paid Friday prior to the week of attendance. The program is first come first serve; we will not secure a spot on the roster until your payment is received.</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Weekly fees are $80&nbsp;and should be paid Friday prior to the week of attendance. The program is first come first serve; we will not secure a spot on the roster until your payment is received.",
+								"position": 8,
+								"fullName": "content:textarea:9:16",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:9:16",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:10:11": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><strong>Camp T-shirt&nbsp;Fee&nbsp;- $12</strong></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Camp T-shirt&nbsp;Fee&nbsp;- $12",
+								"position": 9,
+								"fullName": "content:textarea:10:11",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:10:11",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:11:46": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">Summer Day Camp t-shirt fees should be paid prior to the first week of attendance.</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Summer Day Camp t-shirt fees should be paid prior to the first week of attendance.",
+								"position": 10,
+								"fullName": "content:textarea:11:46",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:11:46",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:13:61": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 11,
+								"fullName": "design:design:whitespace-sm:13:61",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:16:93": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 12,
+								"fullName": "design:columns:2columns:16:93",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:16:93-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:12:95": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><div class=\"content\">\n\t<h5 style=\"text-align:center;\"><img class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/2fe65ca3-6234-4458-bbd3-7f06066100a0_STEM+web+pic.jpg\" style=\"display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;\"></h5>\n\n\t<h4 style=\"text-align:center;\">Belmont</h4>\n\n\t<p style=\"text-align:center;\">\n\t\t<strong><a href=\"https://maps.app.goo.gl/WSY95yQvnNeLkv4m9\" target=\"_new\">901 Belmont Avenue<br>\n\t\tCharlotte, NC 28205</a><br>\n\t\t<br>\n\t\t<a href=\"tel:7042951605\">704-295-1605</a><br>\n\t\t<br>\n\t\tUnit Director: <a href=\"mailto:Felicia.Cohen@uss.salvationarmy.org\" target=\"_new\">Felicia Cohen</a></strong>\n\t</p>\n\n\t<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://online.traxsolutions.com/southernusasalvationarmy/charlotte-metro#/dashboard\" class=\"btn btn-secondary gap-1 mt-2\">Belmont Summer Day Camp Application</a></p>\n</div></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><div class=\"content\">\n\t<h5 style=\"text-align:center;\"><img class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/2fe65ca3-6234-4458-bbd3-7f06066100a0_STEM+web+pic.jpg\" style=\"display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;\"></h5>\n\n\t<h4 style=\"text-align:center;\">Belmont</h4>\n\n\t<p style=\"text-align:center;\">\n\t\t<strong><a href=\"https://maps.app.goo.gl/WSY95yQvnNeLkv4m9\" target=\"_new\">901 Belmont Avenue<br>\n\t\tCharlotte, NC 28205</a><br>\n\t\t<br>\n\t\t<a href=\"tel:7042951605\">704-295-1605</a><br>\n\t\t<br>\n\t\tUnit Director: <a href=\"mailto:Felicia.Cohen@uss.salvationarmy.org\" target=\"_new\">Felicia Cohen</a></strong>\n\t</p>\n\n\t<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://online.traxsolutions.com/southernusasalvationarmy/charlotte-metro#/dashboard\" class=\"btn btn-secondary gap-1 mt-2\">Belmont Summer Day Camp Application</a></p>\n</div></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:12:95",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:12:95",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:16:93-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:16:93-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:14:76": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><div class=\"content\">\n\t<h5 style=\"text-align:center;\"><img class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/f486cba2-c7c4-4509-8c80-c81ee0c49722_Marvel+web+pic+2.jpg\" style=\"display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;\"></h5>\n\n\t<h4 style=\"text-align:center;\">Sedgefield</h4>\n\n\t<p align=\"center\">\n\t\t<strong><a href=\"https://maps.app.goo.gl/B3qBExytfwDNkCGe8\" target=\"_new\">940 Marsh Road<br>\n\t\tCharlotte, NC 28209</a><br>\n\t\t<br>\n\t\t<a href=\"tel:7045230394\">704-523-0394</a><br>\n\t\t<br>\n\t\tUnit Director:<em> </em><a href=\"mailto:Courtney.Curry@uss.salvationarmy.org\">Courtney Curry</a></strong>\n\t</p>\n\n\t<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://online.traxsolutions.com/southernusasalvationarmy/charlotte-marsh-road#/dashboard\" class=\"btn btn-secondary gap-1 mt-2\">Sedgefield Summer Day Camp Application</a></p>\n</div></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><div class=\"content\">\n\t<h5 style=\"text-align:center;\"><img class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/f486cba2-c7c4-4509-8c80-c81ee0c49722_Marvel+web+pic+2.jpg\" style=\"display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;\"></h5>\n\n\t<h4 style=\"text-align:center;\">Sedgefield</h4>\n\n\t<p align=\"center\">\n\t\t<strong><a href=\"https://maps.app.goo.gl/B3qBExytfwDNkCGe8\" target=\"_new\">940 Marsh Road<br>\n\t\tCharlotte, NC 28209</a><br>\n\t\t<br>\n\t\t<a href=\"tel:7045230394\">704-523-0394</a><br>\n\t\t<br>\n\t\tUnit Director:<em> </em><a href=\"mailto:Courtney.Curry@uss.salvationarmy.org\">Courtney Curry</a></strong>\n\t</p>\n\n\t<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://online.traxsolutions.com/southernusasalvationarmy/charlotte-marsh-road#/dashboard\" class=\"btn btn-secondary gap-1 mt-2\">Sedgefield Summer Day Camp Application</a></p>\n</div></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:14:76",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:14:76",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700",
+													"fontStyle": "italic"
+												},
+												"newLoc": "design:columns:2columns:16:93-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:whitespace-sm:18:4": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 13,
+								"fullName": "design:design:whitespace-sm:18:4",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:1 column - 1 row my-3:19:98": {
+								"uid": "301",
+								"name": "1 column - 1 row",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 1,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-12 d-flex flex-column\">*</div>",
+										"classes": "col-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 14,
+								"fullName": "design:columns:1 column - 1 row my-3:19:98",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:1 column - 1 row my-3:19:98-1:1 column - 1 row:0": {
+										"width": "1",
+										"html": "<div class=\"col-12 d-flex flex-column\">*</div>",
+										"classes": "col-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:17:86": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-primary-200 text-light\" style=\"text-align:center;\"><p>\n\t<img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/25b5cf9d-d9a3-467d-8235-e6c35441c143_Web+Banner+1.jpg\">\n</p>\n\n<h4 style=\"text-align:center;\">Red Shield Summer Adventures</h4>\n\n<p style=\"text-align:center;\">\n\tMake this summer unforgettable for our Red Shield Youth Center kids by providing fun-filled outings, during Summer Day Camp.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/campaign/782128/donate\" class=\"btn btn-light gap-1 mt-2\">Give Today!</a></p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-primary-200 text-light\" style=\"text-align:center;\"><p>\n\t<img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/25b5cf9d-d9a3-467d-8235-e6c35441c143_Web+Banner+1.jpg\">\n</p>\n\n<h4 style=\"text-align:center;\">Red Shield Summer Adventures</h4>\n\n<p style=\"text-align:center;\">\n\tMake this summer unforgettable for our Red Shield Youth Center kids by providing fun-filled outings, during Summer Day Camp.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/campaign/782128/donate\" class=\"btn btn-light gap-1 mt-2\">Give Today!</a></p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:17:86",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:17:86",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:1 column - 1 row my-3:19:98-1:1 column - 1 row:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									}
+								}
+							},
+							"design:design:whitespace-sm:21:40": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 15,
+								"fullName": "design:design:whitespace-sm:21:40",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:1 column - 1 row my-3:22:5": {
+								"uid": "301",
+								"name": "1 column - 1 row",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 1,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-12 d-flex flex-column\">*</div>",
+										"classes": "col-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 16,
+								"fullName": "design:columns:1 column - 1 row my-3:22:5",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:1 column - 1 row my-3:22:5-1:1 column - 1 row:0": {
+										"width": "1",
+										"html": "<div class=\"col-12 d-flex flex-column\">*</div>",
+										"classes": "col-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:20:17": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><p>\n\t<img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/001c2a47-75b4-46ee-8bba-6ec5b1eb7f03_Red+Shield+Youth+Centers+Logo+-+Color+-+1500x338.png\">\n</p>\n\n<p style=\"text-align:center;\">\n\tThe Salvation Army’s high-quality after-school programs, at our Red Shield Youth Centers, serve children and youth of all ages. Our staff and volunteers&nbsp;provide one-on-one assistance with homework and school assignments, as well as the teaching and advancement of literacy and study skills. Our no-fee or low-cost after-school programs offer children&nbsp;a chance to play sports, learn athletic skills, and cultivate healthy, safe relationships with friends through better social skills.\n</p>\n\n<p style=\"text-align:center;\">\n\t<iframe allow=\"encrypted-media\" allowfullscreen=\"\" frameborder=\"0\" height=\"315\" mozallowfullscreen=\"\" src=\"https://www.youtube.com/embed/jCixIOxLrRc\" webkitallowfullscreen=\"\" width=\"560\"></iframe>\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><p>\n\t<img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/001c2a47-75b4-46ee-8bba-6ec5b1eb7f03_Red+Shield+Youth+Centers+Logo+-+Color+-+1500x338.png\">\n</p>\n\n<p style=\"text-align:center;\">\n\tThe Salvation Army’s high-quality after-school programs, at our Red Shield Youth Centers, serve children and youth of all ages. Our staff and volunteers&nbsp;provide one-on-one assistance with homework and school assignments, as well as the teaching and advancement of literacy and study skills. Our no-fee or low-cost after-school programs offer children&nbsp;a chance to play sports, learn athletic skills, and cultivate healthy, safe relationships with friends through better social skills.\n</p>\n\n<p style=\"text-align:center;\">\n\t<iframe allow=\"encrypted-media\" allowfullscreen=\"\" frameborder=\"0\" height=\"315\" mozallowfullscreen=\"\" src=\"https://www.youtube.com/embed/jCixIOxLrRc\" webkitallowfullscreen=\"\" width=\"560\"></iframe>\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:20:17",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:20:17",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:1 column - 1 row my-3:22:5-1:1 column - 1 row:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									}
+								}
+							},
+							"design:design:whitespace-sm:24:96": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 17,
+								"fullName": "design:design:whitespace-sm:24:96",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:1 column - 1 row my-3:25:9": {
+								"uid": "301",
+								"name": "1 column - 1 row",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 1,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-12 d-flex flex-column\">*</div>",
+										"classes": "col-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 18,
+								"fullName": "design:columns:1 column - 1 row my-3:25:9",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:1 column - 1 row my-3:25:9-1:1 column - 1 row:0": {
+										"width": "1",
+										"html": "<div class=\"col-12 d-flex flex-column\">*</div>",
+										"classes": "col-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:23:46": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-primary-200 text-light\" style=\"text-align:center;\"><h5><iframe allow=\"encrypted-media\" allowfullscreen=\"\" frameborder=\"0\" height=\"315\" mozallowfullscreen=\"\" src=\"https://www.youtube.com/embed/hzB-6OqlPZg\" webkitallowfullscreen=\"\" width=\"560\"></iframe></h5>\n\n<h5 style=\"text-align:center;\">The Salvation Army School of&nbsp;Performing Arts</h5>\n\n<p style=\"text-align:center;\">\n\tAs part of the <a href=\"https://southernusa.salvationarmy.org/carolinas-music-and-arts/home\" target=\"\"><span style=\"color:#ffffff;\">Carolinas Music &amp; Arts Department</span></a>, our School of&nbsp;Performing Arts (SPA)<span style=\"color:#ffffff;\">&nbsp;</span><span style=\"color:#ffffff;\">program</span>&nbsp;enables children and youth to experience music and art education in a&nbsp;positive no-cost or low-cost environment. Our wide array of classes focuses on everything from choir, band, and dancing to drawing, writing, and acting, instilling an early love and appreciation of the fine arts.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"mailto:rebecca.mcgee@uss.salvationarmy.org\" target=\"_new\" class=\"btn btn-light gap-1 mt-2\">Contact Us for More Information</a></p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-primary-200 text-light\" style=\"text-align:center;\"><h5><iframe allow=\"encrypted-media\" allowfullscreen=\"\" frameborder=\"0\" height=\"315\" mozallowfullscreen=\"\" src=\"https://www.youtube.com/embed/hzB-6OqlPZg\" webkitallowfullscreen=\"\" width=\"560\"></iframe></h5>\n\n<h5 style=\"text-align:center;\">The Salvation Army School of&nbsp;Performing Arts</h5>\n\n<p style=\"text-align:center;\">\n\tAs part of the <a href=\"https://southernusa.salvationarmy.org/carolinas-music-and-arts/home\" target=\"\"><span style=\"color:#ffffff;\">Carolinas Music &amp; Arts Department</span></a>, our School of&nbsp;Performing Arts (SPA)<span style=\"color:#ffffff;\">&nbsp;</span><span style=\"color:#ffffff;\">program</span>&nbsp;enables children and youth to experience music and art education in a&nbsp;positive no-cost or low-cost environment. Our wide array of classes focuses on everything from choir, band, and dancing to drawing, writing, and acting, instilling an early love and appreciation of the fine arts.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"mailto:rebecca.mcgee@uss.salvationarmy.org\" target=\"_new\" class=\"btn btn-light gap-1 mt-2\">Contact Us for More Information</a></p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:23:46",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:23:46",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:1 column - 1 row my-3:25:9-1:1 column - 1 row:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									}
+								}
+							},
+							"design:design:whitespace-sm:26:27": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 19,
+								"fullName": "design:design:whitespace-sm:26:27",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:33:48": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 20,
+								"fullName": "design:columns:2columns:33:48",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:47:66-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:33:48-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:text:27:25": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h6 style=\"text-align:center;\">Shop our Amazon&nbsp;Registry&nbsp;for Youth Program&nbsp;Needs</h6>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "Shop our Amazon&nbsp;Registry&nbsp;for Youth Program&nbsp;Needs",
+												"position": 0,
+												"fullName": "content:text:27:25",
+												"htmlElement": "h4",
+												"primarytype": "content",
+												"id": "content:text:27:25",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:33:48-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:28:90": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\">\n\t\t\t\t\tSchool supplies, games and everyday essentials needed for our&nbsp;kids to succeed&nbsp;start here with our Amazon&nbsp;registry. All items go straight to our Red Shield&nbsp;Youth Centers.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "School supplies, games and everyday essentials needed for our&nbsp;kids to succeed&nbsp;start here with our Amazon&nbsp;registry. All items go straight to our Red Shield&nbsp;Youth Centers.",
+												"position": 1,
+												"fullName": "content:textarea:28:90",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:28:90",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:33:48-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:33:48-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:29:68": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img width=\"382\" height=\"125\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/69546448-767c-4623-9c55-575f56382b7a_amazon-logo-transparent.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 rounded mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/69546448-767c-4623-9c55-575f56382b7a_amazon-logo-transparent.png",
+												"position": 0,
+												"fullName": "content:images:29:68",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:2columns:33:48-1:2 Columns - Equal:1",
+												"oldLoc": "bank"
+											},
+											"design:design:whitespace-sm:32:24": {
+												"uid": "351",
+												"name": "Whitespace - Small",
+												"type": "design",
+												"classes": "my-2",
+												"html": "<div class=\"my-2\"></div>",
+												"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+												"droppable": true,
+												"position": 1,
+												"fullName": "design:design:whitespace-sm:32:24",
+												"primarytype": "design",
+												"newLoc": "design:columns:2columns:33:48-1:2 Columns - Equal:1",
+												"oldLoc": "bank"
+											},
+											"content:wysiwyg_basic:30:53": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.amazon.com/hz/wishlist/ls/1ULRMIEZ9EY63?ref_=wl_share\" class=\"btn btn-secondary gap-1 mt-2\">Shop Our Amazon Online Registry</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.amazon.com/hz/wishlist/ls/1ULRMIEZ9EY63?ref_=wl_share\" class=\"btn btn-secondary gap-1 mt-2\">Shop Our Amazon Online Registry</a></p>",
+												"model": "6",
+												"position": 2,
+												"fullName": "content:wysiwyg_basic:30:53",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:30:53",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:33:48-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

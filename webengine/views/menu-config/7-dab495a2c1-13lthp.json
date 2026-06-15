@@ -82,25 +82,11 @@
     "parent": null
   },
   {
-    "type": "view-all",
-    "page_name": "",
-    "page-zuid": null,
-    "parent": "ways_to_give"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Donate Money",
-    "page-zuid": "donate_money",
-    "sort": 0,
-    "parent": "ways_to_give"
-  },
-  {
     "type": "menu",
     "key": null,
     "page_name": "Donate Goods",
     "page-zuid": "donate_goods",
-    "sort": 1,
+    "sort": 0,
     "parent": "ways_to_give"
   },
   {
@@ -108,7 +94,7 @@
     "key": null,
     "page_name": "Become a Fundraiser",
     "page-zuid": "become_fundraiser",
-    "sort": 2,
+    "sort": 1,
     "parent": "ways_to_give"
   },
   {
@@ -122,9 +108,17 @@
   {
     "type": "menu",
     "key": null,
+    "page_name": "Donate Money",
+    "page-zuid": "donate_money",
+    "sort": 3,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
     "page_name": "Gift Stocks & Bonds",
     "page-zuid": "gift_stocks_bonds",
-    "sort": 3,
+    "sort": 4,
     "parent": "ways_to_give"
   },
   {
@@ -132,7 +126,7 @@
     "key": null,
     "page_name": "Volunteer",
     "page-zuid": "volunteer",
-    "sort": 4,
+    "sort": 5,
     "parent": "ways_to_give"
   },
   {
@@ -140,7 +134,7 @@
     "key": null,
     "page_name": "View All Ways to Give",
     "page-zuid": "view_all_ways_to_give",
-    "sort": 5,
+    "sort": 6,
     "parent": "ways_to_give"
   },
   {

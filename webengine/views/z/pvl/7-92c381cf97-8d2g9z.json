@@ -1,0 +1,427 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:98:0:28": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-f682bdeab0-4m2kwl')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-f682bdeab0-4m2kwl')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:98:0:28",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:22:75": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:22:75",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:22:75-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:21:52": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:21:52",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:22:75-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:1:57": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">One in Six Oklahomans Struggle to Make Ends Meet</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "One in Six Oklahomans Struggle to Make Ends Meet",
+								"position": 1,
+								"fullName": "content:text:1:57",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:1:57",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:75-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:21": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tAt The Salvation Army of Central Oklahoma, we are passionate about helping people stay in their homes, and keep their lights on.&nbsp;&nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "At The Salvation Army of Central Oklahoma, we are passionate about helping people stay in their homes, and keep their lights on.&nbsp;&nbsp;",
+								"position": 2,
+								"fullName": "content:textarea:2:21",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:21",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:75-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:text:3:32": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5>How we help prevent homelessness</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "How we help prevent homelessness",
+								"position": 3,
+								"fullName": "content:text:3:32",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:3:32",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:75-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:columns:3 Columns:7:69": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 4,
+								"fullName": "design:columns:3 Columns:7:69",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:22:75-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:7:69-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:4:62": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t<strong>Rent / Utility&nbsp;Assistance</strong>\n</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Rent / Utility&nbsp;Assistance",
+												"position": 0,
+												"fullName": "content:textarea:4:62",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:4:62",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:7:69-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:7:69-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:5:89": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t<strong>ID &amp; Birth Certificate Assistance</strong>\n</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "ID &amp; Birth Certificate Assistance",
+												"position": 0,
+												"fullName": "content:textarea:5:89",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:5:89",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:7:69-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:7:69-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:6:46": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t<strong>Connection to other local resources</strong>\n</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Connection to other local resources",
+												"position": 0,
+												"fullName": "content:textarea:6:46",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:6:46",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:7:69-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:design:whitespace-sm:9:22": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 5,
+								"fullName": "design:design:whitespace-sm:9:22",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:22:75-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:14:52": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 6,
+								"fullName": "design:columns:3 Columns:14:52",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:22:75-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:14:52-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:8:16": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-dark-50 text-light\"><h6>The Salvation Army of Central Oklahoma</h6>\n\n<p>\n\t1001 N Pennsylvania Avenue<br>\n\tOklahoma City, OK&nbsp; 73107&nbsp;\n</p>\n\n<p>\n\tContact:&nbsp;<a href=\"tel:4052461060\">405-246-1060</a><br>\n\t&nbsp;\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-dark-50 text-light\"><h6>The Salvation Army of Central Oklahoma</h6>\n\n<p>\n\t1001 N Pennsylvania Avenue<br>\n\tOklahoma City, OK&nbsp; 73107&nbsp;\n</p>\n\n<p>\n\tContact:&nbsp;<a href=\"tel:4052461060\">405-246-1060</a><br>\n\t&nbsp;\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:8:16",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:8:16",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:14:52-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:14:52-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:10:89": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-dark-50 text-light\"><h6>The Salvation Army of Cleveland &amp; McClain Counties</h6>\n\n<p>\n\t1124 N Porter<br>\n\tNorman, OK 73071\n</p>\n\n<p>\n\tContact: <a href=\"tel:4053649910\">405-364-9910</a>\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-dark-50 text-light\"><h6>The Salvation Army of Cleveland &amp; McClain Counties</h6>\n\n<p>\n\t1124 N Porter<br>\n\tNorman, OK 73071\n</p>\n\n<p>\n\tContact: <a href=\"tel:4053649910\">405-364-9910</a>\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:10:89",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:10:89",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:14:52-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:14:52-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:12:24": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-dark-50 text-light\"><h6>The Salvation Army of Canadian &amp; Logan Counties</h6>\n\n<p>\n\t1012 S Rock Island<br>\n\tEl Reno, OK 73036\n</p>\n\n<p>\n\tContact: <a href=\"tel:4052952343\">405-295-2343</a>\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-dark-50 text-light\"><h6>The Salvation Army of Canadian &amp; Logan Counties</h6>\n\n<p>\n\t1012 S Rock Island<br>\n\tEl Reno, OK 73036\n</p>\n\n<p>\n\tContact: <a href=\"tel:4052952343\">405-295-2343</a>\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:12:24",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:12:24",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:14:52-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"content:wysiwyg_basic:15:93": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:420px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/5a8dfe3a-3801-48ff-8ca9-802e75151be2_177723_DSC_6520+copy.jpg');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"testimonialbox-section text-white rounded\">\n  <div class=\"bg-photo-overlay bg-opacity-60\" style=\"position:absolute;inset:0;z-index:1;\"></div>\n  <div style=\"position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:420px;padding:48px 40px;\">\n    <div style=\"max-width:720px;text-align:center;\">\n      <h6 style=\"text-align:center;\">Providing Future Hope</h6>\n      <p style=\"text-align:center;color:#fff;\">Jennifer lost her job during the height of COVID-19. She began suffering from anxiety and felt as though she had no hope for the future. After reaching out to The Salvation Army of Central Oklahoma, she met one-on-one with a case manager. \"I was able to determine what I was good at and developed a plan to move forward\" said Jennifer. \"Yes I received rental assistance, but I also received hope for my future.\" She now works as a teacher in Oklahoma City and was recently named Teacher of the Month.</p>\n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"testimonialbox-section text-white rounded\" style=\"position:relative;overflow:hidden;min-height:420px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/5a8dfe3a-3801-48ff-8ca9-802e75151be2_177723_DSC_6520+copy.jpg');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n  <div class=\"bg-photo-overlay bg-opacity-60\" style=\"position:absolute;inset:0;z-index:1;\"></div>\n  <div style=\"position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:420px;padding:48px 40px;\">\n    <div style=\"max-width:720px;text-align:center;\">\n      <h6 style=\"text-align:center;\">Providing Future Hope</h6>\n      <p style=\"text-align:center;color:#fff;\">Jennifer lost her job during the height of COVID-19. She began suffering from anxiety and felt as though she had no hope for the future. After reaching out to The Salvation Army of Central Oklahoma, she met one-on-one with a case manager. \"I was able to determine what I was good at and developed a plan to move forward\" said Jennifer. \"Yes I received rental assistance, but I also received hope for my future.\" She now works as a teacher in Oklahoma City and was recently named Teacher of the Month.</p>\n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"model": "6",
+								"position": 7,
+								"fullName": "content:wysiwyg_basic:15:93",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:15:93",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "420px",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/5a8dfe3a-3801-48ff-8ca9-802e75151be2_177723_DSC_6520+copy.jpg')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover"
+								},
+								"classes": "testimonialbox-section text-white rounded",
+								"newLoc": "design:columns:1 column - 1 row my-3:22:75-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

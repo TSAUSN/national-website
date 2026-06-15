@@ -1,0 +1,193 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:31:0:14": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-fa9ca1e5d8-8w22kh')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-fa9ca1e5d8-8w22kh')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:31:0:14",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:10:25": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:10:25",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:10:25-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:1:44": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\">Christmas Center Employment Opportunities</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Christmas Center Employment Opportunities",
+								"position": 0,
+								"fullName": "content:text:1:44",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:1:44",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:10:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:74": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThe Salvation Army needs several employees for&nbsp;short-term&nbsp;seasonal employment as part of our Christmas assistance team. Our Angel Tree program will run from&nbsp;<strong>Oct. 2&nbsp;to Dec. 22</strong>&nbsp;and will require several full-time employees to fill these&nbsp;temporary&nbsp;roles. Salaries range from&nbsp;<strong>$15-$17&nbsp;per hour</strong>. Last year we provided Christmas assistance to over 3,500 children and 1,200 seniors in the Charlotte community.&nbsp;If you have a passion for serving others and enjoy the hustle and bustle of Christmas, please apply below for consideration. Interviews will be conducted the week of September 9th&nbsp;and 15th. <strong>NOTE:</strong> these roles are full-time roles with daily hours from 8:30 – 4:30 and some Saturday and evening work required.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army needs several employees for&nbsp;short-term&nbsp;seasonal employment as part of our Christmas assistance team. Our Angel Tree program will run from&nbsp;Oct. 2&nbsp;to Dec. 22&nbsp;and will require several full-time employees to fill these&nbsp;temporary&nbsp;roles. Salaries range from&nbsp;$15-$17&nbsp;per hour. Last year we provided Christmas assistance to over 3,500 children and 1,200 seniors in the Charlotte community.&nbsp;If you have a passion for serving others and enjoy the hustle and bustle of Christmas, please apply below for consideration. Interviews will be conducted the week of September 9th&nbsp;and 15th. NOTE: these roles are full-time roles with daily hours from 8:30 – 4:30 and some Saturday and evening work required.",
+								"position": 1,
+								"fullName": "content:textarea:2:74",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:74",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:10:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:3:85": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.paycomonline.net/v4/ats/web.php/jobs/ViewJobDetails?job=18808&amp;clientkey=32845297BC28AB21BFFD7C682F3E1551\" class=\"btn btn-secondary gap-1 mt-2\">Apply Online!</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.paycomonline.net/v4/ats/web.php/jobs/ViewJobDetails?job=18808&amp;clientkey=32845297BC28AB21BFFD7C682F3E1551\" class=\"btn btn-secondary gap-1 mt-2\">Apply Online!</a></p>",
+								"model": "6",
+								"position": 2,
+								"fullName": "content:wysiwyg_basic:3:85",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:3:85",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:10:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:4:10": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 3,
+								"fullName": "design:design:whitespace-sm:4:10",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:10:25-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:5:81": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<u><strong>Christmas Center Senior Coordinator (Full Season)</strong></u>\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>Must have strong leadership, management, and organizational skills</li>\n\t\t\t\t\t<li>Excellent communication and problem-solving abilities</li>\n\t\t\t\t\t<li>Proficient in Word, Excel, and database programs</li>\n\t\t\t\t\t<li>Ability to handle stress and manage multiple tasks</li>\n\t\t\t\t\t<li>Supervises staff in the&nbsp;absence of the Christmas Services Manager</li>\n\t\t\t\t\t<li>Assists with daily operations, client registration, and other assigned tasks</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<u><strong>Bi-Lingual Communication Coordinator (Full Season)</strong></u>\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>Must be fluent in Spanish and English</li>\n\t\t\t\t\t<li>Provides translation support and communication with Hispanic clients</li>\n\t\t\t\t\t<li>Assists with volunteer coordination and registration tasks</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<u><strong>Volunteer Coordinator (Full Season)</strong></u>\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>Outgoing personality; comfortable speaking to large groups</li>\n\t\t\t\t\t<li>Strong communication and organizational skills</li>\n\t\t\t\t\t<li>Proficient in online database programs</li>\n\t\t\t\t\t<li>Responsible for scheduling, training, and supervising volunteers</li>\n\t\t\t\t\t<li>Supports client registration and additional seasonal tasks</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<u><strong>Warehouse Coordinator (Full Season)</strong></u>\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>Maintains cleanliness, organization, and inventory of the Christmas Center</li>\n\t\t\t\t\t<li>Manages deliveries, recycling, and overall facility upkeep</li>\n\t\t\t\t\t<li>Supports traffic flow and parking during registration and distribution</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-3\">\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<u><strong>Donor / Special Handling Coordinator (Full Season)</strong></u>\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>Strong computer and organizational skills, must have strong excel skills</li>\n\t\t\t\t\t<li>Manages donor communication and Angel Tree assignments</li>\n\t\t\t\t\t<li>Coordinates preparation and pick-up of Angel orders</li>\n\t\t\t\t\t<li>Oversees check-in and placement of special handling items</li>\n\t\t\t\t\t<li>Supports client registration as needed</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<u><strong>Toyland Coordinator (Full Season)</strong></u>\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>Manages toy inventory and setup of Toyland area</li>\n\t\t\t\t\t<li>Organizes toy donations and tracks in-kind contributions</li>\n\t\t\t\t\t<li>Oversees volunteers working in Toyland and supports client registration</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<u><strong>Christmas Center Senior Coordinator (Full Season)</strong></u>\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>Must have strong leadership, management, and organizational skills</li>\n\t\t\t\t\t<li>Excellent communication and problem-solving abilities</li>\n\t\t\t\t\t<li>Proficient in Word, Excel, and database programs</li>\n\t\t\t\t\t<li>Ability to handle stress and manage multiple tasks</li>\n\t\t\t\t\t<li>Supervises staff in the&nbsp;absence of the Christmas Services Manager</li>\n\t\t\t\t\t<li>Assists with daily operations, client registration, and other assigned tasks</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<u><strong>Bi-Lingual Communication Coordinator (Full Season)</strong></u>\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>Must be fluent in Spanish and English</li>\n\t\t\t\t\t<li>Provides translation support and communication with Hispanic clients</li>\n\t\t\t\t\t<li>Assists with volunteer coordination and registration tasks</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<u><strong>Volunteer Coordinator (Full Season)</strong></u>\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>Outgoing personality; comfortable speaking to large groups</li>\n\t\t\t\t\t<li>Strong communication and organizational skills</li>\n\t\t\t\t\t<li>Proficient in online database programs</li>\n\t\t\t\t\t<li>Responsible for scheduling, training, and supervising volunteers</li>\n\t\t\t\t\t<li>Supports client registration and additional seasonal tasks</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<u><strong>Warehouse Coordinator (Full Season)</strong></u>\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>Maintains cleanliness, organization, and inventory of the Christmas Center</li>\n\t\t\t\t\t<li>Manages deliveries, recycling, and overall facility upkeep</li>\n\t\t\t\t\t<li>Supports traffic flow and parking during registration and distribution</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-3\">\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<u><strong>Donor / Special Handling Coordinator (Full Season)</strong></u>\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>Strong computer and organizational skills, must have strong excel skills</li>\n\t\t\t\t\t<li>Manages donor communication and Angel Tree assignments</li>\n\t\t\t\t\t<li>Coordinates preparation and pick-up of Angel orders</li>\n\t\t\t\t\t<li>Oversees check-in and placement of special handling items</li>\n\t\t\t\t\t<li>Supports client registration as needed</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<u><strong>Toyland Coordinator (Full Season)</strong></u>\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>Manages toy inventory and setup of Toyland area</li>\n\t\t\t\t\t<li>Organizes toy donations and tracks in-kind contributions</li>\n\t\t\t\t\t<li>Oversees volunteers working in Toyland and supports client registration</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>",
+								"model": "6",
+								"position": 4,
+								"fullName": "content:wysiwyg_basic:5:81",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:5:81",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:10:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:6:25": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 5,
+								"fullName": "design:design:whitespace-sm:6:25",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:10:25-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:7:39": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.paycomonline.net/v4/ats/web.php/jobs/ViewJobDetails?job=18808&amp;clientkey=32845297BC28AB21BFFD7C682F3E1551\" class=\"btn btn-secondary gap-1 mt-2\">Apply Online!</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.paycomonline.net/v4/ats/web.php/jobs/ViewJobDetails?job=18808&amp;clientkey=32845297BC28AB21BFFD7C682F3E1551\" class=\"btn btn-secondary gap-1 mt-2\">Apply Online!</a></p>",
+								"model": "6",
+								"position": 6,
+								"fullName": "content:wysiwyg_basic:7:39",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:7:39",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:10:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

@@ -1,0 +1,426 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:19:0:15": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-e6a5ace2f0-x0g8m5')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-e6a5ace2f0-x0g8m5')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:19:0:15",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:26:36": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:26:36",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:2:49": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Equipping Our Community</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Equipping Our Community",
+								"position": 0,
+								"fullName": "content:text:2:49",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:2:49",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:3:33": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 1,
+								"fullName": "design:design:whitespace-sm:3:33",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columnswideright:10:6": {
+								"uid": "14",
+								"name": "2 Columns - Left Small",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:2\"></div><div style=\"flex:4\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "2",
+										"html": "<div class=\"col-md-4 col-sm-12\">*</div>",
+										"classes": "col-md-4 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "4",
+										"html": "<div class=\"col-md-8 col-sm-12\">*</div>",
+										"classes": "col-md-8 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 2,
+								"fullName": "design:columns:2columnswideright:10:6",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columnswideright:10:6-2:2 Columns - Left Small:0": {
+										"width": "2",
+										"html": "<div class=\"col-md-4 col-sm-12\">*</div>",
+										"classes": "col-md-4 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:4:29": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/22069c23-1d57-49ec-aa8b-1f3c5ce017e0_b5bd9c43-feb2-4430-b82c-3dc3256f727b_ED%2BWORKFORCE%2BPIC.jpg\" alt=\"placeholder\" class=\"img-fluid d-block my-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/22069c23-1d57-49ec-aa8b-1f3c5ce017e0_b5bd9c43-feb2-4430-b82c-3dc3256f727b_ED%2BWORKFORCE%2BPIC.jpg",
+												"position": 0,
+												"fullName": "content:images:4:29",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:2columnswideright:10:6-2:2 Columns - Left Small:0",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columnswideright:10:6-4:2 Columns - Left Small:1": {
+										"width": "4",
+										"html": "<div class=\"col-md-8 col-sm-12\">*</div>",
+										"classes": "col-md-8 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:7:45": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tThe Education &amp; Workforce Development Center works to help each participant reach their full potential by offering classes, trainings, workshops, professional development events and opportunities, through collaborative partnerships.&nbsp;&nbsp;\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "The Education &amp; Workforce Development Center works to help each participant reach their full potential by offering classes, trainings, workshops, professional development events and opportunities, through collaborative partnerships.&nbsp;&nbsp;",
+												"position": 0,
+												"fullName": "content:textarea:7:45",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:7:45",
+												"styles": {},
+												"newLoc": "design:columns:2columnswideright:10:6-4:2 Columns - Left Small:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:wysiwyg_basic:8:74": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p>\n\t\t\t\t\tFor more information on upcoming offerings, please call&nbsp;&nbsp;<a href=\"tel:+12053282420\" target=\"\">205-328-2420</a>.\n\t\t\t\t</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p>\n\t\t\t\t\tFor more information on upcoming offerings, please call&nbsp;&nbsp;<a href=\"tel:+12053282420\" target=\"\">205-328-2420</a>.\n\t\t\t\t</p>",
+												"model": "6",
+												"position": 1,
+												"fullName": "content:wysiwyg_basic:8:74",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:8:74",
+												"styles": {},
+												"newLoc": "design:columns:2columnswideright:10:6-4:2 Columns - Left Small:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"content:textarea:11:58": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\t<em><strong>All classes and trainings are held at the Center of Hope in the Education Workforce Development Center (E&amp;WDC) located at 2015 26th Avenue North Birmingham, AL 35234.</strong></em>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "All classes and trainings are held at the Center of Hope in the Education Workforce Development Center (E&amp;WDC) located at 2015 26th Avenue North Birmingham, AL 35234.",
+								"position": 3,
+								"fullName": "content:textarea:11:58",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:11:58",
+								"styles": {
+									"fontWeight": "700",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:12:37": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 4,
+								"fullName": "design:design:whitespace-xl:12:37",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:13:64": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#ffffff;\">\n                    <h5 style=\"text-align:center;\">Education</h5>\n\n<p style=\"text-align:center;color:#fff;\">\n\t<strong>GED&nbsp;</strong>\n</p>\n\n<p style=\"text-align:center;color:#fff;\">\n\tGed and High School Diploma Option preparation is offered in partnership with Jefferson State Community College. The class is held Monday – Thursday 9:00 am-1:00 pm. A valid state of Alabama ID is preferred. The ged Ready Test (Pre-test) and the ged Test are free of charge through the “See for Free\" program. Upon completion of the ged, each participant will receive a ged certificate and a free 3-hour class at Jefferson State Community College (books and fees not included). Ged participants must master skills Reading in Language Arts, Social Studies, Science and Math before taking the ged test. The participants focus on one subject at a time and test on that subject when the ged Ready (Pretest) indicates “likely to pass\". The High School Diploma Option is for those participants who failed the high school exit exam or lack a minimum of credits toward achieving their high school diploma. A participant can achieve a high school diploma through the ged class or through the Ready to Work program.&nbsp;\n</p>\n\n<p style=\"text-align:center;color:#fff;\">\n\t<strong>Literacy&nbsp;Remediation&nbsp;</strong>\n</p>\n\n<p style=\"text-align:center;color:#fff;\">\n\tLiteracy Remediation is presented in partnership with the Literacy Council of Central Alabama. Literacy Remediation is currently presented in a virtual format where participants meet at the E&amp;WDC for their Zoom session with the tutor. Individuals possessing their own devices are welcome to use them from their location, or at E&amp;WDC, provided the staff is aware. Upon completion of the participant's assessment with the Literacy Council's tutor, he/she will be assigned a 1-hour session date and time, usually on Tuesdays or Thursdays between 1:00pm -3:00pm.&nbsp;\n</p>\n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"text-white rounded p-6 gap-3 my-5\" style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#ffffff;\">\n                    <h5 style=\"text-align:center;\">Education</h5>\n\n<p style=\"text-align:center;color:#fff;\">\n\t<strong>GED&nbsp;</strong>\n</p>\n\n<p style=\"text-align:center;color:#fff;\">\n\tGed and High School Diploma Option preparation is offered in partnership with Jefferson State Community College. The class is held Monday – Thursday 9:00 am-1:00 pm. A valid state of Alabama ID is preferred. The ged Ready Test (Pre-test) and the ged Test are free of charge through the “See for Free\" program. Upon completion of the ged, each participant will receive a ged certificate and a free 3-hour class at Jefferson State Community College (books and fees not included). Ged participants must master skills Reading in Language Arts, Social Studies, Science and Math before taking the ged test. The participants focus on one subject at a time and test on that subject when the ged Ready (Pretest) indicates “likely to pass\". The High School Diploma Option is for those participants who failed the high school exit exam or lack a minimum of credits toward achieving their high school diploma. A participant can achieve a high school diploma through the ged class or through the Ready to Work program.&nbsp;\n</p>\n\n<p style=\"text-align:center;color:#fff;\">\n\t<strong>Literacy&nbsp;Remediation&nbsp;</strong>\n</p>\n\n<p style=\"text-align:center;color:#fff;\">\n\tLiteracy Remediation is presented in partnership with the Literacy Council of Central Alabama. Literacy Remediation is currently presented in a virtual format where participants meet at the E&amp;WDC for their Zoom session with the tutor. Individuals possessing their own devices are welcome to use them from their location, or at E&amp;WDC, provided the staff is aware. Upon completion of the participant's assessment with the Literacy Council's tutor, he/she will be assigned a 1-hour session date and time, usually on Tuesdays or Thursdays between 1:00pm -3:00pm.&nbsp;\n</p>\n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"position": 5,
+								"fullName": "content:wysiwyg_basic:13:64",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:13:64",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "300px",
+									"background": "#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover",
+									"fontWeight": "700"
+								},
+								"classes": "text-white rounded p-6 gap-3 my-5",
+								"newLoc": "design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:14:28": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 6,
+								"fullName": "design:design:whitespace-sm:14:28",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:15:71": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Job &amp; Career&nbsp;Readiness</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Job &amp; Career&nbsp;Readiness",
+								"position": 7,
+								"fullName": "content:text:15:71",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:15:71",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:16:3": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p><strong>WorkFaith&nbsp;Birmingham&nbsp;</strong></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "WorkFaith&nbsp;Birmingham&nbsp;",
+								"position": 8,
+								"fullName": "content:textarea:16:3",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:16:3",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:17:71": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>In this 2-week job readiness program participants will create a resume, as well as templates for a cover letter and thank your letter; formulate a “30-second commercial\" to effectively answer that dreaded interview question, “Tell me a little about yourself?\"; become familiar with 21st century job search techniques; brush up on interview skills and participate in mock interviews designed to ensure the participant conveys his message effectively to an employer. Participants must be work ready – be able to present a valid state ID and Social Security Card and have no pending court cases that will interfere with employment and be able to pass a drug screen.&nbsp;</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "In this 2-week job readiness program participants will create a resume, as well as templates for a cover letter and thank your letter; formulate a “30-second commercial\" to effectively answer that dreaded interview question, “Tell me a little about yourself?\"; become familiar with 21st century job search techniques; brush up on interview skills and participate in mock interviews designed to ensure the participant conveys his message effectively to an employer. Participants must be work ready – be able to present a valid state ID and Social Security Card and have no pending court cases that will interfere with employment and be able to pass a drug screen.&nbsp;",
+								"position": 9,
+								"fullName": "content:textarea:17:71",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:17:71",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:18:25": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p><strong>Alabama&nbsp;Career Essentials (ACE)&nbsp;</strong></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Alabama&nbsp;Career Essentials (ACE)&nbsp;",
+								"position": 10,
+								"fullName": "content:textarea:18:25",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:18:25",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:19:54": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>In this free training course designed by the Alabama Community College System to provide Alabamians with relevant, innovative, and industry-driven employability skills training to better prepare individuals for the Alabama workforce. The main goal of the new ace course is to ensure current and future workers are equipped with the skills necessary to enter the 21st-century Alabama workforce. Participants will learn skills in the following areas:&nbsp;</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "In this free training course designed by the Alabama Community College System to provide Alabamians with relevant, innovative, and industry-driven employability skills training to better prepare individuals for the Alabama workforce. The main goal of the new ace course is to ensure current and future workers are equipped with the skills necessary to enter the 21st-century Alabama workforce. Participants will learn skills in the following areas:&nbsp;",
+								"position": 11,
+								"fullName": "content:textarea:19:54",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:19:54",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:20:39": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<ul>\n\t<li>Computer Literacy&nbsp;</li>\n\t<li>Effective Communication&nbsp;</li>\n\t<li>Employment Preparation&nbsp;</li>\n\t<li>Math for Work&nbsp;</li>\n\t<li>Resolving Problems in the Workplace&nbsp;</li>\n\t<li>Healthy Workplace Environments&nbsp;</li>\n\t<li>Financial Literacy&nbsp;</li>\n\t<li>Workplace Etiquette&nbsp;</li>\n\t<li>Workplace Safety&nbsp;</li>\n</ul>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<ul>\n\t<li>Computer Literacy&nbsp;</li>\n\t<li>Effective Communication&nbsp;</li>\n\t<li>Employment Preparation&nbsp;</li>\n\t<li>Math for Work&nbsp;</li>\n\t<li>Resolving Problems in the Workplace&nbsp;</li>\n\t<li>Healthy Workplace Environments&nbsp;</li>\n\t<li>Financial Literacy&nbsp;</li>\n\t<li>Workplace Etiquette&nbsp;</li>\n\t<li>Workplace Safety&nbsp;</li>\n</ul>",
+								"model": "6",
+								"position": 12,
+								"fullName": "content:wysiwyg_basic:20:39",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:20:39",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:21:61": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 13,
+								"fullName": "design:design:whitespace-sm:21:61",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:22:64": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThe new ace curriculum is based on the most current acccp and Technical Advisory Committee's five most in-demand career clusters. The course will be delivered online, hybrid, and in-person and can be customized to meet the training and educational needs of business and industry.&nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The new ace curriculum is based on the most current acccp and Technical Advisory Committee's five most in-demand career clusters. The course will be delivered online, hybrid, and in-person and can be customized to meet the training and educational needs of business and industry.&nbsp;",
+								"position": 14,
+								"fullName": "content:textarea:22:64",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:22:64",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:26:36-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

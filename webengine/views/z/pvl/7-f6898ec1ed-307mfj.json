@@ -1,0 +1,416 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:18:0:88": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-eed0b8d1f7-n63g89')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-eed0b8d1f7-n63g89')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:18:0:88",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:27:54": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:27:54",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:wysiwyg_basic:2:17": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"rounded p-6 gap-3 bg-dark-50 text-light\" style=\"color:#FFFFFF;\"><h2 style=\"text-align:center;\">1 in 5 Children in Oklahoma Go to Bed Hungry</h2>\n\n<p style=\"text-align:center;\">\n\tWe provide programming to serve&nbsp;those who might not know where their next meal will come from.\n</p></div>",
+								"content": "<div class=\"rounded p-6 gap-3 bg-dark-50 text-light\" style=\"color:#FFFFFF;\"><h2 style=\"text-align:center;\">1 in 5 Children in Oklahoma Go to Bed Hungry</h2>\n\n<p style=\"text-align:center;\">\n\tWe provide programming to serve&nbsp;those who might not know where their next meal will come from.\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 0,
+								"fullName": "content:wysiwyg_basic:2:17",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:17",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:3:50": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 1,
+								"fullName": "design:design:whitespace-xl:3:50",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:text:4:73": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5>How we help Alleviate&nbsp;hunger</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "How we help Alleviate&nbsp;hunger",
+								"position": 2,
+								"fullName": "content:text:4:73",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:4:73",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:5:40": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>In Oklahoma, Canadian, and Cleveland counties, we provide a food pantry open to the public. In Oklahoma and Cleveland counties we provide&nbsp;a nightly community meal.</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "In Oklahoma, Canadian, and Cleveland counties, we provide a food pantry open to the public. In Oklahoma and Cleveland counties we provide&nbsp;a nightly community meal.",
+								"position": 3,
+								"fullName": "content:textarea:5:40",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:5:40",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:6:80": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p><b>Community Meal</b></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Community Meal",
+								"position": 4,
+								"fullName": "content:textarea:6:80",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:6:80",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:7:29": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tIn order help those in&nbsp;Central Oklahoma who face&nbsp;the daily burdens of food insecurity, we offer a free community meal every day.&nbsp;Anyone is welcome to come and share this meal.&nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "In order help those in&nbsp;Central Oklahoma who face&nbsp;the daily burdens of food insecurity, we offer a free community meal every day.&nbsp;Anyone is welcome to come and share this meal.&nbsp;",
+								"position": 5,
+								"fullName": "content:textarea:7:29",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:7:29",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:8:13": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p><b>Client-Choice Food Pantry</b></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Client-Choice Food Pantry",
+								"position": 6,
+								"fullName": "content:textarea:8:13",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:8:13",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:9:82": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>By supplying free fresh produce, canned goods, and healthy frozen items, our food pantries provide valuable meal supplementation while helping those in need maintain their independence and dignity. We provide the opportunity for clients to pick up food once every 30 days.</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "By supplying free fresh produce, canned goods, and healthy frozen items, our food pantries provide valuable meal supplementation while helping those in need maintain their independence and dignity. We provide the opportunity for clients to pick up food once every 30 days.",
+								"position": 7,
+								"fullName": "content:textarea:9:82",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:9:82",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:10:14": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Food drive donations are accepted at our offices.</strong></span>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Food drive donations are accepted at our offices.",
+								"position": 8,
+								"fullName": "content:textarea:10:14",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:10:14",
+								"styles": {
+									"color": "#ed1c2b",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:11:55": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p>\n\t<a href=\"https://www.usda.gov/non-discrimination-statement\" target=\"\">Usda Non-discrimination Statement</a>\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p>\n\t<a href=\"https://www.usda.gov/non-discrimination-statement\" target=\"\">Usda Non-discrimination Statement</a>\n</p>",
+								"model": "6",
+								"position": 9,
+								"fullName": "content:wysiwyg_basic:11:55",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:11:55",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:12:42": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 10,
+								"fullName": "design:design:whitespace-sm:12:42",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:14:5": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6>For more information or to schedule an appointment contact:</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "For more information or to schedule an appointment contact:",
+								"position": 11,
+								"fullName": "content:text:14:5",
+								"htmlElement": "h6",
+								"primarytype": "content",
+								"id": "content:text:14:5",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:16:82": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 12,
+								"fullName": "design:design:whitespace-sm:16:82",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:19:12": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 13,
+								"fullName": "design:columns:2columns:19:12",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:19:12-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:15:52": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-dark-50 text-light\" style=\"text-align:center;\"><h6 style=\"text-align:center;\">Oklahoma County</h6>\n\n<p style=\"text-align:center;\">\n\tCommunity hot meal&nbsp;served daily at 4:30 p.m.\n</p>\n\n<p style=\"text-align:center;\">\n\t1001 N Pennsylvania Avenue<br>\n\tOklahoma City, OK&nbsp; 73107&nbsp;\n</p>\n\n<p style=\"text-align:center;\">\n\t<a href=\"tel:4052461060\">405-246-1060</a><br>\n\t&nbsp;\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-dark-50 text-light\" style=\"text-align:center;\"><h6 style=\"text-align:center;\">Oklahoma County</h6>\n\n<p style=\"text-align:center;\">\n\tCommunity hot meal&nbsp;served daily at 4:30 p.m.\n</p>\n\n<p style=\"text-align:center;\">\n\t1001 N Pennsylvania Avenue<br>\n\tOklahoma City, OK&nbsp; 73107&nbsp;\n</p>\n\n<p style=\"text-align:center;\">\n\t<a href=\"tel:4052461060\">405-246-1060</a><br>\n\t&nbsp;\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:15:52",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:15:52",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:19:12-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:19:12-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:17:71": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-dark-50 text-light\" style=\"text-align:center;\"><h6 style=\"text-align:center;\">Cleveland&nbsp;County</h6>\n\n<p style=\"text-align:center;\">\n\tCommunity hot meal&nbsp;served daily at 5 p.m. at 318 E. Hayes St,&nbsp;Norman, OK 73069\n</p>\n\n<p style=\"text-align:center;\">\n\tMain office: 1124 N Porter, Norman, OK 73071\n</p>\n\n<p style=\"text-align:center;\">\n\t<a href=\"tel:4053649910\">405-364-9910</a>\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-dark-50 text-light\" style=\"text-align:center;\"><h6 style=\"text-align:center;\">Cleveland&nbsp;County</h6>\n\n<p style=\"text-align:center;\">\n\tCommunity hot meal&nbsp;served daily at 5 p.m. at 318 E. Hayes St,&nbsp;Norman, OK 73069\n</p>\n\n<p style=\"text-align:center;\">\n\tMain office: 1124 N Porter, Norman, OK 73071\n</p>\n\n<p style=\"text-align:center;\">\n\t<a href=\"tel:4053649910\">405-364-9910</a>\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:17:71",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:17:71",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:19:12-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"content:wysiwyg_basic:20:45": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:420px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/f9da422d-eb2f-4359-a464-589d40fe1b58_AS8A2150.jpg');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"testimonialbox-section text-white rounded\">\n  <div class=\"bg-photo-overlay bg-opacity-60\" style=\"position:absolute;inset:0;z-index:1;\"></div>\n  <div style=\"position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:420px;padding:48px 40px;\">\n    <div style=\"max-width:720px;text-align:center;\">\n      <h6 style=\"text-align:center;\">\"You cannot warm the hearts of people with God's love if they have an empty stomach and cold feet.\"</h6>\n      <p style=\"text-align:center;color:#fff;\">- The Salvation Army founder, William Booth</p>\n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"testimonialbox-section text-white rounded\" style=\"position:relative;overflow:hidden;min-height:420px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/f9da422d-eb2f-4359-a464-589d40fe1b58_AS8A2150.jpg');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n  <div class=\"bg-photo-overlay bg-opacity-60\" style=\"position:absolute;inset:0;z-index:1;\"></div>\n  <div style=\"position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:420px;padding:48px 40px;\">\n    <div style=\"max-width:720px;text-align:center;\">\n      <h6 style=\"text-align:center;\">\"You cannot warm the hearts of people with God's love if they have an empty stomach and cold feet.\"</h6>\n      <p style=\"text-align:center;color:#fff;\">- The Salvation Army founder, William Booth</p>\n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"model": "6",
+								"position": 14,
+								"fullName": "content:wysiwyg_basic:20:45",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:20:45",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "420px",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/f9da422d-eb2f-4359-a464-589d40fe1b58_AS8A2150.jpg')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover"
+								},
+								"classes": "testimonialbox-section text-white rounded",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}
