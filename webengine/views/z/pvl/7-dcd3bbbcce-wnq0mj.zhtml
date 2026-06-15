@@ -1,17 +1,16 @@
-<div classname="{styles.pvlRoot}">
-	<div class="p-6 rounded-5 bg-light mb-18" data-zesty-id="design:columns:1 column - 1 row my-3:15:61">
-<div class="col-lg-12 col-md-12 col-sm-12" data-zesty-id="design:columns:1 column - 1 row my-3:15:61-1:1 column - 1 row:0">
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:1:62"></div>
-<div class="rounded p-6 gap-3 bg-primary-200 text-light" style="color:#FFFFFF;" data-zesty-id="content:wysiwyg_basic:2:63"><h1 style="text-align:center;">Come Worship With Us</h1>
-
-<p style="text-align:center;">
-	The love of God is at the heart of what we do. Our service-oriented approach to faith is shared each Sunday at services in Winston-Salem and Kernersville. We invite you to join us for worship services at one of our two locations.
-</p></div>
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:3:88"></div>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:5:8"></div>
-<div class="row g-3 my-3 align-items-stretch" data-zesty-id="design:columns:2columns:8:44">
-<div class="col-lg-6 col-md-12 col-sm-12 d-flex flex-column" data-zesty-id="design:columns:2columns:8:44-1:2 Columns - Equal:0">
-<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark" style="text-align:left;" data-zesty-id="content:wysiwyg_basic:4:69"><p style="text-align:left;">
+<div className={styles.pvlRoot}>
+	<div class="row my-3">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="py-5"></div>
+			<div class="rounded p-6 gap-3 bg-primary-200 text-light" style="color:#FFFFFF">
+<h1 style="text-align: center;"><span style="background-color: #000000;">Come Worship With Us</span></h1>
+<p style="text-align: center;"><span style="background-color: #000000;">The love of God is at the heart of what we do. Our service-oriented approach to faith is shared each Sunday at services in Winston-Salem and Kernersville. We invite you to join us for worship services at one of our two locations.</span></p>
+</div>
+			<div class="py-5"></div>
+			<div class="my-2"></div>
+			<div class="row my-3">
+				<div class="col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
+					<img width="100%" src="<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark" style="text-align:left"><p style="text-align:left;">
 	<strong>Winston-Salem Citadel Corps</strong>
 </p>
 
@@ -20,13 +19,13 @@
 </p>
 
 <ul>
-	<li style="text-align:left;">Sunday School - Sundays @ 10:00 am</li>
-	<li style="text-align:left;">Worship Service - Sundays @ 11:00 am</li>
-	<li style="text-align:left;">Bible Study - Thursdays @ 6:30 pm</li>
+	<li style="text-align:left;">Sunday School* - Sundays @ 10:00 am</li>
+	<li style="text-align:left;">Worship Service* - Sundays @ 11:00 am</li>
+	<li style="text-align:left;">Bible Study* - Thursdays @ 6:30 pm</li>
 </ul>
 
 <p style="text-align:left;">
-	<em>All services are Bilingual (English &amp; Spanish)</em>
+	<em>*All services are Bilingual (English &amp; Spanish)</em>
 </p>
 
 <ul>
@@ -53,10 +52,10 @@
 	Sergeants Al and Evelyn González, from Maracaibo, Venezuela, have dedicated over 40 years to community work, dividing their time between two independent ministries and serving as Salvation Army officers.&nbsp; Committed to service since their teens, they have worked as pastors and missionaries in Latin America and the United States. They joined The Salvation Army in 1995 and have held various roles, including SAMS and Sergeants at the Nashville International Corps. Both earned Bible study degrees from LOGOS Christian University and became Auxiliary Captains in 2008. Sergeant Al, a musician, has recorded ten albums and authored a book. Together the Gonzalezes&nbsp;have five children and seven grandchildren. They are most excited about serving the Greater Winston-Salem community and&nbsp;bringing new ideas to the Citadel Corps!&nbsp;<br>
 	<br>
 	<em>Los sargentos Al y Evelyn González, de Maracaibo, Venezuela, han dedicado más de 40 años al trabajo comunitario, dividiendo su tiempo entre dos ministerios independientes y sirviendo como oficiales del Ejército de Salvación. &nbsp;Comprometidos con el servicio desde su adolescencia, han trabajado como pastores y misioneros en América Latina y Estados Unidos. Se unieron al Ejército de Salvación en 1995 y han desempeñado diversos roles, incluidos SAMS y sargentos en el Cuerpo Internacional de Nashville. Ambos obtuvieron títulos de estudios bíblicos de la Universidad Cristiana LOGOS y se convirtieron en capitanes auxiliares en 2008. El sargento Al, músico, ha grabado diez álbumes y es autor de un libro. Juntos los González tienen cinco hijos y siete nietos. ¡Están muy emocionados de servir a la comunidad de Greater Winston-Salem y aportar nuevas ideas a Citadel Corps!</em>
-</p></div>
+</p></div>" alt="placeholder">
 				</div>
-<div class="col-lg-6 col-md-12 col-sm-12 d-flex flex-column" data-zesty-id="design:columns:2columns:8:44-1:2 Columns - Equal:1">
-<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark" style="text-align:left;" data-zesty-id="content:wysiwyg_basic:6:55"><p style="text-align:left;">
+				<div class="col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
+					<img width="100%" src="<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark" style="text-align:left"><p style="text-align:left;">
 	<strong>Kernersville Worship &amp; Service Center</strong>
 </p>
 
@@ -78,23 +77,19 @@
 
 <p style="text-align:left;">
 	Contact: <a href="mailto:peter.kang@uss.salvationarmy.org" target="">Captains Peter</a> and <a href="mailto:youngsun.kang@uss.salvationarmy.org" target="">Youngsun Kang</a>&nbsp; |&nbsp; <a href="tel:+336-993-8844" target="">336-993-8844</a>
-</p></div>
+</p></div>" alt="placeholder">
 				</div>
 			</div>
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:9:68"></div>
-<div class="rounded p-6 gap-3 bg-secondary-200 text-light" style="color:#FFFFFF;" data-zesty-id="content:wysiwyg_basic:10:22"><h2>How we help share God's love</h2>
-
-<p>
-	The Salvation Army, an international movement, is an evangelical part of the universal Christian Church. Its message is based on the Bible. Its ministry is motivated by the love of God. Its mission is to preach the gospel of Jesus Christ and to meet human needs in His name without discrimination.
-</p>
-
-<p>
-	Throughout the Carolinas, Salvation Army Officers serve primarily as clergy at our&nbsp;Worship Centers. These churches are at the center of our Ministry. In fact, when The Salvation Army begins ministry in a new city, one of the first steps is to begin to form a congregation.
-</p>
-
-<p>
-	The Salvation Army is considered a protestant denomination of the Christian Church with beliefs that are in line with the mainstream of Christian belief. Salvation Army Officers are ordained ministers that can perform marriages and dedicate children and who regularly provide ministerial duties for their congregations.
-</p></div>
+			<p>Text, text, text</p>
+			<div class="py-5"></div>
+			<div class="rounded p-6 gap-3 bg-secondary-200 text-light" style="color:#FFFFFF">
+<h2>How we help share God's love</h2>
+<p>The Salvation Army, an international movement, is an evangelical part of the universal Christian Church. Its message is based on the Bible. Its ministry is motivated by the love of God. Its mission is to preach the gospel of Jesus Christ and to meet human needs in His name without discrimination.</p>
+<p>Throughout the Carolinas, Salvation Army Officers serve primarily as clergy at our&nbsp;Worship Centers. These churches are at the center of our Ministry. In fact, when The Salvation Army begins ministry in a new city, one of the first steps is to begin to form a congregation.</p>
+<p>The Salvation Army is considered a protestant denomination of the Christian Church with beliefs that are in line with the mainstream of Christian belief. Salvation Army Officers are ordained ministers that can perform marriages and dedicate children and who regularly provide ministerial duties for their congregations.</p>
+<p>&nbsp;</p>
+<p>Text</p>
+</div>
 		</div>
 	</div>
 </div>

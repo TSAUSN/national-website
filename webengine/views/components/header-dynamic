@@ -128,7 +128,7 @@
               {{$sort = {obj.sort} }}
               {{$service_type = {services.filter({obj.page-zuid}).service_type} }}
               {{$service_icon = {service_types.filter({$service_type}).icon_name} }}
-                <a class="dropdown-item py-2 px-2 d-flex align-items-center gap-2 header-service-item mb-4" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-sort="{{obj.sort}}" aria-current="page" href="{{$serviceUrl}}" onclick="LinkTrackingClickEvent(this,'header_click')" style="order: {{$sort}};"><span class="material-symbols-outlined text-primary-200">{{$service_icon}}</span><span>{{obj.page_name}}</span></a>
+                <a class="dropdown-item py-2 px-2 d-flex align-items-center gap-2 header-service-item mb-4" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" data-sort="{{obj.sort}}" aria-current="page" href="{{$serviceUrl}}" onclick="LinkTrackingClickEvent(this,'header_click')" style="order: {{$sort}};"><span class="material-symbols-outlined text-primary-200">{{$service_icon}}</span><span>{{obj.page_name}}</span></a>
               {{/if}}
               {{/each}}  
             </li> 
@@ -276,7 +276,7 @@
                       data-function-type="navigation"
                       data-format-type="text"
                       data-link-type="external"
-                      onclick="LinkTrackingClickEvent(this,'header_click')"
+                      onclick="LinkTrackingClickEvent(this,'donate_goods_link')"
                       >Donate Goods</a
                     >
                   {{else-if {obj.page-zuid} == 'become_fundraiser'}}
@@ -296,43 +296,6 @@
                 
                 {{/if}}
               {{/each}}
-              
-              <!-- <a
-                class="donate-goods-link dropdown-item py-2 px-2 {{if {this.zuid} == '7-ae82da90c9-zjnfr3'}} d-none {{/if}}"
-                href="#"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >Gift Stocks & Bonds</a
-              >
-              <a
-                class="dropdown-item py-2 px-2 volunteer-link"
-                href="#"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >Volunteer</a
-              >
-              <a
-                class="planned-giving-link dropdown-item py-2 px-2"
-                href="#"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >Planned Giving</a
-              >
-              <a
-                class="dropdown-item py-2 px-2 ways-to-give-link"
-                href="#"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >View All Ways to Give</a
-              > -->
               <p class="dropdown-item placeholder-glow component-placeholder p-2">
                 <span
                   class="placeholder h-100"

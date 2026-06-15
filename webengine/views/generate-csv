@@ -10,6 +10,7 @@
 {{$events = {request.queryParam(events_landing_page)} }}
 {{$leadership = {request.queryParam(leadership_landing_page)} }}
 {{$services = {request.queryParam(services)} }}
+{{$volunteerPages = {request.queryParam(volunteer_pages)} }}
 {{$page = 1}}
 {{$perPage = 50}}
 
@@ -216,6 +217,29 @@
 
                 "publish_status": "{{if {isPublished({st.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({st.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$volunteerPages} }}
+        {{each volunteer_pages as vp WHERE territory = '{$zuid}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({vp.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({vp.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({vp.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Volunteer Pages",
+                "model_zuid": "{{vp.set_zuid}}",
+                "zuid": "{{vp.zuid}}",
+                "title": "{{vp.title.escapeForJs() }}",
+                "territory": {{if {vp.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {vp.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {vp.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({vp.zuid})}}",
+
+                "publish_status": "{{if {isPublished({vp.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({vp.zuid})}}"
             }
         {{/each}}
     {{/if}}
@@ -447,6 +471,29 @@
             }
         {{/each}}
     {{/if}}
+
+    {{if {$volunteerPages} }}
+        {{each volunteer_pages as vp WHERE division = '{$zuidD}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({vp.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({vp.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({vp.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Volunteer Pages",
+                "model_zuid": "{{vp.set_zuid}}",
+                "zuid": "{{vp.zuid}}",
+                "title": "{{vp.title.escapeForJs() }}",
+                "territory": {{if {vp.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {vp.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {vp.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({vp.zuid})}}",
+
+                "publish_status": "{{if {isPublished({vp.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({vp.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
     
     {{if {$services} }}
         {{each services as ser LIMIT {$offset}, {$perPage} }}
@@ -672,6 +719,29 @@
 
                 "publish_status": "{{if {isPublished({st.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({st.zuid})}}"
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$volunteerPages} }}
+        {{each volunteer_pages as vp WHERE location = '{$zuidL}' LIMIT {$offset}, {$perPage} }}
+            {{$territory = {territories.filter({vp.territory}).name.escapeForJs()} }}
+            {{$division = {divisions.filter({vp.division}).name.escapeForJs()} }}
+            {{$location = {locations.filter({vp.location}).name.escapeForJs()} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Volunteer Pages",
+                "model_zuid": "{{vp.set_zuid}}",
+                "zuid": "{{vp.zuid}}",
+                "title": "{{vp.title.escapeForJs() }}",
+                "territory": {{if {vp.territory} }} "{{$territory}}" {{else}} null {{/if}},
+                "division":  {{if {vp.division} }} "{{$division}}" {{else}} null {{/if}},
+                "location":  {{if {vp.location} }} "{{$location}}" {{else}} null {{/if}},
+                "path_part": "{{truepath({vp.zuid})}}",
+
+                "publish_status": "{{if {isPublished({vp.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({vp.zuid})}}"
             }
         {{/each}}
     {{/if}}

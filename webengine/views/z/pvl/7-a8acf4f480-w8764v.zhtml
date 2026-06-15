@@ -1,47 +1,44 @@
-<div classname="{styles.pvlRoot}">
-	<div data-zesty-id="content:block:6-bcfbdaa6d3-vjj3qs:27:95:0:93">{{block('/-/block/hero_full.html?variant=7-cee4bd9486-trlhbr')}}</div>
-	<div class="my-2" data-zesty-id="design:design:whitespace-sm:1:7309"></div>
-	<div class="p-6 rounded-5 bg-light mb-18" data-zesty-id="design:columns:1 column - 1 row my-3:35:43">
-<div class="col-lg-12 col-md-12 col-sm-12" data-zesty-id="design:columns:1 column - 1 row my-3:35:43-1:1 column - 1 row:0">
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/73d62713-3ba7-4c24-b6ce-7ba4b9edf2d4_bell+ringers.jpg" alt="placeholder" class="img-fluid w-100 d-block mx-auto" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:0:3869">
-<h6 data-zesty-id="content:text:1:53">Become a Bell Ringer - for a&nbsp;few hours, or all season!</h6>
-<div class="my-4" data-zesty-id="design:design:whitespace-md:2:10"></div>
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/2b9b1df2-0996-4306-a813-db8bc6b388a6_Bell+Ringers.png" alt="placeholder" class="img-fluid d-block my-3" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:2:95">
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:4:60"></div>
-<p data-zesty-id="content:textarea:5:29"><strong>Make a Difference This Christmas with The Salvation Army</strong></p>
-<p data-zesty-id="content:textarea:6:55"><span>This holiday season, give the gift of your time by volunteering as a <span style="color:#ed1c2b;">Salvation Army Red Kettle Bell Ringer!</span> </span></p>
-<p data-zesty-id="content:textarea:7:32">Whether you can spare a few hours or dedicate time throughout the season, your help will go a long way in supporting our neighbors in need.</p>
-<p data-zesty-id="content:textarea:8:91"><strong>Why Ring the Bell?</strong></p>
-<p data-zesty-id="content:textarea:9:61">
-	The familiar sound of our Red Kettle bells&nbsp;isn't just a holiday tradition--it can be lifeline for someone in crisis. Donations collected through our Red Kettles are critical in funding essential social services programs year-round. 
-</p>
-<div class="my-4" data-zesty-id="design:design:whitespace-md:10:35"></div>
-<p data-zesty-id="content:textarea:11:8">
-	Your volunteer time helps us:
-</p>
-<ul data-zesty-id="content:wysiwyg_basic:12:8">
-	<li>Operate the <strong>largest family shelter in Wake County</strong></li>
-	<li>Provide nightly meals through our <strong>Community Kitchen</strong> program</li>
-	<li>Fund <strong>life-changing social services</strong> for individuals and families in crisis</li>
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-cee4bd9486-trlhbr&version=2')}}
+	<div class="row">
+		<div class="column p-6 rounded-5 bg-light mb-18">
+			<div class="row my-3">
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/73d62713-3ba7-4c24-b6ce-7ba4b9edf2d4_bell+ringers.jpg" alt="placeholder" style="max-width:100%;height:auto;padding-top:12px" class="img-fluid w-100 d-block mx-auto">
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/2b9b1df2-0996-4306-a813-db8bc6b388a6_Bell+Ringers.png" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3">
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/1c6b5d87-7aef-48d9-a9d6-c617778c9fde_Cary+Rotary_2.jpg" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3">
+				</div>
+			</div>
+			<div class="row my-3">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<h6>Become a Bell Ringer - for a&nbsp;few hours, or all season!</h6>
+					<p style="font-weight: 700">Make a Difference This Christmas with The Salvation Army</p>
+					<p style="color:#ed1c2b;">This holiday season, give the gift of your time by volunteering as a Salvation Army Red Kettle Bell Ringer!</p>
+					<p>Whether you can spare a few hours or dedicate time throughout the season, your help will go a long way in supporting our neighbors in need.</p>
+					<p style="font-weight: 700">Why Ring the Bell?</p>
+					<p>The familiar sound of our Red Kettle bells&nbsp;isn't just a holiday tradition--it can be lifeline for someone in crisis. Donations collected through our Red Kettles are critical in funding essential social services programs year-round.</p>
+					<div class="my-4"></div>
+					<p>Your volunteer time helps us:</p>
+					<ul style="font-weight: 700">
+<li>Operate the <strong>largest family shelter in Wake County</strong></li>
+<li>Provide nightly meals through our <strong>Community Kitchen</strong> program</li>
+<li>Fund <strong>life-changing social services</strong> for individuals and families in crisis</li>
 </ul>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:13:76"></div>
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/1c6b5d87-7aef-48d9-a9d6-c617778c9fde_Cary+Rotary_2.jpg" alt="placeholder" class="img-fluid d-block my-3" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:14:70">
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:16:45"></div>
-<p data-zesty-id="content:textarea:17:78">&nbsp;<br><strong>A Fun and Meaningful Way to Give Back</strong></p>
-<p data-zesty-id="content:textarea:18:35">We are proud to have families, civic organizations, churches, and corporations join us every year for this fun and impactful volunteer opportunity. It's a great way to give back together and spread some holiday cheer!</p>
-<p data-zesty-id="content:textarea:19:44"><strong>Questions?</strong></p>
-<p data-zesty-id="content:wysiwyg_basic:20:61">Please contact our volunteer coordinator,&nbsp;<a href="mailto:rosemary.weber@uss.salvationarmy.org" target="">Rosemary Weber</a>.&nbsp;</p>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:21:76"></div>
-<p data-zesty-id="content:textarea:22:72"><strong>Ready to Ring?</strong></p>
-<p data-zesty-id="content:wysiwyg_basic:23:54">
-	If you are ready to sign up,&nbsp;visit <a href="https://www.registertoring.com/" target="">Register to Ring</a> or scan the QR code below and select the time and location that works best for you.
-</p>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:24:65"></div>
-<img width="374" height="374" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/5bda0b34-6379-41fd-8023-8cf67ff18d63_Register+to+Ring_Salvation+Army.png" alt="placeholder" class="img-fluid d-block my-3" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:26:16">
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:28:77"></div>
-<p data-zesty-id="content:textarea:29:2">
-	&nbsp;We look forward to seeing you!
-</p>
+					<div class="my-2"></div>
+					<div class="my-2"></div>
+					<p style="font-weight: 700">&nbsp;A Fun and Meaningful Way to Give Back</p>
+					<p>We are proud to have families, civic organizations, churches, and corporations join us every year for this fun and impactful volunteer opportunity. It's a great way to give back together and spread some holiday cheer!
+We look forward to seeing you!</p>
+					<div class="my-2"></div>
+					<div class="my-2"></div>
+					<div class="my-2"></div>
+				</div>
+			</div>
 		</div>
 	</div>
+	<div class="my-2"></div>
 </div>

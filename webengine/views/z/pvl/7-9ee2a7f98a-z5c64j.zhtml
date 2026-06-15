@@ -1,0 +1,70 @@
+<div className={styles.pvlRoot}>
+	<div class="p-6 rounded-5" style="background-color:#FFFFFF;">
+		<div class="column">
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/american-flag-thin.jpg" alt="placeholder">
+			<div class="row my-3">
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<h1>Serving the country and the least of these</h1>
+<p>Select a profile photo to learn more about The Salvation Army’s deep-rooted connection to veterans and how we provide healing and assistance.</p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<div class="row my-3">
+						<div class="col-lg-6 col-md-6 col-sm-12">
+							<p><a href="http://salvationarmyusa.org/usa-central-territory/veterans/veteran-salvation-army-officer-amanda-hines"><img src="https://8hxvw8tw.media.zestyio.com/amanda-hines-salvation-army.jpg" alt="Amanda Hines, The Salvation Army"></a></p>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-12">
+							<p><a href="http://salvationarmyusa.org/usa-central-territory/veterans/lt-colonel-steve-merritt"><img src="https://8hxvw8tw.media.zestyio.com/steve-merritt-salvation-army.jpg" alt="Steve Merritt, The Salvation Army"></a></p>
+						</div>
+					</div>
+					<div class="row my-3">
+						<div class="col-lg-6 col-md-6 col-sm-12">
+							<p><a href="http://salvationarmyusa.org/usa-central-territory/veterans/veterans-services-administrator-joy-parker"><img src="https://8hxvw8tw.media.zestyio.com/joy-parker-salvation-army.jpg" alt="Joy Parker, The Salvation Army"></a></p>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-12">
+							<p><a href="http://salvationarmyusa.org/usa-central-territory/veterans/director-of-emergency-disaster-services-for-midland-division-marty-rueter"><img src="https://8hxvw8tw.media.zestyio.com/marty-rueter-salvation-army.jpg" alt="Marty Rueter, The Salvation Army"></a></p>
+						</div>
+					</div>
+					<div class="row my-3">
+						<div class="col-lg-6 col-md-6 col-sm-12">
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-12">
+							<p><a href="http://salvationarmyusa.org/usa-central-territory/veterans/10k-construction-builds-community-alongside-the-salvation-army"><img src="https://8hxvw8tw.media.zestyio.com/10K-construction-co-founder-and-president-jake-iskierka.jpg" alt="10K Construction Co-founder and President, Jake Iskierka"></a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="p-6 my-9">
+		<div class="column">
+			<div class="row my-3">
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<img width="100%" src="https://8hxvw8tw.media.zestyio.com/easter-sunday-uso-alliance-nebraska.jpg" alt="placeholder">
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<h2>How The Salvation Army Helped Launch the USO</h2>
+<p class="fs-7">In 1940, Salvation Army National Commander Commissioner Edward Parker, working with other nonprofit organizations, became one of the driving forces behind the idea of creating the USO. The idea of a grass-roots endeavor that leveraged existing relationships to aid a new generation of servicemen and women was well received by President Franklin D. Roosevelt, and over time it has boosted the moral and well-being of millions of people. </p>
+<p class="fs-7"></p>
+<p class="fs-7">The Salvation Army Central Territory Museum Director, Nancy Gasiel, walks through The Salvation Army's early years as part of the organization that cares for those in uniform.</p>
+					<p><a class="btn btn-primary" href="http://salvationarmyusa.org/usa-central-territory/veterans/history-of-the-uso">Read the Article</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="rounded-5 p-9" style="background-color:#FFFFFF;">
+		<div class="column">
+			<h2 class="fs-4">The Salvation Army works alongside veterans, community partners and supporters to provide the resources, encouragement and opportunities needed to build brighter futures.</h2>
+<p>Watch these stories to discover how veterans find support, stability and hope after their military service ends.</p>
+			<div class="row mt-9">
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/_QY1O0oLENI?si=xkKrGhANB9cUb8XJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					<p><em>The Salvation Army is grateful for the ongoing support of QTS. In addition to volunteering and funding community initiatives, QTS demonstrates its commitment to veterans through intentional hiring practices that recognize the value of military experience.</em></p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/zLCHPGV-dTQ?si=i75Af3JGz_JJpjAW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					<p><em>Iraq war veteran Rich Hobbs shares his struggle with reintegration into civilian life and how The Salvation Army got him back on his feet.</em></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

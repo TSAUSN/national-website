@@ -1,0 +1,10 @@
+{{if {this.cta_button_link} }}
+<a
+  href="{{this.cta_button_link}}"
+  target="_blank"
+  rel="noopener"
+  class="btn {{if {this.cta_type} == "Secondary"}}btn-secondary{{else}}btn-primary{{/if}} {{if {this.button_size} == "Large"}}btn-lg{{else}}{{if {this.button_size} == "Small"}}btn-sm{{/if}}{{/if}}"
+>
+  {{this.cta_button_text}}
+</a>
+{{/if}}

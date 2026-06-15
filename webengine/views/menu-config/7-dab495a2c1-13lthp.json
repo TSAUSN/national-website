@@ -23,6 +23,14 @@
   {
     "type": "menu",
     "key": null,
+    "page_name": "About The Salvation Army",
+    "page-zuid": "7-90eff9e999-tpj14d",
+    "sort": 0,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
     "page_name": "Commitment to all",
     "page-zuid": "7-90eff9e999-tpj14d",
     "sort": 1,
@@ -54,38 +62,6 @@
   },
   {
     "type": "menu",
-    "key": null,
-    "page_name": "National Advisory Board",
-    "page-zuid": "7-b0c7e6c6f7-46nsz5",
-    "sort": 6,
-    "parent": "about_us"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Media Contacts",
-    "page-zuid": "7-ec8cf6dec3-4qdl40",
-    "sort": 7,
-    "parent": "about_us"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Annual Reports",
-    "page-zuid": "7-deb081a3e2-96xdp6",
-    "sort": 8,
-    "parent": "about_us"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Who We Are",
-    "page-zuid": "7-f6d3ecd2b5-8ddsbf",
-    "sort": 9,
-    "parent": "about_us"
-  },
-  {
-    "type": "menu",
     "key": "events",
     "page_name": "Events",
     "page-zuid": null,
@@ -104,6 +80,12 @@
     "page_name": "Ways to give",
     "page-zuid": null,
     "parent": null
+  },
+  {
+    "type": "view-all",
+    "page_name": "",
+    "page-zuid": null,
+    "parent": "ways_to_give"
   },
   {
     "type": "menu",
@@ -133,40 +115,32 @@
     "type": "menu",
     "key": null,
     "page_name": "Planned Giving",
-    "page-zuid": "7-82ce8e98ae-tvqz03",
-    "sort": 3,
+    "page-zuid": "planned_giving",
+    "sort": 2,
     "parent": "ways_to_give"
   },
   {
     "type": "menu",
     "key": null,
     "page_name": "Gift Stocks & Bonds",
-    "page-zuid": "7-908ef4edec-70r71l",
-    "sort": 4,
+    "page-zuid": "gift_stocks_bonds",
+    "sort": 3,
     "parent": "ways_to_give"
   },
   {
     "type": "menu",
     "key": null,
     "page_name": "Volunteer",
-    "page-zuid": "7-d8b3f99bc0-707gmt",
-    "sort": 5,
+    "page-zuid": "volunteer",
+    "sort": 4,
     "parent": "ways_to_give"
   },
   {
     "type": "menu",
     "key": null,
     "page_name": "View All Ways to Give",
-    "page-zuid": "7-8499a580a9-586bnv",
-    "sort": 6,
-    "parent": "ways_to_give"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Corporate Partnerships",
-    "page-zuid": "7-e4ee949cae-vm5klq",
-    "sort": 7,
+    "page-zuid": "view_all_ways_to_give",
+    "sort": 5,
     "parent": "ways_to_give"
   },
   {

@@ -15,46 +15,6 @@
   },
   {
     "type": "menu",
-    "key": null,
-    "page_name": "Food Pantries",
-    "page-zuid": "7-869d829cf9-0r6v8t",
-    "sort": 0,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Youth Services",
-    "page-zuid": "7-d89eb2af93-r2b82p",
-    "sort": 1,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Senior Services",
-    "page-zuid": "7-a8b481e0ff-dsv0kv",
-    "sort": 2,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Spiritual Healing",
-    "page-zuid": "7-cac28cab86-x31wvd",
-    "sort": 3,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Family Counseling",
-    "page-zuid": "7-9af49de58c-1v2mw9",
-    "sort": 4,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
     "key": "about_us",
     "page_name": "About Us",
     "page-zuid": null,
@@ -111,15 +71,15 @@
   {
     "type": "menu",
     "key": "events",
-    "page_name": "AUBURN, CA: Corps Community Center",
-    "page-zuid": "7-e4e5a49db6-gcvh1z",
+    "page_name": "Events",
+    "page-zuid": null,
     "parent": null
   },
   {
     "type": "menu",
     "key": "newsroom",
-    "page_name": "AUBURN, CA: Corps Community Center",
-    "page-zuid": "7-bea19aa897-93tkb3",
+    "page_name": "Newsroom",
+    "page-zuid": null,
     "parent": null
   },
   {
@@ -189,7 +149,36 @@
     "type": "menu",
     "key": "contact_us",
     "page_name": "Contact Us",
-    "page-zuid": "7-82c382d2b5-t352d8",
+    "page-zuid": null,
     "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "Main Addition",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "view-all",
+    "page_name": "",
+    "page-zuid": null,
+    "parent": "custom_menu"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Sun Two",
+    "page-zuid": "7-bea19aa897-93tkb3",
+    "sort": 0,
+    "parent": "custom_menu"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Sub one",
+    "page-zuid": "7-869d829cf9-0r6v8t",
+    "sort": 1,
+    "parent": "custom_menu"
   }
 ]

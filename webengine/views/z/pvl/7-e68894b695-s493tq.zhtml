@@ -1,0 +1,23 @@
+<div className={styles.pvlRoot}>
+	<div class="p-6 rounded-5" style="background-color:#FFFFFF;">
+		<div class="column">
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/american-flag-thin.jpg" alt="placeholder">
+			<div class="row my-3">
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<h1>Serving the country and the least of these</h1>
+<p>Select a profile photo to learn more about The Salvation Army’s deep-rooted connection to veterans and how we provide healing and assistance.</p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<div class="row my-3">
+						<div class="col-lg-6 col-md-6 col-sm-12">
+							<p><a href="http://salvationarmyusa.org/usa-central-territory/veterans/veteran-salvation-army-officer-amanda-hines"><img src="https://8hxvw8tw.media.zestyio.com/amanda-hines-salvation-army.jpg" alt="Amanda Hines, The Salvation Army"></a></p>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-12">
+							<p><a href="http://salvationarmyusa.org/usa-central-territory/veterans/lt-colonel-steve-merritt"><img src="https://8hxvw8tw.media.zestyio.com/steve-merritt-salvation-army.jpg" alt="Steve Merritt, The Salvation Army"></a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

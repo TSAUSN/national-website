@@ -271,5 +271,35 @@
     "page_name": "Contact Us",
     "page-zuid": "7-8cc7e9b1da-273r6f",
     "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "Menu Item with Dropdown",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "New Submenu Item",
+    "page-zuid": "7-c0cf96ebaf-2x5khz",
+    "sort": 0,
+    "parent": "custom_menu"
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "Menu Item with Dropdown",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "New Submenu Item",
+    "page-zuid": "7-c0cf96ebaf-2x5khz",
+    "sort": 0,
+    "parent": "custom_menu"
   }
 ]

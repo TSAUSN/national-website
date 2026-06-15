@@ -213,7 +213,7 @@
       // Overwrite address links
       const address = '{{locations.filter({$location}).address}}';
       const city = '{{cities.filter({locations.filter({$location}).city}).title}}';
-      const state = '{{states.filter({locations.filter({$location}).state}).state_code}}'.toUpperCase();
+      const state = '{{states.filter({locations.filter({$location}).state}).state_code}}';
       const zipcode = '{{locations.filter({$location}).zipcode}}';
 
       const mapAddressText = document.querySelector('#map__address span');

@@ -1,27 +1,20 @@
-<div classname="{styles.pvlRoot}">
-	<div data-zesty-id="content:block:6-bcfbdaa6d3-vjj3qs:27:14:0:17">{{block('/-/block/hero_full.html?variant=7-cebbcec7ba-hpwqcd')}}</div>
-	<div class="p-6 rounded-5 bg-light mb-18" data-zesty-id="design:columns:1 column - 1 row my-3:18:15">
-<div class="col-lg-12 col-md-12 col-sm-12" data-zesty-id="design:columns:1 column - 1 row my-3:18:15-1:1 column - 1 row:0">
-<h6 style="text-align:center;" data-zesty-id="content:text:2:95"><i class="icon icon-center-heart"></i><br>
-				<br>
-				<img style="max-width:100%;height:auto;" class="img-fluid d-block mx-auto my-3" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/4879e94e-efe3-43ae-b7f8-25a07d2e6f28_Field.jpg"><br>
-				Facility Rentals</h6>
-<p style="text-align:center;" data-zesty-id="content:textarea:3:91">
-					The Salvation Army Greensboro Corps located at 1001 Freeman Mill Road has a variety of facilities available for rentals when not in use for programming.&nbsp; Whether you have a meeting, wedding reception, family reunion, birthday party, basketball tournament, soccer practice/games, and needing a concession stand, chances are we can accommodate your needs.
-				</p>
-<div class="my-4" data-zesty-id="design:design:whitespace-md:4:5"></div>
-<h6 style="text-align:center;" data-zesty-id="content:text:5:39"><img style="max-width:100%;height:auto;" class="img-fluid d-block mx-auto my-3" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/10b4b765-251d-4357-ad80-3fa83cd15d63_Fellowship+Hall+2.jpg"><br>
-				Booking in Advance</h6>
-<p style="text-align:center;" data-zesty-id="content:wysiwyg_basic:6:42">
-					We require that you book our facility centers two weeks in advance of your event to allow for proper staff scheduling. Please fill out the initial form <a href="https://forms.gle/VT2AYi9ex7miNJug9" target="">HERE</a> if you are interested in available dates and rates.
-				</p>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:7:51"></div>
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/33582ecc-f05d-4e79-80b2-5730849a9254_Fellowship+Hall+3.jpg" alt="placeholder" class="img-fluid d-block my-3 mx-auto" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:8:31">
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:10:40"></div>
-<h6 style="text-align:center;" data-zesty-id="content:text:11:51">Facility Information</h6>
-<hr data-zesty-id="design:design:horizontalrule:12:68">
-<div class="my-4" data-zesty-id="design:design:whitespace-md:13:80"></div>
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/ffdbf26c-b323-43ed-8941-c76163cb12a7_BGCfacilityrentalsrevised2.9.23.png" alt="placeholder" class="img-fluid d-block my-3 mx-auto" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:13:66">
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-cebbcec7ba-hpwqcd')}}
+	<div class="row my-3">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<h2 style="text-align:center">Facility Rentals</h2>
+			<p style="text-align:center;">The Salvation Army Greensboro Corps located at 1001 Freeman Mill Road has a variety of facilities available for rentals when not in use for programming.&nbsp; Whether you have a meeting, wedding reception, family reunion, birthday party, basketball tournament, soccer practice/games, and needing a concession stand, chances are we can accommodate your needs.</p>
+			<div class="my-4"></div>
+			<div class="my-4"></div>
+			<p style="text-align:center"><strong><span style="font-size: 18px;">Booking in Advance</span></strong></p>
+<p style="text-align: center;">We require that you book our facility centers two weeks in advance of your event to allow for proper staff scheduling. Please fill out the <a href="https://forms.gle/VT2AYi9ex7miNJug9" target="_blank" rel="noopener">initial form</a>&nbsp;if you are interested in available dates and rates.</p>
+			<div class="my-2"></div>
+			<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/33582ecc-f05d-4e79-80b2-5730849a9254_Fellowship+Hall+3.jpg" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 mx-auto">
+			<div class="my-2"></div>
+			<hr>
+			<h6 style="text-align:center;">Facility Information</h6>
+			<div class="my-4"></div>
+			<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/ffdbf26c-b323-43ed-8941-c76163cb12a7_BGCfacilityrentalsrevised2.9.23.png" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 mx-auto">
 		</div>
 	</div>
 </div>

@@ -787,6 +787,7 @@
 
     aboutUsFooterLink.setAttribute('href', '/about-us');
     newsRoomMobileLink.setAttribute("href", "/stories")
+    leadershipMobileLink.setAttribute('href', '/leadership');
     newsRoomMobileLink.textContent = "Newsroom"
     subNewsRoomMobileLink.classList.add("d-none")
   } else {
@@ -795,7 +796,7 @@
     });
 
     aboutUsFooterLink.setAttribute('href', getCookieByName('location_home_url') + 'about-us');
-
+    leadershipMobileLink.setAttribute('href', getCookieByName('location_home_url') + 'leadership');
     newsRoomMobileLink.setAttribute("href", getCookieByName("location_home_url")+"events")
     newsRoomMobileLink.textContent = "Events"
 
@@ -823,7 +824,6 @@
 
   // serviceCenterButton.setAttribute('href', getCookieByName('location_finder_url'));
   serviceCenterButton.setAttribute('href', '/location-finder');
-  leadershipMobileLink.setAttribute('href', '/leadership');
 
    })
 

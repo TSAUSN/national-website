@@ -15,7 +15,7 @@
     <nav class="navbar navbar-expand-lg py-0">
       <a
         href="/"
-        class="me-8 header-home-image"
+        class="me-4 me-xl-8 header-home-image"
         ><img
           src="https://8hxvw8tw.media.zestyio.com/shield-1.svg"
           alt="The Salvation Army Logo"
@@ -26,7 +26,7 @@
       <ul class="navbar-nav header-navbar-nav me-auto mb-2 mb-lg-0 d-sm-none d-lg-flex hide-special-prop-type">
         <li class="nav-item">
           <a
-            class="nav-link header-home-link active fw-normal"
+            class="nav-link header-home-link active fw-normal display-3 display-xl-2"
             data-location-type="nav-top"
             data-function-type="navigation"
             data-format-type="text"
@@ -40,7 +40,7 @@
         
         <li class="nav-item dropdown ">
           <a
-            class="nav-link header-dropdown dropdown-toggle fw-normal"
+            class="nav-link header-dropdown dropdown-toggle fw-normal display-3 display-xl-2"
             data-location-type="nav-top"
             data-function-type="navigation"
             data-format-type="text"
@@ -55,7 +55,7 @@
           >
           <ul class="dropdown-menu header-services-dropdown  px-8 py-4 rounded-6 pe-none">
             <li class="d-flex align-items-center justify-content-between mb-4">
-              <span class="p-0 d-block text-dark-50">Services</span>
+              <span class="p-0 d-block text-dark-50 display-3 display-xl-2">Services</span>
               <a
                 href="#"
                 data-location-type="nav-top"
@@ -65,7 +65,7 @@
                 href="#"
                 onclick="LinkTrackingClickEvent(this,'header_click')"
                 role="button"
-                class="d-flex align-items-center justify-content-between text-primary-200 display-2 text-decoration-none services-view-all pe-auto"
+                class="d-flex align-items-center justify-content-between text-primary-200 display-3 display-xl-2 text-decoration-none services-view-all pe-auto"
                 >View All<span class="material-symbols-outlined ms-4 fs-6"> arrow_outward </span></a
               >
             </li>
@@ -84,7 +84,7 @@
 
         <li class="nav-item dropdown">
           <a
-            class="nav-link header-dropdown dropdown-toggle fw-normal"
+            class="nav-link header-dropdown dropdown-toggle fw-normal display-3 display-xl-2"
             data-location-type="nav-top"
             data-function-type="navigation"
             data-format-type="text"
@@ -98,14 +98,14 @@
             >About Us</a
           >
           <ul class="dropdown-menu  px-8 py-4 rounded-6 pe-none">
-            <li><span class="p-0 mb-4 d-block text-dark-50">About Us</span></li>
+            <li><span class="p-0 mb-4 d-block text-dark-50 display-3 display-xl-2">About Us</span></li>
             <li>
               <hr class="dropdown-divider" />
             </li>
 
             <li class="dropdown-item__container dropdown-item__container-repeat-3 pe-auto about-us-item-container">
               <a
-                class="dropdown-item py-2 px-2 about-the-salvation-link"
+                class="dropdown-item py-2 px-2 about-the-salvation-link display-3 display-xl-2"
                 href="#"
                 data-location-type="nav-top"
                 data-function-type="navigation"
@@ -115,7 +115,7 @@
                 >About The Salvation Army</a
               >
               <a
-                class="dropdown-item py-2 px-2 leadership-link"
+                class="dropdown-item py-2 px-2 leadership-link display-3 display-xl-2"
                 href="#"
                 data-function-type="navigation"
                 data-format-type="text"
@@ -124,7 +124,7 @@
                 >Leadership</a
               >
               <a
-                class="dropdown-item py-2 px-2 history-link"
+                class="dropdown-item py-2 px-2 history-link display-3 display-xl-2"
                 href="{{ truepath(7-b8c09b84c2-fp57hm) }}"
                 data-function-type="navigation"
                 data-format-type="text"
@@ -133,7 +133,7 @@
                 >History</a
               >
               <a
-                class="dropdown-item py-2 px-2 employment-link"
+                class="dropdown-item py-2 px-2 employment-link display-3 display-xl-2"
                 href="#"
                 data-function-type="navigation"
                 data-format-type="text"
@@ -142,7 +142,7 @@
                 >Employment Opportunities</a
               >
               <a
-                class="dropdown-item py-2 px-2 love-beyond-link d-none"
+                class="dropdown-item py-2 px-2 love-beyond-link d-none display-3 display-xl-2"
                 href="{{ truepath(7-ec948cc4c0-lm28pm) }}"
                 data-function-type="navigation"
                 data-format-type="text"
@@ -151,7 +151,7 @@
                 >Love Beyond</a
               >
               <a
-                class="dropdown-item py-2 px-2"
+                class="dropdown-item py-2 px-2 display-3 display-xl-2"
                 href="/give-with-joy"
                 data-function-type="navigation"
                 data-format-type="text"
@@ -160,7 +160,7 @@
                 >Give With Joy</a
               >
               <a
-                class="dropdown-item py-2 px-2 sub-newsroom-link d-none"
+                class="dropdown-item py-2 px-2 sub-newsroom-link d-none display-3 display-xl-2"
                 href="#"
                 data-function-type="navigation"
                 data-format-type="text"
@@ -177,7 +177,7 @@
               </p>
 
               <a
-              class="dropdown-item py-2 px-2"
+              class="dropdown-item py-2 px-2 display-3 display-xl-2"
               href="{{truepath(7-98f6a2b4bf-8xvb3r)}}"
               data-function-type="navigation"
               data-format-type="text"
@@ -190,7 +190,7 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link fw-normal newsroom-link"
+            class="nav-link fw-normal newsroom-link display-3 display-xl-2"
             aria-current="page"
             data-location-type="nav-top"
             data-function-type="navigation"
@@ -204,7 +204,7 @@
         </li>
         <li class="nav-item dropdown">
           <a
-            class="nav-link  header-dropdown dropdown-toggle fw-normal header-wtg-dropdown"
+            class="nav-link  header-dropdown dropdown-toggle fw-normal header-wtg-dropdown display-3 display-xl-2"
             data-location-type="nav-top"
             data-function-type="navigation"
             data-format-type="text"
@@ -219,14 +219,14 @@
           >
           <ul class="dropdown-menu px-8 py-4 rounded-6 pe-none header-wtg-dropdown-ul">
             <li class="d-flex align-items-center justify-content-between mb-4">
-              <span class="p-0 d-block text-dark-50">Ways to Give</span>
+              <span class="p-0 d-block text-dark-50 display-3 display-xl-2">Ways to Give</span>
             </li>
             <li>
               <hr class="dropdown-divider" />
             </li>
             <li class="dropdown-item__container dropdown-item__container-repeat-3 pe-auto ways-to-give-container">
               <a
-              class="dropdown-item py-2 px-2 header-donate-button"
+              class="dropdown-item py-2 px-2 header-donate-button display-3 display-xl-2"
                 href="#"
                 data-location-type="nav-top"
                 data-function-type="other"
@@ -236,7 +236,7 @@
                >Donate Money</a>
               
               <a
-                class="dropoff-link dropdown-item py-2 px-2"
+                class="dropoff-link dropdown-item py-2 px-2 display-3 display-xl-2"
                 href="https://satruck.org"
                 target="_blank"
                 data-function-type="navigation"
@@ -247,7 +247,7 @@
               >
               
                   <a
-                class="fundraiser-link dropdown-item py-2 px-2"
+                class="fundraiser-link dropdown-item py-2 px-2 display-3 display-xl-2"
                 href="https://give.salvationarmyusa.org/campaign/fundraise-for-good/c175635"
                 target="_blank"
                 data-function-type="navigation"
@@ -257,7 +257,7 @@
                 >Become a Fundraiser</a
               >
               <a
-                class="donate-goods-link dropdown-item py-2 px-2 {{if {this.zuid} == '7-ae82da90c9-zjnfr3'}} d-none {{/if}}"
+                class="donate-goods-link dropdown-item py-2 px-2 display-3 display-xl-2 {{if {this.zuid} == '7-ae82da90c9-zjnfr3'}} d-none {{/if}}"
                 href="#"
                 data-function-type="navigation"
                 data-format-type="text"
@@ -266,7 +266,7 @@
                 >Gift Stocks & Bonds</a
               >
               <a
-                class="dropdown-item py-2 px-2 volunteer-link"
+                class="dropdown-item py-2 px-2 volunteer-link display-3 display-xl-2"
                 href="#"
                 data-function-type="navigation"
                 data-format-type="text"
@@ -275,7 +275,7 @@
                 >Volunteer</a
               >
               <a
-                class="planned-giving-link dropdown-item py-2 px-2"
+                class="planned-giving-link dropdown-item py-2 px-2 display-3 display-xl-2"
                 href="#"
                 data-function-type="navigation"
                 data-format-type="text"
@@ -284,7 +284,7 @@
                 >Planned Giving</a
               >
               <a
-                class="angel-tree-link dropdown-item py-2 px-2 d-none"
+                class="angel-tree-link dropdown-item py-2 px-2 d-none display-3 display-xl-2"
                 href="/walmart-angel-tree/"
                 data-function-type="navigation"
                 data-format-type="text"
@@ -293,7 +293,7 @@
                 >Angel Tree Campaign</a
               >
               <a
-                class="dropdown-item py-2 px-2 ways-to-give-link"
+                class="dropdown-item py-2 px-2 ways-to-give-link display-3 display-xl-2"
                 href="#"
                 data-function-type="navigation"
                 data-format-type="text"
@@ -312,7 +312,7 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link fw-normal contact-us-link"
+            class="nav-link fw-normal contact-us-link display-3 display-xl-2"
             aria-current="page"
             data-location-type="nav-top"
             data-function-type="navigation"
@@ -327,7 +327,7 @@
 
         <li class="nav-item  dropdown d-none informational-links-more-parent">
           <a
-            class="nav-link header-dropdown header-dropdown-more dropdown-toggle fw-normal"
+            class="nav-link header-dropdown header-dropdown-more dropdown-toggle fw-normal display-3 display-xl-2"
             data-location-type="nav-top"
             data-function-type="navigation"
             data-format-type="text"
@@ -376,19 +376,18 @@
     <div class="location-indicator d-lg-flex align-items-center justify-content-center d-sm-none ms-auto me-18">
       <div class="me-2 d-flex align-items-center justify-content-center">
         <span
-          class="material-symbols-outlined text-primary-200"
-          style="font-size: 38px"
+          class="material-symbols-outlined text-primary-200 fs-4"
           >location_on</span
         >
       </div>
       <div>
-        <p class="location-title-placeholder placeholder-glow component-placeholder mb-0">
+        <p class="location-title-placeholder placeholder-glow component-placeholder mb-0 display-3 display-xl-2">
           <span
             class="placeholder"
             style="width: 10rem"
           ></span>
         </p>
-        <p class="my-0 mb-0">
+        <p class="my-0 mb-0 display-3 display-xl-2">
           <span class="header-salvation-name"></span>
           <span class="header-location"></span>
         </p>
@@ -400,7 +399,7 @@
             data-link-type="internal"
             href="#"
             onclick="LinkTrackingClickEvent(this,'header_click')"
-            class="text-dark-50 location-link service-center"
+            class="text-dark-50 location-link service-center display-3 display-xl-2"
             >Find Service Centers</a
           >
           <span class="text-dark-50 d-none">|</span>
@@ -411,7 +410,7 @@
             data-link-type="internal"
             href="#"
             onclick="LinkTrackingClickEvent(this,'header_click')"
-            class="d-none text-dark-50 location-link"
+            class="d-none text-dark-50 location-link display-3 display-xl-2"
             >Thrift Stores</a
           >
         </div>

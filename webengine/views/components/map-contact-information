@@ -212,7 +212,7 @@
       // Overwrite address links
       const address = '{{!this.address}}';
       const city = '{{cities.filter({this.city}).title}}';
-      const state = '{{states.filter({this.state}).state_code}}'.toUpperCase();
+      const state = '{{states.filter({this.state}).state_code}}';
       const zipcode = '{{this.zipcode}}';
 
       const mapAddressText = document.querySelector('#map__address span');
@@ -242,6 +242,6 @@
 
         address.textContent = result;
       }); 
-      });
+    });
   
 </script>

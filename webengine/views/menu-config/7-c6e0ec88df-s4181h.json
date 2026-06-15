@@ -15,70 +15,6 @@
   },
   {
     "type": "menu",
-    "key": null,
-    "page_name": "Spiritual Healing",
-    "page-zuid": "7-98aa94b3a8-x6lqh6",
-    "sort": 0,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Senior Services",
-    "page-zuid": "7-dea9f884a2-5hdzl3",
-    "sort": 1,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Food Pantries",
-    "page-zuid": "7-92f6d5ca9b-70rrm4",
-    "sort": 2,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Adult Program Services",
-    "page-zuid": "7-caf8d3e1ae-53tch7",
-    "sort": 3,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Family Counseling",
-    "page-zuid": "7-d0cc8d9ab5-lj5rz2",
-    "sort": 4,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Homelessness",
-    "page-zuid": "7-f09bd88f95-hn4jbr",
-    "sort": 5,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Disaster Relief",
-    "page-zuid": "7-f2b1cece8e-91w93c",
-    "sort": 6,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Youth Services",
-    "page-zuid": "7-a8b0eaa1bd-vpmnb6",
-    "sort": 7,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
     "key": "about_us",
     "page_name": "About Us",
     "page-zuid": null,
@@ -135,15 +71,15 @@
   {
     "type": "menu",
     "key": "events",
-    "page_name": "Alexandria LA Corps",
-    "page-zuid": "7-92e3b4e6f6-2brspk",
+    "page_name": "Events",
+    "page-zuid": null,
     "parent": null
   },
   {
     "type": "menu",
     "key": "newsroom",
-    "page_name": "Alexandria LA Corps",
-    "page-zuid": "7-c09092d9db-d6qhwc",
+    "page_name": "Newsroom",
+    "page-zuid": null,
     "parent": null
   },
   {
@@ -213,7 +149,21 @@
     "type": "menu",
     "key": "contact_us",
     "page_name": "Contact Us",
-    "page-zuid": "7-fabbc9d7dc-t0r22h",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "Menu Item with Dropdown",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "Menu Item with Dropdown",
+    "page-zuid": null,
     "parent": null
   }
 ]

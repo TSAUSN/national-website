@@ -21,5 +21,17 @@
       { "name": "Staff and Community Leaders", "navigationName": "staff", "modelZuid": "6-98d1cbd695-tb73kj", "isDatasets": true },
       { "name": "Stories", "navigationName": "stories", "modelZuid": "6-80c7e29486-k0pq6s", "isDatasets": false }
     ]
+  },
+  {
+    "name": "Blocks",
+    "navigationName": "/blocks",
+    "icon": "cube",
+    "collapsable": false
+  },
+  {
+    "name": "Dynamic Navigation Builder",
+    "navigationName": "/dynamic-navigation-builder",
+    "icon": "navigation",
+    "collapsable": false
   }
 ]
