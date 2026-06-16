@@ -1216,12 +1216,12 @@ async function initLoad() {
   const zuid = '{{request.queryParam(zuid)}}';
   // Preload service types in the background
   window.allServices = await getServiceTypes();
-  
+  const locationName = location.site_name || location.name
   if (zuid) {
     const location = await window.getLocation(zuid);
     if (location) {
       const currentCardTitle = document.querySelector('.current-card__title');
-      if (currentCardTitle) currentCardTitle.innerHTML = location.name;
+      if (currentCardTitle) currentCardTitle.innerHTML = locationName;
 
       const currentCardHours = document.querySelector('.current-card__hours');
       if (currentCardHours) currentCardHours.innerHTML = location.hours_of_operation;
@@ -1233,7 +1233,7 @@ async function initLoad() {
       if (currentCardAddress) currentCardAddress.innerHTML = location.address;
 
       const locationFinderTitle = document.querySelector('.location-finder__title');
-      if (locationFinderTitle) locationFinderTitle.innerHTML = `${location.name} Information`;
+      if (locationFinderTitle) locationFinderTitle.innerHTML = `${locationName} Information`;
       
       const distanceContainer = document.querySelector('.current-card__distance');
       if(distanceContainer && window.currentSearchLocation.lat && window.currentSearchLocation.lng) {
