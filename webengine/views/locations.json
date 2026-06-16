@@ -3,6 +3,7 @@
   {
     "zuid": "{{location.zuid}}",
     "name": "{{location.name.htmlentities()}}",
+    "site_name": "{{location.site_name.htmlentities()}}",
     "latitude": "{{location.latitude}}",
     "longitude": "{{location.longitude}}",
     "hours_of_operation": "{{location.hours_of_operation.escapeForJs()}}",
