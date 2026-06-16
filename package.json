@@ -1,0 +1,12 @@
+{
+  "name": "the-salvation-army",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "node scripts/sync-to-zesty.js",
+    "deploy:dry": "DRY_RUN=true node scripts/sync-to-zesty.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
