@@ -1,0 +1,659 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:80:0:52": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-f4e6c7eabc-sn344n')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-f4e6c7eabc-sn344n')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:80:0:52",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:42:27": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:42:27",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:columns:3 Columns:6:45": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 0,
+								"fullName": "design:columns:3 Columns:6:45",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:6:45-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:1:70": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\"><strong>Sergeant Evelini Gonzalez</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Sergeant Evelini Gonzalez",
+												"position": 0,
+												"fullName": "content:textarea:1:70",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:1:70",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:6:45-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:6:45-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:2:64": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">Email: <a href=\"mailto:evelini.gonzalez@uss.salvationarmy.org\">evelini.gonzalez@uss.salvationarmy.org</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">Email: <a href=\"mailto:evelini.gonzalez@uss.salvationarmy.org\">evelini.gonzalez@uss.salvationarmy.org</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:2:64",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:2:64",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:6:45-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:6:45-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:4:25": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">Phone: <a href=\"tel:3364991196\">(336) 499-1196</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">Phone: <a href=\"tel:3364991196\">(336) 499-1196</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:4:25",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:4:25",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:6:45-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"content:text:7:91": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Home League</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Home League",
+								"position": 1,
+								"fullName": "content:text:7:91",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:7:91",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:8:4": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThe Home League is a program designed for women aged 18 and above. It aims to&nbsp;provide programming for worship, education, fellowship, and service opportunities, as well as creative outreach and focus group ideas that meet the needs of local women. The group engages&nbsp;in various activities including crafts, artistic pursuits, singing, sharing personal and educational experiences, studying the Bible, receiving informative messages, and more.&nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Home League is a program designed for women aged 18 and above. It aims to&nbsp;provide programming for worship, education, fellowship, and service opportunities, as well as creative outreach and focus group ideas that meet the needs of local women. The group engages&nbsp;in various activities including crafts, artistic pursuits, singing, sharing personal and educational experiences, studying the Bible, receiving informative messages, and more.&nbsp;",
+								"position": 2,
+								"fullName": "content:textarea:8:4",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:8:4",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-md:9:91": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:whitespace-md:9:91",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:10:21": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\"><br>\n<em>La Liga del Hogar</em></h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "La Liga del Hogar",
+								"position": 4,
+								"fullName": "content:text:10:21",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:10:21",
+								"styles": {
+									"textAlign": "center",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:11:22": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\t<em>La liga del hogar es un programa disenado solo para mujeres desde 18 anos en adelante. Ofrece diferentes actividades, como manualidades (handcraft), actividades artisticas, cantan, comparten experiencias personales, educativas, Estudian la biblia, alguien presenta un mensaje de </em><em>interes&nbsp;para el grupo y muchas cosas mas. Este programa esta abierto a todas las mujeres jovenes y adultas de nuestra comunidad.&nbsp;</em>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "La liga del hogar es un programa disenado solo para mujeres desde 18 anos en adelante. Ofrece diferentes actividades, como manualidades (handcraft), actividades artisticas, cantan, comparten experiencias personales, educativas, Estudian la biblia, alguien presenta un mensaje de interes&nbsp;para el grupo y muchas cosas mas. Este programa esta abierto a todas las mujeres jovenes y adultas de nuestra comunidad.&nbsp;",
+								"position": 5,
+								"fullName": "content:textarea:11:22",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:11:22",
+								"styles": {
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:12:1": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 6,
+								"fullName": "design:design:whitespace-xl:12:1",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:13:17": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img width=\"74\" height=\"74\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/d3332bd7-1830-4d92-9d7c-497ca03083bf_download.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/d3332bd7-1830-4d92-9d7c-497ca03083bf_download.png",
+								"position": 7,
+								"fullName": "content:images:13:17",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:15:8": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 8,
+								"fullName": "design:design:whitespace-sm:15:8",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:16:19": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">2850 New Walkertown Road</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "2850 New Walkertown Road",
+								"position": 9,
+								"fullName": "content:textarea:16:19",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:16:19",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:17:85": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">Winston-Salem, NC 27105</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Winston-Salem, NC 27105",
+								"position": 10,
+								"fullName": "content:textarea:17:85",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:17:85",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:18:72": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.google.com/maps/place/2850+New+Walkertown+Rd,+Winston-Salem,+NC+27105/@36.1162407,-80.2097783,17z/data=!3m1!4b1!4m6!3m5!1s0x8853aea200e9d1e7:0x28a99e48cbbe608f!8m2!3d36.1162407!4d-80.2097783!16s%2Fg%2F11c4rz4345?entry=ttu\" class=\"btn btn-info gap-1 mt-2\">Directions</a><a href=\"tel:3364991196\" class=\"btn btn-secondary gap-1 mt-2\">Call</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.google.com/maps/place/2850+New+Walkertown+Rd,+Winston-Salem,+NC+27105/@36.1162407,-80.2097783,17z/data=!3m1!4b1!4m6!3m5!1s0x8853aea200e9d1e7:0x28a99e48cbbe608f!8m2!3d36.1162407!4d-80.2097783!16s%2Fg%2F11c4rz4345?entry=ttu\" class=\"btn btn-info gap-1 mt-2\">Directions</a><a href=\"tel:3364991196\" class=\"btn btn-secondary gap-1 mt-2\">Call</a></p>",
+								"model": "6",
+								"position": 11,
+								"fullName": "content:wysiwyg_basic:18:72",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:18:72",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:19:65": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 12,
+								"fullName": "design:design:whitespace-sm:19:65",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:20:19": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img width=\"89\" height=\"89\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5921579e-95ce-4dbc-8db5-5e5c2c91b25c_clock.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/5921579e-95ce-4dbc-8db5-5e5c2c91b25c_clock.png",
+								"position": 13,
+								"fullName": "content:images:20:19",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:22:63": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 14,
+								"fullName": "design:design:whitespace-sm:22:63",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:23:50": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Hours of Operation</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Hours of Operation",
+								"position": 15,
+								"fullName": "content:text:23:50",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:23:50",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:24:36": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">Monday - Thursday: 8:00 am&nbsp;- 5:00&nbsp;pm</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Monday - Thursday: 8:00 am&nbsp;- 5:00&nbsp;pm",
+								"position": 16,
+								"fullName": "content:textarea:24:36",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:24:36",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:25:31": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><em>Lunes - jueves a las 8:00&nbsp;am&nbsp;- 5:00 pm</em></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Lunes - jueves a las 8:00&nbsp;am&nbsp;- 5:00 pm",
+								"position": 17,
+								"fullName": "content:textarea:25:31",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:25:31",
+								"styles": {
+									"textAlign": "center",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:26:6": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">Friday: 8:00 am&nbsp;- 12 pm</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Friday: 8:00 am&nbsp;- 12 pm",
+								"position": 18,
+								"fullName": "content:textarea:26:6",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:26:6",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:27:58": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><em>Viernes: 8:00 am&nbsp;- 12 pm</em></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Viernes: 8:00 am&nbsp;- 12 pm",
+								"position": 19,
+								"fullName": "content:textarea:27:58",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:27:58",
+								"styles": {
+									"textAlign": "center",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:28:84": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 20,
+								"fullName": "design:design:whitespace-xl:28:84",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:29:63": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Program Schedule</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Program Schedule",
+								"position": 21,
+								"fullName": "content:text:29:63",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:29:63",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:30:41": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">Every second Saturday of the month: 10:00 am&nbsp;- 12:00 pm</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Every second Saturday of the month: 10:00 am&nbsp;- 12:00 pm",
+								"position": 22,
+								"fullName": "content:textarea:30:41",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:30:41",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:31:9": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><em>Segundo sabado del mes ellas se reunen de 10:00 am&nbsp;a las 12:00 pm&nbsp;</em></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Segundo sabado del mes ellas se reunen de 10:00 am&nbsp;a las 12:00 pm&nbsp;",
+								"position": 23,
+								"fullName": "content:textarea:31:9",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:31:9",
+								"styles": {
+									"textAlign": "center",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:32:3": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t<strong>Generously Supported by</strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Generously Supported by",
+								"position": 24,
+								"fullName": "content:textarea:32:3",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:32:3",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-md:33:60": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 25,
+								"fullName": "design:design:whitespace-md:33:60",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:33:83": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img width=\"120\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5d9dbc01-2d73-4867-a6f6-a7c00b73dd42_uwfc-logo-2015.jpg\" alt=\"placeholder\" class=\"img-fluid d-block my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/5d9dbc01-2d73-4867-a6f6-a7c00b73dd42_uwfc-logo-2015.jpg",
+								"position": 26,
+								"fullName": "content:images:33:83",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:27-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

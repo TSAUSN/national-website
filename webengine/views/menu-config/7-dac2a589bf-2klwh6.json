@@ -1,0 +1,284 @@
+[
+  {
+    "type": "menu",
+    "key": "home",
+    "page_name": "Home",
+    "page-zuid": "7-dac2a589bf-2klwh6",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "services",
+    "page_name": "Services",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Hunger",
+    "page-zuid": "7-e8978b81aa-zs682x",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Correctional Services",
+    "page-zuid": "7-d2ae9d81aa-wgjqgx",
+    "sort": 1,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Utility Rent Assistance",
+    "page-zuid": "7-a298ab81aa-v1njqv",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Disaster Relief",
+    "page-zuid": "7-e0d2ba81aa-wfpxs6",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Domestic Violence",
+    "page-zuid": "7-82ebc981aa-ch964v",
+    "sort": 4,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Health Services",
+    "page-zuid": "7-e69af9f4ff-g26h71",
+    "sort": 5,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Youth Services",
+    "page-zuid": "7-96db8ef5ff-4hbvzh",
+    "sort": 6,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Recovery",
+    "page-zuid": "7-b6f89ef5ff-zd6mjp",
+    "sort": 7,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Senior Services",
+    "page-zuid": "7-a4eebff5ff-zp1qjq",
+    "sort": 8,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Counseling",
+    "page-zuid": "7-fed4cff5ff-1z7lm0",
+    "sort": 9,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": "about_us",
+    "page_name": "About Us",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "About Us",
+    "page-zuid": "7-f8f1ade59e-bf9tg2",
+    "sort": 0,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
+    "sort": 1,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Leadership",
+    "page-zuid": "7-92faeacead-rx2dzf",
+    "sort": 2,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "History",
+    "page-zuid": "7-b8c09b84c2-fp57hm",
+    "sort": 3,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-88deb6e6f5-l6xv5v",
+    "sort": 4,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Give With Joy",
+    "page-zuid": "give_with_joy",
+    "sort": 5,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "About The Kentucky and Tennessee Division",
+    "page-zuid": "7-fe81b0a98c-394zb5",
+    "sort": 6,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Our Privacy Policy",
+    "page-zuid": "7-ccf9eff0de-9ph52q",
+    "sort": 7,
+    "parent": "about_us",
+    "external_link": "https://www.salvationarmyusa.org/usa-southern-territory/our-privacy-policy/"
+  },
+  {
+    "type": "menu",
+    "key": "events",
+    "page_name": "Kentucky and Tennessee",
+    "page-zuid": "7-d299bed1d3-mpf88g",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "newsroom",
+    "page_name": "Kentucky and Tennessee",
+    "page-zuid": "7-b6e9ce80f6-x401tr",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "ways_to_give",
+    "page_name": "Ways to give",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Money",
+    "page-zuid": "donate_money",
+    "sort": 0,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Goods",
+    "page-zuid": "donate_goods",
+    "sort": 1,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Become a Fundraiser",
+    "page-zuid": "become_fundraiser",
+    "sort": 2,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Planned Giving",
+    "page-zuid": "7-deb1f3c292-8n177t",
+    "sort": 3,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Gift Stocks & Bonds",
+    "page-zuid": "7-e8b8d68ccc-t4mw4d",
+    "sort": 4,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Volunteer",
+    "page-zuid": "7-e486fce0d9-h2mflh",
+    "sort": 5,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "View All Ways to Give",
+    "page-zuid": "7-eceab6f8eb-03112w",
+    "sort": 6,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Giving to KY & TN",
+    "page-zuid": "7-f290eebde7-ptl0sx",
+    "sort": 7,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": "contact_us",
+    "page_name": "Contact Us",
+    "page-zuid": "7-86f0dbc994-1zmw40",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "More",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Prayer Request",
+    "page-zuid": "7-dcbaafe58a-tv0b11",
+    "sort": 0,
+    "parent": "custom_menu"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Camp Paradise Valley",
+    "page-zuid": "7-e2d9bbf7f4-mkrbh7",
+    "sort": 1,
+    "parent": "custom_menu",
+    "external_link": "https://southernusa.salvationarmy.org/campparadisevalley"
+  }
+]

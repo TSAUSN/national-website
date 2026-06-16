@@ -1,0 +1,254 @@
+[
+  {
+    "type": "menu",
+    "key": "home",
+    "page_name": "Home",
+    "page-zuid": "7-b2b198ba97-cr0dkd",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "services",
+    "page_name": "Services",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Food Pantry",
+    "page-zuid": "7-d4d390f0b2-8vt1lx",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Senior Services",
+    "page-zuid": "7-969fdbb4b9-k28v72",
+    "sort": 1,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Worship Services",
+    "page-zuid": "7-f0e994f2bf-wxwr16",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Counseling",
+    "page-zuid": "7-c083b09dce-410sbd",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": "about_us",
+    "page_name": "About Us",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "About Us",
+    "page-zuid": "7-e69c8eb2ad-mvrkvw",
+    "sort": 0,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
+    "sort": 1,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Leadership",
+    "page-zuid": "7-9af7acded5-kpgd7n",
+    "sort": 2,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "History",
+    "page-zuid": "7-b8c09b84c2-fp57hm",
+    "sort": 3,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-88deb6e6f5-l6xv5v",
+    "sort": 4,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Give With Joy",
+    "page-zuid": "give_with_joy",
+    "sort": 5,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "USDA Nondiscrimination Statement",
+    "page-zuid": "7-b4a4f6abf9-58l2hb",
+    "sort": 6,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Grand Strand and Pee Dee Region",
+    "page-zuid": "7-aaaee28cc5-v6r3kn",
+    "sort": 7,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Our Privacy Policy",
+    "page-zuid": "7-f4cf8e8b9a-3gvqn7",
+    "sort": 8,
+    "parent": "about_us",
+    "external_link": "https://www.salvationarmyusa.org/usa-southern-territory/our-privacy-policy/"
+  },
+  {
+    "type": "menu",
+    "key": "events",
+    "page_name": "Conway SC Corps",
+    "page-zuid": "7-b8f4b1bbe7-03kxkp",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "newsroom",
+    "page_name": "Conway SC Corps",
+    "page-zuid": "7-92d3ddf3e6-520zfd",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "ways_to_give",
+    "page_name": "Ways to give",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Money",
+    "page-zuid": "donate_money",
+    "sort": 0,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Goods",
+    "page-zuid": "donate_goods",
+    "sort": 1,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Become a Fundraiser",
+    "page-zuid": "become_fundraiser",
+    "sort": 2,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Planned Giving",
+    "page-zuid": "7-deb1f3c292-8n177t",
+    "sort": 3,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Gift Stocks & Bonds",
+    "page-zuid": "7-e8b8d68ccc-t4mw4d",
+    "sort": 4,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Volunteer",
+    "page-zuid": "7-e486fce0d9-h2mflh",
+    "sort": 5,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "View All Ways to Give",
+    "page-zuid": "7-eceab6f8eb-03112w",
+    "sort": 6,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Charitable Gifts",
+    "page-zuid": "7-b6c1db87e3-kd15gn",
+    "sort": 7,
+    "parent": "ways_to_give",
+    "external_link": "https://www.salvationarmyusa.org/usa-southern-territory/north-and-south-carolina/charitable-gifts/"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Legacy and Estate Gifts",
+    "page-zuid": "7-c28c9092f7-zlfk84",
+    "sort": 8,
+    "parent": "ways_to_give",
+    "external_link": "https://www.salvationarmyusa.org/usa-southern-territory/north-and-south-carolina/legacy-and-estate-gifts/"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Giving to Conway",
+    "page-zuid": "7-88c6c5ece6-vdbvdl",
+    "sort": 9,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": "contact_us",
+    "page_name": "Contact Us",
+    "page-zuid": "7-a8fd9888e4-45h8wv",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "More",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Inspiration In Your Inbox",
+    "page-zuid": "7-d08eb2ac83-5zl4d5",
+    "sort": 0,
+    "parent": "custom_menu",
+    "external_link": "https://manage.kmail-lists.com/subscriptions/subscribe?a=R46drN&g=QXVa6k"
+  }
+]

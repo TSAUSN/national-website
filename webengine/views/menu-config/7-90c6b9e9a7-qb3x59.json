@@ -1,0 +1,235 @@
+[
+  {
+    "type": "menu",
+    "key": "home",
+    "page_name": "Home",
+    "page-zuid": "7-90c6b9e9a7-qb3x59",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "services",
+    "page_name": "Services",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Youth Services",
+    "page-zuid": "7-bec2b2fbfa-261fdj",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Spiritual Healing and Worship",
+    "page-zuid": "7-94b2d1b2fd-vkjvrl",
+    "sort": 1,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Hunger",
+    "page-zuid": "7-fe81e7a089-bs7377",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Spiritual Healing",
+    "page-zuid": "7-94b7b6d0e2-34hqmm",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Senior Services",
+    "page-zuid": "7-c8bff58bdc-13zkvq",
+    "sort": 4,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Youth Services",
+    "page-zuid": "7-e6eccd99fd-0ck0r5",
+    "sort": 5,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Adult Program Services",
+    "page-zuid": "7-ae86e89ae9-248m2b",
+    "sort": 6,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Counseling",
+    "page-zuid": "7-a0b594e1f6-x69fzn",
+    "sort": 7,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Disaster Relief",
+    "page-zuid": "7-f0c298b2cf-fljnmc",
+    "sort": 8,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Food Pantries",
+    "page-zuid": "7-daaea3d6d5-q8wz1d",
+    "sort": 9,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": "about_us",
+    "page_name": "About Us",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "About Us",
+    "page-zuid": "7-808486afea-tpdxhv",
+    "sort": 0,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
+    "sort": 1,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Leadership",
+    "page-zuid": "7-dccfd198be-f8sf1f",
+    "sort": 2,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "History",
+    "page-zuid": "7-b8c09b84c2-fp57hm",
+    "sort": 3,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-a8e8dda9bb-mph0lw",
+    "sort": 4,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Give With Joy",
+    "page-zuid": "give_with_joy",
+    "sort": 5,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": "events",
+    "page_name": "Port Jervis Corps Community Center",
+    "page-zuid": "7-d894bb85dd-gn9fx3",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "newsroom",
+    "page_name": "Port Jervis Corps Community Center",
+    "page-zuid": "7-dc9ff3f0d8-z2phwm",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "ways_to_give",
+    "page_name": "Ways to give",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Money",
+    "page-zuid": "donate_money",
+    "sort": 0,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Goods",
+    "page-zuid": "donate_goods",
+    "sort": 1,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Become a Fundraiser",
+    "page-zuid": "become_fundraiser",
+    "sort": 2,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Planned Giving",
+    "page-zuid": "7-d6d7af9fbc-7v6rhf",
+    "sort": 3,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Gift Stocks & Bonds",
+    "page-zuid": "7-b2a5fdc3ee-b64wj2",
+    "sort": 4,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Volunteer",
+    "page-zuid": "7-a4e9bc9dc3-qrmf4k",
+    "sort": 5,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "View All Ways to Give",
+    "page-zuid": "7-d2ccddaeb1-hbpjgb",
+    "sort": 6,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": "contact_us",
+    "page_name": "Contact Us",
+    "page-zuid": "7-a08cffa5e7-ft6ct6",
+    "parent": null
+  }
+]

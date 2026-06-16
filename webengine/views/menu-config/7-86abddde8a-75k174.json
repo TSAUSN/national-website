@@ -1,0 +1,211 @@
+[
+  {
+    "type": "menu",
+    "key": "home",
+    "page_name": "Home",
+    "page-zuid": "7-86abddde8a-75k174",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "services",
+    "page_name": "Services",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Correctional Services",
+    "page-zuid": "7-fc8ffdd98e-rx45q7",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Counseling",
+    "page-zuid": "7-dea29b8e95-mmq0bb",
+    "sort": 1,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Disaster Relief",
+    "page-zuid": "7-e693f687ee-hzbhhq",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Spiritual Healing",
+    "page-zuid": "7-aa8de0df81-fzbf9k",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Food Pantries",
+    "page-zuid": "7-9e85a6e0f4-8hpxr0",
+    "sort": 4,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Youth Services",
+    "page-zuid": "7-d6b5b4cd9b-0262c4",
+    "sort": 5,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Adult Program Services",
+    "page-zuid": "7-b0d6859c88-jmdmkr",
+    "sort": 6,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": "about_us",
+    "page_name": "About Us",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "About Us",
+    "page-zuid": "7-9e8bcbbfb6-k52d28",
+    "sort": 0,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
+    "sort": 1,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Leadership",
+    "page-zuid": "7-a2defaa48a-hgx0l7",
+    "sort": 2,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "History",
+    "page-zuid": "7-b8c09b84c2-fp57hm",
+    "sort": 3,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-a8e8dda9bb-mph0lw",
+    "sort": 4,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Give With Joy",
+    "page-zuid": "give_with_joy",
+    "sort": 5,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": "events",
+    "page_name": "Batavia Corps",
+    "page-zuid": "7-da9dece7a9-pbzrbj",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "newsroom",
+    "page_name": "Batavia Corps",
+    "page-zuid": "7-d0f9c7afa4-180qrz",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "ways_to_give",
+    "page_name": "Ways to give",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Money",
+    "page-zuid": "donate_money",
+    "sort": 0,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Goods",
+    "page-zuid": "donate_goods",
+    "sort": 1,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Become a Fundraiser",
+    "page-zuid": "become_fundraiser",
+    "sort": 2,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Planned Giving",
+    "page-zuid": "7-d6d7af9fbc-7v6rhf",
+    "sort": 3,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Gift Stocks & Bonds",
+    "page-zuid": "7-b2a5fdc3ee-b64wj2",
+    "sort": 4,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Volunteer",
+    "page-zuid": "7-a4e9bc9dc3-qrmf4k",
+    "sort": 5,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "View All Ways to Give",
+    "page-zuid": "7-d2ccddaeb1-hbpjgb",
+    "sort": 6,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": "contact_us",
+    "page_name": "Contact Us",
+    "page-zuid": "7-e2d6ae94b5-ch0bqx",
+    "parent": null
+  }
+]

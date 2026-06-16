@@ -1,0 +1,590 @@
+<div class="d-flex flex-sm-column flex-lg-row bg-light row rounded-5 w-100 m-auto mb-16" id="ATonline">
+  <div class="col-sm-12 col-lg-5 p-sm-4 p-lg-7">
+    <div>
+      {{if {!this.map_heading} }}
+      <div class="mb-8">
+        <h3 class="fs-5">{{this.map_heading}}</h3>
+        <div id="stuff-the-bus-content" class="container mt-8 px-0">
+          {{if {!this.map_content} }}
+            {{this.map_content}}
+          {{/if}}
+        </div>
+      </div>
+      {{/if}}
+      <div class="input-group mb-6">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter your city or Zip Code"
+          aria-label="Enter your city or Zip Code"
+          id="stuff-the-bus__input"
+          data-search-term-type=""
+          data-search-results-type=""
+          data-search-type="location search - body"
+          data-search-method-type="user-entered"
+          data-search-filter-type="Services"
+          data-search-filter-value-type=""
+          onkeydown="if(event.key === 'Enter') { searchStuffTheBusLocations(); event.preventDefault(); }"
+        >
+      </div>
+      <div class="d-flex">
+        <button id="stuff-the-bus__search-btn" class="btn btn-primary w-75" onclick="searchStuffTheBusLocations()" disabled>
+          Search Location
+        </button>
+        <button class="btn btn-outline-danger w-50 d-flex align-items-center justify-content-end text-primary-200 display-1 use-my-location-stuff ">
+          <span class="material-symbols-outlined me-2">
+            my_location
+          </span> Use My Location
+        </button>
+      </div>
+      <div class="d-none d-flex align-items-center flex-wrap gap-2 border-top pt-6 mt-6" id="stb-filterbar">
+        <span class="text-secondary fw-semibold text-uppercase me-1" style="font-size:0.7rem;letter-spacing:0.08em;">Filter</span>
+        <button class="btn btn-sm border rounded d-flex align-items-center gap-2 px-3 py-1" data-filter="store">
+          <span class="rounded flex-shrink-0 bg-secondary-100 d-block" style="width:11px;height:11px;"></span>
+          Drop-off store
+          <span class="text-secondary ms-1" style="font-size:0.82rem;" id="stb-count-store">0</span>
+        </button>
+        <button class="btn btn-sm border rounded d-flex align-items-center gap-2 px-3 py-1" data-filter="online">
+          <span class="rounded flex-shrink-0 bg-success d-block" style="width:11px;height:11px;"></span>
+          Online participating location
+          <span class="text-secondary ms-1" style="font-size:0.82rem;" id="stb-count-online">0</span>
+        </button>
+      </div>
+    </div>
+    <div>
+      <div id="stuff-the-bus-result" class="container d-flex flex-column mt-4 overflow-auto mb-2 pt-2 d-none"></div>
+    </div>
+    
+  </div>
+  <div class="col-sm-12 col-lg-7 p-sm-4 p-lg-7">
+    <div class="col-12 p-0 order-sm-1 order-lg-2 position-relative">
+      <div class="rounded-5 goggle-map"></div>
+      <div class="map-loader d-none">
+        <div class="map-loader__spinner"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let map = null;
+  let allStores = [];
+  let allLocationsRegistry = [];
+
+  // Data fetching (unchanged)
+  const getData = async () => {
+    try {
+      const response = await fetch(`https://api.quickbase.com/v1/records/query`, {
+        method: "POST",
+        headers: {
+          'QB-Realm-Hostname': 'saapps.quickbase.com',
+          'Authorization': 'QB-USER-TOKEN ca43nd_mn6f_0_vff9axtcqg3fceraqiic2kasz7',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          "from": "bvxwt6a5d",
+          "select": [130, 153, 158, 15, 121, 122, 31, 32, 16, 17, 156, 157, 162, 39, 132,133,170,23,24,25,26,149,8,177,178],
+          "where": "{52.CampaignType.'Stuff the Bus'} AND {39.flag. 'Yes'}"
+        })
+      });
+      
+      const { data, fields } = await response.json();
+      console.log('Returned Data', fields, data)
+      return data;
+    } catch (error) {
+      console.log("ERROR Stuff The Bus", error.message);
+      return [];
+    }
+  };
+
+  const getRegistryData = async () => {
+    try {
+      const response = await fetch(`https://api.quickbase.com/v1/records/query`, {
+        method: "POST",
+        headers: {
+          'QB-Realm-Hostname': 'saapps.quickbase.com',
+          'Authorization': 'QB-USER-TOKEN ca43nd_mn6f_0_vff9axtcqg3fceraqiic2kasz7',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          "from": "bvxwt6a5d",
+          "select": [130, 153, 158, 15, 121, 122, 31, 32, 16, 17, 156, 157, 162, 39, 132, 133, 170, 23, 24, 25, 26, 149, 8, 177, 178],
+          "where": "{52.CampaignName.'Stuff the Bus Registry'}"
+        })
+      });
+
+      const { data } = await response.json();
+      console.log("Registry:", data);
+      const items = Array.isArray(data) ? data : Object.values(data);
+      return items.map(item => ({
+        unitID:        item["130"]?.value ?? "",
+        divisionCode:  item["158"]?.value ?? "",
+        unitName:      item["15"]?.value ?? "",
+        address:       item["121"]?.value ?? "",
+        city:          item["122"]?.value ?? "",
+        state:         item["31"]?.value ?? "",
+        registryURL:   item["32"]?.value ?? "",
+        division:      item["16"]?.value ?? "",
+        territory:     item["17"]?.value ?? "",
+        latitude:      parseFloat(item["156"]?.value) || parseFloat(item["177"]?.value) || null,
+        longitude:     parseFloat(item["157"]?.value) || parseFloat(item["178"]?.value) || null,
+        displayName:   item["162"]?.value ?? "",
+        participating: item["39"]?.value ?? "",
+        allDayJune:    item["132"]?.value ?? [],
+        afternoonJune: item["133"]?.value ?? [],
+        eveningJune:   item["170"]?.value ?? [],
+      }));
+    } catch (error) {
+      console.log("ERROR Stuff the Bus", error.message);
+      return [];
+    }
+  };
+
+  const getStores = async (data) => {
+    // console.log(data);
+    const items = Array.isArray(data) ? data : Object.values(data);
+    const result = items.map(item => ({
+      storeNumer: item["153"].value ?? "",
+      locationID: item["130"].value ?? "",
+      storeName: item["23"]?.value ?? "",
+      storeType:   item["24"]?.value ?? "",
+      address:     item["25"]?.value ?? "",
+      city:        item["26"]?.value ?? "",
+      state:       item["149"]?.value ?? "",
+      zip:         item["8"]?.value ?? "",
+      latitude:    parseFloat(item["177"]?.value) || null,
+      longitude:   parseFloat(item["178"]?.value) || null,
+      allDayJune:    item["132"]?.value ?? [],
+      afternoonJune: item["133"]?.value ?? [],
+      eveningJune:   item["170"]?.value ?? [],
+    }));
+    console.log("Store Results:", result)
+
+    return result;
+  }
+
+
+  const createOptimizedBatchGeocoder = (rateLimitMs = 10) => {
+    let geocoder = null;
+
+    const initialize = () => {
+      if (window.google && window.google.maps) {
+        geocoder = new google.maps.Geocoder();
+        return true;
+      }
+      return false;
+    };
+
+    const geocodeWithRateLimit = async (address) => {
+      if (!geocoder && !initialize()) throw new Error('Google Maps API not ready');
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          geocoder.geocode({ address }, (results, status) => {
+            resolve(
+              status === google.maps.GeocoderStatus.OK && results?.length > 0
+                ? { lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng(), formatted_address: results[0].formatted_address }
+                : null
+            );
+          });
+        }, Math.random() * rateLimitMs);
+      });
+    };
+
+    return { initialize, geocodeWithRateLimit };
+  };
+
+  const batchGeocoder = createOptimizedBatchGeocoder();
+
+  const toRadians = (degrees) => degrees * (Math.PI / 180);
+
+  const calculateLocationDistance = (lat1, lon1, lat2, lon2) => {
+    const R = 3959;
+    const dLat = toRadians(lat2 - lat1);
+    const dLon = toRadians(lon2 - lon1);
+    const a =
+      Math.sin(dLat / 2) ** 2 +
+      Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) * Math.sin(dLon / 2) ** 2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  };
+
+  const createPinIcon = (color) => {
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+      <path d="M20 2C13.37 2 8 7.37 8 14c0 8.75 12 24 12 24s12-15.25 12-24c0-6.63-5.37-12-12-12zm0 16.5c-2.49 0-4.5-2.01-4.5-4.5S17.51 9.5 20 9.5 24.5 11.51 24.5 14 22.49 18.5 20 18.5z" fill="${color}" stroke="#FFFFFF" stroke-width="1"/>
+    </svg>`;
+    return {
+      url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg),
+      origin: new google.maps.Point(0, 0),
+      anchor: new google.maps.Point(20, 40),
+      scaledSize: new google.maps.Size(40, 40)
+    };
+  };
+
+  const markerPool = (() => {
+    const activeMarkers = [];
+
+    const addMarker = (mapInstance, lat, lng, title, icon, type = '') => {
+      const marker = new google.maps.Marker({ position: { lat, lng }, map: mapInstance, title, icon });
+      activeMarkers.push({ marker, type });
+      return marker;
+    };
+
+    const clearAllMarkers = () => {
+      activeMarkers.forEach(({ marker }) => marker.setMap(null));
+      activeMarkers.length = 0;
+    };
+
+    const filterByTypes = (types) => {
+      activeMarkers.forEach(({ marker, type: markerType }) => {
+        marker.setVisible(types.includes(markerType));
+      });
+    };
+
+    const showAllMarkers = () => {
+      activeMarkers.forEach(({ marker }) => marker.setVisible(true));
+    };
+
+    return { addMarker, clearAllMarkers, filterByTypes, showAllMarkers };
+  })();
+
+  const filterByRadius = async (stores, locationsRegistry, inputLocation, radiusMiles = 50) => {
+    const center = await batchGeocoder.geocodeWithRateLimit(inputLocation);
+    if (!center) throw new Error('Could not geocode input location');
+
+    const attachDistance = (items) =>
+      items
+        .filter((item) => item.latitude && item.longitude)
+        .map((item) => ({
+          ...item,
+          distance: Math.round(calculateLocationDistance(center.lat, center.lng, item.latitude, item.longitude) * 100) / 100
+        }))
+        .filter((item) => item.distance <= radiusMiles)
+        .sort((a, b) => a.distance - b.distance);
+
+    return {
+      filteredStores: attachDistance(stores),
+      filteredLocationsRegistry: attachDistance(locationsRegistry),
+      center
+    };
+  };
+
+  const formatDropOffTimes = (store) => {
+    const sections = [
+      { label: 'All Day - June',     values: store.allDayJune },
+      { label: 'Afternoon - June',   values: store.afternoonJune },
+      { label: 'Evening - June',     values: store.eveningJune },
+    ].filter(s => Array.isArray(s.values) && s.values.length > 0);
+    if (sections.length === 0) return '';
+    const rows = sections.map(s =>
+      `<p class="text-muted mb-0 display-3"><strong>${s.label}:</strong> ${s.values.join(', ')}</p>`
+    ).join('');
+    return `<div class="mt-1"><p class="text-muted mb-1 display-3 fw-semibold">Drop off time:</p>${rows}</div>`;
+  };
+
+  const generateResultCards = (filteredStores, filteredLocationsRegistry) => {
+    const storeCards = filteredStores.map((store, i) =>
+      `<div class="stuff-the-bus__item card mb-2 mt-2" data-id="store-${i}" data-type="store">
+        <div class="card-body">
+          <span class="badge mb-1" style="background-color:#0071CE">Store</span>
+          <h5 class="card-title fw-bold text-secondary-200 mb-1 display-2">${store.storeType || 'Walmart Store'}</h5>
+          <p class="text-muted mb-0 display-3">${[store.address, store.city, store.state].filter(Boolean).join(', ')}</p>
+          <p class="text-muted mb-0 display-3">${store.distance} mi away</p>
+          ${formatDropOffTimes(store)}
+        </div>
+      </div>`
+    ).join('');
+
+    const registryCards = filteredLocationsRegistry.map((loc, i) =>
+      `<div class="stuff-the-bus__item card mb-2 mt-2" data-id="registry-${i}" data-type="online">
+        <div class="card-body">
+          <span class="badge mb-1" style="background-color:#12825F">Online Participating</span>
+          <h5 class="card-title fw-bold text-secondary-200 mb-1 display-2">${loc.displayName || loc.unitName || 'Location'}</h5>
+          <p class="text-muted mb-0 display-3">${[loc.address, loc.city, loc.state].filter(Boolean).join(', ')}</p>
+          <p class="text-muted mb-0 display-3">${loc.distance} mi away</p>
+          ${loc.registryURL ? `<a href="${loc.registryURL}" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-2" style="background-color:#12825F;color:#fff;">Register Online</a>` : ''}
+        </div>
+      </div>`
+    ).join('');
+
+    return storeCards + registryCards;
+  };
+
+
+  const setupFilterBar = () => {
+    const buttons = document.querySelectorAll('#stb-filterbar button[data-filter]');
+
+    const activeColorMap = {
+      store:  'bg-secondary-100',
+      online: 'bg-success'
+    };
+
+    const dotOriginalColorMap = {
+      store:  'bg-secondary-100',
+      online: 'bg-success'
+    };
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', function () {
+        const filter = this.dataset.filter;
+        const isActive = this.classList.contains('active');
+
+        if (isActive) {
+          this.classList.remove(activeColorMap[filter], 'text-white', 'active');
+          this.classList.add('border');
+          const dot = this.querySelector('span.d-block');
+          if (dot) {
+            dot.classList.remove('bg-white');
+            dot.classList.add(dotOriginalColorMap[filter]);
+          }
+        } else {
+          this.classList.add(activeColorMap[filter], 'text-white', 'active');
+          this.classList.remove('border');
+          const dot = this.querySelector('span.d-block');
+          if (dot) {
+            dot.classList.remove(dotOriginalColorMap[filter]);
+            dot.classList.add('bg-white');
+          }
+        }
+
+        const activeFilters = [...buttons]
+          .filter(b => b.classList.contains('active'))
+          .map(b => b.dataset.filter);
+
+        const cards = document.querySelectorAll('.stuff-the-bus__item');
+
+        if (activeFilters.length === 0) {
+          cards.forEach(c => c.classList.remove('d-none'));
+          markerPool.showAllMarkers();
+        } else {
+          cards.forEach(c => c.classList.toggle('d-none', !activeFilters.includes(c.dataset.type)));
+          markerPool.filterByTypes(activeFilters);
+        }
+      });
+    });
+  };
+
+  const searchStuffTheBusLocations = async () => {
+    const input = document.querySelector('#stuff-the-bus__input');
+    const loader = document.querySelector('.map-loader');
+    const cardsContainer = document.querySelector('#stuff-the-bus-result');
+    const mapContentContainer = document.querySelector('#stuff-the-bus-content');
+    const inputValue = input?.value?.trim();
+
+    if (!inputValue) return;
+
+    cardsContainer.classList.remove('d-none');
+    cardsContainer.setAttribute('style', 'height: 400px; max-height: 400px;');
+    const filterbar = document.querySelector('#stb-filterbar');
+    if (filterbar) filterbar.classList.add('d-none');
+    if (mapContentContainer) mapContentContainer.classList.add('d-none');
+    if (loader) loader.classList.remove('d-none');
+
+    markerPool.clearAllMarkers();
+
+    const dotResetMap = { store: 'bg-secondary-100', online: 'bg-success' };
+    document.querySelectorAll('#stb-filterbar button[data-filter]').forEach(b => {
+      b.classList.remove('bg-secondary-100', 'bg-success', 'text-white', 'active');
+      b.classList.add('border');
+      const dot = b.querySelector('span.d-block');
+      if (dot) {
+        dot.classList.remove('bg-white');
+        dot.classList.add(dotResetMap[b.dataset.filter]);
+      }
+    });
+
+    try {
+      const { filteredStores, filteredLocationsRegistry, center } = await filterByRadius(allStores, allLocationsRegistry, inputValue);
+
+      const storeIcon = createPinIcon('#77a9ee');
+      const locationRegistryIcon = createPinIcon('#12825F');
+
+      filteredStores.forEach((store) => {
+        markerPool.addMarker(map, store.latitude, store.longitude, store.storeName || 'Store', storeIcon, 'store');
+      });
+
+      filteredLocationsRegistry.forEach((loc) => {
+        markerPool.addMarker(map, loc.latitude, loc.longitude, loc.displayName || loc.unitName || 'Location', locationRegistryIcon, 'online');
+      });
+
+      map.setZoom(10);
+      map.setCenter(center);
+
+      const total = filteredStores.length + filteredLocationsRegistry.length;
+      cardsContainer.innerHTML = total > 0
+        ? generateResultCards(filteredStores, filteredLocationsRegistry)
+        : '<p class="p-3">No locations found within 50 miles. Try a different address.</p>';
+      if (filterbar) {
+        filterbar.classList.toggle('d-none', total === 0);
+        const countStore = document.querySelector('#stb-count-store');
+        const countOnline = document.querySelector('#stb-count-online');
+        if (countStore) countStore.textContent = filteredStores.length;
+        if (countOnline) countOnline.textContent = filteredLocationsRegistry.length;
+      }
+    } catch (error) {
+      console.error('Search error:', error);
+      cardsContainer.innerHTML = '<p class="p-3">Error occurred during search. Please try again.</p>';
+      if (filterbar) filterbar.classList.add('d-none');
+    } finally {
+      if (loader) loader.classList.add('d-none');
+    }
+  };
+
+  function stuffTheBusInputAddressSuggestion() {
+    const input = document.querySelector('#stuff-the-bus__input');
+    if (!input) return;
+
+    let sessionToken = new google.maps.places.AutocompleteSessionToken();
+    const autocompleteService = new google.maps.places.AutocompleteService();
+    let debounceTimer;
+
+    const autocompleteContainer = document.createElement('div');
+    autocompleteContainer.className = 'autocomplete-dropdown-container-stb';
+    autocompleteContainer.style.cssText = `
+      position: absolute; z-index: 1050; background: white;
+      border: 1px solid #d1d5db; border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      max-height: 280px; overflow-y: auto; display: none; width: 100%; margin-top: 4px;
+    `;
+
+    if (!document.getElementById('autocomplete-styles-stb')) {
+      const style = document.createElement('style');
+      style.id = 'autocomplete-styles-stb';
+      style.textContent = `
+        .autocomplete-item-stb { padding: 12px 16px; cursor: pointer; border-bottom: 1px solid #f3f4f6; display: flex; align-items: center; gap: 10px; }
+        .autocomplete-item-stb:last-child { border-bottom: none; }
+        .autocomplete-item-stb:hover { background-color: #f9fafb; }
+        .autocomplete-text-stb { color: #1f2937; font-size: 14px; }
+      `;
+      document.head.appendChild(style);
+    }
+
+    input.parentNode.style.position = 'relative';
+    input.parentNode.appendChild(autocompleteContainer);
+
+    input.addEventListener('input', function () {
+      const value = this.value;
+      clearTimeout(debounceTimer);
+      if (value.length < 3) { autocompleteContainer.style.display = 'none'; return; }
+
+      debounceTimer = setTimeout(() => {
+        autocompleteService.getPlacePredictions(
+          { input: value, types: ['(regions)'], componentRestrictions: { country: 'US' }, sessionToken },
+          (predictions, status) => {
+            if (status === google.maps.places.PlacesServiceStatus.OK && predictions) {
+              autocompleteContainer.innerHTML = '';
+              autocompleteContainer.style.display = 'block';
+              predictions.forEach((prediction) => {
+                const item = document.createElement('div');
+                item.className = 'autocomplete-item-stb';
+                item.innerHTML = `
+                  <svg width="18" height="18" fill="none" stroke="#6b7280" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                  <span class="autocomplete-text-stb">${prediction.description}</span>
+                `;
+                item.addEventListener('click', function () {
+                  input.value = prediction.description;
+                  autocompleteContainer.style.display = 'none';
+                  sessionToken = new google.maps.places.AutocompleteSessionToken();
+                });
+                autocompleteContainer.appendChild(item);
+              });
+            } else {
+              autocompleteContainer.style.display = 'none';
+            }
+          }
+        );
+      }, 300);
+    });
+
+    document.addEventListener('click', function (e) {
+      if (e.target !== input && !autocompleteContainer.contains(e.target)) {
+        autocompleteContainer.style.display = 'none';
+      }
+    });
+  }
+
+  const handleUseMyLocation = async () => {
+    const button = document.querySelector('.use-my-location-stuff');
+    const input = document.querySelector('#stuff-the-bus__input');
+    const loader = document.querySelector('.map-loader');
+
+    if (button) {
+      button.disabled = true;
+      button.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Getting Location...`;
+    }
+    if (loader) loader.classList.remove('d-none');
+
+    try {
+      if (!navigator.geolocation) throw new Error('Geolocation is not supported by this browser.');
+
+      const position = await new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy: true, timeout: 10000, maximumAge: 300000 });
+      });
+
+      const { latitude, longitude } = position.coords;
+      const geocoder = new google.maps.Geocoder();
+      const geocodeResult = await new Promise((resolve, reject) => {
+        geocoder.geocode({ location: { lat: latitude, lng: longitude } }, (results, status) => {
+          status === google.maps.GeocoderStatus.OK && results?.length > 0
+            ? resolve(results[0])
+            : reject(new Error('Unable to get address from coordinates'));
+        });
+      });
+
+      if (input) {
+        input.value = geocodeResult.formatted_address;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      await searchStuffTheBusLocations();
+    } catch (error) {
+      console.error('Error getting location:', error);
+      let msg = 'Unable to get your location. ';
+      if (error.code === 1) msg += 'Location access was denied.';
+      else if (error.code === 2) msg += 'Location information is unavailable.';
+      else if (error.code === 3) msg += 'Location request timed out.';
+      else msg += error.message || 'Please try again.';
+      alert(msg);
+    } finally {
+      if (button) {
+        button.disabled = false;
+        button.innerHTML = `<span class="material-symbols-outlined me-2">my_location</span> Use My Location`;
+      }
+      if (loader) loader.classList.add('d-none');
+    }
+  };
+
+  window.addEventListener('mapReady', async (event) => {
+    map = event.detail.map;
+    if (!map) return;
+
+    const submitBtn = document.querySelector('#stuff-the-bus__search-btn');
+    const loader = document.querySelector('.map-loader');
+    if (loader) loader.classList.remove('d-none');
+
+    try {
+      if (!batchGeocoder.initialize()) throw new Error('Failed to initialize geocoder');
+
+      const response = await getData();
+      allStores = await getStores(response);
+      allLocationsRegistry = await getRegistryData();
+
+      if (submitBtn) submitBtn.removeAttribute('disabled');
+      stuffTheBusInputAddressSuggestion();
+      setupFilterBar();
+
+      const useLocationButton = document.querySelector('.use-my-location-stuff');
+      if (useLocationButton) {
+        useLocationButton.removeEventListener('click', handleUseMyLocation);
+        useLocationButton.addEventListener('click', handleUseMyLocation);
+      }
+    } catch (error) {
+      console.error('Stuff the Bus map initialization error:', error);
+    } finally {
+      if (loader) loader.classList.add('d-none');
+    }
+  });
+
+</script>

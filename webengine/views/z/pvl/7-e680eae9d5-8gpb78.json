@@ -1,0 +1,511 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:82:0:83": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-eed7a89ae3-g7pxz6')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-eed7a89ae3-g7pxz6')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:82:0:83",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:32:26": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:32:26",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:1:51": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6>Pathway of Hope</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Pathway of Hope",
+								"position": 0,
+								"fullName": "content:text:1:51",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:1:51",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:91": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p><strong>What is Pathway of Hope?</strong></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "What is Pathway of Hope?",
+								"position": 1,
+								"fullName": "content:textarea:2:91",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:91",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:3:76": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>The Pathway of Hope initiative is an approach launched by The Salvation Army in 2011 to provide targeted services to families with a desire to take action to break the generational cycle of crisis and enable a path out of poverty. It is rooted in a case management approach, focusing on client needs through a strength-based lens.</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Pathway of Hope initiative is an approach launched by The Salvation Army in 2011 to provide targeted services to families with a desire to take action to break the generational cycle of crisis and enable a path out of poverty. It is rooted in a case management approach, focusing on client needs through a strength-based lens.",
+								"position": 2,
+								"fullName": "content:textarea:3:76",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:3:76",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:4:48": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tTargeting families with children came from the desire to have an intergenerational impact on poverty. By positively influencing the lives of parents, The Salvation Army can create better living conditions for children. Influencing children in their development years is crucial, as studies show that children who spend more than half of their life in poverty are 32 times more likely to be in poverty as an adult.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Targeting families with children came from the desire to have an intergenerational impact on poverty. By positively influencing the lives of parents, The Salvation Army can create better living conditions for children. Influencing children in their development years is crucial, as studies show that children who spend more than half of their life in poverty are 32 times more likely to be in poverty as an adult.",
+								"position": 3,
+								"fullName": "content:textarea:4:48",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:4:48",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:6:26": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:6:26",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:9:25": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 5,
+								"fullName": "design:columns:2columns:9:25",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:9:25-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:5:63": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h6>What Does the Initiative Involve?</h6>\n\n<p>\n\tCaring for your family’s needs, while building a strong future can be challenging in today’s economic times. The Salvation Army team will offer support, guidance and assistance as we walk alongside you on your family’s journey:\n</p>\n\n<p>\n\t<strong>Mapping it out</strong><br>\n\tMeet with a caseworker to develop your personalized action plan.\n</p>\n\n<p>\n\t<strong>Tracking Progress</strong><br>\n\tChart your progress and see your&nbsp;success with your dedicated case worker on a regular basis.\n</p>\n\n<p>\n\t<strong>Passing Milestones</strong><br>\n\tSee where you are at six months and decide what’s next on your journey.\n</p>\n\n<p>\n\t<strong>Looking ahead</strong><br>\n\tCelebrate your successes. Adjust any further goals. &nbsp;Encourage Others.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h6>What Does the Initiative Involve?</h6>\n\n<p>\n\tCaring for your family’s needs, while building a strong future can be challenging in today’s economic times. The Salvation Army team will offer support, guidance and assistance as we walk alongside you on your family’s journey:\n</p>\n\n<p>\n\t<strong>Mapping it out</strong><br>\n\tMeet with a caseworker to develop your personalized action plan.\n</p>\n\n<p>\n\t<strong>Tracking Progress</strong><br>\n\tChart your progress and see your&nbsp;success with your dedicated case worker on a regular basis.\n</p>\n\n<p>\n\t<strong>Passing Milestones</strong><br>\n\tSee where you are at six months and decide what’s next on your journey.\n</p>\n\n<p>\n\t<strong>Looking ahead</strong><br>\n\tCelebrate your successes. Adjust any further goals. &nbsp;Encourage Others.\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:5:63",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:5:63",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:9:25-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:9:25-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:7:17": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h6>Resources&nbsp;&amp;&nbsp;Connections</h6>\n\n<p>\n\tThrough your involvement with Pathway of Hope, you’ll be introduced to both Salvation Army and other services that are available within your community which offer:\n</p>\n\n<ul>\n\t<li>A network of support</li>\n\t<li>A sense of community</li>\n\t<li>Holistic programs</li>\n\t<li>Spiritual guidance</li>\n</ul>\n\n<p>\n\t<strong>Service Connector to:</strong>\n</p>\n\n<ul>\n\t<li>Job training</li>\n\t<li>Health services</li>\n\t<li>Childcare and education</li>\n\t<li>Housing options</li>\n\t<li>Legal services</li>\n\t<li>And much more…</li>\n</ul></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h6>Resources&nbsp;&amp;&nbsp;Connections</h6>\n\n<p>\n\tThrough your involvement with Pathway of Hope, you’ll be introduced to both Salvation Army and other services that are available within your community which offer:\n</p>\n\n<ul>\n\t<li>A network of support</li>\n\t<li>A sense of community</li>\n\t<li>Holistic programs</li>\n\t<li>Spiritual guidance</li>\n</ul>\n\n<p>\n\t<strong>Service Connector to:</strong>\n</p>\n\n<ul>\n\t<li>Job training</li>\n\t<li>Health services</li>\n\t<li>Childcare and education</li>\n\t<li>Housing options</li>\n\t<li>Legal services</li>\n\t<li>And much more…</li>\n</ul></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:7:17",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:7:17",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:9:25-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"content:wysiwyg_basic:10:3": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<h5><a href=\"https://southernusa.salvationarmy.org/uss/location-search\" target=\"\">Location Search</a></h5>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<h5><a href=\"https://southernusa.salvationarmy.org/uss/location-search\" target=\"\">Location Search</a></h5>",
+								"model": "6",
+								"position": 6,
+								"fullName": "content:wysiwyg_basic:10:3",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:10:3",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:11:68": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 7,
+								"fullName": "design:design:whitespace-sm:11:68",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:19:32": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 8,
+								"fullName": "design:columns:3 Columns:19:32",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:19:32-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:13:61": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<ul>\n\t\t\t\t\t<li>Bradenton</li>\n\t\t\t\t\t<li>Clearwater</li>\n\t\t\t\t\t<li>Daytona Beach</li>\n\t\t\t\t\t<li>Fort Lauderdale</li>\n\t\t\t\t\t<li>Fort Myers</li>\n\t\t\t\t\t<li>Ft. Walton Beach</li>\n\t\t\t\t\t<li>Gainesville</li>\n\t\t\t\t\t<li>Jacksonville</li>\n\t\t\t\t\t<li>Key West</li>\n\t\t\t\t</ul>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<ul>\n\t\t\t\t\t<li>Bradenton</li>\n\t\t\t\t\t<li>Clearwater</li>\n\t\t\t\t\t<li>Daytona Beach</li>\n\t\t\t\t\t<li>Fort Lauderdale</li>\n\t\t\t\t\t<li>Fort Myers</li>\n\t\t\t\t\t<li>Ft. Walton Beach</li>\n\t\t\t\t\t<li>Gainesville</li>\n\t\t\t\t\t<li>Jacksonville</li>\n\t\t\t\t\t<li>Key West</li>\n\t\t\t\t</ul>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:13:61",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:13:61",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:19:32-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:19:32-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:15:26": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<ul>\n\t\t\t\t\t<li>Lakeland</li>\n\t\t\t\t\t<li>Leesburg</li>\n\t\t\t\t\t<li>Miami</li>\n\t\t\t\t\t<li>Ocala</li>\n\t\t\t\t\t<li>Orlando</li>\n\t\t\t\t\t<li>Panama City</li>\n\t\t\t\t\t<li>Pensacola</li>\n\t\t\t\t\t<li>Sanford</li>\n\t\t\t\t\t<li>St. Petersburg</li>\n\t\t\t\t</ul>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<ul>\n\t\t\t\t\t<li>Lakeland</li>\n\t\t\t\t\t<li>Leesburg</li>\n\t\t\t\t\t<li>Miami</li>\n\t\t\t\t\t<li>Ocala</li>\n\t\t\t\t\t<li>Orlando</li>\n\t\t\t\t\t<li>Panama City</li>\n\t\t\t\t\t<li>Pensacola</li>\n\t\t\t\t\t<li>Sanford</li>\n\t\t\t\t\t<li>St. Petersburg</li>\n\t\t\t\t</ul>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:15:26",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:15:26",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:19:32-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:19:32-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:17:13": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<ul>\n\t\t\t\t\t<li>Sarasota</li>\n\t\t\t\t\t<li>Stuart</li>\n\t\t\t\t\t<li>Tallahassee</li>\n\t\t\t\t\t<li>Tampa</li>\n\t\t\t\t\t<li>Venice</li>\n\t\t\t\t\t<li>Vero Beach</li>\n\t\t\t\t\t<li>West Palm Beach</li>\n\t\t\t\t\t<li>West Volusia</li>\n\t\t\t\t</ul>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<ul>\n\t\t\t\t\t<li>Sarasota</li>\n\t\t\t\t\t<li>Stuart</li>\n\t\t\t\t\t<li>Tallahassee</li>\n\t\t\t\t\t<li>Tampa</li>\n\t\t\t\t\t<li>Venice</li>\n\t\t\t\t\t<li>Vero Beach</li>\n\t\t\t\t\t<li>West Palm Beach</li>\n\t\t\t\t\t<li>West Volusia</li>\n\t\t\t\t</ul>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:17:13",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:17:13",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:19:32-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:design:whitespace-sm:20:51": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 9,
+								"fullName": "design:design:whitespace-sm:20:51",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:21:5": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"./contact-us\" class=\"btn btn-secondary gap-1 mt-2\">Request Pathway of Hope Assistance</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"./contact-us\" class=\"btn btn-secondary gap-1 mt-2\">Request Pathway of Hope Assistance</a></p>",
+								"model": "6",
+								"position": 10,
+								"fullName": "content:wysiwyg_basic:21:5",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:21:5",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:22:57": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 11,
+								"fullName": "design:design:whitespace-sm:22:57",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:23:86": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\">Support Pathway of Hope by Making a TAX-DEDUCTIBLE Donation Today.</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Support Pathway of Hope by Making a TAX-DEDUCTIBLE Donation Today.",
+								"position": 12,
+								"fullName": "content:text:23:86",
+								"htmlElement": "h6",
+								"primarytype": "content",
+								"id": "content:text:23:86",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:24:48": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tDonating to Pathway of Hope and The Salvation Army ensures that our programming can continue to help thousands of people in need across Florida.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Donating to Pathway of Hope and The Salvation Army ensures that our programming can continue to help thousands of people in need across Florida.",
+								"position": 13,
+								"fullName": "content:textarea:24:48",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:24:48",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:25:55": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmyflorida.org/give/179306/#!/donation/checkout\" target=\"_blank\" class=\"btn btn-primary gap-1 mt-2\">Give Now</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmyflorida.org/give/179306/#!/donation/checkout\" target=\"_blank\" class=\"btn btn-primary gap-1 mt-2\">Give Now</a></p>",
+								"model": "6",
+								"position": 14,
+								"fullName": "content:wysiwyg_basic:25:55",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:25:55",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:32:26-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

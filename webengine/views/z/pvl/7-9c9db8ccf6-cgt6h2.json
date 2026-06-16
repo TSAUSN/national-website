@@ -1,0 +1,193 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:58:0:13": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-f2b4fcd08a-ltbdd2')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-f2b4fcd08a-ltbdd2')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:58:0:13",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:11:64": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:11:64",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:11:64-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:1:22": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Warmth is Available Here</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Warmth is Available Here",
+								"position": 0,
+								"fullName": "content:text:1:22",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:1:22",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:11:64-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:95": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t\tThanks to the generosity of donors and partners in our community, we have winter coats available to share for men, women and children in all sizes.&nbsp;\n\t</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Thanks to the generosity of donors and partners in our community, we have winter coats available to share for men, women and children in all sizes.&nbsp;",
+								"position": 1,
+								"fullName": "content:textarea:2:95",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:95",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:11:64-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:text:3:21": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">How to Receive a Winter Coat</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "How to Receive a Winter Coat",
+								"position": 2,
+								"fullName": "content:text:3:21",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:3:21",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:11:64-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:4:31": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tWinter coats are available to share with men, women and children in a variety of sizes. To receive a coat at no cost, visit The Salvation Army of Greenville Area Command located at 417 Rutherford Street during normal business hours Monday through Friday. Ask to speak with either Men's Shelter Resident Manager Gonza Bryant or Women's Shelter Resident Manager Sarah Finley.&nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Winter coats are available to share with men, women and children in a variety of sizes. To receive a coat at no cost, visit The Salvation Army of Greenville Area Command located at 417 Rutherford Street during normal business hours Monday through Friday. Ask to speak with either Men's Shelter Resident Manager Gonza Bryant or Women's Shelter Resident Manager Sarah Finley.&nbsp;",
+								"position": 3,
+								"fullName": "content:textarea:4:31",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:4:31",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:11:64-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:horizontalrule:5:72": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 4,
+								"fullName": "design:design:horizontalrule:5:72",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:11:64-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:6:29": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tIf you'd like to donate to The Salvation Army of Greenville continue to support our most vulnerable neighbors when they need it most, click the button below.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "If you'd like to donate to The Salvation Army of Greenville continue to support our most vulnerable neighbors when they need it most, click the button below.",
+								"position": 5,
+								"fullName": "content:textarea:6:29",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:6:29",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:11:64-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:7:77": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/175533/#!/donation/checkout\" class=\"btn btn-primary gap-1 mt-2\">Donate Now</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/175533/#!/donation/checkout\" class=\"btn btn-primary gap-1 mt-2\">Donate Now</a></p>",
+								"model": "6",
+								"position": 6,
+								"fullName": "content:wysiwyg_basic:7:77",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:7:77",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:11:64-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

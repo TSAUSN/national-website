@@ -1,0 +1,978 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:78:0:0": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-d2f7b487e3-693x98')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-d2f7b487e3-693x98')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:78:0:0",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:53:45": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:53:45",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:52:17": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:52:17",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:1:77": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5>Emergency Disaster Services</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Emergency Disaster Services",
+								"position": 1,
+								"fullName": "content:text:1:77",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:1:77",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:91": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>Devastating disasters do not discriminate between the rich and the poor, and can often affect&nbsp;thousands of people with little to no warning. North Carolina is an especially vulnerable state,&nbsp;with frequent hurricanes and flooding. The Salvation Army of Wake County maintains a list of volunteers, poised to come to the&nbsp;aid of those impacted. You can sign up to be a standing resource for our disaster relief services to&nbsp;meet needs, provide comfort, and offer hope.</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Devastating disasters do not discriminate between the rich and the poor, and can often affect&nbsp;thousands of people with little to no warning. North Carolina is an especially vulnerable state,&nbsp;with frequent hurricanes and flooding. The Salvation Army of Wake County maintains a list of volunteers, poised to come to the&nbsp;aid of those impacted. You can sign up to be a standing resource for our disaster relief services to&nbsp;meet needs, provide comfort, and offer hope.",
+								"position": 2,
+								"fullName": "content:textarea:2:91",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:91",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:3:18": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p><strong>If you would like to join our Wake County team, please email our Emergency Disaster Services coordinator <a href=\"mailto:jere.schramm@uss.salvationarmy.org\" target=\"\">Jere Schramm</a>&nbsp;(<a href=\"tel:9198346733\">919-834-6733</a> ext. 66907) or volunteer coordinator <a href=\"mailto:rosemary.weber@uss.salvationarmy.org\" target=\"\">Rosemary Weber</a>&nbsp;(<a href=\"tel:9198346733\">919-834-6733</a> ext. 66836).</strong></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p><strong>If you would like to join our Wake County team, please email our Emergency Disaster Services coordinator <a href=\"mailto:jere.schramm@uss.salvationarmy.org\" target=\"\">Jere Schramm</a>&nbsp;(<a href=\"tel:9198346733\">919-834-6733</a> ext. 66907) or volunteer coordinator <a href=\"mailto:rosemary.weber@uss.salvationarmy.org\" target=\"\">Rosemary Weber</a>&nbsp;(<a href=\"tel:9198346733\">919-834-6733</a> ext. 66836).</strong></p>",
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:3:18",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:3:18",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:4:25": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:4:25",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:1 Column:6:8": {
+								"uid": "NaN",
+								"name": "1 Column",
+								"type": "columns",
+								"html": "<div style=\"display:flex\" class=\"row d-flex\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"classes": "row d-flex",
+								"droppable": "true",
+								"numberOfColumns": 1,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": 1,
+										"html": "<div class=\"col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 5,
+								"fullName": "design:columns:1 Column:6:8",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:1 Column:6:8-1:1 Column:0": {
+										"width": 1,
+										"html": "<div class=\"column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true,
+										"children": {
+											"content:embed:5:47": {
+												"icon": "embed",
+												"name": "Embed",
+												"type": "embed",
+												"html": "<iframe src=\"https://www.youtube.com/embed/fMsPqcxvw0U\" title=\"YouTube video player\" allowfullscreen=\"\" loading=\"lazy\" class=\"w-100 h-100\"></iframe>",
+												"description": "Embedded content (iframe)",
+												"draggable": true,
+												"content": "<iframe class=\"w-100 h-100\" src=\"https://www.youtube.com/embed/fMsPqcxvw0U\" title=\"YouTube video player\" allowfullscreen=\"\" loading=\"lazy\"></iframe>",
+												"position": 0,
+												"fullName": "content:embed:5:47",
+												"htmlElement": "iframe",
+												"classes": "w-100 h-100",
+												"primarytype": "content",
+												"id": "content:embed:5:47",
+												"styles": {},
+												"newLoc": "design:columns:1 Column:6:8-1:1 Column:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									}
+								},
+								"id": "design:columns:1 Column:6:8",
+								"styles": {},
+								"htmlElement": "div",
+								"content": "<div style=\"display:flex\" class=\"row d-flex\">*</div>",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:7:63": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 6,
+								"fullName": "design:design:whitespace-xl:7:63",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:8:2": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5>What We Do</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "What We Do",
+								"position": 7,
+								"fullName": "content:text:8:2",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:8:2",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:9:20": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tWhile each disaster creates its own unique circumstances and special needs, Salvation Army disaster relief efforts focus on seven core services. These services may be modified based on the magnitude of the disaster and adapted to meet the specific needs of individual survivors.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "While each disaster creates its own unique circumstances and special needs, Salvation Army disaster relief efforts focus on seven core services. These services may be modified based on the magnitude of the disaster and adapted to meet the specific needs of individual survivors.",
+								"position": 8,
+								"fullName": "content:textarea:9:20",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:9:20",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:10:72": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 9,
+								"fullName": "design:design:whitespace-sm:10:72",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:4 Columns:19:44": {
+								"uid": "358",
+								"name": "4 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 4,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 10,
+								"fullName": "design:columns:4 Columns:19:44",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:4 Columns:19:44-1:4 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:11:60": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p><strong>Training</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Training",
+												"position": 0,
+												"fullName": "content:textarea:11:60",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:11:60",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:19:44-1:4 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:12:9": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>The first step in being ready to respond to an emergency is training. In partnership with other agencies, The Salvation Army’s disaster training program offers a variety of courses designed to help individuals and communities prepare for emergency events and become trained disaster volunteers.</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "The first step in being ready to respond to an emergency is training. In partnership with other agencies, The Salvation Army’s disaster training program offers a variety of courses designed to help individuals and communities prepare for emergency events and become trained disaster volunteers.",
+												"position": 1,
+												"fullName": "content:textarea:12:9",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:12:9",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:19:44-1:4 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:4 Columns:19:44-1:4 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:13:31": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p><strong>Donations Management</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Donations Management",
+												"position": 0,
+												"fullName": "content:textarea:13:31",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:13:31",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:19:44-1:4 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:14:46": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>The Salvation Army is one of the nation’s leaders in responsibly collecting, sorting, and distributing donated goods. The Salvation Army encourages cash donations as the best and most flexible way to help and solicits only those in-kind donations which can be effectively received and efficiently distributed.</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "The Salvation Army is one of the nation’s leaders in responsibly collecting, sorting, and distributing donated goods. The Salvation Army encourages cash donations as the best and most flexible way to help and solicits only those in-kind donations which can be effectively received and efficiently distributed.",
+												"position": 1,
+												"fullName": "content:textarea:14:46",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:14:46",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:19:44-1:4 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:4 Columns:19:44-1:4 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:15:67": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p><strong>Disaster Social Services</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Disaster Social Services",
+												"position": 0,
+												"fullName": "content:textarea:15:67",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:15:67",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:19:44-1:4 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:16:68": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>After a family has lost everything in a disaster, The Salvation Army is there to provide emergency assistance to help meet survivors’ most urgent needs for food, clothing, shelter, and medical services.</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "After a family has lost everything in a disaster, The Salvation Army is there to provide emergency assistance to help meet survivors’ most urgent needs for food, clothing, shelter, and medical services.",
+												"position": 1,
+												"fullName": "content:textarea:16:68",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:16:68",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:19:44-1:4 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									},
+									"design:columns:4 Columns:19:44-1:4 Columns:3": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:17:19": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p><strong>Emergency Communications</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Emergency Communications",
+												"position": 0,
+												"fullName": "content:textarea:17:19",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:17:19",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:19:44-1:4 Columns:3",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:18:58": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>The Salvation Army Team Emergency Radio Network (SATERN) includes a worldwide network of volunteer amateur radio operators and other communications specialists, who may be mobilized to transmit emergency information during a disaster event.</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "The Salvation Army Team Emergency Radio Network (SATERN) includes a worldwide network of volunteer amateur radio operators and other communications specialists, who may be mobilized to transmit emergency information during a disaster event.",
+												"position": 1,
+												"fullName": "content:textarea:18:58",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:18:58",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:19:44-1:4 Columns:3",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 3
+									}
+								}
+							},
+							"design:columns:4 Columns:28:84": {
+								"uid": "358",
+								"name": "4 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 4,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 11,
+								"fullName": "design:columns:4 Columns:28:84",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:4 Columns:28:84-1:4 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:20:23": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p><strong>Emotional and Spiritual Care</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Emotional and Spiritual Care",
+												"position": 0,
+												"fullName": "content:textarea:20:23",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:20:23",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:28:84-1:4 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:21:79": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>Motivated by the Christian faith, The Salvation Army deploys specially trained individuals to offer emotional and spiritual care to rescue workers and disaster survivors.</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Motivated by the Christian faith, The Salvation Army deploys specially trained individuals to offer emotional and spiritual care to rescue workers and disaster survivors.",
+												"position": 1,
+												"fullName": "content:textarea:21:79",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:21:79",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:28:84-1:4 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:4 Columns:28:84-1:4 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:22:73": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p><strong>Food Service</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Food Service",
+												"position": 0,
+												"fullName": "content:textarea:22:73",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:22:73",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:28:84-1:4 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:23:97": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>When disaster strikes, one of the first signs that help is on the way is often the arrival of a Salvation Army mobile feeding unit, offering meals, snacks, and drinks to rescue workers and survivors.</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "When disaster strikes, one of the first signs that help is on the way is often the arrival of a Salvation Army mobile feeding unit, offering meals, snacks, and drinks to rescue workers and survivors.",
+												"position": 1,
+												"fullName": "content:textarea:23:97",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:23:97",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:28:84-1:4 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:4 Columns:28:84-1:4 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:24:94": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p><strong>Recovery</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Recovery",
+												"position": 0,
+												"fullName": "content:textarea:24:94",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:24:94",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:28:84-1:4 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:25:32": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>The Salvation Army supports long-term disaster recovery operations with flexible programming that is adaptable to the unique needs of individual communities.</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "The Salvation Army supports long-term disaster recovery operations with flexible programming that is adaptable to the unique needs of individual communities.",
+												"position": 1,
+												"fullName": "content:textarea:25:32",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:25:32",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:28:84-1:4 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									},
+									"design:columns:4 Columns:28:84-1:4 Columns:3": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"design:design:whitespace:27:46": {
+												"uid": "99",
+												"name": "White Space",
+												"type": "design",
+												"html": "<br>",
+												"preview": "<div style=\"border-style: dashed; height: 20px;\"></div>",
+												"classes": "",
+												"droppable": false,
+												"position": 0,
+												"fullName": "design:design:whitespace:27:46",
+												"primarytype": "design",
+												"newLoc": "design:columns:4 Columns:28:84-1:4 Columns:3",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 3
+									}
+								}
+							},
+							"design:design:whitespace-sm:29:14": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 12,
+								"fullName": "design:design:whitespace-sm:29:14",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:30:38": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5>How it Started</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "How it Started",
+								"position": 13,
+								"fullName": "content:text:30:38",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:30:38",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:31:31": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:left;\">\n\tOn September 8, 1900, a hurricane devastated Galveston, Texas leaving more than 5,000 people dead. The city, sustaining extensive property damage, was virtually destroyed. While survivors were still reeling from this onslaught of nature, Salvation Army National Commander Frederick Booth-Tucker ordered Salvation Army officers from across America to proceed to the disaster site to provide spiritual assistance. The Salvation Army's first national disaster appeal for funds was generously supported by caring Americans.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "On September 8, 1900, a hurricane devastated Galveston, Texas leaving more than 5,000 people dead. The city, sustaining extensive property damage, was virtually destroyed. While survivors were still reeling from this onslaught of nature, Salvation Army National Commander Frederick Booth-Tucker ordered Salvation Army officers from across America to proceed to the disaster site to provide spiritual assistance. The Salvation Army's first national disaster appeal for funds was generously supported by caring Americans.",
+								"position": 14,
+								"fullName": "content:textarea:31:31",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:31:31",
+								"styles": {
+									"textAlign": "left"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:32:46": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:left;\">\n\tFrom these beginnings, The Salvation Army has developed local, regional, and national disaster services programs.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "From these beginnings, The Salvation Army has developed local, regional, and national disaster services programs.",
+								"position": 15,
+								"fullName": "content:textarea:32:46",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:32:46",
+								"styles": {
+									"textAlign": "left"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:33:20": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:left;\">\n\tIn North and South Carolina, The Salvation Army remains ready for any disaster that may occur. There are hundreds of Salvation Army personnel on call from all of our state's regions to quickly deploy to provide emergency food, shelter, and spiritual needs. Routinely, The Salvation Army's units deploy to provide for the practical and spiritual needs of first responders.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "In North and South Carolina, The Salvation Army remains ready for any disaster that may occur. There are hundreds of Salvation Army personnel on call from all of our state's regions to quickly deploy to provide emergency food, shelter, and spiritual needs. Routinely, The Salvation Army's units deploy to provide for the practical and spiritual needs of first responders.",
+								"position": 16,
+								"fullName": "content:textarea:33:20",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:33:20",
+								"styles": {
+									"textAlign": "left"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:34:46": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:left;\">\n\tFrom destructive weather to state and national tragedies, The Salvation Army is ready and willing to assist with a formidable group of personnel and stock of emergency supplies.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "From destructive weather to state and national tragedies, The Salvation Army is ready and willing to assist with a formidable group of personnel and stock of emergency supplies.",
+								"position": 17,
+								"fullName": "content:textarea:34:46",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:34:46",
+								"styles": {
+									"textAlign": "left"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:35:2": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:left;\">\n\tThe red shield continues to be a beacon of compassion in the Carolinas. It is immediate aid, psychological support, and spiritual counsel to individuals and families whose lives have been disrupted or shattered by forces beyond their control.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The red shield continues to be a beacon of compassion in the Carolinas. It is immediate aid, psychological support, and spiritual counsel to individuals and families whose lives have been disrupted or shattered by forces beyond their control.",
+								"position": 18,
+								"fullName": "content:textarea:35:2",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:35:2",
+								"styles": {
+									"textAlign": "left"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:text:36:67": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5>Learn More about Emergency Disaster Services</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Learn More about Emergency Disaster Services",
+								"position": 19,
+								"fullName": "content:text:36:67",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:36:67",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:37:60": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThe Salvation Army USA has a website dedicated to our work in response to disasters. The site is updated regularly with news, stats, and information and is a great resource, particularly in times of disaster response. It also has information about how you can get involved as a trained volunteer with us in order to help support the work of The Salvation Army in response to emergency and disaster situations.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army USA has a website dedicated to our work in response to disasters. The site is updated regularly with news, stats, and information and is a great resource, particularly in times of disaster response. It also has information about how you can get involved as a trained volunteer with us in order to help support the work of The Salvation Army in response to emergency and disaster situations.",
+								"position": 20,
+								"fullName": "content:textarea:37:60",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:37:60",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:38:49": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://disaster.salvationarmyusa.org/\" class=\"btn btn-secondary gap-1 mt-2\">Find Out More</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://disaster.salvationarmyusa.org/\" class=\"btn btn-secondary gap-1 mt-2\">Find Out More</a></p>",
+								"model": "6",
+								"position": 21,
+								"fullName": "content:wysiwyg_basic:38:49",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:38:49",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:39:76": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 22,
+								"fullName": "design:design:whitespace-sm:39:76",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:40:11": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Be Prepared</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Be Prepared",
+								"position": 23,
+								"fullName": "content:text:40:11",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:40:11",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:41:3": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tTo find out how you can be prepared in the Carolinas, check with our State Emergency Management Departments for more information.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "To find out how you can be prepared in the Carolinas, check with our State Emergency Management Departments for more information.",
+								"position": 24,
+								"fullName": "content:textarea:41:3",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:41:3",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:42:3": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\">\n\t<a href=\"https://www.readync.org/\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid d-block mx-auto my-3\" height=\"auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/40d96dc9-6793-4623-86f4-846759afd77d_nc_emergency_management.png\" width=\"200\"></a> <a href=\"https://www.scemd.org/\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid d-block mx-auto my-3\" height=\"auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/697db862-e765-4124-b5d6-83b4bd2fa4d0_sc_emergency_management.png\" width=\"200\"></a>\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\">\n\t<a href=\"https://www.readync.org/\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid d-block mx-auto my-3\" height=\"auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/40d96dc9-6793-4623-86f4-846759afd77d_nc_emergency_management.png\" width=\"200\"></a> <a href=\"https://www.scemd.org/\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid d-block mx-auto my-3\" height=\"auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/697db862-e765-4124-b5d6-83b4bd2fa4d0_sc_emergency_management.png\" width=\"200\"></a>\n</p>",
+								"model": "6",
+								"position": 25,
+								"fullName": "content:wysiwyg_basic:42:3",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:42:3",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:53:45-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+{{if {this.template_layout} == 1 }}
+    {{ this.autolayout(auto) }}
+
+{{else}}
+
+    {{if {!this.external_link} == '' }}
+        {{ include modules/generic }}
+    {{else}}
+        {{response.redirect301({this.external_link})}}"
+    {{/if}}
+{{/if}}

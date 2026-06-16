@@ -1,0 +1,338 @@
+[
+  {
+    "type": "menu",
+    "key": "home",
+    "page_name": "Home",
+    "page-zuid": "7-96a99696f7-18djxd",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "services",
+    "page_name": "Services",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Equip Families",
+    "page-zuid": "7-c4b5a9bb88-shmklm",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Provide Housing",
+    "page-zuid": "7-ecfae2edd1-qfgpx9",
+    "sort": 1,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Emergency Social Services",
+    "page-zuid": "7-bcfbd48795-swrtwq",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Brighten the Holidays",
+    "page-zuid": "7-e8f492edcc-3dzqlv",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Disaster Services",
+    "page-zuid": "7-ec8ebf80bc-xcf167",
+    "sort": 4,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Cure Hunger",
+    "page-zuid": "7-cab7b1d6f3-kpwr0f",
+    "sort": 5,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Share God's Love",
+    "page-zuid": "7-c2a2f58bff-762lcz",
+    "sort": 6,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Hunger",
+    "page-zuid": "7-d2eaf4dfda-fn6zwz",
+    "sort": 7,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Senior Services",
+    "page-zuid": "7-b2e386a3e1-80kz1s",
+    "sort": 8,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Counseling",
+    "page-zuid": "7-beb9f5eaf4-3hs611",
+    "sort": 9,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": "about_us",
+    "page_name": "About Us",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "About Us",
+    "page-zuid": "7-f2e38bb58d-n28grk",
+    "sort": 0,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
+    "sort": 1,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Leadership",
+    "page-zuid": "7-ce94c1a4b3-9mhldh",
+    "sort": 2,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "History",
+    "page-zuid": "7-b8c09b84c2-fp57hm",
+    "sort": 3,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-909ec5bbc1-fv94h8",
+    "sort": 4,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Give With Joy",
+    "page-zuid": "give_with_joy",
+    "sort": 5,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Advisory Board",
+    "page-zuid": "7-b8b188d4a3-vxbrvv",
+    "sort": 6,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Who We Are ",
+    "page-zuid": "7-d481b3c1de-6rk58w",
+    "sort": 7,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": "events",
+    "page_name": "Springfield, MO Corps",
+    "page-zuid": "7-e4d3a7ee9c-vqkjlp",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "newsroom",
+    "page_name": "Springfield, MO Corps",
+    "page-zuid": "7-c48696fb96-t7h2qw",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "ways_to_give",
+    "page_name": "Ways to give",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Money",
+    "page-zuid": "donate_money",
+    "sort": 0,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Goods",
+    "page-zuid": "donate_goods",
+    "sort": 1,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Become a Fundraiser",
+    "page-zuid": "become_fundraiser",
+    "sort": 2,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Planned Giving",
+    "page-zuid": "7-b2c8f8c3a1-p70t2s",
+    "sort": 3,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Gift Stocks & Bonds",
+    "page-zuid": "7-c4bebbe989-d1cqdk",
+    "sort": 4,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Volunteer",
+    "page-zuid": "7-988aee8a8c-1gjgr8",
+    "sort": 5,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "View All Ways to Give",
+    "page-zuid": "7-8cb6efc8b0-bw9xct",
+    "sort": 6,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "The Salvation Army Angel Tree",
+    "page-zuid": "7-f0c8848991-ql7cwf",
+    "sort": 7,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Lives Transformed",
+    "page-zuid": "7-a8a7bfd5dd-12mczx",
+    "sort": 8,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Fundraise for Good",
+    "page-zuid": "7-b0d4f193de-cxfzkg",
+    "sort": 9,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Wills, Trusts and Other Legacy Gifts",
+    "page-zuid": "7-aca0cc94fd-7hj3ln",
+    "sort": 10,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Angel Tree",
+    "page-zuid": "7-fee3878dd3-kj3q4h",
+    "sort": 11,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Volunteer in Springfield, MO",
+    "page-zuid": "7-fcc1a6ddac-x01rct",
+    "sort": 12,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Goods in Springfield",
+    "page-zuid": "7-909dc5ceba-r0wdc0",
+    "sort": 13,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": "contact_us",
+    "page_name": "Contact Us",
+    "page-zuid": "7-9ad8cc9db5-nbvgj8",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "More",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "2025 Impact Report",
+    "page-zuid": "7-e2a3979ca1-hx0q8x",
+    "sort": 0,
+    "parent": "custom_menu"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Summer Day Camp and After-School Programs",
+    "page-zuid": "7-c890b2aff0-v9w65r",
+    "sort": 1,
+    "parent": "custom_menu"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Women's Auxiliary",
+    "page-zuid": "7-ba83e6fd90-mmjk98",
+    "sort": 2,
+    "parent": "custom_menu"
+  }
+]

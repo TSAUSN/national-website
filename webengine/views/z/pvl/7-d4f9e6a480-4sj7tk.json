@@ -1,0 +1,524 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:78:0:55": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-90d781c6bf-j4vs5w')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-90d781c6bf-j4vs5w')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:78:0:55",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:30:3": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:30:3",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:2:42": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\"><i class=\"icon icon-center-heart\"></i><br>\n\t\t\t\tCold Weather Shelter</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Cold Weather Shelter",
+								"position": 0,
+								"fullName": "content:text:2:42",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:2:42",
+								"styles": {
+									"textAlign": "center",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:3:11": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><strong>The Salvation Army provides shelter to anyone in need when it is <u>35 degrees and below</u>. </strong></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army provides shelter to anyone in need when it is 35 degrees and below.",
+								"position": 1,
+								"fullName": "content:textarea:3:11",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:3:11",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:4:11": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">Hours: Open from 6:00&nbsp;pm – 7:00&nbsp;am&nbsp;</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Hours: Open from 6:00&nbsp;pm – 7:00&nbsp;am&nbsp;",
+								"position": 2,
+								"fullName": "content:textarea:4:11",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:4:11",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:5:4": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t\t\t\t\tThe Salvation Army Center of Hope&nbsp;at 2019 22nd Street.\n\t\t\t\t</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army Center of Hope&nbsp;at 2019 22nd Street.",
+								"position": 3,
+								"fullName": "content:textarea:5:4",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:5:4",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:6:65": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t\t\t\t\tDoors open at 6:00 p.m. for Cold Weather Shelter clients and close at 10:00 p.m. for lights out. Dinner is at 6:30 p.m. and light breakfast will be provided at the shelter.\n\t\t\t\t</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Doors open at 6:00 p.m. for Cold Weather Shelter clients and close at 10:00 p.m. for lights out. Dinner is at 6:30 p.m. and light breakfast will be provided at the shelter.",
+								"position": 4,
+								"fullName": "content:textarea:6:65",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:6:65",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:7:30": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t\t\t\t\t<span style=\"color:#ed1c2b;\">Participation is primarily focused&nbsp;to individuals from the lower six counties; we are unable to accommodate unplanned participants from outside this area.</span>\n\t\t\t\t</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Participation is primarily focused&nbsp;to individuals from the lower six counties; we are unable to accommodate unplanned participants from outside this area.",
+								"position": 5,
+								"fullName": "content:textarea:7:30",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:7:30",
+								"styles": {
+									"color": "#ed1c2b",
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:8:50": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 6,
+								"fullName": "design:design:whitespace-xl:8:50",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:10:94": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 class=\"greyBoxes-title\" style=\"text-align:center;\"><i class=\"icon icon-snowflake\"></i>Cold Weather Shelter</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Cold Weather Shelter",
+								"position": 7,
+								"fullName": "content:text:10:94",
+								"htmlElement": "h6",
+								"primarytype": "content",
+								"id": "content:text:10:94",
+								"styles": {
+									"textAlign": "center",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:11:24": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t\t\t\tWe use the Gulfport International Airport weather&nbsp;to&nbsp;decide if the shelter will be open according to these weather reports so we can coordinate supplies and volunteers. &nbsp;\n\t\t\t</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "We use the Gulfport International Airport weather&nbsp;to&nbsp;decide if the shelter will be open according to these weather reports so we can coordinate supplies and volunteers. &nbsp;",
+								"position": 8,
+								"fullName": "content:textarea:11:24",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:11:24",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:12:54": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t\t\t\tSmall meals will be provided for dinner and breakfast. Guests must complete a health survey and present a photo ID prior to entry. Space is limited and available on a first-come, first-served basis.&nbsp;\n\t\t\t</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Small meals will be provided for dinner and breakfast. Guests must complete a health survey and present a photo ID prior to entry. Space is limited and available on a first-come, first-served basis.&nbsp;",
+								"position": 9,
+								"fullName": "content:textarea:12:54",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:12:54",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:17:57": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 10,
+								"fullName": "design:design:whitespace-sm:17:57",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:22:20": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 11,
+								"fullName": "design:columns:2columns:22:20",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:22:20-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:text:13:80": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h6 class=\"greyBoxes-title\" style=\"text-align:center;\"><i class=\"icon icon-shelter\"></i>Shelter Rules</h6>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "Shelter Rules",
+												"position": 0,
+												"fullName": "content:text:13:80",
+												"htmlElement": "h6",
+												"primarytype": "content",
+												"id": "content:text:13:80",
+												"styles": {
+													"textAlign": "center",
+													"fontStyle": "italic"
+												},
+												"newLoc": "design:columns:2columns:22:20-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:14:39": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\">\n\t\t\t\tCold Weather Shelter Rules\n\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Cold Weather Shelter Rules",
+												"position": 1,
+												"fullName": "content:textarea:14:39",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:14:39",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:22:20-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:15:64": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\">\n\t\t\t\tThe Salvation Army MS Gulf Coast is happy to assist you on cold and extreme weather nights.&nbsp; However, for your safety, the safety of your neighbor, and the comfort of everyone staying we ask that you govern yourself by these guidelines.&nbsp; Violation of these guidelines can result in denial of services.\n\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "The Salvation Army MS Gulf Coast is happy to assist you on cold and extreme weather nights.&nbsp; However, for your safety, the safety of your neighbor, and the comfort of everyone staying we ask that you govern yourself by these guidelines.&nbsp; Violation of these guidelines can result in denial of services.",
+												"position": 2,
+												"fullName": "content:textarea:15:64",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:15:64",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:22:20-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:wysiwyg_basic:16:49": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<ul>\n\t\t\t\t<li>No Weapons</li>\n\t\t\t\t<li>No Alcohol</li>\n\t\t\t\t<li>No Drugs</li>\n\t\t\t\t<li>No Profanity or Slurs</li>\n\t\t\t\t<li>No Bullying</li>\n\t\t\t\t<li>No Food or Drink Allowed in the sleeping area</li>\n\t\t\t\t<li>No Sexual Acting out</li>\n\t\t\t\t<li>Be respectful of yourself and others</li>\n\t\t\t\t<li>Leave bad or quarrelsome attitudes off tsa property</li>\n\t\t\t\t<li>Everyone entering consents to a Breathalyzer test and searches of their bags and person</li>\n\t\t\t\t<li>Smoking is only allowed Outside – Use Ash Cans</li>\n\t\t\t\t<li>During these times: 6 to 10 pm and 6 to 7 am</li>\n\t\t\t\t<li>Smoking is not allowed during lights out.</li>\n\t\t\t\t<li>Stay outside the door – Loitering around the building is not acceptable</li>\n\t\t\t</ul>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<ul>\n\t\t\t\t<li>No Weapons</li>\n\t\t\t\t<li>No Alcohol</li>\n\t\t\t\t<li>No Drugs</li>\n\t\t\t\t<li>No Profanity or Slurs</li>\n\t\t\t\t<li>No Bullying</li>\n\t\t\t\t<li>No Food or Drink Allowed in the sleeping area</li>\n\t\t\t\t<li>No Sexual Acting out</li>\n\t\t\t\t<li>Be respectful of yourself and others</li>\n\t\t\t\t<li>Leave bad or quarrelsome attitudes off tsa property</li>\n\t\t\t\t<li>Everyone entering consents to a Breathalyzer test and searches of their bags and person</li>\n\t\t\t\t<li>Smoking is only allowed Outside – Use Ash Cans</li>\n\t\t\t\t<li>During these times: 6 to 10 pm and 6 to 7 am</li>\n\t\t\t\t<li>Smoking is not allowed during lights out.</li>\n\t\t\t\t<li>Stay outside the door – Loitering around the building is not acceptable</li>\n\t\t\t</ul>",
+												"model": "6",
+												"position": 3,
+												"fullName": "content:wysiwyg_basic:16:49",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:16:49",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:22:20-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:22:20-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:19:59": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<ul>\n\t\t\t\t<li>Do not loiter in the front lobby. This area is closed during Cold Weather Shelter hours</li>\n\t\t\t\t<li>Pets – we all love our pets, but we cannot bring them to the shelter</li>\n\t\t\t\t<li>Enter or Exit only through the entrance</li>\n\t\t\t\t<li>During these times: 6&nbsp;to 10 pm and 6 to 7 am</li>\n\t\t\t\t<li>Stay out of areas marked “Employee Only”</li>\n\t\t\t\t<li>Tv will be at the discretion of the Volunteer in Charge and only family-appropriate entertainment allowed</li>\n\t\t\t\t<li>Dinner is at 6:30 pm – Eat what you want while it is being served.</li>\n\t\t\t\t<li>When everyone is served, the food will be put away and the kitchen cleaned. Food will not be available after that</li>\n\t\t\t\t<li>Water is the only beverage served after 8:30 pm</li>\n\t\t\t\t<li>No Coffee will be brewed after 8:15 pm</li>\n\t\t\t\t<li>Lights out from 10:00 pm to 6:00 am. This means you are to be lying down on your cot, cell phones on silent and everyone is quiet.</li>\n\t\t\t</ul>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<ul>\n\t\t\t\t<li>Do not loiter in the front lobby. This area is closed during Cold Weather Shelter hours</li>\n\t\t\t\t<li>Pets – we all love our pets, but we cannot bring them to the shelter</li>\n\t\t\t\t<li>Enter or Exit only through the entrance</li>\n\t\t\t\t<li>During these times: 6&nbsp;to 10 pm and 6 to 7 am</li>\n\t\t\t\t<li>Stay out of areas marked “Employee Only”</li>\n\t\t\t\t<li>Tv will be at the discretion of the Volunteer in Charge and only family-appropriate entertainment allowed</li>\n\t\t\t\t<li>Dinner is at 6:30 pm – Eat what you want while it is being served.</li>\n\t\t\t\t<li>When everyone is served, the food will be put away and the kitchen cleaned. Food will not be available after that</li>\n\t\t\t\t<li>Water is the only beverage served after 8:30 pm</li>\n\t\t\t\t<li>No Coffee will be brewed after 8:15 pm</li>\n\t\t\t\t<li>Lights out from 10:00 pm to 6:00 am. This means you are to be lying down on your cot, cell phones on silent and everyone is quiet.</li>\n\t\t\t</ul>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:19:59",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:19:59",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:22:20-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:whitespace-sm:23:90": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 12,
+								"fullName": "design:design:whitespace-sm:23:90",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:24:58": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Volunteer</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Volunteer",
+								"position": 13,
+								"fullName": "content:text:24:58",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:24:58",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:25:35": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t\t\t\tOur Volunteers are the backbone of the work we do here at The Salvation Army.\n\t\t\t</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Our Volunteers are the backbone of the work we do here at The Salvation Army.",
+								"position": 14,
+								"fullName": "content:textarea:25:35",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:25:35",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:26:41": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t\t\t\tWe thank the Lord for you giving your time to help others.\n\t\t\t</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "We thank the Lord for you giving your time to help others.",
+								"position": 15,
+								"fullName": "content:textarea:26:41",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:26:41",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:27:48": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\">\n\t\t\t\tSign up to volunteer at our cold weather shelter by emailing <a href=\"mailto:Wanda.Lowe@uss.salvationarmy.org\" target=\"\">Wanda.Lowe@uss.salvationarmy.org.</a>\n\t\t\t</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\">\n\t\t\t\tSign up to volunteer at our cold weather shelter by emailing <a href=\"mailto:Wanda.Lowe@uss.salvationarmy.org\" target=\"\">Wanda.Lowe@uss.salvationarmy.org.</a>\n\t\t\t</p>",
+								"model": "6",
+								"position": 16,
+								"fullName": "content:wysiwyg_basic:27:48",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:27:48",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

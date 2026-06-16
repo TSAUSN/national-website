@@ -1,0 +1,47 @@
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-aeb0e9e5e8-kgzq7x')}}
+	<div class="row my-3">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<h6 style="text-align:center;">We Offer Hope &amp; Refuge</h6>
+			<p style="text-align:center;">The Salvation Army Homelessness programs are designed to provide&nbsp;emergency or transitional housing to families in need.</p>
+			<p style="text-align:center;">Underlying this program is a motivation to identify the causes of homelessness and work to eliminate homelessness at its source.</p>
+			<p style="display: table; margin-left: auto; margin-right: auto;"><iframe style="display: table; margin-left: auto; margin-right: auto;" src="https://www.youtube.com/embed/OLKxrv2g8HU" width="560" height="314" allowfullscreen="allowfullscreen"></iframe></p>
+			<div class="my-4"></div>
+			<h5 style="text-align:left">Are you experiencing homelessness and don’t know where to turn?&nbsp;</h5>
+			<p style="text-align:left">The Salvation Army&nbsp;is here to help. We offer programs&nbsp;for women,&nbsp;children and families that provides food, case management, intervention programs, health care, and access to resources for children and teens. The program is free and open to Guilford County residents.&nbsp;</p>
+			<div class="my-4"></div>
+			<h5 style="text-align:left">How we help equip families</h5>
+			<p style="text-align:left">While at The Salvation Army of Greensboro, families and individuals participate in programs and workshops developed to promote self-sufficiency and personal development. Each resident is matched with a&nbsp;caseworker and together they develop an extensive, goal-oriented program designed to identify and overcome the barriers to safe, permanent housing.&nbsp;</p>
+			<div class="my-2"></div>
+			<div class="row my-3">
+				<div class="col-lg-4 col-md-12 col-sm-12 d-flex flex-column">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle">
+<h5>More than a Job NC</h5>
+<p>The Salvation Army works with More Than A Job NC to empower individuals to reach their career potential and meet the workforce needs of North Carolina. We help to provide jobs-driven, skills-based training, education, and support services that improve the confidence, health, and well-being of participants, families, and communities.</p>
+<p>To learn more about the opportunities available to you as a resident of North Carolina, click the links below.</p>
+<p><a class="button" href="https://form.jotform.com/241625683770159" rel="noopener noreferrer">Referral Form</a></p>
+<p><a class="button" href="https://www.fns.usda.gov/snap-et" rel="noopener noreferrer">Snap Employment and Training</a></p>
+<p><a class="button" href="https://www.ncdhhs.gov/morethanajobnc" rel="noopener noreferrer">More than a Job NC</a></p>
+</div>
+				</div>
+				<div class="col-lg-4 col-md-12 col-sm-12 d-flex flex-column">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle" style="text-align:center">
+<h5 style="text-align: left;">How we help Prevent Homelessness</h5>
+<p style="text-align: left;">The Salvation Army provides Emergency Financial Assistance (EFA) for rent and utilities to help households prevent homelessness.&nbsp;Because each community is unique, the details of financial assistance programs vary between our different commands. There are requirements for assistance that vary by location. These often include but are not limited to, a valid photo identification card, your social security card, and various other supporting documents.</p>
+<p style="text-align: left;"><br>You can also call us at: <a href="tel:3362735572">336.273.5572</a></p>
+</div>
+				</div>
+				<div class="col-lg-4 col-md-12 col-sm-12 d-flex flex-column">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle" style="text-align:center">
+<h5 style="text-align: left;">The Supportive Services for Veteran Families</h5>
+<p style="text-align: left;">The Supportive Services for Veteran Families (SSVF) program aims to provide homeless, low-income veterans and their families with workable housing. If clients qualify, SSVF can also provide emergency assistance, food, gas, auto repair, etc.</p>
+<p style="text-align: left;">Due to the intensity of the rapid transition into permanent housing, all potential clients will be required to take part in SSVF services which help with financial counseling, landlord/tenant relationship classes, needed health appointments, etc.</p>
+<p style="text-align: left;">During the subsidy period, staff will help clients locate and secure safe, permanent, affordable housing. An SSVF Case Manager will assist clients with identifying and pursuing goals for increasing their income or removing personal barriers which stop clients from maintaining permanent housing. This is a collaborative grant program with The Veterans Administration, United Way, NC Housing, Goodwill, and The Salvation Army.</p>
+</div>
+				</div>
+			</div>
+			<div class="my-2"></div>
+			<p style="text-align:center">If you are interested in receiving more information, please <a href="/greensboro/contact-us/" target="">contact us</a> today.</p>
+		</div>
+	</div>
+</div>

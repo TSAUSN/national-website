@@ -1,0 +1,326 @@
+[
+  {
+    "type": "menu",
+    "key": "home",
+    "page_name": "Home",
+    "page-zuid": "7-ac89f1d9f7-q6bwl8",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "services",
+    "page_name": "Services",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Utility Rent Assistance",
+    "page-zuid": "7-b29bfabbe4-dgbrkw",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Spiritual and Worship Services",
+    "page-zuid": "7-beafdbcbf5-vxk423",
+    "sort": 1,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Holiday Assistance",
+    "page-zuid": "7-9c8da9cbf5-sf11lg",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Homelessness",
+    "page-zuid": "7-aebecbccf5-k38l0q",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Services",
+    "page-zuid": "7-f2bceaccf5-rljxq7",
+    "sort": 4,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Thrift Stores",
+    "page-zuid": "7-d2b5abccf5-q1l7fb",
+    "sort": 5,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Hunger",
+    "page-zuid": "7-a2e2d9bbe4-klfq17",
+    "sort": 6,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Youth Services",
+    "page-zuid": "7-deac89cbf5-pr4mcv",
+    "sort": 7,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Recovery",
+    "page-zuid": "7-ded996cbf5-p5f1jz",
+    "sort": 8,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Anti-Human Trafficking",
+    "page-zuid": "7-8696facbf5-fjmndb",
+    "sort": 9,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": "about_us",
+    "page_name": "About Us",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "About Us",
+    "page-zuid": "7-e28e97d8ec-rlzm92",
+    "sort": 0,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
+    "sort": 1,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Leadership",
+    "page-zuid": "7-e0bbaba1ff-lg0cpx",
+    "sort": 2,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "History",
+    "page-zuid": "7-b8c09b84c2-fp57hm",
+    "sort": 3,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-a8e8dda9bb-mph0lw",
+    "sort": 4,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Give With Joy",
+    "page-zuid": "give_with_joy",
+    "sort": 5,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Greater Pittsburgh Advisory Board",
+    "page-zuid": "7-8cb9dce7ad-6ftclq",
+    "sort": 6,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": "events",
+    "page_name": "Western Pennsylvania",
+    "page-zuid": "7-92b7c7e1a5-lzt8lg",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "newsroom",
+    "page_name": "Western Pennsylvania",
+    "page-zuid": "7-dae6dcc0c7-03r74h",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "ways_to_give",
+    "page_name": "Ways to give",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Money",
+    "page-zuid": "donate_money",
+    "sort": 0,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Goods",
+    "page-zuid": "donate_goods",
+    "sort": 1,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Become a Fundraiser",
+    "page-zuid": "become_fundraiser",
+    "sort": 2,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Planned Giving",
+    "page-zuid": "7-d6d7af9fbc-7v6rhf",
+    "sort": 3,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Gift Stocks & Bonds",
+    "page-zuid": "7-b2a5fdc3ee-b64wj2",
+    "sort": 4,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Volunteer",
+    "page-zuid": "7-a4e9bc9dc3-qrmf4k",
+    "sort": 5,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "View All Ways to Give",
+    "page-zuid": "7-d2ccddaeb1-hbpjgb",
+    "sort": 6,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Corporate Partnerships",
+    "page-zuid": "7-9c86d0a3d1-jshdh4",
+    "sort": 7,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Get Involved",
+    "page-zuid": "7-9c8cd8b2c1-xjlrx1",
+    "sort": 8,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": "contact_us",
+    "page_name": "Contact Us",
+    "page-zuid": "7-e0f9d4b0e8-0cll40",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "More",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Angel Tree",
+    "page-zuid": "7-e2b485a6e6-4rbp31",
+    "sort": 0,
+    "parent": "custom_menu"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Women's Auxiliary",
+    "page-zuid": "7-cec4fdd8c9-1bfrwr",
+    "sort": 1,
+    "parent": "custom_menu"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "WTAE-TV's project Bundle-Up",
+    "page-zuid": "7-fab0ecf190-n9m61n",
+    "sort": 2,
+    "parent": "custom_menu",
+    "external_link": "https://projectbundleup.org/"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Pittsburgh Echelon",
+    "page-zuid": "7-e2d3f980be-gq1x2n",
+    "sort": 3,
+    "parent": "custom_menu",
+    "external_link": "https://salvationarmyechelon.org/chapter/pittsburgh"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Camp Allegheny",
+    "page-zuid": "7-969dd5b4ea-hzj80w",
+    "sort": 4,
+    "parent": "custom_menu",
+    "external_link": "https://salvationarmywpa.org/camp/"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Music & Arts",
+    "page-zuid": "7-82af80a4c7-ctjccs",
+    "sort": 5,
+    "parent": "custom_menu"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Project Bundle-Up",
+    "page-zuid": "7-a0d795bbbd-j71dbr",
+    "sort": 6,
+    "parent": "custom_menu",
+    "external_link": "https://projectbundleup.org/"
+  }
+]

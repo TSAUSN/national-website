@@ -5,7 +5,7 @@
       <h2 class="fs-4">{{this.title}}</h2>
       {{/if}}
       <div class="">{{this.body}}</div>
-      <div class="d-flex align-items-center justify-content-center gap-2 mt-12">
+      <div class="d-flex align-items-center gap-2 mt-12 {{if {this.cta_buttons_alignment} == "Left"}}justify-content-start{{else}}{{if {this.cta_buttons_alignment} == "Right"}}justify-content-end{{else}}justify-content-center{{/if}}{{/if}}">
         {{if {this.cta_button_link} }}
         <a
           class="btn btn-info"

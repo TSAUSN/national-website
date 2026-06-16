@@ -1,0 +1,23 @@
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-90a9ccc7c8-ljhdvh')}}
+	<h5>Using god's love to uplift every neighbor</h5>
+	<p>
+		From weekly worship services and youth programming, to outreach to communities in need,
+	</p>
+	<p>
+		the Richmond Citadel Corps&nbsp;(church) aims to meet human need through spreading the word of God.
+	</p>
+	<p>
+		The Richmond Citadel Corps offers everyone a place for healing and hope through the love of God.&nbsp;
+	</p>
+	<p>
+		<a href="https://forms.office.com/r/ZixXtzwRWg" target=""><span class="btn btn-solid btn-red">SIGN UP FOR OUR MONTHLY NEWSLETTER</span></a>
+	</p>
+	<p>
+		<a href="https://cvac.salvationarmypotomac.org/centralvirginia/news/julies-journey" target=""><span class="btn btn-solid btn-red">Corps Success Story: From Mom to Ministry</span></a>
+	</p>
+	<div class="my-4"></div>
+	<img width="341" height="275" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/3b1d2c79-8ee8-4422-80d5-96de4c35388d_Corps+External.jpeg" alt="placeholder" />
+	<div class="my-4"></div>
+	{{block('/-/block/general_accordion.html?variant=7-baf9de91cc-g0xbkx')}}
+</div>

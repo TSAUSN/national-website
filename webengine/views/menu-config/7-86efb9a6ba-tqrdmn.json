@@ -1,0 +1,270 @@
+[
+  {
+    "type": "menu",
+    "key": "home",
+    "page_name": "Home",
+    "page-zuid": "7-86efb9a6ba-tqrdmn",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "services",
+    "page_name": "Services",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Youth Services",
+    "page-zuid": "7-c2a187819e-mw22b4",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Disaster Relief",
+    "page-zuid": "7-a4c890c7fd-bh1bdh",
+    "sort": 1,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Counseling",
+    "page-zuid": "7-feaaf6c297-2jpjjj",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Food Pantry",
+    "page-zuid": "7-eedfe3fd83-5mv3s3",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Senior Services",
+    "page-zuid": "7-849794b88a-wfzglm",
+    "sort": 4,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Worship Services",
+    "page-zuid": "7-d4dcf48391-ttq72d",
+    "sort": 5,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": "about_us",
+    "page_name": "About Us",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "About Us",
+    "page-zuid": "7-f6c9e1cd8a-ltx5gk",
+    "sort": 0,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
+    "sort": 1,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Leadership",
+    "page-zuid": "7-f2ca9b879b-mxvtp9",
+    "sort": 2,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "History",
+    "page-zuid": "7-b8c09b84c2-fp57hm",
+    "sort": 3,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-88deb6e6f5-l6xv5v",
+    "sort": 4,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Give With Joy",
+    "page-zuid": "give_with_joy",
+    "sort": 5,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "The Salvation Army of the Triad",
+    "page-zuid": "7-d4f5c9aabd-0xwfgg",
+    "sort": 6,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Nondiscrimination Statement",
+    "page-zuid": "7-f8bcd5a2ab-pmthh1",
+    "sort": 7,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": "events",
+    "page_name": "Burlington Corps",
+    "page-zuid": "7-a4cbc2d3c2-sj6rwp",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "newsroom",
+    "page_name": "Burlington Corps",
+    "page-zuid": "7-80e79980a5-zmrx59",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "ways_to_give",
+    "page_name": "Ways to give",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Money",
+    "page-zuid": "donate_money",
+    "sort": 0,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Goods",
+    "page-zuid": "donate_goods",
+    "sort": 1,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Become a Fundraiser",
+    "page-zuid": "become_fundraiser",
+    "sort": 2,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Planned Giving",
+    "page-zuid": "7-deb1f3c292-8n177t",
+    "sort": 3,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Gift Stocks & Bonds",
+    "page-zuid": "7-e8b8d68ccc-t4mw4d",
+    "sort": 4,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Volunteer",
+    "page-zuid": "7-e486fce0d9-h2mflh",
+    "sort": 5,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "View All Ways to Give",
+    "page-zuid": "7-eceab6f8eb-03112w",
+    "sort": 6,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Legacy and Estate Gifts",
+    "page-zuid": "7-a4f2fee9d8-qsrjkw",
+    "sort": 7,
+    "parent": "ways_to_give",
+    "external_link": "https://www.salvationarmyusa.org/usa-southern-territory/north-and-south-carolina/legacy-and-estate-gifts/"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Charitable Gifts",
+    "page-zuid": "7-d6938bd6ec-q22j2j",
+    "sort": 8,
+    "parent": "ways_to_give",
+    "external_link": "https://www.salvationarmyusa.org/usa-southern-territory/north-and-south-carolina/charitable-gifts/"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Giving To Alamance County",
+    "page-zuid": "7-86ad95b79e-pgzh9v",
+    "sort": 9,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": "contact_us",
+    "page_name": "Contact Us",
+    "page-zuid": "7-8498c6abb1-t3f4vw",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "More",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Inspiration In Your Inbox",
+    "page-zuid": "7-f289d1b7d3-d4792t",
+    "sort": 0,
+    "parent": "custom_menu",
+    "external_link": "https://manage.kmail-lists.com/subscriptions/subscribe?a=R46drN&g=VNP2ky"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Red Shield Youth Center",
+    "page-zuid": "7-a2bba2eb82-tzh34f",
+    "sort": 1,
+    "parent": "custom_menu",
+    "external_link": "https://southernusa.salvationarmy.org/redshieldyouth/burlington"
+  }
+]

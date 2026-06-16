@@ -1,0 +1,156 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:10:0:76": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-d2a98e80b4-m8d279')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-d2a98e80b4-m8d279')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:10:0:76",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:10:65": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:10:65",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:10:65-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:wysiwyg_basic:1:37": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"row\">\n\t<div class=\"col-sm-4 margin-bottom-md\">\n\t\t<a href=\"javascript:void(0)\" onclick=\"symphony.site.animateScrollTo($('#stories-container-0'))\" class=\"btn btn-secondary gap-1 mt-2\"><i class=\"fa fa-align-left\"></i> Recent Stories </a>\n\t</div>\n\n\t<div class=\"col-sm-4 margin-bottom-md\">\n\t\t<a href=\"javascript:void(0)\" onclick=\"symphony.site.animateScrollTo($('#freeTextArea-2'))\" class=\"btn btn-secondary gap-1 mt-2\"><i class=\"far fa-address-card\"></i> PR Contacts </a>\n\t</div>\n\n\t<div class=\"col-sm-4 margin-bottom-md\">\n\t\t<a href=\"https://www.salvationarmyusa.org/usn/tell-us-a-story/\" style=\"border-color:#9ca6ae;color:#fff;\" class=\"btn btn-secondary gap-1 mt-2\">Tell Us A Story </a>\n\t</div>\n</div>\n\n<hr>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"row\">\n\t<div class=\"col-sm-4 margin-bottom-md\">\n\t\t<a href=\"javascript:void(0)\" onclick=\"symphony.site.animateScrollTo($('#stories-container-0'))\" class=\"btn btn-secondary gap-1 mt-2\"><i class=\"fa fa-align-left\"></i> Recent Stories </a>\n\t</div>\n\n\t<div class=\"col-sm-4 margin-bottom-md\">\n\t\t<a href=\"javascript:void(0)\" onclick=\"symphony.site.animateScrollTo($('#freeTextArea-2'))\" class=\"btn btn-secondary gap-1 mt-2\"><i class=\"far fa-address-card\"></i> PR Contacts </a>\n\t</div>\n\n\t<div class=\"col-sm-4 margin-bottom-md\">\n\t\t<a href=\"https://www.salvationarmyusa.org/usn/tell-us-a-story/\" style=\"border-color:#9ca6ae;color:#fff;\" class=\"btn btn-secondary gap-1 mt-2\">Tell Us A Story </a>\n\t</div>\n</div>\n\n<hr>",
+								"model": "6",
+								"position": 0,
+								"fullName": "content:wysiwyg_basic:1:37",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:1:37",
+								"styles": {
+									"backgroundColor": "#9ca6ae",
+									"borderColor": "#9ca6ae",
+									"color": "#fff",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:10:65-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:2:95": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 1,
+								"fullName": "design:design:whitespace-sm:2:95",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:10:65-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:3:59": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "",
+								"model": "6",
+								"position": 2,
+								"fullName": "content:wysiwyg_basic:3:59",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:3:59",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:10:65-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:4:33": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 3,
+								"fullName": "design:design:whitespace-sm:4:33",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:10:65-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:5:74": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-6\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t&nbsp;\n\t\t\t\t</p>\n\n\t\t\t\t<h5>MEDIA CONTACTS</h5>\n\n\t\t\t\t<p>\n\t\t\t\t\tFollowing is a media relations contact list for The Salvation Army in Florida. State media relations are handled by Florida Divisional Headquarters. All local media are asked to first contact their local Salvation Army representative for requests for spokespersons and other inquiries.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t&nbsp;\n\t\t\t\t</p>\n\n\t\t\t\t<div class=\"contacts\">\n\t\t\t\t\t<div class=\"card\" style=\"width:100% !important;\">\n\t\t\t\t\t\t<div class=\"layer\">\n\t\t\t\t\t\t\t&nbsp;\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"content\">\n\t\t\t\t\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t\t\t\t\t<h5>Divisional Headquarters:<br>\n\t\t\t\t\t\t\t\t<a href=\"https://salvationarmyflorida.org\" target=\"\"><span>Website</span></a></h5>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\tDivisional Communications Director&nbsp;<br>\n\t\t\t\t\t\t\t\t813.383.5668\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-6\">\n\t\t\t<div class=\"content\">\n\t\t\t\t\n\t\t\t\t\n\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p>\n\t&nbsp;\n</p>\n\n<p>\n\t<style type=\"text/css\">\n.contacts\n{\n    margin: 0px auto 0px;\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));\n    grid-gap: 20px;\n}\n.contacts .card\n{\n    position: relative;\n    width:350px;\n    margin: 0 auto;\n    background:#f1f1f1;\n    padding: 20px;\n    box-sizing: border-box;\n    text-align: center;\n    box-shadow: 5px 5px 15px 0px rgba(0,0,0,.2);\n    overflow: hidden;\n    border:solid 2px #f0f0f0;\n}\n.contacts .card .layer\n{\n    position: absolute;\n    top:calc(100% - 2px);\n    left:0;\n    width:100%;\n    height: 100%;\n    background: linear-gradient(#f1f1f1, #fff);\n    z-index: 1;\n    transition: 0.5s;\n}\n.contacts .card:hover .layer\n{\n   top: 0;\n}\n.contacts .card .content\n{\n   position: relative;\n   z-index: 2;\n}\n.contacts .card .content p\n{\n   font-size: 18px;\n   line-height: 24px;\n   color:#333;\n}\n.contacts .card .content .image\n{\n   width: 100px;\n   height: 100px;\n   margin: 0 auto;\n   border-radius: 50%;\n   overflow: hidden;\n   border: 4px solid #fff;\n   box-shadow: 5px 5px 15px 0px rgba(0,0,0,0);\n}\n.contacts .card .content .details h2\n{ \n   font-size: 18px;\n   color: #333;\n}\n.contacts .card .content .details h2 span\n{\n    color: #333;\n    font-size: 14px;\n    transition: 0.5s;\n}\n.contacts .card:hover .content .details h2 span\n{\n    color: red;\n}\n#ministriesGrid-icon .icon {\ncolor: #fff !important;\n}\t</style>\n</p>\n\n<div class=\"contacts\">\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>PENSACOLA:<br>\n\t\t\t\t<a href=\"https://pensacola.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tCaptain Stephan Wildish Stephan.Wildish@uss.salvationarmy.org<br>\n\t\t\t\t407-973-4628\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>PANAMA CITY:<br>\n\t\t\t\t<a href=\"https://panamacity.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tCaptain Arnaldo Pena arnaldo.pena@uss.salvationarmy.org<br>\n\t\t\t\t850-769-5359\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>TALLAHASSEE:<br>\n\t\t\t\t<a href=\"https://TALLAHASSEE.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tJeremy Bridges Jeremy.Bridges@uss.salvationarmy.org 850-222-0304\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>GAINESVILLE:<br>\n\t\t\t\t<a href=\"https://gainesville.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tMajor Ernest Hull ernest.hull@uss.salvationarmy.org 352-376-1743\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>JACKSONVILLE:<br>\n\t\t\t\t<a href=\"https://nefl.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tLillie Carnes lillie.carnes@uss.salvationarmy.org<br>\n\t\t\t\t904-301-4839\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>ORLANDO:<br>\n\t\t\t\t<a href=\"https://orlando.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tNatasha Player Natasha.Player@uss.salvationarmy.org 407-388-8258\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>TAMPA:<br>\n\t\t\t\t<a href=\"https://tampa.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tAaron DeWinter aaron.deWinter@uss.salvationarmy.org<br>\n\t\t\t\t813-374-4331\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\" style=\"color:#f1f1f1 !important;\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>FT. MYERS:<br>\n\t\t\t\t<a href=\"https://fortmyers.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tDavid Asselin David.Asselin@uss.salvationarmy.org<br>\n\t\t\t\t239-278-7725\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\" style=\"color:#f1f1f1 !important;\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>WEST PALM BEACH:<br>\n\t\t\t\t<a href=\"https://palmbeachcounty.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tMajor James Hall James.Hall@uss.salvationarmy.org<br>\n\t\t\t\t561-232-9143\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>MIAMI:<br>\n\t\t\t\t<a href=\"https://miami.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tJoanne Joseph<br>\n\t\t\t\tJoanne.Joseph@uss.salvationarmy.org 305-637-6700 ext. 26644\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\" style=\"color:#f1f1f1 !important;\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>FORT LAUDERDALE:<br>\n\t\t\t\t<a href=\"https://fortlauderdale.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tDavid Hayton David.Hayton@uss.salvationarmy.org<br>\n\t\t\t\t954-524-6991\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\" style=\"color:#f1f1f1 !important;\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>SARASOTA:<br>\n\t\t\t\t<a href=\"https://sarasota.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tKelley Granahan Kelley.Granahan@uss.salvationarmy.org<br>\n\t\t\t\t941-552-5148\n\t\t\t</p>\n\t\t</div>\n\t</div>\n</div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-6\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t&nbsp;\n\t\t\t\t</p>\n\n\t\t\t\t<h5>MEDIA CONTACTS</h5>\n\n\t\t\t\t<p>\n\t\t\t\t\tFollowing is a media relations contact list for The Salvation Army in Florida. State media relations are handled by Florida Divisional Headquarters. All local media are asked to first contact their local Salvation Army representative for requests for spokespersons and other inquiries.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t&nbsp;\n\t\t\t\t</p>\n\n\t\t\t\t<div class=\"contacts\">\n\t\t\t\t\t<div class=\"card\" style=\"width:100% !important;\">\n\t\t\t\t\t\t<div class=\"layer\">\n\t\t\t\t\t\t\t&nbsp;\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"content\">\n\t\t\t\t\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t\t\t\t\t<h5>Divisional Headquarters:<br>\n\t\t\t\t\t\t\t\t<a href=\"https://salvationarmyflorida.org\" target=\"\"><span>Website</span></a></h5>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\tDivisional Communications Director&nbsp;<br>\n\t\t\t\t\t\t\t\t813.383.5668\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-6\">\n\t\t\t<div class=\"content\">\n\t\t\t\t\n\t\t\t\t\n\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p>\n\t&nbsp;\n</p>\n\n<p>\n\t<style type=\"text/css\">\n.contacts\n{\n    margin: 0px auto 0px;\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));\n    grid-gap: 20px;\n}\n.contacts .card\n{\n    position: relative;\n    width:350px;\n    margin: 0 auto;\n    background:#f1f1f1;\n    padding: 20px;\n    box-sizing: border-box;\n    text-align: center;\n    box-shadow: 5px 5px 15px 0px rgba(0,0,0,.2);\n    overflow: hidden;\n    border:solid 2px #f0f0f0;\n}\n.contacts .card .layer\n{\n    position: absolute;\n    top:calc(100% - 2px);\n    left:0;\n    width:100%;\n    height: 100%;\n    background: linear-gradient(#f1f1f1, #fff);\n    z-index: 1;\n    transition: 0.5s;\n}\n.contacts .card:hover .layer\n{\n   top: 0;\n}\n.contacts .card .content\n{\n   position: relative;\n   z-index: 2;\n}\n.contacts .card .content p\n{\n   font-size: 18px;\n   line-height: 24px;\n   color:#333;\n}\n.contacts .card .content .image\n{\n   width: 100px;\n   height: 100px;\n   margin: 0 auto;\n   border-radius: 50%;\n   overflow: hidden;\n   border: 4px solid #fff;\n   box-shadow: 5px 5px 15px 0px rgba(0,0,0,0);\n}\n.contacts .card .content .details h2\n{ \n   font-size: 18px;\n   color: #333;\n}\n.contacts .card .content .details h2 span\n{\n    color: #333;\n    font-size: 14px;\n    transition: 0.5s;\n}\n.contacts .card:hover .content .details h2 span\n{\n    color: red;\n}\n#ministriesGrid-icon .icon {\ncolor: #fff !important;\n}\t</style>\n</p>\n\n<div class=\"contacts\">\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>PENSACOLA:<br>\n\t\t\t\t<a href=\"https://pensacola.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tCaptain Stephan Wildish Stephan.Wildish@uss.salvationarmy.org<br>\n\t\t\t\t407-973-4628\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>PANAMA CITY:<br>\n\t\t\t\t<a href=\"https://panamacity.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tCaptain Arnaldo Pena arnaldo.pena@uss.salvationarmy.org<br>\n\t\t\t\t850-769-5359\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>TALLAHASSEE:<br>\n\t\t\t\t<a href=\"https://TALLAHASSEE.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tJeremy Bridges Jeremy.Bridges@uss.salvationarmy.org 850-222-0304\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>GAINESVILLE:<br>\n\t\t\t\t<a href=\"https://gainesville.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tMajor Ernest Hull ernest.hull@uss.salvationarmy.org 352-376-1743\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>JACKSONVILLE:<br>\n\t\t\t\t<a href=\"https://nefl.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tLillie Carnes lillie.carnes@uss.salvationarmy.org<br>\n\t\t\t\t904-301-4839\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>ORLANDO:<br>\n\t\t\t\t<a href=\"https://orlando.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tNatasha Player Natasha.Player@uss.salvationarmy.org 407-388-8258\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>TAMPA:<br>\n\t\t\t\t<a href=\"https://tampa.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tAaron DeWinter aaron.deWinter@uss.salvationarmy.org<br>\n\t\t\t\t813-374-4331\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\" style=\"color:#f1f1f1 !important;\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>FT. MYERS:<br>\n\t\t\t\t<a href=\"https://fortmyers.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tDavid Asselin David.Asselin@uss.salvationarmy.org<br>\n\t\t\t\t239-278-7725\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\" style=\"color:#f1f1f1 !important;\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>WEST PALM BEACH:<br>\n\t\t\t\t<a href=\"https://palmbeachcounty.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tMajor James Hall James.Hall@uss.salvationarmy.org<br>\n\t\t\t\t561-232-9143\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>MIAMI:<br>\n\t\t\t\t<a href=\"https://miami.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tJoanne Joseph<br>\n\t\t\t\tJoanne.Joseph@uss.salvationarmy.org 305-637-6700 ext. 26644\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\" style=\"color:#f1f1f1 !important;\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>FORT LAUDERDALE:<br>\n\t\t\t\t<a href=\"https://fortlauderdale.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tDavid Hayton David.Hayton@uss.salvationarmy.org<br>\n\t\t\t\t954-524-6991\n\t\t\t</p>\n\t\t</div>\n\t</div>\n\n\t<div class=\"card\">\n\t\t<div class=\"layer\">\n\t\t\t&nbsp;\n\t\t</div>\n\n\t\t<div class=\"content\">\n\t\t\t<i class=\"ministriesGrid-icon icon icon-shield\" style=\"color:#f1f1f1 !important;\"></i>\n<div class=\"details\">\n\t\t\t\t<h5>SARASOTA:<br>\n\t\t\t\t<a href=\"https://sarasota.salvationarmyflorida.org/\" target=\"\"><span>Website</span></a></h5>\n\t\t\t</div>\n\n\t\t\t<p>\n\t\t\t\tKelley Granahan Kelley.Granahan@uss.salvationarmy.org<br>\n\t\t\t\t941-552-5148\n\t\t\t</p>\n\t\t</div>\n\t</div>\n</div>",
+								"model": "6",
+								"position": 4,
+								"fullName": "content:wysiwyg_basic:5:74",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:5:74",
+								"styles": {
+									"width": "100% !important",
+									"textAlign": "center",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:10:65-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

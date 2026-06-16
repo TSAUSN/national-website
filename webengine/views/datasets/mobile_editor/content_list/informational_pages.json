@@ -7,7 +7,7 @@
 {{$property = "" }}
 {{$division = "" }}
 {{$territory = "" }}
-{{$queryFilter = informational_page.title LIKE {$search} AND informational_page.location IS NULL AND informational_page.division AND informational_page.territory IS NULL AND national = 1}}
+{{$queryFilter = informational_page.title LIKE {$search} AND informational_page.location IS NULL AND informational_page.division IS NULL AND informational_page.territory IS NULL AND national = 1}}
 
 
 {{if {request.queryParam(skip)} }}
@@ -66,10 +66,15 @@
 {{end-if}}
 
 
+
+{{each informational_pages as informational_page WHERE {$queryFilter} }}
+{{$totalItems = {informational_page._num} }}
+{{/each}}
+
 {
     "data": [
         {{each informational_pages as informational_page WHERE {$queryFilter} LIMIT {$skip}, {$limit} SORT BY informational_page.{$sort_by} {$sort_order} }}
-        {{$totalItems = {informational_page._num} }}
+      
         {
             "data": {
                 "title": "{{informational_page.title.escapeForJs()}}",

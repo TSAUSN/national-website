@@ -1,0 +1,481 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:49:0:16": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-94e0b7daa3-1pgt3g')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-94e0b7daa3-1pgt3g')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:49:0:16",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:design:whitespace-sm:1:2537": {
+				"uid": "351",
+				"name": "Whitespace - Small",
+				"type": "design",
+				"classes": "my-2",
+				"html": "<div class=\"my-2\"></div>",
+				"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+				"droppable": true,
+				"position": 1,
+				"fullName": "design:design:whitespace-sm:1:2537",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank"
+			},
+			"design:columns:1 column - 1 row my-3:27:59": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 2,
+				"fullName": "design:columns:1 column - 1 row my-3:27:59",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:27:59-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:images:0:4479": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/3f88a89b-4fcb-4b78-a356-67100450e3bf_Charlotte+Landing+Page+Header+Bed+%26+Bead+Club.png\" alt=\"placeholder\" class=\"img-fluid w-100 d-block mx-auto mb-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/3f88a89b-4fcb-4b78-a356-67100450e3bf_Charlotte+Landing+Page+Header+Bed+%26+Bead+Club.png",
+								"position": 0,
+								"fullName": "content:images:0:4479",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:59-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:1:78": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\">Start Giving Monthly Today. Change a Life Tomorrow.</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Start Giving Monthly Today. Change a Life Tomorrow.",
+								"position": 1,
+								"fullName": "content:text:1:78",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:1:78",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:96": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tThe Bed &amp; Bread Club is a monthly giving program powered by compassionate people like you who want to support their neighbors facing hunger and homelessness.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Bed &amp; Bread Club is a monthly giving program powered by compassionate people like you who want to support their neighbors facing hunger and homelessness.",
+								"position": 2,
+								"fullName": "content:textarea:2:96",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:96",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:3:92": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/622914/#!/donation/checkout?utm_source=web&amp;utm_content=bb&amp;c_src=24BBJWIORGCSD24CHS&amp;c_src2=web\" class=\"btn btn-primary gap-1 mt-2\">Join Today</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/622914/#!/donation/checkout?utm_source=web&amp;utm_content=bb&amp;c_src=24BBJWIORGCSD24CHS&amp;c_src2=web\" class=\"btn btn-primary gap-1 mt-2\">Join Today</a></p>",
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:3:92",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:3:92",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:4:31": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:4:31",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:59-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:1 Column:6:4": {
+								"uid": "NaN",
+								"name": "1 Column",
+								"type": "columns",
+								"html": "<div style=\"display:flex\" class=\"row d-flex\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"classes": "row d-flex",
+								"droppable": "true",
+								"numberOfColumns": 1,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": 1,
+										"html": "<div class=\"col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 5,
+								"fullName": "design:columns:1 Column:6:4",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:1 Column:6:4-1:1 Column:0": {
+										"width": 1,
+										"html": "<div class=\"column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true,
+										"children": {
+											"content:embed:5:62": {
+												"icon": "embed",
+												"name": "Embed",
+												"type": "embed",
+												"html": "<iframe src=\"https://www.youtube.com/embed/b63zxHcrZWY\" style=\"border:0;\" loading=\"lazy\" allowfullscreen=\"\" referrerpolicy=\"no-referrer-when-downgrade\" class=\"w-100 h-100\"></iframe>",
+												"description": "Embedded content (iframe)",
+												"draggable": true,
+												"content": "<iframe src=\"https://www.youtube.com/embed/b63zxHcrZWY\" style=\"border:0;\" loading=\"lazy\" allowfullscreen=\"\" referrerpolicy=\"no-referrer-when-downgrade\" class=\"w-100 h-100\"></iframe>",
+												"position": 0,
+												"fullName": "content:embed:5:62",
+												"htmlElement": "iframe",
+												"classes": "w-100 h-100",
+												"primarytype": "content",
+												"id": "content:embed:5:62",
+												"styles": {},
+												"newLoc": "design:columns:1 Column:6:4-1:1 Column:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									}
+								},
+								"id": "design:columns:1 Column:6:4",
+								"styles": {},
+								"htmlElement": "div",
+								"content": "<div style=\"display:flex\" class=\"row d-flex\">*</div>",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:7:24": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 6,
+								"fullName": "design:design:whitespace-xl:7:24",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:59-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:9:78": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">&nbsp;&nbsp;&nbsp;EASY. Efficient. Rewarding.</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "&nbsp;&nbsp;&nbsp;EASY. Efficient. Rewarding.",
+								"position": 7,
+								"fullName": "content:text:9:78",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:9:78",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:10:31": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tWhen you become a member of the Bed &amp; Bread Club, you give hope to thousands of men, women, and children who come to The Salvation Army every day looking for a helping hand and a reason to believe in a brighter future. A recurring donation can help more people, more effectively. Sign up today to allow your gifts to be conveniently and automatically charged to your credit card.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "When you become a member of the Bed &amp; Bread Club, you give hope to thousands of men, women, and children who come to The Salvation Army every day looking for a helping hand and a reason to believe in a brighter future. A recurring donation can help more people, more effectively. Sign up today to allow your gifts to be conveniently and automatically charged to your credit card.",
+								"position": 8,
+								"fullName": "content:textarea:10:31",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:10:31",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:11:26": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 9,
+								"fullName": "design:design:whitespace-sm:11:26",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:59-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:4 Columns:20:33": {
+								"uid": "358",
+								"name": "4 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 4,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 10,
+								"fullName": "design:columns:4 Columns:20:33",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:4 Columns:20:33-1:4 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:12:64": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/622914/#!/donation/checkout?utm_source=web&amp;utm_content=bb&amp;c_src=24BBJWIORGCSD24CHS&amp;c_src2=web\" class=\"btn btn-primary gap-1 mt-2\">$500</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/622914/#!/donation/checkout?utm_source=web&amp;utm_content=bb&amp;c_src=24BBJWIORGCSD24CHS&amp;c_src2=web\" class=\"btn btn-primary gap-1 mt-2\">$500</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:12:64",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:12:64",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:4 Columns:20:33-1:4 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:4 Columns:20:33-1:4 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:14:94": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/622914/#!/donation/checkout?utm_source=web&amp;utm_content=bb&amp;c_src=24BBJWIORGCSD24CHS&amp;c_src2=web\" class=\"btn btn-primary gap-1 mt-2\">$100</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/622914/#!/donation/checkout?utm_source=web&amp;utm_content=bb&amp;c_src=24BBJWIORGCSD24CHS&amp;c_src2=web\" class=\"btn btn-primary gap-1 mt-2\">$100</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:14:94",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:14:94",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:4 Columns:20:33-1:4 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:4 Columns:20:33-1:4 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:16:64": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/622914/#!/donation/checkout?utm_source=web&amp;utm_content=bb&amp;c_src=24BBJWIORGCSD24CHS&amp;c_src2=web\" class=\"btn btn-primary gap-1 mt-2\">$50</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/622914/#!/donation/checkout?utm_source=web&amp;utm_content=bb&amp;c_src=24BBJWIORGCSD24CHS&amp;c_src2=web\" class=\"btn btn-primary gap-1 mt-2\">$50</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:16:64",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:16:64",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:4 Columns:20:33-1:4 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									},
+									"design:columns:4 Columns:20:33-1:4 Columns:3": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:18:50": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/622914/#!/donation/checkout?utm_source=web&amp;utm_content=bb&amp;c_src=24BBJWIORGCSD24CHS&amp;c_src2=web\" class=\"btn btn-primary gap-1 mt-2\">$25</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/622914/#!/donation/checkout?utm_source=web&amp;utm_content=bb&amp;c_src=24BBJWIORGCSD24CHS&amp;c_src2=web\" class=\"btn btn-primary gap-1 mt-2\">$25</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:18:50",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:18:50",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:4 Columns:20:33-1:4 Columns:3",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 3
+									}
+								}
+							},
+							"content:textarea:21:8": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tSign up today to allow your gifts to be conveniently and automatically charged to your credit card.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Sign up today to allow your gifts to be conveniently and automatically charged to your credit card.",
+								"position": 11,
+								"fullName": "content:textarea:21:8",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:21:8",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

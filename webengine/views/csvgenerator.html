@@ -260,6 +260,21 @@
               >
             </div>
           </li>
+          <li>
+            <div class="form-check">
+              <input
+                class="form-check-input model-filter"
+                type="checkbox"
+                value="volunteer_pages"
+                id="filterVolunteerPages"
+                checked
+              /><label
+                class="form-check-label"
+                for="filterVolunteerPages"
+                >Volunteer Pages</label
+              >
+            </div>
+          </li>
             </ul>
           </div>
         </div>
@@ -664,7 +679,7 @@
   };
 
   const buildCsvUrl = (zuid, zuidD, zuidL, page, pageSize) => {
-    const params = new URLSearchParams(getSelectedModelsQuery());
+    const params = getSelectedModelParams();
     params.set('page', page);
     params.set('per_page', pageSize);
     if (zuid) {
@@ -754,11 +769,14 @@
     handleModelSelection(divisionValues, locationValues);
   });
 
-  function getSelectedModelsQuery() {
-    const selectedModels = Array.from(document.querySelectorAll('.model-filter:checked')).map(
-      (cb) => cb.value
-    );
-    return selectedModels.map((model) => `${model}=1`).join('&');
+  function getSelectedModelParams() {
+    const params = new URLSearchParams();
+    Array.from(modelCheckboxes)
+      .filter((checkbox) => checkbox.checked)
+      .forEach((checkbox) => {
+        params.set(checkbox.value, '1');
+      });
+    return params;
   }
 
   const baseURL = `https://{{instance.domain}}/generate-csv.json`;

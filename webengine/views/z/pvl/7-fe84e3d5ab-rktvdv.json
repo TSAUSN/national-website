@@ -1,0 +1,742 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:42:0:32": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-c2ebefeac3-mpqc75')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-c2ebefeac3-mpqc75')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:42:0:32",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:43:2": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:43:2",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:43:2-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:41:68": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:41:68",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:43:2-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:2:5": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"rounded p-6 gap-3 bg-secondary-200 text-light\" style=\"color:#FFFFFF;\"><h1 style=\"text-align:center;\">Kernersville Food Pantry Program</h1>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:18px;\">No one should have to choose between paying bills and putting food on the table. Our food pantry&nbsp;helps bridge the gap for families and&nbsp;individuals facing food insecurity.</span>\n</p></div>",
+								"content": "<div class=\"rounded p-6 gap-3 bg-secondary-200 text-light\" style=\"color:#FFFFFF;\"><h1 style=\"text-align:center;\">Kernersville Food Pantry Program</h1>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:18px;\">No one should have to choose between paying bills and putting food on the table. Our food pantry&nbsp;helps bridge the gap for families and&nbsp;individuals facing food insecurity.</span>\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:5",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:5",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:43:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:3:37": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:37",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:43:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"design:design:whitespace-xl:4:59": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:whitespace-xl:4:59",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:43:2-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:22:63": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 4,
+								"fullName": "design:columns:2columns:22:63",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:43:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:22:63-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:6:42": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img width=\"70\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/d3332bd7-1830-4d92-9d7c-497ca03083bf_download.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/d3332bd7-1830-4d92-9d7c-497ca03083bf_download.png",
+												"position": 0,
+												"fullName": "content:images:6:42",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:2columns:22:63-1:2 Columns - Equal:0",
+												"oldLoc": "bank"
+											},
+											"design:design:whitespace-sm:13:66": {
+												"uid": "351",
+												"name": "Whitespace - Small",
+												"type": "design",
+												"classes": "my-2",
+												"html": "<div class=\"my-2\"></div>",
+												"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+												"droppable": true,
+												"position": 1,
+												"fullName": "design:design:whitespace-sm:13:66",
+												"primarytype": "design",
+												"newLoc": "design:columns:2columns:22:63-1:2 Columns - Equal:0",
+												"oldLoc": "bank"
+											},
+											"content:text:7:28": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h5 style=\"text-align:center;\">LOCATION</h5>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "LOCATION",
+												"position": 2,
+												"fullName": "content:text:7:28",
+												"htmlElement": "h5",
+												"primarytype": "content",
+												"id": "content:text:7:28",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:22:63-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:8:40": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\">130 E. Mountain Street</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "130 E. Mountain Street",
+												"position": 3,
+												"fullName": "content:textarea:8:40",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:8:40",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:22:63-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:9:92": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\">Kernersville, NC 27284</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Kernersville, NC 27284",
+												"position": 4,
+												"fullName": "content:textarea:9:92",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:9:92",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:22:63-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:10:90": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\">\n\t\t\t\t\tPlease note clients may begin lining up before&nbsp;distribution time. The car line is located beside the Kernersville Police Department.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Please note clients may begin lining up before&nbsp;distribution time. The car line is located beside the Kernersville Police Department.",
+												"position": 5,
+												"fullName": "content:textarea:10:90",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:10:90",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:22:63-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:wysiwyg_basic:11:43": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://goo.gl/maps/kYb1B7adovRFTAJ8A\" class=\"btn btn-secondary gap-1 mt-2\">DIRECTIONS</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://goo.gl/maps/kYb1B7adovRFTAJ8A\" class=\"btn btn-secondary gap-1 mt-2\">DIRECTIONS</a></p>",
+												"model": "6",
+												"position": 6,
+												"fullName": "content:wysiwyg_basic:11:43",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:11:43",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:22:63-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:22:63-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:14:44": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img width=\"70\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5921579e-95ce-4dbc-8db5-5e5c2c91b25c_clock.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/5921579e-95ce-4dbc-8db5-5e5c2c91b25c_clock.png",
+												"position": 0,
+												"fullName": "content:images:14:44",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:2columns:22:63-1:2 Columns - Equal:1",
+												"oldLoc": "bank"
+											},
+											"design:design:whitespace-sm:21:63": {
+												"uid": "351",
+												"name": "Whitespace - Small",
+												"type": "design",
+												"classes": "my-2",
+												"html": "<div class=\"my-2\"></div>",
+												"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+												"droppable": true,
+												"position": 1,
+												"fullName": "design:design:whitespace-sm:21:63",
+												"primarytype": "design",
+												"newLoc": "design:columns:2columns:22:63-1:2 Columns - Equal:1",
+												"oldLoc": "bank"
+											},
+											"content:text:15:6": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h5 style=\"text-align:center;\">HOURS OF OPERATION</h5>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "HOURS OF OPERATION",
+												"position": 2,
+												"fullName": "content:text:15:6",
+												"htmlElement": "h5",
+												"primarytype": "content",
+												"id": "content:text:15:6",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:22:63-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:16:34": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\">Mondays, Tuesdays, and Thursdays</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Mondays, Tuesdays, and Thursdays",
+												"position": 3,
+												"fullName": "content:textarea:16:34",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:16:34",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:22:63-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:17:50": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\">11:30 am&nbsp;- 12:15 pm</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "11:30 am&nbsp;- 12:15 pm",
+												"position": 4,
+												"fullName": "content:textarea:17:50",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:17:50",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:22:63-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:18:31": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\">\n\t\t\t\t\tDistribution will end when supplies run out each day.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Distribution will end when supplies run out each day.",
+												"position": 5,
+												"fullName": "content:textarea:18:31",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:18:31",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:22:63-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:wysiwyg_basic:19:22": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">\n\t\t\t\t\t<a href=\"tel:3369938844\">(336) 993-8844</a><br>\n\t\t\t\t\t&nbsp;\n\t\t\t\t</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">\n\t\t\t\t\t<a href=\"tel:3369938844\">(336) 993-8844</a><br>\n\t\t\t\t\t&nbsp;\n\t\t\t\t</p>",
+												"model": "6",
+												"position": 6,
+												"fullName": "content:wysiwyg_basic:19:22",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:19:22",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:22:63-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:whitespace-xl:23:29": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 5,
+								"fullName": "design:design:whitespace-xl:23:29",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:43:2-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:30:58": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 6,
+								"fullName": "design:columns:3 Columns:30:58",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:43:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:30:58-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:24:95": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"text-white\"><div class=\"card-background-content\" style=\"background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/2243f274-5c82-4083-be7f-81f95485cd3b_IMG_0846+edit.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;padding:20px;border-radius:8px;\"><div class=\"card-background-overlay\" style=\"padding:20px;border-radius:8px;color:#fff;\"></div></div></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><div class=\"card-background-content\" style=\"background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/2243f274-5c82-4083-be7f-81f95485cd3b_IMG_0846+edit.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;padding:20px;border-radius:8px;\"><div class=\"card-background-overlay\" style=\"padding:20px;border-radius:8px;color:#fff;\"></div></div></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:24:95",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:24:95",
+												"styles": {
+													"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/2243f274-5c82-4083-be7f-81f95485cd3b_IMG_0846+edit.jpg')",
+													"backgroundSize": "cover",
+													"backgroundPosition": "center",
+													"backgroundRepeat": "no-repeat",
+													"padding": "20px",
+													"borderRadius": "8px"
+												},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:30:58-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:30:58-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:26:31": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"text-white\"><div class=\"card-background-content\" style=\"background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/c63214ad-092d-4694-b006-195f9d8dafa9_IMG_9134.JPG');background-size:cover;background-position:center;background-repeat:no-repeat;padding:20px;border-radius:8px;\"><div class=\"card-background-overlay\" style=\"padding:20px;border-radius:8px;color:#fff;\"></div></div></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><div class=\"card-background-content\" style=\"background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/c63214ad-092d-4694-b006-195f9d8dafa9_IMG_9134.JPG');background-size:cover;background-position:center;background-repeat:no-repeat;padding:20px;border-radius:8px;\"><div class=\"card-background-overlay\" style=\"padding:20px;border-radius:8px;color:#fff;\"></div></div></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:26:31",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:26:31",
+												"styles": {
+													"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/c63214ad-092d-4694-b006-195f9d8dafa9_IMG_9134.JPG')",
+													"backgroundSize": "cover",
+													"backgroundPosition": "center",
+													"backgroundRepeat": "no-repeat",
+													"padding": "20px",
+													"borderRadius": "8px"
+												},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:30:58-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:30:58-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:28:27": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"text-white\"><div class=\"card-background-content\" style=\"background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/04cfa636-91d7-4f33-8962-b64ba544ec7a_IMG_9096.JPG');background-size:cover;background-position:center;background-repeat:no-repeat;padding:20px;border-radius:8px;\"><div class=\"card-background-overlay\" style=\"padding:20px;border-radius:8px;color:#fff;\"></div></div></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><div class=\"card-background-content\" style=\"background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/04cfa636-91d7-4f33-8962-b64ba544ec7a_IMG_9096.JPG');background-size:cover;background-position:center;background-repeat:no-repeat;padding:20px;border-radius:8px;\"><div class=\"card-background-overlay\" style=\"padding:20px;border-radius:8px;color:#fff;\"></div></div></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:28:27",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:28:27",
+												"styles": {
+													"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/04cfa636-91d7-4f33-8962-b64ba544ec7a_IMG_9096.JPG')",
+													"backgroundSize": "cover",
+													"backgroundPosition": "center",
+													"backgroundRepeat": "no-repeat",
+													"padding": "20px",
+													"borderRadius": "8px"
+												},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:30:58-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:design:whitespace-sm:33:7": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 7,
+								"fullName": "design:design:whitespace-sm:33:7",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:43:2-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:36:24": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 8,
+								"fullName": "design:columns:3 Columns:36:24",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:43:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:36:24-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:31:20": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\"><strong>Captains Peter and Youngsun Kang</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Captains Peter and Youngsun Kang",
+												"position": 0,
+												"fullName": "content:textarea:31:20",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:31:20",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:36:24-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:36:24-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:32:32": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">Email: <a href=\"mailto:peter.kang@uss.salvationarmy.org\">peter.kang@uss.salvationarmy.org</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">Email: <a href=\"mailto:peter.kang@uss.salvationarmy.org\">peter.kang@uss.salvationarmy.org</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:32:32",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:32:32",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:36:24-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:36:24-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:34:4": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">Phone: <a href=\"tel:3369938844\">(336) 993-8844</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">Phone: <a href=\"tel:3369938844\">(336) 993-8844</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:34:4",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:34:4",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:36:24-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

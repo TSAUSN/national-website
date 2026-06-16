@@ -1,0 +1,272 @@
+[
+  {
+    "type": "menu",
+    "key": "home",
+    "page_name": "Home",
+    "page-zuid": "7-a0f8e6a2c9-q4k9wg",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "services",
+    "page_name": "Services",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Worship Services",
+    "page-zuid": "7-f2edc49e99-bll6g6",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Disaster Relief",
+    "page-zuid": "7-96c4ecf785-9mzmpg",
+    "sort": 1,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Counseling",
+    "page-zuid": "7-aeb0cfe19f-spqlpv",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Food Pantry",
+    "page-zuid": "7-c6b9f4b28c-2r4l95",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": "about_us",
+    "page_name": "About Us",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "About Us",
+    "page-zuid": "7-9eb8b99ea5-w7pbcp",
+    "sort": 0,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
+    "sort": 1,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Leadership",
+    "page-zuid": "7-e495c2f8ae-hj6kzd",
+    "sort": 2,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "History",
+    "page-zuid": "7-b8c09b84c2-fp57hm",
+    "sort": 3,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-88deb6e6f5-l6xv5v",
+    "sort": 4,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Give With Joy",
+    "page-zuid": "give_with_joy",
+    "sort": 5,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "USDA Nondiscrimination Statement",
+    "page-zuid": "7-eef5b19ac2-0frkcm",
+    "sort": 6,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "The Salvation Army of the Triad",
+    "page-zuid": "7-cac6db9ead-80vksl",
+    "sort": 7,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Our Privacy Policy",
+    "page-zuid": "7-dcedd6fda6-37fjc6",
+    "sort": 8,
+    "parent": "about_us",
+    "external_link": "https://www.salvationarmyusa.org/usa-southern-territory/our-privacy-policy/"
+  },
+  {
+    "type": "menu",
+    "key": "events",
+    "page_name": "Davidson County Corps",
+    "page-zuid": "7-9ccaeae6d4-x5pf4t",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "newsroom",
+    "page_name": "Davidson County Corps",
+    "page-zuid": "7-b4fde49dba-8qfspq",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "ways_to_give",
+    "page_name": "Ways to give",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Money",
+    "page-zuid": "donate_money",
+    "sort": 0,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Donate Goods",
+    "page-zuid": "donate_goods",
+    "sort": 1,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Become a Fundraiser",
+    "page-zuid": "become_fundraiser",
+    "sort": 2,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Planned Giving",
+    "page-zuid": "7-deb1f3c292-8n177t",
+    "sort": 3,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Gift Stocks & Bonds",
+    "page-zuid": "7-e8b8d68ccc-t4mw4d",
+    "sort": 4,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Volunteer",
+    "page-zuid": "7-e486fce0d9-h2mflh",
+    "sort": 5,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "View All Ways to Give",
+    "page-zuid": "7-eceab6f8eb-03112w",
+    "sort": 6,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Legacy and Estate Gifts",
+    "page-zuid": "7-acb994a2cf-nfq7zk",
+    "sort": 7,
+    "parent": "ways_to_give",
+    "external_link": "https://www.salvationarmyusa.org/usa-southern-territory/north-and-south-carolina/legacy-and-estate-gifts/"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Charitable Gifts",
+    "page-zuid": "7-dc8ad5ffb0-ht7clr",
+    "sort": 8,
+    "parent": "ways_to_give",
+    "external_link": "https://www.salvationarmyusa.org/usa-southern-territory/north-and-south-carolina/charitable-gifts/"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Giving to Davidson County",
+    "page-zuid": "7-a48dfd8fde-hnnp5p",
+    "sort": 9,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": "contact_us",
+    "page_name": "Contact Us",
+    "page-zuid": "7-88e3c2f9be-897rm9",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "More",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Afterschool/Summer Camp",
+    "page-zuid": "7-92f3d3dffd-v17mq7",
+    "sort": 0,
+    "parent": "custom_menu",
+    "external_link": "https://online.traxsolutions.com/southernusasalvationarmy/davidson-county#/search"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Inspiration In Your Inbox",
+    "page-zuid": "7-d8f0c9cdc9-vrb5pt",
+    "sort": 1,
+    "parent": "custom_menu",
+    "external_link": "https://manage.kmail-lists.com/subscriptions/subscribe?a=R46drN&g=WrQ4Xb"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Red Shield Youth Center",
+    "page-zuid": "7-eebc88b989-xz23dl",
+    "sort": 2,
+    "parent": "custom_menu",
+    "external_link": "https://southernusa.salvationarmy.org/redshieldyouth/davidson-county"
+  }
+]

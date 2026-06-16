@@ -1,0 +1,268 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:89:0:0": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-d2ced2ccfe-n0m4jz')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-d2ced2ccfe-n0m4jz')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:89:0:0",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:17:61": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:17:61",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:17:61-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:wysiwyg_basic:2:77": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"rounded p-6 gap-3 bg-primary-200 text-light\" style=\"color:#FFFFFF;\"><h1 style=\"text-align:center;\">Support Your Neighbors In Need&nbsp;This Holiday Season</h1></div>",
+								"content": "<div class=\"rounded p-6 gap-3 bg-primary-200 text-light\" style=\"color:#FFFFFF;\"><h1 style=\"text-align:center;\">Support Your Neighbors In Need&nbsp;This Holiday Season</h1></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 0,
+								"fullName": "content:wysiwyg_basic:2:77",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:77",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:61-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:3:89": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 1,
+								"fullName": "design:design:whitespace-xl:3:89",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:61-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"design:design:whitespace-sm:5:13": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 2,
+								"fullName": "design:design:whitespace-sm:5:13",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:61-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:4 Columns:12:62": {
+								"uid": "358",
+								"name": "4 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 4,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 3,
+								"fullName": "design:columns:4 Columns:12:62",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:61-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:4 Columns:12:62-1:4 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:4:35": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><h4><img class=\"img-fluid\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/956faefd-273d-4f08-96fc-281bf39d330c_give-bellringer.png\"></h4>\n\n<h6>Register to Ring</h6>\n\n<p>\n\tHelp make Christmas bright by volunteering to ring a bell at a Salvation Army Red Kettle. Your time ringing will help people in need in your community.\n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://www.registertoring.com/\" class=\"btn btn-light gap-1 mt-2\">Register to Ring</a></p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><h4><img class=\"img-fluid\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/956faefd-273d-4f08-96fc-281bf39d330c_give-bellringer.png\"></h4>\n\n<h6>Register to Ring</h6>\n\n<p>\n\tHelp make Christmas bright by volunteering to ring a bell at a Salvation Army Red Kettle. Your time ringing will help people in need in your community.\n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://www.registertoring.com/\" class=\"btn btn-light gap-1 mt-2\">Register to Ring</a></p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:4:35",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:4:35",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:12:62-1:4 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:4 Columns:12:62-1:4 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:6:49": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><h6><img class=\"img-fluid\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a7120abd-d524-4a78-99ba-2df578ad8c03_give-angel-tree.jpg\"></h6>\n\n<h6>Angel Tree</h6>\n\n<p>\n\tShare your gift of love with a child in need this Christmas. Adopt an Angel from one of The Salvation Army's Angel Trees in your community.\n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"mailto:Rosa.Portillo@uss.salvationarmy.org\" class=\"btn btn-light gap-1 mt-2\">Contact Us</a></p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><h6><img class=\"img-fluid\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a7120abd-d524-4a78-99ba-2df578ad8c03_give-angel-tree.jpg\"></h6>\n\n<h6>Angel Tree</h6>\n\n<p>\n\tShare your gift of love with a child in need this Christmas. Adopt an Angel from one of The Salvation Army's Angel Trees in your community.\n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"mailto:Rosa.Portillo@uss.salvationarmy.org\" class=\"btn btn-light gap-1 mt-2\">Contact Us</a></p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:6:49",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:6:49",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:12:62-1:4 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:4 Columns:12:62-1:4 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:8:11": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><h5><img class=\"img-fluid\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/ca17d5df-9021-4e9b-bbab-c4e661e73dd0_give-vrk.png\"></h5>\n\n<h6>Virtual Red Kettle</h6>\n\n<p>\n\tThe Virtual Red Kettle is as close as your phone, tablet, or computer. It's a convenient&nbsp;way to make a difference this holiday season.\n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://give.salvationarmycarolinas.org/campaign/731671/donate\" target=\"_blank\" class=\"btn btn-light gap-1 mt-2\">Visit Our Red Kettle</a></p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><h5><img class=\"img-fluid\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/ca17d5df-9021-4e9b-bbab-c4e661e73dd0_give-vrk.png\"></h5>\n\n<h6>Virtual Red Kettle</h6>\n\n<p>\n\tThe Virtual Red Kettle is as close as your phone, tablet, or computer. It's a convenient&nbsp;way to make a difference this holiday season.\n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://give.salvationarmycarolinas.org/campaign/731671/donate\" target=\"_blank\" class=\"btn btn-light gap-1 mt-2\">Visit Our Red Kettle</a></p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:8:11",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:8:11",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:12:62-1:4 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									},
+									"design:columns:4 Columns:12:62-1:4 Columns:3": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:10:61": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><h5><img class=\"img-fluid\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/99288499-e135-48f2-ba4f-f91eac5d99f2_give-kettle.png\"></h5>\n\n<h6>Red Kettle Campaign</h6>\n\n<p>\n\tHelp our neighbors in need this holiday season by giving to The Salvation Army Red Kettle. Every dollar dropped into a Red Kettle provides year-round&nbsp;support to local families and individuals.\n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://www.salvationarmyusa.org/usn/red-kettle-history/\" class=\"btn btn-light gap-1 mt-2\">History of the Red Kettle</a></p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light\"><h5><img class=\"img-fluid\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/99288499-e135-48f2-ba4f-f91eac5d99f2_give-kettle.png\"></h5>\n\n<h6>Red Kettle Campaign</h6>\n\n<p>\n\tHelp our neighbors in need this holiday season by giving to The Salvation Army Red Kettle. Every dollar dropped into a Red Kettle provides year-round&nbsp;support to local families and individuals.\n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://www.salvationarmyusa.org/usn/red-kettle-history/\" class=\"btn btn-light gap-1 mt-2\">History of the Red Kettle</a></p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:10:61",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:10:61",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:12:62-1:4 Columns:3",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 3
+									}
+								}
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

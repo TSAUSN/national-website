@@ -881,7 +881,7 @@ function setFooterSocialLinksLoading(isLoading) {
   if (!footer) return;
 
   const socialLinks = footer.querySelectorAll(
-    '.facebook-link, .twitter-link, .linkedin-link, .youtube-link, .instagram-link, .bbb, .ecfa, .candid'
+    '.facebook-link, .twitter-link, .linkedin-link, .youtube-link, .instagram-link'
   );
 
   socialLinks.forEach((link) => {

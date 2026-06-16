@@ -1,0 +1,757 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:45:0:99": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-f0e2d5c7f9-qmc4ng')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-f0e2d5c7f9-qmc4ng')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:45:0:99",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:46:5": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:46:5",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:45:80": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:45:80",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:1 Column:2:52": {
+								"uid": "NaN",
+								"name": "1 Column",
+								"type": "columns",
+								"html": "<div style=\"display:flex\" class=\"row d-flex\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"classes": "row d-flex",
+								"droppable": "true",
+								"numberOfColumns": 1,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": 1,
+										"html": "<div class=\"col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 1,
+								"fullName": "design:columns:1 Column:2:52",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:1 Column:2:52-1:1 Column:0": {
+										"width": 1,
+										"html": "<div class=\"column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true,
+										"children": {
+											"content:embed:1:82": {
+												"icon": "embed",
+												"name": "Embed",
+												"type": "embed",
+												"html": "<iframe src=\"https://www.youtube.com/embed/Sgsjq5FrVn8\" style=\"border:0;\" loading=\"lazy\" allowfullscreen=\"\" referrerpolicy=\"no-referrer-when-downgrade\" class=\"w-100 h-100\"></iframe>",
+												"description": "Embedded content (iframe)",
+												"draggable": true,
+												"content": "<iframe src=\"https://www.youtube.com/embed/Sgsjq5FrVn8\" style=\"border:0;\" loading=\"lazy\" allowfullscreen=\"\" referrerpolicy=\"no-referrer-when-downgrade\" class=\"w-100 h-100\"></iframe>",
+												"position": 0,
+												"fullName": "content:embed:1:82",
+												"htmlElement": "iframe",
+												"classes": "w-100 h-100",
+												"primarytype": "content",
+												"id": "content:embed:1:82",
+												"styles": {},
+												"newLoc": "design:columns:1 Column:2:52-1:1 Column:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									}
+								},
+								"id": "design:columns:1 Column:2:52",
+								"styles": {},
+								"htmlElement": "div",
+								"content": "<div style=\"display:flex\" class=\"row d-flex\">*</div>",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:3:9": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:9",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:10:49": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 3,
+								"fullName": "design:columns:3 Columns:10:49",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:10:49-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:5:17": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\"><strong>Sergeant Alves Gonzalez</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Sergeant Alves Gonzalez",
+												"position": 0,
+												"fullName": "content:textarea:5:17",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:5:17",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:10:49-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:10:49-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:6:78": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">Email: <a href=\"mailto:alves.gonzalez@uss.salvationarmy.org\">alves.gonzalez@uss.salvationarmy.org</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">Email: <a href=\"mailto:alves.gonzalez@uss.salvationarmy.org\">alves.gonzalez@uss.salvationarmy.org</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:6:78",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:6:78",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:10:49-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:10:49-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:8:56": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">Phone: <a href=\"tel:3364991196\">(336) 499-1196</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">Phone: <a href=\"tel:3364991196\">(336) 499-1196</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:8:56",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:8:56",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:10:49-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"content:text:11:81": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\">Civic Senior Center</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Civic Senior Center",
+								"position": 4,
+								"fullName": "content:text:11:81",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:11:81",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:12:79": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tThe Salvation Army CiVIC Senior Center offers programs to help older adults stay active and engaged in their community. Physical activities like chair volleyball and yoga, line dancing, and the Bells of Joy bell choir provide healthy exercise and fun for members.&nbsp;&nbsp;Lunch and Learn programs offer nutritious meals with presentations for local partners on healthy lifestyles,&nbsp;retirement issues like Social Security and Medicare, and a variety of other topics of interest to members. Day trips to local attractions and shopping give members the opportunity to get out and about.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army CiVIC Senior Center offers programs to help older adults stay active and engaged in their community. Physical activities like chair volleyball and yoga, line dancing, and the Bells of Joy bell choir provide healthy exercise and fun for members.&nbsp;&nbsp;Lunch and Learn programs offer nutritious meals with presentations for local partners on healthy lifestyles,&nbsp;retirement issues like Social Security and Medicare, and a variety of other topics of interest to members. Day trips to local attractions and shopping give members the opportunity to get out and about.",
+								"position": 5,
+								"fullName": "content:textarea:12:79",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:12:79",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-md:13:95": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 6,
+								"fullName": "design:design:whitespace-md:13:95",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:14:89": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\"><em>Programa Cívico Para Personas Mayores de Edad</em></h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Programa Cívico Para Personas Mayores de Edad",
+								"position": 7,
+								"fullName": "content:text:14:89",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:14:89",
+								"styles": {
+									"textAlign": "center",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:15:74": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t<em>&nbsp;Programa Cívico para personas mayores de edad. El programa para personas mayores del Ejército de Salvación ofrece una variedad de eventos y actividades para ayudar a los adultos mayores a mantenerse activos y comprometidos en su comunidad. Las actividades físicas como voleibol en silla, Bingo, danza en línea y el coro de campanas de alegria brindan ejercicio saludable y diversión para los miembros. &nbsp;Los programas \"Almuerzo y Aprendizaje\" ofrecen comidas nutritivas con presentaciones para socios locales sobre estilos de vida saludables, temas de jubilación como el Seguro Social y Medicare, y una variedad de otros temas de interés para los miembros. Las excursiones de un día a las atracciones locales y las compras brindan a los miembros la oportunidad de salir y moverse.</em>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "&nbsp;Programa Cívico para personas mayores de edad. El programa para personas mayores del Ejército de Salvación ofrece una variedad de eventos y actividades para ayudar a los adultos mayores a mantenerse activos y comprometidos en su comunidad. Las actividades físicas como voleibol en silla, Bingo, danza en línea y el coro de campanas de alegria brindan ejercicio saludable y diversión para los miembros. &nbsp;Los programas \"Almuerzo y Aprendizaje\" ofrecen comidas nutritivas con presentaciones para socios locales sobre estilos de vida saludables, temas de jubilación como el Seguro Social y Medicare, y una variedad de otros temas de interés para los miembros. Las excursiones de un día a las atracciones locales y las compras brindan a los miembros la oportunidad de salir y moverse.",
+								"position": 8,
+								"fullName": "content:textarea:15:74",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:15:74",
+								"styles": {
+									"textAlign": "center",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:16:27": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 9,
+								"fullName": "design:design:whitespace-xl:16:27",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:17:98": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img width=\"70\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/d3332bd7-1830-4d92-9d7c-497ca03083bf_download.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/d3332bd7-1830-4d92-9d7c-497ca03083bf_download.png",
+								"position": 10,
+								"fullName": "content:images:17:98",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:19:54": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 11,
+								"fullName": "design:design:whitespace-sm:19:54",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:20:32": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Location</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Location",
+								"position": 12,
+								"fullName": "content:text:20:32",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:20:32",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:21:83": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">2850 New Walkertown Road</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "2850 New Walkertown Road",
+								"position": 13,
+								"fullName": "content:textarea:21:83",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:21:83",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:22:14": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">Winston-Salem, NC 27105</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Winston-Salem, NC 27105",
+								"position": 14,
+								"fullName": "content:textarea:22:14",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:22:14",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:23:66": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.google.com/maps/place/2850+New+Walkertown+Rd,+Winston-Salem,+NC+27105/@36.1162407,-80.2097783,17z/data=!3m1!4b1!4m6!3m5!1s0x8853aea200e9d1e7:0x28a99e48cbbe608f!8m2!3d36.1162407!4d-80.2097783!16s%2Fg%2F11c4rz4345?entry=ttu\" class=\"btn btn-info gap-1 mt-2\">Directions</a><a href=\"tel:3364991196\" class=\"btn btn-secondary gap-1 mt-2\">Call</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.google.com/maps/place/2850+New+Walkertown+Rd,+Winston-Salem,+NC+27105/@36.1162407,-80.2097783,17z/data=!3m1!4b1!4m6!3m5!1s0x8853aea200e9d1e7:0x28a99e48cbbe608f!8m2!3d36.1162407!4d-80.2097783!16s%2Fg%2F11c4rz4345?entry=ttu\" class=\"btn btn-info gap-1 mt-2\">Directions</a><a href=\"tel:3364991196\" class=\"btn btn-secondary gap-1 mt-2\">Call</a></p>",
+								"model": "6",
+								"position": 15,
+								"fullName": "content:wysiwyg_basic:23:66",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:23:66",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:24:35": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 16,
+								"fullName": "design:design:whitespace-sm:24:35",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:25:24": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img width=\"70\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5921579e-95ce-4dbc-8db5-5e5c2c91b25c_clock.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/5921579e-95ce-4dbc-8db5-5e5c2c91b25c_clock.png",
+								"position": 17,
+								"fullName": "content:images:25:24",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:27:95": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 18,
+								"fullName": "design:design:whitespace-sm:27:95",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:28:52": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Hours of Operation</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Hours of Operation",
+								"position": 19,
+								"fullName": "content:text:28:52",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:28:52",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:29:45": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">Monday - Thursday: 8:00 am&nbsp;- 5:00&nbsp;pm</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Monday - Thursday: 8:00 am&nbsp;- 5:00&nbsp;pm",
+								"position": 20,
+								"fullName": "content:textarea:29:45",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:29:45",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:30:83": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><em>Lunes - jueves a las 8:00&nbsp;am - 5:00 pm</em></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Lunes - jueves a las 8:00&nbsp;am - 5:00 pm",
+								"position": 21,
+								"fullName": "content:textarea:30:83",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:30:83",
+								"styles": {
+									"textAlign": "center",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:31:38": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">Friday: 8:00 am&nbsp;- 12 pm</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Friday: 8:00 am&nbsp;- 12 pm",
+								"position": 22,
+								"fullName": "content:textarea:31:38",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:31:38",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:32:71": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><em>Viernes: 8:00 am&nbsp;- 12 pm</em></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Viernes: 8:00 am&nbsp;- 12 pm",
+								"position": 23,
+								"fullName": "content:textarea:32:71",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:32:71",
+								"styles": {
+									"textAlign": "center",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:text:33:60": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Program Schedule</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Program Schedule",
+								"position": 24,
+								"fullName": "content:text:33:60",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:33:60",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:34:59": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">Each Tuesday and Thursday: 10 am&nbsp;- 12 pm</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Each Tuesday and Thursday: 10 am&nbsp;- 12 pm",
+								"position": 25,
+								"fullName": "content:textarea:34:59",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:34:59",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:35:31": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><em>Todes&nbsp;martes y jueves a las 10 am&nbsp;- 12 pm</em></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Todes&nbsp;martes y jueves a las 10 am&nbsp;- 12 pm",
+								"position": 26,
+								"fullName": "content:textarea:35:31",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:35:31",
+								"styles": {
+									"textAlign": "center",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:36:76": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t<strong>Generously Supported by</strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Generously Supported by",
+								"position": 27,
+								"fullName": "content:textarea:36:76",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:36:76",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-md:37:5": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 28,
+								"fullName": "design:design:whitespace-md:37:5",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:37:35": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img width=\"120\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5d9dbc01-2d73-4867-a6f6-a7c00b73dd42_uwfc-logo-2015.jpg\" alt=\"placeholder\" class=\"img-fluid d-block my-3 mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/5d9dbc01-2d73-4867-a6f6-a7c00b73dd42_uwfc-logo-2015.jpg",
+								"position": 29,
+								"fullName": "content:images:37:35",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:5-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

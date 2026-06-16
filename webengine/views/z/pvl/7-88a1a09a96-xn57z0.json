@@ -1,0 +1,332 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div className={styles.pvlRoot}>*</div>",
+		"children": {
+			"design:columns:1 column - 1 row my-3:23:19": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 0,
+				"fullName": "design:columns:1 column - 1 row my-3:23:19",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:23:19-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-sm:1:38": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 0,
+								"fullName": "design:design:whitespace-sm:1:38",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:23:19-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:17:36": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-sm-12 col-lg-6\">*</div>",
+										"classes": "col-sm-12 col-lg-6",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-sm-12 col-lg-6\">*</div>",
+										"classes": "col-sm-12 col-lg-6",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 1,
+								"fullName": "design:columns:2columns:17:36",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:23:19-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:17:36-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-sm-12 col-lg-6\">*</div>",
+										"classes": "col-sm-12 col-lg-6",
+										"droppable": true,
+										"children": {
+											"content:images:2:34": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img width=\"545\" height=\"394\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/41878d96-3450-411d-8bb4-1686ad78f28d_BB_Revolution_1000px_721_k.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" />",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/41878d96-3450-411d-8bb4-1686ad78f28d_BB_Revolution_1000px_721_k.png",
+												"position": 0,
+												"fullName": "content:images:2:34",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:2columns:17:36-1:2 Columns - Equal:0",
+												"oldLoc": "bank"
+											},
+											"design:design:whitespace-sm:8:46": {
+												"uid": "351",
+												"name": "Whitespace - Small",
+												"type": "design",
+												"classes": "my-2",
+												"html": "<div class=\"my-2\"></div>",
+												"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+												"droppable": true,
+												"position": 1,
+												"fullName": "design:design:whitespace-sm:8:46",
+												"primarytype": "design",
+												"newLoc": "design:columns:2columns:17:36-1:2 Columns - Equal:0",
+												"oldLoc": "bank"
+											},
+											"content:textarea:3:69": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tThe Bed &amp; Bread Club® is a monthly giving program powered by compassionate people like you who want to support their neighbors in need. By pledging to donate monthly, you can join the fight to address homelessness, the affordable housing crisis and hunger throughout the greater Winston-Salem area.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "The Bed &amp; Bread Club® is a monthly giving program powered by compassionate people like you who want to support their neighbors in need. By pledging to donate monthly, you can join the fight to address homelessness, the affordable housing crisis and hunger throughout the greater Winston-Salem area.",
+												"position": 2,
+												"fullName": "content:textarea:3:69",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:3:69",
+												"styles": {},
+												"newLoc": "design:columns:2columns:17:36-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"design:design:whitespace-xl:4:23": {
+												"uid": "354",
+												"name": "Whitespace - Extra Large",
+												"type": "design",
+												"classes": "py-5",
+												"html": "<div class=\"py-5\"></div>",
+												"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+												"droppable": false,
+												"position": 3,
+												"fullName": "design:design:whitespace-xl:4:23",
+												"primarytype": "design",
+												"newLoc": "design:columns:2columns:17:36-1:2 Columns - Equal:0",
+												"oldLoc": "bank"
+											},
+											"content:text:5:74": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h6>MAKE AN IMPACT</h6>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "MAKE AN IMPACT",
+												"position": 4,
+												"fullName": "content:text:5:74",
+												"htmlElement": "h6",
+												"primarytype": "content",
+												"id": "content:text:5:74",
+												"styles": {},
+												"newLoc": "design:columns:2columns:17:36-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:6:79": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>When you give to The Salvation Army of Winston-Salem, you are making a direct impact on your community through local programming and services that help your less fortunate neighbors. You are giving hope to thousands of men, women, and children who come to The Salvation Army every day looking for a helping hand and a reason to believe in a brighter future.</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "When you give to The Salvation Army of Winston-Salem, you are making a direct impact on your community through local programming and services that help your less fortunate neighbors. You are giving hope to thousands of men, women, and children who come to The Salvation Army every day looking for a helping hand and a reason to believe in a brighter future.",
+												"position": 5,
+												"fullName": "content:textarea:6:79",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:6:79",
+												"styles": {},
+												"newLoc": "design:columns:2columns:17:36-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:17:36-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-sm-12 col-lg-6\">*</div>",
+										"classes": "col-sm-12 col-lg-6",
+										"droppable": true,
+										"children": {
+											"content:text:10:69": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h6>WILL YOU COMMIT TO HELPING YOUR NEIGHBORS IN NEED?</h6>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "WILL YOU COMMIT TO HELPING YOUR NEIGHBORS IN NEED?",
+												"position": 0,
+												"fullName": "content:text:10:69",
+												"htmlElement": "h6",
+												"primarytype": "content",
+												"id": "content:text:10:69",
+												"styles": {},
+												"newLoc": "design:columns:2columns:17:36-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:11:55": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>Your gift ensures that The Salvation Army has the resources, personnel and supplies we need to provide vulnerable individuals and families with food, shelter, case management, spiritual support and more.</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Your gift ensures that The Salvation Army has the resources, personnel and supplies we need to provide vulnerable individuals and families with food, shelter, case management, spiritual support and more.",
+												"position": 1,
+												"fullName": "content:textarea:11:55",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:11:55",
+												"styles": {},
+												"newLoc": "design:columns:2columns:17:36-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"design:design:whitespace-xl:12:94": {
+												"uid": "354",
+												"name": "Whitespace - Extra Large",
+												"type": "design",
+												"classes": "py-5",
+												"html": "<div class=\"py-5\"></div>",
+												"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+												"droppable": false,
+												"position": 2,
+												"fullName": "design:design:whitespace-xl:12:94",
+												"primarytype": "design",
+												"newLoc": "design:columns:2columns:17:36-1:2 Columns - Equal:1",
+												"oldLoc": "bank"
+											},
+											"content:wysiwyg_basic:13:71": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p>\n\t\t\t\t\t<a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=other&amp;recurring=1&amp;utm_source=web&amp;utm_medium=web&amp;utm_content=bedandbreadhomelessness&amp;utm_campaign=smg&amp;c_src=22BBWIORGCSD22WSS&amp;c_src2=web\"><span class=\"btn btn-solid btn-red\">FIGHT HOMELESSNESS</span></a> <a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=other&amp;recurring=1&amp;utm_source=web&amp;utm_medium=web&amp;utm_content=bedandbreadfeedhungery&amp;utm_campaign=smg&amp;c_src=22BBWIORGCSD22WSS&amp;c_src2=web\"><span class=\"btn btn-solid btn-red\">FEED THE HUNGRY</span></a> <a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=other&amp;recurring=1&amp;utm_source=web&amp;utm_medium=web&amp;utm_content=bedandbreadrestore&amp;utm_campaign=smg&amp;c_src=22BBWIORGCSD22WSS&amp;c_src2=web\"><span class=\"btn btn-solid btn-red\">RESTORE HOPE</span></a>\n\t\t\t\t</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p>\n\t\t\t\t\t<a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=other&amp;recurring=1&amp;utm_source=web&amp;utm_medium=web&amp;utm_content=bedandbreadhomelessness&amp;utm_campaign=smg&amp;c_src=22BBWIORGCSD22WSS&amp;c_src2=web\"><span class=\"btn btn-solid btn-red\">FIGHT HOMELESSNESS</span></a> <a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=other&amp;recurring=1&amp;utm_source=web&amp;utm_medium=web&amp;utm_content=bedandbreadfeedhungery&amp;utm_campaign=smg&amp;c_src=22BBWIORGCSD22WSS&amp;c_src2=web\"><span class=\"btn btn-solid btn-red\">FEED THE HUNGRY</span></a> <a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=other&amp;recurring=1&amp;utm_source=web&amp;utm_medium=web&amp;utm_content=bedandbreadrestore&amp;utm_campaign=smg&amp;c_src=22BBWIORGCSD22WSS&amp;c_src2=web\"><span class=\"btn btn-solid btn-red\">RESTORE HOPE</span></a>\n\t\t\t\t</p>",
+												"model": "6",
+												"position": 3,
+												"fullName": "content:wysiwyg_basic:13:71",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:13:71",
+												"styles": {},
+												"newLoc": "design:columns:2columns:17:36-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:images:15:45": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/40052200-1066-4057-87fc-e8ac21c41f45_ncs-bb-img.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" />",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/40052200-1066-4057-87fc-e8ac21c41f45_ncs-bb-img.png",
+												"position": 4,
+												"fullName": "content:images:15:45",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:2columns:17:36-1:2 Columns - Equal:1",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:whitespace-sm:18:6": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 2,
+								"fullName": "design:design:whitespace-sm:18:6",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:23:19-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:19:45": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"row\" style=\"text-align:center;\">\n\t\t<div class=\"col\">\n\t\t\t<h6>JOIN THE BED &amp; BREAD CLUB TODAY</h6>\n\n\t\t\t<p>\n\t\t\t\tWe are fully committed to meeting the direct needs of struggling families and individuals here in our community. But we can't help them without your support. By becoming a member of the Bed &amp; Bread Club, your monthly gift will make a real difference in the lives of the people we serve every day.\n\t\t\t</p>\n\n\t\t\t<div class=\"btgrid\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<div class=\"row row-1\">\n\t\t\t\t\t\t<div class=\"col col-md-2 col-md-offset-1 col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"content\" style=\"text-align:center;\">\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t<a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=other&amp;recurring=1&amp;utm_source=web&amp;utm_medium=web&amp;utm_content=bedandbread500&amp;utm_campaign=smg&amp;c_src=22BBWIORGCSD22WSS&amp;c_src2=web\" target=\"_blank\"><span class=\"btn btn-solid btn-red\">$500</span></a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col col-md-2 col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"content\" style=\"text-align:center;\">\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t<a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=250&amp;recurring=1\" target=\"_blank\"><span class=\"btn btn-solid btn-red\">$250</span></a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col col-md-2 col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"content\" style=\"text-align:center;\">\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t<a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=other&amp;recurring=1&amp;utm_source=web&amp;utm_medium=web&amp;utm_content=bedandbread100&amp;utm_campaign=smg&amp;c_src=22BBWIORGCSD22WSS&amp;c_src2=web\" target=\"_blank\"><span class=\"btn btn-solid btn-red\">$100</span></a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col col-md-2 col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"content\" style=\"text-align:center;\">\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t<a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=other&amp;recurring=1&amp;utm_source=web&amp;utm_medium=web&amp;utm_content=bedandbread50&amp;utm_campaign=smg&amp;c_src=22BBWIORGCSD22WSS&amp;c_src2=web\" target=\"_blank\"><span class=\"btn btn-solid btn-red\">$50</span></a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col col-md-2 col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"content\" style=\"text-align:center;\">\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t<a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=other&amp;recurring=1&amp;utm_source=web&amp;utm_medium=web&amp;utm_content=bedandbread25&amp;utm_campaign=smg&amp;c_src=22BBWIORGCSD22WSS&amp;c_src2=web\" target=\"_blank\"><span class=\"btn btn-solid btn-red\">$25</span></a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<hr>\n\t\t\t<p style=\"text-align:center;\">\n\t\t\t\tThe inflation crisis has already caused countless families to stretch their dollars thinner and thinner. This year, low-income households are facing difficult choices.\n\t\t\t</p>\n\n\t\t\t<p style=\"text-align:center;\">\n\t\t\t\tPlease consider becoming a Bed &amp; Bread Club member today so we can continue to Do the Most Good for those in need, no matter the circumstances.\n\t\t\t</p>\n\t\t</div>\n\t</div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"row\" style=\"text-align:center;\">\n\t\t<div class=\"col\">\n\t\t\t<h6>JOIN THE BED &amp; BREAD CLUB TODAY</h6>\n\n\t\t\t<p>\n\t\t\t\tWe are fully committed to meeting the direct needs of struggling families and individuals here in our community. But we can't help them without your support. By becoming a member of the Bed &amp; Bread Club, your monthly gift will make a real difference in the lives of the people we serve every day.\n\t\t\t</p>\n\n\t\t\t<div class=\"btgrid\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<div class=\"row row-1\">\n\t\t\t\t\t\t<div class=\"col col-md-2 col-md-offset-1 col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"content\" style=\"text-align:center;\">\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t<a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=other&amp;recurring=1&amp;utm_source=web&amp;utm_medium=web&amp;utm_content=bedandbread500&amp;utm_campaign=smg&amp;c_src=22BBWIORGCSD22WSS&amp;c_src2=web\" target=\"_blank\"><span class=\"btn btn-solid btn-red\">$500</span></a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col col-md-2 col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"content\" style=\"text-align:center;\">\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t<a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=250&amp;recurring=1\" target=\"_blank\"><span class=\"btn btn-solid btn-red\">$250</span></a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col col-md-2 col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"content\" style=\"text-align:center;\">\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t<a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=other&amp;recurring=1&amp;utm_source=web&amp;utm_medium=web&amp;utm_content=bedandbread100&amp;utm_campaign=smg&amp;c_src=22BBWIORGCSD22WSS&amp;c_src2=web\" target=\"_blank\"><span class=\"btn btn-solid btn-red\">$100</span></a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col col-md-2 col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"content\" style=\"text-align:center;\">\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t<a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=other&amp;recurring=1&amp;utm_source=web&amp;utm_medium=web&amp;utm_content=bedandbread50&amp;utm_campaign=smg&amp;c_src=22BBWIORGCSD22WSS&amp;c_src2=web\" target=\"_blank\"><span class=\"btn btn-solid btn-red\">$50</span></a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col col-md-2 col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"content\" style=\"text-align:center;\">\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t<a href=\"https://give.salvationarmycarolinas.org/give/439848/#!/donation/checkout?amount=other&amp;recurring=1&amp;utm_source=web&amp;utm_medium=web&amp;utm_content=bedandbread25&amp;utm_campaign=smg&amp;c_src=22BBWIORGCSD22WSS&amp;c_src2=web\" target=\"_blank\"><span class=\"btn btn-solid btn-red\">$25</span></a>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<hr>\n\t\t\t<p style=\"text-align:center;\">\n\t\t\t\tThe inflation crisis has already caused countless families to stretch their dollars thinner and thinner. This year, low-income households are facing difficult choices.\n\t\t\t</p>\n\n\t\t\t<p style=\"text-align:center;\">\n\t\t\t\tPlease consider becoming a Bed &amp; Bread Club member today so we can continue to Do the Most Good for those in need, no matter the circumstances.\n\t\t\t</p>\n\t\t</div>\n\t</div>",
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:19:45",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:19:45",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:23:19-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

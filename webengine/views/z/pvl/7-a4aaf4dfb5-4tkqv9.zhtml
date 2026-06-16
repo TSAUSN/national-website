@@ -1,0 +1,356 @@
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-fefad5bedc-6rqbsk&version=2')}}
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:white;
+    margin:0;
+    padding: 40px 20px;
+}
+
+.services-wrapper{
+    position:relative;
+    max-width:1260px;
+    margin:auto;
+  background: white; 
+    padding: 40px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-sizing: border-box;
+}
+
+.services-title{
+    font-size:48px;
+  margin-top: 0;
+    margin-bottom:25px;
+    color:#222;
+}
+
+/* SCROLL CONTAINER */
+.services-container{
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    scroll-behavior:smooth;
+    padding-bottom:10px;
+
+    /* snap effect */
+    scroll-snap-type:x mandatory;
+
+    /* hide scrollbar */
+    scrollbar-width:none;
+}
+
+.services-container::-webkit-scrollbar{
+    display:none;
+}
+
+/* CARD */
+.service-card{
+  width: 280px;  
+  min-width:280px;
+  max-width:280px;
+    background:#fafafa;
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:0 2px 6px rgba(0,0,0,0.15);
+
+    scroll-snap-align:start;
+    flex-shrink:0;
+}
+
+.service-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    display:block;
+}
+
+.service-content{
+    padding:18px;
+}
+
+.service-content h3{
+    margin:0;
+    font-size:20px;
+    font-weight:500;
+}
+
+/* ARROWS */
+.scroll-btn{
+    position:absolute;
+    top:55%;
+    transform:translateY(-50%);
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    box-shadow:0 2px 6px rgba(0,0,0,0.25);
+    cursor:pointer;
+    z-index:5;
+    font-size:24px;
+}
+
+.scroll-btn:hover{
+    background:#eee;
+}
+
+.scroll-left{
+    left:-10px;
+}
+
+.scroll-right{
+    right:-10px;
+}
+
+/* MOBILE */
+@media (max-width:1280px){
+
+    body{
+        margin:20px;
+    }
+
+  .services-wrapper {
+        padding: 20px;
+  }
+    
+    .services-title{
+        font-size:32px;
+    }
+
+    .service-card{
+        min-width:240px;
+    }
+
+    .scroll-btn{
+        display:none;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="services-wrapper">
+
+    <h1 class="services-title">Harbor Light Center Services</h1>
+
+    <button class="scroll-btn scroll-left" onclick="scrollServices('left')">
+        ‹
+    </button>
+
+    <button class="scroll-btn scroll-right" onclick="scrollServices('right')">
+        ›
+    </button>
+
+    <div class="services-container" id="servicesContainer">
+
+        <div class="service-card">
+            <img src="https://8hxvw8tw.media.zestyio.com/TSA-shield-logo_300x300.jpg" alt="">
+            <div class="service-content">
+                <h3>Etc.</h3>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="https://8hxvw8tw.media.zestyio.com/spiritualhealing-donate.jpg" alt="">
+            <div class="service-content">
+                <h3>Pastoral Care</h3>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="https://8hxvw8tw.media.zestyio.com/How-Tucson-s-Hospitality-House-helps-clients-transition-from-shelter-to-housing.jpg" alt="">
+            <div class="service-content">
+                <h3>Housing Case Management</h3>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="https://8hxvw8tw.media.zestyio.com/RST-Kids.JPG" alt="">
+            <div class="service-content">
+                <h3>Showers</h3>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="https://8hxvw8tw.media.zestyio.com/Food-Pantry.SJFMeUsJzx.png" alt="">
+            <div class="service-content">
+                <h3>Meals</h3>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <img src="https://8hxvw8tw.media.zestyio.com/2d29544c-c5b9-4f2e-ab5b-d75756bf42f6_Clothing--Shirts-on-Rack.jpg" alt="">
+            <div class="service-content">
+                <h3>Laundry</h3>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function scrollServices(direction){
+    const container = document.getElementById('servicesContainer');
+
+  const scrollAmount = 1200;
+  
+    container.scrollBy({
+        left: direction === 'right' ? scrollAmount : -scrollAmount,
+        behavior: 'smooth'
+    });
+}
+
+</script>
+
+</body>
+</html>
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+    font-family:Arial, sans-serif;
+    background:white;
+    margin:0;
+    padding:40px 20px;
+}
+
+  .services-section{
+    background: #d7e9f7;
+    padding:40px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    max-width:1400px;
+    margin:0 auto;
+
+]
+    
+.services-title{
+    font-size:48px;
+    margin-bottom:0px;
+  margin-bottom:30px;
+    color:#222;
+}
+
+/* GRID */
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+}
+
+/* CARD */
+.service-card{
+    background:white;
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:0 2px 6px rgba(0,0,0,0.15);
+    transition:0.2s ease;
+}
+
+.service-card:hover{
+    transform:translateY(-4px);
+}
+
+/* IMAGE */
+.service-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    display:block;
+}
+
+/* TEXT */
+.service-content{
+    padding:18px;
+}
+
+.service-content h3{
+    margin:0;
+    font-size:24px;
+    font-weight:500;
+}
+
+/* MOBILE */
+@media (max-width:1000px){
+
+    .services-grid{
+        grid-template-columns:repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width:600px){
+
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+
+    .services-title{
+        font-size:20px;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+  <section class="services-section">
+  
+<h1 class="services-title">Community Resources</h1>
+
+<div class="services-grid">
+
+    <div class="service-card">
+        <img src="https://8hxvw8tw.media.zestyio.com/Large-174009_170907_SAL_EstherHavens_1934--1-.jpg" alt="">
+        <div class="service-content">
+            <h3>Etc.</h3>
+        </div>
+    </div>
+
+    <div class="service-card">
+        <img src="https://8hxvw8tw.media.zestyio.com/5ddd1864-b0b2-42ed-a62b-ffd105c9611a-16x9.jpg" alt="">
+        <div class="service-content">
+            <h3>MN Careerforce Center</h3>
+        </div>
+    </div>
+
+    <div class="service-card">
+        <img src="https://8hxvw8tw.media.zestyio.com/Worship-Cross-01.png" alt="">
+        <div class="service-content">
+            <h3>DID Storage</h3>
+        </div>
+    </div>
+
+    <div class="service-card">
+        <img src="https://8hxvw8tw.media.zestyio.com/AS8A2090.jpg" alt="">
+        <div class="service-content">
+            <h3>Economic Supports | Hennepin County</h3>
+        </div>
+    </div>
+
+</div>
+
+    </section>
+    
+</body>
+</html>
+	{{block('/-/block/generic_image_text_button_block.html?variant=7-de9687decb-zzt4tw&version=2')}}
+</div>

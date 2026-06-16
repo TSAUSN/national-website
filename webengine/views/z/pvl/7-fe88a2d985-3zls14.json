@@ -1,0 +1,1335 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div className={styles.pvlRoot}>*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:36:0:48": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-a0cef9c194-wg772m')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-a0cef9c194-wg772m')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:36:0:48",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:57:92": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:57:92",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:49:92": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:49:92",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:1:56": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p class=\"text-white\">\n\t<strong>2026 Advisory Board Leadership Team</strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "2026 Advisory Board Leadership Team",
+								"position": 1,
+								"fullName": "content:textarea:1:56",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:1:56",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"classes": "text-white",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:2:22": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 2,
+								"fullName": "design:design:whitespace-sm:2:22",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:5:98": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 3,
+								"fullName": "design:columns:2columns:5:98",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:5:98-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:3:48": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\t<strong>CHAIR:</strong>&nbsp; Jimmy Eggers\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "CHAIR:&nbsp; Jimmy Eggers",
+												"position": 0,
+												"fullName": "content:textarea:3:48",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:3:48",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"classes": "text-white",
+												"newLoc": "design:columns:2columns:5:98-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:5:98-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:4:37": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\t<strong>SECRETARY:&nbsp;</strong> Andrew Lopina\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "SECRETARY:&nbsp; Andrew Lopina",
+												"position": 0,
+												"fullName": "content:textarea:4:37",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:4:37",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"classes": "text-white",
+												"newLoc": "design:columns:2columns:5:98-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:columns:2columns:8:63": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 4,
+								"fullName": "design:columns:2columns:8:63",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:8:63-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:6:53": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\t<strong>VICE-CHAIR:&nbsp;</strong> Jackson Sutton\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "VICE-CHAIR:&nbsp; Jackson Sutton",
+												"position": 0,
+												"fullName": "content:textarea:6:53",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:6:53",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"classes": "text-white",
+												"newLoc": "design:columns:2columns:8:63-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:8:63-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-md-6 col-sm-12\">*</div>",
+										"classes": "col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:7:77": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\t<strong>TREASURER:</strong>&nbsp; Ryan Niland\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "TREASURER:&nbsp; Ryan Niland",
+												"position": 0,
+												"fullName": "content:textarea:7:77",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:7:77",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"classes": "text-white",
+												"newLoc": "design:columns:2columns:8:63-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:whitespace-xl:9:36": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 5,
+								"fullName": "design:design:whitespace-xl:9:36",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:10:94": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p class=\"text-white\">\n\t<strong>2026 Advisory Board Members</strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "2026 Advisory Board Members",
+								"position": 6,
+								"fullName": "content:textarea:10:94",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:10:94",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"classes": "text-white",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:11:60": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 7,
+								"fullName": "design:design:whitespace-sm:11:60",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:15:72": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 8,
+								"fullName": "design:columns:3 Columns:15:72",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:15:72-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:12:72": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tJeff Cardwell\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Jeff Cardwell",
+												"position": 0,
+												"fullName": "content:textarea:12:72",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:12:72",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:15:72-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:15:72-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:13:20": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tSandi Nance\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Sandi Nance",
+												"position": 0,
+												"fullName": "content:textarea:13:20",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:13:20",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:15:72-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:15:72-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:14:43": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tJack Sutton\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Jack Sutton",
+												"position": 0,
+												"fullName": "content:textarea:14:43",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:14:43",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:15:72-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:columns:3 Columns:19:22": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 9,
+								"fullName": "design:columns:3 Columns:19:22",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:19:22-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:16:84": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tKen Carlson\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Ken Carlson",
+												"position": 0,
+												"fullName": "content:textarea:16:84",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:16:84",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:19:22-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:19:22-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:17:15": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tMichelle Norwood\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Michelle Norwood",
+												"position": 0,
+												"fullName": "content:textarea:17:15",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:17:15",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:19:22-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:19:22-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:18:35": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tWayne Thomas\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Wayne Thomas",
+												"position": 0,
+												"fullName": "content:textarea:18:35",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:18:35",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:19:22-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:columns:3 Columns:23:61": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 10,
+								"fullName": "design:columns:3 Columns:23:61",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:23:61-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:20:49": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tJamy Cassidy\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Jamy Cassidy",
+												"position": 0,
+												"fullName": "content:textarea:20:49",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:20:49",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:23:61-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:23:61-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:21:34": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tMelissa Painter\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Melissa Painter",
+												"position": 0,
+												"fullName": "content:textarea:21:34",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:21:34",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:23:61-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:23:61-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:22:99": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tRobert \"Bob\" Weiss\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Robert \"Bob\" Weiss",
+												"position": 0,
+												"fullName": "content:textarea:22:99",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:22:99",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:23:61-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:columns:3 Columns:27:75": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 11,
+								"fullName": "design:columns:3 Columns:27:75",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:27:75-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:24:75": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tDebbie Clark\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Debbie Clark",
+												"position": 0,
+												"fullName": "content:textarea:24:75",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:24:75",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:27:75-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:27:75-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:25:2": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tDr. Pam Peoples-Joyner\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Dr. Pam Peoples-Joyner",
+												"position": 0,
+												"fullName": "content:textarea:25:2",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:25:2",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:27:75-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:27:75-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:26:84": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tRob Welch\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Rob Welch",
+												"position": 0,
+												"fullName": "content:textarea:26:84",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:26:84",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:27:75-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:columns:3 Columns:31:87": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 12,
+								"fullName": "design:columns:3 Columns:31:87",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:31:87-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:28:53": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tDiane Harper-Long\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Diane Harper-Long",
+												"position": 0,
+												"fullName": "content:textarea:28:53",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:28:53",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:31:87-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:31:87-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:29:21": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tJoel Schneider\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Joel Schneider",
+												"position": 0,
+												"fullName": "content:textarea:29:21",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:29:21",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:31:87-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:31:87-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:30:65": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tWin Welch\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Win Welch",
+												"position": 0,
+												"fullName": "content:textarea:30:65",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:30:65",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:31:87-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:columns:3 Columns:35:33": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 13,
+								"fullName": "design:columns:3 Columns:35:33",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:35:33-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:32:45": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tLinda Jackson-Barnes\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Linda Jackson-Barnes",
+												"position": 0,
+												"fullName": "content:textarea:32:45",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:32:45",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:35:33-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:35:33-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:33:77": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tAlycia Silman\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Alycia Silman",
+												"position": 0,
+												"fullName": "content:textarea:33:77",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:33:77",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:35:33-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:35:33-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:34:53": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tPJ Williams\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "PJ Williams",
+												"position": 0,
+												"fullName": "content:textarea:34:53",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:34:53",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:35:33-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:columns:3 Columns:39:99": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 14,
+								"fullName": "design:columns:3 Columns:39:99",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:39:99-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:36:84": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tCal Jeffers\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Cal Jeffers",
+												"position": 0,
+												"fullName": "content:textarea:36:84",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:36:84",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:39:99-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:39:99-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:37:95": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tKaren Simon\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Karen Simon",
+												"position": 0,
+												"fullName": "content:textarea:37:95",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:37:95",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:39:99-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:39:99-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:38:84": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tDr. Timothy Williams\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Dr. Timothy Williams",
+												"position": 0,
+												"fullName": "content:textarea:38:84",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:38:84",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:39:99-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:columns:3 Columns:44:15": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 15,
+								"fullName": "design:columns:3 Columns:44:15",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:57:92-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:44:15-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:40:28": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tAlejandra Lobelo\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Alejandra Lobelo",
+												"position": 0,
+												"fullName": "content:textarea:40:28",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:40:28",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:44:15-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:44:15-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:41:72": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p class=\"text-white\">\n\t\t\t\t\tJonathan Starnes\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Jonathan Starnes",
+												"position": 0,
+												"fullName": "content:textarea:41:72",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:41:72",
+												"styles": {},
+												"classes": "text-white",
+												"newLoc": "design:columns:3 Columns:44:15-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:44:15-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"design:design:whitespace:43:80": {
+												"uid": "99",
+												"name": "White Space",
+												"type": "design",
+												"html": "<br>",
+												"preview": "<div style=\"border-style: dashed; height: 20px;\"></div>",
+												"classes": "",
+												"droppable": false,
+												"position": 0,
+												"fullName": "design:design:whitespace:43:80",
+												"primarytype": "design",
+												"newLoc": "design:columns:3 Columns:44:15-1:3 Columns:2",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 2
+									}
+								}
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

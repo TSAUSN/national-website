@@ -1,0 +1,43 @@
+<div className={styles.pvlRoot}>
+	<div class="my-2"></div>
+	<div class="row my-3">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/483ccce7-e5e7-464a-9c0e-36ecc3f63bb5_Echelon+web+banner.png" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid w-100 d-block mx-auto mb-3 rounded">
+			<div class="my-2"></div>
+			<p style="text-align:center;">Echelon seeks to mobilize the next generation for The Salvation Army of Greater Charlotte by providing opportunities for young professionals to engage with the organization through fellowship and networking, donations and fundraising, and service and volunteering. These activities directly support Salvation Army services in the Charlotte community. Whether we are serving, attending one of our social events, or raising money, you will find Echelon is a connected community full of people who are making a difference.</p>
+			<div class="my-2"></div>
+			<div class="row my-3">
+				<div class="col-12 d-flex flex-column">
+					<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Summer-Social-Flyer-crop.jpg" alt="placeholder" style="text-align:center;" class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark">
+				</div>
+			</div>
+			<p style="font-weight: 700">What is Echelon?</p>
+			<div class="my-4"></div>
+			<p>Want to learn more about Echelon? Check out this short video:</p>
+			<div style="display:flex" className={styles.pvlRow}>
+				<div class="col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9 column">
+					<iframe src="https://www.youtube.com/embed/n-Y-Ub6yCUs" style="border:0" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" class="w-100 h-100"></iframe>
+				</div>
+			</div>
+			<div class="py-5"></div>
+			<p style="font-weight: 700">As a member of Echelon, you’ll have access to:</p>
+			<ul>
+	<li>Exclusive networking events and leadership development opportunities</li>
+	<li>Access to mentorship and connections within the Charlotte business community</li>
+	<li>Engaging volunteer activities that support your neighbors in need</li>
+	<li>A supportive community of like-minded peers</li>
+</ul>
+			<div class="my-2"></div>
+			<p>Fill out my</p>
+			<a href="https://tsansc.wufoo.com/forms/z1ibofn91eyvpap">Online form</a>
+			<div class="my-2"></div>
+			<p>.</p>
+			<hr>
+			<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start" style="text-align:center"><a href="https://give.salvationarmycarolinas.org/campaign/760343/donate" class="btn btn-primary gap-1 mt-2">Membership Dues</a></p>
+			<div class="my-2"></div>
+			<div class="pvlRichtext"></div>
+			<div class="my-2"></div>
+			<h5 style="text-align:center">Follow Echelon Charlotte on <a href="https://www.instagram.com/echelonclt/" target="">Instagram</a> and <a href="https://www.linkedin.com/showcase/echelonclt" target="">LinkedIn</a></h5>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,71 @@
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-8cb2f7bde3-0xtp6v')}}
+	<h6 style="text-align:center;">Ring the bell to help fight hunger and homelessness</h6>
+	<p style="text-align:center;color:#fff;">
+	<a href="https://give.salvationarmygeorgia.org/give/618818/#!/donation/checkout"><span class="btn btn-solid btn-red">HELP NOW</span></a>
+</p>
+	<div class="my-2"></div>
+	<div class="row my-3">
+		<div class="col-md-4 col-sm-12">
+			<img width="232" height="484" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/9017140e-1127-4e52-9a27-8b60df6e8c90_Salvation+Army+Bell+%281080+x1920%29.png" alt="placeholder" class="img-fluid d-block m-auto my-3 mx-auto" style="max-width:100%;height:auto;" loading="lazy" />
+		</div>
+		<div class="col-md-8 col-sm-12">
+			<h6>we need your help</h6>
+			<p style="text-align:justify;">
+        Did you know that <span style="color:#ed1c2b;"><strong>1 in 5&nbsp;kids will go to bed hungry</strong> tonight or that <span style="color:#ed1c2b;"><b>1 in 13 seniors have to choose between life-saving medication and food</b></span>? </span>
+      </p>
+			<p style="text-align:justify;">
+        And did you know that <span style="color:#ed1c2b;"><b>2,700 individuals</b> in the Atlanta area won't have a warm, safe place to sleep tonight?</span>
+      </p>
+			<p style="text-align:justify;">
+        These are challenges many of our neighbors face every single day. They are real people with real struggles that threaten their families, threaten their health, threaten their hope that things will ever get better.
+      </p>
+			<p style="text-align:justify;">
+        <span style="color:#ed1c2b;"><b>With your support, The Salvation Army of Metro Atlanta will meet these needs throughout metro Atlanta.</b></span>
+      </p>
+			<p>
+        Ring The Bell ATL, and join us in our fight to bring aid, comfort and hope to those who need it!
+      </p>
+			<p style="text-align:justify;">
+        One gift can save one person... many can save many.
+      </p>
+			<p>
+        <a href="https://give.salvationarmygeorgia.org/give/618818/#!/donation/checkout"><span class="btn btn-solid btn-red">Ring the Bell</span></a>
+      </p>
+			<h6>Thank You!</h6>
+			<p>
+        If you are looking to register to be a bell ringer in person, click <a href="https://www.registertoring.com/" target="">here</a>.
+      </p>
+		</div>
+	</div>
+	<div class="row my-3">
+		<div class="col-lg-4 col-md-4 col-sm-12">
+			<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/cea97a41-3246-45c0-8897-9e84c32c3a04_Salvation+Army+-+Ring+the+Bell+-+Header+Slide+1B.png" alt="placeholder" class="img-fluid d-block mx-auto" style="max-width:100%;height:auto;" loading="lazy" />
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-12">
+			<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/8f485f2e-5813-4f48-af40-0f8e51cff9ef_Salvation+Army+-+Ring+the+Bell+-+Header+Slide+2A.png" alt="placeholder" class="img-fluid d-block mx-auto" style="max-width:100%;height:auto;" loading="lazy" />
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-12">
+			<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/84bf69f0-3e9a-4d7d-802a-49a64608eef7_Salvation+Army+-+Ring+the+Bell+-+Header+Slide+2B.png" alt="placeholder" class="img-fluid d-block mx-auto" style="max-width:100%;height:auto;" loading="lazy" />
+		</div>
+	</div>
+	<div class="row my-3">
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/b8cc2e84-3d30-46fc-96ff-fd49cc0e3964_Salvation+Army+-+Ring+the+Bell+-+Header+Slide+3A.png" alt="placeholder" class="img-fluid d-block mx-auto" style="max-width:100%;height:auto;" loading="lazy" />
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/7df6f779-e664-4954-a776-e918b90a6ba4_Salvation+Army+-+Ring+the+Bell+-+Header+Slide+3B.png" alt="placeholder" class="img-fluid d-block mx-auto" style="max-width:100%;height:auto;" loading="lazy" />
+		</div>
+	</div>
+	<div class="row my-3">
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			{{block('/-/block/base_card.html?variant=7-9eece4d0d5-sr8fp0')}}
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			<div>{{block('/-/block/base_card.html?variant=7-e6bf9fc9b5-m995wf')}}</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			<div>{{block('/-/block/base_card.html?variant=7-d8c9a2f6b7-gc1fcl')}}</div>
+		</div>
+	</div>
+</div>

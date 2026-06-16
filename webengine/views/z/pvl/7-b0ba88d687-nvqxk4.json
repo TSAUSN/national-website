@@ -1,0 +1,243 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:2:0:34": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-c6f0cce599-s008l8')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-c6f0cce599-s008l8')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:2:0:34",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:19:18": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:19:18",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:19:18-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:2:82": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">How We Help Provide Housing</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "How We Help Provide Housing",
+								"position": 0,
+								"fullName": "content:text:2:82",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:2:82",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:18-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:3:72": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tHomelessness can happen to anyone. As of 2021, approximately 11.6% of Americans were living in poverty.&nbsp;Housing insecurity is not limited to a certain “type” of person. It can happen to virtually anyone at any time.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Homelessness can happen to anyone. As of 2021, approximately 11.6% of Americans were living in poverty.&nbsp;Housing insecurity is not limited to a certain “type” of person. It can happen to virtually anyone at any time.",
+								"position": 1,
+								"fullName": "content:textarea:3:72",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:3:72",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:18-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:4:34": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:4:34",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:18-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:6:77": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#ffffff;\">\n                    <p style=\"color:#fff\">\n\t<strong>Emergency Housing&nbsp;Programs</strong>\n</p>\n\n<p style=\"color:#fff\">\n\tThe Salvation Army of Greater Birmingham is the only shelter in Central Alabama, serving men, women, children, families, and veterans at one location, the Center of Hope. We offer emergency services that include&nbsp;food, shelter, clothing, and counseling. If you are experiencing homelessness, and need immediate help, please call&nbsp;<a href=\"tel:2053282420\">205-328-2420</a>&nbsp;or come to The Salvation Army Social Services Building, located at 2015 26th Avenue North Birmingham, AL 35234, for assistance.\n</p>\n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"text-white rounded p-6 gap-3 my-5\" style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#ffffff;\">\n                    <p style=\"color:#fff\">\n\t<strong>Emergency Housing&nbsp;Programs</strong>\n</p>\n\n<p style=\"color:#fff\">\n\tThe Salvation Army of Greater Birmingham is the only shelter in Central Alabama, serving men, women, children, families, and veterans at one location, the Center of Hope. We offer emergency services that include&nbsp;food, shelter, clothing, and counseling. If you are experiencing homelessness, and need immediate help, please call&nbsp;<a href=\"tel:2053282420\">205-328-2420</a>&nbsp;or come to The Salvation Army Social Services Building, located at 2015 26th Avenue North Birmingham, AL 35234, for assistance.\n</p>\n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:6:77",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:6:77",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "300px",
+									"background": "#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover",
+									"fontWeight": "700"
+								},
+								"classes": "text-white rounded p-6 gap-3 my-5",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:18-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:7:0": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:7:0",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:18-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:8:49": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>&nbsp;<br><strong>My Home</strong></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "&nbsp;My Home",
+								"position": 5,
+								"fullName": "content:textarea:8:49",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:8:49",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:18-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:9:7": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p>\n\tThe Salvation Army of Greater Birmingham’s My Home Program provides support to families, Veterans, and Human Trafficking survivors experiencing homelessness. The case-intensive program works to transition participants out of the Shelter program, and into permanent housing of their own. For more information, please call&nbsp;<a href=\"tel:2053282420\">205-328-2420</a>.\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p>\n\tThe Salvation Army of Greater Birmingham’s My Home Program provides support to families, Veterans, and Human Trafficking survivors experiencing homelessness. The case-intensive program works to transition participants out of the Shelter program, and into permanent housing of their own. For more information, please call&nbsp;<a href=\"tel:2053282420\">205-328-2420</a>.\n</p>",
+								"model": "6",
+								"position": 6,
+								"fullName": "content:wysiwyg_basic:9:7",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:9:7",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:18-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:10:61": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 7,
+								"fullName": "design:design:whitespace-sm:10:61",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:18-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:12:62": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#ffffff;\">\n                    <p style=\"color:#fff\">\n\t<strong>Veteran's Bridge Program</strong>\n</p>\n\n<p style=\"color:#fff\">\n\tThe Salvation Army of Greater Birmingham’s Veteran’s Bridge program is a partnership between The Salvation Army and the Department of Veteran Affairs. The Bridge Program provides Veterans with the services necessary to transition from experiencing homelessness to permanent supportive housing. Veteran’s Services include case management and the coordination of medical, mental health, substance abuse recovery, education and workforce development, housing placement, and other resources. For more information, please call&nbsp;<a href=\"tel:2053282420\">205-328-2420</a>.\n</p>\n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"text-white rounded p-6 gap-3 my-5\" style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#ffffff;\">\n                    <p style=\"color:#fff\">\n\t<strong>Veteran's Bridge Program</strong>\n</p>\n\n<p style=\"color:#fff\">\n\tThe Salvation Army of Greater Birmingham’s Veteran’s Bridge program is a partnership between The Salvation Army and the Department of Veteran Affairs. The Bridge Program provides Veterans with the services necessary to transition from experiencing homelessness to permanent supportive housing. Veteran’s Services include case management and the coordination of medical, mental health, substance abuse recovery, education and workforce development, housing placement, and other resources. For more information, please call&nbsp;<a href=\"tel:2053282420\">205-328-2420</a>.\n</p>\n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"position": 8,
+								"fullName": "content:wysiwyg_basic:12:62",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:12:62",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "300px",
+									"background": "#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover",
+									"fontWeight": "700"
+								},
+								"classes": "text-white rounded p-6 gap-3 my-5",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:18-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

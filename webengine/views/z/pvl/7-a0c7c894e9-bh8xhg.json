@@ -1,0 +1,545 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:7:0:15": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-f681c4abb3-zph976')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-f681c4abb3-zph976')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:7:0:15",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:34:41": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:34:41",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:32:48": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:32:48",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:2:23": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"rounded p-6 gap-3 mt-3 bg-primary-200 text-light\" style=\"color:#FFFFFF;\"><h1 style=\"text-align:center;\">The Salvation Army Thrift&nbsp;Stores &amp; Donation Centers</h1></div>",
+								"content": "<div class=\"rounded p-6 gap-3 mt-3 bg-primary-200 text-light\" style=\"color:#FFFFFF;\"><h1 style=\"text-align:center;\">The Salvation Army Thrift&nbsp;Stores &amp; Donation Centers</h1></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:23",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:23",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:3:62": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:62",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"design:design:whitespace-sm:5:61": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 3,
+								"fullName": "design:design:whitespace-sm:5:61",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:10:79": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 4,
+								"fullName": "design:columns:3 Columns:10:79",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:10:79-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:4:19": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><div class=\"content\">\n\t<h5 style=\"text-align:center;\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/4a627cc1-7af2-4d3d-b106-e9f98055bd79_SA+Family+Store+central+ave.jpg\"></h5>\n\n\t<h5 style=\"text-align:center;\">East Charlotte&nbsp;</h5>\n\n\t<p style=\"text-align:center;\">\n\t\t<a href=\"http://maps.google.com/?q=1011+Central+Avenue,+Charlotte,+NC+28204+&amp;ie=UTF8&amp;z=16&amp;iwloc=addr\" target=\"_new\">1011 Central Ave<br>\n\t\tCharlotte, NC 28204</a>\n\t</p>\n\n\t<p style=\"text-align:center;\">\n\t\tMon-Sat: 10:00 Am - 6:00 pm<br>\n\t\tSun: Closed<br>\n\t\t<br>\n\t\t<a href=\"tel:7043382838\">704-348-2838</a>\n\t</p>\n</div></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><div class=\"content\">\n\t<h5 style=\"text-align:center;\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/4a627cc1-7af2-4d3d-b106-e9f98055bd79_SA+Family+Store+central+ave.jpg\"></h5>\n\n\t<h5 style=\"text-align:center;\">East Charlotte&nbsp;</h5>\n\n\t<p style=\"text-align:center;\">\n\t\t<a href=\"http://maps.google.com/?q=1011+Central+Avenue,+Charlotte,+NC+28204+&amp;ie=UTF8&amp;z=16&amp;iwloc=addr\" target=\"_new\">1011 Central Ave<br>\n\t\tCharlotte, NC 28204</a>\n\t</p>\n\n\t<p style=\"text-align:center;\">\n\t\tMon-Sat: 10:00 Am - 6:00 pm<br>\n\t\tSun: Closed<br>\n\t\t<br>\n\t\t<a href=\"tel:7043382838\">704-348-2838</a>\n\t</p>\n</div></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:4:19",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:4:19",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:10:79-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:10:79-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:6:63": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><div class=\"content\">\n\t<h5 style=\"text-align:center;\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/28d9927d-274b-410d-be2d-a4207b032ab8_SA+Thrift+Store+Freedon+Dr+web+pic.jpg\"></h5>\n\n\t<h5 style=\"text-align:center;\">West Charlotte</h5>\n\n\t<p style=\"text-align:center;\">\n\t\t<a href=\"http://maps.google.com/?q=2917+Freedom+Drive,+Charlotte,+NC+28208+&amp;ie=UTF8&amp;z=16&amp;iwloc=addr\" target=\"_new\">2917 Freedom Drive<br>\n\t\tCharlotte, NC 28208</a>\n\t</p>\n\n\t<p style=\"text-align:center;\">\n\t\tMon-Sat: 10:00 Am - 7:00 pm<br>\n\t\tSun: Closed<br>\n\t\t<br>\n\t\t<a href=\"tel:9802073615\">980-207-3615</a>\n\t</p>\n</div></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><div class=\"content\">\n\t<h5 style=\"text-align:center;\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/28d9927d-274b-410d-be2d-a4207b032ab8_SA+Thrift+Store+Freedon+Dr+web+pic.jpg\"></h5>\n\n\t<h5 style=\"text-align:center;\">West Charlotte</h5>\n\n\t<p style=\"text-align:center;\">\n\t\t<a href=\"http://maps.google.com/?q=2917+Freedom+Drive,+Charlotte,+NC+28208+&amp;ie=UTF8&amp;z=16&amp;iwloc=addr\" target=\"_new\">2917 Freedom Drive<br>\n\t\tCharlotte, NC 28208</a>\n\t</p>\n\n\t<p style=\"text-align:center;\">\n\t\tMon-Sat: 10:00 Am - 7:00 pm<br>\n\t\tSun: Closed<br>\n\t\t<br>\n\t\t<a href=\"tel:9802073615\">980-207-3615</a>\n\t</p>\n</div></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:6:63",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:6:63",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:10:79-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:10:79-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:8:74": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><div class=\"content\">\n\t<h5 style=\"text-align:center;\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/90eac341-5550-4026-948b-1f65d23f184b_SA+Thrift+Store+Kannapolis+web+pic.jpg\"></h5>\n\n\t<h5 style=\"text-align:center;\">Kannapolis</h5>\n\n\t<p style=\"text-align:center;\">\n\t\t<a href=\"http://maps.google.com/?q=2901+Cloverleaf+Pkwy,+Kannapolis,+NC+28083+&amp;ie=UTF8&amp;z=16&amp;iwloc=addr\" target=\"_new\">2901 Cloverleaf Pkwy<br>\n\t\tKannapolis, NC 28083</a>\n\t</p>\n\n\t<p style=\"text-align:center;\">\n\t\tMon-Sat: 10:00 Am - 6:00 pm<br>\n\t\tSun: Closed<br>\n\t\t<br>\n\t\t<a href=\"tel:7043382838\">704-788-2055</a>\n\t</p>\n</div></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><div class=\"content\">\n\t<h5 style=\"text-align:center;\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/90eac341-5550-4026-948b-1f65d23f184b_SA+Thrift+Store+Kannapolis+web+pic.jpg\"></h5>\n\n\t<h5 style=\"text-align:center;\">Kannapolis</h5>\n\n\t<p style=\"text-align:center;\">\n\t\t<a href=\"http://maps.google.com/?q=2901+Cloverleaf+Pkwy,+Kannapolis,+NC+28083+&amp;ie=UTF8&amp;z=16&amp;iwloc=addr\" target=\"_new\">2901 Cloverleaf Pkwy<br>\n\t\tKannapolis, NC 28083</a>\n\t</p>\n\n\t<p style=\"text-align:center;\">\n\t\tMon-Sat: 10:00 Am - 6:00 pm<br>\n\t\tSun: Closed<br>\n\t\t<br>\n\t\t<a href=\"tel:7043382838\">704-788-2055</a>\n\t</p>\n</div></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:8:74",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:8:74",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:10:79-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:design:whitespace-sm:12:86": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 5,
+								"fullName": "design:design:whitespace-sm:12:86",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:15:93": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 6,
+								"fullName": "design:columns:2columns:15:93",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:15:93-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:11:91": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><div class=\"content\">\n\t<h5 style=\"text-align:center;\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/409eb126-d3c8-4a02-83e0-741858e16c86_Donation+Center+web+pic.jpg\"></h5>\n\n\t<h5 style=\"text-align:center;\">Fort Mill<br>\n\tDonation Center&nbsp;</h5>\n\n\t<p style=\"text-align:center;\">\n\t\t<a href=\"http://maps.google.com/?q=7580+Charlotte+Hwy,+Fort+Mill,+SC+29707+&amp;ie=UTF8&amp;z=16&amp;iwloc=addr\" target=\"_new\">7580 Charlotte Hwy<br>\n\t\tFort Mill, SC 29707</a>\n\t</p>\n\n\t<p style=\"text-align:center;\">\n\t\tMon - Sat: 10:00 am - 7:00 pm<br>\n\t\tSun: 12:00 pm - 5:00 pm<br>\n\t\t<br>\n\t\t<a href=\"tel:8035483191\">803-548-3191</a>\n\t</p>\n</div></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><div class=\"content\">\n\t<h5 style=\"text-align:center;\"><img style=\"max-width:100%;height:auto;\" class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/409eb126-d3c8-4a02-83e0-741858e16c86_Donation+Center+web+pic.jpg\"></h5>\n\n\t<h5 style=\"text-align:center;\">Fort Mill<br>\n\tDonation Center&nbsp;</h5>\n\n\t<p style=\"text-align:center;\">\n\t\t<a href=\"http://maps.google.com/?q=7580+Charlotte+Hwy,+Fort+Mill,+SC+29707+&amp;ie=UTF8&amp;z=16&amp;iwloc=addr\" target=\"_new\">7580 Charlotte Hwy<br>\n\t\tFort Mill, SC 29707</a>\n\t</p>\n\n\t<p style=\"text-align:center;\">\n\t\tMon - Sat: 10:00 am - 7:00 pm<br>\n\t\tSun: 12:00 pm - 5:00 pm<br>\n\t\t<br>\n\t\t<a href=\"tel:8035483191\">803-548-3191</a>\n\t</p>\n</div></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:11:91",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:11:91",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:15:93-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:15:93-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:13:59": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><p style=\"text-align:center;\">\n\t<img style=\"max-width:100%;height:auto;\" class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/17ada008-669d-4915-8022-38f75c0f10b5_SA+Truck+web+pic+2.jpg\">\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Find information on donating material goods such as clothing,<br>\n\tFurniture, vehicles, and other items.</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<!--<a href=\"https://satruck.org/donate/choose\" target=\"_blank\">Schedule a pickup</a><br />--><a href=\"https://satruck.org/DropOff\" target=\"_blank\">Find a drop-off location</a><br>\n\t<a href=\"https://satruck.org/\" target=\"_blank\">Find and print your receipt</a><br>\n\t<a href=\"https://satruck.org/Home/DonationValueGuide\" target=\"_blank\">Use our Donation Valuation Guide</a><br>\n\t<!-- <a href=\"https://satruck.org/\" target=\"_blank\">Access donation pickup customer service</a>-->\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong><i aria-hidden=\"true\" class=\"fa fa-laptop\"></i> <a class=\"u-linkReset u-textBlack\" href=\"https://satruck.org\">satruck.org</a> <i aria-hidden=\"true\" class=\"fa fa-mobile margin-left-xl\"></i> </strong><a href=\"tel:18007287825\">1-800-728-7825</a>\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><p style=\"text-align:center;\">\n\t<img style=\"max-width:100%;height:auto;\" class=\"img-fluid rounded d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/17ada008-669d-4915-8022-38f75c0f10b5_SA+Truck+web+pic+2.jpg\">\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Find information on donating material goods such as clothing,<br>\n\tFurniture, vehicles, and other items.</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<!--<a href=\"https://satruck.org/donate/choose\" target=\"_blank\">Schedule a pickup</a><br />--><a href=\"https://satruck.org/DropOff\" target=\"_blank\">Find a drop-off location</a><br>\n\t<a href=\"https://satruck.org/\" target=\"_blank\">Find and print your receipt</a><br>\n\t<a href=\"https://satruck.org/Home/DonationValueGuide\" target=\"_blank\">Use our Donation Valuation Guide</a><br>\n\t<!-- <a href=\"https://satruck.org/\" target=\"_blank\">Access donation pickup customer service</a>-->\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong><i aria-hidden=\"true\" class=\"fa fa-laptop\"></i> <a class=\"u-linkReset u-textBlack\" href=\"https://satruck.org\">satruck.org</a> <i aria-hidden=\"true\" class=\"fa fa-mobile margin-left-xl\"></i> </strong><a href=\"tel:18007287825\">1-800-728-7825</a>\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:13:59",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:13:59",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700",
+													"fontStyle": "italic"
+												},
+												"newLoc": "design:columns:2columns:15:93-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:columns:1 Column:17:81": {
+								"uid": "NaN",
+								"name": "1 Column",
+								"type": "columns",
+								"html": "<div style=\"display:flex\" class=\"row d-flex\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"classes": "row d-flex",
+								"droppable": "true",
+								"numberOfColumns": 1,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": 1,
+										"html": "<div class=\"col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 7,
+								"fullName": "design:columns:1 Column:17:81",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:1 Column:17:81-1:1 Column:0": {
+										"width": 1,
+										"html": "<div class=\"column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true,
+										"children": {
+											"content:embed:16:48": {
+												"icon": "embed",
+												"name": "Embed",
+												"type": "embed",
+												"html": "<iframe src=\"https://www.youtube.com/embed/9jHJUcc0QpU\" style=\"border:0;\" loading=\"lazy\" allowfullscreen=\"\" referrerpolicy=\"no-referrer-when-downgrade\" class=\"w-100 h-100\"></iframe>",
+												"description": "Embedded content (iframe)",
+												"draggable": true,
+												"content": "<iframe src=\"https://www.youtube.com/embed/9jHJUcc0QpU\" style=\"border:0;\" loading=\"lazy\" allowfullscreen=\"\" referrerpolicy=\"no-referrer-when-downgrade\" class=\"w-100 h-100\"></iframe>",
+												"position": 0,
+												"fullName": "content:embed:16:48",
+												"htmlElement": "iframe",
+												"classes": "w-100 h-100",
+												"primarytype": "content",
+												"id": "content:embed:16:48",
+												"styles": {},
+												"newLoc": "design:columns:1 Column:17:81-1:1 Column:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									}
+								},
+								"id": "design:columns:1 Column:17:81",
+								"styles": {},
+								"htmlElement": "div",
+								"content": "<div style=\"display:flex\" class=\"row d-flex\">*</div>",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:18:58": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 8,
+								"fullName": "design:design:whitespace-xl:18:58",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:20:24": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6>How Does My Donation Help?</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "How Does My Donation Help?",
+								"position": 9,
+								"fullName": "content:text:20:24",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:20:24",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:21:5": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<ul>\n\t<li>When you bring a bag with clothes and gently used items to your local Thrift Store, The Salvation Army sorts and processes the&nbsp;items to add to our store inventory.&nbsp;We add new items every week so there's always something fresh.</li>\n\t<li>The items that you donate are added to our shelves and clothing racks. Our stores are frequented by so many different people – some looking for their own unique fashion sense, some looking for a deal,&nbsp;some because they have nowhere else to go.</li>\n\t<li>Whether they're purchased by a college student adding to their wardrobe or by a family struggling to make ends meet,&nbsp;these sales directly fund local, life-giving programs&nbsp;provided by The Salvation Army.&nbsp;</li>\n</ul>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<ul>\n\t<li>When you bring a bag with clothes and gently used items to your local Thrift Store, The Salvation Army sorts and processes the&nbsp;items to add to our store inventory.&nbsp;We add new items every week so there's always something fresh.</li>\n\t<li>The items that you donate are added to our shelves and clothing racks. Our stores are frequented by so many different people – some looking for their own unique fashion sense, some looking for a deal,&nbsp;some because they have nowhere else to go.</li>\n\t<li>Whether they're purchased by a college student adding to their wardrobe or by a family struggling to make ends meet,&nbsp;these sales directly fund local, life-giving programs&nbsp;provided by The Salvation Army.&nbsp;</li>\n</ul>",
+								"model": "6",
+								"position": 10,
+								"fullName": "content:wysiwyg_basic:21:5",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:21:5",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:22:33": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 11,
+								"fullName": "design:design:whitespace-sm:22:33",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:24:35": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5>Change. It's In the Bag</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Change. It's In the Bag",
+								"position": 12,
+								"fullName": "content:text:24:35",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:24:35",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:25:30": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThe Salvation Army Thrift&nbsp;Store helps the community in a couple of very important ways:\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army Thrift&nbsp;Store helps the community in a couple of very important ways:",
+								"position": 13,
+								"fullName": "content:textarea:25:30",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:25:30",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:26:20": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<ul>\n\t<li>When you&nbsp;donate goods, you're helping to provide items that are sold to the community or given to those with the greatest need.</li>\n\t<li>When you&nbsp;shop for items&nbsp;at our stores, you're directly funding the life-restoring programs that exist in your community.</li>\n</ul>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<ul>\n\t<li>When you&nbsp;donate goods, you're helping to provide items that are sold to the community or given to those with the greatest need.</li>\n\t<li>When you&nbsp;shop for items&nbsp;at our stores, you're directly funding the life-restoring programs that exist in your community.</li>\n</ul>",
+								"model": "6",
+								"position": 14,
+								"fullName": "content:wysiwyg_basic:26:20",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:26:20",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:34:41-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

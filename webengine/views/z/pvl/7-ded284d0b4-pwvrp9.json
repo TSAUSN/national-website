@@ -1,0 +1,672 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:87:0:66": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-80d7cfdec7-nm9ptg')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-80d7cfdec7-nm9ptg')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:87:0:66",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:42:76": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:42:76",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:wysiwyg_basic:2:25": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"rounded p-6 gap-3 bg-primary-200 text-light\" style=\"color:#FFFFFF;\"><h1 style=\"text-align:center;\">2025 Annual Report</h1>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:20px;\">Greater Hickory and the High Country</span>\n</p></div>",
+								"content": "<div class=\"rounded p-6 gap-3 bg-primary-200 text-light\" style=\"color:#FFFFFF;\"><h1 style=\"text-align:center;\">2025 Annual Report</h1>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:20px;\">Greater Hickory and the High Country</span>\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 0,
+								"fullName": "content:wysiwyg_basic:2:25",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:25",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:3:86": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 1,
+								"fullName": "design:design:whitespace-xl:3:86",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:textarea:4:39": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\"For you shall go out in joy and be led forth in peace; the mountains and the hills before you shall break forth into singing, and all the trees of the field shall clap their hands.”</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "\"For you shall go out in joy and be led forth in peace; the mountains and the hills before you shall break forth into singing, and all the trees of the field shall clap their hands.”",
+								"position": 2,
+								"fullName": "content:textarea:4:39",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:4:39",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:5:10": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>&nbsp;- Isaiah 55:12</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "&nbsp;- Isaiah 55:12",
+								"position": 3,
+								"fullName": "content:textarea:5:10",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:5:10",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:6:7": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tDear Friends,&nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Dear Friends,&nbsp;",
+								"position": 4,
+								"fullName": "content:textarea:6:7",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:6:7",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:7:73": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThese words from the prophet Isaiah capture the heart of what we witness every day in The Salvation Army’s ministry. When a family finds shelter from the storm, when a disaster survivor finds hope, when a child receives a warm meal, we witness the joy Isaiah described.&nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "These words from the prophet Isaiah capture the heart of what we witness every day in The Salvation Army’s ministry. When a family finds shelter from the storm, when a disaster survivor finds hope, when a child receives a warm meal, we witness the joy Isaiah described.&nbsp;",
+								"position": 5,
+								"fullName": "content:textarea:7:73",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:7:73",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:8:73": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThis past year, your generosity has enabled us to go out in joy and serve.&nbsp; You have helped us lead people forth in peace, offering material assistance wrapped in dignity, hope, and compassion. Your support has transformed despair into joy, filling empty hands and inspiring hope.&nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "This past year, your generosity has enabled us to go out in joy and serve.&nbsp; You have helped us lead people forth in peace, offering material assistance wrapped in dignity, hope, and compassion. Your support has transformed despair into joy, filling empty hands and inspiring hope.&nbsp;",
+								"position": 6,
+								"fullName": "content:textarea:8:73",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:8:73",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:9:1": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tAs we reflect on another year of service, our hearts overflow with gratitude for your faithful support. Together, we continue to be instruments of God’s peace and bearers of His joy to a world that desperately needs both.&nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "As we reflect on another year of service, our hearts overflow with gratitude for your faithful support. Together, we continue to be instruments of God’s peace and bearers of His joy to a world that desperately needs both.&nbsp;",
+								"position": 7,
+								"fullName": "content:textarea:9:1",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:9:1",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:10:41": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tWith deepest gratitude and blessings,\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "With deepest gratitude and blessings,",
+								"position": 8,
+								"fullName": "content:textarea:10:41",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:10:41",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:11:22": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tMajors Enrique and Karla Perez\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Majors Enrique and Karla Perez",
+								"position": 9,
+								"fullName": "content:textarea:11:22",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:11:22",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:12:16": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><strong><span style=\"font-size:48px;\"></span><span style=\"font-size:48px;\">16,260</span><span style=\"font-size:48px;\"></span><span style=\"font-size:24px;\"><br>\n\tPERSONS SERVED</span></strong><br>&nbsp;</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "16,260 PERSONS SERVED&nbsp;",
+								"position": 10,
+								"fullName": "content:textarea:12:16",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:12:16",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:13:31": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 11,
+								"fullName": "design:design:whitespace-sm:13:31",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:4 Columns:18:67": {
+								"uid": "358",
+								"name": "4 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 4,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 12,
+								"fullName": "design:columns:4 Columns:18:67",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:4 Columns:18:67-1:4 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:14:71": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\"><strong><span style=\"font-size:48px;\"></span><span style=\"font-size:48px;\">30,451</span><span style=\"font-size:48px;\"></span><br>\n\t\t\t\t\t<span style=\"font-size:24px;\">TOYS AND<br>\n\t\t\t\t\tGIFTS GIVEN</span></strong><br>&nbsp;</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "30,451 TOYS AND GIFTS GIVEN&nbsp;",
+												"position": 0,
+												"fullName": "content:textarea:14:71",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:14:71",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:18:67-1:4 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:4 Columns:18:67-1:4 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:15:64": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\"><strong><span style=\"font-size:48px;\"></span><span style=\"font-size:48px;\">77,506</span><span style=\"font-size:48px;\"></span><br>\n\t\t\t\t\t<span style=\"font-size:24px;\">MEALS AND FOOD<br>\n\t\t\t\t\tBOXES PROVIDED</span></strong><br>&nbsp;</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "77,506 MEALS AND FOOD BOXES PROVIDED&nbsp;",
+												"position": 0,
+												"fullName": "content:textarea:15:64",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:15:64",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:18:67-1:4 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:4 Columns:18:67-1:4 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:16:43": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\"><strong><span style=\"font-size:48px;\"></span><span style=\"font-size:48px;\">24,445</span><span style=\"font-size:48px;\"></span><br>\n\t\t\t\t\t<span style=\"font-size:24px;\">NIGHTS<br>\n\t\t\t\t\tOF SHELTER</span></strong><br>&nbsp;</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "24,445 NIGHTS OF SHELTER&nbsp;",
+												"position": 0,
+												"fullName": "content:textarea:16:43",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:16:43",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:18:67-1:4 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									},
+									"design:columns:4 Columns:18:67-1:4 Columns:3": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:17:38": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\"><strong><span style=\"font-size:48px;\"></span><span style=\"font-size:48px;\">29,234</span><span style=\"font-size:48px;\"></span><br>\n\t\t\t\t\t<span style=\"font-size:24px;\">CLOTHING<br>\n\t\t\t\t\tITEMS</span></strong><br>&nbsp;</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "29,234 CLOTHING ITEMS&nbsp;",
+												"position": 0,
+												"fullName": "content:textarea:17:38",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:17:38",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:18:67-1:4 Columns:3",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 3
+									}
+								}
+							},
+							"design:design:whitespace-sm:19:8": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 13,
+								"fullName": "design:design:whitespace-sm:19:8",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:20:6": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/c5e854b2-b2d9-4b51-8e9e-1162c96251c8_camp-youth3-symphony.jpg\" alt=\"Theater Image\" class=\"filter filter-none img-fluid\" style=\"display:block;max-width:100%;height:auto;margin:1rem auto;\" loading=\"lazy\">",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/c5e854b2-b2d9-4b51-8e9e-1162c96251c8_camp-youth3-symphony.jpg\" alt=\"Theater Image\" class=\"filter filter-none img-fluid\" style=\"display:block;max-width:100%;height:auto;margin:1rem auto;\" loading=\"lazy\">",
+								"model": "6",
+								"position": 14,
+								"fullName": "content:wysiwyg_basic:20:6",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:20:6",
+								"styles": {
+									"display": "block",
+									"maxWidth": "100%",
+									"height": "auto",
+									"margin": "1rem auto"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:21:75": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 15,
+								"fullName": "design:design:whitespace-sm:21:75",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:horizontalrule:23:13": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 16,
+								"fullName": "design:design:horizontalrule:23:13",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:24:53": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 17,
+								"fullName": "design:design:whitespace-xl:24:53",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:25:45": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Financial Information</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Financial Information",
+								"position": 18,
+								"fullName": "content:text:25:45",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:25:45",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:27:86": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 19,
+								"fullName": "design:design:whitespace-sm:27:86",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:30:63": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 20,
+								"fullName": "design:columns:2columns:30:63",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:30:63-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:26:85": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\" style=\"text-align:center;\"><p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">GOVERNMENT &amp; FUNDING AGENCIES</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">69,047</span></strong></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">SPECIAL EVENTS &amp; OTHER REVENUE</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">683,751</span><span style=\"font-size:48px;\">&nbsp;</span></strong></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">THRIFT&nbsp;STORE</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">3,027,420</span></strong></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">DONATIONS</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">2,074,380</span><span style=\"font-size:48px;\">&nbsp;</span></strong></span>\n</p><hr><p style=\"text-align:center;\">\n\t<span><span style=\"font-size:24px;\">TOTAL REVENUE</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">5,854,598</span></strong></span>\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\" style=\"text-align:center;\"><p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">GOVERNMENT &amp; FUNDING AGENCIES</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">69,047</span></strong></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">SPECIAL EVENTS &amp; OTHER REVENUE</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">683,751</span><span style=\"font-size:48px;\">&nbsp;</span></strong></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">THRIFT&nbsp;STORE</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">3,027,420</span></strong></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">DONATIONS</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">2,074,380</span><span style=\"font-size:48px;\">&nbsp;</span></strong></span>\n</p><hr><p style=\"text-align:center;\">\n\t<span><span style=\"font-size:24px;\">TOTAL REVENUE</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">5,854,598</span></strong></span>\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:26:85",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:26:85",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:30:63-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:30:63-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:28:55": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\" style=\"text-align:center;\"><p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">CORPS COMMUNITY CENTER</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">652,555</span></strong></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">MANAGEMENT &amp; GENERAL</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">265,206</span></strong></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">SOCIAL SERVICES</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">4,540,923</span><span style=\"font-size:48px;\">&nbsp;</span></strong></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">FUNDRAISING</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">213,817</span><span style=\"font-size:48px;\">&nbsp;</span></strong></span>\n</p><hr><p style=\"text-align:center;\">\n\t<span><span style=\"font-size:24px;\">TOTAL EXPENSES</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">5,672,501</span></strong></span>\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\" style=\"text-align:center;\"><p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">CORPS COMMUNITY CENTER</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">652,555</span></strong></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">MANAGEMENT &amp; GENERAL</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">265,206</span></strong></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">SOCIAL SERVICES</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">4,540,923</span><span style=\"font-size:48px;\">&nbsp;</span></strong></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span><span style=\"font-size:18px;\">FUNDRAISING</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">213,817</span><span style=\"font-size:48px;\">&nbsp;</span></strong></span>\n</p><hr><p style=\"text-align:center;\">\n\t<span><span style=\"font-size:24px;\">TOTAL EXPENSES</span><br>\n\t<strong><span style=\"font-size:48px;\">$</span><span style=\"font-size:48px;\">5,672,501</span></strong></span>\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:28:55",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:28:55",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:30:63-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"content:wysiwyg_basic:31:23": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\">\n\t<img class=\"img-fluid d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/2c8f3105-3055-47b9-b3ba-f3d232a8a015_uw-color-logo+copy.jpg\" style=\"width:111px;height:47px;max-width:100%;\"><span style=\"font-size:12px;\"><br>\n\tSupported in part by the United Way</span>\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\">\n\t<img class=\"img-fluid d-block mx-auto my-3\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/2c8f3105-3055-47b9-b3ba-f3d232a8a015_uw-color-logo+copy.jpg\" style=\"width:111px;height:47px;max-width:100%;\"><span style=\"font-size:12px;\"><br>\n\tSupported in part by the United Way</span>\n</p>",
+								"model": "6",
+								"position": 21,
+								"fullName": "content:wysiwyg_basic:31:23",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:31:23",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:42:76-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

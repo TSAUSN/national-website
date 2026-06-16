@@ -1,0 +1,10 @@
+<div className={styles.pvlRoot}>
+	<div class="row my-3">
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<h1>Heading 1</h1>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-12"></div>
+	</div>
+	{{block('/-/block/mobile_desktop_location_card_block.html?variant=7-b4c5f2bee9-g3phnp')}}
+	{{block('/-/block/mobile_desktop_location_card_block.html?variant=7-b4c5f2bee9-g3phnp')}}
+</div>

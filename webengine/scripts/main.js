@@ -28,6 +28,10 @@ window.onGoogleMapsLoaded = function () {
   if (mapEventContainer) {
     window.eventMap();
   }
+
+  if (typeof window.__globalLocationCardInit === 'function') {
+    window.__globalLocationCardInit();
+  }
 };
 
 // Load Google Maps API
@@ -439,6 +443,471 @@ function stripos(haystack, needle, offset = 0) {
   return position === -1 ? false : true;
 }
 
+function initLocationCardInstances() {
+  if (window.__globalLocationCardInitAttached) {
+    if (typeof window.__globalLocationCardInit === 'function') {
+      window.__globalLocationCardInit();
+    }
+    return;
+  }
+
+  const titleCaseRegex =
+    /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
+
+  function addressBuilder(address, city, state, zipcode) {
+    return [address || '', city || '', state || '', zipcode || ''].filter(Boolean).join(', ');
+  }
+
+  function calculateDistanceMiles(lat1, lng1, lat2, lng2) {
+    if (typeof window.calculateDistance === 'function') {
+      const finderDistance = window.calculateDistance(lat1, lng1, lat2, lng2);
+      if (typeof finderDistance === 'number' && isFinite(finderDistance)) {
+        return finderDistance;
+      }
+    }
+
+    const toRad = (value) => (value * Math.PI) / 180;
+    const earthRadiusMiles = 3958.8;
+    const dLat = toRad(lat2 - lat1);
+    const dLng = toRad(lng2 - lng1);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return earthRadiusMiles * c;
+  }
+
+  function showDistanceUnavailable(card) {
+    const locationDistance = card.querySelector('.location-distance');
+    if (!locationDistance) return;
+    locationDistance.classList.remove('d-none');
+    locationDistance.textContent = 'Distance unavailable';
+  }
+
+  function populateDistance(card, originLat, originLng) {
+    const locationDistance = card.querySelector('.location-distance');
+    if (!locationDistance) return;
+
+    const latitude = parseFloat(card.dataset.latitude || '');
+    const longitude = parseFloat(card.dataset.longitude || '');
+    if (isNaN(latitude) || isNaN(longitude)) {
+      showDistanceUnavailable(card);
+      return;
+    }
+
+    const distanceValue = calculateDistanceMiles(originLat, originLng, latitude, longitude);
+    if (typeof distanceValue !== 'number' || !isFinite(distanceValue)) {
+      showDistanceUnavailable(card);
+      return;
+    }
+
+    const distance = distanceValue.toFixed(1);
+    locationDistance.classList.remove('d-none');
+    locationDistance.textContent = `${distance} miles away from your location`;
+  }
+
+  function titleCaseCardText(card) {
+    card.querySelectorAll('.city-card-name').forEach((cityCardName) => {
+      cityCardName.textContent = cityCardName.textContent.replace(titleCaseRegex, (word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      });
+    });
+  }
+
+  function setupCard(card) {
+    if (card.dataset.locationCardInitialized === 'true') return;
+    card.dataset.locationCardInitialized = 'true';
+
+    const address = addressBuilder(card.dataset.address, card.dataset.city, card.dataset.state, '');
+    const encodedAddress = encodeURIComponent(address);
+
+    const locationCardAddress = card.querySelector('.location-card-address');
+    if (locationCardAddress) {
+      locationCardAddress.textContent = address || 'Address not available';
+      locationCardAddress.setAttribute('href', `https://www.google.com/maps?q=${encodedAddress}`);
+    }
+
+    const locationCardTransport = card.querySelector('.location-card-transport');
+    if (locationCardTransport) {
+      locationCardTransport.setAttribute(
+        'href',
+        `https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${encodedAddress}&travelmode=transit`
+      );
+    }
+
+    const locationCardWalking = card.querySelector('.location-card-walking');
+    if (locationCardWalking) {
+      locationCardWalking.setAttribute(
+        'href',
+        `https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${encodedAddress}&travelmode=walking`
+      );
+    }
+
+    const locationCardDriving = card.querySelector('.location-card-driving');
+    if (locationCardDriving) {
+      locationCardDriving.setAttribute(
+        'href',
+        `https://www.google.com/maps/dir/?api=1&origin=current-location&destination=${encodedAddress}&travelmode=driving`
+      );
+    }
+
+    titleCaseCardText(card);
+  }
+
+  function getCurrentSearchCoords() {
+    const searchLocation = window.currentSearchLocation;
+    if (!searchLocation) return null;
+
+    const lat = typeof searchLocation.lat === 'function' ? searchLocation.lat() : searchLocation.lat;
+    const lng = typeof searchLocation.lng === 'function' ? searchLocation.lng() : searchLocation.lng;
+    if (typeof lat !== 'number' || typeof lng !== 'number' || isNaN(lat) || isNaN(lng)) return null;
+
+    return { lat, lng };
+  }
+
+  function getMapCenterCoords() {
+    if (!window.map || typeof window.map.getCenter !== 'function') return null;
+
+    const center = window.map.getCenter();
+    if (!center) return null;
+
+    const lat = typeof center.lat === 'function' ? center.lat() : center.lat;
+    const lng = typeof center.lng === 'function' ? center.lng() : center.lng;
+    if (typeof lat !== 'number' || typeof lng !== 'number' || isNaN(lat) || isNaN(lng)) return null;
+
+    return { lat, lng };
+  }
+
+  function getSearchInputValue() {
+    const input =
+      document.getElementById('location-finder__input') ||
+      document.getElementById('pac-input-mobile') ||
+      document.getElementById('pac-input');
+    return input && input.value ? input.value.trim() : '';
+  }
+
+  function geocodeSearchInput() {
+    return new Promise((resolve, reject) => {
+      const query = getSearchInputValue();
+      if (!query) {
+        reject(new Error('No search input value available.'));
+        return;
+      }
+
+      if (
+        !(
+          window.google &&
+          window.google.maps &&
+          typeof window.google.maps.Geocoder === 'function'
+        )
+      ) {
+        reject(new Error('Google geocoder unavailable.'));
+        return;
+      }
+
+      const geocoder = new window.google.maps.Geocoder();
+      geocoder.geocode({ address: query }, (results, status) => {
+        if (status === 'OK' && results && results.length > 0) {
+          const loc = results[0].geometry.location;
+          const coords = { lat: loc.lat(), lng: loc.lng() };
+          window.currentSearchLocation = coords;
+          resolve(coords);
+        } else {
+          reject(new Error(`Geocoding failed: ${status}`));
+        }
+      });
+    });
+  }
+
+  function isValidUSZipcode(zipcode) {
+    return /^\d{5}(-\d{4})?$/.test(zipcode || '');
+  }
+
+  function getAddressFromCoordinates(latitude, longitude) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const response = await fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+        );
+        if (!response.ok) {
+          reject(new Error('Reverse geocode request failed.'));
+          return;
+        }
+
+        const data = await response.json();
+        if (data && data.display_name && data.address) {
+          const parts = [
+            data.address.city || data.address.town || data.address.village,
+            data.address.state,
+            data.address.postcode
+          ].filter(Boolean);
+          resolve(parts.join(', '));
+          return;
+        }
+
+        reject(new Error('No address found from coordinates.'));
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+
+  function geocodeAddressLikeMap(address) {
+    return new Promise((resolve, reject) => {
+      const geocoder =
+        window.geocoder ||
+        (window.google && window.google.maps && typeof window.google.maps.Geocoder === 'function'
+          ? new window.google.maps.Geocoder()
+          : null);
+
+      if (!geocoder) {
+        reject(new Error('Geocoder unavailable.'));
+        return;
+      }
+
+      let geocodeRequest;
+      if (isValidUSZipcode(address)) {
+        geocodeRequest = {
+          address,
+          componentRestrictions: {
+            country: 'US',
+            postalCode: address
+          }
+        };
+      } else {
+        geocodeRequest = {
+          address,
+          componentRestrictions: {
+            country: 'US'
+          }
+        };
+      }
+
+      geocoder.geocode(geocodeRequest, (results, status) => {
+        if (status === 'OK' && results && results.length > 0) {
+          const location = results[0].geometry.location;
+          resolve({ lat: location.lat(), lng: location.lng() });
+        } else {
+          reject(new Error(`Geocoding failed: ${status}`));
+        }
+      });
+    });
+  }
+
+  function getCookieValue(name) {
+    const cookies = document.cookie ? document.cookie.split(';') : [];
+    for (let i = 0; i < cookies.length; i += 1) {
+      const cookie = cookies[i].trim();
+      if (cookie.startsWith(`${name}=`)) {
+        return decodeURIComponent(cookie.substring(name.length + 1));
+      }
+    }
+    return '';
+  }
+
+  function buildCookieLocationQuery() {
+    const address = getCookieValue('location_address');
+    const city = getCookieValue('location_city');
+    const state = getCookieValue('location_state');
+    const zipcode = getCookieValue('location_zipcode');
+    return [address, city, state, zipcode].filter(Boolean).join(', ');
+  }
+
+  function geocodeAddressWithNominatim(address) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        if (!address) {
+          reject(new Error('No address provided.'));
+          return;
+        }
+        const response = await fetch(
+          `https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=${encodeURIComponent(
+            address
+          )}`
+        );
+        if (!response.ok) {
+          reject(new Error('Nominatim search request failed.'));
+          return;
+        }
+        const data = await response.json();
+        if (Array.isArray(data) && data.length > 0) {
+          const lat = parseFloat(data[0].lat);
+          const lng = parseFloat(data[0].lon);
+          if (!isNaN(lat) && !isNaN(lng)) {
+            resolve({ lat, lng });
+            return;
+          }
+        }
+        reject(new Error('Nominatim returned no valid coordinates.'));
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+
+  async function getCookieLocationCoords() {
+    const query = buildCookieLocationQuery();
+    if (!query) {
+      throw new Error('No cookie location available.');
+    }
+
+    try {
+      return await geocodeAddressLikeMap(query);
+    } catch (_error) {
+      return geocodeAddressWithNominatim(query);
+    }
+  }
+
+  function getGeolocationCoords() {
+    return new Promise((resolve, reject) => {
+      if (!navigator.geolocation) {
+        reject(new Error('Geolocation is not supported by this browser.'));
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const rawCoords = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          try {
+            // Match map.js flow: browser coords -> reverse geocode address -> geocode address.
+            const address = await getAddressFromCoordinates(rawCoords.lat, rawCoords.lng);
+            const geocodedCoords = await geocodeAddressLikeMap(address);
+            window.currentSearchLocation = geocodedCoords;
+            resolve(geocodedCoords);
+          } catch (_error) {
+            // Fallback to raw GPS coordinates if reverse/geocode fails.
+            window.currentSearchLocation = rawCoords;
+            resolve(rawCoords);
+          }
+        },
+        (error) => {
+          reject(error);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 300000
+        }
+      );
+    });
+  }
+
+  async function resolveOriginCoords() {
+    const currentSearch = getCurrentSearchCoords();
+    if (currentSearch) return currentSearch;
+
+    try {
+      return await geocodeSearchInput();
+    } catch (_error) {
+      // Fall through to geolocation
+    }
+
+    try {
+      return await getGeolocationCoords();
+    } catch (_error) {
+      try {
+        return await getCookieLocationCoords();
+      } catch (_cookieError) {
+        // Fall through to map center.
+      }
+      const mapCenter = getMapCenterCoords();
+      if (mapCenter) return mapCenter;
+      throw _error;
+    }
+  }
+
+  function initAllLocationCards() {
+    const cards = Array.from(document.querySelectorAll('.location-card-instance'));
+    if (!cards.length) return;
+
+    cards.forEach(setupCard);
+
+    const currentSearch = getCurrentSearchCoords();
+    if (currentSearch) {
+      window.__globalLocationCardCoordsPromise = Promise.resolve(currentSearch);
+    } else if (!window.__globalLocationCardCoordsPromise) {
+      window.__globalLocationCardCoordsPromise = resolveOriginCoords();
+    }
+
+    if (!window.__globalLocationCardCoordsPromise) {
+      cards.forEach(showDistanceUnavailable);
+      return;
+    }
+
+    window.__globalLocationCardCoordsPromise
+      .then((coords) => {
+        window.__globalLocationCardResolvedCoords = coords;
+        cards.forEach((card) => populateDistance(card, coords.lat, coords.lng));
+      })
+      .catch(() => {
+        window.__globalLocationCardCoordsPromise = null;
+        if (window.__globalLocationCardResolvedCoords) {
+          cards.forEach((card) =>
+            populateDistance(
+              card,
+              window.__globalLocationCardResolvedCoords.lat,
+              window.__globalLocationCardResolvedCoords.lng
+            )
+          );
+          return;
+        }
+        cards.forEach(showDistanceUnavailable);
+      });
+  }
+
+  window.__globalLocationCardInit = initAllLocationCards;
+  window.__globalLocationCardInitAttached = true;
+  initAllLocationCards();
+
+  setTimeout(() => {
+    if (typeof window.__globalLocationCardInit === 'function') {
+      window.__globalLocationCardInit();
+    }
+  }, 1200);
+
+  const observer = new MutationObserver((mutations) => {
+    let shouldInit = false;
+
+    for (let i = 0; i < mutations.length; i += 1) {
+      const mutation = mutations[i];
+      for (let j = 0; j < mutation.addedNodes.length; j += 1) {
+        const node = mutation.addedNodes[j];
+        if (!node || node.nodeType !== 1) continue;
+        if (node.matches('.location-card-instance') || node.querySelector('.location-card-instance')) {
+          shouldInit = true;
+          break;
+        }
+      }
+      if (shouldInit) break;
+    }
+
+    if (shouldInit) initAllLocationCards();
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+  window.__globalLocationCardObserver = observer;
+
+  window.__globalLocationCardOriginWatcher = setInterval(() => {
+    const origin = getCurrentSearchCoords();
+    if (!origin) return;
+
+    const originKey = `${origin.lat.toFixed(6)},${origin.lng.toFixed(6)}`;
+    if (originKey === window.__globalLocationCardLastOriginKey) return;
+
+    window.__globalLocationCardLastOriginKey = originKey;
+    window.__globalLocationCardResolvedCoords = origin;
+    window.__globalLocationCardCoordsPromise = Promise.resolve(origin);
+
+    if (typeof window.__globalLocationCardInit === 'function') {
+      window.__globalLocationCardInit();
+    }
+  }, 1000);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   // Toggle subcategory lists
   document.querySelectorAll('.btn-category').forEach((btn) => {
@@ -464,4 +933,5 @@ document.addEventListener('DOMContentLoaded', function () {
   // wysiwygTracking();
   // loadGoogleMapsAPI();
   applyTitleCase();
+  initLocationCardInstances();
 });

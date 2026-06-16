@@ -1,0 +1,429 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:94:0:58": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-e2afd280e7-92r5nf')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-e2afd280e7-92r5nf')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:94:0:58",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:design:whitespace-sm:1:3623": {
+				"uid": "351",
+				"name": "Whitespace - Small",
+				"type": "design",
+				"classes": "my-2",
+				"html": "<div class=\"my-2\"></div>",
+				"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+				"droppable": true,
+				"position": 1,
+				"fullName": "design:design:whitespace-sm:1:3623",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank"
+			},
+			"design:columns:1 column - 1 row my-3:21:48": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 2,
+				"fullName": "design:columns:1 column - 1 row my-3:21:48",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:21:48-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:images:0:1613": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/45ca6522-855a-4e1d-a664-5f005a128182_womendesk.png\" alt=\"placeholder\" class=\"img-fluid w-100 d-block mx-auto mb-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/45ca6522-855a-4e1d-a664-5f005a128182_womendesk.png",
+								"position": 0,
+								"fullName": "content:images:0:1613",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:21:48-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:1:3": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">The Women's Auxiliary<br>\nA Helping Hand to The Salvation Army</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "The Women's Auxiliary A Helping Hand to The Salvation Army",
+								"position": 1,
+								"fullName": "content:text:1:3",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:1:3",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:21:48-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:2:75": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#ffffff;\">\n                    <h5 style=\"text-align:center;\"><br>\nOur Mission:</h5>\n\n<p style=\"text-align:center;color:#fff;\">\n\tThe Salvation Army Women's Auxiliary is made up of women who volunteer their time, talent and treasures to raise funds for the work of The Salvation Army throughout Central Alabama.<br>\n\t&nbsp;\n</p>\n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"text-white rounded p-6 gap-3 my-5\" style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#ffffff;\">\n                    <h5 style=\"text-align:center;\"><br>\nOur Mission:</h5>\n\n<p style=\"text-align:center;color:#fff;\">\n\tThe Salvation Army Women's Auxiliary is made up of women who volunteer their time, talent and treasures to raise funds for the work of The Salvation Army throughout Central Alabama.<br>\n\t&nbsp;\n</p>\n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"position": 2,
+								"fullName": "content:wysiwyg_basic:2:75",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:75",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "300px",
+									"background": "#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover"
+								},
+								"classes": "text-white rounded p-6 gap-3 my-5",
+								"newLoc": "design:columns:1 column - 1 row my-3:21:48-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:3:30": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 3,
+								"fullName": "design:design:whitespace-sm:3:30",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:21:48-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:4:74": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Schedule:</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Schedule:",
+								"position": 4,
+								"fullName": "content:text:4:74",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:4:74",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:21:48-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:5:69": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">We meet an average of once a quarter on the Last Wednesday of the assigned month, with night meetings being available upon request.</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "We meet an average of once a quarter on the Last Wednesday of the assigned month, with night meetings being available upon request.",
+								"position": 5,
+								"fullName": "content:textarea:5:69",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:5:69",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:21:48-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:6:66": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\"><strong>Upcoming Meetings:</strong></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Upcoming Meetings:",
+								"position": 6,
+								"fullName": "content:textarea:6:66",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:6:66",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:21:48-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:7:86": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 7,
+								"fullName": "design:design:whitespace-sm:7:86",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:21:48-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:13:57": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 8,
+								"fullName": "design:columns:3 Columns:13:57",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:21:48-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:13:57-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:8:73": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tJanuary 22, 2025\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "January 22, 2025",
+												"position": 0,
+												"fullName": "content:textarea:8:73",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:8:73",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:13:57-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:9:22": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tMarch 26, 2025\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "March 26, 2025",
+												"position": 1,
+												"fullName": "content:textarea:9:22",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:9:22",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:13:57-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:13:57-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:10:55": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tApril - Major Fundraiser (tba)\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "April - Major Fundraiser (tba)",
+												"position": 0,
+												"fullName": "content:textarea:10:55",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:10:55",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:13:57-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:13:57-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:11:11": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tMay 28, 2025\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "May 28, 2025",
+												"position": 0,
+												"fullName": "content:textarea:11:11",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:11:11",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:13:57-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:12:78": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tJune 25, 2025\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "June 25, 2025",
+												"position": 1,
+												"fullName": "content:textarea:12:78",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:12:78",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:13:57-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:design:whitespace-sm:14:50": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 9,
+								"fullName": "design:design:whitespace-sm:14:50",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:21:48-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:15:60": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#ffffff;\">\n                    <h5 style=\"text-align:center;\">Service Opportunities:</h5>\n\n<p style=\"text-align:center;color:#fff;\">\n\tWe engage in 1 major fundraiser a year that enables us to commit to:\n</p>\n\n<ul>\n\t<li>Supplying bedding and linens to the families in our shelter program</li>\n\t<li>Supplying school supplies to our sheltered children</li>\n\t<li>Supplying spring break and summer trips for our sheltered families</li>\n\t<li>Working on the annual Christmas Tree program</li>\n</ul>\n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"text-white rounded p-6 gap-3 my-5\" style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#ffffff;\">\n                    <h5 style=\"text-align:center;\">Service Opportunities:</h5>\n\n<p style=\"text-align:center;color:#fff;\">\n\tWe engage in 1 major fundraiser a year that enables us to commit to:\n</p>\n\n<ul>\n\t<li>Supplying bedding and linens to the families in our shelter program</li>\n\t<li>Supplying school supplies to our sheltered children</li>\n\t<li>Supplying spring break and summer trips for our sheltered families</li>\n\t<li>Working on the annual Christmas Tree program</li>\n</ul>\n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"position": 10,
+								"fullName": "content:wysiwyg_basic:15:60",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:15:60",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "300px",
+									"background": "#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover"
+								},
+								"classes": "text-white rounded p-6 gap-3 my-5",
+								"newLoc": "design:columns:1 column - 1 row my-3:21:48-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

@@ -1,0 +1,499 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"design:columns:1 column - 1 row my-3:29:70": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 0,
+				"fullName": "design:columns:1 column - 1 row my-3:29:70",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:29:70-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:images:1:7": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/8e98879a-8261-46f4-9abe-2a42e93c3eff_BED-%26-BREAD-LOGO-v2-POM-HORIZ.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/8e98879a-8261-46f4-9abe-2a42e93c3eff_BED-%26-BREAD-LOGO-v2-POM-HORIZ.png",
+								"position": 0,
+								"fullName": "content:images:1:7",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:70-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:3:42": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 1,
+								"fullName": "design:design:whitespace-sm:3:42",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:70-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columnswideleft:10:64": {
+								"uid": "19",
+								"name": "2 Columns - Left Big",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:4\"></div><div style=\"flex:2\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "4",
+										"html": "<div class=\"col-md-8 col-sm-12\">*</div>",
+										"classes": "col-md-8 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "2",
+										"html": "<div class=\"col-md-4 col-sm-12\">*</div>",
+										"classes": "col-md-4 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 2,
+								"fullName": "design:columns:2columnswideleft:10:64",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:70-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columnswideleft:10:64-4:2 Columns - Left Big:0": {
+										"width": "4",
+										"html": "<div class=\"col-md-8 col-sm-12\">*</div>",
+										"classes": "col-md-8 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:5:47": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tThe Bed &amp; Bread Club®&nbsp;is a monthly giving program powered by compassionate people like you who want to support their neighbors in need. By pledging to donate monthly, you can join the fight to address homelessness, the affordable housing crisis and hunger throughout Maryland, Virginia, West Virginia, and the National Capital area.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "The Bed &amp; Bread Club®&nbsp;is a monthly giving program powered by compassionate people like you who want to support their neighbors in need. By pledging to donate monthly, you can join the fight to address homelessness, the affordable housing crisis and hunger throughout Maryland, Virginia, West Virginia, and the National Capital area.",
+												"position": 0,
+												"fullName": "content:textarea:5:47",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:5:47",
+												"styles": {},
+												"newLoc": "design:columns:2columnswideleft:10:64-4:2 Columns - Left Big:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:text:6:7": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h5>Make an Impact</h5>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "Make an Impact",
+												"position": 1,
+												"fullName": "content:text:6:7",
+												"htmlElement": "h5",
+												"primarytype": "content",
+												"id": "content:text:6:7",
+												"styles": {},
+												"newLoc": "design:columns:2columnswideleft:10:64-4:2 Columns - Left Big:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:7:66": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tWhen you give to The Salvation Army Potomac Division, you are making a direct impact on your community through local programming and services that help your less fortunate neighbors. You are giving hope to thousands of men, women, and children who come to The Salvation Army every day looking for a helping hand and a reason to believe in a brighter future.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "When you give to The Salvation Army Potomac Division, you are making a direct impact on your community through local programming and services that help your less fortunate neighbors. You are giving hope to thousands of men, women, and children who come to The Salvation Army every day looking for a helping hand and a reason to believe in a brighter future.",
+												"position": 2,
+												"fullName": "content:textarea:7:66",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:7:66",
+												"styles": {},
+												"newLoc": "design:columns:2columnswideleft:10:64-4:2 Columns - Left Big:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columnswideleft:10:64-2:2 Columns - Left Big:1": {
+										"width": "2",
+										"html": "<div class=\"col-md-4 col-sm-12\">*</div>",
+										"classes": "col-md-4 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:8:74": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/71bde984-7852-4f6e-8b7f-df4425f99400_Feeding.jpg\" alt=\"placeholder\" class=\"img-fluid d-block my-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/71bde984-7852-4f6e-8b7f-df4425f99400_Feeding.jpg",
+												"position": 0,
+												"fullName": "content:images:8:74",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:2columnswideleft:10:64-2:2 Columns - Left Big:1",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"content:textarea:11:6": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tJoin the bed &amp; bread club today\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Join the bed &amp; bread club today",
+								"position": 3,
+								"fullName": "content:textarea:11:6",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:11:6",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:29:70-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:12:74": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tWe are fully committed to meeting the direct needs of struggling families and individuals here in our community. But we can’t help them without your support. By becoming a member of the Bed &amp; Bread Club, your monthly gift will make a real difference in the lives of the people we serve every day.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "We are fully committed to meeting the direct needs of struggling families and individuals here in our community. But we can’t help them without your support. By becoming a member of the Bed &amp; Bread Club, your monthly gift will make a real difference in the lives of the people we serve every day.",
+								"position": 4,
+								"fullName": "content:textarea:12:74",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:12:74",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:29:70-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:13:82": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 5,
+								"fullName": "design:design:whitespace-sm:13:82",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:70-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:6columns:26:74": {
+								"uid": "100",
+								"name": "6 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "",
+								"droppable": false,
+								"numberOfColumns": 6,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col col-md-2 col-sm-12\">*</div>",
+										"classes": "col col-md-2 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col col-md-2 col-sm-12\">*</div>",
+										"classes": "col col-md-2 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col col-md-2 col-sm-12\">*</div>",
+										"classes": "col col-md-2 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col col-md-2 col-sm-12\">*</div>",
+										"classes": "col col-md-2 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col col-md-2 col-sm-12\">*</div>",
+										"classes": "col col-md-2 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col col-md-2 col-sm-12\">*</div>",
+										"classes": "col col-md-2 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 6,
+								"fullName": "design:columns:6columns:26:74",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:70-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:6columns:26:74-1:6 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col col-md-2 col-sm-12\">*</div>",
+										"classes": "col col-md-2 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:14:92": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.virginiasalvationarmy.org/give/304409/#!/donation/checkout?recurring=1&amp;amount=500\" target=\"_blank\" class=\"btn btn-primary gap-1 mt-2\">$500</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.virginiasalvationarmy.org/give/304409/#!/donation/checkout?recurring=1&amp;amount=500\" target=\"_blank\" class=\"btn btn-primary gap-1 mt-2\">$500</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:14:92",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:14:92",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:6columns:26:74-1:6 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:6columns:26:74-1:6 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col col-md-2 col-sm-12\">*</div>",
+										"classes": "col col-md-2 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:16:79": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.virginiasalvationarmy.org/give/304409/#!/donation/checkout?recurring=1&amp;amount=250\" target=\"_blank\" class=\"btn btn-primary gap-1 mt-2\">$250</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.virginiasalvationarmy.org/give/304409/#!/donation/checkout?recurring=1&amp;amount=250\" target=\"_blank\" class=\"btn btn-primary gap-1 mt-2\">$250</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:16:79",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:16:79",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:6columns:26:74-1:6 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:6columns:26:74-1:6 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col col-md-2 col-sm-12\">*</div>",
+										"classes": "col col-md-2 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:18:38": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.virginiasalvationarmy.org/give/304409/#!/donation/checkout?recurring=1&amp;amount=100\" target=\"_blank\" class=\"btn btn-primary gap-1 mt-2\">$100</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.virginiasalvationarmy.org/give/304409/#!/donation/checkout?recurring=1&amp;amount=100\" target=\"_blank\" class=\"btn btn-primary gap-1 mt-2\">$100</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:18:38",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:18:38",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:6columns:26:74-1:6 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									},
+									"design:columns:6columns:26:74-1:6 Columns:3": {
+										"width": "1",
+										"html": "<div class=\"col col-md-2 col-sm-12\">*</div>",
+										"classes": "col col-md-2 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:20:78": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.virginiasalvationarmy.org/give/304409/#!/donation/checkout?recurring=1&amp;amount=50\" target=\"_blank\" class=\"btn btn-primary gap-1 mt-2\">$50</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.virginiasalvationarmy.org/give/304409/#!/donation/checkout?recurring=1&amp;amount=50\" target=\"_blank\" class=\"btn btn-primary gap-1 mt-2\">$50</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:20:78",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:20:78",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:6columns:26:74-1:6 Columns:3",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 3
+									},
+									"design:columns:6columns:26:74-1:6 Columns:4": {
+										"width": "1",
+										"html": "<div class=\"col col-md-2 col-sm-12\">*</div>",
+										"classes": "col col-md-2 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:22:67": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.virginiasalvationarmy.org/give/304409/#!/donation/checkout?recurring=1&amp;amount=25\" target=\"_blank\" class=\"btn btn-primary gap-1 mt-2\">$25</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.virginiasalvationarmy.org/give/304409/#!/donation/checkout?recurring=1&amp;amount=25\" target=\"_blank\" class=\"btn btn-primary gap-1 mt-2\">$25</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:22:67",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:22:67",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:6columns:26:74-1:6 Columns:4",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 4
+									},
+									"design:columns:6columns:26:74-1:6 Columns:5": {
+										"width": "1",
+										"html": "<div class=\"col col-md-2 col-sm-12\">*</div>",
+										"classes": "col col-md-2 col-sm-12",
+										"droppable": true,
+										"children": {
+											"design:design:whitespace:25:61": {
+												"uid": "99",
+												"name": "White Space",
+												"type": "design",
+												"html": "<br>",
+												"preview": "<div style=\"border-style: dashed; height: 20px;\"></div>",
+												"classes": "",
+												"droppable": false,
+												"position": 0,
+												"fullName": "design:design:whitespace:25:61",
+												"primarytype": "design",
+												"newLoc": "design:columns:6columns:26:74-1:6 Columns:5",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 5
+									}
+								}
+							},
+							"content:textarea:27:84": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tDue to Inflation and the rising cost of living, resources are more sparse than ever, but the overwhelming demand for housing, rent assistance, and utility assistance persists. The Salvation Army does not close its doors to people experiencing poverty, even in times of&nbsp;financial crisis like the one we are experiencing now. Please consider becoming a Bed &amp; Bread Club member today so we can continue to Do the Most Good for those in need, no matter the circumstances.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Due to Inflation and the rising cost of living, resources are more sparse than ever, but the overwhelming demand for housing, rent assistance, and utility assistance persists. The Salvation Army does not close its doors to people experiencing poverty, even in times of&nbsp;financial crisis like the one we are experiencing now. Please consider becoming a Bed &amp; Bread Club member today so we can continue to Do the Most Good for those in need, no matter the circumstances.",
+								"position": 7,
+								"fullName": "content:textarea:27:84",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:27:84",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:29:70-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

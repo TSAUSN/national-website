@@ -1,0 +1,436 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:6:0:39": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-e08290c09f-htt60n')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-e08290c09f-htt60n')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:6:0:39",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:29:77": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:29:77",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:textarea:1:60": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tThe Women’s Auxiliary supports financially, physically and spiritually, the various services of The Salvation Army including the Center of Hope shelter for women and children; area Youth Programs; Christmas assistance programs; the Adult Rehabilitation Center; and more.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Women’s Auxiliary supports financially, physically and spiritually, the various services of The Salvation Army including the Center of Hope shelter for women and children; area Youth Programs; Christmas assistance programs; the Adult Rehabilitation Center; and more.",
+								"position": 0,
+								"fullName": "content:textarea:1:60",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:1:60",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-md:2:73": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 1,
+								"fullName": "design:design:whitespace-md:2:73",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:3:90": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">The greatest need right now is donations for local programs</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "The greatest need right now is donations for local programs",
+								"position": 2,
+								"fullName": "content:text:3:90",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:3:90",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:4:52": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/623102/#!/donation/checkout\" class=\"btn btn-primary gap-1 mt-2\">Donate</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/give/623102/#!/donation/checkout\" class=\"btn btn-primary gap-1 mt-2\">Donate</a></p>",
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:4:52",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:4:52",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:5:86": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:5:86",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:10:74": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 5,
+								"fullName": "design:columns:2columns:10:74",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:10:74-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:6:57": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h5><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/b32d625d-d68f-4c7f-9d6e-b63e70546c0b_art+web+edit.jpg\"></h5>\n\n<h5>Scholarships</h5>\n\n<p>\n\tProvides scholarships for young adults, from The Salvation Army Youth Programs, so they may further their education. <a href=\"https://youtube.com/playlist?list=PLUYy6pjJVVy_PeEmMwsVwGDjANIbKqI-c\" target=\"\">Hear from previous scholarship winners</a>.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h5><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/b32d625d-d68f-4c7f-9d6e-b63e70546c0b_art+web+edit.jpg\"></h5>\n\n<h5>Scholarships</h5>\n\n<p>\n\tProvides scholarships for young adults, from The Salvation Army Youth Programs, so they may further their education. <a href=\"https://youtube.com/playlist?list=PLUYy6pjJVVy_PeEmMwsVwGDjANIbKqI-c\" target=\"\">Hear from previous scholarship winners</a>.\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:6:57",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:6:57",
+												"styles": {},
+												"newLoc": "design:columns:2columns:10:74-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:10:74-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:8:18": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h5><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a1207d63-58dc-4249-ace2-c5fffb2d9b71_food+tray+2.png\"></h5>\n\n<h5>Service Activities</h5>\n\n<p>\n\tMembers of the Auxiliary volunteer their time and resources to provide support for families at our Center of Hope who are experiencing homelessness, students at our Salvation Army Youth Programs, participants in the Belmont Community Worship Center senior program, and the men residing at our Adult Rehabilitation Center.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h5><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a1207d63-58dc-4249-ace2-c5fffb2d9b71_food+tray+2.png\"></h5>\n\n<h5>Service Activities</h5>\n\n<p>\n\tMembers of the Auxiliary volunteer their time and resources to provide support for families at our Center of Hope who are experiencing homelessness, students at our Salvation Army Youth Programs, participants in the Belmont Community Worship Center senior program, and the men residing at our Adult Rehabilitation Center.\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:8:18",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:8:18",
+												"styles": {},
+												"newLoc": "design:columns:2columns:10:74-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"content:text:11:7": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Looking for fellowship, fun and flexible volunteer/service opportunities? Come join us!</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Looking for fellowship, fun and flexible volunteer/service opportunities? Come join us!",
+								"position": 6,
+								"fullName": "content:text:11:7",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:11:7",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:12:92": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/04d8a225-f58e-4633-9a2b-94f5b4f1f23a_SAWA+Application+2025+-2026.pdf\" class=\"btn btn-secondary gap-1 mt-2\">Membership Application</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/04d8a225-f58e-4633-9a2b-94f5b4f1f23a_SAWA+Application+2025+-2026.pdf\" class=\"btn btn-secondary gap-1 mt-2\">Membership Application</a></p>",
+								"model": "6",
+								"position": 7,
+								"fullName": "content:wysiwyg_basic:12:92",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:12:92",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:13:80": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 8,
+								"fullName": "design:design:whitespace-sm:13:80",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:14:33": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/campaign/711608/donate\" class=\"btn btn-primary gap-1 mt-2\">Pay Membership Dues</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/campaign/711608/donate\" class=\"btn btn-primary gap-1 mt-2\">Pay Membership Dues</a></p>",
+								"model": "6",
+								"position": 9,
+								"fullName": "content:wysiwyg_basic:14:33",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:14:33",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:15:30": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 10,
+								"fullName": "design:design:whitespace-sm:15:30",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:16:84": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/97cd299a-8cb0-44f4-b629-501a2a4dad6d_SAWA+Committee+Responsibilities+2025.pdf\" class=\"btn btn-secondary gap-1 mt-2\">Committees</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/97cd299a-8cb0-44f4-b629-501a2a4dad6d_SAWA+Committee+Responsibilities+2025.pdf\" class=\"btn btn-secondary gap-1 mt-2\">Committees</a></p>",
+								"model": "6",
+								"position": 11,
+								"fullName": "content:wysiwyg_basic:16:84",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:16:84",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:17:28": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 12,
+								"fullName": "design:design:whitespace-sm:17:28",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:19:43": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Newsletter</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Newsletter",
+								"position": 13,
+								"fullName": "content:text:19:43",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:19:43",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:20:22": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\">\n\t<a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/4039ea48-298e-4688-a2d3-cc63d64d9290_SAWA+March+2026+newsletter.pdf\" class=\"btn btn-secondary gap-1 mt-2\">&nbsp;2026</a>\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\">\n\t<a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/4039ea48-298e-4688-a2d3-cc63d64d9290_SAWA+March+2026+newsletter.pdf\" class=\"btn btn-secondary gap-1 mt-2\">&nbsp;2026</a>\n</p>",
+								"model": "6",
+								"position": 14,
+								"fullName": "content:wysiwyg_basic:20:22",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:20:22",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:21:25": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 15,
+								"fullName": "design:design:whitespace-sm:21:25",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:23:29": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img width=\"298\" height=\"241\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/2ac977ca-56bc-407c-b5e4-65d1ab4c3fef_Womens+Auxiliary+transparent.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 rounded mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/2ac977ca-56bc-407c-b5e4-65d1ab4c3fef_Womens+Auxiliary+transparent.png",
+								"position": 16,
+								"fullName": "content:images:23:29",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:77-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

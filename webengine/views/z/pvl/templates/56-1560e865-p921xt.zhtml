@@ -1,0 +1,18 @@
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-aaa5a8bc8b-nzgq56&version=1')}}
+	<div class="row">
+		<div class="column p-6 rounded-5 bg-light mb-18">
+			<div class="row my-3">
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					{{block('/-/block/info_block.html?variant=7-a0e48afbe0-rmbnsg&version=6')}}
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					{{block('/-/block/info_block.html?variant=7-90dae5a1b1-sd9rzg&version=3')}}
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					{{block('/-/block/info_block.html?variant=7-e8a1dcd2d7-w46qvz&version=5')}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
