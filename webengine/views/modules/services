@@ -44,7 +44,7 @@
       {{else if {homepage.first().zuid} == {this.zuid} }}
       <h4>How We Serve</h4>
       {{else}}
-      <h4>{{ this.seo_meta_title }} Services</h4>
+      <h4 class="services-module-heading">{{ this.seo_meta_title }} Services</h4>
       {{/if}}
     </div>
 
@@ -441,7 +441,18 @@
   const cookieModel = getCookieByName('model');
   const cookieLocationName = getCookieByName('location_name');
   const cookieLocationFinderUrl = getCookieByName('location_finder_url');
+  const servicesModuleHeading = document.querySelector('.services-module-heading');
   const locationFinderButtons = document.querySelectorAll('.location-finder-button');
+
+  if (
+    servicesModuleHeading &&
+    cookieLocationName &&
+    cookieLocationName !== 'NATIONAL' &&
+    cookieLocationName !== 'null' &&
+    cookieLocationName !== 'undefined'
+  ) {
+    servicesModuleHeading.textContent = `${cookieLocationName} Services`;
+  }
 
   locationFinderButtons.forEach((locationFinderButton) => {
     if (

@@ -1,7 +1,7 @@
 {{$location = {this.parent_zuid} }}
 
-<div class="d-flex flex-column gap-4 justify-content-between h-100">
-  <h4 class="fw-normal">{{locations.filter({$location}).name}}</h4>
+<div class="d-flex flex-column gap-4 justify-content-between h-100" data-map-contact-information-pointer>
+  <h4 class="fw-normal" data-map-location-name>{{locations.filter({$location}).name}}</h4>
 
   <div class="mb-auto">
     <div
@@ -170,6 +170,52 @@
 
 <script>
   const locZuid = "{{$location}}";
+  const renderedLocationName = `{{locations.filter({$location}).name}}`;
+
+  const getNavigationLocationName = function() {
+    if (
+      typeof cookieManager === `undefined` ||
+      typeof cookieKeys === `undefined` ||
+      !cookieManager.get ||
+      !cookieKeys.locationName
+    ) {
+      return null;
+    }
+
+    return cookieManager.get(cookieKeys.locationName);
+  };
+
+  const waitForNavigationLocationName = function(maxAttempts = 20, delay = 100) {
+    return new Promise((resolve) => {
+      let attempts = 0;
+
+      const checkLocationName = function() {
+        const locationName = getNavigationLocationName();
+
+        if (locationName || attempts >= maxAttempts) {
+          resolve(locationName);
+          return;
+        }
+
+        attempts += 1;
+        setTimeout(checkLocationName, delay);
+      };
+
+      checkLocationName();
+    });
+  };
+
+  const setContactPointerLocationName = function(contactPointer, locationName) {
+    const locationNameHeading = contactPointer.querySelector(`[data-map-location-name]`);
+
+    if (locationNameHeading) {
+      locationNameHeading.textContent = locationName;
+    }
+
+    contactPointer.querySelectorAll(`[data-location-name]`).forEach((element) => {
+      element.setAttribute(`data-location-name`, locationName);
+    });
+  };
 
   const fetchServicesForLocation = async function(zuid) {
     try {
@@ -187,6 +233,27 @@
   };
   // Initialize when the page loads
   document.addEventListener('DOMContentLoaded', async function () {
+    const contactPointer = document.querySelector(`[data-map-contact-information-pointer]`);
+
+    if (contactPointer) {
+      const locationNameHeading = contactPointer.querySelector(`[data-map-location-name]`);
+
+      if (locationNameHeading) {
+        locationNameHeading.textContent = `Loading location...`;
+      }
+
+      contactPointer.querySelectorAll(`[data-location-name]`).forEach((element) => {
+        element.setAttribute(`data-location-name`, ``);
+      });
+
+      contactPointer.setAttribute(`aria-busy`, `true`);
+
+      const locationName = await waitForNavigationLocationName() || renderedLocationName;
+
+      setContactPointerLocationName(contactPointer, locationName);
+      contactPointer.removeAttribute(`aria-busy`);
+    }
+
     // Load services asynchronously
     fetchServicesForLocation(locZuid).then(services => {
         const servicesContainer = document.getElementById(`services-container`);
