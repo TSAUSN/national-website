@@ -1216,9 +1216,9 @@ async function initLoad() {
   const zuid = '{{request.queryParam(zuid)}}';
   // Preload service types in the background
   window.allServices = await getServiceTypes();
-  const locationName = location.site_name || location.name
   if (zuid) {
     const location = await window.getLocation(zuid);
+    const locationName = location.site_name || location.name
     if (location) {
       const currentCardTitle = document.querySelector('.current-card__title');
       if (currentCardTitle) currentCardTitle.innerHTML = locationName;
