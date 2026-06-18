@@ -287,9 +287,17 @@
 
                 var frequencyParam = donationButton.getAttribute('data-donation-frequency');
                 var freq = frequencyParam === 'monthly' ? 'monthly' : 'once';
+                var classyID = cookieManager.get(cookieKeys.classyID) || '{{homepage.first().classy_campaign_id}}'
                 var classyURL = cookieManager.get(cookieKeys.classyCampaignURL) || '{{homepage.first().classy_url}}'
 
                 var baseUrl = classyURL;
+
+                try {
+                    var parsedClassyURL = new URL(classyURL, window.location.origin);
+                    baseUrl = parsedClassyURL.origin + '/campaign/' + encodeURIComponent(classyID) + '/donate';
+                } catch (error) {
+                    baseUrl = classyURL.replace(/\/campaign\/[^\/]+\/donate.*|\/checkout.*|\/$/, '') + '/campaign/' + encodeURIComponent(classyID) + '/donate';
+                }
 
                 // Build the URL
                 var params = [
