@@ -150,25 +150,21 @@
     }
 
     function buildDonationUrl(frequency) {
-      var classyID = getCookieValue('classyID', '{{homepage.first().classy_campaign_id}}');
       var classyURL = getCookieValue('classyCampaignURL', '{{homepage.first().classy_url}}');
+      var campaignID = frequency === 'monthly' ? '680817' : '676125';
       var baseUrl = classyURL;
 
       try {
         var parsedClassyURL = new URL(classyURL, window.location.origin);
-        baseUrl = parsedClassyURL.origin + '/campaign/' + encodeURIComponent(classyID) + '/donate';
+        baseUrl = parsedClassyURL.origin + '/campaign/' + campaignID + '/donate';
       } catch (error) {
-        baseUrl = classyURL.replace(/\/campaign\/[^\/]+\/donate.*|\/checkout.*|\/$/, '') + '/campaign/' + encodeURIComponent(classyID) + '/donate';
+        baseUrl = classyURL.replace(/\/campaign\/[^\/]+\/donate.*|\/checkout.*|\/$/, '') + '/campaign/' + campaignID + '/donate';
       }
 
       var params = [
-        'c_src=NT26TLOAAT',
-        'c_src2=' + encodeURIComponent(frequency === 'monthly' ? 'MonthlyNoIAADonationDrawerTest' : 'OneTimeNoIAADonationDrawerTest')
+        'c_src=NT26TZOAEC',
+        'c_src2=' + encodeURIComponent(frequency === 'monthly' ? 'HeaderDonateBtn_Monthly' : 'HeaderDonateBtn_GiveOnce')
       ];
-
-      if (frequency === 'monthly') {
-        params.push('recurring=12');
-      }
 
       return baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + params.join('&');
     }
