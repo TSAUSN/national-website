@@ -141,34 +141,40 @@
       });
     }
 
-    var territoryLinks = {
-      'SAL:USN': {
-        donateOnce: {
-          studioUrl: 'https://give.salvationarmyusa.org/campaign/749592/donate?c_src=NT26TLOAAT&c_src2=OneTimeNoIAADonationDrawerTest',
-          iaaUrl: 'https://give.salvationarmyusa.org/campaign/676125/donate?c_src=NT26TLOAAT&c_src2=OneTimeIAADonationDrawerTest'
-        },
-        donateMonthly: {
-          studioUrl: 'https://give.salvationarmyusa.org/campaign/749592/donate?c_src=NT26TLOAAT&c_src2=MonthlyNoIAADonationDrawerTest&recurring=12',
-          iaaUrl: 'https://give.salvationarmyusa.org/campaign/680817/donate?c_src=NT26TLOAAT&c_src2=MonthlyIAADonationDrawerTest'
-        }
-      },
-      'SAL:USC': {
-        donateOnce: {
-          studioUrl: 'https://donate.centralusa.salvationarmy.org/campaign/679656/donate?c_src=NT26TLOAAT&c_src2=OneTimeNoIAADonationDrawerTest',
-          iaaUrl: 'https://donate.centralusa.salvationarmy.org/campaign/760328/donate?c_src=NT26TLOAAT&c_src2=OneTimeIAADonationDrawerTest'
-        },
-        donateMonthly: {
-          studioUrl: 'https://donate.centralusa.salvationarmy.org/campaign/679656/donate?recurring=12&c_src=NT26TLOAAT&c_src2=MonthlyNoIAADonationDrawerTest',
-          iaaUrl: 'https://donate.centralusa.salvationarmy.org/campaign/763952/donate?c_src=NT26TLOAAT&c_src2=MonthlyIAADonationDrawerTest'
-        }
+    function getCookieValue(key, fallback) {
+      if (typeof cookieManager === 'undefined' || typeof cookieKeys === 'undefined') {
+        return fallback;
       }
-    };
 
-    var territoryKey = window.utag && window.utag.data && window.utag.data.page_type;
-    var territoryConfig = territoryLinks[territoryKey] || territoryLinks['SAL:USN'];
-    var useStudioForm = false;
-    var onceUrl = useStudioForm ? territoryConfig.donateOnce.studioUrl : territoryConfig.donateOnce.iaaUrl;
-    var monthlyUrl = useStudioForm ? territoryConfig.donateMonthly.studioUrl : territoryConfig.donateMonthly.iaaUrl;
+      return cookieManager.get(key) || fallback;
+    }
+
+    function buildDonationUrl(frequency) {
+      var classyID = getCookieValue(cookieKeys.classyID, '{{homepage.first().classy_campaign_id}}');
+      var classyURL = getCookieValue(cookieKeys.classyCampaignURL, '{{homepage.first().classy_url}}');
+      var baseUrl = classyURL;
+
+      try {
+        var parsedClassyURL = new URL(classyURL, window.location.origin);
+        baseUrl = parsedClassyURL.origin + '/campaign/' + encodeURIComponent(classyID) + '/donate';
+      } catch (error) {
+        baseUrl = classyURL.replace(/\/campaign\/[^\/]+\/donate.*|\/checkout.*|\/$/, '') + '/campaign/' + encodeURIComponent(classyID) + '/donate';
+      }
+
+      var params = [
+        'c_src=NT26TLOAAT',
+        'c_src2=' + encodeURIComponent(frequency === 'monthly' ? 'MonthlyNoIAADonationDrawerTest' : 'OneTimeNoIAADonationDrawerTest')
+      ];
+
+      if (frequency === 'monthly') {
+        params.push('recurring=12');
+      }
+
+      return baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + params.join('&');
+    }
+
+    var onceUrl = buildDonationUrl('one-time');
+    var monthlyUrl = buildDonationUrl('monthly');
     var onceBtn = donationDrawer.querySelector('#drawer-donate-once');
     var monthlyBtn = donationDrawer.querySelector('#drawer-donate-monthly');
 
