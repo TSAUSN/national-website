@@ -99,9 +99,6 @@ helpCloseBtn.addEventListener('click', (event) => {
 });
 
 const donateContainer = document.getElementById('header-donate-container');
-const donateButtons = document.querySelectorAll('.header-donate-button');
-
-// biome-ignore lint/complexity/noForEach: <explanation>
 
 function getCookieByName(name) {
   const cookies = document.cookie.split(';');
@@ -182,9 +179,17 @@ document.addEventListener('click', (event) => {
   }
 
   if (desktopDonateDrawerContainer.classList.contains('active')) {
-    desktopDonateDrawerContainer.classList.remove('active');
+    if (typeof window.forceCloseDonationDrawer === 'function') {
+      window.forceCloseDonationDrawer();
+    } else {
+      desktopDonateDrawerContainer.classList.remove('active');
+    }
   } else {
-    desktopDonateDrawerContainer.classList.add('active');
+    if (typeof window.forceOpenDonationDrawer === 'function') {
+      window.forceOpenDonationDrawer();
+    } else {
+      desktopDonateDrawerContainer.classList.add('active');
+    }
   }
 });
 

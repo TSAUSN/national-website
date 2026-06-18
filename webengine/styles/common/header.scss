@@ -68,9 +68,24 @@ header {
   display: none !important;
 }
 
+button.dropdown-ready,
+button.dropdown-active {
+  display: flex;
+  padding-right: 12px;
+}
+
 .dropdown-ready span.material-symbols-outlined,
 .dropdown-active span.material-symbols-outlined {
   transition: all 0.25s ease;
+}
+
+.dropdown-ready span.material-symbols-outlined {
+  padding-left: 6px;
+}
+
+button.dropdown-active {
+  background-color: var(--bs-btn-active-bg);
+  border-color: var(--bs-btn-active-bg);
 }
 
 button.dropdown-active span.material-symbols-outlined {
@@ -82,8 +97,6 @@ button.dropdown-active span.material-symbols-outlined {
   background-color: var(--bs-gray-200);
   border: none;
   display: flex;
-  font-size: 1rem;
-  color: var(--bs-dark);
 }
 
 .donate-price-pill.active {
@@ -101,15 +114,29 @@ input.donate-price-pill::placeholder {
   color: var(--bs-white);
   overflow: none;
 }
+
+.goods-wrapper {
+  border-right: none !important;
+}
+
+.amount-messages .amount {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
 .goods-wrapper .form-row button {
   border-radius: var(--bs-border-radius);
 }
 
-.donate-header h6 {
-  border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+.donate-header {
+  border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
 }
 
-.amnt-buttons input.form-control {
+#header-donate-drawer .donate-header h6 {
+  border-right: none !important;
+}
+
+.amount-buttons input.form-control {
   text-align: center;
   line-height: 1.1;
 }
@@ -118,15 +145,78 @@ input.donate-price-pill::placeholder {
   background-color: var(--bs-primary-300);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
 }
-.goods-wrapper {
-  border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
-}
 
 #header-donate-drawer {
-  width: 65%;
-  left: auto;
-  right: 0;
-  max-width: 950px;
+  top: 5rem;
+}
+
+@media (min-width: 768px) {
+  .amount-messages .amount {
+    font-size: 3rem;
+  }
+
+  #header-donate-drawer {
+    width: 65%;
+    left: auto;
+    right: 0;
+    max-width: 950px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .goods-wrapper {
+    border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  #header-donate-drawer {
+    top: 6.6rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .donate-wrapper {
+    order: 1;
+  }
+
+  .goods-wrapper {
+    order: 2;
+  }
+
+  .donate-header .form-check-label {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  #header-donate-drawer {
+    top: 4.1rem;
+    overflow-y: scroll;
+    height: 90vh !important;
+    z-index: 10;
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .amount-buttons > div {
+    padding-bottom: 1.25rem;
+  }
+
+  #header-donate-drawer .donate-wrapper {
+    border-top: none !important;
+  }
+
+  .goods-wrapper {
+    margin-top: 2rem !important;
+  }
+
+  .goods-wrapper h6 {
+    padding-bottom: 0.75rem !important;
+    margin-bottom: 0 !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -134,10 +224,6 @@ input.donate-price-pill::placeholder {
   .contact-us-hero-image,
   .states__banner {
     aspect-ratio: 3 / 2;
-  }
-
-  .goods-wrapper {
-    border-right: 0 !important;
   }
 }
 

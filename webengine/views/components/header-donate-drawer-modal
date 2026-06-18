@@ -1,674 +1,199 @@
-
 <div
-  class="bg-light rounded-5 position-absolute test w-100 d-flex flex-column"
+  class="bg-light rounded-5 position-absolute w-100 d-flex flex-column"
   id="header-donate-drawer"
 >
-<div class="services-filter__header position-relative px-sm-9 px-md-14 pt-sm-5 py-md-7">
-        <button id="donate-close-btn" class="d-flex align-items-center justify-content-center btn btn-sm p-0 position-absolute top-5 end-5">
-        <span class="material-symbols-outlined text-dark-50 fs-5"> close </span>
-        </button>
-        <div class="row">
-            <div class="goods-wrapper col-12 col-md-6 pe-md-8 order-2 order-md-1 mt-7 mt-md-0">
-                <div class="border-bottom border-dark-50">
-                    <h6 class="fs-7">Donate Goods</h6>
-                </div>
-                <div class="pt-6">
-                    <form action="" id="donate-goods-form">
-                        <div class="row form-row g-0">
-                            <div class="col d-flex">
-                                <div class="input-group">
-                                    <span class="material-symbols-outlined input-group-text text-dark-50">
-                                    location_on
-                                    </span>
-                                    <input type="text" class="form-control pac-target-input ps-0" id="donate-goods-zip" placeholder="Enter 5 Digit ZIP Code" autocomplete="off">
-                                </div>
-                            </div>
-                            <div class="col-auto ps-2">
-                                <button type="submit" id="btn-submit" class="mt-auto btn btn-primary btn-md w-100" data-location-type="nav-top:donation-drawer-goods" data-function-type="other" data-format-type="button" data-link-type="external">
-                                    GO
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="pt-sm-4 pt-md-5"><p>Enter your ZIP code and you'll be redirected to find local donation options for clothing, furniture, and more.</p></div>
-                </div>
-            </div>
-            <div class="donate-wrapper col-12 col-md-6 ps-md-8 order-1 order-md-2">
-                <div class="give-now-header border-bottom border-dark-50 mt-sm-6 mt-md-0">
-                    <h6 class="fs-7">Give Now</h6>
-                </div>
-                <div class="row align-items-end pt-sm-4 pt-md-5">
-                    <div class="col-12 col-md">
-                        <p>Your donation helps spread joy by providing meals, shelter, and support for your local neighbors in need.</p>
-                    </div>
-                    <div class="col-12 col-md-auto">
-                        <div class="row g-3 donate-locally">
-                            <div class="col-12 col-md-auto">
-                                <button type="button" id="btn-donate-once-submit" class="mt-auto btn btn-primary btn-lg w-100" data-donation-frequency="one-time" data-location-type="nav-top:donation-drawer-donate-once" data-function-type="other" data-format-type="button" data-link-type="external">Donate Once</button>
-                            </div>
-                            <div class="col-12 col-md-auto">
-                                <button type="button" id="btn-donate-monthly-submit" class="mt-auto btn btn-secondary btn-lg w-100" data-donation-frequency="monthly" data-location-type="nav-top:donation-drawer-donate-monthly" data-function-type="other" data-format-type="button" data-link-type="external">Donate Monthly</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="donate-header border-0 border-bottom-md mt-sm-6 mt-md-0">
-                    <div class="d-flex align-items-center mb-3">
-                        <h6 class="fs-7 mb-0 me-3 pe-3">Give Now</h6>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="frequency" id="toggle-frequency-onetime" value="once" checked>
-                            <label class="form-check-label" for="toggle-frequency-onetime">
-                                One-Time
-                            </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="frequency" id="toggle-frequency-monthly" value="monthly">
-                            <label class="form-check-label" for="toggle-frequency-monthly">
-                                Monthly
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="pt-sm-3 pt-md-6 amnt-buttons">
-                    <div class="row donatefreq-container pb-8 pb-sm-2" data-frequency="once">
-                        <div class="col-sm-6 col-md mb-sm-4 mb-md-0">
-                            <button class="donate-price-pill rounded-14 align-items-center px-6 py-4 justify-content-center w-100" data-amount="500">$500</button>
-                        </div>
-                        <div class="col-sm-6 col-md mb-sm-4 mb-md-0">
-                            <button class="donate-price-pill rounded-14 align-items-center px-6 py-4 justify-content-center w-100" data-amount="250">$250</button>
-                        </div>
-                        <div class="col-sm-6 col-md mb-sm-4 mb-md-0">
-                            <button class="donate-price-pill rounded-14 align-items-center px-6 py-4 justify-content-center w-100" data-amount="100">$100</button>
-                        </div>
-                        <div class="col-sm-6 col-md mb-sm-4 mb-md-0">
-                            <button class="donate-price-pill rounded-14 align-items-center px-6 py-4 justify-content-center w-100 active" data-amount="50">$50</button>
-                        </div>
-                        <div class="col-sm-12 col-md">
-                            <button class="donate-price-pill rounded-14 align-items-center px-6 py-4 justify-content-center w-100" data-amount="other">Other</button>
-                        </div>
-                    </div>
-                    <div class="row donatefreq-container d-none" data-frequency="monthly">
-                        <div class="col-sm-6 col-md mb-sm-4 mb-md-0">
-                            <button class="donate-price-pill rounded-14 align-items-center px-6 py-4 justify-content-center w-100" data-amount="100">$100</button>
-                        </div>
-                        <div class="col-sm-6 col-md mb-sm-4 mb-md-0">
-                            <button class="donate-price-pill rounded-14 align-items-center px-6 py-4 justify-content-center w-100" data-amount="75">$75</button>
-                        </div>
-                        <div class="col-sm-6 col-md mb-sm-4 mb-md-0">
-                            <button class="donate-price-pill rounded-14 align-items-center px-6 py-4 justify-content-center w-100" data-amount="50">$50</button>
-                        </div>
-                        <div class="col-sm-6 col-md mb-sm-4 mb-md-0">
-                            <button class="donate-price-pill rounded-14 align-items-center px-6 py-4 justify-content-center w-100 active" data-amount="25">$25</button>
-                        </div>
-                        <div class="col-sm-12 col-md">
-                            <button class="donate-price-pill rounded-14 align-items-center px-6 py-4 justify-content-center w-100" data-amount="other">Other</button>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="row pt-md-6">
-                    <div class="col-12 col-md-7 amnt-messages">
-                        <div class="row donatefreq-container" data-frequency="once">
-                            <div class="row d-none" data-amount-message="500">
-                                <div class="col-4">
-                                    <p class="amnt fs-4">$500</p>
-                                </div>
-                                <div class="col-8 pt-2">
-                                    <p>can help provide more than three months of meals for a family of four.</p>
-                                </div>
-                            </div>
-                            <div class="row d-none" data-amount-message="250">
-                                <div class="col-4">
-                                    <p class="amnt fs-4">$250</p>
-                                </div>
-                                <div class="col-8 pt-2">
-                                    <p>can help put a roof over someone's head for more than a week.</p>
-                                </div>
-                            </div>
-                            <div class="row d-none" data-amount-message="100">
-                                <div class="col-4">
-                                    <p class="amnt fs-4">$100</p>
-                                </div>
-                                <div class="col-8 pt-2">
-                                    <p>can help provide a child's healthy meals for more than two months.</p>
-                                </div>
-                            </div>
-                            <div class="row d-flex" data-amount-message="50">
-                                <div class="col-4">
-                                    <p class="amnt fs-4">$50</p>
-                                </div>
-                                <div class="col-8 pt-2">
-                                    <p>can help provide a safe space for those in need.</p>
-                                </div>
-                            </div>
-                            <div class="row d-none" data-amount-message="other">
-                                <div class="col-4">
-                                    <p class="amnt fs-4">Other</p>
-                                </div>
-                                <div class="col-8 pt-2">
-                                    <p>Your gift goes further than you think - give to support a neighbor in need.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="donatefreq-container d-none" data-frequency="monthly">
-                            <div class="row d-none" data-amount-message="100">
-                                <div class="col-4">
-                                    <p class="amnt fs-4">$100</p>
-                                </div>
-                                <div class="col-8 pt-2">
-                                    <p>a month can help provide more than 35 nights of shelter a year.</p>
-                                </div>
-                            </div>
-                            <div class="row d-none" data-amount-message="75">
-                                <div class="col-4">
-                                    <p class="amnt fs-4">$75</p>
-                                </div>
-                                <div class="col-8 pt-2">
-                                    <p>a month can help provide Christmas joy to a child in need.</p>
-                                </div>
-                            </div>
-                            <div class="row d-none" data-amount-message="50">
-                                <div class="col-4">
-                                    <p class="amnt fs-4">$50</p>
-                                </div>
-                                <div class="col-8 pt-2">
-                                    <p>a month can help provide a safe space for those in need.</p>
-                                </div>
-                            </div>
-                            <div class="row d-flex" data-amount-message="25">
-                                <div class="col-4">
-                                    <p class="amnt fs-4">$25</p>
-                                </div>
-                                <div class="col-8 pt-2">
-                                    <p>a month can help provide over 50 meals each month.</p>
-                                </div>
-                            </div>
-                            <div class="row d-none" data-amount-message="other">
-                                <div class="col-4">
-                                    <p class="amnt fs-4">Other</p>
-                                </div>
-                                <div class="col-8 pt-2">
-                                    <p>Your monthly gift goes further than you think - give to support a neighbor in need.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-5 donate-locally">
-                        <button type="submit" id="btn-donate-submit" class="mt-auto btn btn-primary btn-lg w-sm-100 w-md-auto" data-location-type="nav-top:donation-drawer-donate" data-function-type="other" data-format-type="button" data-link-type="external">Donate Once</button>
-                        <button type="submit" id="btn-donate-submit" class="mt-auto btn btn-primary btn-lg w-sm-100 w-md-auto" data-location-type="nav-top:donation-drawer-donate" data-function-type="other" data-format-type="button" data-link-type="external">Donate Monthly</button>
-                    </div>
-                </div> -->
-            </div>
+  <div class="services-filter__header position-relative px-sm-9 px-md-14 pt-sm-5 py-md-7">
+    <button id="donate-close-btn" class="d-flex align-items-center justify-content-center btn btn-sm p-0 position-absolute top-5 end-5">
+      <span class="material-symbols-outlined text-dark-50 fs-5"> close </span>
+    </button>
+    <div class="row">
+      <div class="goods-wrapper col-12 col-md-6 pe-md-8 order-2 order-md-1 mt-7 mt-md-0">
+        <div class="border-bottom border-dark-50">
+          <h6 class="fs-7">Donate Goods</h6>
         </div>
+        <div class="pt-6">
+          <form action="" id="donate-goods-form">
+            <div class="row form-row g-0">
+              <div class="col d-flex">
+                <div class="input-group">
+                  <span class="material-symbols-outlined input-group-text text-dark-50">
+                    location_on
+                  </span>
+                  <input type="text" class="form-control pac-target-input ps-0" id="donate-goods-zip" placeholder="Enter 5 Digit ZIP Code" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-auto ps-2">
+                <button type="submit" id="btn-submit" class="mt-auto btn btn-primary btn-md w-100" data-location-type="nav-top:donation-drawer-goods" data-function-type="other" data-format-type="button" data-link-type="external">
+                  GO
+                </button>
+              </div>
+            </div>
+          </form>
+          <div class="pt-sm-4 pt-md-5">
+            <p>Enter your ZIP code to continue to our donation site to find local donation options for clothing, furniture, and more.</p>
+          </div>
+        </div>
+      </div>
+      <div class="donate-wrapper col-12 col-md-6 ps-md-8 order-1 order-md-2">
+        <div class="donate-header mt-sm-6 mt-md-0 pb-3 mb-md-3">
+          <h6 class="fs-7 mb-0 me-3 pe-3">Give Now</h6>
+        </div>
+        <div class="pt-3 amount-messages">
+          <p>Your donation helps spread joy by providing meals, shelter, and support for your local neighbors in need.</p>
+        </div>
+        <div class="row pt-lg-6">
+          <div class="col-12 donate-locally">
+            <a href="#" id="drawer-donate-once" class="mt-auto btn btn-primary btn-lg w-sm-100 w-md-auto me-lg-2" data-location-type="nav-top:donation-drawer-donate-once" data-function-type="other" data-format-type="button" data-link-type="external" target="_blank">Donate Once</a>
+            <a href="#" id="drawer-donate-monthly" class="mt-4 mt-md-auto btn btn-secondary btn-lg w-sm-100 w-md-auto" data-location-type="nav-top:donation-drawer-donate-monthly" data-function-type="other" data-format-type="button" data-link-type="external" target="_blank">Donate Monthly</a>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function () {
-        var donationDrawer = document.getElementById('header-donate-drawer');
-        var donationCloseBtn = donationDrawer.querySelector('#donate-close-btn');
-        if (donationCloseBtn) {
-            donationCloseBtn.addEventListener('click', function () {
-                if (typeof forceCloseDonationDrawer === 'function') {
-                    wantDonationDrawerOpen = false;
-                    forceCloseDonationDrawer();
-                } else {
-                    donationDrawer.classList.remove('active');
-                }
-            });
+  document.addEventListener("DOMContentLoaded", function () {
+    var donationDrawer = document.getElementById('header-donate-drawer');
+
+    if (!donationDrawer) {
+      return;
+    }
+
+    var donateHeaderButtons = document.querySelectorAll('button.header-donate-button');
+
+    function setDonateButtonState(isActive) {
+      donateHeaderButtons.forEach(function(btn) {
+        btn.classList.toggle('dropdown-active', isActive);
+        btn.classList.toggle('dropdown-ready', !isActive);
+
+        var icon = btn.querySelector('i');
+        if (icon) {
+          icon.classList.toggle('bi-chevron-up', isActive);
+          icon.classList.toggle('bi-chevron-down', !isActive);
         }
-        // Protect button text from being changed
-        var allPriceButtons = donationDrawer.querySelectorAll('.donate-price-pill[data-amount]:not(input)');
-        allPriceButtons.forEach(function(btn) {
-            var amount = btn.getAttribute('data-amount');
-            if (amount !== 'other' && (!btn.textContent || btn.textContent.trim() === '0' || btn.textContent.trim() === '')) {
-                btn.textContent = '$' + amount;
-            }
-        });
+      });
+    }
 
-        var donateGoodsForm = donationDrawer.querySelector('#donate-goods-form');
-        var zipInput = donationDrawer.querySelector('#donate-goods-zip');
-        var goButton = donationDrawer.querySelector('#btn-submit');
+    window.forceOpenDonationDrawer = function() {
+      donationDrawer.classList.remove('hide');
+      donationDrawer.classList.add('active');
+      setDonateButtonState(true);
+    };
 
-        if (donateGoodsForm && zipInput && goButton) {
-            // Initially disable the GO button
-            goButton.disabled = true;
-            goButton.classList.add('disabled');
+    window.forceCloseDonationDrawer = function() {
+      donationDrawer.classList.add('hide');
+      donationDrawer.classList.remove('active');
+      setDonateButtonState(false);
+    };
 
-            // Zip code validation function
-            function isValidZipCode(zip) {
-                // Check if it's exactly 5 digits
-                return /^\d{5}$/.test(zip);
-            }
+    var donationCloseBtn = donationDrawer.querySelector('#donate-close-btn');
+    if (donationCloseBtn) {
+      donationCloseBtn.addEventListener('click', function () {
+        window.forceCloseDonationDrawer();
+      });
+    }
 
-            // Enable/disable button based on zip code validity
-            function updateButtonState() {
-                var zipValue = zipInput.value.trim();
-                if (isValidZipCode(zipValue)) {
-                    goButton.disabled = false;
-                    goButton.classList.remove('disabled');
-                } else {
-                    goButton.disabled = true;
-                    goButton.classList.add('disabled');
-                }
-            }
+    var donateGoodsForm = donationDrawer.querySelector('#donate-goods-form');
+    var zipInput = donationDrawer.querySelector('#donate-goods-zip');
+    var goButton = donationDrawer.querySelector('#btn-submit');
 
-            // Listen for input changes
-            zipInput.addEventListener('input', updateButtonState);
-            zipInput.addEventListener('keyup', updateButtonState);
+    if (donateGoodsForm && zipInput && goButton) {
+      goButton.disabled = true;
+      goButton.classList.add('disabled');
 
-            // Handle form submission
-            donateGoodsForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-                if (isValidZipCode(zipInput.value.trim())) {
-                    var zipCode = zipInput.value.trim();
-                    var donateURL = 'https://satruck.org/Donate/Choose?zip=' + zipCode;
-                    
-                    utag.link({
-                        event: 'donate_goods_click',
-                        link_function: 'donation',
-                        link_format: 'button',
-                        link_text: 'Go',
-                        link_location: 'donation drawer',
-                        link_url: 'https://satruck.org/Donate/Choose',
-                        link_type: 'internal',
-                    });
-                    
-                    window.open(donateURL, '_blank');
-                }
-            });
+      function isValidZipCode(zip) {
+        return /^\d{5}$/.test(zip);
+      }
+
+      function updateButtonState() {
+        var zipValue = zipInput.value.trim();
+        goButton.disabled = !isValidZipCode(zipValue);
+        goButton.classList.toggle('disabled', goButton.disabled);
+      }
+
+      zipInput.addEventListener('input', updateButtonState);
+      zipInput.addEventListener('keyup', updateButtonState);
+
+      donateGoodsForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        if (!isValidZipCode(zipInput.value.trim())) {
+          return;
         }
 
-        var donationButtons = donationDrawer.querySelectorAll('[data-donation-frequency]');
+        var zipCode = zipInput.value.trim();
+        var donateURL = 'https://satruck.org/Donate/Choose?zip=' + encodeURIComponent(zipCode);
 
-        donationButtons.forEach(function(donationButton) {
-            donationButton.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                var frequencyParam = donationButton.getAttribute('data-donation-frequency');
-                var freq = frequencyParam === 'monthly' ? 'monthly' : 'once';
-                var classyID = cookieManager.get(cookieKeys.classyID) || '{{homepage.first().classy_campaign_id}}'
-                var classyURL = cookieManager.get(cookieKeys.classyCampaignURL) || '{{homepage.first().classy_url}}'
-
-                var baseUrl = classyURL;
-
-                try {
-                    var parsedClassyURL = new URL(classyURL, window.location.origin);
-                    baseUrl = parsedClassyURL.origin + '/campaign/' + encodeURIComponent(classyID) + '/donate';
-                } catch (error) {
-                    baseUrl = classyURL.replace(/\/campaign\/[^\/]+\/donate.*|\/checkout.*|\/$/, '') + '/campaign/' + encodeURIComponent(classyID) + '/donate';
-                }
-
-                // Build the URL
-                var params = [
-                    'c_src=NT26TLOAAT',
-                    'c_src2=' + encodeURIComponent(freq === 'monthly' ? 'MonthlyNoIAADonationDrawerTest' : 'OneTimeNoIAADonationDrawerTest')
-                ];
-
-                if (freq === 'monthly') {
-                    params.push('recurring=12');
-                }
-
-                var fullUrl = baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + params.join('&');
-                // For testing, you can alert the URL:
-                //alert(fullUrl);
-
-                // Donate Utag Event
-                utag.link({
-                    event: 'donate_money_click',
-                    link_function: 'donation',
-                    link_format: 'button',
-                    link_text: freq,
-                    link_location: 'donation drawer',
-                    link_url: fullUrl,
-                    link_type: 'internal',
-                });
-
-                // For production, redirect:
-                window.open(fullUrl, '_blank');
-            });
-        });
-
-        /*
-        Unused amount-picker logic retained for reference.
-
-            // Find the donation amount button and message wrappers
-        var buttonsWrapper = donationDrawer.querySelector('.amnt-buttons');
-        var messagesWrapper = donationDrawer.querySelector('.amnt-messages');
-        var radioOnce = donationDrawer.querySelector('#toggle-frequency-onetime');
-        var radioMonthly = donationDrawer.querySelector('#toggle-frequency-monthly');
-        var donateBtn = donationDrawer.querySelector('#btn-donate-submit');
-
-        if (buttonsWrapper && messagesWrapper && radioOnce && radioMonthly && donateBtn) {
-            donateBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                var freq = radioMonthly.checked ? 'monthly' : 'once';
-                var frequencyParam = radioMonthly.checked ? 'monthly' : 'one-time';
-                var currentButtonContainer = buttonsWrapper.querySelector('.donatefreq-container[data-frequency="' + freq + '"]');
-                var amount = null;
-                var isOther = false;
-                var otherInput = null;
-
-                if (currentButtonContainer) {
-                    var activeButton = currentButtonContainer.querySelector('.donate-price-pill.active[data-amount]');
-                    if (activeButton) {
-                        var btnAmount = activeButton.getAttribute('data-amount');
-                        if (btnAmount === 'other') {
-                            isOther = true;
-                            otherInput = currentButtonContainer.querySelector('input[data-amount="other"]');
-                            if (otherInput && otherInput.style.display !== 'none' && otherInput.value) {
-                            amount = otherInput.value;
-                            }
-                        } else {
-                            amount = btnAmount;
-                        }
-                    }
-                }
-
-                // Validate "Other" input if used
-                if (isOther && otherInput) {
-                    if (!/^\d+$/.test(amount)) {
-                    otherInput._alertDiv.classList.remove('d-none');
-                    otherInput.focus();
-                    return;
-                    } else {
-                    otherInput._alertDiv.classList.add('d-none');
-                    }
-                }
-
-                if (!amount) {
-                    alert('Please select or enter an amount.');
-                    return;
-                }
-
-                // Territory logic with default to USN
-                // var territoryKey = window.utag && window.utag.data && window.utag.data.page_type;
-                var territoryCode = cookieManager.get(cookieKeys.territoryCode)
-                var classyID = cookieManager.get(cookieKeys.classyID)
-                var orgID = cookieManager.get(cookieKeys.classyOrganizationID)
-                var classyURL = cookieManager.get(cookieKeys.classyCampaignURL)
-                
-                var baseUrl = classyURL;
-                var cid = classyID;
-                var oid = orgID;
-
-                // Build the URL
-                var params = [
-                    'cid=' + encodeURIComponent(cid),
-                    'oid=' + encodeURIComponent(oid),
-                    'amount=' + encodeURIComponent(Number(amount).toFixed(2)),
-                    'frequency=' + encodeURIComponent(frequencyParam),
-                    'currency=USD',
-                    'c_src=donation_drawer',
-                    'step=0'
-                ];
-
-                var fullUrl = baseUrl + '?' + params.join('&');
-
-                // For testing, you can alert the URL:
-                //alert(fullUrl);
-
-                // Donate Utag Event
-                utag.link({
-                    event: 'donate_money_click',
-                    link_function: 'donation',
-                    link_format: 'button',
-                    link_text: freq,
-                    link_location: 'donation drawer',
-                    link_url: fullUrl,
-                    link_type: 'internal',
-                });
-
-                // For production, redirect:
-                window.open(fullUrl, '_blank');
-            });
-
-            // Select all buttons and messages within their wrappers
-            var amountButtons = buttonsWrapper.querySelectorAll('.donate-price-pill[data-amount]');
-            var amountMessages = messagesWrapper.querySelectorAll('[data-amount-message]');
-
-            function activateAmount(amount) {
-                // Get the current frequency
-                var currentFreq = radioMonthly.checked ? 'monthly' : 'once';
-
-                // Only work with buttons and messages from the current frequency
-                var currentButtonContainer = buttonsWrapper.querySelector('.donatefreq-container[data-frequency="' + currentFreq + '"]');
-                var currentMessageContainer = messagesWrapper.querySelector('.donatefreq-container[data-frequency="' + currentFreq + '"]');
-
-                if (!currentButtonContainer || !currentMessageContainer) return;
-
-                var currentButtons = currentButtonContainer.querySelectorAll('.donate-price-pill[data-amount]');
-                var currentMessages = currentMessageContainer.querySelectorAll('[data-amount-message]');
-
-                // Activate the correct button, deactivate others (only in current frequency)
-                currentButtons.forEach(function(btn) {
-                    if (btn.getAttribute('data-amount') === amount) {
-                        btn.classList.add('active');
-                    } else {
-                        btn.classList.remove('active');
-                    }
-                });
-
-                // Activate the correct message, deactivate others (only in current frequency)
-                currentMessages.forEach(function(msg) {
-                    if (msg.getAttribute('data-amount-message') === amount) {
-                        msg.classList.add('active');
-                        msg.classList.remove('d-none');
-                        msg.classList.add('d-flex');
-                    } else {
-                        msg.classList.remove('active');
-                        msg.classList.remove('d-flex');
-                        msg.classList.add('d-none');
-                    }
-                });
-
-                // Reset "Other" input when selecting a different amount
-                if (amount !== 'other' && currentButtonContainer) {
-                    var otherBtn = currentButtonContainer.querySelector('.donate-price-pill[data-amount="other"]');
-                    var otherInput = currentButtonContainer.querySelector('input[data-amount="other"]');
-                    console.log("Display Price", otherBtn, otherInput)
-                    if (otherBtn && otherInput) {
-                        otherInput.style.display = 'none';
-                        otherBtn.style.display = '';
-                        otherInput.classList.remove('active');
-                        otherInput.value = '';
-                    }
-
-                    // Update the display based on amount value
-                    var selectedMessage = currentMessageContainer.querySelector('[data-amount-message="'+amount+'"]');
-                    var selectedAmountDisplay = selectedMessage ? selectedMessage.querySelector('.amnt') : null;
-                    if (selectedAmountDisplay) {
-                        if (amount !== '0' && amount !== 0) {
-                            selectedAmountDisplay.textContent = '$' + amount;
-                        }
-                    }
-                } else if (amount === 'other') {
-                    var otherMessage = currentMessageContainer.querySelector('[data-amount-message="other"]');
-                    var otherAmountDisplay = otherMessage ? otherMessage.querySelector('.amnt') : null;
-                    if (otherAmountDisplay) {
-                        otherAmountDisplay.textContent = 'Other';
-                    }
-                }
-            }
-
-            // Attach click listeners to buttons (delegated event handling)
-            buttonsWrapper.addEventListener('click', function(e) {
-                if (e.target.classList.contains('donate-price-pill') && e.target.hasAttribute('data-amount')) {
-                    var amount = e.target.getAttribute('data-amount');
-                    if (!e.target.classList.contains('active')) {
-                        
-                        // Donation Values
-                            utag.link({
-                                event: 'cta_click',
-                                link_function: 'cta',
-                                link_format: 'button',
-                                link_text: e.target.textContent.trim(),
-                                link_location: 'donation drawer',
-                                link_type: 'internal',
-                        });
-
-                        activateAmount(amount);
-                    }
-                }
-            });
-
-            // On load, ensure the correct message is active for initially active buttons in both frequencies
-            // First activate the one-time default (current view)
-            var onceContainer = buttonsWrapper.querySelector('.donatefreq-container[data-frequency="once"]');
-            if (onceContainer) {
-                var onceActiveBtn = onceContainer.querySelector('.donate-price-pill.active[data-amount]');
-                if (onceActiveBtn) {
-                    activateAmount(onceActiveBtn.getAttribute('data-amount'));
-                }
-            }
-            // Then activate the monthly default (switch context temporarily)
-            var monthlyContainer = buttonsWrapper.querySelector('.donatefreq-container[data-frequency="monthly"]');
-            if (monthlyContainer) {
-                var monthlyActiveBtn = monthlyContainer.querySelector('.donate-price-pill.active[data-amount]');
-                if (monthlyActiveBtn) {
-                    radioMonthly.checked = true;
-                    activateAmount(monthlyActiveBtn.getAttribute('data-amount'));
-                    radioOnce.checked = true; // Restore to one-time as default view
-                }
-            }
-        
-            ['once', 'monthly'].forEach(function(freq) {
-                // Find the buttons container for this frequency
-                var buttonsFreqContainer = donationDrawer.querySelector('.amnt-buttons .donatefreq-container[data-frequency="' + freq + '"]');
-                if (!buttonsFreqContainer) return;
-
-                // Find the "Other" button for this frequency
-                var otherBtn = buttonsFreqContainer.querySelector('.donate-price-pill[data-amount="other"]');
-                if (!otherBtn) return;
-
-                // Create the input element (hidden by default)
-                var otherInput = document.createElement('input');
-                otherInput.type = 'number';
-                otherInput.className = 'form-control donate-price-pill rounded-14 px-6 py-4 w-100';
-                otherInput.placeholder = 'Enter amount';
-                otherInput.style.display = 'none';
-                otherInput.setAttribute('min', '1');
-                otherInput.setAttribute('step', '1');
-                otherInput.setAttribute('inputmode', 'numeric');
-                otherInput.setAttribute('data-amount', 'other');
-
-                // Create the alert element (hidden by default)
-                var alertDiv = document.createElement('div');
-                alertDiv.className = 'alert alert-warning py-2 px-3 mt-2 mb-0 d-none';
-                alertDiv.textContent = 'Whole numbers only';
-
-                // Insert the input and alert right after the button
-                otherBtn.parentNode.insertBefore(otherInput, otherBtn.nextSibling);
-                otherInput.parentNode.insertBefore(alertDiv, otherInput.nextSibling);
-
-                // Handler to swap button for input
-                otherBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    otherBtn.style.display = 'none';
-                    otherInput.style.display = '';
-                    otherInput.focus();
-                    buttonsFreqContainer.querySelectorAll('.donate-price-pill[data-amount]').forEach(function(btn) {
-                    btn.classList.remove('active');
-                    });
-                    otherInput.classList.add('active');
-                });
-
-                // When input loses focus and is empty, revert to button
-                otherInput.addEventListener('blur', function() {
-                    if (!otherInput.value) {
-                    otherInput.style.display = 'none';
-                    otherBtn.style.display = '';
-                    otherInput.classList.remove('active');
-                    alertDiv.classList.add('d-none');
-                    }
-                });
-
-                // Find the messages container for this frequency
-                var messagesFreqContainer = donationDrawer.querySelector('.amnt-messages .donatefreq-container[data-frequency="' + freq + '"]');
-                if (!messagesFreqContainer) return;
-
-                // Validate and update on input
-                otherInput.addEventListener('input', function() {
-                    var val = otherInput.value;
-                    console.log('val Value', val)
-                    // Show/hide alert for whole number validation
-                    if (!/^\d+$/.test(val) && val !== '') {
-                    alertDiv.classList.remove('d-none');
-                    } else {
-                    alertDiv.classList.add('d-none');
-                    }
-
-                    // Activate the "Other" message for this frequency
-                    messagesFreqContainer.querySelectorAll('[data-amount-message]').forEach(function(msg) {
-                    if (msg.getAttribute('data-amount-message') === 'other') {
-                        msg.classList.add('active');
-                        msg.classList.remove('d-none');
-                        msg.classList.add('d-flex');
-                    } else {
-                        msg.classList.remove('active');
-                        msg.classList.remove('d-flex');
-                        msg.classList.add('d-none');
-                    }
-                    });
-
-                    // Update the displayed amount
-                    var otherMessage = messagesFreqContainer.querySelector('[data-amount-message="other"]');
-                    var otherAmountDisplay = otherMessage ? otherMessage.querySelector('.amnt') : null;
-                    if (otherAmountDisplay) {
-                        if (val && val !== '0' && /^\d+$/.test(val)) {
-                            otherAmountDisplay.textContent = '$' + val;
-                        } else {
-                            otherAmountDisplay.textContent = 'Other';
-                        }
-                    }
-                });
-
-                otherInput._alertDiv = alertDiv;
-            });
-
-            // Radio Buttons for One-Time and Monthly
-            function updateFrequencyUI() {
-                var freq = radioMonthly.checked ? 'monthly' : 'once';
-
-                // Show/hide all frequency containers for both buttons and messages
-                donationDrawer.querySelectorAll('.donatefreq-container[data-frequency]').forEach(function(container) {
-                    if (container.getAttribute('data-frequency') === freq) {
-                    container.classList.remove('d-none');
-                    } else {
-                    container.classList.add('d-none');
-                    }
-                });
-                
-                // Give Now toggle 
-                utag.link({
-                    event: 'cta_click',
-                    link_function: 'cta',
-                    link_format: 'button',
-                    link_text: 'freq_'+freq,
-                    link_location: 'donation drawer',
-                    link_type: 'internal',
-                });
-
-                // Update donate button text
-                donateBtn.textContent = 'Donate ' + (freq === 'monthly' ? 'Monthly' : 'Once');
-            }
-
-            // Attach event listeners
-            radioOnce.addEventListener('change', updateFrequencyUI);
-            radioMonthly.addEventListener('change', updateFrequencyUI);
+        if (typeof utag !== 'undefined' && utag.link) {
+          utag.link({
+            event: 'donate_goods_click',
+            link_function: 'donation',
+            link_format: 'button',
+            link_text: 'Go',
+            link_location: 'donation drawer',
+            link_url: 'https://satruck.org/Donate/Choose',
+            link_type: 'internal',
+          });
         }
-        */
 
-        const closeBtn = document.querySelector("#donate-close-btn");
+        window.open(donateURL, '_blank');
+      });
+    }
 
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                const desktopDonateDrawerContainer = document.querySelector('#header-donate-drawer');
-                if (desktopDonateDrawerContainer) {
-                    desktopDonateDrawerContainer.classList.remove('active');
-                }
-            })
+    var territoryLinks = {
+      'SAL:USN': {
+        donateOnce: {
+          studioUrl: 'https://give.salvationarmyusa.org/campaign/749592/donate?c_src=NT26TLOAAT&c_src2=OneTimeNoIAADonationDrawerTest',
+          iaaUrl: 'https://give.salvationarmyusa.org/campaign/676125/donate?c_src=NT26TLOAAT&c_src2=OneTimeIAADonationDrawerTest'
+        },
+        donateMonthly: {
+          studioUrl: 'https://give.salvationarmyusa.org/campaign/749592/donate?c_src=NT26TLOAAT&c_src2=MonthlyNoIAADonationDrawerTest&recurring=12',
+          iaaUrl: 'https://give.salvationarmyusa.org/campaign/680817/donate?c_src=NT26TLOAAT&c_src2=MonthlyIAADonationDrawerTest'
         }
-    });
+      },
+      'SAL:USC': {
+        donateOnce: {
+          studioUrl: 'https://donate.centralusa.salvationarmy.org/campaign/679656/donate?c_src=NT26TLOAAT&c_src2=OneTimeNoIAADonationDrawerTest',
+          iaaUrl: 'https://donate.centralusa.salvationarmy.org/campaign/760328/donate?c_src=NT26TLOAAT&c_src2=OneTimeIAADonationDrawerTest'
+        },
+        donateMonthly: {
+          studioUrl: 'https://donate.centralusa.salvationarmy.org/campaign/679656/donate?recurring=12&c_src=NT26TLOAAT&c_src2=MonthlyNoIAADonationDrawerTest',
+          iaaUrl: 'https://donate.centralusa.salvationarmy.org/campaign/763952/donate?c_src=NT26TLOAAT&c_src2=MonthlyIAADonationDrawerTest'
+        }
+      }
+    };
+
+    var territoryKey = window.utag && window.utag.data && window.utag.data.page_type;
+    var territoryConfig = territoryLinks[territoryKey] || territoryLinks['SAL:USN'];
+    var useStudioForm = false;
+    var onceUrl = useStudioForm ? territoryConfig.donateOnce.studioUrl : territoryConfig.donateOnce.iaaUrl;
+    var monthlyUrl = useStudioForm ? territoryConfig.donateMonthly.studioUrl : territoryConfig.donateMonthly.iaaUrl;
+    var onceBtn = donationDrawer.querySelector('#drawer-donate-once');
+    var monthlyBtn = donationDrawer.querySelector('#drawer-donate-monthly');
+
+    function bindDonationButton(button, url, linkText) {
+      if (!button || !url) {
+        return;
+      }
+
+      button.href = url;
+      button.addEventListener('click', function() {
+        if (typeof utag !== 'undefined' && utag.link) {
+          utag.link({
+            event: 'donate_money_click',
+            link_function: 'donation',
+            link_format: 'button',
+            link_text: linkText,
+            link_location: 'donation drawer',
+            link_url: url,
+            link_type: 'external',
+          });
+        }
+      });
+    }
+
+    bindDonationButton(onceBtn, onceUrl, 'donate once');
+    bindDonationButton(monthlyBtn, monthlyUrl, 'donate monthly');
+  });
 </script>
