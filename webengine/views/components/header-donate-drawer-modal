@@ -174,53 +174,15 @@
     var onceBtn = donationDrawer.querySelector('#drawer-donate-once');
     var monthlyBtn = donationDrawer.querySelector('#drawer-donate-monthly');
 
-    function openDonationModal(url) {
-      if (typeof window.openDonateModal === 'function') {
-        window.openDonateModal(url);
-        return;
-      }
-
-      var donateModalElement = document.getElementById('donateModal');
-      var iframeContainer = document.querySelector('.donation-iframe-container');
-      var loader = document.getElementById('donation-loader-container');
-
-      if (!donateModalElement || !iframeContainer || typeof bootstrap === 'undefined' || !bootstrap.Modal) {
-        window.location.href = url;
-        return;
-      }
-
-      if (loader) {
-        loader.classList.remove('d-none');
-      }
-
-      var iframe = iframeContainer.querySelector('iframe');
-      if (!iframe) {
-        iframe = document.createElement('iframe');
-        iframe.title = 'Donation form';
-        iframe.className = 'w-100 h-100 border-0';
-        iframe.setAttribute('allowpaymentrequest', 'true');
-        iframe.addEventListener('load', function() {
-          if (loader) {
-            loader.classList.add('d-none');
-          }
-        });
-        iframeContainer.appendChild(iframe);
-      }
-
-      iframe.src = url;
-      bootstrap.Modal.getOrCreateInstance(donateModalElement).show();
-    }
-
     function bindDonationButton(button, url, linkText) {
       if (!button || !url) {
         return;
       }
 
-      button.href = '#';
-      button.addEventListener('click', function(e) {
-        e.preventDefault();
-        openDonationModal(url);
-
+      button.href = url;
+      button.target = '_blank';
+      button.rel = 'noopener noreferrer';
+      button.addEventListener('click', function() {
         if (typeof utag !== 'undefined' && utag.link) {
           utag.link({
             event: 'donate_money_click',
