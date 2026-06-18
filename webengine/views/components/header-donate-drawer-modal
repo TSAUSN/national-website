@@ -184,7 +184,17 @@
       }
 
       button.href = url;
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function(e) {
+        if (window.innerWidth < 1024) {
+          e.preventDefault();
+
+          if (typeof window.openDonateModal === 'function') {
+            window.openDonateModal(url);
+          } else {
+            window.location.href = url;
+          }
+        }
+
         if (typeof utag !== 'undefined' && utag.link) {
           utag.link({
             event: 'donate_money_click',

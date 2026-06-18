@@ -146,6 +146,8 @@ function openDonateModal(donateUrl) {
   bootstrap.Modal.getOrCreateInstance(donateModalElement).show();
 }
 
+window.openDonateModal = openDonateModal;
+
 document.addEventListener('click', (event) => {
   const donateBtn = event.target.closest('.header-donate-button');
   if (!donateBtn) return;
