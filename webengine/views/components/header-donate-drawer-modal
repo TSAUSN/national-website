@@ -307,7 +307,7 @@
                 ];
 
                 var fullUrl = baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + params.join('&');
-
+                console.log(fullURL)
                 // For testing, you can alert the URL:
                 //alert(fullUrl);
 
