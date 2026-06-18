@@ -588,7 +588,7 @@
           Find Help
           <i class="bi bi-chevron-down caret-icon"></i>
         </button>
-        <button
+        <!-- <button
           class="btn btn-primary btn-sm header-donate-button d-lg-none d-flex align-items-center gap-2"
           data-location-type="nav-top"
           data-function-type="other"
@@ -596,8 +596,8 @@
           onclick="LinkTrackingClickEvent(this,'donate_money_click'); toggleCaret(this)"
         >
           Donate
-          <!-- <i class="bi bi-chevron-down caret-icon"></i> -->
-        </button>
+         
+        </button> -->
       </div>
       <div class="header-search-close-button">
         <button
