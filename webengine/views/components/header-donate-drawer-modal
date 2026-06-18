@@ -287,15 +287,12 @@
 
                 // Territory logic with default to USN
                 // var territoryKey = window.utag && window.utag.data && window.utag.data.page_type;
-                var frequencyParam = donationButton.getAttribute('data-donation-frequency');
-                var freq = frequencyParam === 'monthly' ? 'monthly' : 'once';
-                var amount = 50;
                 var territoryCode = cookieManager.get(cookieKeys.territoryCode) || 'USN'
                 var classyID = cookieManager.get(cookieKeys.classyID) || '{{homepage.first().classy_campaign_id}}'
                 var orgID = cookieManager.get(cookieKeys.classyOrganizationID) || '{{homepage.first().classy_org_id}}'
                 var classyURL = cookieManager.get(cookieKeys.classyCampaignURL) || '{{homepage.first().classy_url}}'
 
-                var baseUrl = 'https://give.salvationarmyusa.org/checkout';
+                var baseUrl = classyURL;
                 var cid = classyID;
                 var oid = orgID;
 
