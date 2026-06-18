@@ -1015,20 +1015,24 @@
       waysToGiveLinks.forEach((link) => {
         waysToGiveItemContainers.forEach((c) =>{
         const newLinkElement = document.createElement('a');
+        const isDonateMoneyLink = link.title && link.title.trim().toLowerCase() === 'donate money';
 
         newLinkElement.classList.add('dropdown-item', 'py-2', 'px-2');
         newLinkElement.textContent = link.title;
-        if(link.external_link){
+        if(isDonateMoneyLink){
+            newLinkElement.classList.add('header-donate-button');
+            newLinkElement.setAttribute('href', '#');
+          }else if(link.external_link){
             newLinkElement.setAttribute('href', link.external_link);
             newLinkElement.setAttribute('target', "_blank");
           }else{
             newLinkElement.setAttribute('href', link.url);
           }
         newLinkElement.setAttribute('data-location-type', "nav-top");
-        newLinkElement.setAttribute('data-function-type', "navigation");
+        newLinkElement.setAttribute('data-function-type', isDonateMoneyLink ? "other" : "navigation");
         newLinkElement.setAttribute('data-format-type', "text");
         newLinkElement.setAttribute('data-link-type', "internal");
-        newLinkElement.setAttribute('onclick', "LinkTrackingClickEvent(this,'header_click')");
+        newLinkElement.setAttribute('onclick', isDonateMoneyLink ? "LinkTrackingClickEvent(this,'donate_money_click')" : "LinkTrackingClickEvent(this,'header_click')");
 
           c.append(newLinkElement);
         })

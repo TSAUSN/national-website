@@ -259,13 +259,12 @@
                   {{$sort = {obj.sort} + 2 }}
                   {{if {obj.page-zuid} == 'donate_money'}}
                     <a
-                    class="dropdown-item py-2 px-2"
-                      href="{{@location_donate_form}}"
-                      target="_blank"
+                    class="dropdown-item py-2 px-2 header-donate-button"
+                      href="#"
                       data-location-type="nav-top"
                       data-function-type="other"
                       data-format-type="text"
-                      data-link-type="external"
+                      data-link-type="internal"
                       onclick="LinkTrackingClickEvent(this,'donate_money_click')"
                     >Donate Money</a>
                   {{else-if {obj.page-zuid} == 'donate_goods' }}

@@ -119,34 +119,73 @@ function getCookieByName(name) {
 const cloader = document.getElementById('donation-loader-container');
 let iframe = null;
 
-donateButtons.forEach((donateBtn) => {
-  donateBtn.addEventListener('click', (event) => {
-    event.stopPropagation();
-    navMenu.style.transform = 'unset';
-    navMenu.classList.remove('active');
-    if (searchContainer.classList.contains('active')) {
-      searchContainer.classList.remove('active');
+function openDonateModal(donateUrl) {
+  const donateModalElement = document.getElementById('donateModal');
+  const iframeContainer = document.querySelector('.donation-iframe-container');
 
-      searchToggleBtn.querySelector('span').classList.toggle('text-primary-200');
-      searchToggleBtn.querySelector('span').classList.toggle('text-dark-100');
-    }
+  if (!donateModalElement || !iframeContainer || typeof bootstrap === 'undefined' || !bootstrap.Modal) {
+    window.location.href = donateUrl;
+    return;
+  }
 
-    headerDropdowns.forEach((dropdown) => {
-      dropdown.classList.remove('show');
-      dropdown.nextElementSibling.classList.remove('show');
+  if (cloader) {
+    cloader.classList.remove('d-none');
+  }
+
+  if (!iframe) {
+    iframe = document.createElement('iframe');
+    iframe.title = 'Donation form';
+    iframe.className = 'w-100 h-100 border-0';
+    iframe.setAttribute('allowpaymentrequest', 'true');
+    iframe.addEventListener('load', () => {
+      if (cloader) {
+        cloader.classList.add('d-none');
+      }
     });
+    iframeContainer.appendChild(iframe);
+  }
 
-    if (findHelpContainer.classList.contains('active')) {
-      findHelpContainer.classList.remove('active');
-    }
-    const desktopDonateDrawerContainer = document.querySelector('#header-donate-drawer');
+  iframe.src = donateUrl;
+  bootstrap.Modal.getOrCreateInstance(donateModalElement).show();
+}
 
-    if (desktopDonateDrawerContainer.classList.contains('active')) {
-      desktopDonateDrawerContainer.classList.remove('active');
-    } else {
-      desktopDonateDrawerContainer.classList.add('active');
-    }
+document.addEventListener('click', (event) => {
+  const donateBtn = event.target.closest('.header-donate-button');
+  if (!donateBtn) return;
+
+  event.preventDefault();
+  event.stopPropagation();
+  navMenu.style.transform = 'unset';
+  navMenu.classList.remove('active');
+  if (searchContainer.classList.contains('active')) {
+    searchContainer.classList.remove('active');
+
+    searchToggleBtn.querySelector('span').classList.toggle('text-primary-200');
+    searchToggleBtn.querySelector('span').classList.toggle('text-dark-100');
+  }
+
+  headerDropdowns.forEach((dropdown) => {
+    dropdown.classList.remove('show');
+    dropdown.nextElementSibling.classList.remove('show');
   });
+
+  if (findHelpContainer.classList.contains('active')) {
+    findHelpContainer.classList.remove('active');
+  }
+
+  const desktopDonateDrawerContainer = document.querySelector('#header-donate-drawer');
+
+  if (window.innerWidth < 1024) {
+    const donateUrl = getCookieByName('location_donate_form') ? getCookieByName('location_donate_form') : "{{homepage.first().classy_url_mobile}}";
+    openDonateModal(donateUrl);
+    return;
+  }
+
+  if (desktopDonateDrawerContainer.classList.contains('active')) {
+    desktopDonateDrawerContainer.classList.remove('active');
+  } else {
+    desktopDonateDrawerContainer.classList.add('active');
+  }
 });
 
 document.addEventListener('click', (event) => {
