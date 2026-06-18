@@ -174,12 +174,6 @@ document.addEventListener('click', (event) => {
 
   const desktopDonateDrawerContainer = document.querySelector('#header-donate-drawer');
 
-  if (window.innerWidth < 1024) {
-    const donateUrl = getCookieByName('location_donate_form') ? getCookieByName('location_donate_form') : "{{homepage.first().classy_url_mobile}}";
-    openDonateModal(donateUrl);
-    return;
-  }
-
   if (desktopDonateDrawerContainer.classList.contains('active')) {
     if (typeof window.forceCloseDonationDrawer === 'function') {
       window.forceCloseDonationDrawer();
