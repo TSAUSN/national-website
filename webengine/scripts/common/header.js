@@ -117,27 +117,40 @@ document.addEventListener('click', (event) => {
   const donateBtn = event.target.closest('.header-donate-button');
   if (!donateBtn) return;
 
+  if (typeof window.toggleHeaderDonationDrawer === 'function') {
+    window.toggleHeaderDonationDrawer(event, donateBtn);
+    return;
+  }
+
   event.preventDefault();
   event.stopPropagation();
-  navMenu.style.transform = 'unset';
-  navMenu.classList.remove('active');
-  if (searchContainer.classList.contains('active')) {
+  if (typeof navMenu !== 'undefined' && navMenu) {
+    navMenu.style.transform = 'unset';
+    navMenu.classList.remove('active');
+  }
+  if (searchContainer && searchContainer.classList.contains('active')) {
     searchContainer.classList.remove('active');
 
-    searchToggleBtn.querySelector('span').classList.toggle('text-primary-200');
-    searchToggleBtn.querySelector('span').classList.toggle('text-dark-100');
+    const searchIcon = searchToggleBtn ? searchToggleBtn.querySelector('span') : null;
+    if (searchIcon) {
+      searchIcon.classList.toggle('text-primary-200');
+      searchIcon.classList.toggle('text-dark-100');
+    }
   }
 
   headerDropdowns.forEach((dropdown) => {
     dropdown.classList.remove('show');
-    dropdown.nextElementSibling.classList.remove('show');
+    if (dropdown.nextElementSibling) {
+      dropdown.nextElementSibling.classList.remove('show');
+    }
   });
 
-  if (findHelpContainer.classList.contains('active')) {
+  if (findHelpContainer && findHelpContainer.classList.contains('active')) {
     findHelpContainer.classList.remove('active');
   }
 
   const desktopDonateDrawerContainer = document.querySelector('#header-donate-drawer');
+  if (!desktopDonateDrawerContainer) return;
 
   if (desktopDonateDrawerContainer.classList.contains('active')) {
     if (typeof window.forceCloseDonationDrawer === 'function') {
@@ -168,7 +181,7 @@ document.addEventListener('click', (event) => {
   //   findHelpContainer.classList.remove('active');
   // }
 
-  if (!donateContainer.contains(event.target)) {
+  if (donateContainer && !donateContainer.contains(event.target)) {
     donateContainer.classList.remove('active');
   }
 });

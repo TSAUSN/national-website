@@ -87,6 +87,68 @@
       setDonateButtonState(false);
     };
 
+    function closeHeaderChrome() {
+      var navMenuElement = typeof navMenu !== 'undefined' ? navMenu : null;
+      var searchContainerElement = document.getElementById('header-search-container');
+      var searchToggleButton = document.getElementById('search-toggle-btn');
+      var findHelpElement = document.getElementById('header-help-container');
+
+      if (navMenuElement) {
+        navMenuElement.style.transform = 'unset';
+        navMenuElement.classList.remove('active');
+      }
+
+      if (searchContainerElement && searchContainerElement.classList.contains('active')) {
+        searchContainerElement.classList.remove('active');
+
+        var searchIcon = searchToggleButton ? searchToggleButton.querySelector('span') : null;
+        if (searchIcon) {
+          searchIcon.classList.toggle('text-primary-200');
+          searchIcon.classList.toggle('text-dark-100');
+        }
+      }
+
+      document.querySelectorAll('.header-dropdown').forEach(function(dropdown) {
+        dropdown.classList.remove('show');
+        if (dropdown.nextElementSibling) {
+          dropdown.nextElementSibling.classList.remove('show');
+        }
+      });
+
+      if (findHelpElement) {
+        findHelpElement.classList.remove('active');
+      }
+    }
+
+    window.toggleHeaderDonationDrawer = function(event, button, options) {
+      if (event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+
+      if (options && options.trackClick && typeof LinkTrackingClickEvent === 'function') {
+        LinkTrackingClickEvent(button, 'donate_money_click');
+      }
+
+      closeHeaderChrome();
+
+      if (donationDrawer.classList.contains('active')) {
+        window.forceCloseDonationDrawer();
+      } else {
+        window.forceOpenDonationDrawer();
+      }
+    };
+
+    document.addEventListener('click', function(event) {
+      var donateButton = event.target.closest('.header-donate-button');
+
+      if (!donateButton || donationDrawer.contains(donateButton)) {
+        return;
+      }
+
+      window.toggleHeaderDonationDrawer(event, donateButton, { trackClick: true });
+    }, true);
+
     var donationCloseBtn = donationDrawer.querySelector('#donate-close-btn');
     if (donationCloseBtn) {
       donationCloseBtn.addEventListener('click', function () {

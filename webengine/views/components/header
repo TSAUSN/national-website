@@ -565,6 +565,7 @@
         <i class="bi bi-chevron-down caret-icon"></i>
       </button>
         <button
+          type="button"
           class="btn btn-primary header-donate-button d-flex align-items-center gap-2"
           
           data-location-type="nav-top"
@@ -589,6 +590,7 @@
           <i class="bi bi-chevron-down caret-icon"></i>
         </button>
      <button
+          type="button"
           class="btn btn-sm btn-primary header-donate-button d-flex align-items-center gap-2"
           
           data-location-type="nav-top"
