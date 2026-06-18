@@ -34,13 +34,6 @@ header {
   pointer-events: all;
 }
 
-#header-donate-drawer {
-  left: auto;
-  right: 0;
-  width: min(100%, 48rem);
-  z-index: 10;
-}
-
 .header-cta-buttons.active,
 .header-search-close-button.active {
   display: flex;
@@ -133,6 +126,15 @@ input.donate-price-pill::placeholder {
 }
 .goods-wrapper {
     border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+}
+
+@media (min-width: 768px) {
+  #header-donate-drawer {
+    width: 65%;
+    left: auto;
+    right: 0;
+    max-width: 950px;
+  }
 }
 
   @media (max-width: 768px) {
