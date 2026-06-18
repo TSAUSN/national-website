@@ -43,8 +43,8 @@
         </div>
         <div class="row pt-lg-6">
           <div class="col-12 donate-locally">
-            <a href="#" id="drawer-donate-once" class="mt-auto btn btn-primary btn-lg w-sm-100 w-md-auto me-lg-2" data-location-type="nav-top:donation-drawer-donate-once" data-function-type="other" data-format-type="button" data-link-type="external" target="_blank">Donate Once</a>
-            <a href="#" id="drawer-donate-monthly" class="mt-4 mt-md-auto btn btn-secondary btn-lg w-sm-100 w-md-auto" data-location-type="nav-top:donation-drawer-donate-monthly" data-function-type="other" data-format-type="button" data-link-type="external" target="_blank">Donate Monthly</a>
+            <a href="#" id="drawer-donate-once" class="mt-auto btn btn-primary btn-lg w-sm-100 w-md-auto me-lg-2" data-location-type="nav-top:donation-drawer-donate-once" data-function-type="other" data-format-type="button" data-link-type="external">Donate Once</a>
+            <a href="#" id="drawer-donate-monthly" class="mt-4 mt-md-auto btn btn-secondary btn-lg w-sm-100 w-md-auto" data-location-type="nav-top:donation-drawer-donate-monthly" data-function-type="other" data-format-type="button" data-link-type="external">Donate Monthly</a>
           </div>
         </div>
       </div>
@@ -141,17 +141,17 @@
       });
     }
 
-    function getCookieValue(key, fallback) {
-      if (typeof cookieManager === 'undefined' || typeof cookieKeys === 'undefined') {
+    function getCookieValue(keyName, fallback) {
+      if (typeof cookieManager === 'undefined' || typeof cookieKeys === 'undefined' || !cookieKeys[keyName]) {
         return fallback;
       }
 
-      return cookieManager.get(key) || fallback;
+      return cookieManager.get(cookieKeys[keyName]) || fallback;
     }
 
     function buildDonationUrl(frequency) {
-      var classyID = getCookieValue(cookieKeys.classyID, '{{homepage.first().classy_campaign_id}}');
-      var classyURL = getCookieValue(cookieKeys.classyCampaignURL, '{{homepage.first().classy_url}}');
+      var classyID = getCookieValue('classyID', '{{homepage.first().classy_campaign_id}}');
+      var classyURL = getCookieValue('classyCampaignURL', '{{homepage.first().classy_url}}');
       var baseUrl = classyURL;
 
       try {
@@ -185,14 +185,16 @@
 
       button.href = url;
       button.addEventListener('click', function(e) {
-        if (window.innerWidth < 1024) {
-          e.preventDefault();
+        e.preventDefault();
 
+        if (window.innerWidth < 1024) {
           if (typeof window.openDonateModal === 'function') {
             window.openDonateModal(url);
           } else {
             window.location.href = url;
           }
+        } else {
+          window.open(url, '_blank');
         }
 
         if (typeof utag !== 'undefined' && utag.link) {
