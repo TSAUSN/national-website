@@ -307,9 +307,8 @@
                 ];
 
                 var fullUrl = baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + params.join('&');
-                console.log(fullUrl)
-                // For testing, you can alert the URL:
-                //alert(fullUrl);
+                // For testing
+                alert(fullUrl);
 
                 // Donate Utag Event
                 utag.link({
