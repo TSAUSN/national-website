@@ -8,7 +8,7 @@
         <span class="material-symbols-outlined text-dark-50 fs-5"> close </span>
         </button>
         <div class="row">
-            <div class="goods-wrapper col-12 col-md-4 pe-md-8 order-2 order-md-1 mt-7 mt-md-0">
+            <div class="goods-wrapper col-12 col-md-6 pe-md-8 order-2 order-md-1 mt-7 mt-md-0">
                 <div class="border-bottom border-dark-50">
                     <h6 class="fs-7">Donate Goods</h6>
                 </div>
@@ -33,7 +33,7 @@
                     <div class="pt-sm-4 pt-md-5"><p>Enter your ZIP code and you'll be redirected to find local donation options for clothing, furniture, and more.</p></div>
                 </div>
             </div>
-            <div class="donate-wrapper col-12 col-md-8 ps-md-8 order-1 order-md-2">
+            <div class="donate-wrapper col-12 col-md-6 ps-md-8 order-1 order-md-2">
                 <div class="give-now-header border-bottom border-dark-50 mt-sm-6 mt-md-0">
                     <h6 class="fs-7">Give Now</h6>
                 </div>
@@ -285,32 +285,20 @@
             donationButton.addEventListener('click', function(e) {
                 e.preventDefault();
 
-                // Territory logic with default to USN
-                // var territoryKey = window.utag && window.utag.data && window.utag.data.page_type;
                 var frequencyParam = donationButton.getAttribute('data-donation-frequency');
                 var freq = frequencyParam === 'monthly' ? 'monthly' : 'once';
-                var amount = 50;
-                var territoryCode = cookieManager.get(cookieKeys.territoryCode) || 'USN'
-                var classyID = cookieManager.get(cookieKeys.classyID) || '{{homepage.first().classy_campaign_id}}'
-                var orgID = cookieManager.get(cookieKeys.classyOrganizationID) || '{{homepage.first().classy_org_id}}'
                 var classyURL = cookieManager.get(cookieKeys.classyCampaignURL) || '{{homepage.first().classy_url}}'
 
                 var baseUrl = classyURL;
-                var cid = classyID;
-                var oid = orgID;
 
                 // Build the URL
                 var params = [
-                    'cid=' + encodeURIComponent(cid),
-                    'oid=' + encodeURIComponent(oid),
-                    'amount=' + encodeURIComponent(Number(amount).toFixed(2)),
-                    'frequency=' + encodeURIComponent(frequencyParam),
-                    'currency=USD',
-                    'c_src=donation_drawer',
-                    'step=0'
+                    'c_src=NT26TLOAAT',
+                    'c_src2=MonthlyNoIAADonationDrawerTest',
+                    'recurring=12'
                 ];
 
-                var fullUrl = baseUrl + '?' + params.join('&');
+                var fullUrl = baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + params.join('&');
 
                 // For testing, you can alert the URL:
                 //alert(fullUrl);

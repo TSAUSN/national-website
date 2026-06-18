@@ -34,6 +34,13 @@ header {
   pointer-events: all;
 }
 
+#header-donate-drawer {
+  left: auto;
+  right: 0;
+  width: min(100%, 48rem);
+  z-index: 10;
+}
+
 .header-cta-buttons.active,
 .header-search-close-button.active {
   display: flex;
@@ -133,6 +140,10 @@ input.donate-price-pill::placeholder {
     .contact-us-hero-image,
     .states__banner {
       aspect-ratio: 3 / 2;
+    }
+
+    .goods-wrapper {
+      border-right: 0 !important;
     }
   }
 
