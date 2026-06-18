@@ -191,7 +191,11 @@ input.donate-price-pill::placeholder {
 
 @media screen and (max-width: 1023px) {
   #header-donate-drawer {
-    top: 4.1rem;
+    top: 4.6rem;
+    width: 100%;
+    max-width: none;
+    left: 0;
+    right: auto;
     overflow-y: scroll;
     height: 90vh !important;
     z-index: 10;
