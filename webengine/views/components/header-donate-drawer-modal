@@ -8,7 +8,7 @@
         <span class="material-symbols-outlined text-dark-50 fs-5"> close </span>
         </button>
         <div class="row">
-            <div class="goods-wrapper col-12 col-md-4 pe-md-8">
+            <div class="goods-wrapper col-12 col-md-4 pe-md-8 order-2 order-md-1 mt-7 mt-md-0">
                 <div class="border-bottom border-dark-50">
                     <h6 class="fs-7">Donate Goods</h6>
                 </div>
@@ -30,11 +30,29 @@
                             </div>
                         </div>
                     </form>
-                    <div class="pt-sm-4 pt-md-5"><p>Help a neighbor in need by locally donating food, clothing, furniture, and more.</p></div>
+                    <div class="pt-sm-4 pt-md-5"><p>Enter your ZIP code and you'll be redirected to find local donation options for clothing, furniture, and more.</p></div>
                 </div>
             </div>
-            <div class="donate-wrapper col-12 col-md-8 ps-md-8">
-                <div class="donate-header border-0 border-bottom-md mt-sm-6 mt-md-0">
+            <div class="donate-wrapper col-12 col-md-8 ps-md-8 order-1 order-md-2">
+                <div class="give-now-header border-bottom border-dark-50 mt-sm-6 mt-md-0">
+                    <h6 class="fs-7">Give Now</h6>
+                </div>
+                <div class="row align-items-end pt-sm-4 pt-md-5">
+                    <div class="col-12 col-md">
+                        <p>Your donation helps spread joy by providing meals, shelter, and support for your local neighbors in need.</p>
+                    </div>
+                    <div class="col-12 col-md-auto">
+                        <div class="row g-3 donate-locally">
+                            <div class="col-12 col-md-auto">
+                                <button type="button" id="btn-donate-once-submit" class="mt-auto btn btn-primary btn-lg w-100" data-donation-frequency="one-time" data-location-type="nav-top:donation-drawer-donate-once" data-function-type="other" data-format-type="button" data-link-type="external">Donate Once</button>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <button type="button" id="btn-donate-monthly-submit" class="mt-auto btn btn-secondary btn-lg w-100" data-donation-frequency="monthly" data-location-type="nav-top:donation-drawer-donate-monthly" data-function-type="other" data-format-type="button" data-link-type="external">Donate Monthly</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="donate-header border-0 border-bottom-md mt-sm-6 mt-md-0">
                     <div class="d-flex align-items-center mb-3">
                         <h6 class="fs-7 mb-0 me-3 pe-3">Give Now</h6>
                         <div class="form-check form-check-inline">
@@ -86,8 +104,8 @@
                             <button class="donate-price-pill rounded-14 align-items-center px-6 py-4 justify-content-center w-100" data-amount="other">Other</button>
                         </div>
                     </div>
-                </div>
-                <div class="row pt-md-6">
+                </div> -->
+                <!-- <div class="row pt-md-6">
                     <div class="col-12 col-md-7 amnt-messages">
                         <div class="row donatefreq-container" data-frequency="once">
                             <div class="row d-none" data-amount-message="500">
@@ -174,10 +192,12 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-12 col-md-5 donate-locally">
                         <button type="submit" id="btn-donate-submit" class="mt-auto btn btn-primary btn-lg w-sm-100 w-md-auto" data-location-type="nav-top:donation-drawer-donate" data-function-type="other" data-format-type="button" data-link-type="external">Donate Once</button>
+                        <button type="submit" id="btn-donate-submit" class="mt-auto btn btn-primary btn-lg w-sm-100 w-md-auto" data-location-type="nav-top:donation-drawer-donate" data-function-type="other" data-format-type="button" data-link-type="external">Donate Monthly</button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -189,8 +209,12 @@
         var donationCloseBtn = donationDrawer.querySelector('#donate-close-btn');
         if (donationCloseBtn) {
             donationCloseBtn.addEventListener('click', function () {
-                wantDonationDrawerOpen = false;
-                forceCloseDonationDrawer();
+                if (typeof forceCloseDonationDrawer === 'function') {
+                    wantDonationDrawerOpen = false;
+                    forceCloseDonationDrawer();
+                } else {
+                    donationDrawer.classList.remove('active');
+                }
             });
         }
         // Protect button text from being changed
@@ -254,6 +278,55 @@
                 }
             });
         }
+
+        var donationButtons = donationDrawer.querySelectorAll('[data-donation-frequency]');
+
+        donationButtons.forEach(function(donationButton) {
+            donationButton.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                var frequencyParam = donationButton.getAttribute('data-donation-frequency');
+                var classyID = typeof cookieManager !== 'undefined' && typeof cookieKeys !== 'undefined' ? cookieManager.get(cookieKeys.classyID) : '';
+                var orgID = typeof cookieManager !== 'undefined' && typeof cookieKeys !== 'undefined' ? cookieManager.get(cookieKeys.classyOrganizationID) : '';
+                var classyURL = typeof cookieManager !== 'undefined' && typeof cookieKeys !== 'undefined' ? cookieManager.get(cookieKeys.classyCampaignURL) : '';
+                var baseUrl = classyURL || '{{homepage.first().classy_url}}';
+                var params = [];
+
+                if (classyID) {
+                    params.push('cid=' + encodeURIComponent(classyID));
+                }
+
+                if (orgID) {
+                    params.push('oid=' + encodeURIComponent(orgID));
+                }
+
+                params.push(
+                    'frequency=' + encodeURIComponent(frequencyParam),
+                    'currency=USD',
+                    'c_src=donation_drawer',
+                    'step=0'
+                );
+
+                var fullUrl = baseUrl + '?' + params.join('&');
+
+                if (typeof utag !== 'undefined' && utag.link) {
+                    utag.link({
+                        event: 'donate_money_click',
+                        link_function: 'donation',
+                        link_format: 'button',
+                        link_text: frequencyParam === 'monthly' ? 'monthly' : 'once',
+                        link_location: 'donation drawer',
+                        link_url: fullUrl,
+                        link_type: 'internal',
+                    });
+                }
+
+                window.open(fullUrl, '_blank');
+            });
+        });
+
+        /*
+        Unused amount-picker logic retained for reference.
 
             // Find the donation amount button and message wrappers
         var buttonsWrapper = donationDrawer.querySelector('.amnt-buttons');
@@ -581,16 +654,17 @@
             radioOnce.addEventListener('change', updateFrequencyUI);
             radioMonthly.addEventListener('change', updateFrequencyUI);
         }
+        */
 
         const closeBtn = document.querySelector("#donate-close-btn");
 
-        closeBtn.addEventListener('click', () => {
-            const desktopDonateDrawerContainer = document.querySelector('#header-donate-drawer');
-            if(desktopDonateDrawerContainer.classList.contains('active')) {
-                desktopDonateDrawerContainer.classList.remove('active');
-            } else {
-                desktopDonateDrawerContainer.classList.add('active');
-            }
-        })
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                const desktopDonateDrawerContainer = document.querySelector('#header-donate-drawer');
+                if (desktopDonateDrawerContainer) {
+                    desktopDonateDrawerContainer.classList.remove('active');
+                }
+            })
+        }
     });
 </script>
