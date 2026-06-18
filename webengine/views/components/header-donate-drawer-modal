@@ -302,13 +302,16 @@
                 // Build the URL
                 var params = [
                     'c_src=NT26TLOAAT',
-                    'c_src2=MonthlyNoIAADonationDrawerTest',
-                    'recurring=12'
+                    'c_src2=' + encodeURIComponent(freq === 'monthly' ? 'MonthlyNoIAADonationDrawerTest' : 'OneTimeNoIAADonationDrawerTest')
                 ];
 
+                if (freq === 'monthly') {
+                    params.push('recurring=12');
+                }
+
                 var fullUrl = baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + params.join('&');
-                // For testing
-                alert(fullUrl);
+                // For testing, you can alert the URL:
+                //alert(fullUrl);
 
                 // Donate Utag Event
                 utag.link({
