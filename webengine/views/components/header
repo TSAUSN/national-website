@@ -598,6 +598,18 @@
           Donate
          
         </button> -->
+     <button
+          class="btn btn-sm btn-primary header-donate-button d-flex align-items-center gap-2"
+          
+          data-location-type="nav-top"
+          data-function-type="other"
+          data-format-type="button"
+          onclick="LinkTrackingClickEvent(this,'donate_money_click'); toggleCaret(this)"
+        >
+          Donate
+          <i class="bi bi-chevron-down caret-icon"></i>
+        </button>
+
       </div>
       <div class="header-search-close-button">
         <button
