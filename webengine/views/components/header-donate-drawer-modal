@@ -285,20 +285,32 @@
             donationButton.addEventListener('click', function(e) {
                 e.preventDefault();
 
-                // Campaign URL is selected by location/territory cookies, with USN as the fallback.
+                // Territory logic with default to USN
+                // var territoryKey = window.utag && window.utag.data && window.utag.data.page_type;
                 var frequencyParam = donationButton.getAttribute('data-donation-frequency');
                 var freq = frequencyParam === 'monthly' ? 'monthly' : 'once';
+                var amount = 50;
+                var territoryCode = cookieManager.get(cookieKeys.territoryCode) || 'USN'
+                var classyID = cookieManager.get(cookieKeys.classyID) || '{{homepage.first().classy_campaign_id}}'
+                var orgID = cookieManager.get(cookieKeys.classyOrganizationID) || '{{homepage.first().classy_org_id}}'
                 var classyURL = cookieManager.get(cookieKeys.classyCampaignURL) || '{{homepage.first().classy_url}}'
 
-                var baseUrl = classyURL;
+                var baseUrl = 'https://give.salvationarmyusa.org/checkout';
+                var cid = classyID;
+                var oid = orgID;
 
                 // Build the URL
                 var params = [
-                    'c_src=DN26XROAXC',
-                    'c_src2=top_nav'
+                    'cid=' + encodeURIComponent(cid),
+                    'oid=' + encodeURIComponent(oid),
+                    'amount=' + encodeURIComponent(Number(amount).toFixed(2)),
+                    'frequency=' + encodeURIComponent(frequencyParam),
+                    'currency=USD',
+                    'c_src=donation_drawer',
+                    'step=0'
                 ];
 
-                var fullUrl = baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + params.join('&');
+                var fullUrl = baseUrl + '?' + params.join('&');
 
                 // For testing, you can alert the URL:
                 //alert(fullUrl);
