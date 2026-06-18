@@ -588,16 +588,6 @@
           Find Help
           <i class="bi bi-chevron-down caret-icon"></i>
         </button>
-        <!-- <button
-          class="btn btn-primary btn-sm header-donate-button d-lg-none d-flex align-items-center gap-2"
-          data-location-type="nav-top"
-          data-function-type="other"
-          data-format-type="button"
-          onclick="LinkTrackingClickEvent(this,'donate_money_click'); toggleCaret(this)"
-        >
-          Donate
-         
-        </button> -->
      <button
           class="btn btn-sm btn-primary header-donate-button d-flex align-items-center gap-2"
           

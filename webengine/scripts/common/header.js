@@ -120,7 +120,6 @@ const cloader = document.getElementById('donation-loader-container');
 let iframe = null;
 
 donateButtons.forEach((donateBtn) => {
-  
   donateBtn.addEventListener('click', (event) => {
     event.stopPropagation();
     navMenu.style.transform = 'unset';
@@ -141,19 +140,12 @@ donateButtons.forEach((donateBtn) => {
       findHelpContainer.classList.remove('active');
     }
     const desktopDonateDrawerContainer = document.querySelector('#header-donate-drawer');
-    if(window.innerWidth < 1024) {
-      const cookie = getCookieByName('location_donate_form') ? getCookieByName('location_donate_form') : "{{homepage.first().classy_url_mobile}}";
-      window.open(cookie, '_target')
 
+    if (desktopDonateDrawerContainer.classList.contains('active')) {
+      desktopDonateDrawerContainer.classList.remove('active');
     } else {
-      if(desktopDonateDrawerContainer.classList.contains('active')) {
-        desktopDonateDrawerContainer.classList.remove('active');
-      } else {
-        desktopDonateDrawerContainer.classList.add('active');
-      }
-      
+      desktopDonateDrawerContainer.classList.add('active');
     }
-    
   });
 });
 
