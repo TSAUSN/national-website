@@ -285,30 +285,20 @@
             donationButton.addEventListener('click', function(e) {
                 e.preventDefault();
 
-                // Territory logic with default to USN
-                // var territoryKey = window.utag && window.utag.data && window.utag.data.page_type;
+                // Campaign URL is selected by location/territory cookies, with USN as the fallback.
                 var frequencyParam = donationButton.getAttribute('data-donation-frequency');
                 var freq = frequencyParam === 'monthly' ? 'monthly' : 'once';
-                var territoryCode = cookieManager.get(cookieKeys.territoryCode) || 'USN'
-                var classyID = cookieManager.get(cookieKeys.classyID) || '{{homepage.first().classy_campaign_id}}'
-                var orgID = cookieManager.get(cookieKeys.classyOrganizationID) || '{{homepage.first().classy_org_id}}'
                 var classyURL = cookieManager.get(cookieKeys.classyCampaignURL) || '{{homepage.first().classy_url}}'
 
                 var baseUrl = classyURL;
-                var cid = classyID;
-                var oid = orgID;
 
                 // Build the URL
                 var params = [
-                    'cid=' + encodeURIComponent(cid),
-                    'oid=' + encodeURIComponent(oid),
-                    'frequency=' + encodeURIComponent(frequencyParam),
-                    'currency=USD',
-                    'c_src=donation_drawer',
-                    'step=0'
+                    'c_src=DN26XROAXC',
+                    'c_src2=top_nav'
                 ];
 
-                var fullUrl = baseUrl + '?' + params.join('&');
+                var fullUrl = baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + params.join('&');
 
                 // For testing, you can alert the URL:
                 //alert(fullUrl);
