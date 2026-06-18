@@ -113,41 +113,6 @@ function getCookieByName(name) {
   return null;
 }
 
-const cloader = document.getElementById('donation-loader-container');
-let iframe = null;
-
-function openDonateModal(donateUrl) {
-  const donateModalElement = document.getElementById('donateModal');
-  const iframeContainer = document.querySelector('.donation-iframe-container');
-
-  if (!donateModalElement || !iframeContainer || typeof bootstrap === 'undefined' || !bootstrap.Modal) {
-    window.location.href = donateUrl;
-    return;
-  }
-
-  if (cloader) {
-    cloader.classList.remove('d-none');
-  }
-
-  if (!iframe) {
-    iframe = document.createElement('iframe');
-    iframe.title = 'Donation form';
-    iframe.className = 'w-100 h-100 border-0';
-    iframe.setAttribute('allowpaymentrequest', 'true');
-    iframe.addEventListener('load', () => {
-      if (cloader) {
-        cloader.classList.add('d-none');
-      }
-    });
-    iframeContainer.appendChild(iframe);
-  }
-
-  iframe.src = donateUrl;
-  bootstrap.Modal.getOrCreateInstance(donateModalElement).show();
-}
-
-window.openDonateModal = openDonateModal;
-
 document.addEventListener('click', (event) => {
   const donateBtn = event.target.closest('.header-donate-button');
   if (!donateBtn) return;
