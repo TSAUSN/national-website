@@ -211,24 +211,103 @@
       return cookieManager.get(cookieKeys[keyName]) || fallback;
     }
 
-    function buildDonationUrl(frequency) {
-      var classyURL = getCookieValue('classyCampaignURL', '{{homepage.first().classy_url}}');
-      var campaignID = frequency === 'monthly' ? '680817' : '676125';
+    function valueMatches(value, matches) {
+      var normalizedValue = String(value || '').toLowerCase();
+
+      return matches.some(function(match) {
+        return normalizedValue === String(match).toLowerCase();
+      });
+    }
+
+    function getTerritorySignals() {
+      var territoryCode = getCookieValue('territoryCode', '');
+      var analyticsCode = getCookieValue('analyticsCode', '');
+      var analyticsPageType = getCookieValue('analyticsPageType', '');
+      var tealiumProfile = getCookieValue('tealiumprofile', '');
+      var pageType = window.utag && window.utag.data && window.utag.data.page_type;
+
+      return [territoryCode, analyticsCode, analyticsPageType, tealiumProfile, pageType];
+    }
+
+    function isWesternTerritory() {
+      var territorySignals = getTerritorySignals();
+
+      return territorySignals.some(function(signal) {
+        return valueMatches(signal, ['USW', 'SAL:USW', 'SAL^USW', 'westernterritory']);
+      });
+    }
+
+    function shouldUseOriginalTerritoryFormat() {
+      var territorySignals = getTerritorySignals();
+
+      return territorySignals.some(function(signal) {
+        return valueMatches(signal, [
+          'USE',
+          'USS',
+          'USC',
+          'SAL:USE',
+          'SAL:USS',
+          'SAL:USC',
+          'SAL^USE',
+          'SAL^USS',
+          'SAL^USC',
+          'easternterritory',
+          'southernterritory',
+          'centralterritory'
+        ]);
+      });
+    }
+
+    function buildCampaignBaseUrl(fallbackCampaignID, fallbackCampaignURL) {
+      var classyID = getCookieValue('classyID', fallbackCampaignID);
+      var classyURL = getCookieValue('classyCampaignURL', fallbackCampaignURL);
       var baseUrl = classyURL;
 
       try {
         var parsedClassyURL = new URL(classyURL, window.location.origin);
-        baseUrl = parsedClassyURL.origin + '/campaign/' + campaignID + '/donate';
+        baseUrl = parsedClassyURL.origin + '/campaign/' + encodeURIComponent(classyID) + '/donate';
       } catch (error) {
-        baseUrl = classyURL.replace(/\/campaign\/[^\/]+\/donate.*|\/checkout.*|\/$/, '') + '/campaign/' + campaignID + '/donate';
+        baseUrl = classyURL.replace(/\/campaign\/[^\/]+\/donate.*|\/checkout.*|\/$/, '') + '/campaign/' + encodeURIComponent(classyID) + '/donate';
       }
 
+      return baseUrl;
+    }
+
+    function buildOriginalTerritoryDonationUrl(frequency) {
+      var baseUrl = buildCampaignBaseUrl('{{homepage.first().classy_campaign_id}}', '{{homepage.first().classy_url}}');
       var params = [
-        'c_src=NT26TZOAEC',
-        'c_src2=' + encodeURIComponent(frequency === 'monthly' ? 'HeaderDonateBtn_Monthly' : 'HeaderDonateBtn_GiveOnce')
+        'c_src=NT26TLOAAT',
+        'c_src2=' + encodeURIComponent(frequency === 'monthly' ? 'MonthlyNoIAADonationDrawerTest' : 'OneTimeNoIAADonationDrawerTest')
       ];
 
+      if (frequency === 'monthly') {
+        params.push('recurring=12');
+      }
+
       return baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + params.join('&');
+    }
+
+    function buildWesternDonationUrl(frequency) {
+      var baseUrl = buildCampaignBaseUrl('701882', 'https://give-usw.salvationarmy.org/campaign/701882/donate');
+      var recurring = frequency === 'monthly' ? '12' : '0';
+
+      return baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + 'recurring=' + recurring;
+    }
+
+    function buildDonationUrl(frequency) {
+      if (isWesternTerritory()) {
+        return buildWesternDonationUrl(frequency);
+      }
+
+      if (shouldUseOriginalTerritoryFormat()) {
+        return buildOriginalTerritoryDonationUrl(frequency);
+      }
+
+      if (frequency === 'monthly') {
+        return 'https://give.salvationarmyusa.org/campaign/680817/donate?c_src=NT26TZOAEC&c_src2=HeaderDonateBtn_Monthly';
+      }
+
+      return 'https://give.salvationarmyusa.org/campaign/676125/donate?c_src=NT26TZOAEC&c_src2=HeaderDonateBtn_GiveOnce';
     }
 
     var onceUrl = buildDonationUrl('one-time');
