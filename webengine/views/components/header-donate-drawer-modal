@@ -273,18 +273,14 @@
       return baseUrl;
     }
 
-    function buildOriginalTerritoryDonationUrl(frequency) {
+    function buildRegionalDonationUrl(frequency) {
       var baseUrl = buildCampaignBaseUrl('{{homepage.first().classy_campaign_id}}', '{{homepage.first().classy_url}}');
-      var params = [
-        'c_src=NT26TLOAAT',
-        'c_src2=' + encodeURIComponent(frequency === 'monthly' ? 'MonthlyNoIAADonationDrawerTest' : 'OneTimeNoIAADonationDrawerTest')
-      ];
 
       if (frequency === 'monthly') {
-        params.push('recurring=12');
+        return baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + 'recurring=12';
       }
 
-      return baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + params.join('&');
+      return baseUrl;
     }
 
     function buildWesternDonationUrl(frequency) {
@@ -300,7 +296,7 @@
       }
 
       if (shouldUseOriginalTerritoryFormat()) {
-        return buildOriginalTerritoryDonationUrl(frequency);
+        return buildRegionalDonationUrl(frequency);
       }
 
       if (frequency === 'monthly') {
