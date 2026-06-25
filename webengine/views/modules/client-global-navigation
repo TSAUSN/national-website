@@ -194,7 +194,6 @@
     waysToGiveUrl: `wtg_url`,
     plannedGivingUrl: `planned_url`,
     mutualFundsUrl: `mutual_funds_url`,
-    locationDonateForm: `location_donate_form`,
     territoryZUID: `territory_zuid`,
     territoryCode: `territory_code`,
     divisionCode: `division_code`,
@@ -216,7 +215,8 @@
     locationZipcode: `location_zipcode`,
     classyID: `classy_id`,
     classyOrganizationID: `classy_organization_id`,
-    classyCampaignURL: `classy_campaign_url`
+    donateOnceURL: `classy_campaign_url_once`,
+    donateMonthlyURL: `classy_campaign_url_monthly`,
   };
 
   const debugDataLayer = (() => {
@@ -286,7 +286,7 @@
       cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
       cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
       cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
-      cookieManager.set(cookieKeys.locationDonateForm, `{{homepage.first().classy_url_mobile}}`);
+      cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
       cookieManager.set(cookieKeys.analyticsCode, `SAL^USN`);
       cookieManager.set(cookieKeys.organizationLevel, levels.national);
       cookieManager.set(cookieKeys.contactUsImage, `{{homepage.first().contact_us_image.getImage()}}`);
@@ -294,7 +294,7 @@
       cookieManager.set(cookieKeys.contactUsHeader, `{{homepage.first().contact_us_cta_header}}`);
       cookieManager.set(cookieKeys.classyID, `{{homepage.first().classy_campaign_id}}`);
       cookieManager.set(cookieKeys.classyOrganizationID, `{{homepage.first().classy_org_id}}`);
-      cookieManager.set(cookieKeys.classyCampaignURL, `{{homepage.first().classy_url}}`);
+      cookieManager.set(cookieKeys.donateOnceURL, `{{homepage.first().classy_url}}`);
 
       cookieManager.delete(cookieKeys.territoryZUID);
       cookieManager.delete(cookieKeys.organizationCorp);
@@ -324,7 +324,7 @@
         cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
         cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
         cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
-        cookieManager.set(cookieKeys.locationDonateForm, `{{homepage.first().classy_url_mobile}}`);
+        cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
         cookieManager.set(cookieKeys.analyticsCode, `SAL^USN`);
         cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
         cookieManager.set(cookieKeys.organizationLevel, levels.national);
@@ -336,7 +336,7 @@
         cookieManager.set(cookieKeys.contactUsHeader, `{{homepage.first().contact_us_cta_header}}`);
         cookieManager.set(cookieKeys.classyID, `{{homepage.first().classy_campaign_id}}`);
         cookieManager.set(cookieKeys.classyOrganizationID, `{{homepage.first().classy_org_id}}`);
-        cookieManager.set(cookieKeys.classyCampaignURL, `{{homepage.first().classy_url}}`);
+        cookieManager.set(cookieKeys.donateOnceURL, `{{homepage.first().classy_url}}`);
 
         cookieManager.delete(cookieKeys.territoryZUID);
         cookieManager.delete(cookieKeys.organizationCorp);
@@ -943,7 +943,7 @@
           cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
           cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
           cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
-          cookieManager.set(cookieKeys.locationDonateForm, `{{homepage.first().classy_url_mobile}}`);
+          cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
           cookieManager.delete(cookieKeys.territoryZUID);
           cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
           cookieManager.set(
@@ -1427,7 +1427,7 @@
           cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
           cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
           cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
-          cookieManager.set(cookieKeys.locationDonateForm, `{{homepage.first().classy_url_mobile}}`);
+          cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
           cookieManager.delete(cookieKeys.territoryZUID);
           cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
           cookieManager.set(
@@ -1482,7 +1482,7 @@
             cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
             cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
             cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
-            cookieManager.set(cookieKeys.locationDonateForm, `{{homepage.first().classy_url_mobile}}`);
+            cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
             cookieManager.delete(cookieKeys.territoryZUID);
             cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
             cookieManager.set(
@@ -1735,7 +1735,7 @@
           cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
           cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
           cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
-          cookieManager.set(cookieKeys.locationDonateForm, `{{homepage.first().classy_url_mobile}}`);
+          cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
           cookieManager.delete(cookieKeys.territoryZUID);
           cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
           cookieManager.set(
@@ -1778,7 +1778,7 @@
           cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
           cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
           cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
-          cookieManager.set(cookieKeys.locationDonateForm, `{{homepage.first().classy_url_mobile}}`);
+          cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
           cookieManager.set(cookieKeys.analyticsCode, `SAL^USN`);
           cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
           cookieManager.set(cookieKeys.organizationLevel, levels.national);
@@ -1866,7 +1866,7 @@
       cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
       cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
       cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
-      cookieManager.set(cookieKeys.locationDonateForm, `{{homepage.first().classy_url_mobile}}`);
+      cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
       cookieManager.set(cookieKeys.analyticsCode, `SAL^USN`);
       cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
       cookieManager.set(
@@ -1903,7 +1903,7 @@
       cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
       cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
       cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
-      cookieManager.set(cookieKeys.locationDonateForm, `{{homepage.first().classy_url_mobile}}`);
+      cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
       cookieManager.set(cookieKeys.analyticsCode, `SAL^USN`);
       cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
       cookieManager.set(
@@ -2092,7 +2092,7 @@
         cookieManager.set(cookieKeys.locationName, `NATIONAL`);
         cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
         cookieManager.set(cookieKeys.employmentUrl, `{{$nationalEmployment}}`);
-        cookieManager.set(cookieKeys.locationDonateForm, `{{homepage.first().classy_url_mobile}}`);
+        cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
         cookieManager.set(cookieKeys.analyticsCode, `SAL^USN`);
         cookieManager.set(cookieKeys.organizationLevel, levels.national);
 
@@ -2205,7 +2205,7 @@
           cookieManager.set(cookieKeys.waysToGiveUrl, `/ways-to-give/`);
           cookieManager.set(cookieKeys.plannedGivingUrl, `/ways-to-give/planned-giving-wills-gift-annuities-and-trusts/`);
           cookieManager.set(cookieKeys.mutualFundsUrl, `/ways-to-give/bonds-funds-and-stocks/`);
-          cookieManager.set(cookieKeys.locationDonateForm, `https://give.salvationarmyusa.org/give/359529/#!/donation/checkout?eg=true`);
+          cookieManager.set(cookieKeys.donateMonthlyURL, `https://give.salvationarmyusa.org/give/359529/#!/donation/checkout?eg=true`);
           cookieManager.delete(cookieKeys.territoryZUID);
           cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
 
@@ -2237,7 +2237,7 @@
       cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
       cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
       cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
-      cookieManager.set(cookieKeys.locationDonateForm, `{{homepage.first().classy_url_mobile}}`);
+      cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
       cookieManager.delete(cookieKeys.territoryZUID);
       cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
 
@@ -2262,7 +2262,7 @@
 
   function setLocationCookiesByTerritory(zuid) {
     if (zuid === territories.west) {
-      cookieManager.set(cookieKeys.locationDonateForm, `{{$westClassyDonation}}`);
+      cookieManager.set(cookieKeys.donateMonthlyURL, `{{$westClassyDonation}}`);
       cookieManager.set(cookieKeys.volunteerUrl, `{{$westVolunteer}}`);
       cookieManager.set(cookieKeys.employmentUrl, `{{$westEmployment}}`);
       cookieManager.set(cookieKeys.waysToGiveUrl, `{{$westWaysToGive}}`);
@@ -2272,9 +2272,9 @@
       cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.west);
       cookieManager.set(cookieKeys.classyID, `{{$westClassyId}}`);
       cookieManager.set(cookieKeys.classyOrganizationID, `{{$westOrgId}}`);
-      cookieManager.set(cookieKeys.classyCampaignURL, `{{$westCampaignURL}}`);
+      cookieManager.set(cookieKeys.donateOnceURL, `{{$westCampaignURL}}`);
     } else if (zuid === territories.east) {
-      cookieManager.set(cookieKeys.locationDonateForm, `{{$eastClassyDonation}}`);
+      cookieManager.set(cookieKeys.donateMonthlyURL, `{{$eastClassyDonation}}`);
       cookieManager.set(cookieKeys.volunteerUrl, `{{$eastVolunteer}}`);
       cookieManager.set(cookieKeys.employmentUrl, `{{$eastEmployment}}`);
       cookieManager.set(cookieKeys.waysToGiveUrl, `{{$eastWaysToGive}}`);
@@ -2284,9 +2284,9 @@
       cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.east);
       cookieManager.set(cookieKeys.classyID, `{{$eastClassyId}}`);
       cookieManager.set(cookieKeys.classyOrganizationID, `{{$eastOrgId}}`);
-      cookieManager.set(cookieKeys.classyCampaignURL, `{{$eastCampaignURL}}`);
+      cookieManager.set(cookieKeys.donateOnceURL, `{{$eastCampaignURL}}`);
     } else if (zuid === territories.south) {
-      cookieManager.set(cookieKeys.locationDonateForm, `{{$southClassyDonation}}`);
+      cookieManager.set(cookieKeys.donateMonthlyURL, `{{$southClassyDonation}}`);
       cookieManager.set(cookieKeys.volunteerUrl, `{{$southVolunteer}}`);
       cookieManager.set(cookieKeys.employmentUrl, `{{$southEmployment}}`);
       cookieManager.set(cookieKeys.waysToGiveUrl, `{{$southWaysToGive}}`);
@@ -2296,9 +2296,9 @@
       cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.south);
       cookieManager.set(cookieKeys.classyID, `{{$southClassyId}}`);
       cookieManager.set(cookieKeys.classyOrganizationID, `{{$southOrgId}}`);
-      cookieManager.set(cookieKeys.classyCampaignURL, `{{$southCampaignURL}}`);
+      cookieManager.set(cookieKeys.donateOnceURL, `{{$southCampaignURL}}`);
     } else if (zuid === territories.central) {
-      cookieManager.set(cookieKeys.locationDonateForm, `{{$centralClassyDonation}}`);
+      cookieManager.set(cookieKeys.donateMonthlyURL, `{{$centralClassyDonation}}`);
    
       syncCentralVolunteerUrlFromCurrentProperty();
 
@@ -2310,7 +2310,7 @@
       cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.central);
       cookieManager.set(cookieKeys.classyID, `{{$centralClassyId}}`);
       cookieManager.set(cookieKeys.classyOrganizationID, `{{$centralOrgId}}`);
-      cookieManager.set(cookieKeys.classyCampaignURL, `{{$centralCampaignURL}}`);
+      cookieManager.set(cookieKeys.donateOnceURL, `{{$centralCampaignURL}}`);
     }
 
     cookieManager.set(cookieKeys.territoryZUID, zuid);
