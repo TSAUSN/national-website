@@ -237,6 +237,14 @@
       });
     }
 
+    function isSouthernTerritory() {
+      var territorySignals = getTerritorySignals();
+
+      return territorySignals.some(function(signal) {
+        return valueMatches(signal, ['USS', 'SAL:USS', 'SAL^USS', 'southernterritory']);
+      });
+    }
+
     function shouldUseOriginalTerritoryFormat() {
       var territorySignals = getTerritorySignals();
 
@@ -290,9 +298,19 @@
       return baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + 'recurring=' + recurring;
     }
 
+    function buildSouthernDonationUrl(frequency) {
+      var recurring = frequency === 'monthly' ? '12' : '0';
+
+      return 'https://give.salvationarmysouth.org/campaign/703141/donate?recurring=' + recurring;
+    }
+
     function buildDonationUrl(frequency) {
       if (isWesternTerritory()) {
         return buildWesternDonationUrl(frequency);
+      }
+
+      if (isSouthernTerritory()) {
+        return buildSouthernDonationUrl(frequency);
       }
 
       if (shouldUseOriginalTerritoryFormat()) {
