@@ -219,6 +219,25 @@
     donateMonthlyURL: `classy_campaign_url_monthly`,
   };
 
+  const nationalDonateOnceURL = `{{homepage.first().classy_url}}`;
+  const nationalDonateMonthlyURL = `{{homepage.first().classy_url_mobile}}`;
+
+  function getDonationUrlOrNational(url, nationalUrl) {
+    return String(url || ``).trim() || nationalUrl;
+  }
+
+  function setDonationUrlCookies(onceUrl, monthlyUrl) {
+    cookieManager.set(cookieKeys.donateOnceURL, getDonationUrlOrNational(onceUrl, nationalDonateOnceURL));
+    cookieManager.set(cookieKeys.donateMonthlyURL, getDonationUrlOrNational(monthlyUrl, nationalDonateMonthlyURL));
+  }
+
+  function ensureDonationUrlCookies() {
+    setDonationUrlCookies(
+      cookieManager.get(cookieKeys.donateOnceURL),
+      cookieManager.get(cookieKeys.donateMonthlyURL)
+    );
+  }
+
   const debugDataLayer = (() => {
     try {
       const params = new URLSearchParams(window.location.search);
@@ -307,6 +326,7 @@
 
       await setCodeCookie(national);
       cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
+      ensureDonationUrlCookies();
     }
   }
 
@@ -2258,11 +2278,13 @@
       cookieManager.delete(cookieKeys.locationState);
       await setCodeCookie(`{{homepage.first().zuid}}`);
     }
+
+    ensureDonationUrlCookies();
   }
 
   function setLocationCookiesByTerritory(zuid) {
     if (zuid === territories.west) {
-      cookieManager.set(cookieKeys.donateMonthlyURL, `{{$westClassyDonation}}`);
+      setDonationUrlCookies(`{{$westCampaignURL}}`, `{{$westClassyDonation}}`);
       cookieManager.set(cookieKeys.volunteerUrl, `{{$westVolunteer}}`);
       cookieManager.set(cookieKeys.employmentUrl, `{{$westEmployment}}`);
       cookieManager.set(cookieKeys.waysToGiveUrl, `{{$westWaysToGive}}`);
@@ -2272,9 +2294,8 @@
       cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.west);
       cookieManager.set(cookieKeys.classyID, `{{$westClassyId}}`);
       cookieManager.set(cookieKeys.classyOrganizationID, `{{$westOrgId}}`);
-      cookieManager.set(cookieKeys.donateOnceURL, `{{$westCampaignURL}}`);
     } else if (zuid === territories.east) {
-      cookieManager.set(cookieKeys.donateMonthlyURL, `{{$eastClassyDonation}}`);
+      setDonationUrlCookies(`{{$eastCampaignURL}}`, `{{$eastClassyDonation}}`);
       cookieManager.set(cookieKeys.volunteerUrl, `{{$eastVolunteer}}`);
       cookieManager.set(cookieKeys.employmentUrl, `{{$eastEmployment}}`);
       cookieManager.set(cookieKeys.waysToGiveUrl, `{{$eastWaysToGive}}`);
@@ -2284,9 +2305,8 @@
       cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.east);
       cookieManager.set(cookieKeys.classyID, `{{$eastClassyId}}`);
       cookieManager.set(cookieKeys.classyOrganizationID, `{{$eastOrgId}}`);
-      cookieManager.set(cookieKeys.donateOnceURL, `{{$eastCampaignURL}}`);
     } else if (zuid === territories.south) {
-      cookieManager.set(cookieKeys.donateMonthlyURL, `{{$southClassyDonation}}`);
+      setDonationUrlCookies(`{{$southCampaignURL}}`, `{{$southClassyDonation}}`);
       cookieManager.set(cookieKeys.volunteerUrl, `{{$southVolunteer}}`);
       cookieManager.set(cookieKeys.employmentUrl, `{{$southEmployment}}`);
       cookieManager.set(cookieKeys.waysToGiveUrl, `{{$southWaysToGive}}`);
@@ -2296,9 +2316,8 @@
       cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.south);
       cookieManager.set(cookieKeys.classyID, `{{$southClassyId}}`);
       cookieManager.set(cookieKeys.classyOrganizationID, `{{$southOrgId}}`);
-      cookieManager.set(cookieKeys.donateOnceURL, `{{$southCampaignURL}}`);
     } else if (zuid === territories.central) {
-      cookieManager.set(cookieKeys.donateMonthlyURL, `{{$centralClassyDonation}}`);
+      setDonationUrlCookies(`{{$centralCampaignURL}}`, `{{$centralClassyDonation}}`);
    
       syncCentralVolunteerUrlFromCurrentProperty();
 
@@ -2310,7 +2329,6 @@
       cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.central);
       cookieManager.set(cookieKeys.classyID, `{{$centralClassyId}}`);
       cookieManager.set(cookieKeys.classyOrganizationID, `{{$centralOrgId}}`);
-      cookieManager.set(cookieKeys.donateOnceURL, `{{$centralCampaignURL}}`);
     }
 
     cookieManager.set(cookieKeys.territoryZUID, zuid);
