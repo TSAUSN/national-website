@@ -347,18 +347,16 @@ function filterCarousel(stats) {
                   data-stat-category="${stat.categories}"
                   data-stat-name="${stat.stats_name}"
                 >
-                  <div class="card-body p-0 d-flex flex-column justify-content-between h-100">
-                    <h5 class="card-title fs-md-4 fs-sm-6 fw-normal">
-                      ${stat.right_side_header}
-                    </h5>
-                    <p></p>
+                  <div class="card-body p-0 d-flex flex-column h-100">
                     <div>
-                      <div>
-                        <div class="mb-16 fs-7 f-ajenson text-dark-50 ">
-                          ${stat.right_side_content}
-                        </div>
+                      <h5 class="card-title fs-md-4 fs-sm-6 fw-normal">
+                        ${stat.right_side_header}
+                      </h5>
+                      <div class="mb-16 fs-7 f-ajenson text-dark-50 ">
+                        ${stat.right_side_content}
                       </div>
-                      <div class="mt-4 d-flex justify-content-between">
+                    </div>
+                    <div class="mt-auto pt-4 d-flex justify-content-between">
                         <div class="d-flex align-items-center stat-share__wrapper">
                           <div class="d-md-flex d-none align-items-center">
                             <a
@@ -446,7 +444,6 @@ function filterCarousel(stats) {
                           </a>
                         </div>
                       </div>
-                    </div>
                   </div>
                 </div>
         `;
