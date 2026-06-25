@@ -34,7 +34,7 @@
 
 >
   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md modal-fullscreen-lg-down">
-    <div class="modal-content bg-light rounded-lg-5 overflow-y-auto" style="height: 48rem;">
+    <div class="modal-content bg-light rounded-lg-5 overflow-y-auto" style="height: 100dvh; max-height: 100dvh;">
       <!-- Close Button -->
       <button
         type="button"
@@ -54,7 +54,7 @@
         id="header-donate-container"
       >
         <!-- Iframe Container -->
-        <div class="ratio ratio-16x9 h-100 donation-iframe-container">
+        <div class="h-100 donation-iframe-container">
           <div
             class="d-flex align-items-center justify-content-center mb-4"
             id="donation-loader-container"

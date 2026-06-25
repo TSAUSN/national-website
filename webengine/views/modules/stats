@@ -432,18 +432,17 @@ function filterCarousel(stats) {
                             <i class="material-icons me-2 text-light">arrow_outward</i>Learn
                             More
                           </a>
-                          <a
-                            href="https://give.salvationarmyusa.org/campaign/676125/donate?c_src=NT26TZOAAC&c_src2=USNhomepageStatsModule"
-                            target="_blank"
+                          <button
+                            type="button"
                             data-link-type="external"
                             data-location-type="body:stats"
                             data-function-type="donation"
                             data-format-type="button"
                             onclick="LinkTrackingClickEvent(this,'donate_money_click')"
-                            class="btn btn-primary px-5 py-4 px-sm-5 py-sm-3 display-sm-3"
+                            class="btn btn-primary px-5 py-4 px-sm-5 py-sm-3 display-sm-3 stats-donate header-donate-button"
                           >
                             Donate
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>
