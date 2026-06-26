@@ -1,0 +1,198 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"design:columns:1 column - 1 row my-3:17:34": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 0,
+				"fullName": "design:columns:1 column - 1 row my-3:17:34",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:17:34-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:columns:1 Column:2:48": {
+								"uid": "NaN",
+								"name": "1 Column",
+								"type": "columns",
+								"html": "<div style=\"display:flex\" class=\"row d-flex\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"classes": "row d-flex",
+								"droppable": "true",
+								"numberOfColumns": 1,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": 1,
+										"html": "<div class=\"col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 0,
+								"fullName": "design:columns:1 Column:2:48",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:34-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:1 Column:2:48-1:1 Column:0": {
+										"width": 1,
+										"html": "<div class=\"column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true,
+										"children": {
+											"content:embed:1:87": {
+												"icon": "embed",
+												"name": "Embed",
+												"type": "embed",
+												"html": "<iframe allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen=\"\" frameborder=\"0\" height=\"315\" referrerpolicy=\"strict-origin-when-cross-origin\" src=\"https://www.youtube.com/embed/2vKR3WxblhY?si=mbpKAV3QrPjWh_Gx\" title=\"YouTube video player\" width=\"560\" class=\"w-100 h-100\"></iframe>",
+												"description": "Embedded content (iframe)",
+												"draggable": true,
+												"content": "<iframe class=\"w-100 h-100\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen=\"\" frameborder=\"0\" height=\"315\" referrerpolicy=\"strict-origin-when-cross-origin\" src=\"https://www.youtube.com/embed/2vKR3WxblhY?si=mbpKAV3QrPjWh_Gx\" title=\"YouTube video player\" width=\"560\"></iframe>",
+												"position": 0,
+												"fullName": "content:embed:1:87",
+												"htmlElement": "iframe",
+												"classes": "w-100 h-100",
+												"primarytype": "content",
+												"id": "content:embed:1:87",
+												"styles": {},
+												"newLoc": "design:columns:1 Column:2:48-1:1 Column:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									}
+								},
+								"id": "design:columns:1 Column:2:48",
+								"styles": {},
+								"htmlElement": "div",
+								"content": "<div style=\"display:flex\" class=\"row d-flex\">*</div>",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:3:34": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 1,
+								"fullName": "design:design:whitespace-xl:3:34",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:34-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:6:89": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/fb813fe1-91eb-49af-a129-fccec08ec532_1.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 rounded mx-auto\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/fb813fe1-91eb-49af-a129-fccec08ec532_1.png",
+								"position": 2,
+								"fullName": "content:images:6:89",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:34-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:8:63": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 3,
+								"fullName": "design:design:whitespace-sm:8:63",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:34-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:9:35": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/2fa26432-19dc-4e09-87b7-df2ce4bef34a_3.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/2fa26432-19dc-4e09-87b7-df2ce4bef34a_3.png",
+								"position": 4,
+								"fullName": "content:images:9:35",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:34-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:11:65": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 5,
+								"fullName": "design:design:whitespace-sm:11:65",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:34-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:12:18": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/9607f277-58ae-4e28-9a00-4fcca1e6ad29_4.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/9607f277-58ae-4e28-9a00-4fcca1e6ad29_4.png",
+								"position": 6,
+								"fullName": "content:images:12:18",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:34-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

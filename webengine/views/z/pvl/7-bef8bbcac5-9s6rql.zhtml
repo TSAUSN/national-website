@@ -1,83 +1,65 @@
-<div classname="{styles.pvlRoot}">
-	<div data-zesty-id="content:block:6-bcfbdaa6d3-vjj3qs:27:20:0:17">{{block('/-/block/hero_full.html?variant=7-aedbb0efca-t728ch')}}</div>
-	<div class="p-6 rounded-5 bg-light mb-18" data-zesty-id="design:columns:1 column - 1 row my-3:73:16">
-<div class="col-lg-12 col-md-12 col-sm-12" data-zesty-id="design:columns:1 column - 1 row my-3:73:16-1:1 column - 1 row:0">
-<div class="rounded p-6 gap-3 mt-3 bg-secondary-200 text-light" style="color:#FFFFFF;" data-zesty-id="content:wysiwyg_basic:2:45"><h2 style="text-align:center;">"If we are to better the future, we must disturb the present."</h2>
-
-<p style="text-align:center;">
-	These words from The Salvation Army's cofounder Catherine Booth inspire us daily to work to make our community a better place. The "Better the Future" campaign aims to raise nearly $32 million to support our most impactful programs and facilities, removing barriers to success and strengthening families and our community at large.
-</p></div>
-<div class="rounded p-6 gap-3 mt-3 bg-dark-100 text-light" style="color:#FFFFFF;" data-zesty-id="content:wysiwyg_basic:5:27"><div class="mt-4"><div class="ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/BcdS2m-4uZg" title="YouTube video player" allowfullscreen="" loading="lazy"></iframe></div></div></div>
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:6:72"></div>
-<h6 style="text-align:center;" data-zesty-id="content:text:7:90">Campaign Goals</h6>
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-aedbb0efca-t728ch&version=2')}}
+	<div class="row my-3">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="rounded p-6 gap-3 mt-3 bg-secondary-200 text-light" style="color:#FFFFFF">
+<h2 style="text-align: center;">"If we are to better the future, we must disturb the present."</h2>
+<p style="text-align: center;">These words from The Salvation Army's cofounder Catherine Booth inspire us daily to work to make our community a better place. The "Better the Future" campaign aims to raise nearly $32 million to support our most impactful programs and facilities, removing barriers to success and strengthening families and our community at large.</p>
+</div>
+			<div class="rounded p-6 gap-3 mt-3 bg-dark-100 text-light" style="color:#FFFFFF"><div class="mt-4"><div class="ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/BcdS2m-4uZg" title="YouTube video player" allowfullscreen="" loading="lazy"></iframe></div></div></div>
+			<div class="py-5"></div>
+			<h6 style="text-align:center;">Campaign Goals</h6>
 		</div>
 	</div>
-	<div data-zesty-id="content:block:6-caf0f4baac-ctljlz:2:98">{{block('/-/block/general_accordion.html?variant=7-e29381bdd5-vl4rl7')}}</div>
-	<div class="p-6 rounded-5 bg-light mb-18" data-zesty-id="design:columns:1 column - 1 row my-3:74:17">
-<div class="col-lg-12 col-md-12 col-sm-12" data-zesty-id="design:columns:1 column - 1 row my-3:74:17-1:1 column - 1 row:0">
-<h6 style="text-align:center;" data-zesty-id="content:text:9:71">Total: $31,982,500</h6>
-<p style="text-align:center;" data-zesty-id="content:textarea:10:38">
-	The total campaign also includes resources for an operating endowment for these new facilities and programs. Nearly&nbsp;$21&nbsp;million Has already been committed to the campaign.
-</p>
-<div class="my-4" data-zesty-id="design:design:whitespace-md:11:97"></div>
-<h5 style="text-align:center;" data-zesty-id="content:text:12:37">Get Involved</h5>
-<p style="text-align:center;" data-zesty-id="content:textarea:13:2">
-	With your prayer, financial support and advocacy, we can "better the future" for countless individuals and families in our community. Together, we can make our community all that it aspires to be.
-</p>
-<div class="rounded p-6 gap-3 mt-3 bg-secondary-200 text-light" style="color:#FFFFFF;" data-zesty-id="content:wysiwyg_basic:16:57"><h1 style="text-align:center;">LATEST NEWS</h1>
-
-<p style="text-align:center;">
-	See how you're helping us Better The Future together
-</p></div>
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/6818905b-bd5b-4917-b34e-71993b0cc491_COH+Groundbreaking+Group+Shot.jpg" alt="placeholder" class="img-fluid d-block my-3 rounded" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:18:68">
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:20:35"></div>
-<h6 style="text-align:center;" data-zesty-id="content:text:21:56">Breaking Ground, Changing Lives</h6>
-<p style="text-align:center;" data-zesty-id="content:textarea:22:42">
-	Local leaders, staff, volunteers and supporters gathered&nbsp;to celebrate a pivotal moment in a lengthy process – the launching of a critical construction project to expand the Center of Hope.
-</p>
-<p style="text-align:center;" class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" data-zesty-id="content:wysiwyg_basic:23:85"><a href="https://southernusa.salvationarmy.org/greater-charlotte/news/breaking-ground" class="btn btn-secondary gap-1 mt-2">Read More</a></p>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:24:16"></div>
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/d639e18a-e49d-4fbf-b07d-7c6976742144_Image+%289%29.jpeg" alt="placeholder" class="img-fluid d-block my-3 rounded mx-auto" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:25:57">
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:27:67"></div>
-<h6 style="text-align:center;" data-zesty-id="content:text:28:73">Center of Hope Expansion Progress</h6>
-<p style="text-align:center;" data-zesty-id="content:textarea:29:98">
-	January 2026
-</p>
-<div class="my-4" data-zesty-id="design:design:whitespace-md:30:67"></div>
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/375c874c-0be1-47ef-9784-c9429056e943_Image+%2811%29.jpeg" alt="placeholder" class="img-fluid d-block my-3 rounded mx-auto" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:31:86">
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:32:97"></div>
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/7c7d7ad3-6963-4fe5-8706-38a34ce960e7_image-20260223-181922-b4a39f04.jpeg" alt="placeholder" class="img-fluid d-block my-3 rounded mx-auto" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:34:40">
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:35:56"></div>
-<p style="text-align:center;" data-zesty-id="content:textarea:36:1">
-	February 2026
-</p>
-<div class="my-4" data-zesty-id="design:design:whitespace-md:37:2"></div>
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/e524ff93-295e-42f8-b033-226a915ffc92_image-20260223-182121-a1981ee6.jpeg" alt="placeholder" class="img-fluid d-block my-3 rounded mx-auto" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:38:61">
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:39:2"></div>
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/13c87eca-bbe7-4069-bd74-9a43d2024f8b_Image+%2810%29.jpeg" alt="placeholder" class="img-fluid d-block my-3 rounded mx-auto" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:41:64">
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:42:56"></div>
-<p style="text-align:center;" data-zesty-id="content:textarea:43:13">
-	March 2026
-</p>
-<div class="my-4" data-zesty-id="design:design:whitespace-md:44:84"></div>
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/2c83a899-7c14-495a-9657-6eeec33c6826_Image+%2813%29.jpeg" alt="placeholder" class="img-fluid d-block my-3 rounded mx-auto" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:45:8">
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:46:74"></div>
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/9edcb087-2fff-4538-93af-d1bb0b612074_March+24+1.jpeg" alt="placeholder" class="img-fluid d-block my-3 rounded mx-auto" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:48:20">
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:49:10"></div>
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/e698721d-10f6-43a7-91a9-5ba0b1d91c96_March+24+3.jpeg" alt="placeholder" class="img-fluid d-block my-3 rounded mx-auto" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:51:35">
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:52:37"></div>
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/888ae597-eb7b-4a06-847e-a48e5f825720_Image+%2813%29.jpeg" alt="placeholder" class="img-fluid d-block my-3 rounded mx-auto" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:54:12">
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:55:38"></div>
-<p style="text-align:center;" data-zesty-id="content:textarea:56:14">
-	April 2026
-</p>
-<div class="my-4" data-zesty-id="design:design:whitespace-md:57:41"></div>
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/a67e9fee-ddf0-4c9d-9bc3-9a9c68ef2d5f_Image+%2816%29.jpeg" alt="placeholder" class="img-fluid d-block my-3 rounded mx-auto" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:58:72">
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:59:91"></div>
-<h5 style="text-align:center;" data-zesty-id="content:text:60:50">Latest Press Releases</h5>
-<p style="text-align:center;" data-zesty-id="content:wysiwyg_basic:61:19">
-	<a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/a89c2b40-740c-43c2-bb3a-d55c65168ddf_2023-0214_Better+the+Future+campaign+UPDATE.pdf">The Salvation Army of greater CHARLOTTE’S “better the future” campaign nears $20 million IN pledges &amp; donations</a>
-</p>
+	{{block('/-/block/general_accordion.html?variant=7-e29381bdd5-vl4rl7')}}
+	<div class="row my-3">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<h6 style="text-align:center;">Total: $31,982,500*</h6>
+			<p style="text-align:center;">*The total campaign also includes resources for an operating endowment for these new facilities and programs. Nearly&nbsp;$21&nbsp;million Has already been committed to the campaign.</p>
+			<div class="my-4"></div>
+			<h5 style="text-align:center;">Get Involved</h5>
+			<p style="text-align:center;">With your prayer, financial support and advocacy, we can "better the future" for countless individuals and families in our community. Together, we can make our community all that it aspires to be.</p>
+			<div class="rounded p-6 gap-3 mt-3 bg-secondary-200 text-light" style="color:#FFFFFF">
+<h1 style="text-align: center;">LATEST NEWS</h1>
+<p style="text-align: center;">See how you're helping us Better The Future together</p>
+</div>
+			<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/6818905b-bd5b-4917-b34e-71993b0cc491_COH+Groundbreaking+Group+Shot.jpg" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 rounded">
+			<div class="my-2"></div>
+			<h6 style="text-align:center;">Breaking Ground, Changing Lives</h6>
+			<p style="text-align:center;">Local leaders, staff, volunteers and supporters gathered&nbsp;to celebrate a pivotal moment in a lengthy process – the launching of a critical construction project to expand the Center of Hope.</p>
+			<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align:center"><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/greater-charlotte/news/breaking-ground">Read More</a></p>
+			<div class="my-2"></div>
+			<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/d639e18a-e49d-4fbf-b07d-7c6976742144_Image+%289%29.jpeg" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 rounded mx-auto">
+			<div class="my-2"></div>
+			<h6 style="text-align:center;">Center of Hope Expansion Progress</h6>
+			<p style="text-align:center;">January 2026</p>
+			<div class="my-4"></div>
+			<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/375c874c-0be1-47ef-9784-c9429056e943_Image+%2811%29.jpeg" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 rounded mx-auto">
+			<div class="my-2"></div>
+			<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/7c7d7ad3-6963-4fe5-8706-38a34ce960e7_image-20260223-181922-b4a39f04.jpeg" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 rounded mx-auto">
+			<div class="my-2"></div>
+			<p style="text-align:center;">February 2026</p>
+			<div class="my-4"></div>
+			<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/e524ff93-295e-42f8-b033-226a915ffc92_image-20260223-182121-a1981ee6.jpeg" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 rounded mx-auto">
+			<div class="my-2"></div>
+			<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/13c87eca-bbe7-4069-bd74-9a43d2024f8b_Image+%2810%29.jpeg" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 rounded mx-auto">
+			<div class="my-2"></div>
+			<p style="text-align:center;">March 2026</p>
+			<div class="my-4"></div>
+			<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/2c83a899-7c14-495a-9657-6eeec33c6826_Image+%2813%29.jpeg" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 rounded mx-auto">
+			<div class="my-2"></div>
+			<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/9edcb087-2fff-4538-93af-d1bb0b612074_March+24+1.jpeg" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 rounded mx-auto">
+			<div class="my-2"></div>
+			<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/e698721d-10f6-43a7-91a9-5ba0b1d91c96_March+24+3.jpeg" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 rounded mx-auto">
+			<div class="my-2"></div>
+			<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/888ae597-eb7b-4a06-847e-a48e5f825720_Image+%2813%29.jpeg" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 rounded mx-auto">
+			<div class="my-2"></div>
+			<p style="text-align:center;">April 2026</p>
+			<div class="my-4"></div>
+			<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/a67e9fee-ddf0-4c9d-9bc3-9a9c68ef2d5f_Image+%2816%29.jpeg" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 rounded mx-auto">
+			<div class="my-2"></div>
+			<h5 style="text-align:center;">Latest Press Releases</h5>
+			<p style="text-align:center"><a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/a89c2b40-740c-43c2-bb3a-d55c65168ddf_2023-0214_Better+the+Future+campaign+UPDATE.pdf">The Salvation Army of greater CHARLOTTE’S “better the future” campaign nears $20 million IN pledges &amp; donations</a></p>
 		</div>
 	</div>
 </div>

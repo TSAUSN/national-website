@@ -16,9 +16,49 @@
   {
     "type": "menu",
     "key": null,
+    "page_name": "Poverty",
+    "page-zuid": "7-d4c0fba483-686nlz",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Services",
+    "page-zuid": "7-e2959083f4-01fz0f",
+    "sort": 1,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Giving Back",
+    "page-zuid": "7-a8f2a1dae4-7dnqnk",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Utility Rent Assistance",
+    "page-zuid": "7-ceadfc8cd6-5mt7p0",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Adult Program Services",
+    "page-zuid": "7-869e89a7c7-cg9g59",
+    "sort": 4,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
     "page_name": "Spiritual Healing",
     "page-zuid": "7-9ccba1abbc-spfrft",
-    "sort": 0,
+    "sort": 5,
     "parent": "services"
   },
   {
@@ -26,7 +66,7 @@
     "key": null,
     "page_name": "Senior Services",
     "page-zuid": "7-b8eb8981b6-635kg6",
-    "sort": 1,
+    "sort": 6,
     "parent": "services"
   },
   {
@@ -34,15 +74,7 @@
     "key": null,
     "page_name": "Food Pantries",
     "page-zuid": "7-f4bdbedbaf-9zk86f",
-    "sort": 2,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Family Counseling",
-    "page-zuid": "7-ccb9baddc2-z6snpx",
-    "sort": 3,
+    "sort": 7,
     "parent": "services"
   },
   {
@@ -50,7 +82,7 @@
     "key": null,
     "page_name": "Youth Services",
     "page-zuid": "7-dcd8bcffc8-0sszdj",
-    "sort": 4,
+    "sort": 8,
     "parent": "services"
   },
   {
@@ -58,7 +90,7 @@
     "key": null,
     "page_name": "Disaster Relief",
     "page-zuid": "7-d8c5fb8ba9-j6tn7b",
-    "sort": 5,
+    "sort": 9,
     "parent": "services"
   },
   {
@@ -198,13 +230,6 @@
     "key": "contact_us",
     "page_name": "Contact Us",
     "page-zuid": "7-9cfcbbe396-2qq3rh",
-    "parent": null
-  },
-  {
-    "type": "menu",
-    "key": "custom_menu",
-    "page_name": "Menu Item with Dropdown",
-    "page-zuid": null,
     "parent": null
   }
 ]

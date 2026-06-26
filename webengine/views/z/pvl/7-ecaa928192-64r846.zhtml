@@ -1,0 +1,28 @@
+<div className={styles.pvlRoot}>
+	<h1>Commanders' Corner</h1>
+	<div class="row">
+		<div class="column p-6 rounded-5 bg-light mb-18">
+			<p>This page highlights the leadership of The Salvation Army Potomac Division and offers insight into the vision, guidance, and commitment of our Divisional Commanders as they support mission delivery across the region.</p>
+		</div>
+	</div>
+	<div class="row my-3">
+		<div class="col-lg-8 col-md-6 col-sm-12">
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Dan---Sarah-Nelson--2-.jpg" alt="placeholder" style="display:block;margin-right:auto">
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			<p>Majors Dan and Sarah Nelson serve as the Divisional Commanders for The Salvation Army Potomac Division. In this role, they provide spiritual leadership and strategic oversight for ministry and service operations across Maryland, Virginia, West Virginia, and Washington, D.C. Their leadership supports a wide range of programs including emergency assistance, youth development, disaster response, spiritual care, and community outreach—advancing the mission of The Salvation Army to meet human needs in Christ’s name without discrimination. Together, they work alongside officers, staff, volunteers, and community partners to strengthen local corps and expand the impact of services throughout the division.
+</p>
+		</div>
+	</div>
+	<h1>Check Out Our Commanders' Latest Message</h1>
+	<div class="row">
+		<div class="column p-6 rounded-5 bg-light mb-18">
+			<video src="https://8hxvw8tw.media.zestyio.com/Video--1-.mov" width="100%" controls></video>
+			<p>During this special video update, Majors Dan and Sarah Nelson reflect on the Candidate Farewell held this past Sunday, celebrating those who have answered God's call to officership. As these candidates begin their 730-day journey at The Salvation Army's Evangeline Booth College in Atlanta, we rejoice in their commitment to ministry and service.
+
+Join us in praying for these future officers as they enter a season of spiritual growth, learning, and preparation. We are grateful for their willingness to serve and look forward to witnessing how God will continue to guide and equip them for His purpose in the years ahead.</p>
+			<br>
+		</div>
+	</div>
+	<h1>Stay Tuned For Our Commanders' Next Divisional Update</h1>
+</div>

@@ -1,203 +1,98 @@
-<div classname="{styles.pvlRoot}">
-	<div data-zesty-id="content:block:6-bcfbdaa6d3-vjj3qs:27:64:0:98">{{block('/-/block/hero_full.html?variant=7-a481d7e391-r51sk8')}}</div>
-	<div class="p-6 rounded-5 bg-light mb-18" data-zesty-id="design:columns:1 column - 1 row my-3:72:60">
-<div class="col-lg-12 col-md-12 col-sm-12" data-zesty-id="design:columns:1 column - 1 row my-3:72:60-1:1 column - 1 row:0">
-<div class="row my-3" data-zesty-id="design:columns:2columnswideright:7:67">
-<div class="col-md-4 col-sm-12" data-zesty-id="design:columns:2columnswideright:7:67-2:2 Columns - Left Small:0">
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/a98a813d-c031-4424-9913-7fadc99a8077_16b160d0-4c6c-47bd-94ff-efcd64c5087e_264801985_5280325475316733_4831626149530872173_n.jpg" alt="placeholder" class="img-fluid d-block my-3 rounded" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:2:4">
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-a481d7e391-r51sk8')}}
+	<div class="row my-3">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="row my-3">
+				<div class="col-md-4 col-sm-12">
+					<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/a98a813d-c031-4424-9913-7fadc99a8077_16b160d0-4c6c-47bd-94ff-efcd64c5087e_264801985_5280325475316733_4831626149530872173_n.jpg" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3 rounded">
 				</div>
-<div class="col-md-8 col-sm-12" data-zesty-id="design:columns:2columnswideright:7:67-4:2 Columns - Left Small:1">
-<h5 style="text-align:center;" data-zesty-id="content:text:4:68">Called to Serve</h5>
-<p data-zesty-id="content:textarea:5:49">
-					Serving on a Salvation Army&nbsp;Advisory Board or Council presents an extraordinary opportunity to make a profound and lasting impact on both the organization and your own community.
-				</p>
-<p data-zesty-id="content:textarea:6:36">
-					As a member, you become a champion of The Salvation Army's mission, advocating for positive change and harnessing your unique skills and expertise to drive meaningful progress. By lending your voice and strategic insights, you have the power to shape the direction, policies, and initiatives of our organization. This opportunity allows you to collaborate with like-minded individuals, building a network of passionate and influential changemakers who share your commitment to creating a better world. Moreover, serving on a non-profit advisory board offers personal and professional growth opportunities, enabling you to broaden your horizons, strengthen your leadership abilities, and deepen your understanding of social and economic challenges. It is a chance to leave a lasting legacy and be part of a collective force for good, leaving an indelible mark on the lives of those we serve and inspiring others to join the cause.
-				</p>
+				<div class="col-md-8 col-sm-12">
+					<h5 style="text-align:center;">Called to Serve</h5>
+					<p>Serving on a Salvation Army&nbsp;Advisory Board or Council presents an extraordinary opportunity to make a profound and lasting impact on both the organization and your own community.</p>
+					<p>As a member, you become a champion of The Salvation Army's mission, advocating for positive change and harnessing your unique skills and expertise to drive meaningful progress. By lending your voice and strategic insights, you have the power to shape the direction, policies, and initiatives of our organization. This opportunity allows you to collaborate with like-minded individuals, building a network of passionate and influential changemakers who share your commitment to creating a better world. Moreover, serving on a non-profit advisory board offers personal and professional growth opportunities, enabling you to broaden your horizons, strengthen your leadership abilities, and deepen your understanding of social and economic challenges. It is a chance to leave a lasting legacy and be part of a collective force for good, leaving an indelible mark on the lives of those we serve and inspiring others to join the cause.</p>
 				</div>
 			</div>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:8:59"></div>
-<div style="position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;" class="text-white rounded p-6 gap-3 my-5" data-zesty-id="content:wysiwyg_basic:9:75">
-            <div style="position:absolute;inset:0;z-index:2;"></div>
-            <div style="position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;">
-                <div style="width:100%;padding:40px;color:#ffffff;">
-                    <h5 style="text-align:center;">Our Advisory Board Members</h5>
-
-<p style="text-align:center;color:#fff;">
-	The Birmingham Alabama Area Command advisory board consists of a wide spectrum of hard-working men and women who share in the vision to transform and restore lives in the Greater Birmingham Area.
-</p>
-                </div>
-            </div>
-        </div>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:10:11"></div>
-<div class="row my-3" data-zesty-id="design:columns:2columns:66:23">
-<div class="col-lg-6 col-md-6 col-sm-12" data-zesty-id="design:columns:2columns:66:23-1:2 Columns - Equal:0">
-<h5 style="text-align:center;" data-zesty-id="content:text:11:16">Majors Robert &amp; Karen Lyle</h5>
-<p style="text-align:center;" data-zesty-id="content:textarea:12:77"><strong>Area Commanders</strong></p>
-<p style="text-align:center;" data-zesty-id="content:textarea:13:83">Jim Bradford</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:14:97">
-	<strong>Chairman</strong>
-</p>
-<div class="row my-3" data-zesty-id="design:columns:2columns:15:80">
-<div class="col-md-6 col-sm-12" data-zesty-id="design:columns:2columns:15:80-1:2 Columns - Equal:0">
-<p style="text-align:center;" data-zesty-id="content:textarea:15:38">
-					Anita Allcorn
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:16:5">
-					Charles Baldone
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:17:58">
-					Brian Barr
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:18:38">
-					Rob Bedwell
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:19:50">
-					Jim Bradford
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:20:93">
-					Jeff Brooks
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:21:19">
-					Luther Cale
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:22:66">
-					Carol Collinsworth
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:23:19">
-					Marty Connors
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:24:48">
-					Marty Connors
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:25:45">
-					Matthew Dent
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:26:5">
-					Patrick Drummond
-				</p>
+			<div class="my-2"></div>
+			<div class="text-white rounded p-6 gap-3 my-5" style="position:relative;overflow:hidden;min-height:300px;background-image:url("https://s3.amazonaws.com/uss-cache.salvationarmy.org/ba1ae43a-1116-430b-a313-47c06d536cc0_Blue+BG.png'); background-position: center center; background-repeat: no-repeat; background-size: cover;">
+<div style="position: absolute; inset: 0; z-index: 2;">&nbsp;</div>
+<div style="position: relative; z-index: 3; display: flex; align-items: center; justify-content: flex-start; min-height: 300px;">
+<div style="width: 100%; padding: 40px; color: #ffffff;">
+<h5 style="text-align: center;">Our Advisory Board Members</h5>
+<p style="text-align: center; color: #fff;">The Birmingham Alabama Area Command advisory board consists of a wide spectrum of hard-working men and women who share in the vision to transform and restore lives in the Greater Birmingham Area.</p>
+</div>
+</div>
+</div>
+			<div class="my-2"></div>
+			<div class="row my-3">
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<h5 style="text-align:center;">Majors Doug & Storm McClure</h5>
+					<p style="text-align:center;">Area Commanders</p>
+					<p style="text-align:center;">Jim Bradford</p>
+					<p style="text-align:center;">Chairman</p>
+					<div class="row my-3">
+						<div class="col-md-6 col-sm-12">
+							<p style="text-align:center;">Anita Allcorn</p>
+							<p style="text-align:center;">Brian Barr</p>
+							<p style="text-align:center;">Rob Bedwell</p>
+							<p style="text-align:center;">Jim Bradford</p>
+							<p style="text-align:center;">Jeff Brooks</p>
+							<p style="text-align:center;">Luther Cale*</p>
+							<p style="text-align:center;">Carol Collinsworth</p>
+							<p style="text-align:center;">Marty Connors*</p>
+							<p style="text-align:center;">Matthew Dent</p>
+							<p style="text-align:center;">Patrick Drummond</p>
 						</div>
-<div class="col-md-6 col-sm-12" data-zesty-id="design:columns:2columns:15:80-1:2 Columns - Equal:1">
-<p style="text-align:center;" data-zesty-id="content:textarea:27:78">
-					Trey Echols
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:28:8">
-					David Edmonds
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:29:25">
-					Gary Fenton
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:30:45">
-					Wayne Gillis
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:31:39">
-					Jim Gorrie
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:32:67">
-					Kerry Gossett
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:33:86">
-					Steve Graham
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:34:97">
-					David Jernigan
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:35:33">
-					Lawrence Johnson
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:36:32">
-					Sheila Kent
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:37:27">
-					Marcus King
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:38:5">
-					Ravoyl Land
-				</p>
+						<div class="col-md-6 col-sm-12">
+							<p style="text-align:center;">Trey Echols</p>
+							<p style="text-align:center;">David Edmonds</p>
+							<p style="text-align:center;">Gary Fenton</p>
+							<p style="text-align:center;">Wayne Gillis</p>
+							<p style="text-align:center;">Jim Gorrie</p>
+							<p style="text-align:center;">Kerry Gossett</p>
+							<p style="text-align:center;">Steve Graham</p>
+							<p style="text-align:center;">David Jernigan</p>
+							<p style="text-align:center;">Lawrence Johnson</p>
+							<p style="text-align:center;">Sheila Kent</p>
+							<p style="text-align:center;">Marcus King</p>
+							<p style="text-align:center;">Ravoyl Land</p>
 						</div>
 					</div>
 				</div>
-<div class="col-lg-6 col-md-6 col-sm-12" data-zesty-id="design:columns:2columns:66:23-1:2 Columns - Equal:1">
-<h5 style="text-align:center;" data-zesty-id="content:text:40:74">Randy Pittman</h5>
-<p style="text-align:center;" data-zesty-id="content:textarea:41:11">
-	<strong>Immediate Past Chair</strong>
-</p>
-<h5 style="text-align:center;" data-zesty-id="content:text:42:55">Shelley Barlow</h5>
-<p style="text-align:center;" data-zesty-id="content:textarea:43:0">
-	<strong>Women’s Auxiliary&nbsp;President</strong>
-</p>
-<div class="row my-3" data-zesty-id="design:columns:2columns:44:86">
-<div class="col-md-6 col-sm-12" data-zesty-id="design:columns:2columns:44:86-1:2 Columns - Equal:0">
-<p style="text-align:center;" data-zesty-id="content:textarea:44:35">
-					Matt Lembke
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:45:0">
-					Sherrie LeMier
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:46:72">
-					David Lott
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:47:94">
-					Russell Lynch
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:48:75">
-					Eddie Miller
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:49:97">
-					Bob Mitchell
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:50:95">
-					Larry Newman
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:51:70">
-					Vic Nichol
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:52:43">
-					Wayne Pate
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:53:80">
-					Curtis Pickens
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:54:98">
-					Randy Pittman
-				</p>
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<h5 style="text-align:center;">Randy Pittman</h5>
+					<p style="text-align:center;">Immediate Past Chair</p>
+					<h5 style="text-align:center;">Shelley Barlow</h5>
+					<p style="text-align:center;">Women’s Auxiliary&nbsp;President</p>
+					<div class="row my-3">
+						<div class="col-md-6 col-sm-12">
+							<p style="text-align:center;">Matt Lembke</p>
+							<p style="text-align:center;">Sherrie LeMier</p>
+							<p style="text-align:center;">David Lott</p>
+							<p style="text-align:center;">Russell Lynch</p>
+							<p style="text-align:center;">Eddie Miller*</p>
+							<p style="text-align:center;">Bob Mitchell</p>
+							<p style="text-align:center;">Larry Newman</p>
+							<p style="text-align:center;">Vic Nichol</p>
+							<p style="text-align:center;">Wayne Pate</p>
+							<p style="text-align:center;">Curtis Pickens</p>
+							<p style="text-align:center;">Randy Pittman</p>
 						</div>
-<div class="col-md-6 col-sm-12" data-zesty-id="design:columns:2columns:44:86-1:2 Columns - Equal:1">
-<p style="text-align:center;" data-zesty-id="content:textarea:55:55">
-					Brandon Powell
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:56:31">
-					Barbara Pugh
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:57:58">
-					Randy Raiford
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:58:98">
-					Robert Lee Smith
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:59:29">
-					Stan Starnes
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:60:94">
-					Bill Stevens
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:61:20">
-					Scott Summers
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:62:75">
-					Tom Thagard
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:63:57">
-					Mike Thompson
-				</p>
-<p style="text-align:center;" data-zesty-id="content:textarea:64:7">
-					Regina Vann Williams
-				</p>
+						<div class="col-md-6 col-sm-12">
+							<p style="text-align:center;">Brandon Powell</p>
+							<p style="text-align:center;">Barbara Pugh</p>
+							<p style="text-align:center;">Randy Raiford</p>
+							<p style="text-align:center;">Robert Lee Smith</p>
+							<p style="text-align:center;">Stan Starnes</p>
+							<p style="text-align:center;">Bill Stevens</p>
+							<p style="text-align:center;">Scott Summers</p>
+							<p style="text-align:center;">Tom Thagard</p>
+							<p style="text-align:center;">Mike Thompson</p>
+							<p style="text-align:center;">Regina Vann Williams</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div data-zesty-id="content:block:6-caf0f4baac-ctljlz:2:63">{{block('/-/block/general_accordion.html?variant=7-a0a1c5e199-430fbc')}}</div>
+	{{block('/-/block/general_accordion.html?variant=7-a0a1c5e199-430fbc')}}
 </div>

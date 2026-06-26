@@ -1104,6 +1104,9 @@
       if (word.toLowerCase() === 'usa') {
         return 'USA';
       }
+   if (/[A-Z]/.test(word.slice(1))) {
+        return word;
+      }
 
       return word.charAt(0).toUpperCase() +
             word.slice(1).toLowerCase();

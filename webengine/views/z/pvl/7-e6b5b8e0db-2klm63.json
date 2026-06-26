@@ -1,0 +1,213 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:8:0:80": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-fe9ebe87e1-8v7r7t')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-fe9ebe87e1-8v7r7t')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:8:0:80",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:design:whitespace-sm:1:5419": {
+				"uid": "351",
+				"name": "Whitespace - Small",
+				"type": "design",
+				"classes": "my-2",
+				"html": "<div class=\"my-2\"></div>",
+				"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+				"droppable": true,
+				"position": 1,
+				"fullName": "design:design:whitespace-sm:1:5419",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank"
+			},
+			"design:columns:1 column - 1 row my-3:11:46": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 2,
+				"fullName": "design:columns:1 column - 1 row my-3:11:46",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:11:46-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:images:0:4476": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/3dec0a2a-158a-49df-a39c-88b7ebb2617a_VRK24.png\" alt=\"placeholder\" class=\"img-fluid w-100 d-block mx-auto mb-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/3dec0a2a-158a-49df-a39c-88b7ebb2617a_VRK24.png",
+								"position": 0,
+								"fullName": "content:images:0:4476",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:11:46-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:1:96": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">The Salvation Army of the Midlands has set a hefty goal of raising a total of $300,000 this holiday season</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army of the Midlands has set a hefty goal of raising a total of $300,000 this holiday season",
+								"position": 1,
+								"fullName": "content:textarea:1:96",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:1:96",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:11:46-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:27": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">Through our Red Kettle Campaign.</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Through our Red Kettle Campaign.",
+								"position": 2,
+								"fullName": "content:textarea:2:27",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:27",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:11:46-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:3:84": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">A successful Red Kettle season is critical in sustaining the mission of</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "A successful Red Kettle season is critical in sustaining the mission of",
+								"position": 3,
+								"fullName": "content:textarea:3:84",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:3:84",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:11:46-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:4:33": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">Tsa of the Midlands throughout the entire year.</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Tsa of the Midlands throughout the entire year.",
+								"position": 4,
+								"fullName": "content:textarea:4:33",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:4:33",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:11:46-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:5:16": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t<em>Any size donation is helpful and very much appreciated!</em>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Any size donation is helpful and very much appreciated!",
+								"position": 5,
+								"fullName": "content:textarea:5:16",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:5:16",
+								"styles": {
+									"textAlign": "center",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:11:46-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:6:7": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/campaign/731644/donate\" class=\"btn btn-primary gap-1 mt-2\">Donate Now</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmycarolinas.org/campaign/731644/donate\" class=\"btn btn-primary gap-1 mt-2\">Donate Now</a></p>",
+								"model": "6",
+								"position": 6,
+								"fullName": "content:wysiwyg_basic:6:7",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:6:7",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:11:46-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}
