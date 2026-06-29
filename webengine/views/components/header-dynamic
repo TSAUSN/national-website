@@ -924,19 +924,23 @@
       return false;
     }
 
+    function formatHeaderLocationText(locationName) {
+      return locationName.replace(/\b[\w']+\b/g, (word) => {
+        if (word.toLowerCase() === 'usa') {
+          return 'USA';
+        }
+
+        if (word !== word.toUpperCase() && /[A-Z]/.test(word.slice(1))) {
+          return word;
+        }
+
+        return word.charAt(0).toUpperCase() +
+              word.slice(1).toLowerCase();
+      });
+    }
+
     headerLocations.forEach((headerLocation) => {
-      headerLocation.textContent = locationCookie;
-
-    const formattedText = headerLocation.textContent.replace(/\b[\w']+\b/g, (word) => {
-      if (word.toLowerCase() === 'usa') {
-        return 'USA';
-      }
-
-      return word.charAt(0).toUpperCase() +
-            word.slice(1).toLowerCase();
-    });
-
-      headerLocation.textContent = formattedText;
+      headerLocation.textContent = formatHeaderLocationText(locationCookie);
     })
 
     // volunteerLink.setAttribute('href', getCookieByName('volunteer_url'));
