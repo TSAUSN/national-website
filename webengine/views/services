@@ -7,7 +7,9 @@
 {{if {this.parent_zuid} != 0 }}
 {{ include modules/service-wy }}
 {{else}}
+{{include modules/services-national-wysiwyg}}
 {{include modules/benefits-perks}}
+{{include modules/services-national-wysiwyg-bottom}}
 {{/if}}
 
 {{include modules/programs-schedule}}

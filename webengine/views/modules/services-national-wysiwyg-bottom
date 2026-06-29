@@ -1,0 +1,5 @@
+{{if {this.service_bottom_content} }}
+<div class="position-relative bg-light rounded-5 mb-16 p-md-8 p-sm-4 row mx-0">
+    <div class="col-lg-8 col-sm-12 services-body">{{ this.service_bottom_content }}</div>
+</div>
+{{/if}}
