@@ -1,5 +1,11 @@
 <div class="d-flex flex-column gap-4 justify-content-between h-100">
-  <h4 class="fw-normal">{{this.name}}</h4>
+  <h4 class="fw-normal">
+    {{if {this.site_name} !== null && {this.site_name} !== "" }}
+      {{this.site_name}}
+    {{else}}
+      {{this.name}}
+    {{/if}}
+  </h4>
 
   <div class="mb-auto">
 
@@ -25,7 +31,7 @@
       <div class="text-dark-50 fs-lg-7 display-4 fw-normal">
         <a href="tel:{{this.contact_number}}" 
           onclick="LocationTrackingResultsClickEvent(this)"
-          data-location-name="{{this.name}}"
+          data-location-name="{{if {this.site_name} !== null && {this.site_name} !== ""}} {{this.site_name}} {{else}} {{this.name}} {{/if}}"
           data-location-id="{{this.zuid}}"
           data-link-function="contact"
           data-link-format="phone"
@@ -42,7 +48,7 @@
           id="map__address"
           href="" target="_blank" rel="noopener noreferrer"
           onclick="LocationTrackingResultsClickEvent(this)"
-          data-location-name="{{this.name}}"
+          data-location-name="{{if {this.site_name} !== null && {this.site_name} !== ""}} {{this.site_name}} {{else}} {{this.name}} {{/if}}"
           data-location-id="{{this.zuid}}"
           data-link-function="contact"
           data-link-format="address"
@@ -59,7 +65,7 @@
       <div class="text-dark-50 fs-lg-7 display-4 fw-normal">
         <a id="map__walking" href="https://www.google.com/maps?dirflg=w&q={{!this.address}}" target="_blank" rel="noopener noreferrer" class="text-dark-50 me-2"
           onclick="LocationTrackingResultsClickEvent(this)"
-          data-location-name="{{this.name}}"
+          data-location-name="{{if {this.site_name} !== null && {this.site_name} !== ""}} {{this.site_name}} {{else}} {{this.name}} {{/if}}"
           data-location-id="{{this.zuid}}"
           data-link-function="directions"
           data-link-format="walking"
@@ -67,7 +73,7 @@
           data-link-type="directions">Walking</a>
         <a id="map__driving" href="https://www.google.com/maps?dirflg=d&q={{!this.address}}" target="_blank" rel="noopener noreferrer" class="text-dark-50 me-2"
           onclick="LocationTrackingResultsClickEvent(this)"
-          data-location-name="{{this.name}}"
+          data-location-name="{{if {this.site_name} !== null && {this.site_name} !== ""}} {{this.site_name}} {{else}} {{this.name}} {{/if}}"
           data-location-id="{{this.zuid}}"
           data-link-function="directions"
           data-link-format="driving"
@@ -75,7 +81,7 @@
           data-link-type="directions">Driving</a>
         <a id="map__transit" href="https://www.google.com/maps?dirflg=r&q={{!this.address}}" target="_blank" rel="noopener noreferrer" class="text-dark-50"
           onclick="LocationTrackingResultsClickEvent(this)"
-          data-location-name="{{this.name}}"
+          data-location-name="{{if {this.site_name} !== null && {this.site_name} !== ""}} {{this.site_name}} {{else}} {{this.name}} {{/if}}"
           data-location-id="{{this.zuid}}"
           data-link-function="directions"
           data-link-format="transit"
