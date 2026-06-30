@@ -292,40 +292,6 @@
     console.groupEnd();
   }
 
-  async function setNationalLocationCookies() {
-    cookieManager.set(cookieKeys.locationModel, `6-a0898ca2c1-krnm0f`);
-    cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
-    cookieManager.set(cookieKeys.locationHomeURL, `/`);
-    cookieManager.set(cookieKeys.locationName, `NATIONAL`);
-    cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
-    cookieManager.set(cookieKeys.employmentUrl, `{{$nationalEmployment}}`);
-    cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
-    cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
-    cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
-    cookieManager.set(cookieKeys.analyticsCode, `SAL^USN`);
-    cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
-    cookieManager.set(cookieKeys.organizationLevel, levels.national);
-    cookieManager.set(cookieKeys.contactUsImage, `{{homepage.first().contact_us_image.getImage()}}`);
-    cookieManager.set(cookieKeys.contactUsTitle, `{{homepage.first().contact_us_title}}`);
-    cookieManager.set(cookieKeys.contactUsHeader, `{{homepage.first().contact_us_cta_header}}`);
-    cookieManager.set(cookieKeys.classyID, `{{homepage.first().classy_campaign_id}}`);
-    cookieManager.set(cookieKeys.classyOrganizationID, `{{homepage.first().classy_org_id}}`);
-    setDonationUrlCookies(`{{homepage.first().classy_url}}`, `{{homepage.first().classy_url_mobile}}`);
-
-    cookieManager.delete(cookieKeys.divisionZUID);
-    cookieManager.delete(cookieKeys.territoryZUID);
-    cookieManager.delete(cookieKeys.organizationCorp);
-    cookieManager.delete(cookieKeys.organizationDivision);
-    cookieManager.delete(cookieKeys.organizationTerritory);
-    cookieManager.delete(cookieKeys.locationPropertyType);
-    cookieManager.delete(cookieKeys.locationAddress);
-    cookieManager.delete(cookieKeys.locationCity);
-    cookieManager.delete(cookieKeys.locationState);
-    cookieManager.delete(cookieKeys.locationZipcode);
-
-    await setCodeCookie(national);
-  }
-
   async function setDefaultCookies() {
     if (!cookieManager.get(cookieKeys.locationZUID)) {
       cookieManager.set(cookieKeys.locationModel, currentModel);
@@ -1854,11 +1820,6 @@
         }
         break;
       case `6-ce888daf92-fpzvz1`: //States
-        if (!cookieManager.get(cookieKeys.locationZUID)) {
-          await setNationalLocationCookies();
-          break;
-        }
-
         if (
           cookieManager.get(cookieKeys.locationZUID) &&
           cookieManager.get(cookieKeys.locationModel)
@@ -1883,12 +1844,7 @@
           `{{territories.filter({!this.territory}).contact_us_cta_header}}`
         );
         break;
-      case `6-dcd5c9b192-tgsnht`: // Cities
-        if (!cookieManager.get(cookieKeys.locationZUID)) {
-          await setNationalLocationCookies();
-          break;
-        }
-
+      case `cities`:
         `{{$stateZUID = {!this.state} }}`;
         `{{$territoryZUID = {states.filter({$stateZUID}).territory} }}`;
 

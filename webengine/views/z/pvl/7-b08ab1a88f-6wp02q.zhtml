@@ -1,6 +1,10 @@
 <div className={styles.pvlRoot}>
-	<h1>Commanders' Corner</h1>
-	<p>This page highlights the leadership of The Salvation Army Potomac Division and offers insight into the vision, guidance, and commitment of our Divisional Commanders as they support mission delivery across the region.</p>
+	<div class="row">
+		<div class="column p-6 rounded-5 bg-light mb-18">
+			<h1>Commanders' Corner</h1>
+			<p>This page highlights the leadership of The Salvation Army Potomac Division and offers insight into the vision, guidance, and commitment of our Divisional Commanders as they support mission delivery across the region.</p>
+		</div>
+	</div>
 	<div class="row my-3">
 		<div class="col-lg-8 col-md-6 col-sm-12">
 			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Dan---Sarah-Nelson--2-.jpg" alt="placeholder">
