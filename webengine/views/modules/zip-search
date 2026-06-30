@@ -46,7 +46,7 @@
           <a
             class="text-secondary city-card-name"
             href="{{truepath({location.zuid})}} "
-            >{{ location.name }}</a
+            >{{if {location.site_name} !== ""}}{{ location.site_name }}{{else}}{{ location.name }}{{/if}}</a
           >
           <p class="m-0 text-dark-50 text-capitalize">{{ location.address }}</p>
         </div>
