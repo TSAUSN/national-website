@@ -66,6 +66,7 @@
 {{$location_state = {states.filter({$locationState}).name} }}
 {{$locationRedirectURL = {locations.filter({this.zuid}).redirect_url} }}
 {{$location_name = {locations.filter({this.zuid}).name} }}
+{{$location_site_name = {locations.filter({this.zuid}).site_name} }}
 {{$location_propType = {locations.filter({this.parent_zuid}).page_layout} }}
 {{$parentLocationName = {locations.filter({this.parent_zuid}).name} }}
 {{$locationParentImage = {locations.filter({this.parent_zuid}).contact_us_image.getImage()} }}
@@ -482,7 +483,7 @@
         cookieManager.set(cookieKeys.locationModel, currentModel);
         cookieManager.set(cookieKeys.locationZUID, `{{this.zuid}}`);
         cookieManager.set(cookieKeys.locationHomeURL, `{{this.getUrl()}}`);
-        cookieManager.set(cookieKeys.locationName, `{{$location_name}}`);
+        cookieManager.set(cookieKeys.locationName, `{{$location_site_name}}` || `{{$location_name}}`);
 
         cookieManager.set(cookieKeys.locationAddress, `{{!this.address}}`);
         cookieManager.set(cookieKeys.locationCity, `{{$city_name}}`);
@@ -531,7 +532,7 @@
           cookieManager.set(cookieKeys.contactUsHeader, `{{homepage.first().contact_us_cta_header}}`);
         }
 
-        cookieManager.set(cookieKeys.organizationCorp, `{{$location_name}}`);
+        cookieManager.set(cookieKeys.organizationCorp, `{{$location_site_name}}` || `{{$location_name}}`);
         cookieManager.set(
           cookieKeys.organizationDivision,
           `{{$location_divisionName}}`
