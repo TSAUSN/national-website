@@ -1,11 +1,11 @@
-<div classname="{styles.pvlRoot}">
-	<div data-zesty-id="content:block:6-bcfbdaa6d3-vjj3qs:27:14:0:2">{{block('/-/block/hero_full.html?variant=7-d6879088e0-31s017')}}</div>
-	<div class="p-6 rounded-5 bg-light mb-18" data-zesty-id="design:columns:1 column - 1 row my-3:28:98">
-<div class="col-lg-12 col-md-12 col-sm-12" data-zesty-id="design:columns:1 column - 1 row my-3:28:98-1:1 column - 1 row:0">
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:26:79"></div>
-<div class="row g-3 my-3 align-items-stretch" data-zesty-id="design:columns:2columns:5:82">
-<div class="col-lg-6 col-md-12 col-sm-12 d-flex flex-column" data-zesty-id="design:columns:2columns:5:82-1:2 Columns - Equal:0">
-<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light" data-zesty-id="content:wysiwyg_basic:1:94"><p>
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-d6879088e0-31s017')}}
+	<div class="row my-3">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="py-5"></div>
+			<div class="row my-3">
+				<div class="col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
+					<img width="100%" src="<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light" style="display:block;margin-left:auto;margin-right:auto;"><p>
 	<img class="img-fluid rounded d-block mx-auto" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/1b10d8e0-595c-40be-97d7-6c77a419288e_Andrew+%26+Hazel+Wiley.jpeg" style="display:block;margin-left:auto;margin-right:auto;">
 </p>
 
@@ -13,10 +13,10 @@
 
 <p>
 	Majors Andrew &amp; Hazel Wiley have been appointed as the new Area Commanders for The Salvation Army of Greater Charlotte in June 2025. the leadership role includes overseeing all programs, services and operations for the organization: homelessness services and housing programs (Center of Hope, Booth Commons and ship); youth programs (Red Shield Youth Centers); Christmas assistance; emergency disaster response; and more.
-</p></div>
+</p></div>" alt="placeholder">
 				</div>
-<div class="col-lg-6 col-md-12 col-sm-12 d-flex flex-column" data-zesty-id="design:columns:2columns:5:82-1:2 Columns - Equal:1">
-<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light" data-zesty-id="content:wysiwyg_basic:3:14"><p>
+				<div class="col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-secondary-200 text-light"><p>
 	The Wileys come to Charlotte Area Command having previously served the same role as Area Commanders in Winston-Salem, N.C. Major Andrew is a native of North Carolina, while Major Hazel is a native of Maryland. Major Andrew has been a Salvation Army Officer for more than 40 years, and Major Hazel for more than 37 years.
 </p>
 
@@ -29,11 +29,11 @@
 </p></div>
 				</div>
 			</div>
-<h5 style="text-align:center;" data-zesty-id="content:text:6:80">The Leadership Team</h5>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:8:73"></div>
-<div class="row g-3 my-3 align-items-stretch" data-zesty-id="design:columns:1 column - 1 row my-3:9:26">
-<div class="col-12 d-flex flex-column" data-zesty-id="design:columns:1 column - 1 row my-3:9:26-1:1 column - 1 row:0">
-<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle" style="text-align:center;" data-zesty-id="content:wysiwyg_basic:7:76"><p style="text-align:center;">
+			<h5 style="text-align:center;">The Leadership Team</h5>
+			<div class="my-2"></div>
+			<div class="row my-3">
+				<div class="col-12 d-flex flex-column">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle" style="text-align:center"><p style="text-align:center;">
 	<strong>Majors Andrew&nbsp;&amp; Hazel Wiley</strong><br>
 	Area Commanders<br>
 	<a href="tel:7043344731">704-334-4731</a>
@@ -56,10 +56,10 @@
 </p></div>
 				</div>
 			</div>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:11:86"></div>
-<div class="row g-3 my-3 align-items-stretch" data-zesty-id="design:columns:3 Columns:16:75">
-<div class="col-lg-4 col-md-12 col-sm-12 d-flex flex-column" data-zesty-id="design:columns:3 Columns:16:75-1:3 Columns:0">
-<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle" data-zesty-id="content:wysiwyg_basic:10:5"><h5>Media Inquiries</h5>
+			<div class="my-2"></div>
+			<div class="row my-3">
+				<div class="col-lg-4 col-md-12 col-sm-12 d-flex flex-column">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle" style="font-weight: 700"><h5>Media Inquiries</h5>
 
 <p>
 	<strong>Cierra Ivey</strong><br>
@@ -75,8 +75,8 @@
 	<a href="mailto:brent.rinehart@uss.salvationarmy.org" target="_blank">brent.rinehart@uss.salvationarmy.org</a>
 </p></div>
 				</div>
-<div class="col-lg-4 col-md-12 col-sm-12 d-flex flex-column" data-zesty-id="design:columns:3 Columns:16:75-1:3 Columns:1">
-<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle" data-zesty-id="content:wysiwyg_basic:12:97"><h5>Volunteers</h5>
+				<div class="col-lg-4 col-md-12 col-sm-12 d-flex flex-column">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle" style="font-weight: 700"><h5>Volunteers</h5>
 
 <p>
 	<strong>Sarah Gamble</strong><br>
@@ -85,8 +85,8 @@
 	<a href="mailto:sarah.gamble@uss.salvationarmy.org" target="_blank">sarah.gamble@uss.salvationarmy.org</a>
 </p></div>
 				</div>
-<div class="col-lg-4 col-md-12 col-sm-12 d-flex flex-column" data-zesty-id="design:columns:3 Columns:16:75-1:3 Columns:2">
-<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle" data-zesty-id="content:wysiwyg_basic:14:76"><h5>Donations</h5>
+				<div class="col-lg-4 col-md-12 col-sm-12 d-flex flex-column">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle" style="font-weight: 700"><h5>Donations</h5>
 
 <p>
 	<strong>Tanya Sastoque</strong><br>
@@ -103,10 +103,10 @@
 </p></div>
 				</div>
 			</div>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:18:52"></div>
-<div class="row g-3 my-3 align-items-stretch" data-zesty-id="design:columns:2columns:21:74">
-<div class="col-lg-6 col-md-12 col-sm-12 d-flex flex-column" data-zesty-id="design:columns:2columns:21:74-1:2 Columns - Equal:0">
-<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle" data-zesty-id="content:wysiwyg_basic:17:60"><h5>Mailing Address</h5>
+			<div class="my-2"></div>
+			<div class="row my-3">
+				<div class="col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle"><h5>Mailing Address</h5>
 
 <p>
 	The Salvation Army<br>
@@ -114,8 +114,8 @@
 	Charlotte, NC 28231
 </p></div>
 				</div>
-<div class="col-lg-6 col-md-12 col-sm-12 d-flex flex-column" data-zesty-id="design:columns:2columns:21:74-1:2 Columns - Equal:1">
-<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle" data-zesty-id="content:wysiwyg_basic:19:94"><h5>Office</h5>
+				<div class="col-lg-6 col-md-12 col-sm-12 d-flex flex-column">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle"><h5>Office</h5>
 
 <p>
 	4015 Stuart Andrew Blvd.<br>

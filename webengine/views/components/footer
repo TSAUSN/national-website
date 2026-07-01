@@ -1088,7 +1088,7 @@ function footerAddress() {
 
   if (city && state && address) {
     let addrArr = [];
-    let cityText = `<span class="text-title-case">${city}</span>`
+    let cityText = `<span class="header-location">${city}</span>`
     let stateText = `${state} ${zipcode}`;
     addrArr.push(address);
     addrArr.push(cityText);

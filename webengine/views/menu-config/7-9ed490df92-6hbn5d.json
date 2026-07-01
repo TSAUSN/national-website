@@ -15,30 +15,6 @@
   },
   {
     "type": "menu",
-    "key": null,
-    "page_name": "Spiritual Healing",
-    "page-zuid": "7-a8dae9d3c0-02nzt5",
-    "sort": 0,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Youth Services",
-    "page-zuid": "7-b4cb9a97c7-mx4j02",
-    "sort": 1,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Disaster Relief",
-    "page-zuid": "7-92eecd99ba-n5pw8t",
-    "sort": 2,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
     "key": "about_us",
     "page_name": "About Us",
     "page-zuid": null,
@@ -95,15 +71,15 @@
   {
     "type": "menu",
     "key": "events",
-    "page_name": "Salisbury MD Corps",
-    "page-zuid": "7-8a91f2fde1-x931lf",
+    "page_name": "Events",
+    "page-zuid": null,
     "parent": null
   },
   {
     "type": "menu",
     "key": "newsroom",
-    "page_name": "Salisbury MD Corps",
-    "page-zuid": "7-ba86b3b4c6-sj2tv4",
+    "page_name": "Newsroom",
+    "page-zuid": null,
     "parent": null
   },
   {
@@ -112,6 +88,12 @@
     "page_name": "Ways to give",
     "page-zuid": null,
     "parent": null
+  },
+  {
+    "type": "view-all",
+    "page_name": "",
+    "page-zuid": null,
+    "parent": "ways_to_give"
   },
   {
     "type": "menu",
@@ -173,7 +155,7 @@
     "type": "menu",
     "key": "contact_us",
     "page_name": "Contact Us",
-    "page-zuid": "7-aeb4c887cb-5psvqt",
+    "page-zuid": null,
     "parent": null
   }
 ]
