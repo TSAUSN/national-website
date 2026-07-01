@@ -99,9 +99,6 @@ helpCloseBtn.addEventListener('click', (event) => {
 });
 
 const donateContainer = document.getElementById('header-donate-container');
-const donateButtons = document.querySelectorAll('.header-donate-button');
-
-// biome-ignore lint/complexity/noForEach: <explanation>
 
 function getCookieByName(name) {
   const cookies = document.cookie.split(';');
@@ -116,45 +113,58 @@ function getCookieByName(name) {
   return null;
 }
 
-const cloader = document.getElementById('donation-loader-container');
-let iframe = null;
+document.addEventListener('click', (event) => {
+  const donateBtn = event.target.closest('.header-donate-button');
+  if (!donateBtn) return;
 
-donateButtons.forEach((donateBtn) => {
-  
-  donateBtn.addEventListener('click', (event) => {
-    event.stopPropagation();
+  if (typeof window.toggleHeaderDonationDrawer === 'function') {
+    window.toggleHeaderDonationDrawer(event, donateBtn);
+    return;
+  }
+
+  event.preventDefault();
+  event.stopPropagation();
+  if (typeof navMenu !== 'undefined' && navMenu) {
     navMenu.style.transform = 'unset';
     navMenu.classList.remove('active');
-    if (searchContainer.classList.contains('active')) {
-      searchContainer.classList.remove('active');
+  }
+  if (searchContainer && searchContainer.classList.contains('active')) {
+    searchContainer.classList.remove('active');
 
-      searchToggleBtn.querySelector('span').classList.toggle('text-primary-200');
-      searchToggleBtn.querySelector('span').classList.toggle('text-dark-100');
+    const searchIcon = searchToggleBtn ? searchToggleBtn.querySelector('span') : null;
+    if (searchIcon) {
+      searchIcon.classList.toggle('text-primary-200');
+      searchIcon.classList.toggle('text-dark-100');
     }
+  }
 
-    headerDropdowns.forEach((dropdown) => {
-      dropdown.classList.remove('show');
+  headerDropdowns.forEach((dropdown) => {
+    dropdown.classList.remove('show');
+    if (dropdown.nextElementSibling) {
       dropdown.nextElementSibling.classList.remove('show');
-    });
-
-    if (findHelpContainer.classList.contains('active')) {
-      findHelpContainer.classList.remove('active');
     }
-    const desktopDonateDrawerContainer = document.querySelector('#header-donate-drawer');
-    if(window.innerWidth < 1024) {
-      const cookie = getCookieByName('location_donate_form') ? getCookieByName('location_donate_form') : "{{homepage.first().classy_url_mobile}}";
-      window.open(cookie, '_target')
-
-    } else {
-      if(desktopDonateDrawerContainer.classList.contains('active')) {
-        desktopDonateDrawerContainer.classList.remove('active');
-      } else {
-        desktopDonateDrawerContainer.classList.add('active');
-      }
-      
-    }
-    
   });
+
+  if (findHelpContainer && findHelpContainer.classList.contains('active')) {
+    findHelpContainer.classList.remove('active');
+  }
+
+  const desktopDonateDrawerContainer = document.querySelector('#header-donate-drawer');
+  if (!desktopDonateDrawerContainer) return;
+
+  if (desktopDonateDrawerContainer.classList.contains('active')) {
+    if (typeof window.forceCloseDonationDrawer === 'function') {
+      window.forceCloseDonationDrawer();
+    } else {
+      desktopDonateDrawerContainer.classList.remove('active');
+    }
+  } else {
+    if (typeof window.forceOpenDonationDrawer === 'function') {
+      window.forceOpenDonationDrawer();
+    } else {
+      desktopDonateDrawerContainer.classList.add('active');
+    }
+  }
 });
 
 document.addEventListener('click', (event) => {
@@ -171,7 +181,7 @@ document.addEventListener('click', (event) => {
   //   findHelpContainer.classList.remove('active');
   // }
 
-  if (!donateContainer.contains(event.target)) {
+  if (donateContainer && !donateContainer.contains(event.target)) {
     donateContainer.classList.remove('active');
   }
 });
