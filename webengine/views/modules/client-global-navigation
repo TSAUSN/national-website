@@ -1518,13 +1518,12 @@
         const zuidDivision = `{{$divisionParentName}}`;
         const zuidTerritory = `{{$parentTerritoryName}}`;
         console.log(zuidInformationalPage)
-        if (
-          `{{this.zuid}}` === `7-98f6a2b4bf-8xvb3r` &&
-          cookieManager.get(cookieKeys.locationZUID)
-        ) {
+        if (`{{this.zuid}}` === `7-98f6a2b4bf-8xvb3r`) {
+          await setNationalLocationCookies();
+          return;
         }
 
-        if (`{{this.zuid}}` === `7-b8c09b84c2-fp57hm` || "{{this.zuid}}" === "7-a68bca8d8e-l7vs7f" || "{{this.zuid}}" === "7-98f6a2b4bf-8xvb3r") {
+        if (`{{this.zuid}}` === `7-b8c09b84c2-fp57hm` || "{{this.zuid}}" === "7-a68bca8d8e-l7vs7f") {
           // await setCodeCookie(`{{this.parent_zuid}}`);
 
           if(!cookieManager.get(cookieKeys.locationZUID)){
