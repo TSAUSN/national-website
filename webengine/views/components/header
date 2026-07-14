@@ -1113,7 +1113,8 @@
     }
 
     headerLocations.forEach((headerLocation) => {
-      headerLocation.textContent = formatHeaderLocationText(locationCookie);
+      // headerLocation.textContent = formatHeaderLocationText(locationCookie);
+      headerLocation.textContent = locationCookie;
     })
     volunteerLink.setAttribute('href', getCookieByName('volunteer_url'));
     employmentLink.setAttribute('href', getCookieByName('employment_url'));
