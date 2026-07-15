@@ -615,6 +615,7 @@ async function displayLocations(locations, selectedServices) {
       // Get the territory, division, and corps from location data
       const orgDetails = loc.organization_details || '';
       const services = loc.services ? loc.services.map(s => s.title).join(',') : '';
+      const locationName = loc.site_name || loc.name || 'Salvation Army Location';
       const address = addressBuilder(loc?.address, formatCityName(loc?.city), loc?.state, loc?.zipcode);
       const hasServiceTypes = !!(loc.service_types && loc.service_types.trim().length);
       // console.log(`LatLOng ${loc.name} ${address}`, loc.latitude,
@@ -634,7 +635,7 @@ async function displayLocations(locations, selectedServices) {
             <div>
               <h4 class="fs-7 fs-md-6 d-flex align-items-center mb-4">
                 <div class="pin-icon"></div>
-                <span class="fw-bold">${loc.name || 'Salvation Army Location'}</span>
+                <span class="fw-bold">${locationName}</span>
               </h4>
               <p class="display-3 display-md-2 text-primary-200 mb-4 mb-md-0">${distance} miles away from your location</p>
             </div>
@@ -666,7 +667,7 @@ async function displayLocations(locations, selectedServices) {
                     data-link-format-type="button"
                     data-link-type="internal"
                     data-location-id="${loc.zuid}"
-                    data-location-name="${loc.name}"
+                    data-location-name="${locationName}"
                     data-location-org-detail="${orgDetails}"
                     data-location-services="${services}"
                     onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
@@ -688,7 +689,7 @@ async function displayLocations(locations, selectedServices) {
                       data-link-format-type="button"
                       data-link-type="internal"
                       data-location-id="${loc.zuid}"
-                      data-location-name="${loc.name}"
+                      data-location-name="${locationName}"
                       data-location-org-detail="${orgDetails}"
                       data-location-services="${services}"
                       onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
@@ -710,7 +711,7 @@ async function displayLocations(locations, selectedServices) {
                           data-link-format-type="button"
                           data-link-type="external"
                           data-location-id="${loc.zuid}"
-                          data-location-name="${loc.name}"
+                          data-location-name="${locationName}"
                           data-location-org-detail="${orgDetails}"
                           data-location-services="${services}"
                           onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
@@ -725,7 +726,7 @@ async function displayLocations(locations, selectedServices) {
                           data-link-format-type="button"
                           data-link-type="external"
                           data-location-id="${loc.zuid}"
-                          data-location-name="${loc.name}"
+                          data-location-name="${locationName}"
                           data-location-org-detail="${orgDetails}"
                           data-location-services="${services}"
                           onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
@@ -740,7 +741,7 @@ async function displayLocations(locations, selectedServices) {
                           data-link-format-type="button"
                           data-link-type="external"
                           data-location-id="${loc.zuid}"
-                          data-location-name="${loc.name}"
+                          data-location-name="${locationName}"
                           data-location-org-detail="${orgDetails}"
                           data-location-services="${services}"
                           onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
@@ -759,7 +760,7 @@ async function displayLocations(locations, selectedServices) {
                 data-location-search-method="${getSearchMethod()}"
                 data-location-search-result-index="${index + 1}"
                 data-location-id="${loc.zuid || ''}"
-                data-location-name="${loc.name || ''}"
+                data-location-name="${locationName}"
                 data-location-org-detail="${orgDetails}"
                 data-location-services="${services}"
                 data-location-search-filter-type="${getSelectedFilterTypes()}"
@@ -1011,6 +1012,7 @@ async function searchServices() {
     window.locationMarkers = [];
     
     for (const location of allFilteredLocations) {
+      const locationName = location.site_name || location.name || 'Salvation Army Location';
       const position = {
         lat: parseFloat(location.latitude),
         lng: parseFloat(location.longitude)
@@ -1026,7 +1028,7 @@ async function searchServices() {
         position: position,
         map: window.map,
         icon: customIcon,
-        title: convertHtmlEntities(location.name) || 'Salvation Army Location',
+        title: convertHtmlEntities(locationName),
         selectedIcon: selectedIcon,
         defaultIcon: customIcon,
 
@@ -1036,7 +1038,7 @@ async function searchServices() {
       locationMarker.locationData = {
         resultIndex: window.locationMarkers.length + 1,
         zuid: location.zuid || '',
-        name: convertHtmlEntities(location.name) || '',
+        name: convertHtmlEntities(locationName),
         organization_details: `SAL^${location.territory || ''}^${location.division || ''}^${location.corps || ''}`,
         services: location.services ? location.services.map(s => s.title).join(',') : '',
         address: addressBuilder(location.address, formatCityName(location.city), location.state, location.zipcode) || '',
@@ -1218,8 +1220,9 @@ async function initLoad() {
   if (zuid) {
     const location = await window.getLocation(zuid);
     if (location) {
+      const locationName = location.site_name || location.name;
       const currentCardTitle = document.querySelector('.current-card__title');
-      if (currentCardTitle) currentCardTitle.innerHTML = location.name;
+      if (currentCardTitle) currentCardTitle.innerHTML = locationName;
 
       const currentCardHours = document.querySelector('.current-card__hours');
       if (currentCardHours) currentCardHours.innerHTML = location.hours_of_operation;
@@ -1231,7 +1234,7 @@ async function initLoad() {
       if (currentCardAddress) currentCardAddress.innerHTML = location.address;
 
       const locationFinderTitle = document.querySelector('.location-finder__title');
-      if (locationFinderTitle) locationFinderTitle.innerHTML = `${location.name} Information`;
+      if (locationFinderTitle) locationFinderTitle.innerHTML = `${locationName} Information`;
       
       const distanceContainer = document.querySelector('.current-card__distance');
       if(distanceContainer && window.currentSearchLocation.lat && window.currentSearchLocation.lng) {
