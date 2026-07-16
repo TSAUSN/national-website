@@ -86,8 +86,13 @@ function dateFormatter(date) {
 }
 
 function addressBuilder(address = '', city = '', state = '', zipcode = '') {
-  const isValid = (item) => item !== null && item !== undefined && item.trim() !== '' && item.trim().toLowerCase() !== 'Unspecified';
-  console.log("Valid:", isValid);
+  const isValid = (item) =>
+    item !== null &&
+    item !== undefined &&
+    item.trim() !== '' &&
+    item.trim().toLowerCase() !== 'Unspecified';
+  console.log('Valid:', isValid);
+  console.log('AdressBuilder main.js');
   let filteredAddressInfo = [address, city, state, zipcode].filter(isValid);
   return filteredAddressInfo.join(', ');
 }
@@ -455,8 +460,9 @@ function initLocationCardInstances() {
     /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
 
   function addressBuilder(address, city, state, zipcode) {
-    const isValid = (item) => item && item.trim() !== '' && item.trim().toLowerCase() !== 'Unspecified';
-    console.log("Valid:", isValid);
+    const isValid = (item) =>
+      item && item.trim() !== '' && item.trim().toLowerCase() !== 'Unspecified';
+    console.log('Valid:', isValid);
     return [address, city, state, zipcode].filter(isValid).join(', ');
   }
 
@@ -560,8 +566,10 @@ function initLocationCardInstances() {
     const searchLocation = window.currentSearchLocation;
     if (!searchLocation) return null;
 
-    const lat = typeof searchLocation.lat === 'function' ? searchLocation.lat() : searchLocation.lat;
-    const lng = typeof searchLocation.lng === 'function' ? searchLocation.lng() : searchLocation.lng;
+    const lat =
+      typeof searchLocation.lat === 'function' ? searchLocation.lat() : searchLocation.lat;
+    const lng =
+      typeof searchLocation.lng === 'function' ? searchLocation.lng() : searchLocation.lng;
     if (typeof lat !== 'number' || typeof lng !== 'number' || isNaN(lat) || isNaN(lng)) return null;
 
     return { lat, lng };
@@ -597,11 +605,7 @@ function initLocationCardInstances() {
       }
 
       if (
-        !(
-          window.google &&
-          window.google.maps &&
-          typeof window.google.maps.Geocoder === 'function'
-        )
+        !(window.google && window.google.maps && typeof window.google.maps.Geocoder === 'function')
       ) {
         reject(new Error('Google geocoder unavailable.'));
         return;
@@ -879,7 +883,10 @@ function initLocationCardInstances() {
       for (let j = 0; j < mutation.addedNodes.length; j += 1) {
         const node = mutation.addedNodes[j];
         if (!node || node.nodeType !== 1) continue;
-        if (node.matches('.location-card-instance') || node.querySelector('.location-card-instance')) {
+        if (
+          node.matches('.location-card-instance') ||
+          node.querySelector('.location-card-instance')
+        ) {
           shouldInit = true;
           break;
         }
