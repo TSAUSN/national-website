@@ -1039,7 +1039,7 @@ async function searchServices() {
         name: convertHtmlEntities(location.name) || '',
         organization_details: `SAL^${location.territory || ''}^${location.division || ''}^${location.corps || ''}`,
         services: location.services ? location.services.map(s => s.title).join(',') : '',
-        address: addressBuilder(location.address, formatCityName(location.city), location.state, location.zipcode) || '',
+        address: '',
         contact_number: location.contact_number || '',
         hours_of_operation: location.hours_of_operation || '',
         url: window.location.origin + (location.url || '')
