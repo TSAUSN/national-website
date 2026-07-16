@@ -87,6 +87,7 @@ function dateFormatter(date) {
 
 function addressBuilder(address = '', city = '', state = '', zipcode = '') {
   const isValid = (item) => item !== null && item !== undefined && item.trim() !== '' && item.trim().toLowerCase() !== 'Unspecified';
+  console.log("Valid:", isValid);
   let filteredAddressInfo = [address, city, state, zipcode].filter(isValid);
   return filteredAddressInfo.join(', ');
 }
@@ -455,6 +456,7 @@ function initLocationCardInstances() {
 
   function addressBuilder(address, city, state, zipcode) {
     const isValid = (item) => item && item.trim() !== '' && item.trim().toLowerCase() !== 'Unspecified';
+    console.log("Valid:", isValid);
     return [address, city, state, zipcode].filter(isValid).join(', ');
   }
 
