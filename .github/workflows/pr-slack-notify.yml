@@ -29,25 +29,12 @@ jobs:
           async function main() {
             const webhookUrl = process.env.SLACK_WEBHOOK_URL;
             const payload = {
-              text: `New PR opened for ${process.env.PR_BASE}: ${process.env.PR_TITLE}`,
-              blocks: [
-                {
-                  type: 'section',
-                  text: {
-                    type: 'mrkdwn',
-                    text: `*New PR opened for \`${process.env.PR_BASE}\`*\n<${process.env.PR_URL}|${process.env.PR_TITLE}>`,
-                  },
-                },
-                {
-                  type: 'context',
-                  elements: [
-                    {
-                      type: 'mrkdwn',
-                      text: `*Repo:* ${process.env.REPOSITORY} | *Author:* ${process.env.PR_AUTHOR} | *Branch:* ${process.env.PR_HEAD} -> ${process.env.PR_BASE}`,
-                    },
-                  ],
-                },
-              ],
+              pr_title: process.env.PR_TITLE,
+              pr_url: process.env.PR_URL,
+              pr_author: process.env.PR_AUTHOR,
+              pr_base: process.env.PR_BASE,
+              pr_head: process.env.PR_HEAD,
+              repository: process.env.REPOSITORY,
             };
 
             const response = await fetch(webhookUrl, {
