@@ -1,0 +1,67 @@
+name: PR Slack Notification
+
+on:
+  pull_request:
+    branches: [stage, production]
+    types: [opened]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+    steps:
+      - name: Send Slack message
+        if: ${{ env.SLACK_WEBHOOK_URL != '' }}
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_BASE: ${{ github.event.pull_request.base.ref }}
+          PR_HEAD: ${{ github.event.pull_request.head.ref }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          node <<'NODE'
+          async function main() {
+            const webhookUrl = process.env.SLACK_WEBHOOK_URL;
+            const payload = {
+              text: `New PR opened for ${process.env.PR_BASE}: ${process.env.PR_TITLE}`,
+              blocks: [
+                {
+                  type: 'section',
+                  text: {
+                    type: 'mrkdwn',
+                    text: `*New PR opened for \`${process.env.PR_BASE}\`*\n<${process.env.PR_URL}|${process.env.PR_TITLE}>`,
+                  },
+                },
+                {
+                  type: 'context',
+                  elements: [
+                    {
+                      type: 'mrkdwn',
+                      text: `*Repo:* ${process.env.REPOSITORY} | *Author:* ${process.env.PR_AUTHOR} | *Branch:* ${process.env.PR_HEAD} -> ${process.env.PR_BASE}`,
+                    },
+                  ],
+                },
+              ],
+            };
+
+            const response = await fetch(webhookUrl, {
+              method: 'POST',
+              headers: { 'content-type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            if (!response.ok) {
+              throw new Error(`Slack webhook returned ${response.status}`);
+            }
+          }
+
+          main().catch((error) => {
+            console.error(error);
+            process.exit(1);
+          });
+          NODE
