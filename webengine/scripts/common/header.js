@@ -186,6 +186,7 @@ document.addEventListener('click', (event) => {
   }
 });
 
+// Test changes
 const searchInput = document.getElementById('search-input');
 const searchInputClearBtn = document.getElementById('search-input-clear-btn');
 
