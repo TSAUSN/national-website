@@ -145,7 +145,7 @@
     },
 
     delete(name) {
-      this.set(name, ``, -1);
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; path=/`;
     }
   };
 
@@ -1022,15 +1022,26 @@
         }
         break;
 
+      // Content pages with optional location/division/territory assignments.
       case `6-aa8c819c86-953qkz`: // Contact Us
       case `6-b29d85ada7-5kzkcc`: // About Us
-      case `6-f8c59d8382-h4z4pc`: // Stories Landing Page
-      case `6-c4d6a894f1-rtzv2z`: // Events Ladning Page
-      case `6-cee4dda7e4-0md6ts`: // Leadership Landing Page
       case `6-8489c3a590-kn21jh`: // Volunteer Page
+
+      // Landing pages that use the same location-context cookie flow.
+      case `6-f8c59d8382-h4z4pc`: // Stories Landing Page
+      case `6-c4d6a894f1-rtzv2z`: // Events Landing Page
+      case `6-cee4dda7e4-0md6ts`: // Leadership Landing Page
         const location = `{{!this.location}}`;
         const division = `{{!this.division}}`;
         const territory = `{{!this.territory}}`;
+
+        logCurrentDataLayerValues(`content-case-start`, {
+          location,
+          division,
+          territory
+        });
+
+        // Preserve the previous location context before overwriting it.
         if (
           cookieManager.get(cookieKeys.locationZUID) &&
           cookieManager.get(cookieKeys.locationModel)
@@ -1042,6 +1053,7 @@
           cookieManager.set(cookieKeys.lastVisitedZUID, cookieManager.get(cookieKeys.locationZUID));
         }
 
+        // Check whether this page inherits context from a parent location model.
         const pageParentZUID = `{{this.parent_zuid}}`;
         const pageParentValidation = await validateParentZUID(pageParentZUID, {
           location: `{{$parentLocationName}}`,
@@ -1056,6 +1068,7 @@
         const pageHasDivisionParent = pageParentValidation.division;
         const pageHasTerritoryParent = pageParentValidation.territory;
 
+        // Explicit location assignment takes priority over parent-based context.
         if (location) {
           (`{{$pageLocationRedirectURL = {locations.filter({!this.location}).redirect_url} }}`);
           const redirectURL = `{{$pageLocationRedirectURL}}`;
@@ -1474,36 +1487,12 @@
 
           await setCodeCookie(pageParentZUID, "6-deab97cfd9-wb5km4");
         } else {
-          cookieManager.set(cookieKeys.locationModel, `6-a0898ca2c1-krnm0f`);
-          cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
-          cookieManager.set(cookieKeys.locationHomeURL, `/`);
-          cookieManager.set(cookieKeys.locationName, `NATIONAL`);
-          cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
-          cookieManager.set(cookieKeys.employmentUrl, `{{$nationalEmployment}}`);
-          cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
-          cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
-          cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
-          cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
-          cookieManager.delete(cookieKeys.territoryZUID);
-          cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
-          cookieManager.set(
-            cookieKeys.contactUsImage,
-            `{{homepage.first().contact_us_image.getImage()}}`
-          );
-          cookieManager.set(cookieKeys.contactUsTitle, `{{homepage.first().contact_us_title}}`);
-          cookieManager.set(cookieKeys.contactUsHeader, `{{homepage.first().contact_us_cta_header}}`);
-          cookieManager.set(cookieKeys.organizationLevel, levels.national);
-
-          cookieManager.delete(cookieKeys.territoryZUID);
-          cookieManager.delete(cookieKeys.organizationCorp);
-          cookieManager.delete(cookieKeys.organizationDivision);
-          cookieManager.delete(cookieKeys.organizationTerritory);
-          cookieManager.delete(cookieKeys.locationPropertyType);
-          cookieManager.delete(cookieKeys.locationAddress);
-          cookieManager.delete(cookieKeys.locationCity);
-          cookieManager.delete(cookieKeys.locationState);
-          cookieManager.delete(cookieKeys.locationZipcode);
-          await setCodeCookie(`{{homepage.first().zuid}}`);
+          // No assigned or parent location context: reset to national defaults.
+          await setNationalLocationCookies();
+          logCurrentDataLayerValues(`content-national-fallback`, {
+            pageParentZUID,
+            pageParentValidation
+          });
         }
         break;
 
