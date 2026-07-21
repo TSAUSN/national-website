@@ -1,0 +1,225 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"design:columns:1 column - 1 row my-3:17:6": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 0,
+				"fullName": "design:columns:1 column - 1 row my-3:17:6",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:17:6-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:1:86": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6>Past Events</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Past Events",
+								"position": 0,
+								"fullName": "content:text:1:86",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:1:86",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:6-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:8": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThe event might have passed but the memories and sponsor appreciation remains steadfast.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The event might have passed but the memories and sponsor appreciation remains steadfast.",
+								"position": 1,
+								"fullName": "content:textarea:2:8",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:8",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:6-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:3:92": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tEnjoy a look back at our past events. We hope to see you at an upcoming, community event.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Enjoy a look back at our past events. We hope to see you at an upcoming, community event.",
+								"position": 2,
+								"fullName": "content:textarea:3:92",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:3:92",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:6-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:4:84": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:whitespace-xl:4:84",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:6-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:5:19": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5><span style=\"color:#f2c75d;\">Signature Events</span></h5>\n\n<p>\n\t<a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/428af846-7c5b-40d5-b2cc-a0c037718c17_Sig+Events+Updated+1.2025.pdf\"><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/84348c12-b126-48c3-9033-8442c3a5ccb5_Sig+Banner+Updated+%281200x250%29.svg\"></a>\n</p>\n\n<p>\n\tClick the image above or the link here to view the <a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/720c2cbb-8ada-43fb-9eb2-cf2af3066f9c_Sig+Events+Updated+May+2025.pdf\">Signature Events Flyer</a>\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5><span style=\"color:#f2c75d;\">Signature Events</span></h5>\n\n<p>\n\t<a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/428af846-7c5b-40d5-b2cc-a0c037718c17_Sig+Events+Updated+1.2025.pdf\"><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/84348c12-b126-48c3-9033-8442c3a5ccb5_Sig+Banner+Updated+%281200x250%29.svg\"></a>\n</p>\n\n<p>\n\tClick the image above or the link here to view the <a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/720c2cbb-8ada-43fb-9eb2-cf2af3066f9c_Sig+Events+Updated+May+2025.pdf\">Signature Events Flyer</a>\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 4,
+								"fullName": "content:wysiwyg_basic:5:19",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:5:19",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:6-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5><span style=\"color:#f2c75d;\">Signature Events</span></h5>\n\n<p>\n\t<a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/428af846-7c5b-40d5-b2cc-a0c037718c17_Sig+Events+Updated+1.2025.pdf\"><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/84348c12-b126-48c3-9033-8442c3a5ccb5_Sig+Banner+Updated+%281200x250%29.svg\"></a>\n</p>\n\n<p>\n\tClick the image above or the link here to view the <a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/720c2cbb-8ada-43fb-9eb2-cf2af3066f9c_Sig+Events+Updated+May+2025.pdf\">Signature Events Flyer</a>\n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			},
+			"content:block:6-caf0f4baac-ctljlz:1:14": {
+				"html": "{{block('/-/block/general_accordion.html?variant=7-c080b0e6aa-21z130')}}",
+				"content": "{{block('/-/block/general_accordion.html?variant=7-c080b0e6aa-21z130')}}",
+				"model": "6-caf0f4baac-ctljlz",
+				"name": "General Accordion",
+				"position": 1,
+				"fullName": "content:block:6-caf0f4baac-ctljlz:1:14",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank"
+			},
+			"design:columns:1 column - 1 row my-3:18:13": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 2,
+				"fullName": "design:columns:1 column - 1 row my-3:18:13",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:18:13-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:wysiwyg_basic:9:25": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5><span style=\"color:#005788;\">Other Events</span></h5></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5><span style=\"color:#005788;\">Other Events</span></h5></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 0,
+								"fullName": "content:wysiwyg_basic:9:25",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:9:25",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:18:13-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5><span style=\"color:#005788;\">Other Events</span></h5></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			},
+			"content:block:6-caf0f4baac-ctljlz:3:64": {
+				"html": "{{block('/-/block/general_accordion.html?variant=7-94ecc386b6-twh5kl')}}",
+				"content": "{{block('/-/block/general_accordion.html?variant=7-94ecc386b6-twh5kl')}}",
+				"model": "6-caf0f4baac-ctljlz",
+				"name": "General Accordion",
+				"position": 3,
+				"fullName": "content:block:6-caf0f4baac-ctljlz:3:64",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank"
+			}
+		}
+	}
+}
