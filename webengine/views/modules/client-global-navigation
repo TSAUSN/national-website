@@ -1042,16 +1042,16 @@
         });
 
         // Preserve the previous location context before overwriting it.
-        if (
-          cookieManager.get(cookieKeys.locationZUID) &&
-          cookieManager.get(cookieKeys.locationModel)
-        ) {
-          cookieManager.set(
-            cookieKeys.lastVisitedModel,
-            cookieManager.get(cookieKeys.locationModel)
-          );
-          cookieManager.set(cookieKeys.lastVisitedZUID, cookieManager.get(cookieKeys.locationZUID));
-        }
+        // if (
+        //   cookieManager.get(cookieKeys.locationZUID) &&
+        //   cookieManager.get(cookieKeys.locationModel)
+        // ) {
+        //   cookieManager.set(
+        //     cookieKeys.lastVisitedModel,
+        //     cookieManager.get(cookieKeys.locationModel)
+        //   );
+        //   cookieManager.set(cookieKeys.lastVisitedZUID, cookieManager.get(cookieKeys.locationZUID));
+        // }
 
         // Check whether this page inherits context from a parent location model.
         const pageParentZUID = `{{this.parent_zuid}}`;
