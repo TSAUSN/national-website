@@ -1891,20 +1891,23 @@
           break;
         }
 
-        `{{$stateZUID = {!this.state} }}`;
-        `{{$territoryZUID = {states.filter({$stateZUID}).territory} }}`;
+        {{$cityStateZUID = {!this.state} }}
+        {{$cityTerritoryZUID = {states.filter({$cityStateZUID}).territory} }}
+        {{$cityTerritoryContactImage = {territories.filter({$cityTerritoryZUID}).contact_us_image.getImage()} }}
+        {{$cityTerritoryContactTitle = {territories.filter({$cityTerritoryZUID}).contact_us_title} }}
+        {{$cityTerritoryContactHeader = {territories.filter({$cityTerritoryZUID}).contact_us_cta_header} }}
 
         cookieManager.set(
           cookieKeys.contactUsImage,
-          `{{territories.filter({$territoryZUID}).contact_us_image.getImage()}}`
+          `{{$cityTerritoryContactImage}}`
         );
-                cookieManager.set(
+        cookieManager.set(
           cookieKeys.contactUsTitle,
-          `{{territories.filter({$territoryZUID}).contact_us_title}}`
+          `{{$cityTerritoryContactTitle}}`
         );
         cookieManager.set(
           cookieKeys.contactUsHeader,
-          `{{territories.filter({$territoryZUID}).contact_us_cta_header}}`
+          `{{$cityTerritoryContactHeader}}`
         );
         break;
     }
