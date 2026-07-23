@@ -274,6 +274,29 @@
             }
         {{/each}}
     {{/if}}
+
+    {{if {$services} }}
+        {{each services as ser WHERE ser.territory = '{$zuid}' AND ser.location IS NULL AND ser.division IS NULL LIMIT {$offset}, {$perPage} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Services",
+                "model_zuid": "{{ser.set_zuid}}",
+                "zuid": "{{ser.zuid}}",
+                "title": "{{ser.title.escapeForJs() }}",
+                "territory": "{{territories.filter({ser.territory}).name.escapeForJs() }}",
+                "division": null,
+                "location": null,
+                "path_part": "{{truepath({ser.zuid})}}",
+
+                "publish_status": "{{if {isPublished({ser.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({ser.zuid})}}"
+                {{if {$includeFields} }},
+                "fields": {{ser.toJSON()}}
+                {{/if}}
+            }
+        {{/each}}
+    {{/if}}
 {{/if}}
 
 {{if {$zuid} && {$zuidD} && {$zuidL} == "" }}
@@ -521,6 +544,29 @@
                 "url": "https://{{instance.domain}}{{truepath({vp.zuid})}}"
                 {{if {$includeFields} }},
                 "fields": {{vp.toJSON()}}
+                {{/if}}
+            }
+        {{/each}}
+    {{/if}}
+
+    {{if {$services} }}
+        {{each services as ser WHERE ser.division = '{$zuidD}' AND ser.location IS NULL AND ser.territory IS NOT NULL LIMIT {$offset}, {$perPage} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Services",
+                "model_zuid": "{{ser.set_zuid}}",
+                "zuid": "{{ser.zuid}}",
+                "title": "{{ser.title.escapeForJs() }}",
+                "territory": "{{territories.filter({ser.territory}).name.escapeForJs() }}",
+                "division": "{{divisions.filter({ser.division}).name.escapeForJs() }}",
+                "location": null,
+                "path_part": "{{truepath({ser.zuid})}}",
+
+                "publish_status": "{{if {isPublished({ser.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({ser.zuid})}}"
+                {{if {$includeFields} }},
+                "fields": {{ser.toJSON()}}
                 {{/if}}
             }
         {{/each}}

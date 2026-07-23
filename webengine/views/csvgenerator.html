@@ -16,7 +16,7 @@
         Once divisions are selected, the <strong>Location</strong> dropdown will be enabled, allowing you to choose one or more locations linked to those divisions.
       </p>
       <p class="card-text">
-        Remove selections using the remove buttons inside each dropdown.
+        Use the checkboxes in each dropdown, then choose Apply or Cancel.
       </p>
       <p class="card-text mt-3">
         <a href="https://www.loom.com/share/231f4a27907142d79c89fb523d80fdbf?sid=fe593cd0-dad7-4986-8f18-2165a940a857" target="_blank" class="text-primary">
@@ -361,6 +361,8 @@
     <div class="d-flex flex-wrap gap-2 mb-3">
       <button id="select-default-columns" type="button" class="btn btn-outline-secondary btn-sm">Default Fields</button>
       <button id="select-all-columns" type="button" class="btn btn-outline-primary btn-sm">Select All</button>
+      <button id="cancel-column-selection" type="button" class="btn btn-outline-secondary btn-sm ms-auto">Cancel</button>
+      <button id="apply-column-selection" type="button" class="btn btn-primary btn-sm">Apply</button>
     </div>
     <div id="tableFieldList" class="field-grid"></div>
   </div>
@@ -406,11 +408,6 @@
     </div>
   </div>
 </div>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css"
-/>
-<script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
 <script>
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
   const tooltipList = window.bootstrap
@@ -436,6 +433,8 @@
   const tableFieldList = document.getElementById('tableFieldList');
   const selectDefaultColumnsBtn = document.getElementById('select-default-columns');
   const selectAllColumnsBtn = document.getElementById('select-all-columns');
+  const cancelColumnSelectionBtn = document.getElementById('cancel-column-selection');
+  const applyColumnSelectionBtn = document.getElementById('apply-column-selection');
   const exportFieldList = document.getElementById('exportFieldList');
   const confirmExportBtn = document.getElementById('confirm-export-btn');
   const exportDefaultColumnsBtn = document.getElementById('export-default-columns');
@@ -467,27 +466,38 @@
   const FIELD_PREFIX = 'field__';
   const SKIPPED_FIELD_KEYS = new Set(['meta']);
 
+  const parseRelationshipValues = (value) =>
+    `${value || ''}`
+      .split(',')
+      .map((item) => item.trim())
+      .filter(Boolean);
+
   const divisionOptions = Array.from(selectZuidD.options)
     .filter((opt) => opt.value)
     .map((opt) => ({
-      value: opt.value,
+      value: opt.value.trim(),
       text: opt.textContent.trim(),
-      territory: opt.getAttribute('data-territory') || ''
+      territories: parseRelationshipValues(opt.getAttribute('data-territory'))
     }));
 
   const locationOptions = Array.from(selectZuidL.options)
     .filter((opt) => opt.value)
     .map((opt) => ({
-      value: opt.value,
+      value: opt.value.trim(),
       text: opt.textContent.trim(),
-      division: opt.getAttribute('data-division') || '',
-      territory: opt.getAttribute('data-territory') || ''
+      divisions: parseRelationshipValues(opt.getAttribute('data-division')),
+      territories: parseRelationshipValues(opt.getAttribute('data-territory'))
     }));
 
   const locationMetaById = new Map(locationOptions.map((opt) => [opt.value, opt]));
+  const scopeSelection = {
+    territory: '',
+    divisions: [],
+    locations: []
+  };
 
-  let divisionTomSelect = null;
-  let locationTomSelect = null;
+  let divisionCombo = null;
+  let locationCombo = null;
 
   const createCheckboxCombo = (selectEl, config) => {
     let options = [];
@@ -628,37 +638,31 @@
       selectedValues = selectedValues.filter((value) =>
         options.some((option) => option.value === value)
       );
+      draftValues = draftValues.filter((value) =>
+        options.some((option) => option.value === value)
+      );
       syncNativeSelect();
       syncToggle();
       if (isOpen) {
-        draftValues = draftValues.filter((value) =>
-          options.some((option) => option.value === value)
-        );
         renderList();
       }
     };
 
-    const setValue = (values, silent = false) => {
+    const setValue = (values) => {
       const nextValues = Array.isArray(values) ? values : `${values}`.split(',');
-      selectedValues = nextValues
-        .map((value) => `${value}`.trim())
-        .filter((value) => value && options.some((option) => option.value === value));
+      selectedValues = [
+        ...new Set(
+          nextValues
+            .map((value) => `${value}`.trim())
+            .filter((value) => value && options.some((option) => option.value === value))
+        )
+      ];
+      draftValues = [...selectedValues];
       syncNativeSelect();
       syncToggle();
-      if (!silent) {
-        selectEl.dispatchEvent(new Event('change', { bubbles: true }));
-      }
     };
 
-    const clear = (silent = false) => {
-      selectedValues = [];
-      draftValues = [];
-      syncNativeSelect();
-      syncToggle();
-      if (!silent) {
-        selectEl.dispatchEvent(new Event('change', { bubbles: true }));
-      }
-    };
+    const clear = () => setValue([]);
 
     const enable = () => {
       isEnabled = true;
@@ -684,13 +688,10 @@
     search.addEventListener('input', renderList);
     cancelBtn.addEventListener('click', close);
     applyBtn.addEventListener('click', () => {
-      const checkedValues = Array.from(
-        list.querySelectorAll('input[type="checkbox"]:checked')
-      ).map((checkbox) => checkbox.value);
-      setValue(checkedValues, true);
+      setValue(draftValues);
       close();
       if (typeof config.onApply === 'function') {
-        config.onApply();
+        config.onApply([...selectedValues]);
       }
     });
 
@@ -723,13 +724,13 @@
   };
 
   const initMultiSelects = () => {
-    divisionTomSelect = createCheckboxCombo(selectZuidD, {
+    divisionCombo = createCheckboxCombo(selectZuidD, {
       placeholder: 'Select divisions',
       searchPlaceholder: 'Search divisions',
       emptyText: 'No divisions available.',
       onApply: handleDivisionSelectionChange
     });
-    locationTomSelect = createCheckboxCombo(selectZuidL, {
+    locationCombo = createCheckboxCombo(selectZuidL, {
       placeholder: 'Select locations',
       searchPlaceholder: 'Search locations',
       emptyText: 'Select a division first.',
@@ -737,37 +738,12 @@
     });
   };
 
-  const getSelectedValues = (selectEl, tomSelectInstance) => {
-    if (tomSelectInstance) {
-      const values = tomSelectInstance.getValue();
-      if (!values) {
-        return [];
-      }
-      return (Array.isArray(values) ? values : `${values}`.split(','))
-        .map((value) => `${value}`.trim())
-        .filter((value) => value);
-    }
-    return Array.from(selectEl.selectedOptions)
-      .map((opt) => opt.value)
-      .filter((value) => value);
-  };
-
-  const clearSelection = (selectEl, tomSelectInstance) => {
-    if (tomSelectInstance) {
-      tomSelectInstance.clear(true);
-      return;
-    }
-    Array.from(selectEl.options).forEach((opt) => {
-      opt.selected = false;
-    });
-  };
-
   const setLocationEnabled = (enabled) => {
-    if (locationTomSelect) {
+    if (locationCombo) {
       if (enabled) {
-        locationTomSelect.enable();
+        locationCombo.enable();
       } else {
-        locationTomSelect.disable();
+        locationCombo.disable();
       }
     }
     if (enabled) {
@@ -777,66 +753,14 @@
     }
   };
 
-  const updateDivisionOptions = (territoryZuid) => {
-    const available = divisionOptions.filter((opt) => opt.territory === territoryZuid);
-    if (divisionTomSelect) {
-      const selected = getSelectedValues(selectZuidD, divisionTomSelect);
-      divisionTomSelect.setOptions(available);
-      const stillSelected = selected.filter((value) =>
-        available.some((opt) => opt.value === value)
-      );
-      if (stillSelected.length) {
-        divisionTomSelect.setValue(stillSelected, true);
-      } else {
-        divisionTomSelect.clear(true);
-      }
-      return;
-    }
-    Array.from(selectZuidD.options).forEach((opt) => {
-      if (!opt.value) {
-        return;
-      }
-      if (opt.getAttribute('data-territory') !== territoryZuid) {
-        opt.classList.add('d-none');
-      } else {
-        opt.classList.remove('d-none');
-      }
-    });
-  };
+  const getDivisionOptions = (territoryZuid) =>
+    divisionOptions.filter((option) => option.territories.includes(territoryZuid));
 
-  const updateLocationOptions = (divisionValues) => {
-    const hasDivisions = divisionValues.length > 0;
-    setLocationEnabled(hasDivisions);
-    if (!hasDivisions) {
-      clearSelection(selectZuidL, locationTomSelect);
-    }
-    const available = hasDivisions
-      ? locationOptions.filter((opt) => divisionValues.includes(opt.division))
-      : [];
-    if (locationTomSelect) {
-      const selected = getSelectedValues(selectZuidL, locationTomSelect);
-      locationTomSelect.setOptions(available);
-      const stillSelected = selected.filter((value) =>
-        available.some((opt) => opt.value === value)
-      );
-      if (stillSelected.length) {
-        locationTomSelect.setValue(stillSelected, true);
-      } else {
-        locationTomSelect.clear(true);
-      }
-      return;
-    }
-    Array.from(selectZuidL.options).forEach((opt) => {
-      if (!opt.value) {
-        return;
-      }
-      if (divisionValues.includes(opt.getAttribute('data-division'))) {
-        opt.classList.remove('d-none');
-      } else {
-        opt.classList.add('d-none');
-      }
-    });
-  };
+  const getLocationOptions = (divisionValues) =>
+    locationOptions.filter(
+      (option) =>
+        option.divisions.some((divisionZuid) => divisionValues.includes(divisionZuid))
+    );
 
   const handleModelSelection = (divisionValues, locationValues) => {
     const hasDivisions = divisionValues.length > 0;
@@ -862,15 +786,9 @@
 
       if (value === SERVICES_MODEL_KEY) {
         checkbox.disabled = false;
-        checkbox.checked = hasLocations;
       }
     });
   };
-
-  initMultiSelects();
-  updateDivisionOptions(selectModel.value);
-  updateLocationOptions([]);
-  handleModelSelection([], []);
 
   const setError = (message) => {
     if (!message) {
@@ -1017,62 +935,77 @@
     }
   };
 
-  const getSelectedDivisionIds = () => getSelectedValues(selectZuidD, divisionTomSelect);
-  const getSelectedLocationIds = () => getSelectedValues(selectZuidL, locationTomSelect);
+  const getSelectedDivisionIds = () => [...scopeSelection.divisions];
+  const getSelectedLocationIds = () => [...scopeSelection.locations];
 
-  selectModel.addEventListener('change', (e) => {
-    invalidateLoadedData();
-    const selectedTerritory = e.target.value;
-    clearSelection(selectZuidD, divisionTomSelect);
-    clearSelection(selectZuidL, locationTomSelect);
-    updateDivisionOptions(selectedTerritory);
-    updateLocationOptions([]);
+  const resetScopePage = () => {
     pageNumberInput.value = 1;
     updatePageIndicator(1);
+  };
+
+  function handleTerritorySelectionChange(territoryValue, shouldInvalidate = true) {
+    const territoryZuid = `${territoryValue || ''}`.trim();
+    scopeSelection.territory = territoryZuid;
+    scopeSelection.divisions = [];
+    scopeSelection.locations = [];
+
+    divisionCombo.setOptions(getDivisionOptions(territoryZuid));
+    divisionCombo.clear();
+    locationCombo.setOptions([]);
+    locationCombo.clear();
+    setLocationEnabled(false);
+
+    if (shouldInvalidate) {
+      invalidateLoadedData();
+    }
+    resetScopePage();
     handleModelSelection([], []);
-  });
-
-  function handleDivisionSelectionChange() {
-    invalidateLoadedData();
-    const divisionValues = getSelectedDivisionIds();
-    updateLocationOptions(divisionValues);
-    const locationValues = getSelectedLocationIds();
-    pageNumberInput.value = 1;
-    updatePageIndicator(1);
-    handleModelSelection(divisionValues, locationValues);
   }
 
-  function handleLocationSelectionChange() {
+  function handleDivisionSelectionChange(nextDivisionValues) {
+    const allowedDivisionIds = new Set(
+      getDivisionOptions(scopeSelection.territory).map((option) => option.value)
+    );
+    scopeSelection.divisions = nextDivisionValues.filter((value) =>
+      allowedDivisionIds.has(value)
+    );
+    scopeSelection.locations = [];
+
+    const availableLocations = getLocationOptions(scopeSelection.divisions);
+    locationCombo.setOptions(availableLocations);
+    locationCombo.clear();
+    setLocationEnabled(scopeSelection.divisions.length > 0);
+
     invalidateLoadedData();
-    const divisionValues = getSelectedDivisionIds();
-    const locationValues = getSelectedLocationIds();
-    pageNumberInput.value = 1;
-    updatePageIndicator(1);
-    handleModelSelection(divisionValues, locationValues);
+    resetScopePage();
+    handleModelSelection(scopeSelection.divisions, []);
   }
 
-  selectZuidD.addEventListener('change', handleDivisionSelectionChange);
-  selectZuidL.addEventListener('change', handleLocationSelectionChange);
-
-  modelCheckboxes.forEach((checkbox) => {
-    checkbox.addEventListener('change', invalidateLoadedData);
-  });
-
-  const isModelSelected = (modelKey) =>
-    Array.from(modelCheckboxes).some(
-      (checkbox) => checkbox.value === modelKey && checkbox.checked
+  function handleLocationSelectionChange(nextLocationValues) {
+    const allowedLocationIds = new Set(
+      getLocationOptions(scopeSelection.divisions).map((option) => option.value)
+    );
+    scopeSelection.locations = nextLocationValues.filter((value) =>
+      allowedLocationIds.has(value)
     );
 
-  function getSelectedModelParams(options = {}) {
-    const { onlyServices = false, excludeServices = false } = options;
+    invalidateLoadedData();
+    resetScopePage();
+    handleModelSelection(scopeSelection.divisions, scopeSelection.locations);
+  }
+
+  selectModel.addEventListener('change', (event) => {
+    handleTerritorySelectionChange(event.target.value);
+  });
+
+  modelCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', () => invalidateLoadedData());
+  });
+
+  function getSelectedModelParams() {
     const params = new URLSearchParams();
-    if (onlyServices) {
-      params.set(SERVICES_MODEL_KEY, '1');
-      return params;
-    }
     Array.from(modelCheckboxes)
       .filter((checkbox) => checkbox.checked)
-      .filter((checkbox) => !(excludeServices && checkbox.value === SERVICES_MODEL_KEY))
       .forEach((checkbox) => {
         params.set(checkbox.value, '1');
       });
@@ -1092,6 +1025,7 @@
   let data = [];
   let availableColumns = [...DEFAULT_COLUMNS];
   let selectedColumnKeys = [...DEFAULT_COLUMN_KEYS];
+  let draftColumnKeys = [...DEFAULT_COLUMN_KEYS];
   let pendingExportMode = null;
   let lastLoadState = null;
   const exportFieldsModal =
@@ -1240,7 +1174,7 @@
   };
 
   const renderTableFieldControls = () => {
-    renderCheckboxList(tableFieldList, selectedColumnKeys, 'table-field');
+    renderCheckboxList(tableFieldList, draftColumnKeys, 'table-field');
     columnControls.classList.toggle('d-none', !data.length);
   };
 
@@ -1254,6 +1188,7 @@
     selectedColumnKeys = availableColumns
       .map((column) => column.key)
       .filter((key) => DEFAULT_COLUMN_KEYS.includes(key));
+    draftColumnKeys = [...selectedColumnKeys];
     renderTableFieldControls();
   };
 
@@ -1312,23 +1247,10 @@
     });
   };
 
-  const buildScopeRequests = (
-    territoryZuid,
-    divisionValues,
-    locationValues,
-    options = {}
-  ) => {
+  const buildScopeRequests = (territoryZuid, divisionValues, locationValues) => {
     const scopes = [];
     const seen = new Set();
-    const servicesSelected = isModelSelected(SERVICES_MODEL_KEY);
-    const expandServices = options.expandServices === true;
-    const hasLocationScope = locationValues.length > 0;
-    const needsExpandedServiceScopes = servicesSelected && !hasLocationScope && expandServices;
-    const shouldExcludeServicesFromBase = servicesSelected && !hasLocationScope;
-    const baseModelParams = shouldExcludeServicesFromBase
-      ? getSelectedModelParams({ excludeServices: true })
-      : getSelectedModelParams();
-    const serviceModelParams = getSelectedModelParams({ onlyServices: true });
+    const modelParams = getSelectedModelParams();
 
     const addScope = (scope) => {
       const key = [
@@ -1351,14 +1273,17 @@
     if (locationValues.length) {
       locationValues.forEach((locZuid) => {
         const meta = locationMetaById.get(locZuid);
-        if (!meta || !meta.division) {
+        const divisionZuid = meta?.divisions.find((value) =>
+          divisionValues.includes(value)
+        );
+        if (!meta || !divisionZuid) {
           return;
         }
         addScope({
-          zuid: meta.territory || territoryZuid,
-          zuidD: meta.division,
+          zuid: meta.territories[0] || territoryZuid,
+          zuidD: divisionZuid,
           zuidL: locZuid,
-          modelParams: baseModelParams
+          modelParams
         });
       });
       return scopes;
@@ -1370,7 +1295,7 @@
           zuid: territoryZuid,
           zuidD: divZuid,
           zuidL: '',
-          modelParams: baseModelParams
+          modelParams
         });
       });
     } else {
@@ -1378,28 +1303,7 @@
         zuid: territoryZuid,
         zuidD: '',
         zuidL: '',
-        modelParams: baseModelParams
-      });
-    }
-
-    if (needsExpandedServiceScopes) {
-      const serviceLocations = locationOptions.filter((location) => {
-        if (divisionValues.length) {
-          return divisionValues.includes(location.division);
-        }
-        return location.territory === territoryZuid;
-      });
-
-      serviceLocations.forEach((location) => {
-        if (!location.division) {
-          return;
-        }
-        addScope({
-          zuid: location.territory || territoryZuid,
-          zuidD: location.division,
-          zuidL: location.value,
-          modelParams: serviceModelParams
-        });
+        modelParams
       });
     }
 
@@ -1750,7 +1654,8 @@ function renderTable() {
     if (!data.length) {
       throw new Error('No data to export. Please generate data first.');
     }
-    downloadRowsAsCSV(data, columns);
+    const rows = searchInput.value ? filteredData : data;
+    downloadRowsAsCSV(rows, columns);
   };
 
   const exportAllPages = async (columns) => {
@@ -1762,9 +1667,7 @@ function renderTable() {
       return;
     }
 
-    const scopes = buildScopeRequests(zuid, divisionValues, locationValues, {
-      expandServices: true
-    });
+    const scopes = buildScopeRequests(zuid, divisionValues, locationValues);
     if (!scopes.length) {
       setError('Missing selection values.');
       return;
@@ -1850,7 +1753,13 @@ function renderTable() {
         throw new Error('No data returned to export.');
       }
 
-      downloadRowsAsCSV(allData, columns);
+      const exportRows = searchInput.value
+        ? allData.filter(rowMatchesSearch)
+        : allData;
+      if (!exportRows.length) {
+        throw new Error('No rows match the current table search.');
+      }
+      downloadRowsAsCSV(exportRows, columns);
     } catch (err) {
       const message =
         err.name === 'AbortError'
@@ -1929,22 +1838,27 @@ function renderTable() {
   });
 
   tableFieldList.addEventListener('change', () => {
-    updateColumnSelection(getCheckedKeys(tableFieldList));
-    currentPage = 1;
-    renderTable();
-    renderPagination();
+    draftColumnKeys = getCheckedKeys(tableFieldList);
   });
 
   selectDefaultColumnsBtn.addEventListener('click', () => {
-    updateColumnSelection(DEFAULT_COLUMN_KEYS);
+    draftColumnKeys = [...DEFAULT_COLUMN_KEYS];
     renderTableFieldControls();
-    currentPage = 1;
-    renderTable();
-    renderPagination();
   });
 
   selectAllColumnsBtn.addEventListener('click', () => {
-    updateColumnSelection(availableColumns.map((column) => column.key));
+    draftColumnKeys = availableColumns.map((column) => column.key);
+    renderTableFieldControls();
+  });
+
+  cancelColumnSelectionBtn.addEventListener('click', () => {
+    draftColumnKeys = [...selectedColumnKeys];
+    renderTableFieldControls();
+  });
+
+  applyColumnSelectionBtn.addEventListener('click', () => {
+    updateColumnSelection(draftColumnKeys);
+    draftColumnKeys = [...selectedColumnKeys];
     renderTableFieldControls();
     currentPage = 1;
     renderTable();
@@ -2014,13 +1928,18 @@ function renderTable() {
   }
 let filteredData = [];
 
+function rowMatchesSearch(row) {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+  if (!searchTerm) {
+    return true;
+  }
+  return Object.values(row).some((value) =>
+    formatCellValue(value).toLowerCase().includes(searchTerm)
+  );
+}
+
 function applySearchFilter() {
-  const searchTerm = searchInput.value.toLowerCase();
-  filteredData = data.filter((row) => {
-    return Object.values(row).some((value) =>
-      formatCellValue(value).toLowerCase().includes(searchTerm)
-    );
-  });
+  filteredData = data.filter(rowMatchesSearch);
 }
 
 searchInput.addEventListener('input', () => {
@@ -2030,6 +1949,9 @@ searchInput.addEventListener('input', () => {
   renderTable();
   renderPagination();
 });
+
+initMultiSelects();
+handleTerritorySelectionChange(selectModel.value, false);
 </script>
 
 <style>
