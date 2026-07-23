@@ -413,9 +413,11 @@
 <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
 <script>
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-  const tooltipList = [...tooltipTriggerList].map(
-    (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
-  );
+  const tooltipList = window.bootstrap
+    ? [...tooltipTriggerList].map(
+        (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+      )
+    : [];
   const selectModel = document.getElementById('select-model');
   const selectZuidD = document.getElementById('select-zuid-d');
   const selectZuidL = document.getElementById('select-zuid-l');
@@ -687,9 +689,11 @@
     return value;
   };
 
-  const buildCsvUrl = (zuid, zuidD, zuidL, page, pageSize) => {
+  const buildCsvUrl = (zuid, zuidD, zuidL, page, pageSize, includeFields = true) => {
     const params = getSelectedModelParams();
-    params.set('include_fields', '1');
+    if (includeFields) {
+      params.set('include_fields', '1');
+    }
     params.set('page', page);
     params.set('per_page', pageSize);
     if (zuid) {
@@ -714,13 +718,7 @@
     }
   };
 
-  const requestPageData = async (zuid, zuidD, zuidL, page, pageSize) => {
-    const fullURL = buildCsvUrl(zuid, zuidD, zuidL, page, pageSize);
-    const res = await fetchWithTimeout(fullURL, FETCH_TIMEOUT_MS);
-    if (!res.ok) {
-      throw new Error(`Request failed with status ${res.status}`);
-    }
-    const rawText = await res.text();
+  const parsePageResponse = (rawText) => {
     const cleanedText = rawText
       .replace(/^\uFEFF/, '')
       .replace(/\(\*\*[\s\S]*?\*\*\)/g, '')
@@ -746,6 +744,24 @@
       throw new Error('Invalid JSON format.');
     }
     return normalizeRows(parsedData);
+  };
+
+  const requestPageData = async (zuid, zuidD, zuidL, page, pageSize, includeFields = true) => {
+    const fullURL = buildCsvUrl(zuid, zuidD, zuidL, page, pageSize, includeFields);
+    const res = await fetchWithTimeout(fullURL, FETCH_TIMEOUT_MS);
+    if (!res.ok) {
+      throw new Error(`Request failed with status ${res.status}`);
+    }
+    const rawText = await res.text();
+    try {
+      return parsePageResponse(rawText);
+    } catch (err) {
+      if (includeFields) {
+        console.warn('Full-field CSV response failed to parse; retrying default fields.', err);
+        return requestPageData(zuid, zuidD, zuidL, page, pageSize, false);
+      }
+      throw err;
+    }
   };
 
   const getSelectedDivisionIds = () => getSelectedValues(selectZuidD, divisionTomSelect);
@@ -811,9 +827,10 @@
   let selectedColumnKeys = [...DEFAULT_COLUMN_KEYS];
   let pendingExportMode = null;
   let lastLoadState = null;
-  const exportFieldsModal = exportFieldsModalEl
-    ? new bootstrap.Modal(exportFieldsModalEl)
-    : null;
+  const exportFieldsModal =
+    exportFieldsModalEl && window.bootstrap
+      ? new bootstrap.Modal(exportFieldsModalEl)
+      : null;
 
   function fixMalformedJSON(rawText) {
     try {
@@ -971,6 +988,34 @@
       .map((column) => column.key)
       .filter((key) => DEFAULT_COLUMN_KEYS.includes(key));
     renderTableFieldControls();
+  };
+
+  const showExportModal = () => {
+    if (!exportFieldsModalEl) {
+      return;
+    }
+    if (exportFieldsModal) {
+      exportFieldsModal.show();
+      return;
+    }
+    exportFieldsModalEl.classList.add('show');
+    exportFieldsModalEl.style.display = 'block';
+    exportFieldsModalEl.removeAttribute('aria-hidden');
+    document.body.classList.add('modal-open');
+  };
+
+  const hideExportModal = () => {
+    if (!exportFieldsModalEl) {
+      return;
+    }
+    if (exportFieldsModal) {
+      exportFieldsModal.hide();
+      return;
+    }
+    exportFieldsModalEl.classList.remove('show');
+    exportFieldsModalEl.style.display = 'none';
+    exportFieldsModalEl.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
   };
 
   const invalidateLoadedData = () => {
@@ -1364,9 +1409,7 @@ function renderTable() {
         ? selectedColumnKeys
         : DEFAULT_COLUMN_KEYS;
     renderCheckboxList(exportFieldList, checkedKeys, 'export-field');
-    if (exportFieldsModal) {
-      exportFieldsModal.show();
-    }
+    showExportModal();
   };
 
   const getExportColumns = () => {
@@ -1598,13 +1641,15 @@ function renderTable() {
     );
   });
 
+  exportFieldsModalEl?.querySelectorAll('[data-bs-dismiss="modal"]').forEach((button) => {
+    button.addEventListener('click', hideExportModal);
+  });
+
   confirmExportBtn.addEventListener('click', async () => {
     try {
       setError(null);
       const columns = getExportColumns();
-      if (exportFieldsModal) {
-        exportFieldsModal.hide();
-      }
+      hideExportModal();
       if (pendingExportMode === 'all') {
         await exportAllPages(columns);
       } else {
