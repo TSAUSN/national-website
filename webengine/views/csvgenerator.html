@@ -4,44 +4,22 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" type="text/javascript" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
 <div class="container py-4">
-  <div class="card mb-4">
-    <div class="card-header bg-primary text-white">
-      Selection Guide
-    </div>
-    <div class="card-body">
-      <p class="card-text">
-        By default, the selected option is <strong>Territories</strong>. You can then choose one or more <strong>Divisions</strong> associated with that territory.
-      </p>
-      <p class="card-text">
-        Once divisions are selected, the <strong>Location</strong> dropdown will be enabled, allowing you to choose one or more locations linked to those divisions.
-      </p>
-      <p class="card-text">
-        Use the checkboxes in each dropdown, then choose Apply or Cancel.
-      </p>
-      <p class="card-text mt-3">
-        <a href="https://www.loom.com/share/231f4a27907142d79c89fb523d80fdbf?sid=fe593cd0-dad7-4986-8f18-2165a940a857" target="_blank" class="text-primary">
-          Watch the Selection Guide Video
-        </a>
-      </p>
-    </div>
-  </div>
+  <header class="page-heading mb-4">
+    <p class="page-kicker">Content tools</p>
+    <h1>CSV Content Explorer</h1>
+  </header>
 
-  <div class="card shadow-sm">
+  <div class="card scope-panel">
+    <div class="card-header">
+      <h2>Choose scope</h2>
+    </div>
     <div class="card-body">
       <form id="csv-form" class="row g-3">
-        <div class="col-12">
-          <label class="form-label" for="basic-addon3">Endpoint</label>
-          <div class="input-group">
-            <span
-              class="input-group-text bg-photo-overlay text-white"
-              id="basic-addon3"
-              >https://{{ instance.domain }}/generate-csv.json</span
-            >
-          </div>
-          <div class="form-text">Select your scope, then load a page or export.</div>
-        </div>
         <div class="col-12 col-lg-4">
-          <label class="form-label" for="select-model">Territory</label>
+          <label class="form-label" for="select-model">
+            <span class="step-number">1</span>
+            Territory
+          </label>
           <select
             class="form-select"
             id="select-model"
@@ -50,10 +28,12 @@
             <option value="{{ t.zuid }}">{{ t.name }}</option>
             {{/each}}
           </select>
-          <div class="form-text">Required selection.</div>
         </div>
         <div class="col-12 col-lg-4">
-          <label class="form-label" for="select-zuid-d">Division</label>
+          <label class="form-label" for="select-zuid-d">
+            <span class="step-number">2</span>
+            Division <span class="optional-label">Optional</span>
+          </label>
           <select
             class="form-select"
             id="select-zuid-d"
@@ -69,10 +49,12 @@
             </option>
             {{/each}}
           </select>
-          <div class="form-text">Optional; select one or more divisions.</div>
         </div>
         <div class="col-12 col-lg-4">
-          <label class="form-label" for="select-zuid-l">Location</label>
+          <label class="form-label" for="select-zuid-l">
+            <span class="step-number">3</span>
+            Location <span class="optional-label">Optional</span>
+          </label>
           <select
             class="form-select"
             id="select-zuid-l"
@@ -91,19 +73,21 @@
             </option>
             {{/each}}
           </select>
-          <div class="form-text">Enabled when divisions are selected.</div>
+          <div id="locationHelp" class="form-text">Select and apply a division first.</div>
         </div>
-        <div class="col-12 col-lg-4">
-          <label class="form-label">Model filters</label>
+        <div class="col-12 col-lg-6">
+          <label class="form-label">Content models</label>
           <div class="dropdown w-100"
             data-toggle="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Filter which models to include in the CSV file" >
             <button
               class="btn btn-outline-primary dropdown-toggle w-100"
               type="button"
               data-bs-toggle="dropdown"
+              data-bs-auto-close="outside"
               aria-expanded="false"
             >
-              Filter Models
+              <span>Choose models</span>
+              <span id="modelFilterSummary" class="filter-summary"></span>
             </button>
             <ul
               class="dropdown-menu p-2"
@@ -278,113 +262,115 @@
             </ul>
           </div>
         </div>
-        <div class="col-6 col-lg-2">
-          <label class="form-label" for="page-size">Page size</label>
-          <select id="page-size" class="form-select">
-            <option value="25">25</option>
-            <option value="50" selected>50</option>
-            <option value="100">100</option>
-          </select>
-          <div class="form-text">Server page size.</div>
-        </div>
-        <div class="col-6 col-lg-3">
-          <label class="form-label" for="page-number">Page</label>
-          <div class="input-group has-validation">
-            <button id="page-prev" type="button" class="btn btn-outline-secondary">Prev</button>
-            <input id="page-number" type="number" class="form-control" min="1" value="1">
-            <button id="page-next" type="button" class="btn btn-outline-secondary">Next</button>
-          </div>
-          <div class="invalid-feedback">Enter a page number of 1 or more.</div>
-          <div class="form-text">Server page: <span id="page-indicator">1</span></div>
-        </div>
-        <div class="col-12 col-lg-3">
-          <label class="form-label">Actions</label>
+        <div class="col-12 col-lg-6 d-flex align-items-end justify-content-lg-end">
           <div class="d-flex flex-wrap gap-2">
             <button
               id="csv-submit-btn"
               type="button"
               class="btn btn-primary"
             >
-              Load Page
-            </button>
-            <button
-              id="download-csv-btn"
-              type="button"
-              class="btn btn-outline-primary d-none"
-            >
-              Export Current Page
-            </button>
-            <button
-              id="export-all-btn"
-              type="button"
-              class="btn btn-outline-secondary"
-            >
-              Export All Pages
+              Load results
             </button>
           </div>
         </div>
         <div class="col-12">
           <div id="csv-error" class="alert alert-danger d-none" role="alert"></div>
         </div>
-        <div class="col-12">
-          <div
-            id="csv-loader"
-            class="d-none d-flex align-items-center gap-2"
-          >
-            <div
-              class="spinner-border text-primary"
-              role="status"
-            >
-              <span class="visually-hidden">Loading...</span>
-            </div>
-            <span>Loading data...</span>
-          </div>
-        </div>
       </form>
     </div>
   </div>
 
-<div id="searchContainer" class="mb-2 mt-16 d-none">
-  <input
-    type="text"
-    id="searchInput"
-    class="form-control"
-    placeholder="Search table data..."
-  />
-</div>
-
-<div id="columnControls" class="card shadow-sm my-3 d-none">
-  <div class="card-header bg-primary text-white">
-    Table Fields
-  </div>
-  <div class="card-body">
-    <div class="d-flex flex-wrap gap-2 mb-3">
-      <button id="select-default-columns" type="button" class="btn btn-outline-secondary btn-sm">Default Fields</button>
-      <button id="select-all-columns" type="button" class="btn btn-outline-primary btn-sm">Select All</button>
-      <button id="cancel-column-selection" type="button" class="btn btn-outline-secondary btn-sm ms-auto">Cancel</button>
-      <button id="apply-column-selection" type="button" class="btn btn-primary btn-sm">Apply</button>
+  <section id="resultsSection" class="results-section d-none">
+    <div class="results-heading">
+      <div>
+        <p class="page-kicker">Loaded data</p>
+        <h2>Results</h2>
+        <p id="resultsSummary" class="results-summary" aria-live="polite"></p>
+      </div>
+      <div class="d-flex flex-wrap gap-2">
+        <button
+          id="download-csv-btn"
+          type="button"
+          class="btn btn-outline-primary d-none"
+        >
+          Export this page
+        </button>
+        <button
+          id="export-all-btn"
+          type="button"
+          class="btn btn-outline-secondary d-none"
+        >
+          Export all pages
+        </button>
+      </div>
     </div>
-    <div id="tableFieldList" class="field-grid"></div>
-  </div>
-</div>
 
-  <table
-    class="d-none table table-bordered table-striped "
-    id="dataTable"
-  >
-    <thead>
-      <tr id="dataTableHeadRow"></tr>
-    </thead>
+    <div id="resultsToolbar" class="results-toolbar">
+      <div id="searchContainer" class="results-search">
+        <label class="visually-hidden" for="searchInput">Search loaded rows</label>
+        <input
+          type="search"
+          id="searchInput"
+          class="form-control"
+          placeholder="Search this server page"
+        />
+      </div>
+      <div class="server-pager" aria-label="Server pagination">
+        <label for="page-size">Rows</label>
+        <select id="page-size" class="form-select form-select-sm">
+          <option value="25">25</option>
+          <option value="50" selected>50</option>
+          <option value="100">100</option>
+        </select>
+        <button id="page-prev" type="button" class="btn btn-outline-secondary btn-sm" aria-label="Load previous server page">Previous</button>
+        <label for="page-number">Page</label>
+        <input id="page-number" type="number" class="form-control form-control-sm" min="1" value="1">
+        <button id="page-next" type="button" class="btn btn-outline-secondary btn-sm" aria-label="Load next server page">Next</button>
+        <span id="page-indicator" class="server-page-label">Page 1</span>
+      </div>
+    </div>
+    <div class="invalid-feedback" id="pageNumberError">Enter a page number of 1 or more.</div>
+    <div
+      id="csv-loader"
+      class="d-none align-items-center gap-2"
+    >
+      <div
+        class="spinner-border spinner-border-sm text-primary"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <span id="csv-loader-text">Loading server page...</span>
+    </div>
 
-    <tbody></tbody>
-  </table>
+    <details id="columnControls" class="column-panel d-none" open>
+      <summary>
+        <span>Table columns</span>
+        <span id="visibleColumnSummary" class="filter-summary"></span>
+      </summary>
+      <div class="column-panel-body">
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <button id="select-default-columns" type="button" class="btn btn-outline-secondary btn-sm">Default</button>
+          <button id="select-all-columns" type="button" class="btn btn-outline-primary btn-sm">Select all</button>
+          <button id="cancel-column-selection" type="button" class="btn btn-outline-secondary btn-sm ms-auto">Cancel</button>
+          <button id="apply-column-selection" type="button" class="btn btn-primary btn-sm">Apply columns</button>
+        </div>
+        <div id="tableFieldList" class="field-grid"></div>
+      </div>
+    </details>
 
-  <nav>
-    <ul
-      class="pagination"
-      id="pagination"
-    ></ul>
-  </nav>
+    <div class="table-responsive results-table">
+      <table
+        class="d-none table table-bordered table-striped"
+        id="dataTable"
+      >
+        <thead>
+          <tr id="dataTableHeadRow"></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
 </div>
 <div class="modal fade" id="exportFieldsModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg">
@@ -424,10 +410,17 @@
   const pagePrevBtn = document.getElementById('page-prev');
   const pageNextBtn = document.getElementById('page-next');
   const pageIndicator = document.getElementById('page-indicator');
+  const pageNumberError = document.getElementById('pageNumberError');
   const errorAlert = document.getElementById('csv-error');
   const exportAllBtn = document.getElementById('export-all-btn');
   const downloadCsvBtn = document.getElementById('download-csv-btn');
   const submitBtn = document.getElementById('csv-submit-btn');
+  const resultsSection = document.getElementById('resultsSection');
+  const resultsSummary = document.getElementById('resultsSummary');
+  const loaderText = document.getElementById('csv-loader-text');
+  const modelFilterSummary = document.getElementById('modelFilterSummary');
+  const visibleColumnSummary = document.getElementById('visibleColumnSummary');
+  const locationHelp = document.getElementById('locationHelp');
   const dataTableHeadRow = document.getElementById('dataTableHeadRow');
   const columnControls = document.getElementById('columnControls');
   const tableFieldList = document.getElementById('tableFieldList');
@@ -498,6 +491,8 @@
 
   let divisionCombo = null;
   let locationCombo = null;
+  let hasLoadedPage = false;
+  let requestBusy = false;
 
   const createCheckboxCombo = (selectEl, config) => {
     let options = [];
@@ -751,6 +746,9 @@
     } else {
       selectZuidL.setAttribute('disabled', '');
     }
+    locationHelp.textContent = enabled
+      ? 'Choose locations or leave blank to use the selected divisions.'
+      : 'Select and apply a division first.';
   };
 
   const getDivisionOptions = (territoryZuid) =>
@@ -788,7 +786,15 @@
         checkbox.disabled = false;
       }
     });
+    updateModelFilterSummary();
   };
+
+  function updateModelFilterSummary() {
+    const selectedCount = Array.from(modelCheckboxes).filter(
+      (checkbox) => checkbox.checked
+    ).length;
+    modelFilterSummary.textContent = `${selectedCount} selected`;
+  }
 
   const setError = (message) => {
     if (!message) {
@@ -801,12 +807,11 @@
   };
 
   const setBusy = (isBusy) => {
+    requestBusy = isBusy;
     const controls = [
       submitBtn,
       downloadCsvBtn,
       exportAllBtn,
-      pagePrevBtn,
-      pageNextBtn,
       pageNumberInput,
       pageSizeSelect
     ];
@@ -815,11 +820,20 @@
         control.disabled = isBusy;
       }
     });
+    submitBtn.textContent = isBusy ? 'Loading...' : 'Load results';
+    updateServerPager();
   };
 
   const updatePageIndicator = (page) => {
-    pageIndicator.textContent = `${page}`;
+    pageIndicator.textContent = `Page ${page}`;
+    updateServerPager();
   };
+
+  function updateServerPager() {
+    const page = getPageNumber();
+    pagePrevBtn.disabled = requestBusy || !hasLoadedPage || page <= 1;
+    pageNextBtn.disabled = requestBusy || !hasLoadedPage;
+  }
 
   const getPageSize = () => {
     const value = parseInt(pageSizeSelect.value, 10);
@@ -830,9 +844,11 @@
     const value = parseInt(pageNumberInput.value, 10);
     if (!Number.isFinite(value) || value < 1) {
       pageNumberInput.classList.add('is-invalid');
+      pageNumberError.classList.add('d-block');
       return 1;
     }
     pageNumberInput.classList.remove('is-invalid');
+    pageNumberError.classList.remove('d-block');
     return value;
   };
 
@@ -999,7 +1015,10 @@
   });
 
   modelCheckboxes.forEach((checkbox) => {
-    checkbox.addEventListener('change', () => invalidateLoadedData());
+    checkbox.addEventListener('change', () => {
+      updateModelFilterSummary();
+      invalidateLoadedData();
+    });
   });
 
   function getSelectedModelParams() {
@@ -1014,14 +1033,10 @@
 
   const baseURL = `https://{{instance.domain}}/generate-csv.json`;
   const dataTableBody = document.querySelector('#dataTable tbody');
-  const pagination = document.getElementById('pagination');
   const loader = document.getElementById('csv-loader');
   const dataTable = document.getElementById('dataTable');
-  const searchContainer = document.getElementById('searchContainer');
   const searchInput = document.getElementById('searchInput');
 
-  const rowsPerPage = 20; // Client-side rows per page within a single server page.
-  let currentPage = 1;
   let data = [];
   let availableColumns = [...DEFAULT_COLUMNS];
   let selectedColumnKeys = [...DEFAULT_COLUMN_KEYS];
@@ -1176,6 +1191,7 @@
   const renderTableFieldControls = () => {
     renderCheckboxList(tableFieldList, draftColumnKeys, 'table-field');
     columnControls.classList.toggle('d-none', !data.length);
+    visibleColumnSummary.textContent = `${selectedColumnKeys.length} shown`;
   };
 
   const getCheckedKeys = (container) =>
@@ -1224,12 +1240,15 @@
     data = [];
     filteredData = [];
     lastLoadState = null;
+    hasLoadedPage = false;
     searchInput.value = '';
     downloadCsvBtn.classList.add('d-none');
+    exportAllBtn.classList.add('d-none');
     columnControls.classList.add('d-none');
     dataTable.classList.add('d-none');
-    searchContainer.classList.add('d-none');
-    pagination.classList.add('d-none');
+    resultsSection.classList.add('d-none');
+    resultsSummary.textContent = '';
+    updateServerPager();
   };
 
   // Show loader and fetch data
@@ -1329,18 +1348,18 @@
       setBusy(true);
       updatePageIndicator(page);
 
-      searchContainer.classList.remove('d-block');
-      searchContainer.classList.add('d-none');
+      resultsSection.classList.remove('d-none');
+      resultsSummary.textContent = `Loading server page ${page}...`;
+      loaderText.textContent = `Loading server page ${page}...`;
       searchInput.value = '';
       filteredData = [];
       loader.classList.add('d-flex');
       loader.classList.remove('d-none');
       downloadCsvBtn.classList.add('d-none');
+      exportAllBtn.classList.add('d-none');
 
       dataTable.classList.remove('table');
       dataTable.classList.add('d-none');
-
-      pagination.classList.add('d-none');
 
       const scopes = buildScopeRequests(zuid, divisionValues, locationValues);
       if (!scopes.length) {
@@ -1367,11 +1386,17 @@
         scopeKey: buildScopeKey(scopes),
         rows: [...data]
       };
+      const shouldOpenColumnPanel = !hasLoadedPage && data.length > 0;
+      hasLoadedPage = true;
       resetColumnState(data);
+      if (shouldOpenColumnPanel) {
+        columnControls.open = true;
+      }
       renderTable();
-      renderPagination();
+      resultsSummary.textContent = `${data.length} row${data.length === 1 ? '' : 's'} on server page ${page}`;
       if (data.length) {
         downloadCsvBtn.classList.remove('d-none');
+        exportAllBtn.classList.remove('d-none');
       }
     } catch (err) {
       console.error('Error fetching data:', err);
@@ -1382,16 +1407,13 @@
       setError(message);
       data = [];
       lastLoadState = null;
+      hasLoadedPage = true;
       resetColumnState(data);
       renderTable();
-      renderPagination();
+      resultsSummary.textContent = `No rows loaded for server page ${page}`;
     } finally {
-      // Ensure the loader is hidden and table is shown
       dataTable.classList.add('table');
       dataTable.classList.remove('d-none');
-
-      searchContainer.classList.add('d-block');
-      searchContainer.classList.remove('d-none');
 
       loader.classList.remove('d-flex');
       loader.classList.add('d-none');
@@ -1444,10 +1466,6 @@ function renderTable() {
   actionTh.textContent = 'Actions';
   dataTableHeadRow.appendChild(actionTh);
 
-  const start = (currentPage - 1) * rowsPerPage;
-  const end = start + rowsPerPage;
-  const paginatedData = displayData.slice(start, end);
-
   if (displayData.length === 0) {
     const tr = document.createElement('tr');
     const td = document.createElement('td');
@@ -1459,7 +1477,7 @@ function renderTable() {
     return;
   }
 
-  paginatedData.forEach((row) => {
+  displayData.forEach((row) => {
     const tr = document.createElement('tr');
     selectedColumns.forEach((column) => {
       const td = document.createElement('td');
@@ -1488,119 +1506,14 @@ function renderTable() {
       editLink.href = `https://{{ instance.zuid }}.manager.zesty.io/content/${row.model_zuid}/${row.zuid}`;
       editLink.className = 'btn btn-primary icon-link';
       editLink.target = '_blank';
-      editLink.textContent = 'Edit Content';
+      editLink.title = `Edit ${row.title || 'content'}`;
+      editLink.textContent = 'Edit';
       actionTd.appendChild(editLink);
     }
     tr.appendChild(actionTd);
     dataTableBody.appendChild(tr);
   });
 }
-
-
-
-  function renderPagination() {
-    pagination.innerHTML = '';
-    const displayData = searchInput.value ? filteredData : data;
-    const pageCount = Math.ceil(displayData.length / rowsPerPage);
-    if (pageCount === 0) {
-      pagination.classList.add('d-none');
-      return;
-    }
-    if (currentPage > pageCount) {
-      currentPage = pageCount;
-    }
-    if (pageCount === 1) {
-      pagination.classList.add('d-none');
-      return;
-    }
-    pagination.classList.remove('d-none');
-    const maxPagesToShow = 5; // Limit the number of page links to 5
-    const offset = Math.floor(maxPagesToShow / 2);
-    let startPage = Math.max(currentPage - offset, 1);
-    let endPage = Math.min(startPage + maxPagesToShow - 1, pageCount);
-
-    if (endPage - startPage < maxPagesToShow - 1) {
-      startPage = Math.max(endPage - maxPagesToShow + 1, 1);
-    }
-
-    // First button
-    const firstButton = document.createElement('li');
-    firstButton.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
-    firstButton.innerHTML = `<a class="page-link" href="#">First</a>`;
-    firstButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentPage = 1;
-      renderTable();
-      renderPagination();
-      scrollToTop();
-    });
-    pagination.appendChild(firstButton);
-
-    // Previous button
-    const prevButton = document.createElement('li');
-    prevButton.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
-    prevButton.innerHTML = `<a class="page-link" href="#">Previous</a>`;
-    prevButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (currentPage > 1) {
-        currentPage--;
-        renderTable();
-        renderPagination();
-        scrollToTop();
-      }
-    });
-    pagination.appendChild(prevButton);
-
-    // Page buttons
-    for (let i = startPage; i <= endPage; i++) {
-      const li = document.createElement('li');
-      li.className = `page-item ${i === currentPage ? 'active' : ''}`;
-      li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
-      li.addEventListener('click', (e) => {
-        e.preventDefault();
-        currentPage = i;
-        renderTable();
-        renderPagination();
-        scrollToTop();
-      });
-      pagination.appendChild(li);
-    }
-
-    // Next button
-    const nextButton = document.createElement('li');
-    nextButton.className = `page-item ${currentPage === pageCount ? 'disabled' : ''}`;
-    nextButton.innerHTML = `<a class="page-link" href="#">Next</a>`;
-    nextButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (currentPage < pageCount) {
-        currentPage++;
-        renderTable();
-        renderPagination();
-        scrollToTop();
-      }
-    });
-    pagination.appendChild(nextButton);
-
-    // Last button
-    const lastButton = document.createElement('li');
-    lastButton.className = `page-item ${currentPage === pageCount ? 'disabled' : ''}`;
-    lastButton.innerHTML = `<a class="page-link" href="#">Last</a>`;
-    lastButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentPage = pageCount;
-      renderTable();
-      renderPagination();
-      scrollToTop();
-    });
-    pagination.appendChild(lastButton);
-  }
-
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth' // Smooth scroll effect
-    });
-  }
 
   downloadCsvBtn.addEventListener('click', () => {
     if (!data.length) {
@@ -1704,7 +1617,7 @@ function renderTable() {
 
         // Stop if we hit MAX_EXPORT_PAGES or multiple pages return no new rows.
         while (page <= MAX_EXPORT_PAGES) {
-          updatePageIndicator(page);
+          loaderText.textContent = `Exporting server page ${page}...`;
           const pageData = await requestPageData(
             scope.zuid,
             scope.zuidD,
@@ -1767,6 +1680,7 @@ function renderTable() {
           : err.message || 'Failed to export all pages.';
       setError(message);
     } finally {
+      loaderText.textContent = 'Loading server page...';
       loader.classList.remove('d-flex');
       loader.classList.add('d-none');
       setBusy(false);
@@ -1784,57 +1698,40 @@ function renderTable() {
     return [headers, ...rows].join('\r\n');
   }
 
-  submitBtn.addEventListener('click', async () => {
-    currentPage = 1; // reset pagination
-    const page = getPageNumber();
-    const pageSize = getPageSize();
+  const loadServerPage = async (page) => {
     pageNumberInput.value = page;
-
     await fetchData(
       selectModel.value,
       getSelectedDivisionIds(),
       getSelectedLocationIds(),
       page,
-      pageSize
+      getPageSize()
     );
+  };
+
+  submitBtn.addEventListener('click', async () => {
+    await loadServerPage(getPageNumber());
   });
 
   pagePrevBtn.addEventListener('click', async () => {
     const page = Math.max(1, getPageNumber() - 1);
-    pageNumberInput.value = page;
-    currentPage = 1;
-    await fetchData(
-      selectModel.value,
-      getSelectedDivisionIds(),
-      getSelectedLocationIds(),
-      page,
-      getPageSize()
-    );
+    await loadServerPage(page);
   });
 
   pageNextBtn.addEventListener('click', async () => {
     const page = getPageNumber() + 1;
-    pageNumberInput.value = page;
-    currentPage = 1;
-    await fetchData(
-      selectModel.value,
-      getSelectedDivisionIds(),
-      getSelectedLocationIds(),
-      page,
-      getPageSize()
-    );
+    await loadServerPage(page);
   });
 
-  pageNumberInput.addEventListener('change', () => {
+  pageNumberInput.addEventListener('change', async () => {
     const page = getPageNumber();
     pageNumberInput.value = page;
-    updatePageIndicator(page);
+    await loadServerPage(page);
   });
 
-  pageSizeSelect.addEventListener('change', () => {
-    invalidateLoadedData();
+  pageSizeSelect.addEventListener('change', async () => {
     pageNumberInput.value = 1;
-    updatePageIndicator(1);
+    await loadServerPage(1);
   });
 
   tableFieldList.addEventListener('change', () => {
@@ -1854,15 +1751,15 @@ function renderTable() {
   cancelColumnSelectionBtn.addEventListener('click', () => {
     draftColumnKeys = [...selectedColumnKeys];
     renderTableFieldControls();
+    columnControls.open = false;
   });
 
   applyColumnSelectionBtn.addEventListener('click', () => {
     updateColumnSelection(draftColumnKeys);
     draftColumnKeys = [...selectedColumnKeys];
     renderTableFieldControls();
-    currentPage = 1;
+    columnControls.open = false;
     renderTable();
-    renderPagination();
   });
 
   exportAllBtn.addEventListener('click', async () => {
@@ -1924,7 +1821,6 @@ function renderTable() {
     }
 
     renderTable();
-    renderPagination();
   }
 let filteredData = [];
 
@@ -1944,10 +1840,11 @@ function applySearchFilter() {
 
 searchInput.addEventListener('input', () => {
   applySearchFilter();
-
-  currentPage = 1;
+  const page = getPageNumber();
+  resultsSummary.textContent = searchInput.value.trim()
+    ? `${filteredData.length} of ${data.length} rows match on server page ${page}`
+    : `${data.length} row${data.length === 1 ? '' : 's'} on server page ${page}`;
   renderTable();
-  renderPagination();
 });
 
 initMultiSelects();
@@ -1969,26 +1866,53 @@ handleTerritorySelectionChange(selectModel.value, false);
 
 body {
   font-family: "Space Grotesk", "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top, #fff7ed 0%, #eef2ff 45%, #ecfeff 100%);
+  background: #f4f6f8;
   color: var(--ink);
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1320px;
+}
+
+.page-heading h1,
+.results-heading h2,
+.card-header h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.page-heading h1 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.page-kicker {
+  margin: 0 0 4px;
+  color: var(--accent-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.scope-panel {
+  overflow: visible;
 }
 
 .card {
-  border-radius: 18px;
+  border-radius: 8px;
   border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  box-shadow: 0 8px 24px -22px rgba(15, 23, 42, 0.5);
   background: var(--surface);
 }
 
 .card-header {
-  background: linear-gradient(120deg, #111827 0%, #1f2937 40%, #0f172a 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  padding: 14px 20px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-header h2 {
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .card-body {
@@ -1996,8 +1920,33 @@ body {
 }
 
 .form-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 600;
   color: var(--ink);
+}
+
+.step-number {
+  display: inline-grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.75rem;
+}
+
+.optional-label,
+.filter-summary {
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.filter-summary {
+  margin-left: auto;
 }
 
 .form-text {
@@ -2007,7 +1956,7 @@ body {
 .form-select,
 .form-control,
 .input-group-text {
-  border-radius: 12px;
+  border-radius: 6px;
   border: 1px solid var(--border);
   background-color: var(--surface-soft);
   color: var(--ink);
@@ -2031,7 +1980,7 @@ body {
   width: 100%;
   min-height: 42px;
   padding: 8px 40px 8px 12px;
-  border-radius: 12px;
+  border-radius: 6px;
   border: 1px solid var(--border);
   background-color: var(--surface-soft);
   color: var(--ink);
@@ -2070,7 +2019,7 @@ body {
   left: 0;
   right: 0;
   padding: 10px;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid var(--border);
   background: var(--surface);
   box-shadow: var(--shadow);
@@ -2090,7 +2039,7 @@ body {
   align-items: flex-start;
   gap: 8px;
   padding: 7px 8px;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
   line-height: 1.25;
 }
@@ -2118,20 +2067,19 @@ body {
 }
 
 .btn {
-  border-radius: 999px;
+  border-radius: 6px;
   font-weight: 600;
-  letter-spacing: 0.01em;
 }
 
 .btn-primary {
-  background: linear-gradient(120deg, var(--accent), #ff8a5c);
-  border: none;
-  box-shadow: 0 12px 24px -18px rgba(224, 86, 43, 0.8);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background: linear-gradient(120deg, var(--accent-dark), #ff8a5c);
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
 }
 
 .btn-outline-primary {
@@ -2149,15 +2097,108 @@ body {
 }
 
 .dropdown-menu {
-  border-radius: 14px;
+  border-radius: 8px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
 }
 
-#dataTable {
-  border-radius: 18px;
-  overflow: hidden;
+.results-section {
+  margin-top: 32px;
+}
+
+.results-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.results-heading h2 {
+  font-size: 1.5rem;
+}
+
+.results-summary {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}
+
+.results-toolbar {
+  position: sticky;
+  top: 8px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px;
   border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 8px 20px -20px rgba(15, 23, 42, 0.5);
+}
+
+.results-search {
+  flex: 1 1 320px;
+  max-width: 460px;
+}
+
+.server-pager {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.server-pager label,
+.server-page-label {
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.server-pager #page-size {
+  width: 72px;
+}
+
+.server-pager #page-number {
+  width: 72px;
+  text-align: center;
+}
+
+.column-panel {
+  margin: 12px 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.column-panel summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.column-panel-body {
+  padding: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.results-table {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+#dataTable {
+  min-width: 960px;
+  margin: 0;
+  border: 0;
 }
 
 #dataTable thead {
@@ -2187,28 +2228,11 @@ body {
 }
 
 #csv-loader {
-  background: linear-gradient(120deg, rgba(224, 86, 43, 0.08), rgba(99, 102, 241, 0.08));
+  margin: 12px 0;
+  background: #fff7ed;
   padding: 12px 16px;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid var(--border);
-}
-
-#searchContainer {
-  position: sticky;
-  top: 12px;
-  z-index: 2;
-}
-
-.pagination .page-link {
-  border-radius: 999px;
-  color: var(--ink-soft);
-  border-color: rgba(148, 163, 184, 0.4);
-}
-
-.pagination .page-item.active .page-link {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: #fff;
 }
 
 .sortable .sort-icon {
@@ -2217,7 +2241,7 @@ body {
 }
 
 .alert {
-  border-radius: 14px;
+  border-radius: 8px;
 }
 
 .field-grid {
@@ -2236,70 +2260,79 @@ body {
   overflow-wrap: anywhere;
 }
 
-/* Bootstrap table styling */
 .table {
-  table-layout: fixed; /* Ensure columns have equal width */
-  width: 100%; /* Full width */
+  table-layout: auto;
+  width: 100%;
 }
 
 .table th,
 .table td {
-  text-align: center; /* Center align text */
-  padding: 10px; /* Add padding for better readability */
-  border: 1px solid #ddd; /* Border between cells */
-  vertical-align: middle; /* Vertically center the text */
-
-  /* Allow text to wrap inside cells */
+  padding: 10px;
+  border: 1px solid #ddd;
+  vertical-align: middle;
   word-wrap: break-word;
   word-break: break-word;
   white-space: normal;
 }
 
-/* Optional: Remove or reduce this if it stretches cells too much */
-.table td {
-  min-height: auto; /* or remove this line if not needed */
+.table th {
+  white-space: nowrap;
 }
 
+#dataTable th:first-child,
+#dataTable td:first-child {
+  min-width: 110px;
+}
 
-  .pagination {
-    justify-content: center; /* Center pagination controls */
+#dataTable th:last-child,
+#dataTable td:last-child {
+  min-width: 76px;
+  text-align: center;
+}
+
+.sort-icon {
+  margin-left: 5px;
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.sort-icon .up,
+.sort-icon .down {
+  margin-left: 2px;
+  color: #ccc;
+}
+
+th.active-asc .sort-icon .up,
+th.active-desc .sort-icon .down {
+  color: #000;
+  font-weight: bold;
+}
+
+@media (max-width: 991.98px) {
+  .results-toolbar {
+    position: static;
+    align-items: stretch;
+    flex-direction: column;
   }
 
-  .pagination .page-item {
-    cursor: pointer;
+  .results-search {
+    max-width: none;
   }
 
-  /* Loader Styling */
-  #loader {
-    height: 100px; /* Adjust height of loader container */
+  .server-pager {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .results-heading {
+    align-items: stretch;
+    flex-direction: column;
   }
 
-  .sort-icon {
-    margin-left: 5px;
-    font-size: 0.75rem;
-    opacity: 0.6;
+  .server-page-label {
+    width: 100%;
   }
-
-  .sort-icon .up,
-  .sort-icon .down {
-    margin-left: 2px;
-    color: #ccc;
-  }
-
-  th.active-asc .sort-icon .up,
-  th.active-desc .sort-icon .down {
-    color: #000; /* or use theme color */
-    font-weight: bold;
-  }
-
-   tbody tr {
-    animation: fadeInRow 0.5s ease forwards;
-    opacity: 0;
-  }
-
-  @keyframes fadeInRow {
-    to {
-      opacity: 1;
-    }
-  }
+}
 </style>
