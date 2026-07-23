@@ -383,6 +383,18 @@
       </div>
     </details>
 
+    <div id="tableNavigation" class="table-navigation d-none">
+      <span id="tableNavigationSummary" class="table-navigation-summary"></span>
+      <div class="btn-group btn-group-sm" role="group" aria-label="Navigate table columns">
+        <button id="table-scroll-start" type="button" class="btn btn-outline-secondary" title="First column" aria-label="Scroll to first column">&larr;|</button>
+        <button id="table-scroll-left" type="button" class="btn btn-outline-secondary" title="Scroll left" aria-label="Scroll table left">&larr;</button>
+        <button id="table-scroll-right" type="button" class="btn btn-outline-secondary" title="Scroll right" aria-label="Scroll table right">&rarr;</button>
+        <button id="table-scroll-end" type="button" class="btn btn-outline-secondary" title="Last column" aria-label="Scroll to last column">|&rarr;</button>
+      </div>
+    </div>
+    <div id="tableTopScrollbar" class="table-top-scrollbar d-none" aria-label="Table horizontal scrollbar" tabindex="0">
+      <div id="tableTopScrollbarSpacer"></div>
+    </div>
     <div class="table-responsive results-table">
       <table
         class="d-none table table-bordered table-striped"
@@ -457,6 +469,14 @@
   const tableFieldSource = document.getElementById('table-field-source');
   const tableFieldsSelectedOnly = document.getElementById('table-fields-selected-only');
   const tableFieldMatchSummary = document.getElementById('tableFieldMatchSummary');
+  const tableNavigation = document.getElementById('tableNavigation');
+  const tableNavigationSummary = document.getElementById('tableNavigationSummary');
+  const tableTopScrollbar = document.getElementById('tableTopScrollbar');
+  const tableTopScrollbarSpacer = document.getElementById('tableTopScrollbarSpacer');
+  const tableScrollStartBtn = document.getElementById('table-scroll-start');
+  const tableScrollLeftBtn = document.getElementById('table-scroll-left');
+  const tableScrollRightBtn = document.getElementById('table-scroll-right');
+  const tableScrollEndBtn = document.getElementById('table-scroll-end');
   const selectDefaultColumnsBtn = document.getElementById('select-default-columns');
   const selectAllColumnsBtn = document.getElementById('select-all-columns');
   const cancelColumnSelectionBtn = document.getElementById('cancel-column-selection');
@@ -1113,6 +1133,7 @@
   const dataTableBody = document.querySelector('#dataTable tbody');
   const loader = document.getElementById('csv-loader');
   const dataTable = document.getElementById('dataTable');
+  const resultsTable = document.querySelector('.results-table');
   const searchInput = document.getElementById('searchInput');
 
   let data = [];
@@ -1943,6 +1964,29 @@ function formatPublishStatus(value) {
   return `${value}`;
 }
 
+  const updateTableScrollButtons = () => {
+    const maxScrollLeft = Math.max(0, resultsTable.scrollWidth - resultsTable.clientWidth);
+    const atStart = resultsTable.scrollLeft <= 1;
+    const atEnd = resultsTable.scrollLeft >= maxScrollLeft - 1;
+    tableScrollStartBtn.disabled = atStart;
+    tableScrollLeftBtn.disabled = atStart;
+    tableScrollRightBtn.disabled = atEnd;
+    tableScrollEndBtn.disabled = atEnd;
+  };
+
+  const updateTableNavigation = () => {
+    const columnCount = getSelectedColumns().length;
+    const hasHorizontalOverflow =
+      data.length > 0 && resultsTable.scrollWidth > resultsTable.clientWidth + 1;
+    tableNavigationSummary.textContent =
+      `${columnCount} column${columnCount === 1 ? '' : 's'} displayed`;
+    tableNavigation.classList.toggle('d-none', !hasHorizontalOverflow);
+    tableTopScrollbar.classList.toggle('d-none', !hasHorizontalOverflow);
+    tableTopScrollbarSpacer.style.width = `${dataTable.scrollWidth}px`;
+    tableTopScrollbar.scrollLeft = resultsTable.scrollLeft;
+    updateTableScrollButtons();
+  };
+
 function renderTable() {
   dataTableBody.innerHTML = '';
   dataTableHeadRow.innerHTML = '';
@@ -1983,6 +2027,7 @@ function renderTable() {
     td.textContent = 'No matching data found.';
     tr.appendChild(td);
     dataTableBody.appendChild(tr);
+    requestAnimationFrame(updateTableNavigation);
     return;
   }
 
@@ -2022,6 +2067,7 @@ function renderTable() {
     tr.appendChild(actionTd);
     dataTableBody.appendChild(tr);
   });
+  requestAnimationFrame(updateTableNavigation);
 }
 
   downloadCsvBtn.addEventListener('click', () => {
@@ -2412,6 +2458,34 @@ searchInput.addEventListener('input', () => {
   renderTable();
 });
 
+  resultsTable.addEventListener('scroll', () => {
+    tableTopScrollbar.scrollLeft = resultsTable.scrollLeft;
+    updateTableScrollButtons();
+  });
+
+  tableTopScrollbar.addEventListener('scroll', () => {
+    resultsTable.scrollLeft = tableTopScrollbar.scrollLeft;
+    updateTableScrollButtons();
+  });
+
+  tableScrollStartBtn.addEventListener('click', () => {
+    resultsTable.scrollTo({ left: 0, behavior: 'smooth' });
+  });
+
+  tableScrollLeftBtn.addEventListener('click', () => {
+    resultsTable.scrollBy({ left: -Math.max(280, resultsTable.clientWidth * 0.7), behavior: 'smooth' });
+  });
+
+  tableScrollRightBtn.addEventListener('click', () => {
+    resultsTable.scrollBy({ left: Math.max(280, resultsTable.clientWidth * 0.7), behavior: 'smooth' });
+  });
+
+  tableScrollEndBtn.addEventListener('click', () => {
+    resultsTable.scrollTo({ left: resultsTable.scrollWidth, behavior: 'smooth' });
+  });
+
+  window.addEventListener('resize', updateTableNavigation);
+
 initMultiSelects();
 handleTerritorySelectionChange(selectModel.value, false);
 </script>
@@ -2772,9 +2846,17 @@ body {
 .field-browser-selected {
   display: flex;
   align-items: center;
+  gap: 8px;
   min-height: 31px;
   margin: 0;
+  padding-left: 0;
   white-space: nowrap;
+}
+
+.field-browser-selected .form-check-input {
+  float: none;
+  flex: 0 0 auto;
+  margin: 0;
 }
 
 .field-browser-status {
@@ -2783,10 +2865,53 @@ body {
   font-size: 0.75rem;
 }
 
+.table-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  background: var(--surface-soft);
+}
+
+.table-navigation-summary {
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.table-navigation .btn {
+  min-width: 38px;
+}
+
+.table-top-scrollbar {
+  height: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-right: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.table-top-scrollbar > div {
+  height: 1px;
+}
+
 .results-table {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--surface);
+  max-height: min(70vh, 720px);
+  overflow: auto;
+  scrollbar-gutter: stable;
+}
+
+.table-navigation:not(.d-none) + .table-top-scrollbar + .results-table {
+  border-radius: 0 0 8px 8px;
 }
 
 #dataTable {
@@ -2800,17 +2925,52 @@ body {
   color: #f8fafc;
 }
 
+#dataTable thead th {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  background: #0f172a;
+  white-space: nowrap;
+}
+
 #dataTable th,
 #dataTable td {
   border-color: rgba(148, 163, 184, 0.25);
+  vertical-align: top;
+}
+
+#dataTable th:first-child,
+#dataTable td:first-child {
+  position: sticky;
+  left: 0;
+  min-width: 140px;
+  max-width: 240px;
+}
+
+#dataTable thead th:first-child {
+  z-index: 4;
+  background: #0f172a;
+}
+
+#dataTable tbody td:first-child {
+  z-index: 1;
+  background: #ffffff;
 }
 
 #dataTable tbody tr:nth-child(odd) {
   background: #f8fafc;
 }
 
+#dataTable tbody tr:nth-child(odd) td:first-child {
+  background: #f8fafc;
+}
+
 #dataTable tbody tr:hover {
   background: rgba(224, 86, 43, 0.08);
+}
+
+#dataTable tbody tr:hover td:first-child {
+  background: #fff4ef;
 }
 
 .url-cell a {
@@ -2894,6 +3054,7 @@ details.field-group[open] > .field-group-summary {
 .field-option {
   display: flex;
   align-items: flex-start;
+  gap: 8px;
   min-height: 46px;
   padding: 7px 8px;
   border-radius: 6px;
@@ -2904,6 +3065,9 @@ details.field-group[open] > .field-group-summary {
 }
 
 .field-option .form-check-input {
+  float: none;
+  flex: 0 0 auto;
+  margin-left: 0;
   margin-top: 3px;
 }
 
@@ -2911,7 +3075,7 @@ details.field-group[open] > .field-group-summary {
   display: flex;
   min-width: 0;
   flex-direction: column;
-  padding-left: 4px;
+  padding-left: 0;
 }
 
 .field-option-name {
