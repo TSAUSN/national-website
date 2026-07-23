@@ -458,6 +458,7 @@
     { key: 'publish_status', label: 'Publish Status' }
   ];
   const DEFAULT_COLUMN_KEYS = DEFAULT_COLUMNS.map((column) => column.key);
+  const SERVICES_MODEL_KEY = 'services';
   const BASE_ROW_KEYS = new Set([
     ...DEFAULT_COLUMN_KEYS,
     'model_zuid',
@@ -851,12 +852,7 @@
         checkbox.disabled = true;
       }
 
-      if (value === 'services' && !hasLocations) {
-        checkbox.checked = false;
-        checkbox.disabled = true;
-      }
-
-      if (value === 'services' && hasLocations) {
+      if (value === SERVICES_MODEL_KEY && hasLocations) {
         checkbox.checked = true;
       }
     });
@@ -913,8 +909,16 @@
     return value;
   };
 
-  const buildCsvUrl = (zuid, zuidD, zuidL, page, pageSize, includeFields = true) => {
-    const params = getSelectedModelParams();
+  const buildCsvUrl = (
+    zuid,
+    zuidD,
+    zuidL,
+    page,
+    pageSize,
+    includeFields = true,
+    modelParams = null
+  ) => {
+    const params = new URLSearchParams(modelParams || getSelectedModelParams());
     if (includeFields) {
       params.set('include_fields', '1');
     }
@@ -970,8 +974,24 @@
     return normalizeRows(parsedData);
   };
 
-  const requestPageData = async (zuid, zuidD, zuidL, page, pageSize, includeFields = true) => {
-    const fullURL = buildCsvUrl(zuid, zuidD, zuidL, page, pageSize, includeFields);
+  const requestPageData = async (
+    zuid,
+    zuidD,
+    zuidL,
+    page,
+    pageSize,
+    includeFields = true,
+    modelParams = null
+  ) => {
+    const fullURL = buildCsvUrl(
+      zuid,
+      zuidD,
+      zuidL,
+      page,
+      pageSize,
+      includeFields,
+      modelParams
+    );
     const res = await fetchWithTimeout(fullURL, FETCH_TIMEOUT_MS);
     if (!res.ok) {
       throw new Error(`Request failed with status ${res.status}`);
@@ -982,7 +1002,7 @@
     } catch (err) {
       if (includeFields) {
         console.warn('Full-field CSV response failed to parse; retrying default fields.', err);
-        return requestPageData(zuid, zuidD, zuidL, page, pageSize, false);
+        return requestPageData(zuid, zuidD, zuidL, page, pageSize, false, modelParams);
       }
       throw err;
     }
@@ -1026,10 +1046,21 @@
     checkbox.addEventListener('change', invalidateLoadedData);
   });
 
-  function getSelectedModelParams() {
+  const isModelSelected = (modelKey) =>
+    Array.from(modelCheckboxes).some(
+      (checkbox) => checkbox.value === modelKey && checkbox.checked
+    );
+
+  function getSelectedModelParams(options = {}) {
+    const { onlyServices = false, excludeServices = false } = options;
     const params = new URLSearchParams();
+    if (onlyServices) {
+      params.set(SERVICES_MODEL_KEY, '1');
+      return params;
+    }
     Array.from(modelCheckboxes)
       .filter((checkbox) => checkbox.checked)
+      .filter((checkbox) => !(excludeServices && checkbox.value === SERVICES_MODEL_KEY))
       .forEach((checkbox) => {
         params.set(checkbox.value, '1');
       });
@@ -1272,9 +1303,20 @@
   const buildScopeRequests = (territoryZuid, divisionValues, locationValues) => {
     const scopes = [];
     const seen = new Set();
+    const servicesSelected = isModelSelected(SERVICES_MODEL_KEY);
+    const needsExpandedServiceScopes = servicesSelected && !locationValues.length;
+    const baseModelParams = needsExpandedServiceScopes
+      ? getSelectedModelParams({ excludeServices: true })
+      : getSelectedModelParams();
+    const serviceModelParams = getSelectedModelParams({ onlyServices: true });
 
     const addScope = (scope) => {
-      const key = `${scope.zuid || ''}::${scope.zuidD || ''}::${scope.zuidL || ''}`;
+      const key = [
+        scope.zuid || '',
+        scope.zuidD || '',
+        scope.zuidL || '',
+        scope.modelParams ? scope.modelParams.toString() : ''
+      ].join('::');
       if (seen.has(key)) {
         return;
       }
@@ -1295,7 +1337,8 @@
         addScope({
           zuid: meta.territory || territoryZuid,
           zuidD: meta.division,
-          zuidL: locZuid
+          zuidL: locZuid,
+          modelParams: baseModelParams
         });
       });
       return scopes;
@@ -1306,21 +1349,52 @@
         addScope({
           zuid: territoryZuid,
           zuidD: divZuid,
-          zuidL: ''
+          zuidL: '',
+          modelParams: baseModelParams
         });
       });
-      return scopes;
+    } else {
+      addScope({
+        zuid: territoryZuid,
+        zuidD: '',
+        zuidL: '',
+        modelParams: baseModelParams
+      });
     }
 
-    addScope({
-      zuid: territoryZuid,
-      zuidD: '',
-      zuidL: ''
-    });
+    if (needsExpandedServiceScopes) {
+      const serviceLocations = locationOptions.filter((location) => {
+        if (divisionValues.length) {
+          return divisionValues.includes(location.division);
+        }
+        return location.territory === territoryZuid;
+      });
+
+      serviceLocations.forEach((location) => {
+        if (!location.division) {
+          return;
+        }
+        addScope({
+          zuid: location.territory || territoryZuid,
+          zuidD: location.division,
+          zuidL: location.value,
+          modelParams: serviceModelParams
+        });
+      });
+    }
+
     return scopes;
   };
 
-  const buildScopeKey = (scopes) => JSON.stringify(scopes);
+  const buildScopeKey = (scopes) =>
+    JSON.stringify(
+      scopes.map((scope) => ({
+        zuid: scope.zuid,
+        zuidD: scope.zuidD,
+        zuidL: scope.zuidL,
+        modelParams: scope.modelParams ? scope.modelParams.toString() : ''
+      }))
+    );
 
   async function fetchData(zuid, divisionValues, locationValues, page, pageSize) {
     try {
@@ -1351,7 +1425,15 @@
       const pageData = [];
       for (const scope of scopes) {
         pageData.push(
-          await requestPageData(scope.zuid, scope.zuidD, scope.zuidL, page, pageSize)
+          await requestPageData(
+            scope.zuid,
+            scope.zuidD,
+            scope.zuidL,
+            page,
+            pageSize,
+            true,
+            scope.modelParams
+          )
         );
       }
       data = mergeRows(pageData.flat());
@@ -1703,7 +1785,9 @@ function renderTable() {
             scope.zuidD,
             scope.zuidL,
             page,
-            pageSize
+            pageSize,
+            true,
+            scope.modelParams
           );
           if (!pageData.length) {
             break;
