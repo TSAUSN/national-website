@@ -349,7 +349,30 @@
         <span id="visibleColumnSummary" class="filter-summary"></span>
       </summary>
       <div class="column-panel-body">
-        <p class="field-help">Grouped by source model. Field keys identify columns with similar names.</p>
+        <p class="field-help">Search by column name or field key, then open a source group to choose columns.</p>
+        <div class="field-browser-toolbar">
+          <div class="field-browser-search">
+            <label for="table-field-search" class="form-label">Search columns</label>
+            <input
+              id="table-field-search"
+              type="search"
+              class="form-control form-control-sm"
+              placeholder="Name or field key"
+              autocomplete="off"
+            >
+          </div>
+          <div class="field-browser-source">
+            <label for="table-field-source" class="form-label">Source</label>
+            <select id="table-field-source" class="form-select form-select-sm">
+              <option value="">All sources</option>
+            </select>
+          </div>
+          <label class="form-check field-browser-selected">
+            <input id="table-fields-selected-only" class="form-check-input" type="checkbox">
+            <span class="form-check-label">Selected only</span>
+          </label>
+        </div>
+        <div id="tableFieldMatchSummary" class="field-browser-status" aria-live="polite"></div>
         <div class="d-flex flex-wrap gap-2 mb-3">
           <button id="select-default-columns" type="button" class="btn btn-outline-secondary btn-sm">Default</button>
           <button id="select-all-columns" type="button" class="btn btn-outline-primary btn-sm">Select all</button>
@@ -430,6 +453,10 @@
   const dataTableHeadRow = document.getElementById('dataTableHeadRow');
   const columnControls = document.getElementById('columnControls');
   const tableFieldList = document.getElementById('tableFieldList');
+  const tableFieldSearch = document.getElementById('table-field-search');
+  const tableFieldSource = document.getElementById('table-field-source');
+  const tableFieldsSelectedOnly = document.getElementById('table-fields-selected-only');
+  const tableFieldMatchSummary = document.getElementById('tableFieldMatchSummary');
   const selectDefaultColumnsBtn = document.getElementById('select-default-columns');
   const selectAllColumnsBtn = document.getElementById('select-all-columns');
   const cancelColumnSelectionBtn = document.getElementById('cancel-column-selection');
@@ -1270,32 +1297,85 @@
     return modelCatalogPromise;
   };
 
-  const renderCheckboxList = (container, selectedKeys, namePrefix) => {
+  const getColumnGroup = (column) => {
+    if (column.source === 'standard') {
+      return { key: 'standard', label: 'Standard result fields' };
+    }
+    if (column.models.length === 1) {
+      return {
+        key: `model:${column.models[0]}`,
+        label: `${column.models[0]} fields`
+      };
+    }
+    return { key: 'shared', label: 'Shared model fields' };
+  };
+
+  const columnMatchesTableFilters = (column) => {
+    const query = tableFieldSearch.value.trim().toLowerCase();
+    const source = tableFieldSource.value;
+    const rawKey = column.key.replace(new RegExp(`^${FIELD_PREFIX}`), '');
+    const matchesQuery =
+      !query ||
+      [column.label, rawKey, ...column.models]
+        .join(' ')
+        .toLowerCase()
+        .includes(query);
+    const matchesSource =
+      !source ||
+      (source === 'standard'
+        ? column.source === 'standard'
+        : column.models.includes(source));
+    const matchesSelection =
+      !tableFieldsSelectedOnly.checked || draftColumnKeys.includes(column.key);
+    return matchesQuery && matchesSource && matchesSelection;
+  };
+
+  const renderCheckboxList = (
+    container,
+    selectedKeys,
+    namePrefix,
+    columns = availableColumns,
+    collapsible = false
+  ) => {
     container.innerHTML = '';
     const groups = new Map();
-    availableColumns.forEach((column) => {
-      let groupKey = 'standard';
-      let groupLabel = 'Standard result fields';
-      if (column.source === 'content' && column.models.length === 1) {
-        groupKey = `model:${column.models[0]}`;
-        groupLabel = `${column.models[0]} fields`;
-      } else if (column.source === 'content') {
-        groupKey = 'shared';
-        groupLabel = 'Shared model fields';
+    columns.forEach((column) => {
+      const group = getColumnGroup(column);
+      if (!groups.has(group.key)) {
+        groups.set(group.key, { label: group.label, columns: [] });
       }
-      if (!groups.has(groupKey)) {
-        groups.set(groupKey, { label: groupLabel, columns: [] });
-      }
-      groups.get(groupKey).columns.push(column);
+      groups.get(group.key).columns.push(column);
     });
 
     groups.forEach((group) => {
-      const section = document.createElement('section');
+      const section = document.createElement(collapsible ? 'details' : 'section');
       section.className = 'field-group';
+      if (collapsible) {
+        section.open =
+          group.label === 'Standard result fields' ||
+          Boolean(
+            tableFieldSearch.value.trim() ||
+              tableFieldSource.value ||
+              tableFieldsSelectedOnly.checked
+          );
+      }
+
+      const headingContainer = document.createElement(collapsible ? 'summary' : 'div');
+      headingContainer.className = 'field-group-summary';
 
       const heading = document.createElement('h3');
       heading.className = 'field-group-title';
-      heading.textContent = `${group.label} (${group.columns.length})`;
+      heading.textContent = group.label;
+
+      const groupCount = document.createElement('span');
+      groupCount.className = 'field-group-count';
+      const selectedCount = group.columns.filter((column) =>
+        selectedKeys.includes(column.key)
+      ).length;
+      groupCount.textContent = `${selectedCount} selected / ${group.columns.length}`;
+
+      headingContainer.appendChild(heading);
+      headingContainer.appendChild(groupCount);
 
       const grid = document.createElement('div');
       grid.className = 'field-group-grid';
@@ -1326,7 +1406,7 @@
         metadata.textContent =
           column.source === 'standard'
             ? rawKey
-            : `${rawKey} · ${column.models.join(', ') || 'Content model'}`;
+            : `${rawKey} | ${column.models.join(', ') || 'Content model'}`;
 
         label.appendChild(name);
         label.appendChild(metadata);
@@ -1335,10 +1415,17 @@
         grid.appendChild(wrapper);
       });
 
-      section.appendChild(heading);
+      section.appendChild(headingContainer);
       section.appendChild(grid);
       container.appendChild(section);
     });
+
+    if (!columns.length) {
+      const emptyState = document.createElement('p');
+      emptyState.className = 'field-empty';
+      emptyState.textContent = 'No columns match your search and source filters.';
+      container.appendChild(emptyState);
+    }
 
     if (container === exportFieldList) {
       updateExportFieldSummary();
@@ -1352,9 +1439,45 @@
   }
 
   const renderTableFieldControls = () => {
-    renderCheckboxList(tableFieldList, draftColumnKeys, 'table-field');
+    const filteredColumns = availableColumns.filter(columnMatchesTableFilters);
+    renderCheckboxList(
+      tableFieldList,
+      draftColumnKeys,
+      'table-field',
+      filteredColumns,
+      true
+    );
     columnControls.classList.toggle('d-none', !data.length);
     visibleColumnSummary.textContent = `${selectedColumnKeys.length} shown`;
+    tableFieldMatchSummary.textContent =
+      `${filteredColumns.length} matching, ${draftColumnKeys.length} selected`;
+  };
+
+  const renderTableFieldSourceOptions = () => {
+    const currentValue = tableFieldSource.value;
+    const modelLabels = [
+      ...new Set(
+        availableColumns
+          .filter((column) => column.source === 'content')
+          .flatMap((column) => column.models)
+      )
+    ].sort((a, b) => a.localeCompare(b));
+    tableFieldSource.innerHTML = '';
+    [
+      { value: '', label: 'All sources' },
+      { value: 'standard', label: 'Standard result fields' },
+      ...modelLabels.map((label) => ({ value: label, label }))
+    ].forEach(({ value, label }) => {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = label;
+      tableFieldSource.appendChild(option);
+    });
+    tableFieldSource.value = Array.from(tableFieldSource.options).some(
+      (option) => option.value === currentValue
+    )
+      ? currentValue
+      : '';
   };
 
   const getCheckedKeys = (container) =>
@@ -1368,6 +1491,7 @@
       .map((column) => column.key)
       .filter((key) => DEFAULT_COLUMN_KEYS.includes(key));
     draftColumnKeys = [...selectedColumnKeys];
+    renderTableFieldSourceOptions();
     renderTableFieldControls();
   };
 
@@ -2113,9 +2237,35 @@ function renderTable() {
     await loadServerPage(1);
   });
 
-  tableFieldList.addEventListener('change', () => {
-    draftColumnKeys = getCheckedKeys(tableFieldList);
+  tableFieldList.addEventListener('change', (event) => {
+    const checkbox = event.target.closest('input[type="checkbox"]');
+    if (!checkbox) {
+      return;
+    }
+    draftColumnKeys = checkbox.checked
+      ? [...new Set([...draftColumnKeys, checkbox.value])]
+      : draftColumnKeys.filter((key) => key !== checkbox.value);
+    if (tableFieldsSelectedOnly.checked) {
+      renderTableFieldControls();
+    } else {
+      tableFieldMatchSummary.textContent =
+        `${tableFieldList.querySelectorAll('input[type="checkbox"]').length} matching, ` +
+        `${draftColumnKeys.length} selected`;
+      const group = checkbox.closest('.field-group');
+      const groupCount = group?.querySelector('.field-group-count');
+      if (groupCount) {
+        const checkboxes = Array.from(
+          group.querySelectorAll('input[type="checkbox"]')
+        );
+        groupCount.textContent =
+          `${checkboxes.filter((item) => item.checked).length} selected / ${checkboxes.length}`;
+      }
+    }
   });
+
+  tableFieldSearch.addEventListener('input', renderTableFieldControls);
+  tableFieldSource.addEventListener('change', renderTableFieldControls);
+  tableFieldsSelectedOnly.addEventListener('change', renderTableFieldControls);
 
   selectDefaultColumnsBtn.addEventListener('click', () => {
     draftColumnKeys = [...DEFAULT_COLUMN_KEYS];
@@ -2604,6 +2754,35 @@ body {
   border-top: 1px solid var(--border);
 }
 
+.field-browser-toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 2fr) minmax(180px, 1fr) auto;
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.field-browser-toolbar .form-label {
+  margin-bottom: 4px;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.field-browser-selected {
+  display: flex;
+  align-items: center;
+  min-height: 31px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.field-browser-status {
+  margin-bottom: 12px;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+}
+
 .results-table {
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -2673,12 +2852,37 @@ body {
   border-top: 1px solid var(--border);
 }
 
+.field-group-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+details.field-group > .field-group-summary {
+  min-height: 34px;
+  margin: 0;
+  cursor: pointer;
+}
+
+details.field-group[open] > .field-group-summary {
+  margin-bottom: 8px;
+}
+
 .field-group-title {
-  margin: 0 0 8px;
+  margin: 0;
   color: var(--ink-soft);
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.field-group-count {
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .field-group-grid {
@@ -2729,6 +2933,13 @@ body {
 
 .field-grid .form-check-label {
   overflow-wrap: anywhere;
+}
+
+.field-empty {
+  margin: 0;
+  padding: 20px;
+  color: var(--ink-soft);
+  text-align: center;
 }
 
 .field-help,
@@ -2795,6 +3006,14 @@ th.active-desc .sort-icon .down {
 }
 
 @media (max-width: 991.98px) {
+  .field-browser-toolbar {
+    grid-template-columns: minmax(0, 1fr) minmax(160px, 0.6fr);
+  }
+
+  .field-browser-selected {
+    grid-column: 1 / -1;
+  }
+
   .results-toolbar {
     position: static;
     align-items: stretch;
@@ -2812,6 +3031,14 @@ th.active-desc .sort-icon .down {
 }
 
 @media (max-width: 575.98px) {
+  .field-browser-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .field-browser-selected {
+    grid-column: auto;
+  }
+
   .results-heading {
     align-items: stretch;
     flex-direction: column;
