@@ -345,8 +345,17 @@
 
     <details id="columnControls" class="column-panel d-none" open>
       <summary>
-        <span>Table columns</span>
-        <span id="visibleColumnSummary" class="filter-summary"></span>
+        <span class="column-panel-title">
+          <span class="column-panel-toggle-icon" aria-hidden="true"></span>
+          <span>Table columns</span>
+        </span>
+        <span class="column-panel-meta">
+          <span id="visibleColumnSummary" class="filter-summary"></span>
+          <span class="column-panel-state">
+            <span class="column-panel-state-closed">Expand</span>
+            <span class="column-panel-state-open">Collapse</span>
+          </span>
+        </span>
       </summary>
       <div class="column-panel-body">
         <p class="field-help">Search by column name or field key, then open a source group to choose columns.</p>
@@ -385,12 +394,6 @@
 
     <div id="tableNavigation" class="table-navigation d-none">
       <span id="tableNavigationSummary" class="table-navigation-summary"></span>
-      <div class="btn-group btn-group-sm" role="group" aria-label="Navigate table columns">
-        <button id="table-scroll-start" type="button" class="btn btn-outline-secondary" title="First column" aria-label="Scroll to first column">&larr;|</button>
-        <button id="table-scroll-left" type="button" class="btn btn-outline-secondary" title="Scroll left" aria-label="Scroll table left">&larr;</button>
-        <button id="table-scroll-right" type="button" class="btn btn-outline-secondary" title="Scroll right" aria-label="Scroll table right">&rarr;</button>
-        <button id="table-scroll-end" type="button" class="btn btn-outline-secondary" title="Last column" aria-label="Scroll to last column">|&rarr;</button>
-      </div>
     </div>
     <div id="tableTopScrollbar" class="table-top-scrollbar d-none" aria-label="Table horizontal scrollbar" tabindex="0">
       <div id="tableTopScrollbarSpacer"></div>
@@ -473,10 +476,6 @@
   const tableNavigationSummary = document.getElementById('tableNavigationSummary');
   const tableTopScrollbar = document.getElementById('tableTopScrollbar');
   const tableTopScrollbarSpacer = document.getElementById('tableTopScrollbarSpacer');
-  const tableScrollStartBtn = document.getElementById('table-scroll-start');
-  const tableScrollLeftBtn = document.getElementById('table-scroll-left');
-  const tableScrollRightBtn = document.getElementById('table-scroll-right');
-  const tableScrollEndBtn = document.getElementById('table-scroll-end');
   const selectDefaultColumnsBtn = document.getElementById('select-default-columns');
   const selectAllColumnsBtn = document.getElementById('select-all-columns');
   const cancelColumnSelectionBtn = document.getElementById('cancel-column-selection');
@@ -1964,16 +1963,6 @@ function formatPublishStatus(value) {
   return `${value}`;
 }
 
-  const updateTableScrollButtons = () => {
-    const maxScrollLeft = Math.max(0, resultsTable.scrollWidth - resultsTable.clientWidth);
-    const atStart = resultsTable.scrollLeft <= 1;
-    const atEnd = resultsTable.scrollLeft >= maxScrollLeft - 1;
-    tableScrollStartBtn.disabled = atStart;
-    tableScrollLeftBtn.disabled = atStart;
-    tableScrollRightBtn.disabled = atEnd;
-    tableScrollEndBtn.disabled = atEnd;
-  };
-
   const updateTableNavigation = () => {
     const columnCount = getSelectedColumns().length;
     const hasHorizontalOverflow =
@@ -1984,7 +1973,6 @@ function formatPublishStatus(value) {
     tableTopScrollbar.classList.toggle('d-none', !hasHorizontalOverflow);
     tableTopScrollbarSpacer.style.width = `${dataTable.scrollWidth}px`;
     tableTopScrollbar.scrollLeft = resultsTable.scrollLeft;
-    updateTableScrollButtons();
   };
 
 function renderTable() {
@@ -2035,6 +2023,7 @@ function renderTable() {
     const tr = document.createElement('tr');
     selectedColumns.forEach((column) => {
       const td = document.createElement('td');
+      td.dataset.key = column.key;
       const value =
         column.key === 'publish_status'
           ? formatPublishStatus(row[column.key])
@@ -2460,28 +2449,10 @@ searchInput.addEventListener('input', () => {
 
   resultsTable.addEventListener('scroll', () => {
     tableTopScrollbar.scrollLeft = resultsTable.scrollLeft;
-    updateTableScrollButtons();
   });
 
   tableTopScrollbar.addEventListener('scroll', () => {
     resultsTable.scrollLeft = tableTopScrollbar.scrollLeft;
-    updateTableScrollButtons();
-  });
-
-  tableScrollStartBtn.addEventListener('click', () => {
-    resultsTable.scrollTo({ left: 0, behavior: 'smooth' });
-  });
-
-  tableScrollLeftBtn.addEventListener('click', () => {
-    resultsTable.scrollBy({ left: -Math.max(280, resultsTable.clientWidth * 0.7), behavior: 'smooth' });
-  });
-
-  tableScrollRightBtn.addEventListener('click', () => {
-    resultsTable.scrollBy({ left: Math.max(280, resultsTable.clientWidth * 0.7), behavior: 'smooth' });
-  });
-
-  tableScrollEndBtn.addEventListener('click', () => {
-    resultsTable.scrollTo({ left: resultsTable.scrollWidth, behavior: 'smooth' });
   });
 
   window.addEventListener('resize', updateTableNavigation);
@@ -2799,7 +2770,12 @@ body {
 }
 
 .server-pager #page-size {
-  width: 72px;
+  width: 96px;
+  min-width: 96px;
+  padding-left: 12px;
+  background-color: var(--surface);
+  color: var(--ink);
+  font-weight: 700;
 }
 
 .server-pager #page-number {
@@ -2810,17 +2786,91 @@ body {
 .column-panel {
   margin: 12px 0;
   border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
   border-radius: 8px;
   background: var(--surface);
 }
 
-.column-panel summary {
+.column-panel > summary {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   min-height: 44px;
   padding: 10px 14px;
   cursor: pointer;
   font-weight: 700;
+  list-style: none;
+  background: #fff7ed;
+  transition: background-color 150ms ease;
+}
+
+.column-panel > summary::-webkit-details-marker {
+  display: none;
+}
+
+.column-panel > summary::marker {
+  content: "";
+}
+
+.column-panel > summary:hover,
+.column-panel > summary:focus-visible {
+  background: #ffedd5;
+}
+
+.column-panel > summary:focus-visible {
+  outline: 3px solid rgba(224, 86, 43, 0.25);
+  outline-offset: 2px;
+}
+
+.column-panel-title,
+.column-panel-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.column-panel-toggle-icon {
+  display: inline-grid;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  place-items: center;
+  border-radius: 4px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.column-panel-toggle-icon::before {
+  content: "+";
+}
+
+.column-panel[open] .column-panel-toggle-icon::before {
+  content: "-";
+}
+
+.column-panel-state {
+  min-width: 60px;
+  color: var(--accent-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+.column-panel-state-open,
+.column-panel[open] .column-panel-state-closed {
+  display: none;
+}
+
+.column-panel[open] .column-panel-state-open {
+  display: inline;
+}
+
+.column-panel .filter-summary {
+  margin-left: 0;
 }
 
 .column-panel-body {
@@ -2884,10 +2934,6 @@ body {
   font-weight: 700;
 }
 
-.table-navigation .btn {
-  min-width: 38px;
-}
-
 .table-top-scrollbar {
   height: 16px;
   overflow-x: auto;
@@ -2915,12 +2961,17 @@ body {
 }
 
 #dataTable {
-  min-width: 960px;
+  width: max-content;
+  min-width: 100%;
   margin: 0;
   border: 0;
 }
 
 #dataTable thead {
+  --bs-table-bg: #0f172a;
+  --bs-table-color: #f8fafc;
+  --bs-table-striped-bg: #0f172a;
+  --bs-table-striped-color: #f8fafc;
   background: #0f172a;
   color: #f8fafc;
 }
@@ -2930,6 +2981,7 @@ body {
   z-index: 2;
   top: 0;
   background: #0f172a;
+  color: #f8fafc !important;
   white-space: nowrap;
 }
 
@@ -3138,7 +3190,53 @@ details.field-group[open] > .field-group-summary {
 
 #dataTable th:first-child,
 #dataTable td:first-child {
-  min-width: 110px;
+  min-width: 150px;
+}
+
+#dataTable th:not(:last-child),
+#dataTable td:not(:last-child) {
+  min-width: 180px;
+}
+
+#dataTable th[data-key="model"],
+#dataTable td[data-key="model"],
+#dataTable th[data-key="publish_status"],
+#dataTable td[data-key="publish_status"] {
+  min-width: 150px;
+}
+
+#dataTable th[data-key="zuid"],
+#dataTable td[data-key="zuid"] {
+  min-width: 190px;
+}
+
+#dataTable th[data-key="title"],
+#dataTable td[data-key="title"] {
+  min-width: 240px;
+}
+
+#dataTable th[data-key="territory"],
+#dataTable td[data-key="territory"],
+#dataTable th[data-key="division"],
+#dataTable td[data-key="division"],
+#dataTable th[data-key="location"],
+#dataTable td[data-key="location"] {
+  min-width: 190px;
+}
+
+#dataTable th[data-key="path_part"],
+#dataTable td[data-key="path_part"] {
+  min-width: 220px;
+}
+
+#dataTable th[data-key="url"],
+#dataTable td[data-key="url"] {
+  min-width: 300px;
+}
+
+#dataTable th[data-key^="field__"],
+#dataTable td[data-key^="field__"] {
+  min-width: 240px;
 }
 
 #dataTable th:last-child,
@@ -3165,7 +3263,7 @@ details.field-group[open] > .field-group-summary {
 
 th.active-asc .sort-icon .up,
 th.active-desc .sort-icon .down {
-  color: #000;
+  color: var(--accent);
   font-weight: bold;
 }
 
@@ -3185,6 +3283,7 @@ th.active-desc .sort-icon .down {
   }
 
   .results-search {
+    flex: 0 1 auto;
     max-width: none;
   }
 
