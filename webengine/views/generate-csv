@@ -11,7 +11,6 @@
 {{$leadership = {request.queryParam(leadership_landing_page)} }}
 {{$services = {request.queryParam(services)} }}
 {{$volunteerPages = {request.queryParam(volunteer_pages)} }}
-{{$includeFields = {request.queryParam(include_fields)} }}
 {{$page = 1}}
 {{$perPage = 50}}
 
@@ -40,9 +39,6 @@
 
         "publish_status": "{{if {isPublished({$zuid})} }}publish{{else}}unpublish{{/if}}",
         "url": "https://{{instance.domain}}{{truepath({$zuid})}}"
-        {{if {$includeFields} }},
-        "fields": {{territories.filter({$zuid}).toJSON()}}
-        {{/if}}
     }
     {{$isFirst = 0}}
 
@@ -62,9 +58,6 @@
 
                 "publish_status": "{{if {isPublished({div.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({div.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{div.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -85,9 +78,6 @@
 
                 "publish_status": "{{if {isPublished({loc.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({loc.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{loc.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -111,9 +101,6 @@
 
                 "publish_status": "{{if {isPublished({ab.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({ab.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{ab.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -138,9 +125,6 @@
 
                 "publish_status": "{{if {isPublished({ip.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({ip.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{ip.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -164,9 +148,6 @@
 
                 "publish_status": "{{if {isPublished({con.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({con.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{con.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -190,9 +171,6 @@
 
                 "publish_status": "{{if {isPublished({lead.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({lead.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{lead.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -216,9 +194,6 @@
 
                 "publish_status": "{{if {isPublished({ev.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({ev.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{ev.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -242,9 +217,6 @@
 
                 "publish_status": "{{if {isPublished({st.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({st.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{st.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -268,9 +240,6 @@
 
                 "publish_status": "{{if {isPublished({vp.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({vp.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{vp.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -291,9 +260,6 @@
 
                 "publish_status": "{{if {isPublished({ser.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({ser.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{ser.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -313,9 +279,6 @@
 
         "publish_status": "{{if {isPublished({$zuid})} }}publish{{else}}unpublish{{/if}}",
         "url": "https://{{instance.domain}}{{truepath({$zuid})}}"
-        {{if {$includeFields} }},
-        "fields": {{territories.filter({$zuid}).toJSON()}}
-        {{/if}}
     }
     {{$isFirst = 0}}
 
@@ -336,9 +299,6 @@
 
                 "publish_status": "{{if {isPublished({div.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({div.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{div.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -359,9 +319,6 @@
 
                 "publish_status": "{{if {isPublished({loc.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({loc.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{loc.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -385,9 +342,6 @@
 
                 "publish_status": "{{if {isPublished({ab.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({ab.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{ab.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -412,9 +366,6 @@
 
                 "publish_status": "{{if {isPublished({ip.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({ip.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{ip.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -438,9 +389,6 @@
 
                 "publish_status": "{{if {isPublished({con.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({con.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{con.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -464,9 +412,6 @@
 
                 "publish_status": "{{if {isPublished({lead.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({lead.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{lead.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -490,9 +435,6 @@
 
                 "publish_status": "{{if {isPublished({ev.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({ev.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{ev.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -516,9 +458,6 @@
 
                 "publish_status": "{{if {isPublished({st.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({st.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{st.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -542,9 +481,6 @@
 
                 "publish_status": "{{if {isPublished({vp.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({vp.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{vp.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -565,9 +501,6 @@
 
                 "publish_status": "{{if {isPublished({ser.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({ser.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{ser.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -588,9 +521,6 @@
 
         "publish_status": "{{if {isPublished({$zuid})} }}publish{{else}}unpublish{{/if}}",
         "url": "https://{{instance.domain}}{{truepath({$zuid})}}"
-        {{if {$includeFields} }},
-        "fields": {{territories.filter({$zuid}).toJSON()}}
-        {{/if}}
     }
     {{$isFirst = 0}}
 
@@ -610,9 +540,6 @@
 
                 "publish_status": "{{if {isPublished({div.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({div.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{div.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -633,9 +560,6 @@
 
                 "publish_status": "{{if {isPublished({loc.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({loc.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{loc.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -659,9 +583,6 @@
 
                 "publish_status": "{{if {isPublished({ab.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({ab.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{ab.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -686,9 +607,6 @@
 
                 "publish_status": "{{if {isPublished({ip.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({ip.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{ip.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -712,9 +630,6 @@
 
                 "publish_status": "{{if {isPublished({con.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({con.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{con.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -738,9 +653,6 @@
 
                 "publish_status": "{{if {isPublished({lead.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({lead.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{lead.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -764,9 +676,6 @@
 
                 "publish_status": "{{if {isPublished({ev.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({ev.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{ev.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -790,9 +699,6 @@
 
                 "publish_status": "{{if {isPublished({st.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({st.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{st.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -816,9 +722,6 @@
 
                 "publish_status": "{{if {isPublished({vp.zuid})} }}publish{{else}}unpublish{{/if}}",
                 "url": "https://{{instance.domain}}{{truepath({vp.zuid})}}"
-                {{if {$includeFields} }},
-                "fields": {{vp.toJSON()}}
-                {{/if}}
             }
         {{/each}}
     {{/if}}
@@ -846,9 +749,6 @@
 
                     "publish_status": "{{if {isPublished({ser.zuid})} }}publish{{else}}unpublish{{/if}}",
                     "url": "https://{{instance.domain}}{{truepath({ser.zuid})}}"
-                    {{if {$includeFields} }},
-                    "fields": {{ser.toJSON()}}
-                    {{/if}}
                 }
         {{/each}}
     {{/if}}

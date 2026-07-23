@@ -446,6 +446,10 @@
   const DEFAULT_PAGE_SIZE = 50;
   const FETCH_TIMEOUT_MS = 45000;
   const BROAD_SCOPE_MODEL_BATCH_SIZE = 3;
+  const FIELD_HYDRATION_CONCURRENCY = 4;
+  const GQL_BULK_PAGE_SIZE = 250;
+  const GQL_BULK_THRESHOLD = 100;
+  const MAX_GQL_BULK_PAGES = 500;
   const MAX_EXPORT_PAGES = 200;
   const DEFAULT_COLUMNS = [
     { key: 'model', label: 'Model' },
@@ -467,6 +471,37 @@
   ]);
   const FIELD_PREFIX = 'field__';
   const SKIPPED_FIELD_KEYS = new Set(['meta']);
+  const MODEL_DATA_CONFIG = {
+    territories: { label: 'Territories', endpoint: 'territories' },
+    divisions: { label: 'Divisions', endpoint: 'divisions' },
+    locations: { label: 'Locations', endpoint: 'locations' },
+    about_us: { label: 'About Us', endpoint: 'about_us' },
+    contact_us: { label: 'Contact Us', endpoint: 'contact_us' },
+    informational_pages: {
+      label: 'Informational Pages',
+      endpoint: 'informational_pages'
+    },
+    stories_landing_page: {
+      label: 'Stories Landing Page',
+      endpoint: 'stories_landing_page'
+    },
+    events_landing_page: {
+      label: 'Events Landing Page',
+      endpoint: 'events_landing_pages'
+    },
+    leadership_landing_page: {
+      label: 'Leadership Landing Page',
+      endpoint: 'leadership_landing_page'
+    },
+    services: { label: 'Services', endpoint: 'services' },
+    volunteer_pages: {
+      label: 'Volunteer Pages',
+      endpoint: 'volunteer_pages'
+    }
+  };
+  const MODEL_DATA_CONFIG_BY_LABEL = new Map(
+    Object.values(MODEL_DATA_CONFIG).map((config) => [config.label, config])
+  );
 
   const parseRelationshipValues = (value) =>
     `${value || ''}`
@@ -867,13 +902,9 @@
     zuidL,
     page,
     pageSize,
-    includeFields = true,
     modelParams = null
   ) => {
     const params = new URLSearchParams(modelParams || getSelectedModelParams());
-    if (includeFields) {
-      params.set('include_fields', '1');
-    }
     params.set('page', page);
     params.set('per_page', pageSize);
     if (zuid) {
@@ -928,7 +959,6 @@
     zuidL,
     page,
     pageSize,
-    includeFields = true,
     modelParams = null
   ) => {
     const fullURL = buildCsvUrl(
@@ -937,7 +967,6 @@
       zuidL,
       page,
       pageSize,
-      includeFields,
       modelParams
     );
     const res = await fetchWithTimeout(fullURL, FETCH_TIMEOUT_MS);
@@ -954,15 +983,7 @@
       requestError.status = res.status;
       throw requestError;
     }
-    try {
-      return parsePageResponse(rawText);
-    } catch (err) {
-      if (includeFields) {
-        console.warn('Full-field CSV response failed to parse; retrying default fields.', err);
-        return requestPageData(zuid, zuidD, zuidL, page, pageSize, false, modelParams);
-      }
-      throw err;
-    }
+    return parsePageResponse(rawText);
   };
 
   const getSelectedDivisionIds = () => [...scopeSelection.divisions];
@@ -1058,7 +1079,10 @@
     return checkbox?.nextElementSibling?.textContent.trim() || modelKey;
   }
 
-  const baseURL = `https://{{instance.domain}}/generate-csv.json`;
+  const instanceOrigin = `https://{{instance.domain}}`;
+  const baseURL = `${instanceOrigin}/generate-csv.json`;
+  const gqlBaseURL = `${instanceOrigin}/-/gql`;
+  const instantBaseURL = `${instanceOrigin}/-/instant`;
   const dataTableBody = document.querySelector('#dataTable tbody');
   const loader = document.getElementById('csv-loader');
   const dataTable = document.getElementById('dataTable');
@@ -1070,6 +1094,9 @@
   let draftColumnKeys = [...DEFAULT_COLUMN_KEYS];
   let pendingExportMode = null;
   let lastLoadState = null;
+  let modelCatalog = new Map();
+  let modelCatalogPromise = null;
+  const itemFieldCache = new Map();
   const exportFieldsModal =
     exportFieldsModalEl && window.bootstrap
       ? new bootstrap.Modal(exportFieldsModalEl)
@@ -1141,41 +1168,54 @@
 
   const normalizeFieldKey = (key) => `${FIELD_PREFIX}${key}`;
 
-  const flattenRow = (row) => {
-    const flatRow = { ...row };
-    const fields = row.fields && typeof row.fields === 'object' ? row.fields : {};
+  const applyFieldsToRow = (row, fields) => {
     const contentFields =
-      fields.data && typeof fields.data === 'object' && !Array.isArray(fields.data)
+      fields?.data && typeof fields.data === 'object' && !Array.isArray(fields.data)
         ? fields.data
         : fields;
+    if (!contentFields || typeof contentFields !== 'object') {
+      return row;
+    }
     Object.entries(contentFields).forEach(([key, value]) => {
       if (SKIPPED_FIELD_KEYS.has(key) || BASE_ROW_KEYS.has(key)) {
         return;
       }
-      flatRow[normalizeFieldKey(key)] = formatCellValue(value);
+      row[normalizeFieldKey(key)] = formatCellValue(value);
     });
+    return row;
+  };
+
+  const flattenRow = (row) => {
+    const flatRow = { ...row };
+    const fields = row.fields && typeof row.fields === 'object' ? row.fields : {};
+    applyFieldsToRow(flatRow, fields);
     delete flatRow.fields;
     return flatRow;
   };
 
   const normalizeRows = (rows) => rows.map(flattenRow);
 
-  const buildAvailableColumns = (rows) => {
+  const buildAvailableColumns = () => {
     const columns = DEFAULT_COLUMNS.map((column) => ({
       ...column,
       source: 'standard',
       models: []
     }));
     const dynamicColumns = new Map();
-    rows.forEach((row) => {
-      Object.keys(row)
-        .filter((key) => key.startsWith(FIELD_PREFIX))
+    getSelectedModelKeys().forEach((modelKey) => {
+      const config = MODEL_DATA_CONFIG[modelKey];
+      const model = config ? modelCatalog.get(config.endpoint) : null;
+      if (!config || !model?.fields) {
+        return;
+      }
+      Object.keys(model.fields)
         .sort()
-        .forEach((key) => {
+        .forEach((fieldKey) => {
+          const key = normalizeFieldKey(fieldKey);
           const existingColumn = dynamicColumns.get(key);
           if (existingColumn) {
-            if (row.model && !existingColumn.models.includes(row.model)) {
-              existingColumn.models.push(row.model);
+            if (!existingColumn.models.includes(config.label)) {
+              existingColumn.models.push(config.label);
             }
             return;
           }
@@ -1183,7 +1223,7 @@
             key,
             label: getColumnLabel(key),
             source: 'content',
-            models: row.model ? [row.model] : []
+            models: [config.label]
           };
           dynamicColumns.set(key, column);
           columns.push(column);
@@ -1202,6 +1242,32 @@
     if (!selectedColumnKeys.length) {
       selectedColumnKeys = [...DEFAULT_COLUMN_KEYS];
     }
+  };
+
+  const fetchJsonWithTimeout = async (url) => {
+    const response = await fetchWithTimeout(url, FETCH_TIMEOUT_MS);
+    if (!response.ok) {
+      const error = new Error(`Request failed with status ${response.status}`);
+      error.status = response.status;
+      throw error;
+    }
+    return response.json();
+  };
+
+  const loadModelCatalog = () => {
+    if (!modelCatalogPromise) {
+      modelCatalogPromise = fetchJsonWithTimeout(`${gqlBaseURL}/`)
+        .then((payload) => {
+          const models = Array.isArray(payload?.models) ? payload.models : [];
+          modelCatalog = new Map(models.map((model) => [model.name, model]));
+          return modelCatalog;
+        })
+        .catch((error) => {
+          modelCatalogPromise = null;
+          throw error;
+        });
+    }
+    return modelCatalogPromise;
   };
 
   const renderCheckboxList = (container, selectedKeys, namePrefix) => {
@@ -1296,13 +1362,184 @@
       (checkbox) => checkbox.value
     );
 
-  const resetColumnState = (rows) => {
-    availableColumns = buildAvailableColumns(rows);
+  const resetColumnState = () => {
+    availableColumns = buildAvailableColumns();
     selectedColumnKeys = availableColumns
       .map((column) => column.key)
       .filter((key) => DEFAULT_COLUMN_KEYS.includes(key));
     draftColumnKeys = [...selectedColumnKeys];
     renderTableFieldControls();
+  };
+
+  const getDynamicColumns = (columns) =>
+    columns.filter((column) => column.source === 'content');
+
+  const getItemCacheKey = (row) => `${row.model || ''}::${row.zuid || ''}`;
+
+  const getInstantItemFields = async (row) => {
+    const payload = await fetchJsonWithTimeout(
+      `${instantBaseURL}/${encodeURIComponent(row.zuid)}.json`
+    );
+    return payload?.data?.[0]?.content || {};
+  };
+
+  const getItemFields = (row) => {
+    const cacheKey = getItemCacheKey(row);
+    if (itemFieldCache.has(cacheKey)) {
+      return itemFieldCache.get(cacheKey);
+    }
+
+    const request = (async () => {
+      const config = MODEL_DATA_CONFIG_BY_LABEL.get(row.model);
+      if (!config) {
+        return getInstantItemFields(row);
+      }
+      try {
+        const params = new URLSearchParams({ zuid: row.zuid });
+        const payload = await fetchJsonWithTimeout(
+          `${gqlBaseURL}/${config.endpoint}.json?${params.toString()}`
+        );
+        const fields = Array.isArray(payload) ? payload[0] : payload;
+        if (!fields || typeof fields !== 'object') {
+          throw new Error('No GQL item data returned.');
+        }
+        return fields;
+      } catch (gqlError) {
+        console.warn(`GQL hydration failed for ${row.zuid}; using Instant API.`, gqlError);
+        return getInstantItemFields(row);
+      }
+    })().catch((error) => {
+      itemFieldCache.delete(cacheKey);
+      throw error;
+    });
+
+    itemFieldCache.set(cacheKey, request);
+    return request;
+  };
+
+  const runWithConcurrency = async (items, limit, task) => {
+    let nextIndex = 0;
+    const workers = Array.from(
+      { length: Math.min(limit, items.length) },
+      async () => {
+        while (nextIndex < items.length) {
+          const item = items[nextIndex];
+          nextIndex += 1;
+          await task(item);
+        }
+      }
+    );
+    await Promise.all(workers);
+  };
+
+  const hydrateRowsForColumns = async (rows, columns) => {
+    const dynamicColumns = getDynamicColumns(columns);
+    if (!dynamicColumns.length) {
+      return rows;
+    }
+
+    const rowsToHydrate = rows.filter((row) => {
+      const rowColumns = dynamicColumns.filter((column) =>
+        column.models.includes(row.model)
+      );
+      return (
+        rowColumns.length &&
+        rowColumns.some((column) => !Object.prototype.hasOwnProperty.call(row, column.key))
+      );
+    });
+
+    await runWithConcurrency(
+      rowsToHydrate,
+      FIELD_HYDRATION_CONCURRENCY,
+      async (row) => {
+        applyFieldsToRow(row, await getItemFields(row));
+      }
+    );
+    return rows;
+  };
+
+  const normalizeContentPath = (value) => {
+    if (!value) {
+      return '';
+    }
+    try {
+      return new URL(value, instanceOrigin).pathname.replace(/\/+$/, '') || '/';
+    } catch (error) {
+      return `${value}`.split('?')[0].replace(/\/+$/, '') || '/';
+    }
+  };
+
+  const hydrateModelRowsInBulk = async (rows, config) => {
+    const rowsByPath = new Map();
+    rows.forEach((row) => {
+      const path = normalizeContentPath(row.path_part || row.url);
+      if (!path) {
+        return;
+      }
+      if (!rowsByPath.has(path)) {
+        rowsByPath.set(path, []);
+      }
+      rowsByPath.get(path).push(row);
+    });
+
+    let page = 1;
+    while (rowsByPath.size && page <= MAX_GQL_BULK_PAGES) {
+      const params = new URLSearchParams({
+        limit: GQL_BULK_PAGE_SIZE,
+        page
+      });
+      const payload = await fetchJsonWithTimeout(
+        `${gqlBaseURL}/${config.endpoint}.json?${params.toString()}`
+      );
+      const items = Array.isArray(payload) ? payload : [];
+      items.forEach((fields) => {
+        const path = normalizeContentPath(fields?.uri);
+        const matchedRows = rowsByPath.get(path);
+        if (!matchedRows) {
+          return;
+        }
+        matchedRows.forEach((row) => {
+          applyFieldsToRow(row, fields);
+          itemFieldCache.set(getItemCacheKey(row), Promise.resolve(fields));
+        });
+        rowsByPath.delete(path);
+      });
+
+      if (items.length < GQL_BULK_PAGE_SIZE) {
+        break;
+      }
+      page += 1;
+    }
+
+    return [...rowsByPath.values()].flat();
+  };
+
+  const hydrateRowsForExport = async (rows, columns) => {
+    const dynamicColumns = getDynamicColumns(columns);
+    if (!dynamicColumns.length) {
+      return rows;
+    }
+
+    const modelLabels = new Set(
+      dynamicColumns.flatMap((column) => column.models)
+    );
+    for (const modelLabel of modelLabels) {
+      const modelRows = rows.filter((row) => row.model === modelLabel);
+      if (!modelRows.length) {
+        continue;
+      }
+      const config = MODEL_DATA_CONFIG_BY_LABEL.get(modelLabel);
+      if (!config || modelRows.length < GQL_BULK_THRESHOLD) {
+        await hydrateRowsForColumns(modelRows, columns);
+        continue;
+      }
+
+      const unmatchedRows = await hydrateModelRowsInBulk(modelRows, config);
+      if (unmatchedRows.length) {
+        await hydrateRowsForColumns(unmatchedRows, columns);
+      }
+    }
+    return rows;
   };
 
   const showExportModal = () => {
@@ -1464,7 +1701,6 @@
         scope.zuidL,
         page,
         pageSize,
-        true,
         scope.modelParams
       );
     } catch (err) {
@@ -1519,10 +1755,15 @@
       if (!scopes.length) {
         throw new Error('Missing selection values.');
       }
+      const catalogRequest = loadModelCatalog().catch((error) => {
+        console.warn('Unable to load the GQL field catalog.', error);
+        return modelCatalog;
+      });
       const pageData = [];
       for (const scope of scopes) {
         pageData.push(await requestScopePage(scope, page, pageSize));
       }
+      await catalogRequest;
       data = mergeRows(pageData.flat());
       lastLoadState = {
         page,
@@ -1532,7 +1773,7 @@
       };
       const shouldOpenColumnPanel = !hasLoadedPage && data.length > 0;
       hasLoadedPage = true;
-      resetColumnState(data);
+      resetColumnState();
       if (shouldOpenColumnPanel) {
         columnControls.open = true;
       }
@@ -1552,7 +1793,7 @@
       data = [];
       lastLoadState = null;
       hasLoadedPage = true;
-      resetColumnState(data);
+      resetColumnState();
       renderTable();
       resultsSummary.textContent = `No rows loaded for server page ${page}`;
     } finally {
@@ -1706,11 +1947,12 @@ function renderTable() {
     return availableColumns.filter((column) => selectedKeys.includes(column.key));
   };
 
-  const exportCurrentPage = (columns) => {
+  const exportCurrentPage = async (columns) => {
     if (!data.length) {
       throw new Error('No data to export. Please generate data first.');
     }
     const rows = searchInput.value ? filteredData : data;
+    await hydrateRowsForExport(rows, columns);
     downloadRowsAsCSV(rows, columns);
   };
 
@@ -1807,6 +2049,8 @@ function renderTable() {
       if (!exportRows.length) {
         throw new Error('No rows match the current table search.');
       }
+      loaderText.textContent = 'Loading selected export fields...';
+      await hydrateRowsForExport(exportRows, columns);
       downloadRowsAsCSV(exportRows, columns);
     } catch (err) {
       const message =
@@ -1889,12 +2133,30 @@ function renderTable() {
     columnControls.open = false;
   });
 
-  applyColumnSelectionBtn.addEventListener('click', () => {
-    updateColumnSelection(draftColumnKeys);
-    draftColumnKeys = [...selectedColumnKeys];
-    renderTableFieldControls();
-    columnControls.open = false;
-    renderTable();
+  applyColumnSelectionBtn.addEventListener('click', async () => {
+    try {
+      setError(null);
+      setBusy(true);
+      loaderText.textContent = 'Loading selected table fields...';
+      loader.classList.add('d-flex');
+      loader.classList.remove('d-none');
+      updateColumnSelection(draftColumnKeys);
+      await hydrateRowsForColumns(data, getSelectedColumns());
+      lastLoadState = lastLoadState
+        ? { ...lastLoadState, rows: [...data] }
+        : lastLoadState;
+      draftColumnKeys = [...selectedColumnKeys];
+      renderTableFieldControls();
+      columnControls.open = false;
+      renderTable();
+    } catch (error) {
+      setError(error.message || 'Failed to load selected table fields.');
+    } finally {
+      loaderText.textContent = 'Loading server page...';
+      loader.classList.remove('d-flex');
+      loader.classList.add('d-none');
+      setBusy(false);
+    }
   });
 
   exportAllBtn.addEventListener('click', async () => {
@@ -1935,10 +2197,22 @@ function renderTable() {
       if (pendingExportMode === 'all') {
         await exportAllPages(columns);
       } else {
-        exportCurrentPage(columns);
+        setBusy(true);
+        loaderText.textContent = 'Loading selected export fields...';
+        loader.classList.add('d-flex');
+        loader.classList.remove('d-none');
+        await exportCurrentPage(columns);
+        loaderText.textContent = 'Loading server page...';
+        loader.classList.remove('d-flex');
+        loader.classList.add('d-none');
+        setBusy(false);
       }
     } catch (err) {
       setError(err.message || 'Failed to export CSV.');
+      loaderText.textContent = 'Loading server page...';
+      loader.classList.remove('d-flex');
+      loader.classList.add('d-none');
+      setBusy(false);
     }
   });
 
