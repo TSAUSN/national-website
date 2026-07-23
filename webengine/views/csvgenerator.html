@@ -684,7 +684,10 @@
     search.addEventListener('input', renderList);
     cancelBtn.addEventListener('click', close);
     applyBtn.addEventListener('click', () => {
-      setValue(draftValues, true);
+      const checkedValues = Array.from(
+        list.querySelectorAll('input[type="checkbox"]:checked')
+      ).map((checkbox) => checkbox.value);
+      setValue(checkedValues, true);
       close();
       if (typeof config.onApply === 'function') {
         config.onApply();
@@ -1309,12 +1312,20 @@
     });
   };
 
-  const buildScopeRequests = (territoryZuid, divisionValues, locationValues) => {
+  const buildScopeRequests = (
+    territoryZuid,
+    divisionValues,
+    locationValues,
+    options = {}
+  ) => {
     const scopes = [];
     const seen = new Set();
     const servicesSelected = isModelSelected(SERVICES_MODEL_KEY);
-    const needsExpandedServiceScopes = servicesSelected && !locationValues.length;
-    const baseModelParams = needsExpandedServiceScopes
+    const expandServices = options.expandServices === true;
+    const hasLocationScope = locationValues.length > 0;
+    const needsExpandedServiceScopes = servicesSelected && !hasLocationScope && expandServices;
+    const shouldExcludeServicesFromBase = servicesSelected && !hasLocationScope;
+    const baseModelParams = shouldExcludeServicesFromBase
       ? getSelectedModelParams({ excludeServices: true })
       : getSelectedModelParams();
     const serviceModelParams = getSelectedModelParams({ onlyServices: true });
@@ -1751,7 +1762,9 @@ function renderTable() {
       return;
     }
 
-    const scopes = buildScopeRequests(zuid, divisionValues, locationValues);
+    const scopes = buildScopeRequests(zuid, divisionValues, locationValues, {
+      expandServices: true
+    });
     if (!scopes.length) {
       setError('Missing selection values.');
       return;
