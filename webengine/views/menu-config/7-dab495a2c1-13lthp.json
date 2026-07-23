@@ -23,7 +23,7 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "Commitment to all",
+    "page_name": "About The Salvation Army",
     "page-zuid": "7-90eff9e999-tpj14d",
     "sort": 1,
     "parent": "about_us"
@@ -104,6 +104,12 @@
     "page_name": "Ways to give",
     "page-zuid": null,
     "parent": null
+  },
+  {
+    "type": "view-all",
+    "page_name": "",
+    "page-zuid": null,
+    "parent": "ways_to_give"
   },
   {
     "type": "menu",

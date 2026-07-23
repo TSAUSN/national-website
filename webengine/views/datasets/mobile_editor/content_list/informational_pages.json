@@ -10,6 +10,7 @@
 {{$queryFilter = informational_page.title LIKE {$search} AND informational_page.location IS NULL AND informational_page.division IS NULL AND informational_page.territory IS NULL AND national = 1}}
 
 
+{{$queryFilter}}
 {{if {request.queryParam(skip)} }}
 {{$skip = {request.queryParam(skip)} }}
 {{else}}

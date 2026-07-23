@@ -3,7 +3,7 @@
 		"name": "layout:root:column:0",
 		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
 		"children": {
-			"design:columns:1 column - 1 row my-3:48:41": {
+			"design:columns:1 column - 1 row my-3:48:97": {
 				"uid": "301",
 				"name": "1 column - 1 row",
 				"type": "columns",
@@ -24,18 +24,18 @@
 				"groupCategory": "isNew",
 				"group": "",
 				"position": 0,
-				"fullName": "design:columns:1 column - 1 row my-3:48:41",
+				"fullName": "design:columns:1 column - 1 row my-3:48:97",
 				"primarytype": "design",
 				"newLoc": "layout:root:column:0",
 				"oldLoc": "bank",
 				"children": {
-					"design:columns:1 column - 1 row my-3:48:41-1:1 column - 1 row:0": {
+					"design:columns:1 column - 1 row my-3:48:97-1:1 column - 1 row:0": {
 						"width": 1,
 						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
 						"classes": "col-lg-12 col-md-12 col-sm-12",
 						"droppable": true,
 						"children": {
-							"content:text:1:36": {
+							"content:text:1:31": {
 								"icon": "text-height",
 								"name": "Heading",
 								"type": "text",
@@ -44,18 +44,18 @@
 								"draggable": true,
 								"content": "Our 2026 Advisory Board Members",
 								"position": 0,
-								"fullName": "content:text:1:36",
+								"fullName": "content:text:1:31",
 								"htmlElement": "h5",
 								"primarytype": "content",
-								"id": "content:text:1:36",
+								"id": "content:text:1:31",
 								"styles": {
 									"textAlign": "center"
 								},
-								"newLoc": "design:columns:1 column - 1 row my-3:48:41-1:1 column - 1 row:0",
+								"newLoc": "design:columns:1 column - 1 row my-3:48:97-1:1 column - 1 row:0",
 								"oldLoc": "bank",
 								"contentOverride": false
 							},
-							"content:textarea:2:16": {
+							"content:textarea:2:69": {
 								"icon": "align-justify",
 								"name": "Paragraph",
 								"type": "textarea",
@@ -64,20 +64,20 @@
 								"draggable": true,
 								"content": "The Central Virginia Area Command Advisory Board consists of leaders who represent our community and bring unique qualities to help us continue our mission of “Doing the Most Good” in Central Virginia. The hardworking men and women share in the vision to transform and restore lives in the city of Richmond. They work together to strengthen The Salvation Army of Central Virginia as an authoritative resource and serve by reviewing annual budgets, helping coordinate programs with other agencies, and providing advice for local activities and fundraising campaigns.",
 								"position": 1,
-								"fullName": "content:textarea:2:16",
+								"fullName": "content:textarea:2:69",
 								"htmlElement": "p",
 								"primarytype": "content",
-								"id": "content:textarea:2:16",
+								"id": "content:textarea:2:69",
 								"styles": {
 									"textAlign": "center",
 									"maxWidth": "768px",
 									"margin": "auto"
 								},
-								"newLoc": "design:columns:1 column - 1 row my-3:48:41-1:1 column - 1 row:0",
+								"newLoc": "design:columns:1 column - 1 row my-3:48:97-1:1 column - 1 row:0",
 								"oldLoc": "bank",
 								"contentOverride": false
 							},
-							"design:design:whitespace-xl:3:66": {
+							"design:design:whitespace-xl:3:62": {
 								"uid": "354",
 								"name": "Whitespace - Extra Large",
 								"type": "design",
@@ -86,12 +86,12 @@
 								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
 								"droppable": false,
 								"position": 2,
-								"fullName": "design:design:whitespace-xl:3:66",
+								"fullName": "design:design:whitespace-xl:3:62",
 								"primarytype": "design",
-								"newLoc": "design:columns:1 column - 1 row my-3:48:41-1:1 column - 1 row:0",
+								"newLoc": "design:columns:1 column - 1 row my-3:48:97-1:1 column - 1 row:0",
 								"oldLoc": "bank"
 							},
-							"content:textarea:4:78": {
+							"content:textarea:4:25": {
 								"icon": "align-justify",
 								"name": "Paragraph",
 								"type": "textarea",
@@ -100,26 +100,26 @@
 								"draggable": true,
 								"content": "Roster updated January 2026",
 								"position": 3,
-								"fullName": "content:textarea:4:78",
+								"fullName": "content:textarea:4:25",
 								"htmlElement": "p",
 								"primarytype": "content",
-								"id": "content:textarea:4:78",
+								"id": "content:textarea:4:25",
 								"styles": {
 									"textAlign": "center",
 									"maxWidth": "768px",
 									"margin": "auto",
 									"fontStyle": "italic"
 								},
-								"newLoc": "design:columns:1 column - 1 row my-3:48:41-1:1 column - 1 row:0",
+								"newLoc": "design:columns:1 column - 1 row my-3:48:97-1:1 column - 1 row:0",
 								"oldLoc": "bank",
 								"contentOverride": false
 							},
-							"design:columns:2columns:37:64": {
+							"design:columns:2columns:37:52": {
 								"uid": "11",
 								"name": "2 Columns - Equal",
 								"type": "columns",
-								"classes": "row my-3 gap-3",
-								"html": "<div class=\"row my-3 gap-3\">*</div>",
+								"classes": "row my-3 g-4",
+								"html": "<div class=\"row my-3 g-4\">*</div>",
 								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
 								"droppable": false,
 								"numberOfColumns": 2,
@@ -127,32 +127,32 @@
 								"columns": [
 									{
 										"width": "1",
-										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
-										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12 col-xs-12",
 										"droppable": true
 									},
 									{
 										"width": "1",
-										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
-										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12 col-xs-12",
 										"droppable": true
 									}
 								],
 								"groupCategory": "isNew",
 								"group": "",
 								"position": 4,
-								"fullName": "design:columns:2columns:37:64",
+								"fullName": "design:columns:2columns:37:52",
 								"primarytype": "design",
-								"newLoc": "design:columns:1 column - 1 row my-3:48:41-1:1 column - 1 row:0",
+								"newLoc": "design:columns:1 column - 1 row my-3:48:97-1:1 column - 1 row:0",
 								"oldLoc": "bank",
 								"children": {
-									"design:columns:2columns:37:64-1:2 Columns - Equal:0": {
+									"design:columns:2columns:37:52-1:2 Columns - Equal:0": {
 										"width": "1",
-										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
-										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12 col-xs-12",
 										"droppable": true,
 										"children": {
-											"content:textarea:5:42": {
+											"content:textarea:5:37": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -161,19 +161,19 @@
 												"draggable": true,
 												"content": "Mr. Jamie Head",
 												"position": 0,
-												"fullName": "content:textarea:5:42",
+												"fullName": "content:textarea:5:37",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:5:42",
+												"id": "content:textarea:5:37",
 												"styles": {
 													"textAlign": "center",
 													"fontWeight": "700"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:6:41": {
+											"content:textarea:6:76": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -182,19 +182,19 @@
 												"draggable": true,
 												"content": "Chair",
 												"position": 1,
-												"fullName": "content:textarea:6:41",
+												"fullName": "content:textarea:6:76",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:6:41",
+												"id": "content:textarea:6:76",
 												"styles": {
 													"textAlign": "center",
 													"fontStyle": "italic"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:7:62": {
+											"content:textarea:7:61": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -203,18 +203,18 @@
 												"draggable": true,
 												"content": "Hunton Andrews Kurth llp",
 												"position": 2,
-												"fullName": "content:textarea:7:62",
+												"fullName": "content:textarea:7:61",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:7:62",
+												"id": "content:textarea:7:61",
 												"styles": {
 													"textAlign": "center"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:8:43": {
+											"content:textarea:8:48": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -223,19 +223,19 @@
 												"draggable": true,
 												"content": "Mr. Scott Aronson",
 												"position": 3,
-												"fullName": "content:textarea:8:43",
+												"fullName": "content:textarea:8:48",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:8:43",
+												"id": "content:textarea:8:48",
 												"styles": {
 													"textAlign": "center",
 													"fontWeight": "700"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:9:50": {
+											"content:textarea:9:39": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -244,20 +244,20 @@
 												"draggable": true,
 												"content": "Immediate Past Chair",
 												"position": 4,
-												"fullName": "content:textarea:9:50",
+												"fullName": "content:textarea:9:39",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:9:50",
+												"id": "content:textarea:9:39",
 												"styles": {
 													"textAlign": "center",
 													"fontWeight": "700",
 													"fontStyle": "italic"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:10:9": {
+											"content:textarea:10:39": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -266,18 +266,18 @@
 												"draggable": true,
 												"content": "Ingenuitive Ventures",
 												"position": 5,
-												"fullName": "content:textarea:10:9",
+												"fullName": "content:textarea:10:39",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:10:9",
+												"id": "content:textarea:10:39",
 												"styles": {
 													"textAlign": "center"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:11:29": {
+											"content:textarea:11:34": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -286,19 +286,19 @@
 												"draggable": true,
 												"content": "Mr. Randy Ellis",
 												"position": 6,
-												"fullName": "content:textarea:11:29",
+												"fullName": "content:textarea:11:34",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:11:29",
+												"id": "content:textarea:11:34",
 												"styles": {
 													"textAlign": "center",
 													"fontWeight": "700"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:12:68": {
+											"content:textarea:12:89": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -307,18 +307,18 @@
 												"draggable": true,
 												"content": "Johnson &amp; Johnson",
 												"position": 7,
-												"fullName": "content:textarea:12:68",
+												"fullName": "content:textarea:12:89",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:12:68",
+												"id": "content:textarea:12:89",
 												"styles": {
 													"textAlign": "center"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:13:39": {
+											"content:textarea:13:95": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -327,19 +327,19 @@
 												"draggable": true,
 												"content": "Ms. Nicole \"Nicci\" Diamond",
 												"position": 8,
-												"fullName": "content:textarea:13:39",
+												"fullName": "content:textarea:13:95",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:13:39",
+												"id": "content:textarea:13:95",
 												"styles": {
 													"textAlign": "center",
 													"fontWeight": "700"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:14:73": {
+											"content:textarea:14:89": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -348,18 +348,18 @@
 												"draggable": true,
 												"content": "NextHome Signature Properties",
 												"position": 9,
-												"fullName": "content:textarea:14:73",
+												"fullName": "content:textarea:14:89",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:14:73",
+												"id": "content:textarea:14:89",
 												"styles": {
 													"textAlign": "center"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:15:37": {
+											"content:textarea:15:78": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -368,19 +368,19 @@
 												"draggable": true,
 												"content": "Mr. Tishaun Dennis",
 												"position": 10,
-												"fullName": "content:textarea:15:37",
+												"fullName": "content:textarea:15:78",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:15:37",
+												"id": "content:textarea:15:78",
 												"styles": {
 													"textAlign": "center",
 													"fontWeight": "700"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:16:41": {
+											"content:textarea:16:11": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -389,19 +389,19 @@
 												"draggable": true,
 												"content": "Advisory Council Chair",
 												"position": 11,
-												"fullName": "content:textarea:16:41",
+												"fullName": "content:textarea:16:11",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:16:41",
+												"id": "content:textarea:16:11",
 												"styles": {
 													"textAlign": "center",
 													"fontStyle": "italic"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:17:93": {
+											"content:textarea:17:34": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -410,18 +410,18 @@
 												"draggable": true,
 												"content": "Usi Insurance Services",
 												"position": 12,
-												"fullName": "content:textarea:17:93",
+												"fullName": "content:textarea:17:34",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:17:93",
+												"id": "content:textarea:17:34",
 												"styles": {
 													"textAlign": "center"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:18:74": {
+											"content:textarea:18:34": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -430,19 +430,19 @@
 												"draggable": true,
 												"content": "Mr. John Foley",
 												"position": 13,
-												"fullName": "content:textarea:18:74",
+												"fullName": "content:textarea:18:34",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:18:74",
+												"id": "content:textarea:18:34",
 												"styles": {
 													"textAlign": "center",
 													"fontWeight": "700"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:19:40": {
+											"content:textarea:19:17": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -451,19 +451,19 @@
 												"draggable": true,
 												"content": "Community Relations &amp; Development Committee Chair",
 												"position": 14,
-												"fullName": "content:textarea:19:40",
+												"fullName": "content:textarea:19:17",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:19:40",
+												"id": "content:textarea:19:17",
 												"styles": {
 													"textAlign": "center",
 													"fontStyle": "italic"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:20:7": {
+											"content:textarea:20:34": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -472,27 +472,27 @@
 												"draggable": true,
 												"content": "Recharged",
 												"position": 15,
-												"fullName": "content:textarea:20:7",
+												"fullName": "content:textarea:20:34",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:20:7",
+												"id": "content:textarea:20:34",
 												"styles": {
 													"textAlign": "center"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:0",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:0",
 												"oldLoc": "bank",
 												"contentOverride": false
 											}
 										},
 										"position": 0
 									},
-									"design:columns:2columns:37:64-1:2 Columns - Equal:1": {
+									"design:columns:2columns:37:52-1:2 Columns - Equal:1": {
 										"width": "1",
-										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12\">*</div>",
-										"classes": "col-lg-6 col-md-6 col-sm-12",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12 col-xs-12",
 										"droppable": true,
 										"children": {
-											"content:textarea:21:65": {
+											"content:textarea:21:71": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -501,19 +501,19 @@
 												"draggable": true,
 												"content": "Mr. Chuck James, Jr., Esq.",
 												"position": 0,
-												"fullName": "content:textarea:21:65",
+												"fullName": "content:textarea:21:71",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:21:65",
+												"id": "content:textarea:21:71",
 												"styles": {
 													"textAlign": "center",
 													"fontWeight": "700"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:22:65": {
+											"content:textarea:22:86": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -522,18 +522,18 @@
 												"draggable": true,
 												"content": "Williams Mullen",
 												"position": 1,
-												"fullName": "content:textarea:22:65",
+												"fullName": "content:textarea:22:86",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:22:65",
+												"id": "content:textarea:22:86",
 												"styles": {
 													"textAlign": "center"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:23:75": {
+											"content:textarea:23:89": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -542,19 +542,19 @@
 												"draggable": true,
 												"content": "Mr. Michael Pruitt",
 												"position": 2,
-												"fullName": "content:textarea:23:75",
+												"fullName": "content:textarea:23:89",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:23:75",
+												"id": "content:textarea:23:89",
 												"styles": {
 													"textAlign": "center",
 													"fontWeight": "700"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:24:89": {
+											"content:textarea:24:21": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -563,19 +563,19 @@
 												"draggable": true,
 												"content": "Property Committee Chair",
 												"position": 3,
-												"fullName": "content:textarea:24:89",
+												"fullName": "content:textarea:24:21",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:24:89",
+												"id": "content:textarea:24:21",
 												"styles": {
 													"textAlign": "center",
 													"fontStyle": "italic"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:25:0": {
+											"content:textarea:25:93": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -584,18 +584,18 @@
 												"draggable": true,
 												"content": "Pruitt Associates, llc",
 												"position": 4,
-												"fullName": "content:textarea:25:0",
+												"fullName": "content:textarea:25:93",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:25:0",
+												"id": "content:textarea:25:93",
 												"styles": {
 													"textAlign": "center"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:26:77": {
+											"content:textarea:26:82": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -604,19 +604,19 @@
 												"draggable": true,
 												"content": "Ms. Ann Ramage",
 												"position": 5,
-												"fullName": "content:textarea:26:77",
+												"fullName": "content:textarea:26:82",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:26:77",
+												"id": "content:textarea:26:82",
 												"styles": {
 													"textAlign": "center",
 													"fontWeight": "700"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:27:96": {
+											"content:textarea:27:84": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -625,18 +625,18 @@
 												"draggable": true,
 												"content": "Keiter cpa",
 												"position": 6,
-												"fullName": "content:textarea:27:96",
+												"fullName": "content:textarea:27:84",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:27:96",
+												"id": "content:textarea:27:84",
 												"styles": {
 													"textAlign": "center"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:28:36": {
+											"content:textarea:28:96": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -645,19 +645,19 @@
 												"draggable": true,
 												"content": "Mr. Kevin Robinson",
 												"position": 7,
-												"fullName": "content:textarea:28:36",
+												"fullName": "content:textarea:28:96",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:28:36",
+												"id": "content:textarea:28:96",
 												"styles": {
 													"textAlign": "center",
 													"fontWeight": "700"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:29:53": {
+											"content:textarea:29:41": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -666,18 +666,18 @@
 												"draggable": true,
 												"content": "Dominion Resources Services",
 												"position": 8,
-												"fullName": "content:textarea:29:53",
+												"fullName": "content:textarea:29:41",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:29:53",
+												"id": "content:textarea:29:41",
 												"styles": {
 													"textAlign": "center"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:30:29": {
+											"content:textarea:30:32": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -686,19 +686,19 @@
 												"draggable": true,
 												"content": "Mr. Chris Sill",
 												"position": 9,
-												"fullName": "content:textarea:30:29",
+												"fullName": "content:textarea:30:32",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:30:29",
+												"id": "content:textarea:30:32",
 												"styles": {
 													"textAlign": "center",
 													"fontWeight": "700"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:31:11": {
+											"content:textarea:31:67": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -707,19 +707,19 @@
 												"draggable": true,
 												"content": "Finance Committee Chair",
 												"position": 10,
-												"fullName": "content:textarea:31:11",
+												"fullName": "content:textarea:31:67",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:31:11",
+												"id": "content:textarea:31:67",
 												"styles": {
 													"textAlign": "center",
 													"fontStyle": "italic"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:32:7": {
+											"content:textarea:32:4": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -728,18 +728,18 @@
 												"draggable": true,
 												"content": "Sima Financial Group, Inc.",
 												"position": 11,
-												"fullName": "content:textarea:32:7",
+												"fullName": "content:textarea:32:4",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:32:7",
+												"id": "content:textarea:32:4",
 												"styles": {
 													"textAlign": "center"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:33:24": {
+											"content:textarea:33:33": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -748,19 +748,19 @@
 												"draggable": true,
 												"content": "Mr. Richard Warren",
 												"position": 12,
-												"fullName": "content:textarea:33:24",
+												"fullName": "content:textarea:33:33",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:33:24",
+												"id": "content:textarea:33:33",
 												"styles": {
 													"textAlign": "center",
 													"fontWeight": "700"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:34:72": {
+											"content:textarea:34:97": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -769,18 +769,18 @@
 												"draggable": true,
 												"content": "Hunton Andrews Kurth llp",
 												"position": 13,
-												"fullName": "content:textarea:34:72",
+												"fullName": "content:textarea:34:97",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:34:72",
+												"id": "content:textarea:34:97",
 												"styles": {
 													"textAlign": "center"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:35:31": {
+											"content:textarea:35:34": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -789,19 +789,19 @@
 												"draggable": true,
 												"content": "Ms. Mary Ann Wilson",
 												"position": 14,
-												"fullName": "content:textarea:35:31",
+												"fullName": "content:textarea:35:34",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:35:31",
+												"id": "content:textarea:35:34",
 												"styles": {
 													"textAlign": "center",
 													"fontWeight": "700"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											},
-											"content:textarea:36:20": {
+											"content:textarea:36:6": {
 												"icon": "align-justify",
 												"name": "Paragraph",
 												"type": "textarea",
@@ -810,14 +810,14 @@
 												"draggable": true,
 												"content": "Retired U.S. Dept. Of Housing and Urban Development",
 												"position": 15,
-												"fullName": "content:textarea:36:20",
+												"fullName": "content:textarea:36:6",
 												"htmlElement": "p",
 												"primarytype": "content",
-												"id": "content:textarea:36:20",
+												"id": "content:textarea:36:6",
 												"styles": {
 													"textAlign": "center"
 												},
-												"newLoc": "design:columns:2columns:37:64-1:2 Columns - Equal:1",
+												"newLoc": "design:columns:2columns:37:52-1:2 Columns - Equal:1",
 												"oldLoc": "bank",
 												"contentOverride": false
 											}
@@ -826,7 +826,7 @@
 									}
 								}
 							},
-							"design:design:whitespace-xl:38:60": {
+							"design:design:whitespace-xl:38:19": {
 								"uid": "354",
 								"name": "Whitespace - Extra Large",
 								"type": "design",
@@ -835,13 +835,13 @@
 								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
 								"droppable": false,
 								"position": 5,
-								"fullName": "design:design:whitespace-xl:38:60",
+								"fullName": "design:design:whitespace-xl:38:19",
 								"primarytype": "design",
-								"newLoc": "design:columns:1 column - 1 row my-3:48:41-1:1 column - 1 row:0",
+								"newLoc": "design:columns:1 column - 1 row my-3:48:97-1:1 column - 1 row:0",
 								"oldLoc": "bank",
 								"preserveRequired": true
 							},
-							"content:wysiwyg_basic:39:28": {
+							"content:wysiwyg_basic:39:79": {
 								"icon": "outdent",
 								"name": "WYSIWYG",
 								"type": "wysiwyg_basic",
@@ -851,17 +851,17 @@
 								"draggable": true,
 								"model": "6",
 								"position": 6,
-								"fullName": "content:wysiwyg_basic:39:28",
+								"fullName": "content:wysiwyg_basic:39:79",
 								"htmlElement": "html",
 								"primarytype": "content",
-								"id": "content:wysiwyg_basic:39:28",
+								"id": "content:wysiwyg_basic:39:79",
 								"styles": {},
-								"newLoc": "design:columns:1 column - 1 row my-3:48:41-1:1 column - 1 row:0",
+								"newLoc": "design:columns:1 column - 1 row my-3:48:97-1:1 column - 1 row:0",
 								"oldLoc": "bank",
 								"contentOverride": false,
 								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">Life Members</h5>\n\n<p style=\"text-align:center;\">\n\t<strong>Mr. Bobby Ukrop</strong><br>\n\tUkrop's Homestyle Foods\n</p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<h5 style=\"text-align:center;\">Emeritus Members</h5>\n\n<p style=\"text-align:center;\">\n\t<strong>Mr. Coleman Rice, Jr.</strong><br>\n\tColeman Rice Associates, Ltd.\n</p></div>"
 							},
-							"content:wysiwyg_basic:42:78": {
+							"content:wysiwyg_basic:42:7": {
 								"icon": "outdent",
 								"name": "WYSIWYG",
 								"type": "wysiwyg_basic",
@@ -871,12 +871,12 @@
 								"draggable": true,
 								"model": "6",
 								"position": 7,
-								"fullName": "content:wysiwyg_basic:42:78",
+								"fullName": "content:wysiwyg_basic:42:7",
 								"htmlElement": "html",
 								"primarytype": "content",
-								"id": "content:wysiwyg_basic:42:78",
+								"id": "content:wysiwyg_basic:42:7",
 								"styles": {},
-								"newLoc": "design:columns:1 column - 1 row my-3:48:41-1:1 column - 1 row:0",
+								"newLoc": "design:columns:1 column - 1 row my-3:48:97-1:1 column - 1 row:0",
 								"oldLoc": "bank",
 								"contentOverride": false,
 								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">Ex-Officio Members</h5>\n\n<p style=\"text-align:center;\">\n\t<strong>Major Daniel Nelson</strong><br>\n\tPotomac Division\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Major Christine Kim</strong><br>\n\tArea Commander\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Major Samuel Kim</strong><br>\n\tArea Commander\n</p></div>"
