@@ -638,6 +638,18 @@
     search.className = 'form-control form-control-sm checkbox-combo-search';
     search.placeholder = config.searchPlaceholder || 'Search...';
 
+    const selectAllRow = document.createElement('label');
+    selectAllRow.className = 'checkbox-combo-select-all';
+
+    const selectAllCheckbox = document.createElement('input');
+    selectAllCheckbox.type = 'checkbox';
+    selectAllCheckbox.id = `${selectEl.id}-select-all`;
+
+    const selectAllText = document.createElement('span');
+    selectAllRow.htmlFor = selectAllCheckbox.id;
+    selectAllRow.appendChild(selectAllCheckbox);
+    selectAllRow.appendChild(selectAllText);
+
     const list = document.createElement('div');
     list.className = 'checkbox-combo-list';
 
@@ -657,6 +669,7 @@
     footer.appendChild(cancelBtn);
     footer.appendChild(applyBtn);
     menu.appendChild(search);
+    menu.appendChild(selectAllRow);
     menu.appendChild(list);
     menu.appendChild(footer);
     root.appendChild(toggle);
@@ -678,11 +691,31 @@
 
     const syncToggle = () => {
       const selectedText = getSelectedOptionText();
-      toggle.textContent = selectedText.length
-        ? selectedText.join(', ')
-        : config.placeholder;
+      const selectionName = config.selectionName || 'options';
+      if (options.length > 1 && selectedText.length === options.length) {
+        toggle.textContent = `All ${options.length} ${selectionName} selected`;
+      } else if (selectedText.length > 2) {
+        toggle.textContent = `${selectedText.length} ${selectionName} selected`;
+      } else {
+        toggle.textContent = selectedText.length
+          ? selectedText.join(', ')
+          : config.placeholder;
+      }
       toggle.disabled = !isEnabled;
       root.classList.toggle('is-disabled', !isEnabled);
+    };
+
+    const syncSelectAll = () => {
+      const selectedCount = options.filter((option) =>
+        draftValues.includes(option.value)
+      ).length;
+      selectAllCheckbox.checked =
+        options.length > 0 && selectedCount === options.length;
+      selectAllCheckbox.indeterminate =
+        selectedCount > 0 && selectedCount < options.length;
+      selectAllCheckbox.disabled = options.length === 0;
+      selectAllText.textContent =
+        `${config.selectAllLabel || 'Select all available'} (${options.length})`;
     };
 
     const renderList = () => {
@@ -692,6 +725,7 @@
         : options;
 
       list.innerHTML = '';
+      syncSelectAll();
       if (!visibleOptions.length) {
         const empty = document.createElement('div');
         empty.className = 'checkbox-combo-empty';
@@ -718,6 +752,7 @@
           } else {
             draftValues = draftValues.filter((value) => value !== option.value);
           }
+          syncSelectAll();
         });
 
         const text = document.createElement('span');
@@ -801,6 +836,12 @@
     });
 
     search.addEventListener('input', renderList);
+    selectAllCheckbox.addEventListener('change', () => {
+      draftValues = selectAllCheckbox.checked
+        ? options.map((option) => option.value)
+        : [];
+      renderList();
+    });
     cancelBtn.addEventListener('click', close);
     applyBtn.addEventListener('click', () => {
       setValue(draftValues);
@@ -842,12 +883,16 @@
     divisionCombo = createCheckboxCombo(selectZuidD, {
       placeholder: 'Select divisions',
       searchPlaceholder: 'Search divisions',
+      selectAllLabel: 'Select all available divisions',
+      selectionName: 'divisions',
       emptyText: 'No divisions available.',
       onApply: handleDivisionSelectionChange
     });
     locationCombo = createCheckboxCombo(selectZuidL, {
       placeholder: 'Select locations',
       searchPlaceholder: 'Search locations',
+      selectAllLabel: 'Select all available locations',
+      selectionName: 'locations',
       emptyText: 'Select a division first.',
       onApply: handleLocationSelectionChange
     });
@@ -2842,6 +2887,32 @@ body {
 
 .checkbox-combo-search {
   margin-bottom: 8px;
+}
+
+.checkbox-combo-select-all {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  margin-bottom: 6px;
+  padding: 7px 8px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-soft);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.checkbox-combo-select-all input {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.checkbox-combo-select-all:has(input:disabled) {
+  color: var(--ink-soft);
+  cursor: not-allowed;
 }
 
 .checkbox-combo-list {
