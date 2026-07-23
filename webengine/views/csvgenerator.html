@@ -488,21 +488,243 @@
   let divisionTomSelect = null;
   let locationTomSelect = null;
 
-  const initMultiSelects = () => {
-    if (typeof TomSelect === 'undefined') {
-      return;
-    }
-    divisionTomSelect = new TomSelect(selectZuidD, {
-      plugins: ['remove_button'],
-      placeholder: 'Select divisions',
-      maxItems: null,
-      create: false
+  const createCheckboxCombo = (selectEl, config) => {
+    let options = [];
+    let selectedValues = [];
+    let draftValues = [];
+    let isOpen = false;
+    let isEnabled = !selectEl.disabled;
+
+    const root = document.createElement('div');
+    root.className = 'checkbox-combo';
+
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'checkbox-combo-toggle';
+    toggle.setAttribute('aria-haspopup', 'listbox');
+    toggle.setAttribute('aria-expanded', 'false');
+
+    const menu = document.createElement('div');
+    menu.className = 'checkbox-combo-menu d-none';
+
+    const search = document.createElement('input');
+    search.type = 'text';
+    search.className = 'form-control form-control-sm checkbox-combo-search';
+    search.placeholder = config.searchPlaceholder || 'Search...';
+
+    const list = document.createElement('div');
+    list.className = 'checkbox-combo-list';
+
+    const footer = document.createElement('div');
+    footer.className = 'checkbox-combo-footer';
+
+    const cancelBtn = document.createElement('button');
+    cancelBtn.type = 'button';
+    cancelBtn.className = 'btn btn-outline-secondary btn-sm';
+    cancelBtn.textContent = 'Cancel';
+
+    const applyBtn = document.createElement('button');
+    applyBtn.type = 'button';
+    applyBtn.className = 'btn btn-primary btn-sm';
+    applyBtn.textContent = 'Apply';
+
+    footer.appendChild(cancelBtn);
+    footer.appendChild(applyBtn);
+    menu.appendChild(search);
+    menu.appendChild(list);
+    menu.appendChild(footer);
+    root.appendChild(toggle);
+    root.appendChild(menu);
+
+    selectEl.classList.add('checkbox-combo-native');
+    selectEl.insertAdjacentElement('afterend', root);
+
+    const getSelectedOptionText = () =>
+      selectedValues
+        .map((value) => options.find((option) => option.value === value)?.text)
+        .filter(Boolean);
+
+    const syncNativeSelect = () => {
+      Array.from(selectEl.options).forEach((option) => {
+        option.selected = selectedValues.includes(option.value);
+      });
+    };
+
+    const syncToggle = () => {
+      const selectedText = getSelectedOptionText();
+      toggle.textContent = selectedText.length
+        ? selectedText.join(', ')
+        : config.placeholder;
+      toggle.disabled = !isEnabled;
+      root.classList.toggle('is-disabled', !isEnabled);
+    };
+
+    const renderList = () => {
+      const searchTerm = search.value.trim().toLowerCase();
+      const visibleOptions = searchTerm
+        ? options.filter((option) => option.text.toLowerCase().includes(searchTerm))
+        : options;
+
+      list.innerHTML = '';
+      if (!visibleOptions.length) {
+        const empty = document.createElement('div');
+        empty.className = 'checkbox-combo-empty';
+        empty.textContent = config.emptyText || 'No options available.';
+        list.appendChild(empty);
+        return;
+      }
+
+      visibleOptions.forEach((option) => {
+        const id = `${selectEl.id}-${option.value}`;
+        const item = document.createElement('label');
+        item.className = 'checkbox-combo-option';
+        item.htmlFor = id;
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = id;
+        checkbox.value = option.value;
+        checkbox.checked = draftValues.includes(option.value);
+
+        checkbox.addEventListener('change', () => {
+          if (checkbox.checked) {
+            draftValues = [...new Set([...draftValues, option.value])];
+          } else {
+            draftValues = draftValues.filter((value) => value !== option.value);
+          }
+        });
+
+        const text = document.createElement('span');
+        text.textContent = option.text;
+
+        item.appendChild(checkbox);
+        item.appendChild(text);
+        list.appendChild(item);
+      });
+    };
+
+    const open = () => {
+      if (!isEnabled) {
+        return;
+      }
+      isOpen = true;
+      draftValues = [...selectedValues];
+      search.value = '';
+      renderList();
+      menu.classList.remove('d-none');
+      toggle.setAttribute('aria-expanded', 'true');
+      search.focus();
+    };
+
+    const close = () => {
+      isOpen = false;
+      menu.classList.add('d-none');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+
+    const setOptions = (nextOptions) => {
+      options = [...nextOptions];
+      selectedValues = selectedValues.filter((value) =>
+        options.some((option) => option.value === value)
+      );
+      syncNativeSelect();
+      syncToggle();
+      if (isOpen) {
+        draftValues = draftValues.filter((value) =>
+          options.some((option) => option.value === value)
+        );
+        renderList();
+      }
+    };
+
+    const setValue = (values, silent = false) => {
+      const nextValues = Array.isArray(values) ? values : `${values}`.split(',');
+      selectedValues = nextValues
+        .map((value) => `${value}`.trim())
+        .filter((value) => value && options.some((option) => option.value === value));
+      syncNativeSelect();
+      syncToggle();
+      if (!silent) {
+        selectEl.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    };
+
+    const clear = (silent = false) => {
+      selectedValues = [];
+      draftValues = [];
+      syncNativeSelect();
+      syncToggle();
+      if (!silent) {
+        selectEl.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    };
+
+    const enable = () => {
+      isEnabled = true;
+      selectEl.disabled = false;
+      syncToggle();
+    };
+
+    const disable = () => {
+      isEnabled = false;
+      close();
+      selectEl.disabled = true;
+      syncToggle();
+    };
+
+    toggle.addEventListener('click', () => {
+      if (isOpen) {
+        close();
+      } else {
+        open();
+      }
     });
-    locationTomSelect = new TomSelect(selectZuidL, {
-      plugins: ['remove_button'],
+
+    search.addEventListener('input', renderList);
+    cancelBtn.addEventListener('click', close);
+    applyBtn.addEventListener('click', () => {
+      setValue(draftValues);
+      close();
+    });
+
+    document.addEventListener('click', (event) => {
+      if (isOpen && !root.contains(event.target)) {
+        close();
+      }
+    });
+
+    setOptions(
+      Array.from(selectEl.options)
+        .filter((option) => option.value)
+        .map((option) => ({
+          value: option.value,
+          text: option.textContent.trim()
+        }))
+    );
+    if (!isEnabled) {
+      disable();
+    }
+
+    return {
+      getValue: () => [...selectedValues],
+      clear,
+      setValue,
+      enable,
+      disable,
+      setOptions
+    };
+  };
+
+  const initMultiSelects = () => {
+    divisionTomSelect = createCheckboxCombo(selectZuidD, {
+      placeholder: 'Select divisions',
+      searchPlaceholder: 'Search divisions',
+      emptyText: 'No divisions available.'
+    });
+    locationTomSelect = createCheckboxCombo(selectZuidL, {
       placeholder: 'Select locations',
-      maxItems: null,
-      create: false
+      searchPlaceholder: 'Search locations',
+      emptyText: 'Select a division first.'
     });
   };
 
@@ -512,7 +734,9 @@
       if (!values) {
         return [];
       }
-      return Array.isArray(values) ? values : [values];
+      return (Array.isArray(values) ? values : `${values}`.split(','))
+        .map((value) => `${value}`.trim())
+        .filter((value) => value);
     }
     return Array.from(selectEl.selectedOptions)
       .map((opt) => opt.value)
@@ -548,14 +772,14 @@
     const available = divisionOptions.filter((opt) => opt.territory === territoryZuid);
     if (divisionTomSelect) {
       const selected = getSelectedValues(selectZuidD, divisionTomSelect);
-      divisionTomSelect.clearOptions();
-      divisionTomSelect.addOption(available);
-      divisionTomSelect.refreshOptions(false);
+      divisionTomSelect.setOptions(available);
       const stillSelected = selected.filter((value) =>
         available.some((opt) => opt.value === value)
       );
       if (stillSelected.length) {
         divisionTomSelect.setValue(stillSelected, true);
+      } else {
+        divisionTomSelect.clear(true);
       }
       return;
     }
@@ -582,14 +806,14 @@
       : [];
     if (locationTomSelect) {
       const selected = getSelectedValues(selectZuidL, locationTomSelect);
-      locationTomSelect.clearOptions();
-      locationTomSelect.addOption(available);
-      locationTomSelect.refreshOptions(false);
+      locationTomSelect.setOptions(available);
       const stillSelected = selected.filter((value) =>
         available.some((opt) => opt.value === value)
       );
       if (stillSelected.length) {
         locationTomSelect.setValue(stillSelected, true);
+      } else {
+        locationTomSelect.clear(true);
       }
       return;
     }
@@ -1765,6 +1989,104 @@ body {
 .form-control:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(224, 86, 43, 0.2);
+}
+
+.checkbox-combo-native {
+  display: none;
+}
+
+.checkbox-combo {
+  position: relative;
+}
+
+.checkbox-combo-toggle {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 40px 8px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background-color: var(--surface-soft);
+  color: var(--ink);
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+}
+
+.checkbox-combo-toggle::after {
+  content: "v";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+.checkbox-combo-toggle:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(224, 86, 43, 0.2);
+  outline: none;
+}
+
+.checkbox-combo.is-disabled .checkbox-combo-toggle {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.checkbox-combo-menu {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.checkbox-combo-search {
+  margin-bottom: 8px;
+}
+
+.checkbox-combo-list {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.checkbox-combo-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 7px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  line-height: 1.25;
+}
+
+.checkbox-combo-option:hover {
+  background: rgba(224, 86, 43, 0.08);
+}
+
+.checkbox-combo-option input {
+  margin-top: 2px;
+}
+
+.checkbox-combo-empty {
+  padding: 12px 8px;
+  color: var(--ink-soft);
+}
+
+.checkbox-combo-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 10px;
+  margin-top: 8px;
+  border-top: 1px solid var(--border);
 }
 
 .btn {
