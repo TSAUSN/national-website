@@ -353,77 +353,25 @@
   />
 </div>
 
+<div id="columnControls" class="card shadow-sm my-3 d-none">
+  <div class="card-header bg-primary text-white">
+    Table Fields
+  </div>
+  <div class="card-body">
+    <div class="d-flex flex-wrap gap-2 mb-3">
+      <button id="select-default-columns" type="button" class="btn btn-outline-secondary btn-sm">Default Fields</button>
+      <button id="select-all-columns" type="button" class="btn btn-outline-primary btn-sm">Select All</button>
+    </div>
+    <div id="tableFieldList" class="field-grid"></div>
+  </div>
+</div>
+
   <table
     class="d-none table table-bordered table-striped "
     id="dataTable"
   >
     <thead>
-      <tr>
-        <th
-          data-key="model"
-          class="sortable"
-        >
-          <span>Model</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="zuid"
-          class="sortable"
-        >
-          <span>ZUID</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="title"
-          class="sortable"
-        >
-          <span>Title</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="territory"
-          class="sortable"
-        >
-          <span>Territory</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="division"
-          class="sortable"
-        >
-          <span>Division</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="location"
-          class="sortable"
-        >
-          <span>Location</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="path_part"
-          class="sortable"
-        >
-          <span>Path Part</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="url"
-          class="sortable"
-        >
-          <span>URL</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="publish_status"
-          class="sortable"
-        >
-          <span>Publish Status</span
-          ><span class="sort-icon"> <span class="up">^</span><span class="down">v</span> </span>
-        </th>
-        <th>Actions</th>
-      </tr>
+      <tr id="dataTableHeadRow"></tr>
     </thead>
 
     <tbody></tbody>
@@ -435,6 +383,28 @@
       id="pagination"
     ></ul>
   </nav>
+</div>
+<div class="modal fade" id="exportFieldsModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5">Export Fields</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <button id="export-default-columns" type="button" class="btn btn-outline-secondary btn-sm">Default Fields</button>
+          <button id="export-visible-columns" type="button" class="btn btn-outline-primary btn-sm">Visible Fields</button>
+          <button id="export-all-columns" type="button" class="btn btn-outline-primary btn-sm">Select All</button>
+        </div>
+        <div id="exportFieldList" class="field-grid"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button id="confirm-export-btn" type="button" class="btn btn-primary">Export CSV</button>
+      </div>
+    </div>
+  </div>
 </div>
 <link
   rel="stylesheet"
@@ -459,10 +429,40 @@
   const exportAllBtn = document.getElementById('export-all-btn');
   const downloadCsvBtn = document.getElementById('download-csv-btn');
   const submitBtn = document.getElementById('csv-submit-btn');
+  const dataTableHeadRow = document.getElementById('dataTableHeadRow');
+  const columnControls = document.getElementById('columnControls');
+  const tableFieldList = document.getElementById('tableFieldList');
+  const selectDefaultColumnsBtn = document.getElementById('select-default-columns');
+  const selectAllColumnsBtn = document.getElementById('select-all-columns');
+  const exportFieldList = document.getElementById('exportFieldList');
+  const confirmExportBtn = document.getElementById('confirm-export-btn');
+  const exportDefaultColumnsBtn = document.getElementById('export-default-columns');
+  const exportVisibleColumnsBtn = document.getElementById('export-visible-columns');
+  const exportAllColumnsBtn = document.getElementById('export-all-columns');
+  const exportFieldsModalEl = document.getElementById('exportFieldsModal');
 
   const DEFAULT_PAGE_SIZE = 50;
   const FETCH_TIMEOUT_MS = 20000;
   const MAX_EXPORT_PAGES = 200;
+  const DEFAULT_COLUMNS = [
+    { key: 'model', label: 'Model' },
+    { key: 'zuid', label: 'ZUID' },
+    { key: 'title', label: 'Title' },
+    { key: 'territory', label: 'Territory' },
+    { key: 'division', label: 'Division' },
+    { key: 'location', label: 'Location' },
+    { key: 'path_part', label: 'Path Part' },
+    { key: 'url', label: 'URL' },
+    { key: 'publish_status', label: 'Publish Status' }
+  ];
+  const DEFAULT_COLUMN_KEYS = DEFAULT_COLUMNS.map((column) => column.key);
+  const BASE_ROW_KEYS = new Set([
+    ...DEFAULT_COLUMN_KEYS,
+    'model_zuid',
+    'fields'
+  ]);
+  const FIELD_PREFIX = 'field__';
+  const SKIPPED_FIELD_KEYS = new Set(['meta']);
 
   const divisionOptions = Array.from(selectZuidD.options)
     .filter((opt) => opt.value)
@@ -624,6 +624,15 @@
         checkbox.checked = true;
         checkbox.disabled = true;
       }
+
+      if (value === 'services' && !hasLocations) {
+        checkbox.checked = false;
+        checkbox.disabled = true;
+      }
+
+      if (value === 'services' && hasLocations) {
+        checkbox.checked = true;
+      }
     });
   };
 
@@ -680,6 +689,7 @@
 
   const buildCsvUrl = (zuid, zuidD, zuidL, page, pageSize) => {
     const params = getSelectedModelParams();
+    params.set('include_fields', '1');
     params.set('page', page);
     params.set('per_page', pageSize);
     if (zuid) {
@@ -735,13 +745,14 @@
     if (!Array.isArray(parsedData)) {
       throw new Error('Invalid JSON format.');
     }
-    return parsedData;
+    return normalizeRows(parsedData);
   };
 
   const getSelectedDivisionIds = () => getSelectedValues(selectZuidD, divisionTomSelect);
   const getSelectedLocationIds = () => getSelectedValues(selectZuidL, locationTomSelect);
 
   selectModel.addEventListener('change', (e) => {
+    invalidateLoadedData();
     const selectedTerritory = e.target.value;
     clearSelection(selectZuidD, divisionTomSelect);
     clearSelection(selectZuidL, locationTomSelect);
@@ -753,6 +764,7 @@
   });
 
   selectZuidD.addEventListener('change', () => {
+    invalidateLoadedData();
     const divisionValues = getSelectedDivisionIds();
     updateLocationOptions(divisionValues);
     const locationValues = getSelectedLocationIds();
@@ -762,11 +774,16 @@
   });
 
   selectZuidL.addEventListener('change', () => {
+    invalidateLoadedData();
     const divisionValues = getSelectedDivisionIds();
     const locationValues = getSelectedLocationIds();
     pageNumberInput.value = 1;
     updatePageIndicator(1);
     handleModelSelection(divisionValues, locationValues);
+  });
+
+  modelCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', invalidateLoadedData);
   });
 
   function getSelectedModelParams() {
@@ -790,6 +807,13 @@
   const rowsPerPage = 20; // Client-side rows per page within a single server page.
   let currentPage = 1;
   let data = [];
+  let availableColumns = [...DEFAULT_COLUMNS];
+  let selectedColumnKeys = [...DEFAULT_COLUMN_KEYS];
+  let pendingExportMode = null;
+  let lastLoadState = null;
+  const exportFieldsModal = exportFieldsModalEl
+    ? new bootstrap.Modal(exportFieldsModalEl)
+    : null;
 
   function fixMalformedJSON(rawText) {
     try {
@@ -822,6 +846,144 @@
       return null;
     }
   }
+
+  const formatLabel = (key) =>
+    key
+      .replace(new RegExp(`^${FIELD_PREFIX}`), '')
+      .replace(/[_-]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+
+  const getColumnLabel = (key) => {
+    const defaultColumn = DEFAULT_COLUMNS.find((column) => column.key === key);
+    if (defaultColumn) {
+      return defaultColumn.label;
+    }
+    return `Field: ${formatLabel(key)}`;
+  };
+
+  const formatCellValue = (value) => {
+    if (value === true) {
+      return 'true';
+    }
+    if (value === false) {
+      return 'false';
+    }
+    if (value === null || value === undefined) {
+      return '';
+    }
+    if (typeof value === 'object') {
+      return JSON.stringify(value);
+    }
+    return `${value}`;
+  };
+
+  const normalizeFieldKey = (key) => `${FIELD_PREFIX}${key}`;
+
+  const flattenRow = (row) => {
+    const flatRow = { ...row };
+    const fields = row.fields && typeof row.fields === 'object' ? row.fields : {};
+    const contentFields =
+      fields.data && typeof fields.data === 'object' && !Array.isArray(fields.data)
+        ? fields.data
+        : fields;
+    Object.entries(contentFields).forEach(([key, value]) => {
+      if (SKIPPED_FIELD_KEYS.has(key) || BASE_ROW_KEYS.has(key)) {
+        return;
+      }
+      flatRow[normalizeFieldKey(key)] = formatCellValue(value);
+    });
+    delete flatRow.fields;
+    return flatRow;
+  };
+
+  const normalizeRows = (rows) => rows.map(flattenRow);
+
+  const buildAvailableColumns = (rows) => {
+    const columns = [...DEFAULT_COLUMNS];
+    const existingKeys = new Set(columns.map((column) => column.key));
+    rows.forEach((row) => {
+      Object.keys(row)
+        .filter((key) => key.startsWith(FIELD_PREFIX))
+        .sort()
+        .forEach((key) => {
+          if (existingKeys.has(key)) {
+            return;
+          }
+          existingKeys.add(key);
+          columns.push({ key, label: getColumnLabel(key) });
+        });
+    });
+    return columns;
+  };
+
+  const getSelectedColumns = () =>
+    availableColumns.filter((column) => selectedColumnKeys.includes(column.key));
+
+  const updateColumnSelection = (keys) => {
+    selectedColumnKeys = availableColumns
+      .map((column) => column.key)
+      .filter((key) => keys.includes(key));
+    if (!selectedColumnKeys.length) {
+      selectedColumnKeys = [...DEFAULT_COLUMN_KEYS];
+    }
+  };
+
+  const renderCheckboxList = (container, selectedKeys, namePrefix) => {
+    container.innerHTML = '';
+    availableColumns.forEach((column) => {
+      const id = `${namePrefix}-${column.key.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+      const wrapper = document.createElement('div');
+      wrapper.className = 'form-check';
+
+      const checkbox = document.createElement('input');
+      checkbox.className = 'form-check-input';
+      checkbox.type = 'checkbox';
+      checkbox.value = column.key;
+      checkbox.id = id;
+      checkbox.checked = selectedKeys.includes(column.key);
+
+      const label = document.createElement('label');
+      label.className = 'form-check-label';
+      label.htmlFor = id;
+      label.textContent = column.label;
+
+      wrapper.appendChild(checkbox);
+      wrapper.appendChild(label);
+      container.appendChild(wrapper);
+    });
+  };
+
+  const renderTableFieldControls = () => {
+    renderCheckboxList(tableFieldList, selectedColumnKeys, 'table-field');
+    columnControls.classList.toggle('d-none', !data.length);
+  };
+
+  const getCheckedKeys = (container) =>
+    Array.from(container.querySelectorAll('input[type="checkbox"]:checked')).map(
+      (checkbox) => checkbox.value
+    );
+
+  const resetColumnState = (rows) => {
+    availableColumns = buildAvailableColumns(rows);
+    selectedColumnKeys = availableColumns
+      .map((column) => column.key)
+      .filter((key) => DEFAULT_COLUMN_KEYS.includes(key));
+    renderTableFieldControls();
+  };
+
+  const invalidateLoadedData = () => {
+    data = [];
+    filteredData = [];
+    lastLoadState = null;
+    searchInput.value = '';
+    downloadCsvBtn.classList.add('d-none');
+    columnControls.classList.add('d-none');
+    dataTable.classList.add('d-none');
+    searchContainer.classList.add('d-none');
+    pagination.classList.add('d-none');
+  };
 
   // Show loader and fetch data
   const buildRowKey = (row) => `${row.model || ''}::${row.zuid || ''}::${row.path_part || ''}`;
@@ -889,6 +1051,8 @@
     return scopes;
   };
 
+  const buildScopeKey = (scopes) => JSON.stringify(scopes);
+
   async function fetchData(zuid, divisionValues, locationValues, page, pageSize) {
     try {
       if (!zuid) {
@@ -915,12 +1079,20 @@
       if (!scopes.length) {
         throw new Error('Missing selection values.');
       }
-      const pageData = await Promise.all(
-        scopes.map((scope) =>
-          requestPageData(scope.zuid, scope.zuidD, scope.zuidL, page, pageSize)
-        )
-      );
+      const pageData = [];
+      for (const scope of scopes) {
+        pageData.push(
+          await requestPageData(scope.zuid, scope.zuidD, scope.zuidL, page, pageSize)
+        );
+      }
       data = mergeRows(pageData.flat());
+      lastLoadState = {
+        page,
+        pageSize,
+        scopeKey: buildScopeKey(scopes),
+        rows: [...data]
+      };
+      resetColumnState(data);
       renderTable();
       renderPagination();
       if (data.length) {
@@ -934,6 +1106,8 @@
           : err.message || 'Failed to load data.';
       setError(message);
       data = [];
+      lastLoadState = null;
+      resetColumnState(data);
       renderTable();
       renderPagination();
     } finally {
@@ -965,11 +1139,35 @@ function formatPublishStatus(value) {
 
 function renderTable() {
   dataTableBody.innerHTML = '';
+  dataTableHeadRow.innerHTML = '';
 
   const displayData = searchInput.value ? filteredData : data;
+  const selectedColumns = getSelectedColumns();
 
+  selectedColumns.forEach((column) => {
+    const th = document.createElement('th');
+    th.dataset.key = column.key;
+    th.className = 'sortable';
+    th.style.cursor = 'pointer';
 
+    const label = document.createElement('span');
+    label.textContent = column.label;
+    const sortIcon = document.createElement('span');
+    sortIcon.className = 'sort-icon';
+    sortIcon.innerHTML = ' <span class="up">^</span><span class="down">v</span>';
 
+    th.appendChild(label);
+    th.appendChild(sortIcon);
+    th.addEventListener('click', () => sortByColumn(column.key));
+    if (currentSort.key === column.key) {
+      th.classList.add(currentSort.asc ? 'active-asc' : 'active-desc');
+    }
+    dataTableHeadRow.appendChild(th);
+  });
+
+  const actionTh = document.createElement('th');
+  actionTh.textContent = 'Actions';
+  dataTableHeadRow.appendChild(actionTh);
 
   const start = (currentPage - 1) * rowsPerPage;
   const end = start + rowsPerPage;
@@ -977,27 +1175,48 @@ function renderTable() {
 
   if (displayData.length === 0) {
     const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td colspan="10" class="text-center">No matching data found.</td>
-    `;
+    const td = document.createElement('td');
+    td.colSpan = selectedColumns.length + 1;
+    td.className = 'text-center';
+    td.textContent = 'No matching data found.';
+    tr.appendChild(td);
     dataTableBody.appendChild(tr);
     return;
   }
 
   paginatedData.forEach((row) => {
     const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${row.model || ''}</td>
-      <td>${row.zuid || ''}</td>
-      <td>${row.title || ''}</td>
-      <td>${row.territory || ''}</td>
-      <td>${row.division || ''}</td>
-      <td>${row.location || ''}</td>
-      <td>${row.path_part || ''}</td>
-      <td class="url-cell"><a href="${row.url}" target="_blank" title="${row.url}">${row.url}</a></td>
-      <td>${formatPublishStatus(row.publish_status)}</td>
-      <td><a href="https://{{ instance.zuid }}.manager.zesty.io/content/${row.model_zuid}/${row.zuid}" class="btn btn-primary icon-link" target="_blank">Edit Content</a></td>
-    `;
+    selectedColumns.forEach((column) => {
+      const td = document.createElement('td');
+      const value =
+        column.key === 'publish_status'
+          ? formatPublishStatus(row[column.key])
+          : formatCellValue(row[column.key]);
+
+      if (column.key === 'url' && row.url) {
+        td.className = 'url-cell';
+        const link = document.createElement('a');
+        link.href = row.url;
+        link.target = '_blank';
+        link.title = row.url;
+        link.textContent = row.url;
+        td.appendChild(link);
+      } else {
+        td.textContent = value;
+      }
+      tr.appendChild(td);
+    });
+
+    const actionTd = document.createElement('td');
+    if (row.model_zuid && row.zuid) {
+      const editLink = document.createElement('a');
+      editLink.href = `https://{{ instance.zuid }}.manager.zesty.io/content/${row.model_zuid}/${row.zuid}`;
+      editLink.className = 'btn btn-primary icon-link';
+      editLink.target = '_blank';
+      editLink.textContent = 'Edit Content';
+      actionTd.appendChild(editLink);
+    }
+    tr.appendChild(actionTd);
     dataTableBody.appendChild(tr);
   });
 }
@@ -1113,20 +1332,59 @@ function renderTable() {
       setError('No data to export. Please generate data first.');
       return;
     }
+    openExportPrompt('current');
+  });
 
-    const csv = convertToCSV(data);
+  const downloadRowsAsCSV = (rows, columns, filename = 'salvationarmy-data.csv') => {
+    const csv = convertToCSV(rows, columns);
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
 
     link.setAttribute('href', url);
-    link.setAttribute('download', 'salvationarmy-data.csv');
+    link.setAttribute('download', filename);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  });
+    URL.revokeObjectURL(url);
+  };
 
-  const exportAllPages = async () => {
+  const openExportPrompt = (mode) => {
+    if (!data.length) {
+      setError('Load a page first so the available fields can be detected.');
+      return;
+    }
+    if (!availableColumns.length) {
+      setError('No fields are available to export. Please load data first.');
+      return;
+    }
+    pendingExportMode = mode;
+    const checkedKeys =
+      mode === 'current' && selectedColumnKeys.length
+        ? selectedColumnKeys
+        : DEFAULT_COLUMN_KEYS;
+    renderCheckboxList(exportFieldList, checkedKeys, 'export-field');
+    if (exportFieldsModal) {
+      exportFieldsModal.show();
+    }
+  };
+
+  const getExportColumns = () => {
+    const selectedKeys = getCheckedKeys(exportFieldList);
+    if (!selectedKeys.length) {
+      throw new Error('Select at least one field to export.');
+    }
+    return availableColumns.filter((column) => selectedKeys.includes(column.key));
+  };
+
+  const exportCurrentPage = (columns) => {
+    if (!data.length) {
+      throw new Error('No data to export. Please generate data first.');
+    }
+    downloadRowsAsCSV(data, columns);
+  };
+
+  const exportAllPages = async (columns) => {
     const zuid = selectModel.value;
     const divisionValues = getSelectedDivisionIds();
     const locationValues = getSelectedLocationIds();
@@ -1144,6 +1402,11 @@ function renderTable() {
     const pageSize = getPageSize();
     const allData = [];
     const seenKeys = new Set();
+    const canReuseLoadedFirstPage =
+      lastLoadState &&
+      lastLoadState.page === 1 &&
+      lastLoadState.pageSize === pageSize &&
+      lastLoadState.scopeKey === buildScopeKey(scopes);
 
     try {
       setError(null);
@@ -1151,8 +1414,18 @@ function renderTable() {
       loader.classList.add('d-flex');
       loader.classList.remove('d-none');
 
+      if (canReuseLoadedFirstPage) {
+        lastLoadState.rows.forEach((row) => {
+          const key = buildRowKey(row);
+          if (!seenKeys.has(key)) {
+            seenKeys.add(key);
+            allData.push(row);
+          }
+        });
+      }
+
       const fetchAllPagesForScope = async (scope) => {
-        let page = 1;
+        let page = canReuseLoadedFirstPage ? 2 : 1;
         let emptyPageCount = 0;
 
         // Stop if we hit MAX_EXPORT_PAGES or multiple pages return no new rows.
@@ -1204,15 +1477,7 @@ function renderTable() {
         throw new Error('No data returned to export.');
       }
 
-      const csv = convertToCSV(allData);
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.setAttribute('href', url);
-      link.setAttribute('download', 'salvationarmy-data.csv');
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      downloadRowsAsCSV(allData, columns);
     } catch (err) {
       const message =
         err.name === 'AbortError'
@@ -1226,11 +1491,12 @@ function renderTable() {
     }
   };
 
-  function convertToCSV(arr) {
-    const headers = Object.keys(arr[0]).join(',');
+  function convertToCSV(arr, columns) {
+    const headers = columns.map((column) => `"${column.label.replace(/"/g, '""')}"`).join(',');
     const rows = arr.map((obj) =>
-      Object.values(obj)
-        .map((val) => `"${(val ?? '').toString().replace(/"/g, '""')}"`)
+      columns
+        .map((column) => formatCellValue(obj[column.key]))
+        .map((val) => `"${val.replace(/"/g, '""')}"`)
         .join(',')
     );
     return [headers, ...rows].join('\r\n');
@@ -1284,61 +1550,106 @@ function renderTable() {
   });
 
   pageSizeSelect.addEventListener('change', () => {
+    invalidateLoadedData();
     pageNumberInput.value = 1;
     updatePageIndicator(1);
   });
 
+  tableFieldList.addEventListener('change', () => {
+    updateColumnSelection(getCheckedKeys(tableFieldList));
+    currentPage = 1;
+    renderTable();
+    renderPagination();
+  });
+
+  selectDefaultColumnsBtn.addEventListener('click', () => {
+    updateColumnSelection(DEFAULT_COLUMN_KEYS);
+    renderTableFieldControls();
+    currentPage = 1;
+    renderTable();
+    renderPagination();
+  });
+
+  selectAllColumnsBtn.addEventListener('click', () => {
+    updateColumnSelection(availableColumns.map((column) => column.key));
+    renderTableFieldControls();
+    currentPage = 1;
+    renderTable();
+    renderPagination();
+  });
+
   exportAllBtn.addEventListener('click', async () => {
-    await exportAllPages();
+    openExportPrompt('all');
+  });
+
+  exportDefaultColumnsBtn.addEventListener('click', () => {
+    renderCheckboxList(exportFieldList, DEFAULT_COLUMN_KEYS, 'export-field');
+  });
+
+  exportVisibleColumnsBtn.addEventListener('click', () => {
+    renderCheckboxList(exportFieldList, selectedColumnKeys, 'export-field');
+  });
+
+  exportAllColumnsBtn.addEventListener('click', () => {
+    renderCheckboxList(
+      exportFieldList,
+      availableColumns.map((column) => column.key),
+      'export-field'
+    );
+  });
+
+  confirmExportBtn.addEventListener('click', async () => {
+    try {
+      setError(null);
+      const columns = getExportColumns();
+      if (exportFieldsModal) {
+        exportFieldsModal.hide();
+      }
+      if (pendingExportMode === 'all') {
+        await exportAllPages(columns);
+      } else {
+        exportCurrentPage(columns);
+      }
+    } catch (err) {
+      setError(err.message || 'Failed to export CSV.');
+    }
   });
 
   let currentSort = { key: '', asc: true };
 
-  document.querySelectorAll('th.sortable').forEach((th) => {
-    th.style.cursor = 'pointer';
-    th.addEventListener('click', () => {
-      const key = th.getAttribute('data-key');
-      const isSameKey = currentSort.key === key;
-      currentSort.asc = isSameKey ? !currentSort.asc : true;
-      currentSort.key = key;
+  function sortByColumn(key) {
+    const isSameKey = currentSort.key === key;
+    currentSort.asc = isSameKey ? !currentSort.asc : true;
+    currentSort.key = key;
 
-      data.sort((a, b) => {
-        const valA = (a[key] || '').toString().toLowerCase();
-        const valB = (b[key] || '').toString().toLowerCase();
-        if (valA < valB) return currentSort.asc ? -1 : 1;
-        if (valA > valB) return currentSort.asc ? 1 : -1;
-        return 0;
-      });
-
-      // Reset header classes
-      document.querySelectorAll('th.sortable').forEach((header) => {
-        header.classList.remove('active-asc', 'active-desc');
-      });
-
-      // Set active class on clicked header
-      th.classList.add(currentSort.asc ? 'active-asc' : 'active-desc');
-
-      renderTable();
-      renderPagination();
+    data.sort((a, b) => {
+      const valA = formatCellValue(a[key]).toLowerCase();
+      const valB = formatCellValue(b[key]).toLowerCase();
+      if (valA < valB) return currentSort.asc ? -1 : 1;
+      if (valA > valB) return currentSort.asc ? 1 : -1;
+      return 0;
     });
-  });
+
+    if (searchInput.value) {
+      applySearchFilter();
+    }
+
+    renderTable();
+    renderPagination();
+  }
 let filteredData = [];
 
-searchInput.addEventListener('input', () => {
+function applySearchFilter() {
   const searchTerm = searchInput.value.toLowerCase();
   filteredData = data.filter((row) => {
-    return (
-      row.model?.toLowerCase().includes(searchTerm) ||
-      row.zuid?.toLowerCase().includes(searchTerm) ||
-      row.title?.toLowerCase().includes(searchTerm) ||
-      row.territory?.toLowerCase().includes(searchTerm) ||
-      row.division?.toLowerCase().includes(searchTerm) ||
-      row.location?.toLowerCase().includes(searchTerm) ||
-      row.path_part?.toLowerCase().includes(searchTerm) ||
-      row.url?.toLowerCase().includes(searchTerm) ||
-      row.publish_status?.toString().toLowerCase().includes(searchTerm)
+    return Object.values(row).some((value) =>
+      formatCellValue(value).toLowerCase().includes(searchTerm)
     );
   });
+}
+
+searchInput.addEventListener('input', () => {
+  applySearchFilter();
 
   currentPage = 1;
   renderTable();
@@ -1512,6 +1823,22 @@ body {
 
 .alert {
   border-radius: 14px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px 16px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.field-grid .form-check {
+  min-width: 0;
+}
+
+.field-grid .form-check-label {
+  overflow-wrap: anywhere;
 }
 
 /* Bootstrap table styling */
