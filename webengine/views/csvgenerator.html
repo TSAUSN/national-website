@@ -684,8 +684,11 @@
     search.addEventListener('input', renderList);
     cancelBtn.addEventListener('click', close);
     applyBtn.addEventListener('click', () => {
-      setValue(draftValues);
+      setValue(draftValues, true);
       close();
+      if (typeof config.onApply === 'function') {
+        config.onApply();
+      }
     });
 
     document.addEventListener('click', (event) => {
@@ -720,12 +723,14 @@
     divisionTomSelect = createCheckboxCombo(selectZuidD, {
       placeholder: 'Select divisions',
       searchPlaceholder: 'Search divisions',
-      emptyText: 'No divisions available.'
+      emptyText: 'No divisions available.',
+      onApply: handleDivisionSelectionChange
     });
     locationTomSelect = createCheckboxCombo(selectZuidL, {
       placeholder: 'Select locations',
       searchPlaceholder: 'Search locations',
-      emptyText: 'Select a division first.'
+      emptyText: 'Select a division first.',
+      onApply: handleLocationSelectionChange
     });
   };
 
@@ -852,8 +857,9 @@
         checkbox.disabled = true;
       }
 
-      if (value === SERVICES_MODEL_KEY && hasLocations) {
-        checkbox.checked = true;
+      if (value === SERVICES_MODEL_KEY) {
+        checkbox.disabled = false;
+        checkbox.checked = hasLocations;
       }
     });
   };
@@ -1023,7 +1029,7 @@
     handleModelSelection([], []);
   });
 
-  selectZuidD.addEventListener('change', () => {
+  function handleDivisionSelectionChange() {
     invalidateLoadedData();
     const divisionValues = getSelectedDivisionIds();
     updateLocationOptions(divisionValues);
@@ -1031,16 +1037,19 @@
     pageNumberInput.value = 1;
     updatePageIndicator(1);
     handleModelSelection(divisionValues, locationValues);
-  });
+  }
 
-  selectZuidL.addEventListener('change', () => {
+  function handleLocationSelectionChange() {
     invalidateLoadedData();
     const divisionValues = getSelectedDivisionIds();
     const locationValues = getSelectedLocationIds();
     pageNumberInput.value = 1;
     updatePageIndicator(1);
     handleModelSelection(divisionValues, locationValues);
-  });
+  }
+
+  selectZuidD.addEventListener('change', handleDivisionSelectionChange);
+  selectZuidL.addEventListener('change', handleLocationSelectionChange);
 
   modelCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', invalidateLoadedData);
