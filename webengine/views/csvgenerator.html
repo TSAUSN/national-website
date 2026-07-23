@@ -9,6 +9,31 @@
     <h1>CSV Content Explorer</h1>
   </header>
 
+  <nav class="workflow-guide" aria-label="CSV export workflow">
+    <ol>
+      <li data-workflow-step="scope">
+        <span class="workflow-step-number">1</span>
+        <span class="workflow-step-label">Choose scope</span>
+      </li>
+      <li data-workflow-step="models">
+        <span class="workflow-step-number">2</span>
+        <span class="workflow-step-label">Choose models</span>
+      </li>
+      <li data-workflow-step="load">
+        <span class="workflow-step-number">3</span>
+        <span class="workflow-step-label">Load results</span>
+      </li>
+      <li data-workflow-step="columns">
+        <span class="workflow-step-number">4</span>
+        <span class="workflow-step-label">Set columns</span>
+      </li>
+      <li data-workflow-step="export">
+        <span class="workflow-step-number">5</span>
+        <span class="workflow-step-label">Export CSV</span>
+      </li>
+    </ol>
+  </nav>
+
   <div class="card scope-panel">
     <div class="card-header">
       <h2>Choose scope</h2>
@@ -324,9 +349,9 @@
         </select>
         <button id="page-prev" type="button" class="btn btn-outline-secondary btn-sm" aria-label="Load previous server page">Previous</button>
         <label for="page-number">Page</label>
-        <input id="page-number" type="number" class="form-control form-control-sm" min="1" value="1">
+        <input id="page-number" type="number" class="form-control form-control-sm" min="1" value="1" readonly aria-label="Current server page">
         <button id="page-next" type="button" class="btn btn-outline-secondary btn-sm" aria-label="Load next server page">Next</button>
-        <span id="page-indicator" class="server-page-label">Page 1</span>
+        <span id="page-indicator" class="server-page-label"></span>
       </div>
     </div>
     <div class="invalid-feedback" id="pageNumberError">Enter a page number of 1 or more.</div>
@@ -488,6 +513,9 @@
   const exportAllColumnsBtn = document.getElementById('export-all-columns');
   const exportClearColumnsBtn = document.getElementById('export-clear-columns');
   const exportFieldsModalEl = document.getElementById('exportFieldsModal');
+  const workflowSteps = Array.from(
+    document.querySelectorAll('[data-workflow-step]')
+  );
 
   const DEFAULT_PAGE_SIZE = 50;
   const FETCH_TIMEOUT_MS = 45000;
@@ -582,6 +610,8 @@
   let divisionCombo = null;
   let locationCombo = null;
   let hasLoadedPage = false;
+  let hasNextServerPage = false;
+  let knownLastPage = null;
   let requestBusy = false;
 
   const createCheckboxCombo = (selectEl, config) => {
@@ -915,14 +945,23 @@
   };
 
   const updatePageIndicator = (page) => {
-    pageIndicator.textContent = `Page ${page}`;
+    pageIndicator.textContent = knownLastPage
+      ? `of ${knownLastPage}`
+      : hasLoadedPage && hasNextServerPage
+        ? 'More available'
+        : '';
     updateServerPager();
   };
 
   function updateServerPager() {
     const page = getPageNumber();
     pagePrevBtn.disabled = requestBusy || !hasLoadedPage || page <= 1;
-    pageNextBtn.disabled = requestBusy || !hasLoadedPage;
+    pageNextBtn.disabled =
+      requestBusy ||
+      !hasLoadedPage ||
+      (knownLastPage !== null
+        ? page >= knownLastPage
+        : !hasNextServerPage);
   }
 
   const getPageSize = () => {
@@ -948,11 +987,15 @@
     zuidL,
     page,
     pageSize,
-    modelParams = null
+    modelParams = null,
+    includeProbe = false
   ) => {
     const params = new URLSearchParams(modelParams || getSelectedModelParams());
     params.set('page', page);
-    params.set('per_page', pageSize);
+    params.set('per_page', includeProbe ? pageSize + 1 : pageSize);
+    if (includeProbe) {
+      params.set('page_stride', pageSize);
+    }
     if (zuid) {
       params.set('zuid', zuid);
     }
@@ -1005,7 +1048,8 @@
     zuidL,
     page,
     pageSize,
-    modelParams = null
+    modelParams = null,
+    includeProbe = false
   ) => {
     const fullURL = buildCsvUrl(
       zuid,
@@ -1013,7 +1057,8 @@
       zuidL,
       page,
       pageSize,
-      modelParams
+      modelParams,
+      includeProbe
     );
     const res = await fetchWithTimeout(fullURL, FETCH_TIMEOUT_MS);
     const rawText = await res.text();
@@ -1036,6 +1081,8 @@
   const getSelectedLocationIds = () => [...scopeSelection.locations];
 
   const resetScopePage = () => {
+    hasNextServerPage = false;
+    knownLastPage = null;
     pageNumberInput.value = 1;
     updatePageIndicator(1);
   };
@@ -1057,6 +1104,7 @@
     }
     resetScopePage();
     handleModelSelection([], []);
+    updateWorkflowGuide();
   }
 
   function handleDivisionSelectionChange(nextDivisionValues) {
@@ -1076,6 +1124,7 @@
     invalidateLoadedData();
     resetScopePage();
     handleModelSelection(scopeSelection.divisions, []);
+    updateWorkflowGuide();
   }
 
   function handleLocationSelectionChange(nextLocationValues) {
@@ -1089,6 +1138,7 @@
     invalidateLoadedData();
     resetScopePage();
     handleModelSelection(scopeSelection.divisions, scopeSelection.locations);
+    updateWorkflowGuide();
   }
 
   selectModel.addEventListener('change', (event) => {
@@ -1099,6 +1149,7 @@
     checkbox.addEventListener('change', () => {
       updateModelFilterSummary();
       invalidateLoadedData();
+      updateWorkflowGuide();
     });
   });
 
@@ -1148,6 +1199,42 @@
     exportFieldsModalEl && window.bootstrap
       ? new bootstrap.Modal(exportFieldsModalEl)
       : null;
+
+  const updateWorkflowGuide = () => {
+    const hasScope = Boolean(selectModel.value);
+    const hasModels = getSelectedModelKeys().length > 0;
+    const hasResults = hasLoadedPage && data.length > 0;
+    const currentStep = !hasScope
+      ? 'scope'
+      : !hasModels
+        ? 'models'
+        : !hasResults
+          ? 'load'
+          : columnControls.open
+            ? 'columns'
+            : 'export';
+    const completedSteps = new Set([
+      ...(hasScope ? ['scope'] : []),
+      ...(hasModels ? ['models'] : []),
+      ...(hasResults ? ['load'] : []),
+      ...(hasResults && !columnControls.open ? ['columns'] : [])
+    ]);
+
+    workflowSteps.forEach((step) => {
+      const stepKey = step.dataset.workflowStep;
+      step.classList.toggle('is-complete', completedSteps.has(stepKey));
+      step.classList.toggle('is-current', stepKey === currentStep);
+      step.classList.toggle(
+        'is-ready',
+        hasResults && (stepKey === 'columns' || stepKey === 'export')
+      );
+      if (stepKey === currentStep) {
+        step.setAttribute('aria-current', 'step');
+      } else {
+        step.removeAttribute('aria-current');
+      }
+    });
+  };
 
   function fixMalformedJSON(rawText) {
     try {
@@ -1719,6 +1806,8 @@
     filteredData = [];
     lastLoadState = null;
     hasLoadedPage = false;
+    hasNextServerPage = false;
+    knownLastPage = null;
     searchInput.value = '';
     downloadCsvBtn.classList.add('d-none');
     exportAllBtn.classList.add('d-none');
@@ -1836,33 +1925,66 @@
       }))
     );
 
-  const requestScopePage = async (scope, page, pageSize) => {
+  const trimPageProbeRows = (rows, pageSize) => {
+    const modelCounts = new Map();
+    const pageRows = [];
+    let hasMore = false;
+
+    rows.forEach((row) => {
+      const modelKey = row.model || '';
+      const modelCount = modelCounts.get(modelKey) || 0;
+      modelCounts.set(modelKey, modelCount + 1);
+      if (modelCount < pageSize) {
+        pageRows.push(row);
+      } else {
+        hasMore = true;
+      }
+    });
+
+    return { rows: pageRows, hasMore };
+  };
+
+  const requestScopePage = async (
+    scope,
+    page,
+    pageSize,
+    includeProbe = false
+  ) => {
     const modelKeys = [...scope.modelParams.keys()];
     try {
-      return await requestPageData(
+      const rows = await requestPageData(
         scope.zuid,
         scope.zuidD,
         scope.zuidL,
         page,
         pageSize,
-        scope.modelParams
+        scope.modelParams,
+        includeProbe
       );
+      return includeProbe ? trimPageProbeRows(rows, pageSize) : rows;
     } catch (err) {
       if (err.status === 422 && modelKeys.length > 1) {
-        const splitRows = [];
+        const splitResults = [];
         for (const modelKey of modelKeys) {
-          splitRows.push(
+          splitResults.push(
             await requestScopePage(
               {
                 ...scope,
                 modelParams: createModelParams([modelKey])
               },
               page,
-              pageSize
+              pageSize,
+              includeProbe
             )
           );
         }
-        return splitRows.flat();
+        if (!includeProbe) {
+          return splitResults.flat();
+        }
+        return {
+          rows: splitResults.flatMap((result) => result.rows),
+          hasMore: splitResults.some((result) => result.hasMore)
+        };
       }
 
       const modelNames = modelKeys.map(getModelLabel).join(', ');
@@ -1903,12 +2025,18 @@
         console.warn('Unable to load the GQL field catalog.', error);
         return modelCatalog;
       });
-      const pageData = [];
+      const pageResults = [];
       for (const scope of scopes) {
-        pageData.push(await requestScopePage(scope, page, pageSize));
+        pageResults.push(
+          await requestScopePage(scope, page, pageSize, true)
+        );
       }
       await catalogRequest;
-      data = mergeRows(pageData.flat());
+      hasNextServerPage = pageResults.some((result) => result.hasMore);
+      if (!hasNextServerPage) {
+        knownLastPage = page;
+      }
+      data = mergeRows(pageResults.flatMap((result) => result.rows));
       lastLoadState = {
         page,
         pageSize,
@@ -1917,6 +2045,7 @@
       };
       const shouldOpenColumnPanel = !hasLoadedPage && data.length > 0;
       hasLoadedPage = true;
+      updatePageIndicator(page);
       resetColumnState();
       if (shouldOpenColumnPanel) {
         columnControls.open = true;
@@ -1937,6 +2066,9 @@
       data = [];
       lastLoadState = null;
       hasLoadedPage = true;
+      hasNextServerPage = false;
+      knownLastPage = null;
+      updatePageIndicator(page);
       resetColumnState();
       renderTable();
       resultsSummary.textContent = `No rows loaded for server page ${page}`;
@@ -1947,6 +2079,7 @@
       loader.classList.remove('d-flex');
       loader.classList.add('d-none');
       setBusy(false);
+      updateWorkflowGuide();
     }
   }
 
@@ -2261,14 +2394,8 @@ function renderTable() {
     await loadServerPage(page);
   });
 
-  pageNumberInput.addEventListener('change', async () => {
-    const page = getPageNumber();
-    pageNumberInput.value = page;
-    await loadServerPage(page);
-  });
-
   pageSizeSelect.addEventListener('change', async () => {
-    pageNumberInput.value = 1;
+    resetScopePage();
     await loadServerPage(1);
   });
 
@@ -2301,6 +2428,7 @@ function renderTable() {
   tableFieldSearch.addEventListener('input', renderTableFieldControls);
   tableFieldSource.addEventListener('change', renderTableFieldControls);
   tableFieldsSelectedOnly.addEventListener('change', renderTableFieldControls);
+  columnControls.addEventListener('toggle', updateWorkflowGuide);
 
   selectDefaultColumnsBtn.addEventListener('click', () => {
     draftColumnKeys = [...DEFAULT_COLUMN_KEYS];
@@ -2459,6 +2587,7 @@ searchInput.addEventListener('input', () => {
 
 initMultiSelects();
 handleTerritorySelectionChange(selectModel.value, false);
+updateWorkflowGuide();
 </script>
 
 <style>
@@ -2493,6 +2622,82 @@ body {
 
 .page-heading h1 {
   font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.workflow-guide {
+  margin: -4px 0 24px;
+  overflow-x: auto;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.workflow-guide ol {
+  display: grid;
+  min-width: 680px;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
+  list-style: none;
+}
+
+.workflow-guide li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 54px;
+  padding: 8px 14px;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.workflow-guide li + li {
+  border-left: 1px solid var(--border);
+}
+
+.workflow-step-number {
+  display: inline-grid;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  place-items: center;
+  border: 1px solid rgba(15, 23, 42, 0.2);
+  border-radius: 50%;
+  background: var(--surface-soft);
+  font-size: 0.75rem;
+}
+
+.workflow-guide li.is-complete .workflow-step-number {
+  border-color: #166534;
+  background: #166534;
+  color: #ffffff;
+}
+
+.workflow-guide li.is-current {
+  background: #fff7ed;
+  color: var(--ink);
+}
+
+.workflow-guide li.is-current::after {
+  position: absolute;
+  right: 10px;
+  bottom: -1px;
+  left: 10px;
+  height: 3px;
+  background: var(--accent);
+  content: "";
+}
+
+.workflow-guide li.is-current .workflow-step-number {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.workflow-guide li.is-ready:not(.is-current) {
+  color: var(--ink);
 }
 
 .page-kicker {
