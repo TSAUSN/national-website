@@ -349,6 +349,7 @@
         <span id="visibleColumnSummary" class="filter-summary"></span>
       </summary>
       <div class="column-panel-body">
+        <p class="field-help">Grouped by source model. Field keys identify columns with similar names.</p>
         <div class="d-flex flex-wrap gap-2 mb-3">
           <button id="select-default-columns" type="button" class="btn btn-outline-secondary btn-sm">Default</button>
           <button id="select-all-columns" type="button" class="btn btn-outline-primary btn-sm">Select all</button>
@@ -376,20 +377,25 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title fs-5">Export Fields</h2>
+        <div>
+          <h2 class="modal-title fs-5">Choose export columns</h2>
+          <p id="exportFieldSummary" class="modal-summary"></p>
+        </div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <p class="field-help">Grouped by source model. Field keys identify columns with similar names.</p>
         <div class="d-flex flex-wrap gap-2 mb-3">
-          <button id="export-default-columns" type="button" class="btn btn-outline-secondary btn-sm">Default Fields</button>
-          <button id="export-visible-columns" type="button" class="btn btn-outline-primary btn-sm">Visible Fields</button>
-          <button id="export-all-columns" type="button" class="btn btn-outline-primary btn-sm">Select All</button>
+          <button id="export-visible-columns" type="button" class="btn btn-outline-primary btn-sm">Match table</button>
+          <button id="export-default-columns" type="button" class="btn btn-outline-secondary btn-sm">Default</button>
+          <button id="export-all-columns" type="button" class="btn btn-outline-primary btn-sm">Select all</button>
+          <button id="export-clear-columns" type="button" class="btn btn-outline-secondary btn-sm">Clear</button>
         </div>
         <div id="exportFieldList" class="field-grid"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button id="confirm-export-btn" type="button" class="btn btn-primary">Export CSV</button>
+        <button id="confirm-export-btn" type="button" class="btn btn-primary">Export selected columns</button>
       </div>
     </div>
   </div>
@@ -429,14 +435,16 @@
   const cancelColumnSelectionBtn = document.getElementById('cancel-column-selection');
   const applyColumnSelectionBtn = document.getElementById('apply-column-selection');
   const exportFieldList = document.getElementById('exportFieldList');
+  const exportFieldSummary = document.getElementById('exportFieldSummary');
   const confirmExportBtn = document.getElementById('confirm-export-btn');
   const exportDefaultColumnsBtn = document.getElementById('export-default-columns');
   const exportVisibleColumnsBtn = document.getElementById('export-visible-columns');
   const exportAllColumnsBtn = document.getElementById('export-all-columns');
+  const exportClearColumnsBtn = document.getElementById('export-clear-columns');
   const exportFieldsModalEl = document.getElementById('exportFieldsModal');
 
   const DEFAULT_PAGE_SIZE = 50;
-  const FETCH_TIMEOUT_MS = 20000;
+  const FETCH_TIMEOUT_MS = 45000;
   const MAX_EXPORT_PAGES = 200;
   const DEFAULT_COLUMNS = [
     { key: 'model', label: 'Model' },
@@ -1093,7 +1101,7 @@
     if (defaultColumn) {
       return defaultColumn.label;
     }
-    return `Field: ${formatLabel(key)}`;
+    return formatLabel(key);
   };
 
   const formatCellValue = (value) => {
@@ -1134,18 +1142,32 @@
   const normalizeRows = (rows) => rows.map(flattenRow);
 
   const buildAvailableColumns = (rows) => {
-    const columns = [...DEFAULT_COLUMNS];
-    const existingKeys = new Set(columns.map((column) => column.key));
+    const columns = DEFAULT_COLUMNS.map((column) => ({
+      ...column,
+      source: 'standard',
+      models: []
+    }));
+    const dynamicColumns = new Map();
     rows.forEach((row) => {
       Object.keys(row)
         .filter((key) => key.startsWith(FIELD_PREFIX))
         .sort()
         .forEach((key) => {
-          if (existingKeys.has(key)) {
+          const existingColumn = dynamicColumns.get(key);
+          if (existingColumn) {
+            if (row.model && !existingColumn.models.includes(row.model)) {
+              existingColumn.models.push(row.model);
+            }
             return;
           }
-          existingKeys.add(key);
-          columns.push({ key, label: getColumnLabel(key) });
+          const column = {
+            key,
+            label: getColumnLabel(key),
+            source: 'content',
+            models: row.model ? [row.model] : []
+          };
+          dynamicColumns.set(key, column);
+          columns.push(column);
         });
     });
     return columns;
@@ -1165,28 +1187,84 @@
 
   const renderCheckboxList = (container, selectedKeys, namePrefix) => {
     container.innerHTML = '';
+    const groups = new Map();
     availableColumns.forEach((column) => {
-      const id = `${namePrefix}-${column.key.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
-      const wrapper = document.createElement('div');
-      wrapper.className = 'form-check';
-
-      const checkbox = document.createElement('input');
-      checkbox.className = 'form-check-input';
-      checkbox.type = 'checkbox';
-      checkbox.value = column.key;
-      checkbox.id = id;
-      checkbox.checked = selectedKeys.includes(column.key);
-
-      const label = document.createElement('label');
-      label.className = 'form-check-label';
-      label.htmlFor = id;
-      label.textContent = column.label;
-
-      wrapper.appendChild(checkbox);
-      wrapper.appendChild(label);
-      container.appendChild(wrapper);
+      let groupKey = 'standard';
+      let groupLabel = 'Standard result fields';
+      if (column.source === 'content' && column.models.length === 1) {
+        groupKey = `model:${column.models[0]}`;
+        groupLabel = `${column.models[0]} fields`;
+      } else if (column.source === 'content') {
+        groupKey = 'shared';
+        groupLabel = 'Shared model fields';
+      }
+      if (!groups.has(groupKey)) {
+        groups.set(groupKey, { label: groupLabel, columns: [] });
+      }
+      groups.get(groupKey).columns.push(column);
     });
+
+    groups.forEach((group) => {
+      const section = document.createElement('section');
+      section.className = 'field-group';
+
+      const heading = document.createElement('h3');
+      heading.className = 'field-group-title';
+      heading.textContent = `${group.label} (${group.columns.length})`;
+
+      const grid = document.createElement('div');
+      grid.className = 'field-group-grid';
+
+      group.columns.forEach((column) => {
+        const id = `${namePrefix}-${column.key.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+        const wrapper = document.createElement('div');
+        wrapper.className = 'form-check field-option';
+
+        const checkbox = document.createElement('input');
+        checkbox.className = 'form-check-input';
+        checkbox.type = 'checkbox';
+        checkbox.value = column.key;
+        checkbox.id = id;
+        checkbox.checked = selectedKeys.includes(column.key);
+
+        const label = document.createElement('label');
+        label.className = 'form-check-label field-option-label';
+        label.htmlFor = id;
+
+        const name = document.createElement('span');
+        name.className = 'field-option-name';
+        name.textContent = column.label;
+
+        const metadata = document.createElement('span');
+        metadata.className = 'field-option-meta';
+        const rawKey = column.key.replace(new RegExp(`^${FIELD_PREFIX}`), '');
+        metadata.textContent =
+          column.source === 'standard'
+            ? rawKey
+            : `${rawKey} · ${column.models.join(', ') || 'Content model'}`;
+
+        label.appendChild(name);
+        label.appendChild(metadata);
+        wrapper.appendChild(checkbox);
+        wrapper.appendChild(label);
+        grid.appendChild(wrapper);
+      });
+
+      section.appendChild(heading);
+      section.appendChild(grid);
+      container.appendChild(section);
+    });
+
+    if (container === exportFieldList) {
+      updateExportFieldSummary();
+    }
   };
+
+  function updateExportFieldSummary() {
+    const selectedCount = getCheckedKeys(exportFieldList).length;
+    exportFieldSummary.textContent = `${selectedCount} of ${availableColumns.length} columns selected`;
+    confirmExportBtn.disabled = selectedCount === 0;
+  }
 
   const renderTableFieldControls = () => {
     renderCheckboxList(tableFieldList, draftColumnKeys, 'table-field');
@@ -1547,10 +1625,9 @@ function renderTable() {
       return;
     }
     pendingExportMode = mode;
-    const checkedKeys =
-      mode === 'current' && selectedColumnKeys.length
-        ? selectedColumnKeys
-        : DEFAULT_COLUMN_KEYS;
+    const checkedKeys = selectedColumnKeys.length
+      ? selectedColumnKeys
+      : DEFAULT_COLUMN_KEYS;
     renderCheckboxList(exportFieldList, checkedKeys, 'export-field');
     showExportModal();
   };
@@ -1781,6 +1858,12 @@ function renderTable() {
       'export-field'
     );
   });
+
+  exportClearColumnsBtn.addEventListener('click', () => {
+    renderCheckboxList(exportFieldList, [], 'export-field');
+  });
+
+  exportFieldList.addEventListener('change', updateExportFieldSummary);
 
   exportFieldsModalEl?.querySelectorAll('[data-bs-dismiss="modal"]').forEach((button) => {
     button.addEventListener('click', hideExportModal);
@@ -2245,11 +2328,67 @@ body {
 }
 
 .field-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 440px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.field-group + .field-group {
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.field-group-title {
+  margin: 0 0 8px;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.field-group-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 8px 16px;
-  max-height: 320px;
-  overflow-y: auto;
+}
+
+.field-option {
+  display: flex;
+  align-items: flex-start;
+  min-height: 46px;
+  padding: 7px 8px;
+  border-radius: 6px;
+}
+
+.field-option:hover {
+  background: var(--surface-soft);
+}
+
+.field-option .form-check-input {
+  margin-top: 3px;
+}
+
+.field-option-label {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding-left: 4px;
+}
+
+.field-option-name {
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.field-option-meta {
+  color: var(--ink-soft);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.7rem;
+  overflow-wrap: anywhere;
 }
 
 .field-grid .form-check {
@@ -2258,6 +2397,17 @@ body {
 
 .field-grid .form-check-label {
   overflow-wrap: anywhere;
+}
+
+.field-help,
+.modal-summary {
+  margin: 0 0 12px;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+.modal-summary {
+  margin: 4px 0 0;
 }
 
 .table {
@@ -2286,8 +2436,12 @@ body {
 
 #dataTable th:last-child,
 #dataTable td:last-child {
-  min-width: 76px;
+  min-width: 90px;
   text-align: center;
+}
+
+#dataTable td:last-child .btn {
+  white-space: nowrap;
 }
 
 .sort-icon {

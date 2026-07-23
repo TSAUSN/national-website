@@ -276,7 +276,7 @@
     {{/if}}
 
     {{if {$services} }}
-        {{each services as ser WHERE ser.territory = '{$zuid}' AND ser.location IS NULL AND ser.division IS NULL LIMIT {$offset}, {$perPage} }}
+        {{each services as ser WHERE territory = '{$zuid}' LIMIT {$offset}, {$perPage} }}
             {{if {$isFirst} == 0}},{{/if}}
             {{$isFirst = 0}}
             {
@@ -550,7 +550,7 @@
     {{/if}}
 
     {{if {$services} }}
-        {{each services as ser WHERE ser.division = '{$zuidD}' AND ser.location IS NULL AND ser.territory IS NOT NULL LIMIT {$offset}, {$perPage} }}
+        {{each services as ser WHERE division = '{$zuidD}' LIMIT {$offset}, {$perPage} }}
             {{if {$isFirst} == 0}},{{/if}}
             {{$isFirst = 0}}
             {
