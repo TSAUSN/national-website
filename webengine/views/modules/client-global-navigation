@@ -1856,13 +1856,16 @@
         }
         break;
       case `6-ce888daf92-fpzvz1`: //States
-        if (!cookieManager.get(cookieKeys.locationZUID)) {
+        const hasPersistedStateLocation = Boolean(
+          cookieManager.get(cookieKeys.locationZUID)
+        );
+
+        if (!hasPersistedStateLocation) {
           await setNationalLocationCookies();
-          break;
         }
 
         if (
-          cookieManager.get(cookieKeys.locationZUID) &&
+          hasPersistedStateLocation &&
           cookieManager.get(cookieKeys.locationModel)
         ) {
           cookieManager.set(
@@ -1870,6 +1873,16 @@
             cookieManager.get(cookieKeys.locationModel)
           );
           cookieManager.set(cookieKeys.lastVisitedZUID, cookieManager.get(cookieKeys.locationZUID));
+        }
+
+        const stateTerritoryName =
+          `{{territories.filter({!this.territory}).name}}`;
+
+        if (stateTerritoryName) {
+          cookieManager.set(
+            cookieKeys.organizationTerritory,
+            stateTerritoryName
+          );
         }
 
         cookieManager.set(
@@ -1888,14 +1901,23 @@
       case `6-dcd5c9b192-tgsnht`: // Cities
         if (!cookieManager.get(cookieKeys.locationZUID)) {
           await setNationalLocationCookies();
-          break;
         }
 
         {{$cityStateZUID = {!this.state} }}
         {{$cityTerritoryZUID = {states.filter({$cityStateZUID}).territory} }}
+        {{$cityTerritoryName = {territories.filter({$cityTerritoryZUID}).name} }}
         {{$cityTerritoryContactImage = {territories.filter({$cityTerritoryZUID}).contact_us_image.getImage()} }}
         {{$cityTerritoryContactTitle = {territories.filter({$cityTerritoryZUID}).contact_us_title} }}
         {{$cityTerritoryContactHeader = {territories.filter({$cityTerritoryZUID}).contact_us_cta_header} }}
+
+        const cityTerritoryName = `{{$cityTerritoryName}}`;
+
+        if (cityTerritoryName) {
+          cookieManager.set(
+            cookieKeys.organizationTerritory,
+            cityTerritoryName
+          );
+        }
 
         cookieManager.set(
           cookieKeys.contactUsImage,
