@@ -1872,18 +1872,7 @@
           cookieManager.set(cookieKeys.lastVisitedZUID, cookieManager.get(cookieKeys.locationZUID));
         }
 
-        cookieManager.set(
-          cookieKeys.contactUsImage,
-          `{{territories.filter({!this.territory}).contact_us_image.getImage()}}`
-        );
-        cookieManager.set(
-          cookieKeys.contactUsTitle,
-          `{{territories.filter({!this.territory}).contact_us_title}}`
-        );
-        cookieManager.set(
-          cookieKeys.contactUsHeader,
-          `{{territories.filter({!this.territory}).contact_us_cta_header}}`
-        );
+        // Preserve the Contact Us cookies for the current persisted location.
         break;
       case `6-dcd5c9b192-tgsnht`: // Cities
         if (!cookieManager.get(cookieKeys.locationZUID)) {
@@ -1891,24 +1880,7 @@
           break;
         }
 
-        {{$cityStateZUID = {!this.state} }}
-        {{$cityTerritoryZUID = {states.filter({$cityStateZUID}).territory} }}
-        {{$cityTerritoryContactImage = {territories.filter({$cityTerritoryZUID}).contact_us_image.getImage()} }}
-        {{$cityTerritoryContactTitle = {territories.filter({$cityTerritoryZUID}).contact_us_title} }}
-        {{$cityTerritoryContactHeader = {territories.filter({$cityTerritoryZUID}).contact_us_cta_header} }}
-
-        cookieManager.set(
-          cookieKeys.contactUsImage,
-          `{{$cityTerritoryContactImage}}`
-        );
-        cookieManager.set(
-          cookieKeys.contactUsTitle,
-          `{{$cityTerritoryContactTitle}}`
-        );
-        cookieManager.set(
-          cookieKeys.contactUsHeader,
-          `{{$cityTerritoryContactHeader}}`
-        );
+        // Preserve the Contact Us cookies for the current persisted location.
         break;
     }
     logCurrentDataLayerValues(`init-complete`, { source });
