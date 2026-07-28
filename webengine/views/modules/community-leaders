@@ -40,7 +40,25 @@
           `https://{{instance.domain}}/staff.json?property=${location_zuid}&limit=3&model=${locationModel}`
         );
         const leaders = await response.json();
-        return leaders;
+        return leaders
+          .map((leader, originalIndex) => {
+            const parsedSortOrder = Number.parseInt(leader.sort_order, 10);
+
+            return {
+              leader: {
+                ...leader,
+                sort_order: Number.isNaN(parsedSortOrder)
+                  ? Number.MAX_SAFE_INTEGER
+                  : parsedSortOrder
+              },
+              originalIndex
+            };
+          })
+          .sort((a, b) =>
+            a.leader.sort_order - b.leader.sort_order ||
+            a.originalIndex - b.originalIndex
+          )
+          .map(({ leader }) => leader);
       } catch (error) {
         console.error('Error in getStaff:', error);
         return [];
