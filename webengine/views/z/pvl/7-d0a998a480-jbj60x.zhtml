@@ -1,143 +1,109 @@
-<div classname="{styles.pvlRoot}">
-	<div class="p-6 rounded-5 bg-light mb-18" data-zesty-id="design:columns:1 column - 1 row my-3:53:79">
-<div class="col-lg-12 col-md-12 col-sm-12" data-zesty-id="design:columns:1 column - 1 row my-3:53:79-1:1 column - 1 row:0">
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:50:65"></div>
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:1:44"></div>
-<div style="color:#111111;" class="rounded p-6 gap-3 bg-light text-dark" data-zesty-id="content:wysiwyg_basic:2:25"><h4>Meeting the Greatest Need:</h4>
-
+<div className={styles.pvlRoot}>
+	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="py-5"></div>
+			<div class="py-5"></div>
+			<div class="rounded p-6 gap-3 bg-light text-dark" style="color:#111111">
+<h4>Meeting the Greatest Need:</h4>
 <h5>How We Help Provide Housing and Assistance</h5>
-
-<p>
-	We are a nonprofit organization that works to alleviate human suffering and distress without discrimination. Our Emergency Shelter Services help all residents break the cycle of homelessness and relieve ongoing crisis by providing shelter, case management support and referrals to other agencies that specialize in the many barriers individuals experiencing homelessness encounter. 
-</p></div>
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:3:9"></div>
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:4:39"></div>
-<div style="color:#111111;" class="rounded p-6 gap-3 bg-light text-dark" data-zesty-id="content:wysiwyg_basic:5:27"><div class="btgrid">
-	<div class="row row-1">
-		<div class="col-md-6 col-sm-12 col-xs-12">
-			<div class="content">
-				<p style="text-align:center;" class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center"><a href="https://forms.office.com/r/abe86bcbv6" class="btn btn-secondary gap-1 mt-2">Request&nbsp;Utility Assistance<br>
-					(Henrico County, Mechanicsville and the<br>
-					City of Richmond only)</a></p>
-			</div>
-		</div>
-
-		<div class="col-md-6 col-sm-12 col-xs-12">
-			<div class="content">
-				<p style="text-align:center;" class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center"><a href="https://forms.office.com/r/L7bkL79hD6" class="btn btn-secondary gap-1 mt-2">Request Utility Assistance<br>
-					(Petersburg &amp; Hopewell&nbsp;ONLY)</a></p>
-			</div>
-		</div>
-	</div>
-</div></div>
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:6:62"></div>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:8:70"></div>
-<div class="row g-3 my-3 align-items-stretch" data-zesty-id="design:columns:3 Columns:13:40">
-<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column" data-zesty-id="design:columns:3 Columns:13:40-1:3 Columns:0">
-<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark" data-zesty-id="content:wysiwyg_basic:7:21"><h6>Utility Assistance</h6>
-
-<p>
-	Millions of people across the country are forced into making a choice between things like being able to keep the lights on or put food on their family's table.
-</p>
-
-<p>
-	We believe no one should have to make a decision like that, so we provide utility assistance and relief to those who need it. We have always fought to ensure that no one goes without heat in the coldest winters, air conditioning in the brutal summers or fresh water to drink and bathe in.
-</p></div>
+<p>We are a nonprofit organization that works to alleviate human suffering and distress without discrimination. Our Emergency Shelter Services help all residents break the cycle of homelessness and relieve ongoing crisis by providing shelter, case management support and referrals to other agencies that specialize in the many barriers individuals experiencing homelessness encounter.</p>
+</div>
+			<div class="py-5"></div>
+			<div class="py-5"></div>
+			<div class="rounded p-6 gap-3 bg-light text-dark" style="color:#111111">
+<div class="btgrid">
+<div class="row row-1">
+<div class="col-md-6 col-sm-12 col-xs-12">
+<div class="content">
+<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://forms.office.com/r/abe86bcbv6">Request&nbsp;Utility Assistance<br>(Henrico County, Mechanicsville and the<br>City of Richmond only)</a></p>
+</div>
+</div>
+<div class="col-md-6 col-sm-12 col-xs-12">
+<div class="content">
+<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://forms.office.com/r/L7bkL79hD6">Request Utility Assistance<br>(Petersburg &amp; Hopewell&nbsp;ONLY)</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+			<div class="py-5"></div>
+			<div class="my-2"></div>
+			<div class="row my-3 g-3 align-items-stretch">
+				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark">
+<h6>Utility Assistance</h6>
+<p>Millions of people across the country are forced into making a choice between things like being able to keep the lights on or put food on their family's table.</p>
+<p>We believe no one should have to make a decision like that, so we provide utility assistance and relief to those who need it. We have always fought to ensure that no one goes without heat in the coldest winters, air conditioning in the brutal summers or fresh water to drink and bathe in.</p>
+</div>
 				</div>
-<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column" data-zesty-id="design:columns:3 Columns:13:40-1:3 Columns:1">
-<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark" data-zesty-id="content:wysiwyg_basic:9:43"><h6>Emergency Shelter</h6>
-
-<p>
-	2 W grace street: Serving single men and families who are experiencing homelessnes.
-</p>
-
-<p>
-	1900 Chamberlayne avenue: Serving single men who are experiencing homelessness.
-</p>
-
-<p>
-	If you are within 3 days of experiencing homelessness, please contact the Homeless Connection Line at <a href="tel:8049720813">804-972-0813</a>.
-</p></div>
+				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark">
+<h6>Emergency Shelter</h6>
+<p>2 W grace street: Serving single men and families who are experiencing homelessnes.</p>
+<p>1900 Chamberlayne avenue: Serving single men who are experiencing homelessness.</p>
+<p>If you are within 3 days of experiencing homelessness, please contact the Homeless Connection Line at <a href="tel:8049720813">804-972-0813</a>.</p>
+</div>
 				</div>
-<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column" data-zesty-id="design:columns:3 Columns:13:40-1:3 Columns:2">
-<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark" data-zesty-id="content:wysiwyg_basic:11:53"><h6>Case Management</h6>
-
-<p>
-	Our case managers concentrate on helping residents identify problems that may have contributed to their homelessness, including substance abuse, employment, education deficiencies, financial mismanagement and mental health. </p>
-<p>  Staff assist each resident in developing realistic goals to overcome their situations. Substance abuse, motivational, and ‘Life Skills Enrichment’ meetings are conducted weekly at the shelter.
-</p></div>
+				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark">
+<h6>Case Management</h6>
+<p>Our case managers concentrate on helping residents identify problems that may have contributed to their homelessness, including substance abuse, employment, education deficiencies, financial mismanagement and mental health.</p>
+<p>Staff assist each resident in developing realistic goals to overcome their situations. Substance abuse, motivational, and ‘Life Skills Enrichment’ meetings are conducted weekly at the shelter.</p>
+</div>
 				</div>
 			</div>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:15:34"></div>
-<div class="row g-3 my-3 align-items-stretch" data-zesty-id="design:columns:2columns:18:97">
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex flex-column" data-zesty-id="design:columns:2columns:18:97-1:2 Columns - Equal:0">
-<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark" data-zesty-id="content:wysiwyg_basic:14:4"><h6>Refereral Services</h6>
-
-<p>
-	We provide referral services as part of our broader community services. This includes connecting individuals and families with resources for various needs, such as housing, food, financial assistance and educational opportunities.
-</p></div>
+			<div class="my-2"></div>
+			<div class="row my-3 g-3 align-items-stretch">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex flex-column">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark">
+<h6>Refereral Services</h6>
+<p>We provide referral services as part of our broader community services. This includes connecting individuals and families with resources for various needs, such as housing, food, financial assistance and educational opportunities.</p>
+</div>
 				</div>
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex flex-column" data-zesty-id="design:columns:2columns:18:97-1:2 Columns - Equal:1">
-<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark" data-zesty-id="content:wysiwyg_basic:16:54"><h6>Building wealth &amp; health network</h6>
-
-<p>
-This a free, 16-session curriculum over eight weeks, promoting financial literacy and self empowerment.</p>
-<p> 
-  Participation is limited to Richmond City residents who care for one or more children, 18-years or younger. </p>
-<p>
-To learn more about the Network and register for one of two informations sessions, visit our events page and click on "Building Wealth and Health Network - Cohort 3."
-</p></div>
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-flex flex-column">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark">
+<h6>Building wealth &amp; health network</h6>
+<p>This a free, 16-session curriculum over eight weeks, promoting financial literacy and self empowerment.</p>
+<p>Participation is limited to Richmond City residents who care for one or more children, 18-years or younger.</p>
+<p>To learn more about the Network and register for one of two informations sessions, visit our events page and click on "Building Wealth and Health Network - Cohort 3."</p>
+</div>
 				</div>
 			</div>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:19:52"></div>
-<div class="row my-3 gap-3" data-zesty-id="design:columns:2columns:22:98">
-<div class="col-md-6 col-sm-12 col-xs-12" data-zesty-id="design:columns:2columns:22:98-1:2 Columns - Equal:0">
-<h5 data-zesty-id="content:text:20:54">Homeless Connection line </h5>
+			<div class="row my-3 g-3 align-items-stretch">
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark">
+<h6>Homeless Connection Line</h6>
+<p>If you are within 3 days of losing housing, contact the Homeless Crisis Line for support. The Homeless Connection Line (HCL) is managed by Homeward and is a crucial community resource for those experiencing homelessness or within a few days of losing their current housing. The HCL offers trained Diversion Specialists who can assist households within 3 days of losing their housing to problem-solve, access community resources, and connect to homeless assistance if needed.</p>
+<p>The Central Intake System is managed by <a href="http://www.homewardva.org" target="">Homeward</a>. They are the first point of entry into shelter services.</p>
+<p><em>Homeless Connection Line Intake: <a href="tel:8049720813" target="">804.972.0813</a></em></p>
+<ul>
+<li>Weekdays: 8:00 a.m. - 9:00 p.m.</li>
+<li>Weekends: 1:00 - 9:00 p.m.</li>
+</ul>
+</div>
 				</div>
-<div class="col-md-6 col-sm-12 col-xs-12" data-zesty-id="design:columns:2columns:22:98-1:2 Columns - Equal:1">
-<h5 data-zesty-id="content:text:21:49">Chamberlayne Avenue Emergency Shelter</h5>
-				</div>
-			</div>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:25:68"></div>
-<div class="row my-3 gap-3" data-zesty-id="design:columns:2columns:44:94">
-<div class="col-md-6 col-sm-12 col-xs-12" data-zesty-id="design:columns:2columns:44:94-1:2 Columns - Equal:0">
-<p data-zesty-id="content:textarea:23:80">
-					<strong><em>If you are within 3 days of losing housing, contact the Homeless Crisis Line for support. </em></strong>The Homeless Connection Line (HCL) is managed by Homeward and is a crucial community resource for those experiencing homelessness or within a few days of losing their current housing. The HCL offers trained Diversion Specialists who can assist households within 3 days of losing their housing to problem-solve, access community resources, and connect to homeless assistance if needed.
-				</p>
-<p data-zesty-id="content:wysiwyg_basic:24:22">
-					The Central Intake System is managed by <a href="http://www.homewardva.org" target="">Homeward</a>. They are the first point of entry into shelter services. 
-				</p>
-<p data-zesty-id="content:wysiwyg_basic:26:32">
-					<em>Homeless Connection Line Intake: <a href="tel:8049720813" target="">804.972.0813</a></em>
-				</p>
-<ul data-zesty-id="content:wysiwyg_basic:28:18">
-					<li>Weekdays: 8:00 a.m. - 9:00 p.m.</li>
-					<li>Weekends: 1:00 - 9:00 p.m.</li>
-				</ul>
-				</div>
-<div class="col-md-6 col-sm-12 col-xs-12" data-zesty-id="design:columns:2columns:44:94-1:2 Columns - Equal:1">
-<p data-zesty-id="content:textarea:30:68">
-					1900 Chamberlayne Avenue, Richmond, VA 23222
-				</p>
-<p data-zesty-id="content:textarea:31:11"><strong><em>Men's Emergency Shelter</em></strong></p>
-<p data-zesty-id="content:wysiwyg_basic:32:42"><em>Homeless Connection Line Intake: <a href="tel:8049720813" target="">804.972.0813</a></em></p>
-<p data-zesty-id="content:textarea:34:69"><strong><em>Inclement Weather Shelter</em></strong></p>
-<ul data-zesty-id="content:wysiwyg_basic:35:44">
-					<li>Extreme Heat &amp; Weather Shelter: April 16 - Nov. 14<ul>
-						<li><a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/f0975423-cf50-4ecf-a175-39d7fe2798d3_Cooling+Center+Flyer_RGB_Digital.pdf">View Cooling Center Flyer</a><br>
-						 </li>
-					</ul>
-					</li>
-					<li>Cold Weather Shelter: Nov. 15 - April 15</li>
-					<li><em>Main Line: <span style="color:#ed1c2b;"><u><a href="tel:8046535707">804.653.5707</a></u></span></em></li>
-				</ul>
-<p data-zesty-id="content:textarea:37:79"><strong><em>Community Resource &amp; Training Center</em></strong></p>
-<p data-zesty-id="content:textarea:38:48">(Provided by the City of Richmond)</p>
-<p data-zesty-id="content:wysiwyg_basic:39:15"><em>City of Richmond Dept. Of Homeless Services: <font color="#ed1c2b"><u><a href="tel:8046463111">804.646.3111</a></u></font></em></p>
-<p data-zesty-id="content:wysiwyg_basic:41:42"><a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/ef0a0312-ca1c-49f4-868b-5e6f8a8f5c73_2026+CAES+Housing+Info+Sheet.pdf">View Info Sheet for a full listing of services and operating hours</a></p>
-<p data-zesty-id="content:textarea:43:98"><em>(Updated January 21, 2026)</em></p>
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<div class="card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark" style="color: #ed1c2b;">
+<h6>Chamberlayne Avenue Emergency Shelter</h6>
+<p>1900 Chamberlayne Avenue, Richmond, VA 23222</p>
+<p><strong>Men's Emergency Shelter</strong></p>
+<p><em>Homeless Connection Line Intake: <a href="tel:8049720813" target="">804.972.0813</a></em></p>
+<p><strong>Inclement Weather Shelter</strong></p>
+<ul>
+<li>Extreme Heat &amp; Weather Shelter: April 16 - Nov. 14
+<ul>
+<li><a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/f0975423-cf50-4ecf-a175-39d7fe2798d3_Cooling+Center+Flyer_RGB_Digital.pdf">View Cooling Center Flyer</a></li>
+</ul>
+</li>
+<li>Cold Weather Shelter: Nov. 15 - April 15</li>
+<li><em>Main Line: <span style="color: #ed1c2b;"><u><a href="tel:8046535707">804.653.5707</a></u></span></em></li>
+</ul>
+<p><strong>Community Resource &amp; Training Center</strong> (provided by the City of Richmond)<br><em>City of Richmond Dept. Of Homeless Services: <span style="color: #ed1c2b;"><u><a href="tel:8046463111">804.646.3111</a></u></span></em></p>
+<p><a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/ef0a0312-ca1c-49f4-868b-5e6f8a8f5c73_2026+CAES+Housing+Info+Sheet.pdf">View Info Sheet for a full listing of services and operating hours</a><br>(Updated January 21, 2026)</p>
+</div>
 				</div>
 			</div>
+			<div class="my-2"></div>
 		</div>
 	</div>
 </div>
