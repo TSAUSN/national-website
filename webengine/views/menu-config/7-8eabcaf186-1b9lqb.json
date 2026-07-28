@@ -15,46 +15,6 @@
   },
   {
     "type": "menu",
-    "key": null,
-    "page_name": "Adult Program Services",
-    "page-zuid": "7-d49aececa4-9xzgcd",
-    "sort": 0,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Spiritual Healing",
-    "page-zuid": "7-acb0deb89e-q10r50",
-    "sort": 1,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Youth Services",
-    "page-zuid": "7-fafff7aeab-2pfnst",
-    "sort": 2,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Food Pantries",
-    "page-zuid": "7-bec9acfc97-1l15jm",
-    "sort": 3,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Disaster Relief",
-    "page-zuid": "7-96c9b2bf91-xvrnzt",
-    "sort": 4,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
     "key": "about_us",
     "page_name": "About Us",
     "page-zuid": null,
@@ -71,8 +31,8 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "Commitment to all",
-    "page-zuid": "7-90eff9e999-tpj14d",
+    "page_name": "Give With Joy",
+    "page-zuid": "give_with_joy",
     "sort": 1,
     "parent": "about_us"
   },
@@ -95,31 +55,31 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "Employment Opportunities",
-    "page-zuid": "7-f8a8bcdbd3-2vljtw",
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
     "sort": 4,
     "parent": "about_us"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Give With Joy",
-    "page-zuid": "give_with_joy",
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-f8a8bcdbd3-2vljtw",
     "sort": 5,
     "parent": "about_us"
   },
   {
     "type": "menu",
     "key": "events",
-    "page_name": "FARMINGTON, NM: Corps Community Center",
-    "page-zuid": "7-cedbea808f-c1kj71",
+    "page_name": "Events",
+    "page-zuid": null,
     "parent": null
   },
   {
     "type": "menu",
     "key": "newsroom",
-    "page_name": "FARMINGTON, NM: Corps Community Center",
-    "page-zuid": "7-d2afbd87ea-n550z6",
+    "page_name": "Newsroom",
+    "page-zuid": null,
     "parent": null
   },
   {
@@ -189,7 +149,28 @@
     "type": "menu",
     "key": "contact_us",
     "page_name": "Contact Us",
-    "page-zuid": "7-98dda782a7-b30pf5",
+    "page-zuid": null,
     "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "More Things",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "view-all",
+    "page_name": "",
+    "page-zuid": null,
+    "parent": "custom_menu"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Events",
+    "page-zuid": "7-cedbea808f-c1kj71",
+    "sort": 1,
+    "parent": "custom_menu"
   }
 ]

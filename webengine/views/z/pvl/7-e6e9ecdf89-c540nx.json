@@ -1,0 +1,183 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:34:0:38": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-a6d68d999d-wdgrbf')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-a6d68d999d-wdgrbf')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:34:0:38",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:11:39": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:11:39",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:11:39-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:wysiwyg_basic:1:74": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <h5 style=\"text-align:center;\"><br>\nServing Hinds, Madison, Rankin,<br>\nCopiah, Scott, and Yazoo Counties<br>\n&nbsp;</h5>\n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"text-white rounded p-6 gap-3 my-5\" style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <h5 style=\"text-align:center;\"><br>\nServing Hinds, Madison, Rankin,<br>\nCopiah, Scott, and Yazoo Counties<br>\n&nbsp;</h5>\n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"position": 0,
+								"fullName": "content:wysiwyg_basic:1:74",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:1:74",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "300px",
+									"background": "#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover"
+								},
+								"classes": "text-white rounded p-6 gap-3 my-5",
+								"newLoc": "design:columns:1 column - 1 row my-3:11:39-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:2:53": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 1,
+								"fullName": "design:design:whitespace-sm:2:53",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:11:39-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:3:32": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:32",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:11:39-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:4:88": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\"><p>\n\t&nbsp;\n</p>\n\n<h5 style=\"text-align:center;\"><span style=\"font-size:20px;\">Check-in daily 4:30-6:30pm</span></h5>\n\n<p style=\"text-align:center;\">\n\tMust have photo ID\n</p>\n\n<p style=\"text-align:center;\">\n\tMen &amp; women housed on separate floors (no children)<br>\n\t&nbsp;\n</p></div>",
+								"content": "<div class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\" style=\"color:#111111;\"><p>\n\t&nbsp;\n</p>\n\n<h5 style=\"text-align:center;\"><span style=\"font-size:20px;\">Check-in daily 4:30-6:30pm</span></h5>\n\n<p style=\"text-align:center;\">\n\tMust have photo ID\n</p>\n\n<p style=\"text-align:center;\">\n\tMen &amp; women housed on separate floors (no children)<br>\n\t&nbsp;\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:4:88",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:4:88",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:11:39-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:5:97": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 4,
+								"fullName": "design:design:whitespace-xl:5:97",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:11:39-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:6:31": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <h5 style=\"text-align:center;\"><span style=\"color:#ed1c2b;\"><br>\nQuestions?</span></h5>\n\n<p style=\"text-align:center;color:#fff;\">\n\tContact Us for More Information.\n</p>\n\n<p style=\"text-align:center;color:#fff;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://southernusa.salvationarmy.org/jackson-ms/contact-us\" class=\"btn btn-secondary gap-1 mt-2\">Contact Us</a></p>\n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"text-white rounded p-6 gap-3 my-5\" style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <h5 style=\"text-align:center;\"><span style=\"color:#ed1c2b;\"><br>\nQuestions?</span></h5>\n\n<p style=\"text-align:center;color:#fff;\">\n\tContact Us for More Information.\n</p>\n\n<p style=\"text-align:center;color:#fff;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://southernusa.salvationarmy.org/jackson-ms/contact-us\" class=\"btn btn-secondary gap-1 mt-2\">Contact Us</a></p>\n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"position": 5,
+								"fullName": "content:wysiwyg_basic:6:31",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:6:31",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "300px",
+									"background": "#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover"
+								},
+								"classes": "text-white rounded p-6 gap-3 my-5",
+								"newLoc": "design:columns:1 column - 1 row my-3:11:39-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

@@ -16,9 +16,17 @@
   {
     "type": "menu",
     "key": null,
+    "page_name": "Assistance Programs",
+    "page-zuid": "7-a89bcfb998-1rwmpg",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
     "page_name": "Worship and Spiritual Programs",
     "page-zuid": "7-acc5b6fc88-plt3gk",
-    "sort": 0,
+    "sort": 1,
     "parent": "services"
   },
   {
@@ -26,7 +34,7 @@
     "key": null,
     "page_name": "Family Programs",
     "page-zuid": "7-ba9bb1eecc-16hvvd",
-    "sort": 1,
+    "sort": 2,
     "parent": "services"
   },
   {
@@ -34,7 +42,7 @@
     "key": null,
     "page_name": "Mental Health Services",
     "page-zuid": "7-acb3c7c7eb-lwkfgh",
-    "sort": 2,
+    "sort": 3,
     "parent": "services"
   },
   {
@@ -42,7 +50,7 @@
     "key": null,
     "page_name": "Anti-Human Trafficking",
     "page-zuid": "7-94c1909a8b-b773bp",
-    "sort": 3,
+    "sort": 4,
     "parent": "services"
   },
   {
@@ -50,14 +58,6 @@
     "key": null,
     "page_name": "Youth Services",
     "page-zuid": "7-ec88dbf69a-lx798q",
-    "sort": 4,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Assistance Programs",
-    "page-zuid": "7-a89bcfb998-1rwmpg",
     "sort": 5,
     "parent": "services"
   },
@@ -91,6 +91,14 @@
     "page_name": "Recovery Services",
     "page-zuid": "7-ec93ecc3b9-q5vdkm",
     "sort": 9,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Disaster Relief",
+    "page-zuid": "7-d4b7d9db9d-n6b988",
+    "sort": 10,
     "parent": "services"
   },
   {

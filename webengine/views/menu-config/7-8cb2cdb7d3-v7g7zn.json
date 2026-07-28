@@ -15,86 +15,6 @@
   },
   {
     "type": "menu",
-    "key": null,
-    "page_name": "Hunger",
-    "page-zuid": "7-f6baa8a68e-w7vsb1",
-    "sort": 0,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Correctional Services",
-    "page-zuid": "7-c8b1bda68e-2qzw4b",
-    "sort": 1,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Utility Rent Assistance",
-    "page-zuid": "7-eaddcaa68e-vpn2g7",
-    "sort": 2,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Disaster Relief",
-    "page-zuid": "7-ecd2e0a68e-t03hnn",
-    "sort": 3,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Domestic Violence",
-    "page-zuid": "7-b893f4a68e-8p4m69",
-    "sort": 4,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Health Services",
-    "page-zuid": "7-eecf8998d6-hqjxjn",
-    "sort": 5,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Youth Services",
-    "page-zuid": "7-e0d7a398d6-4f1j34",
-    "sort": 6,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Recovery",
-    "page-zuid": "7-c091b498d6-tqzmfs",
-    "sort": 7,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Senior Services",
-    "page-zuid": "7-888bd598d6-z8b66j",
-    "sort": 8,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Family Counseling",
-    "page-zuid": "7-ac97e698d6-njxv2v",
-    "sort": 9,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
     "key": "about_us",
     "page_name": "About Us",
     "page-zuid": null,
@@ -170,8 +90,7 @@
     "page_name": "Our Privacy Policy",
     "page-zuid": "7-a494b3d0d5-tzqfsw",
     "sort": 8,
-    "parent": "about_us",
-    "external_link": "https://www.salvationarmyusa.org/usa-southern-territory/our-privacy-policy/"
+    "parent": "about_us"
   },
   {
     "type": "menu",
@@ -184,15 +103,15 @@
   {
     "type": "menu",
     "key": "events",
-    "page_name": "Texas",
-    "page-zuid": "7-f896fca8e8-597lwj",
+    "page_name": "Events",
+    "page-zuid": null,
     "parent": null
   },
   {
     "type": "menu",
     "key": "newsroom",
-    "page_name": "Texas",
-    "page-zuid": "7-f4fbd1fa82-hvj4kl",
+    "page_name": "Newsroom",
+    "page-zuid": null,
     "parent": null
   },
   {
@@ -262,7 +181,7 @@
     "type": "menu",
     "key": "contact_us",
     "page_name": "Contact Us",
-    "page-zuid": "7-dab4c5cba1-7ktz0j",
+    "page-zuid": null,
     "parent": null
   },
   {
@@ -286,8 +205,7 @@
     "page_name": "Camp Hoblitzelle",
     "page-zuid": "7-bcc3e2ada5-nqsphh",
     "sort": 1,
-    "parent": "custom_menu",
-    "external_link": "https://www.camphoblitzelle.com/"
+    "parent": "custom_menu"
   },
   {
     "type": "menu",
@@ -295,8 +213,7 @@
     "page_name": "Adult Rehabilitation Centers",
     "page-zuid": "7-d8f98c9dfc-c2bp7m",
     "sort": 2,
-    "parent": "custom_menu",
-    "external_link": "https://arcsouth.org/"
+    "parent": "custom_menu"
   },
   {
     "type": "menu",
@@ -304,6 +221,14 @@
     "page_name": "Red Shield Youth Centers",
     "page-zuid": "7-fe949cb7ff-5r5bzt",
     "sort": 3,
+    "parent": "custom_menu"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Kettle-Con",
+    "page-zuid": "7-a08dc4e9e4-lkzmd2",
+    "sort": 4,
     "parent": "custom_menu"
   }
 ]

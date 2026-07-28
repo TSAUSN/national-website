@@ -69,10 +69,23 @@ a:not([class]), .styleLink {
   font-weight: 700;
   border-bottom: 1px solid #ef3e42 !important;
 }
-a:not([class]):hover, .styleLink {
+
+a:not([class]):hover, .styleLink:hover {
   color: #535353;
-  tranisition: 0.3s;
+  transition: 0.3s;
   border-bottom: 1px solid #535353;
+}
+
+// Reset inside .bg-secondary-200
+.bg-secondary-200 a:not([class]),
+.bg-secondary-200 .styleLink {
+  color: inherit !important;
+}
+
+.bg-secondary-200 a:not([class]):hover,
+.bg-secondary-200 .styleLink:hover {
+  color: inherit;
+
 }
 /* Make images easier to work with */
 img,

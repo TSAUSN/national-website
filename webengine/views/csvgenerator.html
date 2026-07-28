@@ -4,44 +4,47 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" type="text/javascript" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
 <div class="container py-4">
-  <div class="card mb-4">
-    <div class="card-header bg-primary text-white">
-      Selection Guide
-    </div>
-    <div class="card-body">
-      <p class="card-text">
-        By default, the selected option is <strong>Territories</strong>. You can then choose one or more <strong>Divisions</strong> associated with that territory.
-      </p>
-      <p class="card-text">
-        Once divisions are selected, the <strong>Location</strong> dropdown will be enabled, allowing you to choose one or more locations linked to those divisions.
-      </p>
-      <p class="card-text">
-        Remove selections using the remove buttons inside each dropdown.
-      </p>
-      <p class="card-text mt-3">
-        <a href="https://www.loom.com/share/231f4a27907142d79c89fb523d80fdbf?sid=fe593cd0-dad7-4986-8f18-2165a940a857" target="_blank" class="text-primary">
-          Watch the Selection Guide Video
-        </a>
-      </p>
-    </div>
-  </div>
+  <header class="page-heading mb-4">
+    <p class="page-kicker">Content tools</p>
+    <h1>CSV Content Explorer</h1>
+  </header>
 
-  <div class="card shadow-sm">
+  <nav class="workflow-guide" aria-label="CSV export workflow">
+    <ol>
+      <li data-workflow-step="scope">
+        <span class="workflow-step-number">1</span>
+        <span class="workflow-step-label">Choose scope</span>
+      </li>
+      <li data-workflow-step="models">
+        <span class="workflow-step-number">2</span>
+        <span class="workflow-step-label">Choose models</span>
+      </li>
+      <li data-workflow-step="load">
+        <span class="workflow-step-number">3</span>
+        <span class="workflow-step-label">Load results</span>
+      </li>
+      <li data-workflow-step="columns">
+        <span class="workflow-step-number">4</span>
+        <span class="workflow-step-label">Set columns</span>
+      </li>
+      <li data-workflow-step="export">
+        <span class="workflow-step-number">5</span>
+        <span class="workflow-step-label">Export CSV</span>
+      </li>
+    </ol>
+  </nav>
+
+  <div class="card scope-panel">
+    <div class="card-header">
+      <h2>Choose scope</h2>
+    </div>
     <div class="card-body">
       <form id="csv-form" class="row g-3">
-        <div class="col-12">
-          <label class="form-label" for="basic-addon3">Endpoint</label>
-          <div class="input-group">
-            <span
-              class="input-group-text bg-photo-overlay text-white"
-              id="basic-addon3"
-              >https://{{ instance.domain }}/generate-csv.json</span
-            >
-          </div>
-          <div class="form-text">Select your scope, then load a page or export.</div>
-        </div>
         <div class="col-12 col-lg-4">
-          <label class="form-label" for="select-model">Territory</label>
+          <label class="form-label" for="select-model">
+            <span class="step-number">1</span>
+            Territory
+          </label>
           <select
             class="form-select"
             id="select-model"
@@ -50,10 +53,12 @@
             <option value="{{ t.zuid }}">{{ t.name }}</option>
             {{/each}}
           </select>
-          <div class="form-text">Required selection.</div>
         </div>
         <div class="col-12 col-lg-4">
-          <label class="form-label" for="select-zuid-d">Division</label>
+          <label class="form-label" for="select-zuid-d">
+            <span class="step-number">2</span>
+            Division <span class="optional-label">Optional</span>
+          </label>
           <select
             class="form-select"
             id="select-zuid-d"
@@ -69,10 +74,12 @@
             </option>
             {{/each}}
           </select>
-          <div class="form-text">Optional; select one or more divisions.</div>
         </div>
         <div class="col-12 col-lg-4">
-          <label class="form-label" for="select-zuid-l">Location</label>
+          <label class="form-label" for="select-zuid-l">
+            <span class="step-number">3</span>
+            Location <span class="optional-label">Optional</span>
+          </label>
           <select
             class="form-select"
             id="select-zuid-l"
@@ -91,19 +98,21 @@
             </option>
             {{/each}}
           </select>
-          <div class="form-text">Enabled when divisions are selected.</div>
+          <div id="locationHelp" class="form-text">Select and apply a division first.</div>
         </div>
-        <div class="col-12 col-lg-4">
-          <label class="form-label">Model filters</label>
+        <div class="col-12 col-lg-6">
+          <label class="form-label">Content models</label>
           <div class="dropdown w-100"
             data-toggle="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Filter which models to include in the CSV file" >
             <button
               class="btn btn-outline-primary dropdown-toggle w-100"
               type="button"
               data-bs-toggle="dropdown"
+              data-bs-auto-close="outside"
               aria-expanded="false"
             >
-              Filter Models
+              <span>Choose models</span>
+              <span id="modelFilterSummary" class="filter-summary"></span>
             </button>
             <ul
               class="dropdown-menu p-2"
@@ -278,174 +287,189 @@
             </ul>
           </div>
         </div>
-        <div class="col-6 col-lg-2">
-          <label class="form-label" for="page-size">Page size</label>
-          <select id="page-size" class="form-select">
-            <option value="25">25</option>
-            <option value="50" selected>50</option>
-            <option value="100">100</option>
-          </select>
-          <div class="form-text">Server page size.</div>
-        </div>
-        <div class="col-6 col-lg-3">
-          <label class="form-label" for="page-number">Page</label>
-          <div class="input-group has-validation">
-            <button id="page-prev" type="button" class="btn btn-outline-secondary">Prev</button>
-            <input id="page-number" type="number" class="form-control" min="1" value="1">
-            <button id="page-next" type="button" class="btn btn-outline-secondary">Next</button>
-          </div>
-          <div class="invalid-feedback">Enter a page number of 1 or more.</div>
-          <div class="form-text">Server page: <span id="page-indicator">1</span></div>
-        </div>
-        <div class="col-12 col-lg-3">
-          <label class="form-label">Actions</label>
+        <div class="col-12 col-lg-6 d-flex align-items-end justify-content-lg-end">
           <div class="d-flex flex-wrap gap-2">
             <button
               id="csv-submit-btn"
               type="button"
               class="btn btn-primary"
             >
-              Load Page
-            </button>
-            <button
-              id="download-csv-btn"
-              type="button"
-              class="btn btn-outline-primary d-none"
-            >
-              Export Current Page
-            </button>
-            <button
-              id="export-all-btn"
-              type="button"
-              class="btn btn-outline-secondary"
-            >
-              Export All Pages
+              Load results
             </button>
           </div>
         </div>
         <div class="col-12">
           <div id="csv-error" class="alert alert-danger d-none" role="alert"></div>
         </div>
-        <div class="col-12">
-          <div
-            id="csv-loader"
-            class="d-none d-flex align-items-center gap-2"
-          >
-            <div
-              class="spinner-border text-primary"
-              role="status"
-            >
-              <span class="visually-hidden">Loading...</span>
-            </div>
-            <span>Loading data...</span>
-          </div>
-        </div>
       </form>
     </div>
   </div>
 
-<div id="searchContainer" class="mb-2 mt-16 d-none">
-  <input
-    type="text"
-    id="searchInput"
-    class="form-control"
-    placeholder="Search table data..."
-  />
+  <section id="resultsSection" class="results-section d-none">
+    <div class="results-heading">
+      <div>
+        <p class="page-kicker">Loaded data</p>
+        <h2>Results</h2>
+        <p id="resultsSummary" class="results-summary" aria-live="polite"></p>
+      </div>
+      <div class="d-flex flex-wrap gap-2">
+        <button
+          id="download-csv-btn"
+          type="button"
+          class="btn btn-outline-primary d-none"
+        >
+          Export this page
+        </button>
+        <button
+          id="export-all-btn"
+          type="button"
+          class="btn btn-outline-secondary d-none"
+        >
+          Export all pages
+        </button>
+      </div>
+    </div>
+
+    <div id="resultsToolbar" class="results-toolbar">
+      <div id="searchContainer" class="results-search">
+        <label class="visually-hidden" for="searchInput">Search loaded rows</label>
+        <input
+          type="search"
+          id="searchInput"
+          class="form-control"
+          placeholder="Search this server page"
+        />
+      </div>
+      <div class="server-pager" aria-label="Server pagination">
+        <label for="page-size">Rows</label>
+        <select id="page-size" class="form-select form-select-sm">
+          <option value="25">25</option>
+          <option value="50" selected>50</option>
+          <option value="100">100</option>
+        </select>
+        <button id="page-prev" type="button" class="btn btn-outline-secondary btn-sm" aria-label="Load previous server page">Previous</button>
+        <label for="page-number">Page</label>
+        <input id="page-number" type="number" class="form-control form-control-sm" min="1" value="1" readonly aria-label="Current server page">
+        <button id="page-next" type="button" class="btn btn-outline-secondary btn-sm" aria-label="Load next server page">Next</button>
+        <span id="page-indicator" class="server-page-label"></span>
+      </div>
+    </div>
+    <div class="invalid-feedback" id="pageNumberError">Enter a page number of 1 or more.</div>
+    <div
+      id="csv-loader"
+      class="d-none align-items-center gap-2"
+    >
+      <div
+        class="spinner-border spinner-border-sm text-primary"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <span id="csv-loader-text">Loading server page...</span>
+    </div>
+
+    <details id="columnControls" class="column-panel d-none" open>
+      <summary>
+        <span class="column-panel-title">
+          <span class="column-panel-toggle-icon" aria-hidden="true"></span>
+          <span>Table columns</span>
+        </span>
+        <span class="column-panel-meta">
+          <span id="visibleColumnSummary" class="filter-summary"></span>
+          <span class="column-panel-state">
+            <span class="column-panel-state-closed">Expand</span>
+            <span class="column-panel-state-open">Collapse</span>
+          </span>
+        </span>
+      </summary>
+      <div class="column-panel-body">
+        <p class="field-help">Search by column name or field key, then open a source group to choose columns.</p>
+        <div class="field-browser-toolbar">
+          <div class="field-browser-search">
+            <label for="table-field-search" class="form-label">Search columns</label>
+            <input
+              id="table-field-search"
+              type="search"
+              class="form-control form-control-sm"
+              placeholder="Name or field key"
+              autocomplete="off"
+            >
+          </div>
+          <div class="field-browser-source">
+            <label for="table-field-source" class="form-label">Source</label>
+            <select id="table-field-source" class="form-select form-select-sm">
+              <option value="">All sources</option>
+            </select>
+          </div>
+          <label class="form-check field-browser-selected">
+            <input id="table-fields-selected-only" class="form-check-input" type="checkbox">
+            <span class="form-check-label">Selected only</span>
+          </label>
+        </div>
+        <div id="tableFieldMatchSummary" class="field-browser-status" aria-live="polite"></div>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <button id="select-default-columns" type="button" class="btn btn-outline-secondary btn-sm">Default</button>
+          <button id="select-all-columns" type="button" class="btn btn-outline-primary btn-sm">Select all</button>
+          <button id="cancel-column-selection" type="button" class="btn btn-outline-secondary btn-sm ms-auto">Cancel</button>
+          <button id="apply-column-selection" type="button" class="btn btn-primary btn-sm">Apply columns</button>
+        </div>
+        <div id="tableFieldList" class="field-grid"></div>
+      </div>
+    </details>
+
+    <div id="tableNavigation" class="table-navigation d-none">
+      <span id="tableNavigationSummary" class="table-navigation-summary"></span>
+    </div>
+    <div id="tableTopScrollbar" class="table-top-scrollbar d-none" aria-label="Table horizontal scrollbar" tabindex="0">
+      <div id="tableTopScrollbarSpacer"></div>
+    </div>
+    <div class="table-responsive results-table">
+      <table
+        class="d-none table table-bordered table-striped"
+        id="dataTable"
+      >
+        <thead>
+          <tr id="dataTableHeadRow"></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
 </div>
-
-  <table
-    class="d-none table table-bordered table-striped "
-    id="dataTable"
-  >
-    <thead>
-      <tr>
-        <th
-          data-key="model"
-          class="sortable"
-        >
-          <span>Model</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="zuid"
-          class="sortable"
-        >
-          <span>ZUID</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="title"
-          class="sortable"
-        >
-          <span>Title</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="territory"
-          class="sortable"
-        >
-          <span>Territory</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="division"
-          class="sortable"
-        >
-          <span>Division</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="location"
-          class="sortable"
-        >
-          <span>Location</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="path_part"
-          class="sortable"
-        >
-          <span>Path Part</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="url"
-          class="sortable"
-        >
-          <span>URL</span
-          ><span class="sort-icon"> <span class="up">▲</span><span class="down">▼</span> </span>
-        </th>
-        <th
-          data-key="publish_status"
-          class="sortable"
-        >
-          <span>Publish Status</span
-          ><span class="sort-icon"> <span class="up">^</span><span class="down">v</span> </span>
-        </th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-
-    <tbody></tbody>
-  </table>
-
-  <nav>
-    <ul
-      class="pagination"
-      id="pagination"
-    ></ul>
-  </nav>
+<div class="modal fade" id="exportFieldsModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title fs-5">Choose export columns</h2>
+          <p id="exportFieldSummary" class="modal-summary"></p>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="field-help">Grouped by source model. Field keys identify columns with similar names.</p>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <button id="export-visible-columns" type="button" class="btn btn-outline-primary btn-sm">Match table</button>
+          <button id="export-default-columns" type="button" class="btn btn-outline-secondary btn-sm">Default</button>
+          <button id="export-all-columns" type="button" class="btn btn-outline-primary btn-sm">Select all</button>
+          <button id="export-clear-columns" type="button" class="btn btn-outline-secondary btn-sm">Clear</button>
+        </div>
+        <div id="exportFieldList" class="field-grid"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button id="confirm-export-btn" type="button" class="btn btn-primary">Export selected columns</button>
+      </div>
+    </div>
+  </div>
 </div>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css"
-/>
-<script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
 <script>
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-  const tooltipList = [...tooltipTriggerList].map(
-    (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
-  );
+  const tooltipList = window.bootstrap
+    ? [...tooltipTriggerList].map(
+        (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+      )
+    : [];
   const selectModel = document.getElementById('select-model');
   const selectZuidD = document.getElementById('select-zuid-d');
   const selectZuidL = document.getElementById('select-zuid-l');
@@ -455,84 +479,431 @@
   const pagePrevBtn = document.getElementById('page-prev');
   const pageNextBtn = document.getElementById('page-next');
   const pageIndicator = document.getElementById('page-indicator');
+  const pageNumberError = document.getElementById('pageNumberError');
   const errorAlert = document.getElementById('csv-error');
   const exportAllBtn = document.getElementById('export-all-btn');
   const downloadCsvBtn = document.getElementById('download-csv-btn');
   const submitBtn = document.getElementById('csv-submit-btn');
+  const resultsSection = document.getElementById('resultsSection');
+  const resultsSummary = document.getElementById('resultsSummary');
+  const loaderText = document.getElementById('csv-loader-text');
+  const modelFilterSummary = document.getElementById('modelFilterSummary');
+  const visibleColumnSummary = document.getElementById('visibleColumnSummary');
+  const locationHelp = document.getElementById('locationHelp');
+  const dataTableHeadRow = document.getElementById('dataTableHeadRow');
+  const columnControls = document.getElementById('columnControls');
+  const tableFieldList = document.getElementById('tableFieldList');
+  const tableFieldSearch = document.getElementById('table-field-search');
+  const tableFieldSource = document.getElementById('table-field-source');
+  const tableFieldsSelectedOnly = document.getElementById('table-fields-selected-only');
+  const tableFieldMatchSummary = document.getElementById('tableFieldMatchSummary');
+  const tableNavigation = document.getElementById('tableNavigation');
+  const tableNavigationSummary = document.getElementById('tableNavigationSummary');
+  const tableTopScrollbar = document.getElementById('tableTopScrollbar');
+  const tableTopScrollbarSpacer = document.getElementById('tableTopScrollbarSpacer');
+  const selectDefaultColumnsBtn = document.getElementById('select-default-columns');
+  const selectAllColumnsBtn = document.getElementById('select-all-columns');
+  const cancelColumnSelectionBtn = document.getElementById('cancel-column-selection');
+  const applyColumnSelectionBtn = document.getElementById('apply-column-selection');
+  const exportFieldList = document.getElementById('exportFieldList');
+  const exportFieldSummary = document.getElementById('exportFieldSummary');
+  const confirmExportBtn = document.getElementById('confirm-export-btn');
+  const exportDefaultColumnsBtn = document.getElementById('export-default-columns');
+  const exportVisibleColumnsBtn = document.getElementById('export-visible-columns');
+  const exportAllColumnsBtn = document.getElementById('export-all-columns');
+  const exportClearColumnsBtn = document.getElementById('export-clear-columns');
+  const exportFieldsModalEl = document.getElementById('exportFieldsModal');
+  const workflowSteps = Array.from(
+    document.querySelectorAll('[data-workflow-step]')
+  );
 
   const DEFAULT_PAGE_SIZE = 50;
-  const FETCH_TIMEOUT_MS = 20000;
+  const FETCH_TIMEOUT_MS = 45000;
+  const BROAD_SCOPE_MODEL_BATCH_SIZE = 3;
+  const FIELD_HYDRATION_CONCURRENCY = 4;
+  const GQL_BULK_PAGE_SIZE = 250;
+  const GQL_BULK_THRESHOLD = 100;
+  const MAX_GQL_BULK_PAGES = 500;
   const MAX_EXPORT_PAGES = 200;
+  const DEFAULT_COLUMNS = [
+    { key: 'model', label: 'Model' },
+    { key: 'zuid', label: 'ZUID' },
+    { key: 'title', label: 'Title' },
+    { key: 'territory', label: 'Territory' },
+    { key: 'division', label: 'Division' },
+    { key: 'location', label: 'Location' },
+    { key: 'path_part', label: 'Path Part' },
+    { key: 'url', label: 'URL' },
+    { key: 'publish_status', label: 'Publish Status' }
+  ];
+  const DEFAULT_COLUMN_KEYS = DEFAULT_COLUMNS.map((column) => column.key);
+  const SERVICES_MODEL_KEY = 'services';
+  const BASE_ROW_KEYS = new Set([
+    ...DEFAULT_COLUMN_KEYS,
+    'model_zuid',
+    'fields'
+  ]);
+  const FIELD_PREFIX = 'field__';
+  const SKIPPED_FIELD_KEYS = new Set(['meta']);
+  const MODEL_DATA_CONFIG = {
+    territories: { label: 'Territories', endpoint: 'territories' },
+    divisions: { label: 'Divisions', endpoint: 'divisions' },
+    locations: { label: 'Locations', endpoint: 'locations' },
+    about_us: { label: 'About Us', endpoint: 'about_us' },
+    contact_us: { label: 'Contact Us', endpoint: 'contact_us' },
+    informational_pages: {
+      label: 'Informational Pages',
+      endpoint: 'informational_pages'
+    },
+    stories_landing_page: {
+      label: 'Stories Landing Page',
+      endpoint: 'stories_landing_page'
+    },
+    events_landing_page: {
+      label: 'Events Landing Page',
+      endpoint: 'events_landing_pages'
+    },
+    leadership_landing_page: {
+      label: 'Leadership Landing Page',
+      endpoint: 'leadership_landing_page'
+    },
+    services: { label: 'Services', endpoint: 'services' },
+    volunteer_pages: {
+      label: 'Volunteer Pages',
+      endpoint: 'volunteer_pages'
+    }
+  };
+  const MODEL_DATA_CONFIG_BY_LABEL = new Map(
+    Object.values(MODEL_DATA_CONFIG).map((config) => [config.label, config])
+  );
+
+  const parseRelationshipValues = (value) =>
+    `${value || ''}`
+      .split(',')
+      .map((item) => item.trim())
+      .filter(Boolean);
 
   const divisionOptions = Array.from(selectZuidD.options)
     .filter((opt) => opt.value)
     .map((opt) => ({
-      value: opt.value,
+      value: opt.value.trim(),
       text: opt.textContent.trim(),
-      territory: opt.getAttribute('data-territory') || ''
+      territories: parseRelationshipValues(opt.getAttribute('data-territory'))
     }));
 
   const locationOptions = Array.from(selectZuidL.options)
     .filter((opt) => opt.value)
     .map((opt) => ({
-      value: opt.value,
+      value: opt.value.trim(),
       text: opt.textContent.trim(),
-      division: opt.getAttribute('data-division') || '',
-      territory: opt.getAttribute('data-territory') || ''
+      divisions: parseRelationshipValues(opt.getAttribute('data-division')),
+      territories: parseRelationshipValues(opt.getAttribute('data-territory'))
     }));
 
   const locationMetaById = new Map(locationOptions.map((opt) => [opt.value, opt]));
+  const scopeSelection = {
+    territory: '',
+    divisions: [],
+    locations: []
+  };
 
-  let divisionTomSelect = null;
-  let locationTomSelect = null;
+  let divisionCombo = null;
+  let locationCombo = null;
+  let hasLoadedPage = false;
+  let hasNextServerPage = false;
+  let knownLastPage = null;
+  let requestBusy = false;
+
+  const createCheckboxCombo = (selectEl, config) => {
+    let options = [];
+    let selectedValues = [];
+    let draftValues = [];
+    let isOpen = false;
+    let isEnabled = !selectEl.disabled;
+
+    const root = document.createElement('div');
+    root.className = 'checkbox-combo';
+
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'checkbox-combo-toggle';
+    toggle.setAttribute('aria-haspopup', 'listbox');
+    toggle.setAttribute('aria-expanded', 'false');
+
+    const menu = document.createElement('div');
+    menu.className = 'checkbox-combo-menu d-none';
+
+    const search = document.createElement('input');
+    search.type = 'text';
+    search.className = 'form-control form-control-sm checkbox-combo-search';
+    search.placeholder = config.searchPlaceholder || 'Search...';
+
+    const selectAllRow = document.createElement('label');
+    selectAllRow.className = 'checkbox-combo-select-all';
+
+    const selectAllCheckbox = document.createElement('input');
+    selectAllCheckbox.type = 'checkbox';
+    selectAllCheckbox.id = `${selectEl.id}-select-all`;
+
+    const selectAllText = document.createElement('span');
+    selectAllRow.htmlFor = selectAllCheckbox.id;
+    selectAllRow.appendChild(selectAllCheckbox);
+    selectAllRow.appendChild(selectAllText);
+
+    const list = document.createElement('div');
+    list.className = 'checkbox-combo-list';
+
+    const footer = document.createElement('div');
+    footer.className = 'checkbox-combo-footer';
+
+    const cancelBtn = document.createElement('button');
+    cancelBtn.type = 'button';
+    cancelBtn.className = 'btn btn-outline-secondary btn-sm';
+    cancelBtn.textContent = 'Cancel';
+
+    const applyBtn = document.createElement('button');
+    applyBtn.type = 'button';
+    applyBtn.className = 'btn btn-primary btn-sm';
+    applyBtn.textContent = 'Apply';
+
+    footer.appendChild(cancelBtn);
+    footer.appendChild(applyBtn);
+    menu.appendChild(search);
+    menu.appendChild(selectAllRow);
+    menu.appendChild(list);
+    menu.appendChild(footer);
+    root.appendChild(toggle);
+    root.appendChild(menu);
+
+    selectEl.classList.add('checkbox-combo-native');
+    selectEl.insertAdjacentElement('afterend', root);
+
+    const getSelectedOptionText = () =>
+      selectedValues
+        .map((value) => options.find((option) => option.value === value)?.text)
+        .filter(Boolean);
+
+    const syncNativeSelect = () => {
+      Array.from(selectEl.options).forEach((option) => {
+        option.selected = selectedValues.includes(option.value);
+      });
+    };
+
+    const syncToggle = () => {
+      const selectedText = getSelectedOptionText();
+      const selectionName = config.selectionName || 'options';
+      if (options.length > 1 && selectedText.length === options.length) {
+        toggle.textContent = `All ${options.length} ${selectionName} selected`;
+      } else if (selectedText.length > 2) {
+        toggle.textContent = `${selectedText.length} ${selectionName} selected`;
+      } else {
+        toggle.textContent = selectedText.length
+          ? selectedText.join(', ')
+          : config.placeholder;
+      }
+      toggle.disabled = !isEnabled;
+      root.classList.toggle('is-disabled', !isEnabled);
+    };
+
+    const syncSelectAll = () => {
+      const selectedCount = options.filter((option) =>
+        draftValues.includes(option.value)
+      ).length;
+      selectAllCheckbox.checked =
+        options.length > 0 && selectedCount === options.length;
+      selectAllCheckbox.indeterminate =
+        selectedCount > 0 && selectedCount < options.length;
+      selectAllCheckbox.disabled = options.length === 0;
+      selectAllText.textContent =
+        `${config.selectAllLabel || 'Select all available'} (${options.length})`;
+    };
+
+    const renderList = () => {
+      const searchTerm = search.value.trim().toLowerCase();
+      const visibleOptions = searchTerm
+        ? options.filter((option) => option.text.toLowerCase().includes(searchTerm))
+        : options;
+
+      list.innerHTML = '';
+      syncSelectAll();
+      if (!visibleOptions.length) {
+        const empty = document.createElement('div');
+        empty.className = 'checkbox-combo-empty';
+        empty.textContent = config.emptyText || 'No options available.';
+        list.appendChild(empty);
+        return;
+      }
+
+      visibleOptions.forEach((option) => {
+        const id = `${selectEl.id}-${option.value}`;
+        const item = document.createElement('label');
+        item.className = 'checkbox-combo-option';
+        item.htmlFor = id;
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = id;
+        checkbox.value = option.value;
+        checkbox.checked = draftValues.includes(option.value);
+
+        checkbox.addEventListener('change', () => {
+          if (checkbox.checked) {
+            draftValues = [...new Set([...draftValues, option.value])];
+          } else {
+            draftValues = draftValues.filter((value) => value !== option.value);
+          }
+          syncSelectAll();
+        });
+
+        const text = document.createElement('span');
+        text.textContent = option.text;
+
+        item.appendChild(checkbox);
+        item.appendChild(text);
+        list.appendChild(item);
+      });
+    };
+
+    const open = () => {
+      if (!isEnabled) {
+        return;
+      }
+      isOpen = true;
+      draftValues = [...selectedValues];
+      search.value = '';
+      renderList();
+      menu.classList.remove('d-none');
+      toggle.setAttribute('aria-expanded', 'true');
+      search.focus();
+    };
+
+    const close = () => {
+      isOpen = false;
+      menu.classList.add('d-none');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+
+    const setOptions = (nextOptions) => {
+      options = [...nextOptions];
+      selectedValues = selectedValues.filter((value) =>
+        options.some((option) => option.value === value)
+      );
+      draftValues = draftValues.filter((value) =>
+        options.some((option) => option.value === value)
+      );
+      syncNativeSelect();
+      syncToggle();
+      if (isOpen) {
+        renderList();
+      }
+    };
+
+    const setValue = (values) => {
+      const nextValues = Array.isArray(values) ? values : `${values}`.split(',');
+      selectedValues = [
+        ...new Set(
+          nextValues
+            .map((value) => `${value}`.trim())
+            .filter((value) => value && options.some((option) => option.value === value))
+        )
+      ];
+      draftValues = [...selectedValues];
+      syncNativeSelect();
+      syncToggle();
+    };
+
+    const clear = () => setValue([]);
+
+    const enable = () => {
+      isEnabled = true;
+      selectEl.disabled = false;
+      syncToggle();
+    };
+
+    const disable = () => {
+      isEnabled = false;
+      close();
+      selectEl.disabled = true;
+      syncToggle();
+    };
+
+    toggle.addEventListener('click', () => {
+      if (isOpen) {
+        close();
+      } else {
+        open();
+      }
+    });
+
+    search.addEventListener('input', renderList);
+    selectAllCheckbox.addEventListener('change', () => {
+      draftValues = selectAllCheckbox.checked
+        ? options.map((option) => option.value)
+        : [];
+      renderList();
+    });
+    cancelBtn.addEventListener('click', close);
+    applyBtn.addEventListener('click', () => {
+      setValue(draftValues);
+      close();
+      if (typeof config.onApply === 'function') {
+        config.onApply([...selectedValues]);
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (isOpen && !root.contains(event.target)) {
+        close();
+      }
+    });
+
+    setOptions(
+      Array.from(selectEl.options)
+        .filter((option) => option.value)
+        .map((option) => ({
+          value: option.value,
+          text: option.textContent.trim()
+        }))
+    );
+    if (!isEnabled) {
+      disable();
+    }
+
+    return {
+      getValue: () => [...selectedValues],
+      clear,
+      setValue,
+      enable,
+      disable,
+      setOptions
+    };
+  };
 
   const initMultiSelects = () => {
-    if (typeof TomSelect === 'undefined') {
-      return;
-    }
-    divisionTomSelect = new TomSelect(selectZuidD, {
-      plugins: ['remove_button'],
+    divisionCombo = createCheckboxCombo(selectZuidD, {
       placeholder: 'Select divisions',
-      maxItems: null,
-      create: false
+      searchPlaceholder: 'Search divisions',
+      selectAllLabel: 'Select all available divisions',
+      selectionName: 'divisions',
+      emptyText: 'No divisions available.',
+      onApply: handleDivisionSelectionChange
     });
-    locationTomSelect = new TomSelect(selectZuidL, {
-      plugins: ['remove_button'],
+    locationCombo = createCheckboxCombo(selectZuidL, {
       placeholder: 'Select locations',
-      maxItems: null,
-      create: false
-    });
-  };
-
-  const getSelectedValues = (selectEl, tomSelectInstance) => {
-    if (tomSelectInstance) {
-      const values = tomSelectInstance.getValue();
-      if (!values) {
-        return [];
-      }
-      return Array.isArray(values) ? values : [values];
-    }
-    return Array.from(selectEl.selectedOptions)
-      .map((opt) => opt.value)
-      .filter((value) => value);
-  };
-
-  const clearSelection = (selectEl, tomSelectInstance) => {
-    if (tomSelectInstance) {
-      tomSelectInstance.clear(true);
-      return;
-    }
-    Array.from(selectEl.options).forEach((opt) => {
-      opt.selected = false;
+      searchPlaceholder: 'Search locations',
+      selectAllLabel: 'Select all available locations',
+      selectionName: 'locations',
+      emptyText: 'Select a division first.',
+      onApply: handleLocationSelectionChange
     });
   };
 
   const setLocationEnabled = (enabled) => {
-    if (locationTomSelect) {
+    if (locationCombo) {
       if (enabled) {
-        locationTomSelect.enable();
+        locationCombo.enable();
       } else {
-        locationTomSelect.disable();
+        locationCombo.disable();
       }
     }
     if (enabled) {
@@ -540,68 +911,19 @@
     } else {
       selectZuidL.setAttribute('disabled', '');
     }
+    locationHelp.textContent = enabled
+      ? 'Choose locations or leave blank to use the selected divisions.'
+      : 'Select and apply a division first.';
   };
 
-  const updateDivisionOptions = (territoryZuid) => {
-    const available = divisionOptions.filter((opt) => opt.territory === territoryZuid);
-    if (divisionTomSelect) {
-      const selected = getSelectedValues(selectZuidD, divisionTomSelect);
-      divisionTomSelect.clearOptions();
-      divisionTomSelect.addOption(available);
-      divisionTomSelect.refreshOptions(false);
-      const stillSelected = selected.filter((value) =>
-        available.some((opt) => opt.value === value)
-      );
-      if (stillSelected.length) {
-        divisionTomSelect.setValue(stillSelected, true);
-      }
-      return;
-    }
-    Array.from(selectZuidD.options).forEach((opt) => {
-      if (!opt.value) {
-        return;
-      }
-      if (opt.getAttribute('data-territory') !== territoryZuid) {
-        opt.classList.add('d-none');
-      } else {
-        opt.classList.remove('d-none');
-      }
-    });
-  };
+  const getDivisionOptions = (territoryZuid) =>
+    divisionOptions.filter((option) => option.territories.includes(territoryZuid));
 
-  const updateLocationOptions = (divisionValues) => {
-    const hasDivisions = divisionValues.length > 0;
-    setLocationEnabled(hasDivisions);
-    if (!hasDivisions) {
-      clearSelection(selectZuidL, locationTomSelect);
-    }
-    const available = hasDivisions
-      ? locationOptions.filter((opt) => divisionValues.includes(opt.division))
-      : [];
-    if (locationTomSelect) {
-      const selected = getSelectedValues(selectZuidL, locationTomSelect);
-      locationTomSelect.clearOptions();
-      locationTomSelect.addOption(available);
-      locationTomSelect.refreshOptions(false);
-      const stillSelected = selected.filter((value) =>
-        available.some((opt) => opt.value === value)
-      );
-      if (stillSelected.length) {
-        locationTomSelect.setValue(stillSelected, true);
-      }
-      return;
-    }
-    Array.from(selectZuidL.options).forEach((opt) => {
-      if (!opt.value) {
-        return;
-      }
-      if (divisionValues.includes(opt.getAttribute('data-division'))) {
-        opt.classList.remove('d-none');
-      } else {
-        opt.classList.add('d-none');
-      }
-    });
-  };
+  const getLocationOptions = (divisionValues) =>
+    locationOptions.filter(
+      (option) =>
+        option.divisions.some((divisionZuid) => divisionValues.includes(divisionZuid))
+    );
 
   const handleModelSelection = (divisionValues, locationValues) => {
     const hasDivisions = divisionValues.length > 0;
@@ -624,13 +946,20 @@
         checkbox.checked = true;
         checkbox.disabled = true;
       }
+
+      if (value === SERVICES_MODEL_KEY) {
+        checkbox.disabled = false;
+      }
     });
+    updateModelFilterSummary();
   };
 
-  initMultiSelects();
-  updateDivisionOptions(selectModel.value);
-  updateLocationOptions([]);
-  handleModelSelection([], []);
+  function updateModelFilterSummary() {
+    const selectedCount = Array.from(modelCheckboxes).filter(
+      (checkbox) => checkbox.checked
+    ).length;
+    modelFilterSummary.textContent = `${selectedCount} selected`;
+  }
 
   const setError = (message) => {
     if (!message) {
@@ -643,12 +972,11 @@
   };
 
   const setBusy = (isBusy) => {
+    requestBusy = isBusy;
     const controls = [
       submitBtn,
       downloadCsvBtn,
       exportAllBtn,
-      pagePrevBtn,
-      pageNextBtn,
       pageNumberInput,
       pageSizeSelect
     ];
@@ -657,11 +985,29 @@
         control.disabled = isBusy;
       }
     });
+    submitBtn.textContent = isBusy ? 'Loading...' : 'Load results';
+    updateServerPager();
   };
 
   const updatePageIndicator = (page) => {
-    pageIndicator.textContent = `${page}`;
+    pageIndicator.textContent = knownLastPage
+      ? `of ${knownLastPage}`
+      : hasLoadedPage && hasNextServerPage
+        ? 'More available'
+        : '';
+    updateServerPager();
   };
+
+  function updateServerPager() {
+    const page = getPageNumber();
+    pagePrevBtn.disabled = requestBusy || !hasLoadedPage || page <= 1;
+    pageNextBtn.disabled =
+      requestBusy ||
+      !hasLoadedPage ||
+      (knownLastPage !== null
+        ? page >= knownLastPage
+        : !hasNextServerPage);
+  }
 
   const getPageSize = () => {
     const value = parseInt(pageSizeSelect.value, 10);
@@ -672,25 +1018,34 @@
     const value = parseInt(pageNumberInput.value, 10);
     if (!Number.isFinite(value) || value < 1) {
       pageNumberInput.classList.add('is-invalid');
+      pageNumberError.classList.add('d-block');
       return 1;
     }
     pageNumberInput.classList.remove('is-invalid');
+    pageNumberError.classList.remove('d-block');
     return value;
   };
 
-  const buildCsvUrl = (zuid, zuidD, zuidL, page, pageSize) => {
-    const params = getSelectedModelParams();
+  const buildCsvUrl = (
+    zuid,
+    zuidD,
+    zuidL,
+    page,
+    pageSize,
+    modelParams = null,
+    includeProbe = false
+  ) => {
+    const params = new URLSearchParams(modelParams || getSelectedModelParams());
     params.set('page', page);
-    params.set('per_page', pageSize);
+    params.set('per_page', includeProbe ? pageSize + 1 : pageSize);
+    if (includeProbe) {
+      params.set('page_stride', pageSize);
+    }
     if (zuid) {
       params.set('zuid', zuid);
     }
-    if (zuidD) {
-      params.set('divisionzuid', zuidD);
-    }
-    if (zuidL) {
-      params.set('locationzuid', zuidL);
-    }
+    params.set('divisionzuid', zuidD || '');
+    params.set('locationzuid', zuidL || '');
     return `${baseURL}?${params.toString()}`;
   };
 
@@ -704,13 +1059,7 @@
     }
   };
 
-  const requestPageData = async (zuid, zuidD, zuidL, page, pageSize) => {
-    const fullURL = buildCsvUrl(zuid, zuidD, zuidL, page, pageSize);
-    const res = await fetchWithTimeout(fullURL, FETCH_TIMEOUT_MS);
-    if (!res.ok) {
-      throw new Error(`Request failed with status ${res.status}`);
-    }
-    const rawText = await res.text();
+  const parsePageResponse = (rawText) => {
     const cleanedText = rawText
       .replace(/^\uFEFF/, '')
       .replace(/\(\*\*[\s\S]*?\*\*\)/g, '')
@@ -735,61 +1084,202 @@
     if (!Array.isArray(parsedData)) {
       throw new Error('Invalid JSON format.');
     }
-    return parsedData;
+    return normalizeRows(parsedData);
   };
 
-  const getSelectedDivisionIds = () => getSelectedValues(selectZuidD, divisionTomSelect);
-  const getSelectedLocationIds = () => getSelectedValues(selectZuidL, locationTomSelect);
+  const requestPageData = async (
+    zuid,
+    zuidD,
+    zuidL,
+    page,
+    pageSize,
+    modelParams = null,
+    includeProbe = false
+  ) => {
+    const fullURL = buildCsvUrl(
+      zuid,
+      zuidD,
+      zuidL,
+      page,
+      pageSize,
+      modelParams,
+      includeProbe
+    );
+    const res = await fetchWithTimeout(fullURL, FETCH_TIMEOUT_MS);
+    const rawText = await res.text();
+    if (!res.ok) {
+      const serverMessage = rawText
+        .replace(/<[^>]*>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 240);
+      const requestError = new Error(
+        `Request failed with status ${res.status}${serverMessage ? `: ${serverMessage}` : ''}`
+      );
+      requestError.status = res.status;
+      throw requestError;
+    }
+    return parsePageResponse(rawText);
+  };
 
-  selectModel.addEventListener('change', (e) => {
-    const selectedTerritory = e.target.value;
-    clearSelection(selectZuidD, divisionTomSelect);
-    clearSelection(selectZuidL, locationTomSelect);
-    updateDivisionOptions(selectedTerritory);
-    updateLocationOptions([]);
+  const getSelectedDivisionIds = () => [...scopeSelection.divisions];
+  const getSelectedLocationIds = () => [...scopeSelection.locations];
+
+  const resetScopePage = () => {
+    hasNextServerPage = false;
+    knownLastPage = null;
     pageNumberInput.value = 1;
     updatePageIndicator(1);
+  };
+
+  function handleTerritorySelectionChange(territoryValue, shouldInvalidate = true) {
+    const territoryZuid = `${territoryValue || ''}`.trim();
+    scopeSelection.territory = territoryZuid;
+    scopeSelection.divisions = [];
+    scopeSelection.locations = [];
+
+    divisionCombo.setOptions(getDivisionOptions(territoryZuid));
+    divisionCombo.clear();
+    locationCombo.setOptions([]);
+    locationCombo.clear();
+    setLocationEnabled(false);
+
+    if (shouldInvalidate) {
+      invalidateLoadedData();
+    }
+    resetScopePage();
     handleModelSelection([], []);
+    updateWorkflowGuide();
+  }
+
+  function handleDivisionSelectionChange(nextDivisionValues) {
+    const allowedDivisionIds = new Set(
+      getDivisionOptions(scopeSelection.territory).map((option) => option.value)
+    );
+    scopeSelection.divisions = nextDivisionValues.filter((value) =>
+      allowedDivisionIds.has(value)
+    );
+    scopeSelection.locations = [];
+
+    const availableLocations = getLocationOptions(scopeSelection.divisions);
+    locationCombo.setOptions(availableLocations);
+    locationCombo.clear();
+    setLocationEnabled(scopeSelection.divisions.length > 0);
+
+    invalidateLoadedData();
+    resetScopePage();
+    handleModelSelection(scopeSelection.divisions, []);
+    updateWorkflowGuide();
+  }
+
+  function handleLocationSelectionChange(nextLocationValues) {
+    const allowedLocationIds = new Set(
+      getLocationOptions(scopeSelection.divisions).map((option) => option.value)
+    );
+    scopeSelection.locations = nextLocationValues.filter((value) =>
+      allowedLocationIds.has(value)
+    );
+
+    invalidateLoadedData();
+    resetScopePage();
+    handleModelSelection(scopeSelection.divisions, scopeSelection.locations);
+    updateWorkflowGuide();
+  }
+
+  selectModel.addEventListener('change', (event) => {
+    handleTerritorySelectionChange(event.target.value);
   });
 
-  selectZuidD.addEventListener('change', () => {
-    const divisionValues = getSelectedDivisionIds();
-    updateLocationOptions(divisionValues);
-    const locationValues = getSelectedLocationIds();
-    pageNumberInput.value = 1;
-    updatePageIndicator(1);
-    handleModelSelection(divisionValues, locationValues);
+  modelCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', () => {
+      updateModelFilterSummary();
+      invalidateLoadedData();
+      updateWorkflowGuide();
+    });
   });
 
-  selectZuidL.addEventListener('change', () => {
-    const divisionValues = getSelectedDivisionIds();
-    const locationValues = getSelectedLocationIds();
-    pageNumberInput.value = 1;
-    updatePageIndicator(1);
-    handleModelSelection(divisionValues, locationValues);
-  });
-
-  function getSelectedModelParams() {
-    const params = new URLSearchParams();
-    Array.from(modelCheckboxes)
+  function getSelectedModelKeys() {
+    return Array.from(modelCheckboxes)
       .filter((checkbox) => checkbox.checked)
-      .forEach((checkbox) => {
-        params.set(checkbox.value, '1');
-      });
+      .map((checkbox) => checkbox.value);
+  }
+
+  function createModelParams(modelKeys) {
+    const params = new URLSearchParams();
+    modelKeys.forEach((modelKey) => params.set(modelKey, '1'));
     return params;
   }
 
-  const baseURL = `https://{{instance.domain}}/generate-csv.json`;
+  function getSelectedModelParams() {
+    return createModelParams(getSelectedModelKeys());
+  }
+
+  function getModelLabel(modelKey) {
+    const checkbox = Array.from(modelCheckboxes).find(
+      (item) => item.value === modelKey
+    );
+    return checkbox?.nextElementSibling?.textContent.trim() || modelKey;
+  }
+
+  const instanceOrigin = `https://{{instance.domain}}`;
+  const baseURL = `${instanceOrigin}/generate-csv.json`;
+  const gqlBaseURL = `${instanceOrigin}/-/gql`;
+  const instantBaseURL = `${instanceOrigin}/-/instant`;
   const dataTableBody = document.querySelector('#dataTable tbody');
-  const pagination = document.getElementById('pagination');
   const loader = document.getElementById('csv-loader');
   const dataTable = document.getElementById('dataTable');
-  const searchContainer = document.getElementById('searchContainer');
+  const resultsTable = document.querySelector('.results-table');
   const searchInput = document.getElementById('searchInput');
 
-  const rowsPerPage = 20; // Client-side rows per page within a single server page.
-  let currentPage = 1;
   let data = [];
+  let availableColumns = [...DEFAULT_COLUMNS];
+  let selectedColumnKeys = [...DEFAULT_COLUMN_KEYS];
+  let draftColumnKeys = [...DEFAULT_COLUMN_KEYS];
+  let pendingExportMode = null;
+  let lastLoadState = null;
+  let modelCatalog = new Map();
+  let modelCatalogPromise = null;
+  const itemFieldCache = new Map();
+  const exportFieldsModal =
+    exportFieldsModalEl && window.bootstrap
+      ? new bootstrap.Modal(exportFieldsModalEl)
+      : null;
+
+  const updateWorkflowGuide = () => {
+    const hasScope = Boolean(selectModel.value);
+    const hasModels = getSelectedModelKeys().length > 0;
+    const hasResults = hasLoadedPage && data.length > 0;
+    const currentStep = !hasScope
+      ? 'scope'
+      : !hasModels
+        ? 'models'
+        : !hasResults
+          ? 'load'
+          : columnControls.open
+            ? 'columns'
+            : 'export';
+    const completedSteps = new Set([
+      ...(hasScope ? ['scope'] : []),
+      ...(hasModels ? ['models'] : []),
+      ...(hasResults ? ['load'] : []),
+      ...(hasResults && !columnControls.open ? ['columns'] : [])
+    ]);
+
+    workflowSteps.forEach((step) => {
+      const stepKey = step.dataset.workflowStep;
+      step.classList.toggle('is-complete', completedSteps.has(stepKey));
+      step.classList.toggle('is-current', stepKey === currentStep);
+      step.classList.toggle(
+        'is-ready',
+        hasResults && (stepKey === 'columns' || stepKey === 'export')
+      );
+      if (stepKey === currentStep) {
+        step.setAttribute('aria-current', 'step');
+      } else {
+        step.removeAttribute('aria-current');
+      }
+    });
+  };
 
   function fixMalformedJSON(rawText) {
     try {
@@ -823,6 +1313,556 @@
     }
   }
 
+  const formatLabel = (key) =>
+    key
+      .replace(new RegExp(`^${FIELD_PREFIX}`), '')
+      .replace(/[_-]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+
+  const getColumnLabel = (key) => {
+    const defaultColumn = DEFAULT_COLUMNS.find((column) => column.key === key);
+    if (defaultColumn) {
+      return defaultColumn.label;
+    }
+    return formatLabel(key);
+  };
+
+  const formatCellValue = (value) => {
+    if (value === true) {
+      return 'true';
+    }
+    if (value === false) {
+      return 'false';
+    }
+    if (value === null || value === undefined) {
+      return '';
+    }
+    if (typeof value === 'object') {
+      return JSON.stringify(value);
+    }
+    return `${value}`;
+  };
+
+  const normalizeFieldKey = (key) => `${FIELD_PREFIX}${key}`;
+
+  const applyFieldsToRow = (row, fields) => {
+    const contentFields =
+      fields?.data && typeof fields.data === 'object' && !Array.isArray(fields.data)
+        ? fields.data
+        : fields;
+    if (!contentFields || typeof contentFields !== 'object') {
+      return row;
+    }
+    Object.entries(contentFields).forEach(([key, value]) => {
+      if (SKIPPED_FIELD_KEYS.has(key) || BASE_ROW_KEYS.has(key)) {
+        return;
+      }
+      row[normalizeFieldKey(key)] = formatCellValue(value);
+    });
+    return row;
+  };
+
+  const flattenRow = (row) => {
+    const flatRow = { ...row };
+    const fields = row.fields && typeof row.fields === 'object' ? row.fields : {};
+    applyFieldsToRow(flatRow, fields);
+    delete flatRow.fields;
+    return flatRow;
+  };
+
+  const normalizeRows = (rows) => rows.map(flattenRow);
+
+  const buildAvailableColumns = () => {
+    const columns = DEFAULT_COLUMNS.map((column) => ({
+      ...column,
+      source: 'standard',
+      models: []
+    }));
+    const dynamicColumns = new Map();
+    getSelectedModelKeys().forEach((modelKey) => {
+      const config = MODEL_DATA_CONFIG[modelKey];
+      const model = config ? modelCatalog.get(config.endpoint) : null;
+      if (!config || !model?.fields) {
+        return;
+      }
+      Object.keys(model.fields)
+        .sort()
+        .forEach((fieldKey) => {
+          const key = normalizeFieldKey(fieldKey);
+          const existingColumn = dynamicColumns.get(key);
+          if (existingColumn) {
+            if (!existingColumn.models.includes(config.label)) {
+              existingColumn.models.push(config.label);
+            }
+            return;
+          }
+          const column = {
+            key,
+            label: getColumnLabel(key),
+            source: 'content',
+            models: [config.label]
+          };
+          dynamicColumns.set(key, column);
+          columns.push(column);
+        });
+    });
+    return columns;
+  };
+
+  const getSelectedColumns = () =>
+    availableColumns.filter((column) => selectedColumnKeys.includes(column.key));
+
+  const updateColumnSelection = (keys) => {
+    selectedColumnKeys = availableColumns
+      .map((column) => column.key)
+      .filter((key) => keys.includes(key));
+    if (!selectedColumnKeys.length) {
+      selectedColumnKeys = [...DEFAULT_COLUMN_KEYS];
+    }
+  };
+
+  const fetchJsonWithTimeout = async (url) => {
+    const response = await fetchWithTimeout(url, FETCH_TIMEOUT_MS);
+    if (!response.ok) {
+      const error = new Error(`Request failed with status ${response.status}`);
+      error.status = response.status;
+      throw error;
+    }
+    return response.json();
+  };
+
+  const loadModelCatalog = () => {
+    if (!modelCatalogPromise) {
+      modelCatalogPromise = fetchJsonWithTimeout(`${gqlBaseURL}/`)
+        .then((payload) => {
+          const models = Array.isArray(payload?.models) ? payload.models : [];
+          modelCatalog = new Map(models.map((model) => [model.name, model]));
+          return modelCatalog;
+        })
+        .catch((error) => {
+          modelCatalogPromise = null;
+          throw error;
+        });
+    }
+    return modelCatalogPromise;
+  };
+
+  const getColumnGroup = (column) => {
+    if (column.source === 'standard') {
+      return { key: 'standard', label: 'Standard result fields' };
+    }
+    if (column.models.length === 1) {
+      return {
+        key: `model:${column.models[0]}`,
+        label: `${column.models[0]} fields`
+      };
+    }
+    return { key: 'shared', label: 'Shared model fields' };
+  };
+
+  const columnMatchesTableFilters = (column) => {
+    const query = tableFieldSearch.value.trim().toLowerCase();
+    const source = tableFieldSource.value;
+    const rawKey = column.key.replace(new RegExp(`^${FIELD_PREFIX}`), '');
+    const matchesQuery =
+      !query ||
+      [column.label, rawKey, ...column.models]
+        .join(' ')
+        .toLowerCase()
+        .includes(query);
+    const matchesSource =
+      !source ||
+      (source === 'standard'
+        ? column.source === 'standard'
+        : column.models.includes(source));
+    const matchesSelection =
+      !tableFieldsSelectedOnly.checked || draftColumnKeys.includes(column.key);
+    return matchesQuery && matchesSource && matchesSelection;
+  };
+
+  const renderCheckboxList = (
+    container,
+    selectedKeys,
+    namePrefix,
+    columns = availableColumns,
+    collapsible = false
+  ) => {
+    container.innerHTML = '';
+    const groups = new Map();
+    columns.forEach((column) => {
+      const group = getColumnGroup(column);
+      if (!groups.has(group.key)) {
+        groups.set(group.key, { label: group.label, columns: [] });
+      }
+      groups.get(group.key).columns.push(column);
+    });
+
+    groups.forEach((group) => {
+      const section = document.createElement(collapsible ? 'details' : 'section');
+      section.className = 'field-group';
+      if (collapsible) {
+        section.open =
+          group.label === 'Standard result fields' ||
+          Boolean(
+            tableFieldSearch.value.trim() ||
+              tableFieldSource.value ||
+              tableFieldsSelectedOnly.checked
+          );
+      }
+
+      const headingContainer = document.createElement(collapsible ? 'summary' : 'div');
+      headingContainer.className = 'field-group-summary';
+
+      const heading = document.createElement('h3');
+      heading.className = 'field-group-title';
+      heading.textContent = group.label;
+
+      const groupCount = document.createElement('span');
+      groupCount.className = 'field-group-count';
+      const selectedCount = group.columns.filter((column) =>
+        selectedKeys.includes(column.key)
+      ).length;
+      groupCount.textContent = `${selectedCount} selected / ${group.columns.length}`;
+
+      headingContainer.appendChild(heading);
+      headingContainer.appendChild(groupCount);
+
+      const grid = document.createElement('div');
+      grid.className = 'field-group-grid';
+
+      group.columns.forEach((column) => {
+        const id = `${namePrefix}-${column.key.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+        const wrapper = document.createElement('div');
+        wrapper.className = 'form-check field-option';
+
+        const checkbox = document.createElement('input');
+        checkbox.className = 'form-check-input';
+        checkbox.type = 'checkbox';
+        checkbox.value = column.key;
+        checkbox.id = id;
+        checkbox.checked = selectedKeys.includes(column.key);
+
+        const label = document.createElement('label');
+        label.className = 'form-check-label field-option-label';
+        label.htmlFor = id;
+
+        const name = document.createElement('span');
+        name.className = 'field-option-name';
+        name.textContent = column.label;
+
+        const metadata = document.createElement('span');
+        metadata.className = 'field-option-meta';
+        const rawKey = column.key.replace(new RegExp(`^${FIELD_PREFIX}`), '');
+        metadata.textContent =
+          column.source === 'standard'
+            ? rawKey
+            : `${rawKey} | ${column.models.join(', ') || 'Content model'}`;
+
+        label.appendChild(name);
+        label.appendChild(metadata);
+        wrapper.appendChild(checkbox);
+        wrapper.appendChild(label);
+        grid.appendChild(wrapper);
+      });
+
+      section.appendChild(headingContainer);
+      section.appendChild(grid);
+      container.appendChild(section);
+    });
+
+    if (!columns.length) {
+      const emptyState = document.createElement('p');
+      emptyState.className = 'field-empty';
+      emptyState.textContent = 'No columns match your search and source filters.';
+      container.appendChild(emptyState);
+    }
+
+    if (container === exportFieldList) {
+      updateExportFieldSummary();
+    }
+  };
+
+  function updateExportFieldSummary() {
+    const selectedCount = getCheckedKeys(exportFieldList).length;
+    exportFieldSummary.textContent = `${selectedCount} of ${availableColumns.length} columns selected`;
+    confirmExportBtn.disabled = selectedCount === 0;
+  }
+
+  const renderTableFieldControls = () => {
+    const filteredColumns = availableColumns.filter(columnMatchesTableFilters);
+    renderCheckboxList(
+      tableFieldList,
+      draftColumnKeys,
+      'table-field',
+      filteredColumns,
+      true
+    );
+    columnControls.classList.toggle('d-none', !data.length);
+    visibleColumnSummary.textContent = `${selectedColumnKeys.length} shown`;
+    tableFieldMatchSummary.textContent =
+      `${filteredColumns.length} matching, ${draftColumnKeys.length} selected`;
+  };
+
+  const renderTableFieldSourceOptions = () => {
+    const currentValue = tableFieldSource.value;
+    const modelLabels = [
+      ...new Set(
+        availableColumns
+          .filter((column) => column.source === 'content')
+          .flatMap((column) => column.models)
+      )
+    ].sort((a, b) => a.localeCompare(b));
+    tableFieldSource.innerHTML = '';
+    [
+      { value: '', label: 'All sources' },
+      { value: 'standard', label: 'Standard result fields' },
+      ...modelLabels.map((label) => ({ value: label, label }))
+    ].forEach(({ value, label }) => {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = label;
+      tableFieldSource.appendChild(option);
+    });
+    tableFieldSource.value = Array.from(tableFieldSource.options).some(
+      (option) => option.value === currentValue
+    )
+      ? currentValue
+      : '';
+  };
+
+  const getCheckedKeys = (container) =>
+    Array.from(container.querySelectorAll('input[type="checkbox"]:checked')).map(
+      (checkbox) => checkbox.value
+    );
+
+  const resetColumnState = () => {
+    availableColumns = buildAvailableColumns();
+    selectedColumnKeys = availableColumns
+      .map((column) => column.key)
+      .filter((key) => DEFAULT_COLUMN_KEYS.includes(key));
+    draftColumnKeys = [...selectedColumnKeys];
+    renderTableFieldSourceOptions();
+    renderTableFieldControls();
+  };
+
+  const getDynamicColumns = (columns) =>
+    columns.filter((column) => column.source === 'content');
+
+  const getItemCacheKey = (row) => `${row.model || ''}::${row.zuid || ''}`;
+
+  const getInstantItemFields = async (row) => {
+    const payload = await fetchJsonWithTimeout(
+      `${instantBaseURL}/${encodeURIComponent(row.zuid)}.json`
+    );
+    return payload?.data?.[0]?.content || {};
+  };
+
+  const getItemFields = (row) => {
+    const cacheKey = getItemCacheKey(row);
+    if (itemFieldCache.has(cacheKey)) {
+      return itemFieldCache.get(cacheKey);
+    }
+
+    const request = (async () => {
+      const config = MODEL_DATA_CONFIG_BY_LABEL.get(row.model);
+      if (!config) {
+        return getInstantItemFields(row);
+      }
+      try {
+        const params = new URLSearchParams({ zuid: row.zuid });
+        const payload = await fetchJsonWithTimeout(
+          `${gqlBaseURL}/${config.endpoint}.json?${params.toString()}`
+        );
+        const fields = Array.isArray(payload) ? payload[0] : payload;
+        if (!fields || typeof fields !== 'object') {
+          throw new Error('No GQL item data returned.');
+        }
+        return fields;
+      } catch (gqlError) {
+        console.warn(`GQL hydration failed for ${row.zuid}; using Instant API.`, gqlError);
+        return getInstantItemFields(row);
+      }
+    })().catch((error) => {
+      itemFieldCache.delete(cacheKey);
+      throw error;
+    });
+
+    itemFieldCache.set(cacheKey, request);
+    return request;
+  };
+
+  const runWithConcurrency = async (items, limit, task) => {
+    let nextIndex = 0;
+    const workers = Array.from(
+      { length: Math.min(limit, items.length) },
+      async () => {
+        while (nextIndex < items.length) {
+          const item = items[nextIndex];
+          nextIndex += 1;
+          await task(item);
+        }
+      }
+    );
+    await Promise.all(workers);
+  };
+
+  const hydrateRowsForColumns = async (rows, columns) => {
+    const dynamicColumns = getDynamicColumns(columns);
+    if (!dynamicColumns.length) {
+      return rows;
+    }
+
+    const rowsToHydrate = rows.filter((row) => {
+      const rowColumns = dynamicColumns.filter((column) =>
+        column.models.includes(row.model)
+      );
+      return (
+        rowColumns.length &&
+        rowColumns.some((column) => !Object.prototype.hasOwnProperty.call(row, column.key))
+      );
+    });
+
+    await runWithConcurrency(
+      rowsToHydrate,
+      FIELD_HYDRATION_CONCURRENCY,
+      async (row) => {
+        applyFieldsToRow(row, await getItemFields(row));
+      }
+    );
+    return rows;
+  };
+
+  const normalizeContentPath = (value) => {
+    if (!value) {
+      return '';
+    }
+    try {
+      return new URL(value, instanceOrigin).pathname.replace(/\/+$/, '') || '/';
+    } catch (error) {
+      return `${value}`.split('?')[0].replace(/\/+$/, '') || '/';
+    }
+  };
+
+  const hydrateModelRowsInBulk = async (rows, config) => {
+    const rowsByPath = new Map();
+    rows.forEach((row) => {
+      const path = normalizeContentPath(row.path_part || row.url);
+      if (!path) {
+        return;
+      }
+      if (!rowsByPath.has(path)) {
+        rowsByPath.set(path, []);
+      }
+      rowsByPath.get(path).push(row);
+    });
+
+    let page = 1;
+    while (rowsByPath.size && page <= MAX_GQL_BULK_PAGES) {
+      const params = new URLSearchParams({
+        limit: GQL_BULK_PAGE_SIZE,
+        page
+      });
+      const payload = await fetchJsonWithTimeout(
+        `${gqlBaseURL}/${config.endpoint}.json?${params.toString()}`
+      );
+      const items = Array.isArray(payload) ? payload : [];
+      items.forEach((fields) => {
+        const path = normalizeContentPath(fields?.uri);
+        const matchedRows = rowsByPath.get(path);
+        if (!matchedRows) {
+          return;
+        }
+        matchedRows.forEach((row) => {
+          applyFieldsToRow(row, fields);
+          itemFieldCache.set(getItemCacheKey(row), Promise.resolve(fields));
+        });
+        rowsByPath.delete(path);
+      });
+
+      if (items.length < GQL_BULK_PAGE_SIZE) {
+        break;
+      }
+      page += 1;
+    }
+
+    return [...rowsByPath.values()].flat();
+  };
+
+  const hydrateRowsForExport = async (rows, columns) => {
+    const dynamicColumns = getDynamicColumns(columns);
+    if (!dynamicColumns.length) {
+      return rows;
+    }
+
+    const modelLabels = new Set(
+      dynamicColumns.flatMap((column) => column.models)
+    );
+    for (const modelLabel of modelLabels) {
+      const modelRows = rows.filter((row) => row.model === modelLabel);
+      if (!modelRows.length) {
+        continue;
+      }
+      const config = MODEL_DATA_CONFIG_BY_LABEL.get(modelLabel);
+      if (!config || modelRows.length < GQL_BULK_THRESHOLD) {
+        await hydrateRowsForColumns(modelRows, columns);
+        continue;
+      }
+
+      const unmatchedRows = await hydrateModelRowsInBulk(modelRows, config);
+      if (unmatchedRows.length) {
+        await hydrateRowsForColumns(unmatchedRows, columns);
+      }
+    }
+    return rows;
+  };
+
+  const showExportModal = () => {
+    if (!exportFieldsModalEl) {
+      return;
+    }
+    if (exportFieldsModal) {
+      exportFieldsModal.show();
+      return;
+    }
+    exportFieldsModalEl.classList.add('show');
+    exportFieldsModalEl.style.display = 'block';
+    exportFieldsModalEl.removeAttribute('aria-hidden');
+    document.body.classList.add('modal-open');
+  };
+
+  const hideExportModal = () => {
+    if (!exportFieldsModalEl) {
+      return;
+    }
+    if (exportFieldsModal) {
+      exportFieldsModal.hide();
+      return;
+    }
+    exportFieldsModalEl.classList.remove('show');
+    exportFieldsModalEl.style.display = 'none';
+    exportFieldsModalEl.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+  };
+
+  const invalidateLoadedData = () => {
+    data = [];
+    filteredData = [];
+    lastLoadState = null;
+    hasLoadedPage = false;
+    hasNextServerPage = false;
+    knownLastPage = null;
+    searchInput.value = '';
+    downloadCsvBtn.classList.add('d-none');
+    exportAllBtn.classList.add('d-none');
+    columnControls.classList.add('d-none');
+    dataTable.classList.add('d-none');
+    resultsSection.classList.add('d-none');
+    resultsSummary.textContent = '';
+    updateServerPager();
+  };
+
   // Show loader and fetch data
   const buildRowKey = (row) => `${row.model || ''}::${row.zuid || ''}::${row.path_part || ''}`;
 
@@ -841,9 +1881,30 @@
   const buildScopeRequests = (territoryZuid, divisionValues, locationValues) => {
     const scopes = [];
     const seen = new Set();
+    const selectedModelKeys = getSelectedModelKeys();
+    const combinedModelParams = createModelParams(selectedModelKeys);
+    const broadScopeModelParams = [];
+
+    // Territory/division responses can contain pageSize rows for every model.
+    for (
+      let index = 0;
+      index < selectedModelKeys.length;
+      index += BROAD_SCOPE_MODEL_BATCH_SIZE
+    ) {
+      broadScopeModelParams.push(
+        createModelParams(
+          selectedModelKeys.slice(index, index + BROAD_SCOPE_MODEL_BATCH_SIZE)
+        )
+      );
+    }
 
     const addScope = (scope) => {
-      const key = `${scope.zuid || ''}::${scope.zuidD || ''}::${scope.zuidL || ''}`;
+      const key = [
+        scope.zuid || '',
+        scope.zuidD || '',
+        scope.zuidL || '',
+        scope.modelParams ? scope.modelParams.toString() : ''
+      ].join('::');
       if (seen.has(key)) {
         return;
       }
@@ -858,13 +1919,17 @@
     if (locationValues.length) {
       locationValues.forEach((locZuid) => {
         const meta = locationMetaById.get(locZuid);
-        if (!meta || !meta.division) {
+        const divisionZuid = meta?.divisions.find((value) =>
+          divisionValues.includes(value)
+        );
+        if (!meta || !divisionZuid) {
           return;
         }
         addScope({
-          zuid: meta.territory || territoryZuid,
-          zuidD: meta.division,
-          zuidL: locZuid
+          zuid: meta.territories[0] || territoryZuid,
+          zuidD: divisionZuid,
+          zuidL: locZuid,
+          modelParams: combinedModelParams
         });
       });
       return scopes;
@@ -872,21 +1937,107 @@
 
     if (divisionValues.length) {
       divisionValues.forEach((divZuid) => {
-        addScope({
-          zuid: territoryZuid,
-          zuidD: divZuid,
-          zuidL: ''
+        broadScopeModelParams.forEach((modelParams) => {
+          addScope({
+            zuid: territoryZuid,
+            zuidD: divZuid,
+            zuidL: '',
+            modelParams
+          });
         });
       });
-      return scopes;
+    } else {
+      broadScopeModelParams.forEach((modelParams) => {
+        addScope({
+          zuid: territoryZuid,
+          zuidD: '',
+          zuidL: '',
+          modelParams
+        });
+      });
     }
 
-    addScope({
-      zuid: territoryZuid,
-      zuidD: '',
-      zuidL: ''
-    });
     return scopes;
+  };
+
+  const buildScopeKey = (scopes) =>
+    JSON.stringify(
+      scopes.map((scope) => ({
+        zuid: scope.zuid,
+        zuidD: scope.zuidD,
+        zuidL: scope.zuidL,
+        modelParams: scope.modelParams ? scope.modelParams.toString() : ''
+      }))
+    );
+
+  const trimPageProbeRows = (rows, pageSize) => {
+    const modelCounts = new Map();
+    const pageRows = [];
+    let hasMore = false;
+
+    rows.forEach((row) => {
+      const modelKey = row.model || '';
+      const modelCount = modelCounts.get(modelKey) || 0;
+      modelCounts.set(modelKey, modelCount + 1);
+      if (modelCount < pageSize) {
+        pageRows.push(row);
+      } else {
+        hasMore = true;
+      }
+    });
+
+    return { rows: pageRows, hasMore };
+  };
+
+  const requestScopePage = async (
+    scope,
+    page,
+    pageSize,
+    includeProbe = false
+  ) => {
+    const modelKeys = [...scope.modelParams.keys()];
+    try {
+      const rows = await requestPageData(
+        scope.zuid,
+        scope.zuidD,
+        scope.zuidL,
+        page,
+        pageSize,
+        scope.modelParams,
+        includeProbe
+      );
+      return includeProbe ? trimPageProbeRows(rows, pageSize) : rows;
+    } catch (err) {
+      if (err.status === 422 && modelKeys.length > 1) {
+        const splitResults = [];
+        for (const modelKey of modelKeys) {
+          splitResults.push(
+            await requestScopePage(
+              {
+                ...scope,
+                modelParams: createModelParams([modelKey])
+              },
+              page,
+              pageSize,
+              includeProbe
+            )
+          );
+        }
+        if (!includeProbe) {
+          return splitResults.flat();
+        }
+        return {
+          rows: splitResults.flatMap((result) => result.rows),
+          hasMore: splitResults.some((result) => result.hasMore)
+        };
+      }
+
+      const modelNames = modelKeys.map(getModelLabel).join(', ');
+      throw new Error(
+        `${err.message}${modelNames ? ` while loading ${modelNames}` : ''}`,
+        { cause: err }
+      );
+    }
   };
 
   async function fetchData(zuid, divisionValues, locationValues, page, pageSize) {
@@ -898,33 +2049,57 @@
       setBusy(true);
       updatePageIndicator(page);
 
-      searchContainer.classList.remove('d-block');
-      searchContainer.classList.add('d-none');
+      resultsSection.classList.remove('d-none');
+      resultsSummary.textContent = `Loading server page ${page}...`;
+      loaderText.textContent = `Loading server page ${page}...`;
       searchInput.value = '';
       filteredData = [];
       loader.classList.add('d-flex');
       loader.classList.remove('d-none');
       downloadCsvBtn.classList.add('d-none');
+      exportAllBtn.classList.add('d-none');
 
       dataTable.classList.remove('table');
       dataTable.classList.add('d-none');
-
-      pagination.classList.add('d-none');
 
       const scopes = buildScopeRequests(zuid, divisionValues, locationValues);
       if (!scopes.length) {
         throw new Error('Missing selection values.');
       }
-      const pageData = await Promise.all(
-        scopes.map((scope) =>
-          requestPageData(scope.zuid, scope.zuidD, scope.zuidL, page, pageSize)
-        )
-      );
-      data = mergeRows(pageData.flat());
+      const catalogRequest = loadModelCatalog().catch((error) => {
+        console.warn('Unable to load the GQL field catalog.', error);
+        return modelCatalog;
+      });
+      const pageResults = [];
+      for (const scope of scopes) {
+        pageResults.push(
+          await requestScopePage(scope, page, pageSize, true)
+        );
+      }
+      await catalogRequest;
+      hasNextServerPage = pageResults.some((result) => result.hasMore);
+      if (!hasNextServerPage) {
+        knownLastPage = page;
+      }
+      data = mergeRows(pageResults.flatMap((result) => result.rows));
+      lastLoadState = {
+        page,
+        pageSize,
+        scopeKey: buildScopeKey(scopes),
+        rows: [...data]
+      };
+      const shouldOpenColumnPanel = !hasLoadedPage && data.length > 0;
+      hasLoadedPage = true;
+      updatePageIndicator(page);
+      resetColumnState();
+      if (shouldOpenColumnPanel) {
+        columnControls.open = true;
+      }
       renderTable();
-      renderPagination();
+      resultsSummary.textContent = `${data.length} row${data.length === 1 ? '' : 's'} on server page ${page}`;
       if (data.length) {
         downloadCsvBtn.classList.remove('d-none');
+        exportAllBtn.classList.remove('d-none');
       }
     } catch (err) {
       console.error('Error fetching data:', err);
@@ -934,19 +2109,22 @@
           : err.message || 'Failed to load data.';
       setError(message);
       data = [];
+      lastLoadState = null;
+      hasLoadedPage = true;
+      hasNextServerPage = false;
+      knownLastPage = null;
+      updatePageIndicator(page);
+      resetColumnState();
       renderTable();
-      renderPagination();
+      resultsSummary.textContent = `No rows loaded for server page ${page}`;
     } finally {
-      // Ensure the loader is hidden and table is shown
       dataTable.classList.add('table');
       dataTable.classList.remove('d-none');
-
-      searchContainer.classList.add('d-block');
-      searchContainer.classList.remove('d-none');
 
       loader.classList.remove('d-flex');
       loader.classList.add('d-none');
       setBusy(false);
+      updateWorkflowGuide();
     }
   }
 
@@ -963,170 +2141,159 @@ function formatPublishStatus(value) {
   return `${value}`;
 }
 
+  const updateTableNavigation = () => {
+    const columnCount = getSelectedColumns().length;
+    const hasHorizontalOverflow =
+      data.length > 0 && resultsTable.scrollWidth > resultsTable.clientWidth + 1;
+    tableNavigationSummary.textContent =
+      `${columnCount} column${columnCount === 1 ? '' : 's'} displayed`;
+    tableNavigation.classList.toggle('d-none', !hasHorizontalOverflow);
+    tableTopScrollbar.classList.toggle('d-none', !hasHorizontalOverflow);
+    tableTopScrollbarSpacer.style.width = `${dataTable.scrollWidth}px`;
+    tableTopScrollbar.scrollLeft = resultsTable.scrollLeft;
+  };
+
 function renderTable() {
   dataTableBody.innerHTML = '';
+  dataTableHeadRow.innerHTML = '';
 
   const displayData = searchInput.value ? filteredData : data;
+  const selectedColumns = getSelectedColumns();
 
+  selectedColumns.forEach((column) => {
+    const th = document.createElement('th');
+    th.dataset.key = column.key;
+    th.className = 'sortable';
+    th.style.cursor = 'pointer';
 
+    const label = document.createElement('span');
+    label.textContent = column.label;
+    const sortIcon = document.createElement('span');
+    sortIcon.className = 'sort-icon';
+    sortIcon.innerHTML = ' <span class="up">^</span><span class="down">v</span>';
 
+    th.appendChild(label);
+    th.appendChild(sortIcon);
+    th.addEventListener('click', () => sortByColumn(column.key));
+    if (currentSort.key === column.key) {
+      th.classList.add(currentSort.asc ? 'active-asc' : 'active-desc');
+    }
+    dataTableHeadRow.appendChild(th);
+  });
 
-  const start = (currentPage - 1) * rowsPerPage;
-  const end = start + rowsPerPage;
-  const paginatedData = displayData.slice(start, end);
+  const actionTh = document.createElement('th');
+  actionTh.textContent = 'Actions';
+  dataTableHeadRow.appendChild(actionTh);
 
   if (displayData.length === 0) {
     const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td colspan="10" class="text-center">No matching data found.</td>
-    `;
+    const td = document.createElement('td');
+    td.colSpan = selectedColumns.length + 1;
+    td.className = 'text-center';
+    td.textContent = 'No matching data found.';
+    tr.appendChild(td);
     dataTableBody.appendChild(tr);
+    requestAnimationFrame(updateTableNavigation);
     return;
   }
 
-  paginatedData.forEach((row) => {
+  displayData.forEach((row) => {
     const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${row.model || ''}</td>
-      <td>${row.zuid || ''}</td>
-      <td>${row.title || ''}</td>
-      <td>${row.territory || ''}</td>
-      <td>${row.division || ''}</td>
-      <td>${row.location || ''}</td>
-      <td>${row.path_part || ''}</td>
-      <td class="url-cell"><a href="${row.url}" target="_blank" title="${row.url}">${row.url}</a></td>
-      <td>${formatPublishStatus(row.publish_status)}</td>
-      <td><a href="https://{{ instance.zuid }}.manager.zesty.io/content/${row.model_zuid}/${row.zuid}" class="btn btn-primary icon-link" target="_blank">Edit Content</a></td>
-    `;
+    selectedColumns.forEach((column) => {
+      const td = document.createElement('td');
+      td.dataset.key = column.key;
+      const value =
+        column.key === 'publish_status'
+          ? formatPublishStatus(row[column.key])
+          : formatCellValue(row[column.key]);
+
+      if (column.key === 'url' && row.url) {
+        td.className = 'url-cell';
+        const link = document.createElement('a');
+        link.href = row.url;
+        link.target = '_blank';
+        link.title = row.url;
+        link.textContent = row.url;
+        td.appendChild(link);
+      } else {
+        td.textContent = value;
+      }
+      tr.appendChild(td);
+    });
+
+    const actionTd = document.createElement('td');
+    if (row.model_zuid && row.zuid) {
+      const editLink = document.createElement('a');
+      editLink.href = `https://{{ instance.zuid }}.manager.zesty.io/content/${row.model_zuid}/${row.zuid}`;
+      editLink.className = 'btn btn-primary icon-link';
+      editLink.target = '_blank';
+      editLink.title = `Edit ${row.title || 'content'}`;
+      editLink.textContent = 'Edit';
+      actionTd.appendChild(editLink);
+    }
+    tr.appendChild(actionTd);
     dataTableBody.appendChild(tr);
   });
+  requestAnimationFrame(updateTableNavigation);
 }
-
-
-
-  function renderPagination() {
-    pagination.innerHTML = '';
-    const displayData = searchInput.value ? filteredData : data;
-    const pageCount = Math.ceil(displayData.length / rowsPerPage);
-    if (pageCount === 0) {
-      pagination.classList.add('d-none');
-      return;
-    }
-    if (currentPage > pageCount) {
-      currentPage = pageCount;
-    }
-    if (pageCount === 1) {
-      pagination.classList.add('d-none');
-      return;
-    }
-    pagination.classList.remove('d-none');
-    const maxPagesToShow = 5; // Limit the number of page links to 5
-    const offset = Math.floor(maxPagesToShow / 2);
-    let startPage = Math.max(currentPage - offset, 1);
-    let endPage = Math.min(startPage + maxPagesToShow - 1, pageCount);
-
-    if (endPage - startPage < maxPagesToShow - 1) {
-      startPage = Math.max(endPage - maxPagesToShow + 1, 1);
-    }
-
-    // First button
-    const firstButton = document.createElement('li');
-    firstButton.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
-    firstButton.innerHTML = `<a class="page-link" href="#">First</a>`;
-    firstButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentPage = 1;
-      renderTable();
-      renderPagination();
-      scrollToTop();
-    });
-    pagination.appendChild(firstButton);
-
-    // Previous button
-    const prevButton = document.createElement('li');
-    prevButton.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
-    prevButton.innerHTML = `<a class="page-link" href="#">Previous</a>`;
-    prevButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (currentPage > 1) {
-        currentPage--;
-        renderTable();
-        renderPagination();
-        scrollToTop();
-      }
-    });
-    pagination.appendChild(prevButton);
-
-    // Page buttons
-    for (let i = startPage; i <= endPage; i++) {
-      const li = document.createElement('li');
-      li.className = `page-item ${i === currentPage ? 'active' : ''}`;
-      li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
-      li.addEventListener('click', (e) => {
-        e.preventDefault();
-        currentPage = i;
-        renderTable();
-        renderPagination();
-        scrollToTop();
-      });
-      pagination.appendChild(li);
-    }
-
-    // Next button
-    const nextButton = document.createElement('li');
-    nextButton.className = `page-item ${currentPage === pageCount ? 'disabled' : ''}`;
-    nextButton.innerHTML = `<a class="page-link" href="#">Next</a>`;
-    nextButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (currentPage < pageCount) {
-        currentPage++;
-        renderTable();
-        renderPagination();
-        scrollToTop();
-      }
-    });
-    pagination.appendChild(nextButton);
-
-    // Last button
-    const lastButton = document.createElement('li');
-    lastButton.className = `page-item ${currentPage === pageCount ? 'disabled' : ''}`;
-    lastButton.innerHTML = `<a class="page-link" href="#">Last</a>`;
-    lastButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentPage = pageCount;
-      renderTable();
-      renderPagination();
-      scrollToTop();
-    });
-    pagination.appendChild(lastButton);
-  }
-
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth' // Smooth scroll effect
-    });
-  }
 
   downloadCsvBtn.addEventListener('click', () => {
     if (!data.length) {
       setError('No data to export. Please generate data first.');
       return;
     }
+    openExportPrompt('current');
+  });
 
-    const csv = convertToCSV(data);
+  const downloadRowsAsCSV = (rows, columns, filename = 'salvationarmy-data.csv') => {
+    const csv = convertToCSV(rows, columns);
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
 
     link.setAttribute('href', url);
-    link.setAttribute('download', 'salvationarmy-data.csv');
+    link.setAttribute('download', filename);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  });
+    URL.revokeObjectURL(url);
+  };
 
-  const exportAllPages = async () => {
+  const openExportPrompt = (mode) => {
+    if (!data.length) {
+      setError('Load a page first so the available fields can be detected.');
+      return;
+    }
+    if (!availableColumns.length) {
+      setError('No fields are available to export. Please load data first.');
+      return;
+    }
+    pendingExportMode = mode;
+    const checkedKeys = selectedColumnKeys.length
+      ? selectedColumnKeys
+      : DEFAULT_COLUMN_KEYS;
+    renderCheckboxList(exportFieldList, checkedKeys, 'export-field');
+    showExportModal();
+  };
+
+  const getExportColumns = () => {
+    const selectedKeys = getCheckedKeys(exportFieldList);
+    if (!selectedKeys.length) {
+      throw new Error('Select at least one field to export.');
+    }
+    return availableColumns.filter((column) => selectedKeys.includes(column.key));
+  };
+
+  const exportCurrentPage = async (columns) => {
+    if (!data.length) {
+      throw new Error('No data to export. Please generate data first.');
+    }
+    const rows = searchInput.value ? filteredData : data;
+    await hydrateRowsForExport(rows, columns);
+    downloadRowsAsCSV(rows, columns);
+  };
+
+  const exportAllPages = async (columns) => {
     const zuid = selectModel.value;
     const divisionValues = getSelectedDivisionIds();
     const locationValues = getSelectedLocationIds();
@@ -1144,6 +2311,11 @@ function renderTable() {
     const pageSize = getPageSize();
     const allData = [];
     const seenKeys = new Set();
+    const canReuseLoadedFirstPage =
+      lastLoadState &&
+      lastLoadState.page === 1 &&
+      lastLoadState.pageSize === pageSize &&
+      lastLoadState.scopeKey === buildScopeKey(scopes);
 
     try {
       setError(null);
@@ -1151,20 +2323,24 @@ function renderTable() {
       loader.classList.add('d-flex');
       loader.classList.remove('d-none');
 
+      if (canReuseLoadedFirstPage) {
+        lastLoadState.rows.forEach((row) => {
+          const key = buildRowKey(row);
+          if (!seenKeys.has(key)) {
+            seenKeys.add(key);
+            allData.push(row);
+          }
+        });
+      }
+
       const fetchAllPagesForScope = async (scope) => {
-        let page = 1;
+        let page = canReuseLoadedFirstPage ? 2 : 1;
         let emptyPageCount = 0;
 
         // Stop if we hit MAX_EXPORT_PAGES or multiple pages return no new rows.
         while (page <= MAX_EXPORT_PAGES) {
-          updatePageIndicator(page);
-          const pageData = await requestPageData(
-            scope.zuid,
-            scope.zuidD,
-            scope.zuidL,
-            page,
-            pageSize
-          );
+          loaderText.textContent = `Exporting server page ${page}...`;
+          const pageData = await requestScopePage(scope, page, pageSize);
           if (!pageData.length) {
             break;
           }
@@ -1204,15 +2380,15 @@ function renderTable() {
         throw new Error('No data returned to export.');
       }
 
-      const csv = convertToCSV(allData);
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.setAttribute('href', url);
-      link.setAttribute('download', 'salvationarmy-data.csv');
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      const exportRows = searchInput.value
+        ? allData.filter(rowMatchesSearch)
+        : allData;
+      if (!exportRows.length) {
+        throw new Error('No rows match the current table search.');
+      }
+      loaderText.textContent = 'Loading selected export fields...';
+      await hydrateRowsForExport(exportRows, columns);
+      downloadRowsAsCSV(exportRows, columns);
     } catch (err) {
       const message =
         err.name === 'AbortError'
@@ -1220,130 +2396,243 @@ function renderTable() {
           : err.message || 'Failed to export all pages.';
       setError(message);
     } finally {
+      loaderText.textContent = 'Loading server page...';
       loader.classList.remove('d-flex');
       loader.classList.add('d-none');
       setBusy(false);
     }
   };
 
-  function convertToCSV(arr) {
-    const headers = Object.keys(arr[0]).join(',');
+  function convertToCSV(arr, columns) {
+    const headers = columns.map((column) => `"${column.label.replace(/"/g, '""')}"`).join(',');
     const rows = arr.map((obj) =>
-      Object.values(obj)
-        .map((val) => `"${(val ?? '').toString().replace(/"/g, '""')}"`)
+      columns
+        .map((column) => formatCellValue(obj[column.key]))
+        .map((val) => `"${val.replace(/"/g, '""')}"`)
         .join(',')
     );
     return [headers, ...rows].join('\r\n');
   }
 
-  submitBtn.addEventListener('click', async () => {
-    currentPage = 1; // reset pagination
-    const page = getPageNumber();
-    const pageSize = getPageSize();
+  const loadServerPage = async (page) => {
     pageNumberInput.value = page;
-
     await fetchData(
       selectModel.value,
       getSelectedDivisionIds(),
       getSelectedLocationIds(),
       page,
-      pageSize
+      getPageSize()
     );
+  };
+
+  submitBtn.addEventListener('click', async () => {
+    await loadServerPage(getPageNumber());
   });
 
   pagePrevBtn.addEventListener('click', async () => {
     const page = Math.max(1, getPageNumber() - 1);
-    pageNumberInput.value = page;
-    currentPage = 1;
-    await fetchData(
-      selectModel.value,
-      getSelectedDivisionIds(),
-      getSelectedLocationIds(),
-      page,
-      getPageSize()
-    );
+    await loadServerPage(page);
   });
 
   pageNextBtn.addEventListener('click', async () => {
     const page = getPageNumber() + 1;
-    pageNumberInput.value = page;
-    currentPage = 1;
-    await fetchData(
-      selectModel.value,
-      getSelectedDivisionIds(),
-      getSelectedLocationIds(),
-      page,
-      getPageSize()
-    );
+    await loadServerPage(page);
   });
 
-  pageNumberInput.addEventListener('change', () => {
-    const page = getPageNumber();
-    pageNumberInput.value = page;
-    updatePageIndicator(page);
+  pageSizeSelect.addEventListener('change', async () => {
+    resetScopePage();
+    await loadServerPage(1);
   });
 
-  pageSizeSelect.addEventListener('change', () => {
-    pageNumberInput.value = 1;
-    updatePageIndicator(1);
+  tableFieldList.addEventListener('change', (event) => {
+    const checkbox = event.target.closest('input[type="checkbox"]');
+    if (!checkbox) {
+      return;
+    }
+    draftColumnKeys = checkbox.checked
+      ? [...new Set([...draftColumnKeys, checkbox.value])]
+      : draftColumnKeys.filter((key) => key !== checkbox.value);
+    if (tableFieldsSelectedOnly.checked) {
+      renderTableFieldControls();
+    } else {
+      tableFieldMatchSummary.textContent =
+        `${tableFieldList.querySelectorAll('input[type="checkbox"]').length} matching, ` +
+        `${draftColumnKeys.length} selected`;
+      const group = checkbox.closest('.field-group');
+      const groupCount = group?.querySelector('.field-group-count');
+      if (groupCount) {
+        const checkboxes = Array.from(
+          group.querySelectorAll('input[type="checkbox"]')
+        );
+        groupCount.textContent =
+          `${checkboxes.filter((item) => item.checked).length} selected / ${checkboxes.length}`;
+      }
+    }
+  });
+
+  tableFieldSearch.addEventListener('input', renderTableFieldControls);
+  tableFieldSource.addEventListener('change', renderTableFieldControls);
+  tableFieldsSelectedOnly.addEventListener('change', renderTableFieldControls);
+  columnControls.addEventListener('toggle', updateWorkflowGuide);
+
+  selectDefaultColumnsBtn.addEventListener('click', () => {
+    draftColumnKeys = [...DEFAULT_COLUMN_KEYS];
+    renderTableFieldControls();
+  });
+
+  selectAllColumnsBtn.addEventListener('click', () => {
+    draftColumnKeys = availableColumns.map((column) => column.key);
+    renderTableFieldControls();
+  });
+
+  cancelColumnSelectionBtn.addEventListener('click', () => {
+    draftColumnKeys = [...selectedColumnKeys];
+    renderTableFieldControls();
+    columnControls.open = false;
+  });
+
+  applyColumnSelectionBtn.addEventListener('click', async () => {
+    try {
+      setError(null);
+      setBusy(true);
+      loaderText.textContent = 'Loading selected table fields...';
+      loader.classList.add('d-flex');
+      loader.classList.remove('d-none');
+      updateColumnSelection(draftColumnKeys);
+      await hydrateRowsForColumns(data, getSelectedColumns());
+      lastLoadState = lastLoadState
+        ? { ...lastLoadState, rows: [...data] }
+        : lastLoadState;
+      draftColumnKeys = [...selectedColumnKeys];
+      renderTableFieldControls();
+      columnControls.open = false;
+      renderTable();
+    } catch (error) {
+      setError(error.message || 'Failed to load selected table fields.');
+    } finally {
+      loaderText.textContent = 'Loading server page...';
+      loader.classList.remove('d-flex');
+      loader.classList.add('d-none');
+      setBusy(false);
+    }
   });
 
   exportAllBtn.addEventListener('click', async () => {
-    await exportAllPages();
+    openExportPrompt('all');
+  });
+
+  exportDefaultColumnsBtn.addEventListener('click', () => {
+    renderCheckboxList(exportFieldList, DEFAULT_COLUMN_KEYS, 'export-field');
+  });
+
+  exportVisibleColumnsBtn.addEventListener('click', () => {
+    renderCheckboxList(exportFieldList, selectedColumnKeys, 'export-field');
+  });
+
+  exportAllColumnsBtn.addEventListener('click', () => {
+    renderCheckboxList(
+      exportFieldList,
+      availableColumns.map((column) => column.key),
+      'export-field'
+    );
+  });
+
+  exportClearColumnsBtn.addEventListener('click', () => {
+    renderCheckboxList(exportFieldList, [], 'export-field');
+  });
+
+  exportFieldList.addEventListener('change', updateExportFieldSummary);
+
+  exportFieldsModalEl?.querySelectorAll('[data-bs-dismiss="modal"]').forEach((button) => {
+    button.addEventListener('click', hideExportModal);
+  });
+
+  confirmExportBtn.addEventListener('click', async () => {
+    try {
+      setError(null);
+      const columns = getExportColumns();
+      hideExportModal();
+      if (pendingExportMode === 'all') {
+        await exportAllPages(columns);
+      } else {
+        setBusy(true);
+        loaderText.textContent = 'Loading selected export fields...';
+        loader.classList.add('d-flex');
+        loader.classList.remove('d-none');
+        await exportCurrentPage(columns);
+        loaderText.textContent = 'Loading server page...';
+        loader.classList.remove('d-flex');
+        loader.classList.add('d-none');
+        setBusy(false);
+      }
+    } catch (err) {
+      setError(err.message || 'Failed to export CSV.');
+      loaderText.textContent = 'Loading server page...';
+      loader.classList.remove('d-flex');
+      loader.classList.add('d-none');
+      setBusy(false);
+    }
   });
 
   let currentSort = { key: '', asc: true };
 
-  document.querySelectorAll('th.sortable').forEach((th) => {
-    th.style.cursor = 'pointer';
-    th.addEventListener('click', () => {
-      const key = th.getAttribute('data-key');
-      const isSameKey = currentSort.key === key;
-      currentSort.asc = isSameKey ? !currentSort.asc : true;
-      currentSort.key = key;
+  function sortByColumn(key) {
+    const isSameKey = currentSort.key === key;
+    currentSort.asc = isSameKey ? !currentSort.asc : true;
+    currentSort.key = key;
 
-      data.sort((a, b) => {
-        const valA = (a[key] || '').toString().toLowerCase();
-        const valB = (b[key] || '').toString().toLowerCase();
-        if (valA < valB) return currentSort.asc ? -1 : 1;
-        if (valA > valB) return currentSort.asc ? 1 : -1;
-        return 0;
-      });
-
-      // Reset header classes
-      document.querySelectorAll('th.sortable').forEach((header) => {
-        header.classList.remove('active-asc', 'active-desc');
-      });
-
-      // Set active class on clicked header
-      th.classList.add(currentSort.asc ? 'active-asc' : 'active-desc');
-
-      renderTable();
-      renderPagination();
+    data.sort((a, b) => {
+      const valA = formatCellValue(a[key]).toLowerCase();
+      const valB = formatCellValue(b[key]).toLowerCase();
+      if (valA < valB) return currentSort.asc ? -1 : 1;
+      if (valA > valB) return currentSort.asc ? 1 : -1;
+      return 0;
     });
-  });
+
+    if (searchInput.value) {
+      applySearchFilter();
+    }
+
+    renderTable();
+  }
 let filteredData = [];
 
+function rowMatchesSearch(row) {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+  if (!searchTerm) {
+    return true;
+  }
+  return Object.values(row).some((value) =>
+    formatCellValue(value).toLowerCase().includes(searchTerm)
+  );
+}
+
+function applySearchFilter() {
+  filteredData = data.filter(rowMatchesSearch);
+}
+
 searchInput.addEventListener('input', () => {
-  const searchTerm = searchInput.value.toLowerCase();
-  filteredData = data.filter((row) => {
-    return (
-      row.model?.toLowerCase().includes(searchTerm) ||
-      row.zuid?.toLowerCase().includes(searchTerm) ||
-      row.title?.toLowerCase().includes(searchTerm) ||
-      row.territory?.toLowerCase().includes(searchTerm) ||
-      row.division?.toLowerCase().includes(searchTerm) ||
-      row.location?.toLowerCase().includes(searchTerm) ||
-      row.path_part?.toLowerCase().includes(searchTerm) ||
-      row.url?.toLowerCase().includes(searchTerm) ||
-      row.publish_status?.toString().toLowerCase().includes(searchTerm)
-    );
+  applySearchFilter();
+  const page = getPageNumber();
+  resultsSummary.textContent = searchInput.value.trim()
+    ? `${filteredData.length} of ${data.length} rows match on server page ${page}`
+    : `${data.length} row${data.length === 1 ? '' : 's'} on server page ${page}`;
+  renderTable();
+});
+
+  resultsTable.addEventListener('scroll', () => {
+    tableTopScrollbar.scrollLeft = resultsTable.scrollLeft;
   });
 
-  currentPage = 1;
-  renderTable();
-  renderPagination();
-});
+  tableTopScrollbar.addEventListener('scroll', () => {
+    resultsTable.scrollLeft = tableTopScrollbar.scrollLeft;
+  });
+
+  window.addEventListener('resize', updateTableNavigation);
+
+initMultiSelects();
+handleTerritorySelectionChange(selectModel.value, false);
+updateWorkflowGuide();
 </script>
 
 <style>
@@ -1361,26 +2650,129 @@ searchInput.addEventListener('input', () => {
 
 body {
   font-family: "Space Grotesk", "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top, #fff7ed 0%, #eef2ff 45%, #ecfeff 100%);
+  background: #f4f6f8;
   color: var(--ink);
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1320px;
+}
+
+.page-heading h1,
+.results-heading h2,
+.card-header h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.page-heading h1 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.workflow-guide {
+  margin: -4px 0 24px;
+  overflow-x: auto;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.workflow-guide ol {
+  display: grid;
+  min-width: 680px;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
+  list-style: none;
+}
+
+.workflow-guide li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 54px;
+  padding: 8px 14px;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.workflow-guide li + li {
+  border-left: 1px solid var(--border);
+}
+
+.workflow-step-number {
+  display: inline-grid;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  place-items: center;
+  border: 1px solid rgba(15, 23, 42, 0.2);
+  border-radius: 50%;
+  background: var(--surface-soft);
+  font-size: 0.75rem;
+}
+
+.workflow-guide li.is-complete .workflow-step-number {
+  border-color: #166534;
+  background: #166534;
+  color: #ffffff;
+}
+
+.workflow-guide li.is-current {
+  background: #fff7ed;
+  color: var(--ink);
+}
+
+.workflow-guide li.is-current::after {
+  position: absolute;
+  right: 10px;
+  bottom: -1px;
+  left: 10px;
+  height: 3px;
+  background: var(--accent);
+  content: "";
+}
+
+.workflow-guide li.is-current .workflow-step-number {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.workflow-guide li.is-ready:not(.is-current) {
+  color: var(--ink);
+}
+
+.page-kicker {
+  margin: 0 0 4px;
+  color: var(--accent-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.scope-panel {
+  overflow: visible;
 }
 
 .card {
-  border-radius: 18px;
+  border-radius: 8px;
   border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  box-shadow: 0 8px 24px -22px rgba(15, 23, 42, 0.5);
   background: var(--surface);
 }
 
 .card-header {
-  background: linear-gradient(120deg, #111827 0%, #1f2937 40%, #0f172a 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  padding: 14px 20px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-header h2 {
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .card-body {
@@ -1388,8 +2780,33 @@ body {
 }
 
 .form-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 600;
   color: var(--ink);
+}
+
+.step-number {
+  display: inline-grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.75rem;
+}
+
+.optional-label,
+.filter-summary {
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.filter-summary {
+  margin-left: auto;
 }
 
 .form-text {
@@ -1399,7 +2816,7 @@ body {
 .form-select,
 .form-control,
 .input-group-text {
-  border-radius: 12px;
+  border-radius: 6px;
   border: 1px solid var(--border);
   background-color: var(--surface-soft);
   color: var(--ink);
@@ -1411,21 +2828,144 @@ body {
   box-shadow: 0 0 0 3px rgba(224, 86, 43, 0.2);
 }
 
+.checkbox-combo-native {
+  display: none;
+}
+
+.checkbox-combo {
+  position: relative;
+}
+
+.checkbox-combo-toggle {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 40px 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--surface-soft);
+  color: var(--ink);
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+}
+
+.checkbox-combo-toggle::after {
+  content: "v";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+.checkbox-combo-toggle:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(224, 86, 43, 0.2);
+  outline: none;
+}
+
+.checkbox-combo.is-disabled .checkbox-combo-toggle {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.checkbox-combo-menu {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.checkbox-combo-search {
+  margin-bottom: 8px;
+}
+
+.checkbox-combo-select-all {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  margin-bottom: 6px;
+  padding: 7px 8px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-soft);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.checkbox-combo-select-all input {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.checkbox-combo-select-all:has(input:disabled) {
+  color: var(--ink-soft);
+  cursor: not-allowed;
+}
+
+.checkbox-combo-list {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.checkbox-combo-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 7px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  line-height: 1.25;
+}
+
+.checkbox-combo-option:hover {
+  background: rgba(224, 86, 43, 0.08);
+}
+
+.checkbox-combo-option input {
+  margin-top: 2px;
+}
+
+.checkbox-combo-empty {
+  padding: 12px 8px;
+  color: var(--ink-soft);
+}
+
+.checkbox-combo-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 10px;
+  margin-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
 .btn {
-  border-radius: 999px;
+  border-radius: 6px;
   font-weight: 600;
-  letter-spacing: 0.01em;
 }
 
 .btn-primary {
-  background: linear-gradient(120deg, var(--accent), #ff8a5c);
-  border: none;
-  box-shadow: 0 12px 24px -18px rgba(224, 86, 43, 0.8);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background: linear-gradient(120deg, var(--accent-dark), #ff8a5c);
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
 }
 
 .btn-outline-primary {
@@ -1443,33 +2983,322 @@ body {
 }
 
 .dropdown-menu {
-  border-radius: 14px;
+  border-radius: 8px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
 }
 
-#dataTable {
-  border-radius: 18px;
-  overflow: hidden;
+.results-section {
+  margin-top: 32px;
+}
+
+.results-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.results-heading h2 {
+  font-size: 1.5rem;
+}
+
+.results-summary {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}
+
+.results-toolbar {
+  position: sticky;
+  top: 8px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px;
   border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 8px 20px -20px rgba(15, 23, 42, 0.5);
+}
+
+.results-search {
+  flex: 1 1 320px;
+  max-width: 460px;
+}
+
+.server-pager {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.server-pager label,
+.server-page-label {
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.server-pager #page-size {
+  width: 96px;
+  min-width: 96px;
+  padding-left: 12px;
+  background-color: var(--surface);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.server-pager #page-number {
+  width: 72px;
+  text-align: center;
+}
+
+.column-panel {
+  margin: 12px 0;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.column-panel > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+  background: #fff7ed;
+  transition: background-color 150ms ease;
+}
+
+.column-panel > summary::-webkit-details-marker {
+  display: none;
+}
+
+.column-panel > summary::marker {
+  content: "";
+}
+
+.column-panel > summary:hover,
+.column-panel > summary:focus-visible {
+  background: #ffedd5;
+}
+
+.column-panel > summary:focus-visible {
+  outline: 3px solid rgba(224, 86, 43, 0.25);
+  outline-offset: 2px;
+}
+
+.column-panel-title,
+.column-panel-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.column-panel-toggle-icon {
+  display: inline-grid;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  place-items: center;
+  border-radius: 4px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.column-panel-toggle-icon::before {
+  content: "+";
+}
+
+.column-panel[open] .column-panel-toggle-icon::before {
+  content: "-";
+}
+
+.column-panel-state {
+  min-width: 60px;
+  color: var(--accent-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+.column-panel-state-open,
+.column-panel[open] .column-panel-state-closed {
+  display: none;
+}
+
+.column-panel[open] .column-panel-state-open {
+  display: inline;
+}
+
+.column-panel .filter-summary {
+  margin-left: 0;
+}
+
+.column-panel-body {
+  padding: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.field-browser-toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 2fr) minmax(180px, 1fr) auto;
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.field-browser-toolbar .form-label {
+  margin-bottom: 4px;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.field-browser-selected {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 31px;
+  margin: 0;
+  padding-left: 0;
+  white-space: nowrap;
+}
+
+.field-browser-selected .form-check-input {
+  float: none;
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.field-browser-status {
+  margin-bottom: 12px;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+}
+
+.table-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  background: var(--surface-soft);
+}
+
+.table-navigation-summary {
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.table-top-scrollbar {
+  height: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-right: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.table-top-scrollbar > div {
+  height: 1px;
+}
+
+.results-table {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  max-height: min(70vh, 720px);
+  overflow: auto;
+  scrollbar-gutter: stable;
+}
+
+.table-navigation:not(.d-none) + .table-top-scrollbar + .results-table {
+  border-radius: 0 0 8px 8px;
+}
+
+#dataTable {
+  width: max-content;
+  min-width: 100%;
+  margin: 0;
+  border: 0;
 }
 
 #dataTable thead {
+  --bs-table-bg: #0f172a;
+  --bs-table-color: #f8fafc;
+  --bs-table-striped-bg: #0f172a;
+  --bs-table-striped-color: #f8fafc;
   background: #0f172a;
   color: #f8fafc;
+}
+
+#dataTable thead th {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  background: #0f172a;
+  color: #f8fafc !important;
+  white-space: nowrap;
 }
 
 #dataTable th,
 #dataTable td {
   border-color: rgba(148, 163, 184, 0.25);
+  vertical-align: top;
+}
+
+#dataTable th:first-child,
+#dataTable td:first-child {
+  position: sticky;
+  left: 0;
+  min-width: 140px;
+  max-width: 240px;
+}
+
+#dataTable thead th:first-child {
+  z-index: 4;
+  background: #0f172a;
+}
+
+#dataTable tbody td:first-child {
+  z-index: 1;
+  background: #ffffff;
 }
 
 #dataTable tbody tr:nth-child(odd) {
   background: #f8fafc;
 }
 
+#dataTable tbody tr:nth-child(odd) td:first-child {
+  background: #f8fafc;
+}
+
 #dataTable tbody tr:hover {
   background: rgba(224, 86, 43, 0.08);
+}
+
+#dataTable tbody tr:hover td:first-child {
+  background: #fff4ef;
 }
 
 .url-cell a {
@@ -1481,28 +3310,11 @@ body {
 }
 
 #csv-loader {
-  background: linear-gradient(120deg, rgba(224, 86, 43, 0.08), rgba(99, 102, 241, 0.08));
+  margin: 12px 0;
+  background: #fff7ed;
   padding: 12px 16px;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid var(--border);
-}
-
-#searchContainer {
-  position: sticky;
-  top: 12px;
-  z-index: 2;
-}
-
-.pagination .page-link {
-  border-radius: 999px;
-  color: var(--ink-soft);
-  border-color: rgba(148, 163, 184, 0.4);
-}
-
-.pagination .page-item.active .page-link {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: #fff;
 }
 
 .sortable .sort-icon {
@@ -1511,73 +3323,268 @@ body {
 }
 
 .alert {
-  border-radius: 14px;
+  border-radius: 8px;
 }
 
-/* Bootstrap table styling */
+.field-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 440px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.field-group + .field-group {
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.field-group-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+details.field-group > .field-group-summary {
+  min-height: 34px;
+  margin: 0;
+  cursor: pointer;
+}
+
+details.field-group[open] > .field-group-summary {
+  margin-bottom: 8px;
+}
+
+.field-group-title {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.field-group-count {
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.field-group-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px 16px;
+}
+
+.field-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-height: 46px;
+  padding: 7px 8px;
+  border-radius: 6px;
+}
+
+.field-option:hover {
+  background: var(--surface-soft);
+}
+
+.field-option .form-check-input {
+  float: none;
+  flex: 0 0 auto;
+  margin-left: 0;
+  margin-top: 3px;
+}
+
+.field-option-label {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding-left: 0;
+}
+
+.field-option-name {
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.field-option-meta {
+  color: var(--ink-soft);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.7rem;
+  overflow-wrap: anywhere;
+}
+
+.field-grid .form-check {
+  min-width: 0;
+}
+
+.field-grid .form-check-label {
+  overflow-wrap: anywhere;
+}
+
+.field-empty {
+  margin: 0;
+  padding: 20px;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.field-help,
+.modal-summary {
+  margin: 0 0 12px;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+.modal-summary {
+  margin: 4px 0 0;
+}
+
 .table {
-  table-layout: fixed; /* Ensure columns have equal width */
-  width: 100%; /* Full width */
+  table-layout: auto;
+  width: 100%;
 }
 
 .table th,
 .table td {
-  text-align: center; /* Center align text */
-  padding: 10px; /* Add padding for better readability */
-  border: 1px solid #ddd; /* Border between cells */
-  vertical-align: middle; /* Vertically center the text */
-
-  /* Allow text to wrap inside cells */
+  padding: 10px;
+  border: 1px solid #ddd;
+  vertical-align: middle;
   word-wrap: break-word;
   word-break: break-word;
   white-space: normal;
 }
 
-/* Optional: Remove or reduce this if it stretches cells too much */
-.table td {
-  min-height: auto; /* or remove this line if not needed */
+.table th {
+  white-space: nowrap;
 }
 
+#dataTable th:first-child,
+#dataTable td:first-child {
+  min-width: 150px;
+}
 
-  .pagination {
-    justify-content: center; /* Center pagination controls */
+#dataTable th:not(:last-child),
+#dataTable td:not(:last-child) {
+  min-width: 180px;
+}
+
+#dataTable th[data-key="model"],
+#dataTable td[data-key="model"],
+#dataTable th[data-key="publish_status"],
+#dataTable td[data-key="publish_status"] {
+  min-width: 150px;
+}
+
+#dataTable th[data-key="zuid"],
+#dataTable td[data-key="zuid"] {
+  min-width: 190px;
+}
+
+#dataTable th[data-key="title"],
+#dataTable td[data-key="title"] {
+  min-width: 240px;
+}
+
+#dataTable th[data-key="territory"],
+#dataTable td[data-key="territory"],
+#dataTable th[data-key="division"],
+#dataTable td[data-key="division"],
+#dataTable th[data-key="location"],
+#dataTable td[data-key="location"] {
+  min-width: 190px;
+}
+
+#dataTable th[data-key="path_part"],
+#dataTable td[data-key="path_part"] {
+  min-width: 220px;
+}
+
+#dataTable th[data-key="url"],
+#dataTable td[data-key="url"] {
+  min-width: 300px;
+}
+
+#dataTable th[data-key^="field__"],
+#dataTable td[data-key^="field__"] {
+  min-width: 240px;
+}
+
+#dataTable th:last-child,
+#dataTable td:last-child {
+  min-width: 90px;
+  text-align: center;
+}
+
+#dataTable td:last-child .btn {
+  white-space: nowrap;
+}
+
+.sort-icon {
+  margin-left: 5px;
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.sort-icon .up,
+.sort-icon .down {
+  margin-left: 2px;
+  color: #ccc;
+}
+
+th.active-asc .sort-icon .up,
+th.active-desc .sort-icon .down {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+@media (max-width: 991.98px) {
+  .field-browser-toolbar {
+    grid-template-columns: minmax(0, 1fr) minmax(160px, 0.6fr);
   }
 
-  .pagination .page-item {
-    cursor: pointer;
+  .field-browser-selected {
+    grid-column: 1 / -1;
   }
 
-  /* Loader Styling */
-  #loader {
-    height: 100px; /* Adjust height of loader container */
+  .results-toolbar {
+    position: static;
+    align-items: stretch;
+    flex-direction: column;
   }
 
-  .sort-icon {
-    margin-left: 5px;
-    font-size: 0.75rem;
-    opacity: 0.6;
+  .results-search {
+    flex: 0 1 auto;
+    max-width: none;
   }
 
-  .sort-icon .up,
-  .sort-icon .down {
-    margin-left: 2px;
-    color: #ccc;
+  .server-pager {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .field-browser-toolbar {
+    grid-template-columns: 1fr;
   }
 
-  th.active-asc .sort-icon .up,
-  th.active-desc .sort-icon .down {
-    color: #000; /* or use theme color */
-    font-weight: bold;
+  .field-browser-selected {
+    grid-column: auto;
   }
 
-   tbody tr {
-    animation: fadeInRow 0.5s ease forwards;
-    opacity: 0;
+  .results-heading {
+    align-items: stretch;
+    flex-direction: column;
   }
 
-  @keyframes fadeInRow {
-    to {
-      opacity: 1;
-    }
+  .server-page-label {
+    width: 100%;
   }
+}
 </style>

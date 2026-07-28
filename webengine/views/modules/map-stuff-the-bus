@@ -28,6 +28,9 @@
         >
       </div>
       <div class="d-flex">
+        {{this.map_filter_instructions}}
+      </div>
+      <div class="d-flex">
         <button id="stuff-the-bus__search-btn" class="btn btn-primary w-75" onclick="searchStuffTheBusLocations()" disabled>
           Search Location
         </button>
@@ -38,17 +41,44 @@
         </button>
       </div>
       <div class="d-none d-flex align-items-center flex-wrap gap-2 border-top pt-6 mt-6" id="stb-filterbar">
-        <span class="text-secondary fw-semibold text-uppercase me-1" style="font-size:0.7rem;letter-spacing:0.08em;">Filter</span>
+        <span class="text-secondary fw-semibold text-uppercase me-1 display-4">Filter</span>
         <button class="btn btn-sm border rounded d-flex align-items-center gap-2 px-3 py-1" data-filter="store">
-          <span class="rounded flex-shrink-0 bg-secondary-100 d-block" style="width:11px;height:11px;"></span>
-          Drop-off store
-          <span class="text-secondary ms-1" style="font-size:0.82rem;" id="stb-count-store">0</span>
+          <span class="stuff__filter rounded flex-shrink-0 bg-secondary-100 d-block"></span>
+          In store drop off
+          <span class="text-secondary ms-1 display-4" id="stb-count-store">0</span>
         </button>
         <button class="btn btn-sm border rounded d-flex align-items-center gap-2 px-3 py-1" data-filter="online">
-          <span class="rounded flex-shrink-0 bg-success d-block" style="width:11px;height:11px;"></span>
-          Online participating location
-          <span class="text-secondary ms-1" style="font-size:0.82rem;" id="stb-count-online">0</span>
+          <span class="stuff__filter rounded flex-shrink-0 bg-success d-block"></span>
+          Online Registry
+          <span class="text-secondary ms-1 display-4" id="stb-count-online">0</span>
         </button>
+        <div class="d-md-flex align-items-center justify-content-center gap-2 w-100 mt-2 pt-6 border-top" id="stb-date-range-filter">
+          <span class="d-flex text-secondary fw-semibold text-uppercase me-1 mb-4 mb-md-0 display-4">Date Range</span>
+          <div class="d-md-flex align-items-center gap-1 flex-shrink-0">
+            <div class="position-relative">
+              <input
+                type="text"
+                id="stb-date-start"
+                class="stuff__datepicker form-control form-control-sm rounded pointer"
+                placeholder="Start date"
+                readonly
+              >
+            </div>
+            <span class="text-secondary px-1"></span>
+            <div class="position-relative">
+              <input
+                type="text"
+                id="stb-date-end"
+                class="stuff__datepicker form-control form-control-sm rounded pointer"
+                placeholder="End date"
+                readonly
+              >
+            </div>
+          </div>
+          <button class="btn btn-sm btn-primary d-flex align-items-center mt-4 mt-md-0" id="stb-date-clear" title="Clear date filter">
+            <span class="display-4">Reset</span>
+          </button>
+        </div>
       </div>
     </div>
     <div>
@@ -83,7 +113,7 @@
         },
         body: JSON.stringify({
           "from": "bvxwt6a5d",
-          "select": [130, 153, 158, 15, 121, 122, 31, 32, 16, 17, 156, 157, 162, 39, 132,133,170,23,24,25,26,149,8,177,178],
+          "select": [130, 153, 158, 15, 121, 122, 31, 32, 16, 17, 156, 157, 162, 39,131,132,133,170,23,24,25,26,149,8,177,178,134,135,136,169,137,138,139,168],
           "where": "{52.CampaignType.'Stuff the Bus'} AND {39.flag. 'Yes'}"
         })
       });
@@ -108,7 +138,7 @@
         },
         body: JSON.stringify({
           "from": "bvxwt6a5d",
-          "select": [130, 153, 158, 15, 121, 122, 31, 32, 16, 17, 156, 157, 162, 39, 132, 133, 170, 23, 24, 25, 26, 149, 8, 177, 178],
+          "select": [130, 153, 158, 15, 121, 122, 31, 32, 16, 17, 156, 157, 162, 39, 131, 132, 133, 170, 23, 24, 25, 26, 149, 8, 177, 178, 134, 135, 136, 169, 137, 138, 139, 168],
           "where": "{52.CampaignName.'Stuff the Bus Registry'}"
         })
       });
@@ -130,14 +160,29 @@
         longitude:     parseFloat(item["157"]?.value) || parseFloat(item["178"]?.value) || null,
         displayName:   item["162"]?.value ?? "",
         participating: item["39"]?.value ?? "",
-        allDayJune:    item["132"]?.value ?? [],
-        afternoonJune: item["133"]?.value ?? [],
-        eveningJune:   item["170"]?.value ?? [],
+        june:   buildMonthSchedule(item["132"]?.value, item["131"]?.value, item["133"]?.value, item["170"]?.value),
+        july:   buildMonthSchedule(item["134"]?.value, item["135"]?.value, item["136"]?.value, item["169"]?.value),
+        august: buildMonthSchedule(item["137"]?.value, item["138"]?.value, item["139"]?.value, item["168"]?.value),
       }));
     } catch (error) {
       console.log("ERROR Stuff the Bus", error.message);
       return [];
     }
+  };
+
+  const buildMonthSchedule = (allDay, morning, afternoon, evening) => {
+    const toArr = (v) => Array.isArray(v) ? v : [];
+    const ad = toArr(allDay), mo = toArr(morning), af = toArr(afternoon), ev = toArr(evening);
+    const dates = [...new Set([...ad, ...mo, ...af, ...ev])];
+    return dates.reduce((acc, date) => {
+      acc[date] = {
+        allDay:    ad.includes(date),
+        morning:   mo.includes(date),
+        afternoon: af.includes(date),
+        evening:   ev.includes(date),
+      };
+      return acc;
+    }, {});
   };
 
   const getStores = async (data) => {
@@ -154,9 +199,9 @@
       zip:         item["8"]?.value ?? "",
       latitude:    parseFloat(item["177"]?.value) || null,
       longitude:   parseFloat(item["178"]?.value) || null,
-      allDayJune:    item["132"]?.value ?? [],
-      afternoonJune: item["133"]?.value ?? [],
-      eveningJune:   item["170"]?.value ?? [],
+      june:   buildMonthSchedule(item["132"]?.value, item["131"]?.value, item["133"]?.value, item["170"]?.value),
+      july:   buildMonthSchedule(item["134"]?.value, item["135"]?.value, item["136"]?.value, item["169"]?.value),
+      august: buildMonthSchedule(item["137"]?.value, item["138"]?.value, item["139"]?.value, item["168"]?.value),
     }));
     console.log("Store Results:", result)
 
@@ -222,9 +267,9 @@
   const markerPool = (() => {
     const activeMarkers = [];
 
-    const addMarker = (mapInstance, lat, lng, title, icon, type = '') => {
+    const addMarker = (mapInstance, lat, lng, title, icon, type = '', id = '') => {
       const marker = new google.maps.Marker({ position: { lat, lng }, map: mapInstance, title, icon });
-      activeMarkers.push({ marker, type });
+      activeMarkers.push({ marker, type, id });
       return marker;
     };
 
@@ -243,7 +288,14 @@
       activeMarkers.forEach(({ marker }) => marker.setVisible(true));
     };
 
-    return { addMarker, clearAllMarkers, filterByTypes, showAllMarkers };
+    const syncVisibilityFromCards = () => {
+      activeMarkers.forEach(({ marker, id }) => {
+        const card = id ? document.querySelector(`.stuff-the-bus__item[data-id="${id}"]`) : null;
+        if (card) marker.setVisible(!card.classList.contains('d-none'));
+      });
+    };
+
+    return { addMarker, clearAllMarkers, filterByTypes, showAllMarkers, syncVisibilityFromCards };
   })();
 
   const filterByRadius = async (stores, locationsRegistry, inputLocation, radiusMiles = 50) => {
@@ -268,42 +320,186 @@
   };
 
   const formatDropOffTimes = (store) => {
-    const sections = [
-      { label: 'All Day - June',     values: store.allDayJune },
-      { label: 'Afternoon - June',   values: store.afternoonJune },
-      { label: 'Evening - June',     values: store.eveningJune },
-    ].filter(s => Array.isArray(s.values) && s.values.length > 0);
-    if (sections.length === 0) return '';
-    const rows = sections.map(s =>
-      `<p class="text-muted mb-0 display-3"><strong>${s.label}:</strong> ${s.values.join(', ')}</p>`
-    ).join('');
-    return `<div class="mt-1"><p class="text-muted mb-1 display-3 fw-semibold">Drop off time:</p>${rows}</div>`;
+    const timeRanges = { morning: '8AM – 12PM', afternoon: '12PM – 4PM', evening: '4PM – 8PM' };
+    const months = [
+      { label: 'June',   data: store.june },
+      { label: 'July',   data: store.july },
+      { label: 'August', data: store.august },
+    ];
+    const blocks = months.flatMap(({ label, data }) => {
+      if (!data || Object.keys(data).length === 0) return [];
+      return Object.entries(data).map(([date, slots]) => {
+        const dateLabel = `${label} ${date}`;
+        if (slots.allDay) {
+          return `<div class="mb-1"><p class="text-muted mb-0 display-3 fw-semibold">${dateLabel}</p><p class="text-muted mb-0 display-3 ps-3">Drop off is available all day</p></div>`;
+        }
+        const slotRows = [
+          { slot: 'Morning',   key: 'morning',   time: timeRanges.morning },
+          { slot: 'Afternoon', key: 'afternoon',  time: timeRanges.afternoon },
+          { slot: 'Evening',   key: 'evening',    time: timeRanges.evening },
+        ]
+          .filter(t => slots[t.key])
+          .map(t => `<p class="text-muted mb-0 display-3 ps-3"><strong>${t.slot}:</strong> ${t.time}</p>`)
+          .join('');
+        return slotRows ? `<div class="mb-1"><p class="text-muted mb-0 display-3 fw-semibold">${dateLabel}</p>${slotRows}</div>` : '';
+      }).filter(Boolean);
+    }).join('');
+    return blocks ? `<div class="mt-1">${blocks}</div>` : '';
   };
 
-  const generateResultCards = (filteredStores, filteredLocationsRegistry) => {
-    const storeCards = filteredStores.map((store, i) =>
-      `<div class="stuff-the-bus__item card mb-2 mt-2" data-id="store-${i}" data-type="store">
-        <div class="card-body">
-          <span class="badge mb-1" style="background-color:#0071CE">Store</span>
-          <h5 class="card-title fw-bold text-secondary-200 mb-1 display-2">${store.storeType || 'Walmart Store'}</h5>
-          <p class="text-muted mb-0 display-3">${[store.address, store.city, store.state].filter(Boolean).join(', ')}</p>
-          <p class="text-muted mb-0 display-3">${store.distance} mi away</p>
-          ${formatDropOffTimes(store)}
-        </div>
-      </div>`
-    ).join('');
+  const extractCardDates = (item) => {
+    const year = new Date().getFullYear();
+    const monthMap = { june: 5, july: 6, august: 7 };
+    return ['june', 'july', 'august'].flatMap(month => {
+      const data = item[month];
+      if (!data) return [];
+      return Object.keys(data).map(day =>
+        new Date(year, monthMap[month], parseInt(day)).toISOString().split('T')[0]
+      );
+    }).join(',');
+  };
 
-    const registryCards = filteredLocationsRegistry.map((loc, i) =>
-      `<div class="stuff-the-bus__item card mb-2 mt-2" data-id="registry-${i}" data-type="online">
+  const isCardExpired = (dates) => {
+    if (!dates) return false;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return dates.split(',').every(d => new Date(d.trim()) < today);
+  };
+
+  const generateDirectionsLinks = (address, analyticsData) => {
+    const encoded = encodeURIComponent(address);
+    const analyticsAttrs = analyticsData ? `
+      data-link-location="body:map"
+      data-link-function="other"
+      data-link-format="text"
+      data-link-type="external"
+      data-location-id="${analyticsData.location_id || ''}"
+      data-location-name="${analyticsData.name}"
+      data-location-search-term="${analyticsData.search_term}"
+      data-location-search-results="${analyticsData.total_results}"
+      data-location-search-type="location search - body"
+      data-location-search-method="${analyticsData.search_method || 'user-entered'}"
+      data-location-search-result-index="${analyticsData.result_index}"
+      onclick="LocationTrackingResultsClickEvent(this, 'stuff_the_bus_result_click')"` : '';
+    return `<div class="text-muted mb-0 display-3 mt-2">
+      <strong>Directions:</strong>
+      <a class="text-dark-50 me-2 display-4 display-md-3" href="https://www.google.com/maps/dir/?api=1&destination=${encoded}&travelmode=walking" target="_blank" rel="noopener noreferrer" ${analyticsAttrs}>Walking</a>
+      <a class="text-dark-50 me-2 display-4 display-md-3" href="https://www.google.com/maps/dir/?api=1&destination=${encoded}&travelmode=driving" target="_blank" rel="noopener noreferrer" ${analyticsAttrs}>Driving</a>
+      <a class="text-dark-50 me-2 display-4 display-md-3" href="https://www.google.com/maps/dir/?api=1&destination=${encoded}&travelmode=transit" target="_blank" rel="noopener noreferrer" ${analyticsAttrs}>Public Transport</a>
+    </div>`;
+  };
+
+  const downloadStbICS = (name, address, dates) => {
+    const now = new Date().toISOString().replace(/[-:.]/g, '').slice(0, 15) + 'Z';
+    const events = dates.split(',').map(dateStr => {
+      const d = dateStr.trim().replace(/-/g, '');
+      return [
+        'BEGIN:VEVENT',
+        `UID:stb-${d}-${Math.random().toString(36).substr(2, 6)}@stuffthebus`,
+        `DTSTAMP:${now}`,
+        `DTSTART;VALUE=DATE:${d}`,
+        `DTEND;VALUE=DATE:${d}`,
+        `SUMMARY:Stuff the Bus Drop-off at ${name}`,
+        `LOCATION:${address}`,
+        'DESCRIPTION:Drop off school supplies for Stuff the Bus.',
+        'END:VEVENT'
+      ].join('\r\n');
+    }).join('\r\n');
+    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Stuff the Bus//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH', events,'END:VCALENDAR'].join('\r\n');
+    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `stuff-the-bus-${name.replace(/[^a-z0-9]/gi, '-').toLowerCase()}.ics`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const generateResultCards = (filteredStores, filteredLocationsRegistry, analyticsObject) => {
+    const storeCards = filteredStores.map((store, i) => {
+      const dates = extractCardDates(store);
+      const fullAddress = [store.address, store.city, store.state].filter(Boolean).join(', ');
+      const expired = isCardExpired(dates);
+      const displayName = store.storeType || store.storeName || 'Walmart Store';
+      const safeName = displayName.replace(/'/g, "\\'");
+      const safeAddr = fullAddress.replace(/'/g, "\\'");
+      const safeAttrName = displayName.replace(/"/g, '&quot;');
+      const locationId = (store.locationID || `${displayName} - ${fullAddress}`).replace(/"/g, '&quot;');
+      return `<div class="stuff-the-bus__item card mb-2 mt-2 border rounded${expired ? ' opacity-50' : ''}" data-id="store-${i}" data-type="store"${dates ? ` data-dates="${dates}"` : ''}>
         <div class="card-body">
-          <span class="badge mb-1" style="background-color:#12825F">Online Participating</span>
-          <h5 class="card-title fw-bold text-secondary-200 mb-1 display-2">${loc.displayName || loc.unitName || 'Location'}</h5>
-          <p class="text-muted mb-0 display-3">${[loc.address, loc.city, loc.state].filter(Boolean).join(', ')}</p>
-          <p class="text-muted mb-0 display-3">${loc.distance} mi away</p>
-          ${loc.registryURL ? `<a href="${loc.registryURL}" target="_blank" rel="noopener noreferrer" class="btn btn-sm mt-2" style="background-color:#12825F;color:#fff;">Register Online</a>` : ''}
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="badge bg-secondary-100">Store</span>
+            ${expired ? '<span class="badge bg-secondary">Event Passed</span>' : ''}
+          </div>
+          <h5 class="card-title fw-bold text-secondary-200 mb-1 display-2">${store.storeType || 'Walmart Store'}</h5>
+          <p class="text-muted mb-0 display-3">${fullAddress}</p>
+          <p class="text-muted mb-0 display-3">${store.distance} mi away</p>
+          <div class="mt-2">
+            ${formatDropOffTimes(store)}
+          </div>
+          <div class="mt-8 border-top pt-4">
+            ${generateDirectionsLinks(fullAddress, { location_id: locationId, name: displayName, search_term: analyticsObject.search_term, total_results: analyticsObject.total_results, result_index: i, search_method: analyticsObject.search_method })}
+          </div>
+          <div class="mt-2">
+            ${dates && !expired ? `<button
+            class="btn btn-sm btn-secondary d-flex align-items-center gap-1 mt-2"
+            data-link-location="body:map"
+            data-link-function="download"
+            data-link-format="button"
+            data-link-type="internal"
+            data-location-id="${locationId}"
+            data-location-name="${safeAttrName}"
+            data-location-search-term="${analyticsObject.search_term}"
+            data-location-search-results="${analyticsObject.total_results}"
+            data-location-search-type="location search - body"
+            data-location-search-method="${analyticsObject.search_method}"
+            data-location-search-result-index="${i}"
+            onclick="downloadStbICS('${safeName}', '${safeAddr}', '${dates}'); LocationTrackingResultsClickEvent(this, 'stuff_the_bus_result_click')"
+          ><span class="material-symbols-outlined display-2">calendar_add_on</span> Add to Calendar</button>` : ''}
+          </div>
         </div>
-      </div>`
-    ).join('');
+      </div>`;
+    }).join('');
+
+    const registryCards = filteredLocationsRegistry.map((loc, i) => {
+      const dates = extractCardDates(loc);
+      const fullAddress = [loc.address, loc.city, loc.state].filter(Boolean).join(', ');
+      const expired = isCardExpired(dates);
+      const safeName = (loc.displayName || loc.unitName || 'Location').replace(/'/g, "\\'");
+      const safeAddr = fullAddress.replace(/'/g, "\\'");
+      return `<div class="stuff-the-bus__item card mb-2 mt-2 border rounded${expired ? ' opacity-50' : ''}" data-id="registry-${i}" data-type="online"${dates ? ` data-dates="${dates}"` : ''}>
+        <div class="card-body">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="badge bg-success">Online Participating</span>
+            ${expired ? '<span class="badge bg-secondary">Event Passed</span>' : ''}
+          </div>
+          <h5 class="card-title fw-bold text-secondary-200 mb-1 display-2">${loc.displayName || loc.unitName || 'Location'}</h5>
+          <p class="text-muted mb-0 display-3">${fullAddress}</p>
+          <p class="text-muted mb-0 display-3">${loc.distance} mi away</p>
+          ${loc.registryURL ? `<a
+            href="${loc.registryURL}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-sm mt-2 bg-success text-white"
+            data-link-location="body:map"
+            data-link-function="cta"
+            data-link-format="button"
+            data-link-type="external"
+            data-location-id="${loc.unitID || ''}"
+            data-location-name="${loc.displayName || loc.unitName || 'Location'}"
+            data-location-search-term="${analyticsObject.search_term}"
+            data-location-search-results="${analyticsObject.total_results}"
+            data-location-search-type="location search - body"
+            data-location-search-method="${analyticsObject.search_method}"
+            data-location-search-result-index="${i}"
+            onclick="LocationTrackingResultsClickEvent(this, 'stuff_the_bus_result_click')"
+          >Register Online</a>` : ''}
+          ${dates && !expired ? `<button class="btn btn-sm btn-outline-primary d-flex align-items-center gap-1 mt-2" onclick="downloadStbICS('${safeName}', '${safeAddr}', '${dates}')"><span class="material-symbols-outlined display-2">calendar_add_on</span> Add to Calendar</button>` : ''}
+        </div>
+      </div>`;
+    }).join('');
 
     return storeCards + registryCards;
   };
@@ -362,6 +558,79 @@
     });
   };
 
+  const setupDateRangePicker = () => {
+    const startInput = document.getElementById('stb-date-start');
+    const endInput   = document.getElementById('stb-date-end');
+    const clearBtn   = document.getElementById('stb-date-clear');
+    if (!startInput || !endInput) return;
+
+    // if (!document.getElementById('stb-datepicker-fix')) {
+    //   const style = document.createElement('style');
+    //   style.id = 'stb-datepicker-fix';
+    //   document.head.appendChild(style);
+    // }
+
+    const year    = new Date().getFullYear();
+    const minDate = new Date(year, 5, 1);   // June 1
+    const maxDate = new Date(year, 7, 31);  // August 31
+
+    const sharedOptions = {
+      format: 'M d, yyyy',
+      autohide: true,
+      minDate,
+      maxDate,
+      updateOnBlur: false,
+      todayHighlight: true,
+    };
+
+    const startPicker = new Datepicker(startInput, { ...sharedOptions });
+    const endPicker   = new Datepicker(endInput,   { ...sharedOptions });
+
+    const applyDateFilter = () => {
+      const start = startPicker.getDate();
+      const end   = endPicker.getDate();
+
+      if (start) endPicker.setOptions({ minDate: start });
+      if (end)   startPicker.setOptions({ maxDate: end });
+
+      if (!start && !end) return;
+
+      const toDateStr = (d) => {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return `${y}-${m}-${day}`;
+      };
+      const startStr = start ? toDateStr(start) : null;
+      const endStr   = end   ? toDateStr(end)   : null;
+
+      document.querySelectorAll('.stuff-the-bus__item').forEach(card => {
+        const rawDates = card.dataset.dates;
+        if (!rawDates) { card.classList.add('d-none'); return; }
+        const inRange = rawDates.split(',').some(d => {
+          const ds = d.trim();
+          return (!startStr || ds >= startStr) && (!endStr || ds <= endStr);
+        });
+        card.classList.toggle('d-none', !inRange);
+      });
+      markerPool.syncVisibilityFromCards();
+    };
+
+    startInput.addEventListener('changeDate', applyDateFilter);
+    endInput.addEventListener('changeDate', applyDateFilter);
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        startPicker.setDate({ clear: true });
+        endPicker.setDate({ clear: true });
+        startPicker.setOptions({ maxDate });
+        endPicker.setOptions({ minDate });
+        document.querySelectorAll('.stuff-the-bus__item').forEach(c => c.classList.remove('d-none'));
+        markerPool.showAllMarkers();
+      });
+    }
+  };
+
   const searchStuffTheBusLocations = async () => {
     const input = document.querySelector('#stuff-the-bus__input');
     const loader = document.querySelector('.map-loader');
@@ -397,27 +666,75 @@
       const storeIcon = createPinIcon('#77a9ee');
       const locationRegistryIcon = createPinIcon('#12825F');
 
-      filteredStores.forEach((store) => {
-        markerPool.addMarker(map, store.latitude, store.longitude, store.storeName || 'Store', storeIcon, 'store');
+      const total = filteredStores.length + filteredLocationsRegistry.length;
+      const searchMethod = input.getAttribute('data-autofilled') === 'true' ? 'autofilled location' : 'user-entered';
+      const analyticsObject = {
+        search_term: inputValue,
+        total_results: total,
+        search_method: searchMethod
+      };
+
+      filteredStores.forEach((store, i) => {
+        const marker = markerPool.addMarker(map, store.latitude, store.longitude, store.storeName || 'Store', storeIcon, 'store', `store-${i}`);
+        marker.addListener('click', function() {
+          const searchInfo = {
+            searchTerm: inputValue,
+            totalResults: total,
+            searchMethod: 'user-entered',
+            filterType: 'stuff_the_bus',
+            filterValue: 'store'
+          };
+          const locationData = {
+            resultIndex: i,
+            location_id: store.locationID || '',
+            name: store.storeName || store.storeType || 'Store',
+            location_org_detail: ''
+          };
+          LocationTrackingMapClickEvent(locationData, searchInfo, 'stuff_the_bus_map_click');
+        });
       });
 
-      filteredLocationsRegistry.forEach((loc) => {
-        markerPool.addMarker(map, loc.latitude, loc.longitude, loc.displayName || loc.unitName || 'Location', locationRegistryIcon, 'online');
+      filteredLocationsRegistry.forEach((loc, i) => {
+        const marker = markerPool.addMarker(map, loc.latitude, loc.longitude, loc.displayName || loc.unitName || 'Location', locationRegistryIcon, 'online', `registry-${i}`);
+        marker.addListener('click', function() {
+          const searchInfo = {
+            searchTerm: inputValue,
+            totalResults: total,
+            searchMethod: 'user-entered',
+            filterType: 'stuff_the_bus',
+            filterValue: 'online'
+          };
+          const locationData = {
+            resultIndex: i,
+            location_id: loc.unitID || '',
+            name: loc.displayName || loc.unitName || 'Location',
+            location_org_detail: `SAL^${loc.unitID || ''}`
+          };
+          LocationTrackingMapClickEvent(locationData, searchInfo, 'stuff_the_bus_map_click');
+        });
       });
 
       map.setZoom(10);
       map.setCenter(center);
 
-      const total = filteredStores.length + filteredLocationsRegistry.length;
       cardsContainer.innerHTML = total > 0
-        ? generateResultCards(filteredStores, filteredLocationsRegistry)
-        : '<p class="p-3">No locations found within 50 miles. Try a different address.</p>';
+        ? generateResultCards(filteredStores, filteredLocationsRegistry, analyticsObject)
+        : '<p class="p-3 text-muted text-center">No results found.</p>';
       if (filterbar) {
         filterbar.classList.toggle('d-none', total === 0);
         const countStore = document.querySelector('#stb-count-store');
         const countOnline = document.querySelector('#stb-count-online');
         if (countStore) countStore.textContent = filteredStores.length;
         if (countOnline) countOnline.textContent = filteredLocationsRegistry.length;
+      }
+
+      if (total > 0) {
+        input.setAttribute('data-search-term-type', inputValue);
+        input.setAttribute('data-search-filter-type', 'stuff_the_bus');
+        input.setAttribute('data-search-results-type', total);
+        input.setAttribute('data-search-method-type', searchMethod);
+        input.setAttribute('data-search-type-type', 'location search - body');
+        LocationTrackingSearchEvent(input, 'stuff_the_bus_search');
       }
     } catch (error) {
       console.error('Search error:', error);
@@ -461,6 +778,7 @@
     input.parentNode.appendChild(autocompleteContainer);
 
     input.addEventListener('input', function () {
+      input.removeAttribute('data-autofilled');
       const value = this.value;
       clearTimeout(debounceTimer);
       if (value.length < 3) { autocompleteContainer.style.display = 'none'; return; }
@@ -484,6 +802,7 @@
                 `;
                 item.addEventListener('click', function () {
                   input.value = prediction.description;
+                  input.setAttribute('data-autofilled', 'true');
                   autocompleteContainer.style.display = 'none';
                   sessionToken = new google.maps.places.AutocompleteSessionToken();
                 });
@@ -574,6 +893,7 @@
       if (submitBtn) submitBtn.removeAttribute('disabled');
       stuffTheBusInputAddressSuggestion();
       setupFilterBar();
+      setupDateRangePicker();
 
       const useLocationButton = document.querySelector('.use-my-location-stuff');
       if (useLocationButton) {

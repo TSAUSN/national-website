@@ -267,39 +267,25 @@
   },
   {
     "type": "menu",
+    "key": null,
+    "page_name": "Volunteer Grants",
+    "page-zuid": "7-809888b5e4-6nw2t2",
+    "sort": 8,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Payroll Giving",
+    "page-zuid": "7-d4e0bef6d6-95w95z",
+    "sort": 9,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
     "key": "contact_us",
     "page_name": "Contact Us",
     "page-zuid": "7-8cc7e9b1da-273r6f",
     "parent": null
-  },
-  {
-    "type": "menu",
-    "key": "custom_menu",
-    "page_name": "Menu Item with Dropdown",
-    "page-zuid": null,
-    "parent": null
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "New Submenu Item",
-    "page-zuid": "7-c0cf96ebaf-2x5khz",
-    "sort": 0,
-    "parent": "custom_menu"
-  },
-  {
-    "type": "menu",
-    "key": "custom_menu",
-    "page_name": "Menu Item with Dropdown",
-    "page-zuid": null,
-    "parent": null
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "New Submenu Item",
-    "page-zuid": "7-c0cf96ebaf-2x5khz",
-    "sort": 0,
-    "parent": "custom_menu"
   }
 ]

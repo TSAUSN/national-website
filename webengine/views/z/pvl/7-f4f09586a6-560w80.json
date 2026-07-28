@@ -1,0 +1,190 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:29:0:13": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-928494a9be-x9qt0m')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-928494a9be-x9qt0m')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:29:0:13",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:12:83": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:12:83",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:12:83-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:82": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:82",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:83-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:66": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\"><p>\n\tThe Salvation Army Women's Auxiliary groups have been around for decades. These women have served with the \"Heart to God, Hand to Man\" philosophy of the worldwide Salvation Army. Serving as a fund-raising and volunteer service group, the women of the Auxiliary have impacted the lives of people in need of services provided by The Salvation Army&nbsp;throughout&nbsp;Hinds, Madison, Rankin, Scott, Yazoo and Copiah counties.&nbsp;\n</p>\n\n<p>\n\tThe Salvation Army Women's Auxiliary's membership is always open. We exist for the sole purpose of helping others. Serving others&nbsp;is the core of every project we support and promote. Our mission is to be “The Army Behind The Army” helping The Salvation Army meet the need of others.\n</p></div>",
+								"content": "<div class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\" style=\"color:#111111;\"><p>\n\tThe Salvation Army Women's Auxiliary groups have been around for decades. These women have served with the \"Heart to God, Hand to Man\" philosophy of the worldwide Salvation Army. Serving as a fund-raising and volunteer service group, the women of the Auxiliary have impacted the lives of people in need of services provided by The Salvation Army&nbsp;throughout&nbsp;Hinds, Madison, Rankin, Scott, Yazoo and Copiah counties.&nbsp;\n</p>\n\n<p>\n\tThe Salvation Army Women's Auxiliary's membership is always open. We exist for the sole purpose of helping others. Serving others&nbsp;is the core of every project we support and promote. Our mission is to be “The Army Behind The Army” helping The Salvation Army meet the need of others.\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:66",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:66",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:83-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:3:30": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:30",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:83-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:4:68": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <p style=\"text-align:center;color:#fff;\">\n\tMeetings are held on the\n</p>\n\n<h5 style=\"text-align:center;\">Second Wednesday of Each Month</h5>\n\n<p style=\"text-align:center;color:#fff;\">\n\tAt our Community Worship Center (570 Beasley Rd.)&nbsp;at 11:30am<br>\n\tFor lunch followed by our membership meeting from 12pm-1pm.\n</p>\n\n<p style=\"text-align:center;color:#fff;\">\n\tWe would love to have you!\n</p>\n\n<p style=\"text-align:center;color:#fff;\">\n\t<em><strong>To get more involved in our community, consider joining our Women's Auxiliary.</strong></em>\n</p>\n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"text-white rounded p-6 gap-3 my-5\" style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <p style=\"text-align:center;color:#fff;\">\n\tMeetings are held on the\n</p>\n\n<h5 style=\"text-align:center;\">Second Wednesday of Each Month</h5>\n\n<p style=\"text-align:center;color:#fff;\">\n\tAt our Community Worship Center (570 Beasley Rd.)&nbsp;at 11:30am<br>\n\tFor lunch followed by our membership meeting from 12pm-1pm.\n</p>\n\n<p style=\"text-align:center;color:#fff;\">\n\tWe would love to have you!\n</p>\n\n<p style=\"text-align:center;color:#fff;\">\n\t<em><strong>To get more involved in our community, consider joining our Women's Auxiliary.</strong></em>\n</p>\n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:4:68",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:4:68",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "300px",
+									"background": "#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover",
+									"fontWeight": "700",
+									"fontStyle": "italic"
+								},
+								"classes": "text-white rounded p-6 gap-3 my-5",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:83-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:5:2": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:5:2",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:83-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:6:2": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 5,
+								"fullName": "design:design:whitespace-xl:6:2",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:83-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:7:86": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\"><h5 style=\"text-align:center;\"><span style=\"color:#ed1c2b;\"><span style=\"font-size:20px;\">&nbsp;&nbsp;Become a Member Today&nbsp;to Help in Your Community All Year Long</span></span></h5>\n\n<h5 style=\"text-align:center;\">Types of Memberships:</h5>\n\n<ul>\n\t<li><strong>ACTIVE MEMBER - $30</strong>\n<ul>\n\t\t<li>I wish to attend and participate in meetings, activities, and projects and volunteer a minimum 25 hours.</li>\n\t</ul>\n\t</li>\n\t<li><strong>SUPPORTING MEMBER - $50</strong><ul>\n\t\t<li>I am unable to attend meetings but will lend a hand on projects as I am able.</li>\n\t</ul>\n\t</li>\n\t<li><strong>CONTRIBUTING&nbsp;MEMBER&nbsp;- $100</strong><ul>\n\t\t<li>I will give financial support and attend meetings as I am able.</li>\n\t</ul>\n\t</li>\n\t<li><strong>SPONSORING MEMBER - $250</strong><ul>\n\t\t<li>I will give financial support for special projects only. I wish to be kept informed of events through newsletters and minutes.</li>\n\t</ul>\n\t</li>\n</ul>\n\n<p style=\"text-align:center;\">\n\tClick <strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/8b2c2b27-648c-4d84-9767-955c0c53b504_SAWA+Membership+Application+Updated.pdf\" target=\"\">HERE</a></strong>&nbsp;for our downloadable Membership Application.<br>\n\t<em><strong>Print It Out, Fill It Out, and Mail It Back as Directed!</strong></em>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>For More Information:</strong>\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"tel:+16019824881\" class=\"btn btn-info gap-1 mt-2\">Call Us</a><a href=\"mailto:sawajxn@gmail.com\" class=\"btn btn-secondary gap-1 mt-2\">Email Us</a></p></div>",
+								"content": "<div class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\" style=\"color:#111111;\"><h5 style=\"text-align:center;\"><span style=\"color:#ed1c2b;\"><span style=\"font-size:20px;\">&nbsp;&nbsp;Become a Member Today&nbsp;to Help in Your Community All Year Long</span></span></h5>\n\n<h5 style=\"text-align:center;\">Types of Memberships:</h5>\n\n<ul>\n\t<li><strong>ACTIVE MEMBER - $30</strong>\n<ul>\n\t\t<li>I wish to attend and participate in meetings, activities, and projects and volunteer a minimum 25 hours.</li>\n\t</ul>\n\t</li>\n\t<li><strong>SUPPORTING MEMBER - $50</strong><ul>\n\t\t<li>I am unable to attend meetings but will lend a hand on projects as I am able.</li>\n\t</ul>\n\t</li>\n\t<li><strong>CONTRIBUTING&nbsp;MEMBER&nbsp;- $100</strong><ul>\n\t\t<li>I will give financial support and attend meetings as I am able.</li>\n\t</ul>\n\t</li>\n\t<li><strong>SPONSORING MEMBER - $250</strong><ul>\n\t\t<li>I will give financial support for special projects only. I wish to be kept informed of events through newsletters and minutes.</li>\n\t</ul>\n\t</li>\n</ul>\n\n<p style=\"text-align:center;\">\n\tClick <strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/8b2c2b27-648c-4d84-9767-955c0c53b504_SAWA+Membership+Application+Updated.pdf\" target=\"\">HERE</a></strong>&nbsp;for our downloadable Membership Application.<br>\n\t<em><strong>Print It Out, Fill It Out, and Mail It Back as Directed!</strong></em>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>For More Information:</strong>\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"tel:+16019824881\" class=\"btn btn-info gap-1 mt-2\">Call Us</a><a href=\"mailto:sawajxn@gmail.com\" class=\"btn btn-secondary gap-1 mt-2\">Email Us</a></p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 6,
+								"fullName": "content:wysiwyg_basic:7:86",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:7:86",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:83-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}
