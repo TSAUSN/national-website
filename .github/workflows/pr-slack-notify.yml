@@ -1,0 +1,48 @@
+name: PR Slack Notification
+
+on:
+  pull_request:
+    branches: [stage, production]
+    types: [opened, closed]
+
+jobs:
+  notify:
+    if: ${{ github.event.action == 'opened' || (github.event.action == 'closed' && github.event.pull_request.merged == true) }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      SLACK_MERGED_WEBHOOK_URL: ${{ secrets.SLACK_MERGED_WEBHOOK_URL }}
+
+    steps:
+      - name: Send Slack message
+        if: ${{ env.SLACK_WEBHOOK_URL != '' && github.event.action == 'opened' }}
+        uses: slackapi/slack-github-action@v4.0.0
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-type: webhook-trigger
+          payload: |
+            pr_title: "${{ github.event.pull_request.title }}"
+            pr_url: "${{ github.event.pull_request.html_url }}"
+            pr_author: "${{ github.event.pull_request.user.login }}"
+            pr_base: "${{ github.event.pull_request.base.ref }}"
+            pr_head: "${{ github.event.pull_request.head.ref }}"
+            repository: "${{ github.repository }}"
+
+      - name: Send Slack message for merged PR
+        if: ${{ env.SLACK_MERGED_WEBHOOK_URL != '' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
+        uses: slackapi/slack-github-action@v4.0.0
+        with:
+          webhook: ${{ secrets.SLACK_MERGED_WEBHOOK_URL }}
+          webhook-type: webhook-trigger
+          payload: |
+            pr_title: "${{ github.event.pull_request.title }}"
+            pr_url: "${{ github.event.pull_request.html_url }}"
+            pr_author: "${{ github.event.pull_request.user.login }}"
+            pr_base: "${{ github.event.pull_request.base.ref }}"
+            pr_head: "${{ github.event.pull_request.head.ref }}"
+            pr_merged_by: "${{ github.event.pull_request.merged_by.login }}"
+            pr_merge_commit_sha: "${{ github.event.pull_request.merge_commit_sha }}"
+            repository: "${{ github.repository }}"

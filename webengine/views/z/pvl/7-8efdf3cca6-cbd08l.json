@@ -1,0 +1,81 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:73:0:23": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-8ea9bfdcbf-1l225p')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-8ea9bfdcbf-1l225p')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:73:0:23",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:5:4": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:5:4",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:5:4-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:wysiwyg_basic:2:40": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"rounded p-6 gap-3 mt-3 bg-dark-subtle text-light\" style=\"color:#FFFFFF;\"><h2 style=\"text-align:center;\"><strong>MATH &amp; READING AFTER-SCHOOL PROGRAM</strong></h2>\n\n<p style=\"text-align:center;\">\n\t<strong>(Program is offered to 1st - 8th grade students)</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\"><strong>TUTORING DAYS &amp; TIMES</strong><br>\n\tTuesdays - Thursdays<br>\n\t3:30 pm - 6:00 pm</span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\"><strong>ADDITIONAL SERVICES</strong><br>\n\tMonthly Science Fairs and Healthy Eating Workshops<br>\n\tLed by the USC MED Students</span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\"><strong>LOCATION</strong><br>\n\tThe Salvation Army of the Midlands<br>\n\t3024 Farrow Road, Columbia 29203</span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\"><strong>FOR ADDITIONAL INFORMATION</strong><br>\n\temail: Lisa.Chandler@uss.salvationarmy.org</span>\n</p></div>",
+								"content": "<div class=\"rounded p-6 gap-3 mt-3 bg-dark-subtle text-light\" style=\"color:#FFFFFF;\"><h2 style=\"text-align:center;\"><strong>MATH &amp; READING AFTER-SCHOOL PROGRAM</strong></h2>\n\n<p style=\"text-align:center;\">\n\t<strong>(Program is offered to 1st - 8th grade students)</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\"><strong>TUTORING DAYS &amp; TIMES</strong><br>\n\tTuesdays - Thursdays<br>\n\t3:30 pm - 6:00 pm</span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\"><strong>ADDITIONAL SERVICES</strong><br>\n\tMonthly Science Fairs and Healthy Eating Workshops<br>\n\tLed by the USC MED Students</span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\"><strong>LOCATION</strong><br>\n\tThe Salvation Army of the Midlands<br>\n\t3024 Farrow Road, Columbia 29203</span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\"><strong>FOR ADDITIONAL INFORMATION</strong><br>\n\temail: Lisa.Chandler@uss.salvationarmy.org</span>\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 0,
+								"fullName": "content:wysiwyg_basic:2:40",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:40",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:5:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

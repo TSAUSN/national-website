@@ -347,18 +347,16 @@ function filterCarousel(stats) {
                   data-stat-category="${stat.categories}"
                   data-stat-name="${stat.stats_name}"
                 >
-                  <div class="card-body p-0 d-flex flex-column justify-content-between h-100">
-                    <h5 class="card-title fs-md-4 fs-sm-6 fw-normal">
-                      ${stat.right_side_header}
-                    </h5>
-                    <p></p>
+                  <div class="card-body p-0 d-flex flex-column h-100">
                     <div>
-                      <div>
-                        <div class="mb-16 fs-7 f-ajenson text-dark-50 ">
-                          ${stat.right_side_content}
-                        </div>
+                      <h5 class="card-title fs-md-4 fs-sm-6 fw-normal">
+                        ${stat.right_side_header}
+                      </h5>
+                      <div class="mb-16 fs-7 f-ajenson text-dark-50 ">
+                        ${stat.right_side_content}
                       </div>
-                      <div class="mt-4 d-flex justify-content-between">
+                    </div>
+                    <div class="mt-auto pt-4 d-flex justify-content-between">
                         <div class="d-flex align-items-center stat-share__wrapper">
                           <div class="d-md-flex d-none align-items-center">
                             <a
@@ -432,21 +430,19 @@ function filterCarousel(stats) {
                             <i class="material-icons me-2 text-light">arrow_outward</i>Learn
                             More
                           </a>
-                          <a
-                            href="https://give.salvationarmyusa.org/campaign/676125/donate?c_src=NT26TZOAAC&c_src2=USNhomepageStatsModule"
-                            target="_blank"
+                          <button
+                            type="button"
                             data-link-type="external"
                             data-location-type="body:stats"
                             data-function-type="donation"
                             data-format-type="button"
                             onclick="LinkTrackingClickEvent(this,'donate_money_click')"
-                            class="btn btn-primary px-5 py-4 px-sm-5 py-sm-3 display-sm-3"
+                            class="btn btn-primary px-5 py-4 px-sm-5 py-sm-3 display-sm-3 stats-donate header-donate-button"
                           >
                             Donate
-                          </a>
+                          </button>
                         </div>
                       </div>
-                    </div>
                   </div>
                 </div>
         `;

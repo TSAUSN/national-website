@@ -1,0 +1,97 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:89:0:71": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-c8dac3fbc5-05x41b')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-c8dac3fbc5-05x41b')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:89:0:71",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:5:6": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:5:6",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:5:6-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:73": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:73",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:5:6-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:35": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h4>Summer Camp</h4>\n\n<p>\n\tThe Salvation Army Hampton Roads Area Command provides both local and away camp opportunities.\n</p>\n\n<h5>Local Day Camps</h5>\n\n<p>\n\tKroc Hampton Roads – June 8, 2026, through August 14, 2026\n</p>\n\n<p>\n\tServing children in Norfolk, Virginia Beach, Chesapeake, and Portsmouth\n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://krochamptonroads.org/KrocHamptonRoads/kroc-camp\" class=\"btn btn-secondary gap-1 mt-2\">Click Here for More Information</a></p>\n\n<p>\n\t \n</p>\n\n<h5>Camp Rappahannock</h5>\n\n<p>\n\tLocated in the scenic heart of Virginia, Camp Rappahannock is a vibrant summer destination where adventure, community, and faith come alive. For generations, campers have discovered unforgettable experiences here—experiences that ignite confidence, inspire growth, and draw young people closer to God. At Camp Rappahannock, kids step away from screens and step into creation, exploring the outdoors in ways that spark wonder and deepen their sense of purpose.\n</p>\n\n<p>\n\tWhether campers are hiking wooded trails, paddling the river, scaling the climbing wall, or sharpening their aim at the archery range, children are surrounded by opportunities to try new things and thrive. Our dedicated staff create a safe, joyful, and Christ-centered environment where every camper is known, valued, and encouraged. Camp Rappahannock is more than a place to spend the summer—it is a place where friendships form, faith grows, and memories last a lifetime.\n</p>\n\n<p>\n\tFor more information and to register your child for Camp Rappahannock, please click below.\n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://www.camprappahannock.org/\" class=\"btn btn-secondary gap-1 mt-2\">Click Here for More Information</a></p>\n\n<p>\n\t \n</p>\n\n<p>\n\t<strong>For questions or registration assistance, please contact:</strong>\n</p>\n\n<p>\n\tFamilies in Norfolk, Virginia Beach, or Chesapeake (Excluding zip codes 23321 and 23323)\n</p>\n\n<ul>\n\t<li>Stacey Adkins | <a href=\"tel:7573352361\">(757) 335-2361</a> | <a href=\"mailto:stacey.adkins@uss.salvationarmy.org\" target=\"\">stacey.adkins@uss.salvationarmy.org</a></li>\n</ul>\n\n<p>\n\tFamilies in Portsmouth and Chesapeake Zip Codes 23321 and 23323 only\n</p>\n\n<ul>\n\t<li>Major Ronnette Smith | <a href=\"tel:3045460931\">(304) 546-0931</a> | <a href=\"mailto: ronnette.smith@uss.salvationarmy.org\" target=\"\">ronnette.smith@uss.salvationarmy.org</a></li>\n</ul>\n\n<p>\n\tFamilies in Suffolk and Western Tidewater\n</p>\n\n<ul>\n\t<li>Captain Karen Twinney | <a href=\"tel:8327710649\">(832) 771-0649</a> | <a href=\"mailto:karen.twinney@uss.salvationarmy.org\" target=\"\">karen.twinney@uss.salvationarmy.org</a></li>\n</ul>\n\n<p>\n\t<strong>Looking to Change a Child’s Life This Summer?</strong>\n</p>\n\n<p>\n\tIf you are interested in sponsoring a child for summer camp, please contact Beth Hornby, Development Director at <a href=\"tel:7572718431\">(757) 271-8431</a> or <a href=\"mailto:beth.hornby@uss.salvationarmy.org\" target=\"\">beth.hornby@uss.salvationarmy.org</a>.\n</p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<h5>Accreditation</h5>\n\n<p>\n\tOur camps are accredited through the American Camping Association (aca).\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h4>Summer Camp</h4>\n\n<p>\n\tThe Salvation Army Hampton Roads Area Command provides both local and away camp opportunities.\n</p>\n\n<h5>Local Day Camps</h5>\n\n<p>\n\tKroc Hampton Roads – June 8, 2026, through August 14, 2026\n</p>\n\n<p>\n\tServing children in Norfolk, Virginia Beach, Chesapeake, and Portsmouth\n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://krochamptonroads.org/KrocHamptonRoads/kroc-camp\" class=\"btn btn-secondary gap-1 mt-2\">Click Here for More Information</a></p>\n\n<p>\n\t \n</p>\n\n<h5>Camp Rappahannock</h5>\n\n<p>\n\tLocated in the scenic heart of Virginia, Camp Rappahannock is a vibrant summer destination where adventure, community, and faith come alive. For generations, campers have discovered unforgettable experiences here—experiences that ignite confidence, inspire growth, and draw young people closer to God. At Camp Rappahannock, kids step away from screens and step into creation, exploring the outdoors in ways that spark wonder and deepen their sense of purpose.\n</p>\n\n<p>\n\tWhether campers are hiking wooded trails, paddling the river, scaling the climbing wall, or sharpening their aim at the archery range, children are surrounded by opportunities to try new things and thrive. Our dedicated staff create a safe, joyful, and Christ-centered environment where every camper is known, valued, and encouraged. Camp Rappahannock is more than a place to spend the summer—it is a place where friendships form, faith grows, and memories last a lifetime.\n</p>\n\n<p>\n\tFor more information and to register your child for Camp Rappahannock, please click below.\n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://www.camprappahannock.org/\" class=\"btn btn-secondary gap-1 mt-2\">Click Here for More Information</a></p>\n\n<p>\n\t \n</p>\n\n<p>\n\t<strong>For questions or registration assistance, please contact:</strong>\n</p>\n\n<p>\n\tFamilies in Norfolk, Virginia Beach, or Chesapeake (Excluding zip codes 23321 and 23323)\n</p>\n\n<ul>\n\t<li>Stacey Adkins | <a href=\"tel:7573352361\">(757) 335-2361</a> | <a href=\"mailto:stacey.adkins@uss.salvationarmy.org\" target=\"\">stacey.adkins@uss.salvationarmy.org</a></li>\n</ul>\n\n<p>\n\tFamilies in Portsmouth and Chesapeake Zip Codes 23321 and 23323 only\n</p>\n\n<ul>\n\t<li>Major Ronnette Smith | <a href=\"tel:3045460931\">(304) 546-0931</a> | <a href=\"mailto: ronnette.smith@uss.salvationarmy.org\" target=\"\">ronnette.smith@uss.salvationarmy.org</a></li>\n</ul>\n\n<p>\n\tFamilies in Suffolk and Western Tidewater\n</p>\n\n<ul>\n\t<li>Captain Karen Twinney | <a href=\"tel:8327710649\">(832) 771-0649</a> | <a href=\"mailto:karen.twinney@uss.salvationarmy.org\" target=\"\">karen.twinney@uss.salvationarmy.org</a></li>\n</ul>\n\n<p>\n\t<strong>Looking to Change a Child’s Life This Summer?</strong>\n</p>\n\n<p>\n\tIf you are interested in sponsoring a child for summer camp, please contact Beth Hornby, Development Director at <a href=\"tel:7572718431\">(757) 271-8431</a> or <a href=\"mailto:beth.hornby@uss.salvationarmy.org\" target=\"\">beth.hornby@uss.salvationarmy.org</a>.\n</p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<h5>Accreditation</h5>\n\n<p>\n\tOur camps are accredited through the American Camping Association (aca).\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:35",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:35",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:5:6-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h4>Summer Camp</h4>\n\n<p>\n\tThe Salvation Army Hampton Roads Area Command provides both local and away camp opportunities.\n</p>\n\n<h5>Local Day Camps</h5>\n\n<p>\n\tKroc Hampton Roads – June 8, 2026, through August 14, 2026\n</p>\n\n<p>\n\tServing children in Norfolk, Virginia Beach, Chesapeake, and Portsmouth\n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://krochamptonroads.org/KrocHamptonRoads/kroc-camp\" class=\"btn btn-light\">Click Here for More Information</a></p>\n\n<p>\n\t \n</p>\n\n<h5>Camp Rappahannock</h5>\n\n<p>\n\tLocated in the scenic heart of Virginia, Camp Rappahannock is a vibrant summer destination where adventure, community, and faith come alive. For generations, campers have discovered unforgettable experiences here—experiences that ignite confidence, inspire growth, and draw young people closer to God. At Camp Rappahannock, kids step away from screens and step into creation, exploring the outdoors in ways that spark wonder and deepen their sense of purpose.\n</p>\n\n<p>\n\tWhether campers are hiking wooded trails, paddling the river, scaling the climbing wall, or sharpening their aim at the archery range, children are surrounded by opportunities to try new things and thrive. Our dedicated staff create a safe, joyful, and Christ-centered environment where every camper is known, valued, and encouraged. Camp Rappahannock is more than a place to spend the summer—it is a place where friendships form, faith grows, and memories last a lifetime.\n</p>\n\n<p>\n\tFor more information and to register your child for Camp Rappahannock, please click below.\n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://www.camprappahannock.org/\" class=\"btn btn-light\">Click Here for More Information</a></p>\n\n<p>\n\t \n</p>\n\n<p>\n\t<strong>For questions or registration assistance, please contact:</strong>\n</p>\n\n<p>\n\tFamilies in Norfolk, Virginia Beach, or Chesapeake (Excluding zip codes 23321 and 23323)\n</p>\n\n<ul>\n\t<li>Stacey Adkins | <a href=\"tel:7573352361\">(757) 335-2361</a> | <a href=\"mailto:stacey.adkins@uss.salvationarmy.org\" target=\"\">stacey.adkins@uss.salvationarmy.org</a></li>\n</ul>\n\n<p>\n\tFamilies in Portsmouth and Chesapeake Zip Codes 23321 and 23323 only\n</p>\n\n<ul>\n\t<li>Major Ronnette Smith | <a href=\"tel:3045460931\">(304) 546-0931</a> | <a href=\"mailto: ronnette.smith@uss.salvationarmy.org\" target=\"\">ronnette.smith@uss.salvationarmy.org</a></li>\n</ul>\n\n<p>\n\tFamilies in Suffolk and Western Tidewater\n</p>\n\n<ul>\n\t<li>Captain Karen Twinney | <a href=\"tel:8327710649\">(832) 771-0649</a> | <a href=\"mailto:karen.twinney@uss.salvationarmy.org\" target=\"\">karen.twinney@uss.salvationarmy.org</a></li>\n</ul>\n\n<p>\n\t<strong>Looking to Change a Child’s Life This Summer?</strong>\n</p>\n\n<p>\n\tIf you are interested in sponsoring a child for summer camp, please contact Beth Hornby, Development Director at <a href=\"tel:7572718431\">(757) 271-8431</a> or <a href=\"mailto:beth.hornby@uss.salvationarmy.org\" target=\"\">beth.hornby@uss.salvationarmy.org</a>.\n</p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<h5>Accreditation</h5>\n\n<p>\n\tOur camps are accredited through the American Camping Association (aca).\n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}
