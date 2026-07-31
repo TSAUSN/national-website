@@ -1,4 +1,3 @@
-{{$locationModelZUID = 6-b4c9aba69c-h2nqvm}}
 {{$westClassyDonation = {territories.filter(7-dcb3daeee7-3l9t49).classy_url_mobile} }}
 {{$eastClassyDonation = {territories.filter(7-ae82da90c9-zjnfr3).classy_url_mobile} }}
 {{$southClassyDonation = {territories.filter(7-b4aeafb8dd-033tjr).classy_url_mobile} }}
@@ -555,15 +554,10 @@
         cookieManager.delete(cookieKeys.organizationCorp);
         cookieManager.delete(cookieKeys.locationPropertyType);
         setLocationCookiesByTerritory(`{{this.parent_zuid}}`);
-        const divisionOnceURL = `{{divisions.filter({this.zuid}).classy_url}}`.trim();
-        const divisionMonthlyURL = `{{divisions.filter({this.zuid}).classy_url_mobile}}`.trim();
-        if (divisionOnceURL && divisionMonthlyURL) {
-          setDonationUrlCookies(divisionOnceURL, divisionMonthlyURL);
-        }
         await setCodeCookie(`{{this.zuid}}`, currentModel);
         break;
 
-      case `{{$locationModelZUID}}`: // Locations
+      case `6-b4c9aba69c-h2nqvm`: // Locations
         `{{$redirectURL = {$locationRedirectURL} }}`;
         const redirectURL = `{{$redirectURL}}`;
         const shouldRedirect = `{{!this.should_redirect}}`;
@@ -658,16 +652,6 @@
         cookieManager.set(cookieKeys.organizationLevel, levels.corp);
 
         setLocationCookiesByTerritory(territoryZUID);
-        const divOnceURL = `{{divisions.filter({$location_division}).classy_url}}`.trim();
-        const divMonthlyURL = `{{divisions.filter({$location_division}).classy_url_mobile}}`.trim();
-        if (divOnceURL && divMonthlyURL) {
-          setDonationUrlCookies(divOnceURL, divMonthlyURL);
-        }
-        const locationOnceURL = `{{locations.filter({this.zuid}).classy_url}}`.trim();
-        const locationMonthlyURL = `{{locations.filter({this.zuid}).classy_url_mobile}}`.trim();
-        if (locationOnceURL && locationMonthlyURL) {
-          setDonationUrlCookies(locationOnceURL, locationMonthlyURL);
-        }
         await setCodeCookie(`{{this.zuid}}`, currentModel);
         break;
 
@@ -710,7 +694,7 @@
           const relatedDivisionZUID = serviceDivisionZUID || `{{$serviceLocationDivision}}`;
           const relatedTerritoryZUID = serviceTerritoryZUID || `{{$serviceLocationTerritory}}`;
 
-          cookieManager.set(cookieKeys.locationModel, `{{$locationModelZUID}}`);
+          cookieManager.set(cookieKeys.locationModel, `6-b4c9aba69c-h2nqvm`);
           cookieManager.set(cookieKeys.locationZUID, serviceLocationZUID);
           cookieManager.set(
             cookieKeys.locationPropertyType,
@@ -803,21 +787,7 @@
           }
 
           setLocationCookiesByTerritory(relatedTerritoryZUID);
-          const svcDivOnceURL = (serviceDivisionZUID
-            ? `{{divisions.filter({!this.division}).classy_url}}`
-            : `{{divisions.filter({$serviceLocationDivision}).classy_url}}`).trim();
-          const svcDivMonthlyURL = (serviceDivisionZUID
-            ? `{{divisions.filter({!this.division}).classy_url_mobile}}`
-            : `{{divisions.filter({$serviceLocationDivision}).classy_url_mobile}}`).trim();
-          if (svcDivOnceURL && svcDivMonthlyURL) {
-            setDonationUrlCookies(svcDivOnceURL, svcDivMonthlyURL);
-          }
-          const svcLocOnceURL = `{{locations.filter({!this.location}).classy_url}}`.trim();
-          const svcLocMonthlyURL = `{{locations.filter({!this.location}).classy_url_mobile}}`.trim();
-          if (svcLocOnceURL && svcLocMonthlyURL) {
-            setDonationUrlCookies(svcLocOnceURL, svcLocMonthlyURL);
-          }
-          await setCodeCookie(serviceLocationZUID, "{{$locationModelZUID}}");
+          await setCodeCookie(serviceLocationZUID, "6-b4c9aba69c-h2nqvm");
         } else if (serviceDivisionZUID) {
           (`{{$serviceDivisionTerritory = {divisions.filter({!this.division}).territory} }}`);
           const relatedTerritoryZUID = serviceTerritoryZUID || `{{$serviceDivisionTerritory}}`;
@@ -883,11 +853,6 @@
           cookieManager.delete(cookieKeys.locationPropertyType);
 
           setLocationCookiesByTerritory(relatedTerritoryZUID);
-          const svcDivOnceURL = `{{divisions.filter({!this.division}).classy_url}}`.trim();
-          const svcDivMonthlyURL = `{{divisions.filter({!this.division}).classy_url_mobile}}`.trim();
-          if (svcDivOnceURL && svcDivMonthlyURL) {
-            setDonationUrlCookies(svcDivOnceURL, svcDivMonthlyURL);
-          }
           await setCodeCookie(serviceDivisionZUID, "6-acb19a94bd-4q8ftj");
         } else if (serviceTerritoryZUID) {
           cookieManager.set(cookieKeys.locationZUID, serviceTerritoryZUID);
@@ -950,7 +915,7 @@
           (`{{$territory = {$locationTerritory} }}`);
           const territoryZUID = `{{$territory}}`;
 
-          cookieManager.set(cookieKeys.locationModel, `{{$locationModelZUID}}`);
+          cookieManager.set(cookieKeys.locationModel, `6-b4c9aba69c-h2nqvm`);
           cookieManager.set(cookieKeys.locationZUID, serviceParentZUID);
           cookieManager.set(
             cookieKeys.locationPropertyType,
@@ -1011,17 +976,7 @@
           }
 
           setLocationCookiesByTerritory(territoryZUID);
-          const parentDivOnceURL = `{{divisions.filter({$division}).classy_url}}`.trim();
-          const parentDivMonthlyURL = `{{divisions.filter({$division}).classy_url_mobile}}`.trim();
-          if (parentDivOnceURL && parentDivMonthlyURL) {
-            setDonationUrlCookies(parentDivOnceURL, parentDivMonthlyURL);
-          }
-          const parentLocOnceURL = `{{locations.filter({this.parent_zuid}).classy_url}}`.trim();
-          const parentLocMonthlyURL = `{{locations.filter({this.parent_zuid}).classy_url_mobile}}`.trim();
-          if (parentLocOnceURL && parentLocMonthlyURL) {
-            setDonationUrlCookies(parentLocOnceURL, parentLocMonthlyURL);
-          }
-          await setCodeCookie(serviceParentZUID, "{{$locationModelZUID}}");
+          await setCodeCookie(serviceParentZUID, "6-b4c9aba69c-h2nqvm");
         } else if (hasParentDivision) {
           (`{{$divisionTerritory = {$division_territory} }}`);
           const territoryZUID = `{{$divisionTerritory}}`;
@@ -1068,11 +1023,6 @@
           cookieManager.delete(cookieKeys.locationPropertyType);
 
           setLocationCookiesByTerritory(territoryZUID);
-          const parentDivOnceURL = `{{divisions.filter({this.parent_zuid}).classy_url}}`.trim();
-          const parentDivMonthlyURL = `{{divisions.filter({this.parent_zuid}).classy_url_mobile}}`.trim();
-          if (parentDivOnceURL && parentDivMonthlyURL) {
-            setDonationUrlCookies(parentDivOnceURL, parentDivMonthlyURL);
-          }
           await setCodeCookie(serviceParentZUID, "6-acb19a94bd-4q8ftj");
         } else if (hasParentTerritory) {
           cookieManager.set(cookieKeys.locationZUID, serviceParentZUID);
@@ -1199,7 +1149,7 @@
           const relatedDivisionZUID = division || `{{$pageLocationDivision}}`;
           const relatedTerritoryZUID = territory || `{{$pageLocationTerritory}}`;
 
-          cookieManager.set(cookieKeys.locationModel, `{{$locationModelZUID}}`);
+          cookieManager.set(cookieKeys.locationModel, `6-b4c9aba69c-h2nqvm`);
           cookieManager.set(cookieKeys.locationPropertyType, `{{locations.filter({!this.location}).page_layout}}`);
           cookieManager.set(cookieKeys.locationZUID, `{{!this.location}}`);
           cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({!this.location})}}`);
@@ -1290,22 +1240,8 @@
           cookieManager.set(cookieKeys.organizationLevel, levels.corp);
 
           setLocationCookiesByTerritory(relatedTerritoryZUID);
-          const pgDivOnceURL = (division
-            ? `{{divisions.filter({!this.division}).classy_url}}`
-            : `{{divisions.filter({$pageLocationDivision}).classy_url}}`).trim();
-          const pgDivMonthlyURL = (division
-            ? `{{divisions.filter({!this.division}).classy_url_mobile}}`
-            : `{{divisions.filter({$pageLocationDivision}).classy_url_mobile}}`).trim();
-          if (pgDivOnceURL && pgDivMonthlyURL) {
-            setDonationUrlCookies(pgDivOnceURL, pgDivMonthlyURL);
-          }
-          const pgLocOnceURL = `{{locations.filter({!this.location}).classy_url}}`.trim();
-          const pgLocMonthlyURL = `{{locations.filter({!this.location}).classy_url_mobile}}`.trim();
-          if (pgLocOnceURL && pgLocMonthlyURL) {
-            setDonationUrlCookies(pgLocOnceURL, pgLocMonthlyURL);
-          }
 
-          await setCodeCookie(`{{!this.location}}`, "{{$locationModelZUID}}");
+          await setCodeCookie(`{{!this.location}}`, "6-b4c9aba69c-h2nqvm");
         } else if (division) {
           (`{{$pageDivisionTerritory = {divisions.filter({!this.division}).territory} }}`);
           const relatedTerritoryZUID = territory || `{{$pageDivisionTerritory}}`;
@@ -1378,11 +1314,6 @@
           cookieManager.delete(cookieKeys.organizationCorp);
           cookieManager.delete(cookieKeys.locationPropertyType);
           setLocationCookiesByTerritory(relatedTerritoryZUID);
-          const pgDivOnceURL = `{{divisions.filter({!this.division}).classy_url}}`.trim();
-          const pgDivMonthlyURL = `{{divisions.filter({!this.division}).classy_url_mobile}}`.trim();
-          if (pgDivOnceURL && pgDivMonthlyURL) {
-            setDonationUrlCookies(pgDivOnceURL, pgDivMonthlyURL);
-          }
           await setCodeCookie(`{{!this.division}}`, "6-acb19a94bd-4q8ftj");
         } else if (territory) {
           cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
@@ -1448,7 +1379,7 @@
             }
           }
 
-          cookieManager.set(cookieKeys.locationModel, `{{$locationModelZUID}}`);
+          cookieManager.set(cookieKeys.locationModel, `6-b4c9aba69c-h2nqvm`);
           cookieManager.set(cookieKeys.locationPropertyType, `{{$propType}}`);
           cookieManager.set(cookieKeys.locationZUID, pageParentZUID);
           cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({this.parent_zuid})}}`);
@@ -1513,18 +1444,8 @@
           cookieManager.set(cookieKeys.organizationLevel, levels.corp);
 
           setLocationCookiesByTerritory(territoryZUID);
-          const pgParentDivOnceURL = `{{divisions.filter({$division}).classy_url}}`.trim();
-          const pgParentDivMonthlyURL = `{{divisions.filter({$division}).classy_url_mobile}}`.trim();
-          if (pgParentDivOnceURL && pgParentDivMonthlyURL) {
-            setDonationUrlCookies(pgParentDivOnceURL, pgParentDivMonthlyURL);
-          }
-          const pgParentLocOnceURL = `{{locations.filter({this.parent_zuid}).classy_url}}`.trim();
-          const pgParentLocMonthlyURL = `{{locations.filter({this.parent_zuid}).classy_url_mobile}}`.trim();
-          if (pgParentLocOnceURL && pgParentLocMonthlyURL) {
-            setDonationUrlCookies(pgParentLocOnceURL, pgParentLocMonthlyURL);
-          }
 
-          await setCodeCookie(pageParentZUID, "{{$locationModelZUID}}");
+          await setCodeCookie(pageParentZUID, "6-b4c9aba69c-h2nqvm");
         } else if (pageHasDivisionParent) {
           (`{{$pageDivisionTerritory = {$division_territory} }}`);
           const relatedTerritoryZUID = `{{$pageDivisionTerritory}}`;
@@ -1579,11 +1500,6 @@
           cookieManager.delete(cookieKeys.organizationCorp);
           cookieManager.delete(cookieKeys.locationPropertyType);
           setLocationCookiesByTerritory(relatedTerritoryZUID);
-          const pgParentDivOnceURL = `{{divisions.filter({this.parent_zuid}).classy_url}}`.trim();
-          const pgParentDivMonthlyURL = `{{divisions.filter({this.parent_zuid}).classy_url_mobile}}`.trim();
-          if (pgParentDivOnceURL && pgParentDivMonthlyURL) {
-            setDonationUrlCookies(pgParentDivOnceURL, pgParentDivMonthlyURL);
-          }
           await setCodeCookie(pageParentZUID, "6-acb19a94bd-4q8ftj");
         } else if (pageHasTerritoryParent) {
           cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
@@ -1741,7 +1657,7 @@
           }
           await handleInformationalPage(informationalPageZUID);
 
-          cookieManager.set(cookieKeys.locationModel, `{{$locationModelZUID}}`);
+          cookieManager.set(cookieKeys.locationModel, `6-b4c9aba69c-h2nqvm`);
           cookieManager.set(cookieKeys.locationPropertyType, `{{locations.filter({!this.location}).page_layout }}`);
           cookieManager.set(cookieKeys.locationZUID, `{{!this.location}}`);
 
@@ -1825,18 +1741,8 @@
           cookieManager.set(cookieKeys.organizationLevel, levels.corp);
 
           setLocationCookiesByTerritory(territoryZUID);
-          const infoDivOnceURL = `{{divisions.filter({!this.division}).classy_url}}`.trim();
-          const infoDivMonthlyURL = `{{divisions.filter({!this.division}).classy_url_mobile}}`.trim();
-          if (infoDivOnceURL && infoDivMonthlyURL) {
-            setDonationUrlCookies(infoDivOnceURL, infoDivMonthlyURL);
-          }
-          const infoLocOnceURL = `{{locations.filter({!this.location}).classy_url}}`.trim();
-          const infoLocMonthlyURL = `{{locations.filter({!this.location}).classy_url_mobile}}`.trim();
-          if (infoLocOnceURL && infoLocMonthlyURL) {
-            setDonationUrlCookies(infoLocOnceURL, infoLocMonthlyURL);
-          }
 
-          await setCodeCookie(`{{!this.location}}`, "{{$locationModelZUID}}");
+          await setCodeCookie(`{{!this.location}}`, "6-b4c9aba69c-h2nqvm");
         } else if (divisionRelational) {
           cookieManager.set(cookieKeys.locationModel, `6-acb19a94bd-4q8ftj`);
           cookieManager.set(cookieKeys.locationZUID, `{{!this.division}}`);
@@ -1896,11 +1802,6 @@
           cookieManager.delete(cookieKeys.locationPropertyType);
 
           setLocationCookiesByTerritory(`{{!this.division}}`);
-          const infoDivOnceURL = `{{divisions.filter({!this.division}).classy_url}}`.trim();
-          const infoDivMonthlyURL = `{{divisions.filter({!this.division}).classy_url_mobile}}`.trim();
-          if (infoDivOnceURL && infoDivMonthlyURL) {
-            setDonationUrlCookies(infoDivOnceURL, infoDivMonthlyURL);
-          }
           await setCodeCookie(`{{!this.division}}`, "6-acb19a94bd-4q8ftj");
         } else if (territoryRelational) {
           await handleInformationalPage(informationalPageZUID);
@@ -2217,7 +2118,7 @@
 
     const [location, division, territory] = await Promise.all([
       canCheckLocation
-        ? validateZUIDForModel(parentZUID, `{{$locationModelZUID}}`)
+        ? validateZUIDForModel(parentZUID, `6-b4c9aba69c-h2nqvm`)
         : false,
       canCheckDivision
         ? validateZUIDForModel(parentZUID, `6-acb19a94bd-4q8ftj`)
@@ -2248,7 +2149,7 @@
           return;
         }
 
-        cookieManager.set(cookieKeys.locationModel, `{{$locationModelZUID}}`);
+        cookieManager.set(cookieKeys.locationModel, `6-b4c9aba69c-h2nqvm`);
         cookieManager.set(cookieKeys.contactUsImage, eventInformation.contact_us_image);
         cookieManager.set(cookieKeys.contactUsTitle, eventInformation.contact_us_title);
         cookieManager.set(cookieKeys.contactUsHeader, eventInformation.contact_us_header);
@@ -2330,7 +2231,7 @@
       const model = await fetchInformation(`get-informational-page`, zuid);
       switch (model.content.meta.model_name) {
         case `locations`:
-          cookieManager.set(cookieKeys.locationModel, `{{$locationModelZUID}}`);
+          cookieManager.set(cookieKeys.locationModel, `6-b4c9aba69c-h2nqvm`);
           cookieManager.set(
             cookieKeys.locationPropertyType,
             model.content.property_type.page_layout
