@@ -221,6 +221,11 @@
 
   const nationalDonateOnceURL = `{{homepage.first().classy_url}}`;
   const nationalDonateMonthlyURL = `{{homepage.first().classy_url_mobile}}`;
+  const nationalContactUs = {
+    image: `{{homepage.first().contact_us_image.getImage()}}`,
+    title: `{{homepage.first().contact_us_title}}`,
+    header: `{{homepage.first().contact_us_cta_header}}`
+  };
 
   function getDonationUrlOrNational(url, nationalUrl) {
     return String(url || ``).trim() || nationalUrl;
@@ -236,6 +241,73 @@
       cookieManager.get(cookieKeys.donateOnceURL),
       cookieManager.get(cookieKeys.donateMonthlyURL)
     );
+  }
+
+  function hasContactUsValue(value) {
+    const normalizedValue = String(value ?? ``).trim().toLowerCase();
+    return Boolean(
+      normalizedValue &&
+      normalizedValue !== `null` &&
+      normalizedValue !== `undefined`
+    );
+  }
+
+  function setMissingContactUsCookies(contactUsFallbacks = {}) {
+    const fields = [
+      {
+        key: cookieKeys.contactUsImage,
+        fallbacks: contactUsFallbacks.image,
+        nationalValue: nationalContactUs.image
+      },
+      {
+        key: cookieKeys.contactUsTitle,
+        fallbacks: contactUsFallbacks.title,
+        nationalValue: nationalContactUs.title
+      },
+      {
+        key: cookieKeys.contactUsHeader,
+        fallbacks: contactUsFallbacks.header,
+        nationalValue: nationalContactUs.header
+      }
+    ];
+
+    fields.forEach(({ key, fallbacks, nationalValue }) => {
+      if (hasContactUsValue(cookieManager.get(key))) {
+        return;
+      }
+
+      const fallbackValue = [
+        ...(Array.isArray(fallbacks) ? fallbacks : []),
+        nationalValue
+      ].find(hasContactUsValue);
+
+      if (fallbackValue) {
+        cookieManager.set(key, fallbackValue);
+      }
+    });
+  }
+
+  async function ensurePersistedContactUsCookies() {
+    const contactUsCookiesAreComplete = [
+      cookieKeys.contactUsImage,
+      cookieKeys.contactUsTitle,
+      cookieKeys.contactUsHeader
+    ].every((key) => hasContactUsValue(cookieManager.get(key)));
+
+    if (contactUsCookiesAreComplete) {
+      return;
+    }
+
+    const persistedZUID = cookieManager.get(cookieKeys.locationZUID);
+    const persistedModel = cookieManager.get(cookieKeys.locationModel);
+    let contactUsFallbacks = {};
+
+    if (persistedZUID && persistedModel) {
+      contactUsFallbacks =
+        await fetchInformation(`contact-us-cookie-fallbacks`, persistedZUID, persistedModel) || {};
+    }
+
+    setMissingContactUsCookies(contactUsFallbacks);
   }
 
   const debugDataLayer = (() => {
@@ -1872,18 +1944,7 @@
           cookieManager.set(cookieKeys.lastVisitedZUID, cookieManager.get(cookieKeys.locationZUID));
         }
 
-        cookieManager.set(
-          cookieKeys.contactUsImage,
-          `{{territories.filter({!this.territory}).contact_us_image.getImage()}}`
-        );
-        cookieManager.set(
-          cookieKeys.contactUsTitle,
-          `{{territories.filter({!this.territory}).contact_us_title}}`
-        );
-        cookieManager.set(
-          cookieKeys.contactUsHeader,
-          `{{territories.filter({!this.territory}).contact_us_cta_header}}`
-        );
+        await ensurePersistedContactUsCookies();
         break;
       case `6-dcd5c9b192-tgsnht`: // Cities
         if (!cookieManager.get(cookieKeys.locationZUID)) {
@@ -1891,21 +1952,7 @@
           break;
         }
 
-        `{{$stateZUID = {!this.state} }}`;
-        `{{$territoryZUID = {states.filter({$stateZUID}).territory} }}`;
-
-        cookieManager.set(
-          cookieKeys.contactUsImage,
-          `{{territories.filter({$territoryZUID}).contact_us_image.getImage()}}`
-        );
-                cookieManager.set(
-          cookieKeys.contactUsTitle,
-          `{{territories.filter({$territoryZUID}).contact_us_title}}`
-        );
-        cookieManager.set(
-          cookieKeys.contactUsHeader,
-          `{{territories.filter({$territoryZUID}).contact_us_cta_header}}`
-        );
+        await ensurePersistedContactUsCookies();
         break;
     }
     logCurrentDataLayerValues(`init-complete`, { source });
