@@ -40,7 +40,7 @@
             "about": "{{ $about.html_entity_decode() }}",
             "portrait_image": "{{staff.portrait_image.getMediaURL()}}",
             "member_locations": "{{staff.member_locations}}",
-            "sort_order": "{{staff.sort_order}}",
+            "sort_order": {{staff.sort_order}},
             "display_on_website": {{staff.display_on_website}},
             {{if {staff.staff_role_type} !== null }}
               "staff_role_type": [{{each staff_role_types as staff_role_type WHERE z.zuid = "{staff.staff_role_type}" }}
@@ -57,7 +57,7 @@
         {{/if}}
       {{/each}}
   {{else-if {$hasProperty} == 0 && {$property} }}
-    {{ each staffs as staff where national_member=1 OR title_rank LIKE '%General%' order by sort_order desc limit {$limit} }}
+    {{ each staffs as staff where national_member=1 OR title_rank LIKE '%General%' order by sort_order asc limit {$limit} }}
       {{$about =  {staff.about.escapeForJs()} }}
         {
           "fullname": "{{staff.first_name}} {{staff.last_name}}",
@@ -67,7 +67,7 @@
           "about": "{{ $about.html_entity_decode() }}",
           "portrait_image": "{{staff.portrait_image.getMediaURL()}}",
           "member_locations": "{{staff.member_locations}}",
-          "sort_order": "{{staff.sort_order}}",
+          "sort_order": {{staff.sort_order}},
           "display_on_website": {{staff.display_on_website}},
           {{if {staff.staff_role_type} !== null }}
             "staff_role_type": [{{each staff_role_types as staff_role_type WHERE z.zuid = "{staff.staff_role_type}" }}
@@ -94,7 +94,7 @@
         "about": "{{ $about.html_entity_decode()  }}",
         "portrait_image": "{{staff.portrait_image.getMediaURL()}}",
         "member_locations": "{{staff.member_locations}}",
-        "sort_order": "{{staff.sort_order}}",
+        "sort_order": {{staff.sort_order}},
         "display_on_website": {{staff.display_on_website}},
         {{if {staff.staff_role_type} !== null }}
           "staff_role_type": [{{each staff_role_types as staff_role_type WHERE z.zuid = "{staff.staff_role_type}" }}
