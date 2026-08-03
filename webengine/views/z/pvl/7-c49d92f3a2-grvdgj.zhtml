@@ -1,9 +1,9 @@
-<div classname="{styles.pvlRoot}">
-	<div data-zesty-id="content:block:6-bcfbdaa6d3-vjj3qs:27:4:0:47">{{block('/-/block/hero_full.html?variant=7-a0a69bebf9-svxmr4')}}</div>
-	<div class="p-6 rounded-5 bg-light mb-18" data-zesty-id="design:columns:1 column - 1 row my-3:9:0">
-<div class="col-lg-12 col-md-12 col-sm-12" data-zesty-id="design:columns:1 column - 1 row my-3:9:0-1:1 column - 1 row:0">
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:1:55"></div>
-<div style="color:#111111;" class="rounded p-6 gap-3 bg-light text-dark" data-zesty-id="content:wysiwyg_basic:2:66"><p style="text-align:center;">
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-a0a69bebf9-svxmr4')}}
+	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="py-5"></div>
+			<div class="pvlRichtext rounded p-6 gap-3 bg-light text-dark" style="color:#111111"><div style="color:#111111;" class="rounded p-6 gap-3 bg-light text-dark"><p style="text-align:center;">
 	Annually, the Red Shield Pro-Am invites our community to the prestigious Elizabeth Manor Golf &amp; Country Club for an impactful and inspiring celebration of the incredible work that happens at The Salvation Army’s hope Village. This year, our golf tournament is set to raise $180,000 to directly support the women and children of hope Village. Hope Village is a life-changing transitional housing program for homeless women and women with children in Hampton Roads. Our goal is to help each woman who enters our program develop the skills needed to thrive on her own and live a fulfilling, successful life.
 </p>
 
@@ -33,10 +33,10 @@
 	Inclusion in a post-event thank-you email to attendees
 </p>
 
-<p style="text-align:center;" class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center"><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=LgXkTgFXvkeu4y8fuNxdY0ouXGG4J7lKqBa4BpzQEE5UN0gzUTlDMTNVM1FXRUFETTZGOEVTWVFGRi4u" class="btn btn-secondary gap-1 mt-2">Silent Auction Donation Form</a><span style="font-size:20px;"></span></p></div>
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:3:47"></div>
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:4:17"></div>
-<div style="color:#111111;" class="rounded p-6 gap-3 bg-light text-dark" data-zesty-id="content:wysiwyg_basic:5:6"><h5 style="text-align:center;">Thank You to Our 2026 Sponsors</h5>
+<p style="text-align:center;" class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center"><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=LgXkTgFXvkeu4y8fuNxdY0ouXGG4J7lKqBa4BpzQEE5UN0gzUTlDMTNVM1FXRUFETTZGOEVTWVFGRi4u" class="btn btn-secondary gap-1 mt-2">Silent Auction Donation Form</a><span style="font-size:20px;"></span></p></div></div>
+			<div class="py-5"></div>
+			<div class="py-5"></div>
+			<div class="pvlRichtext rounded p-6 gap-3 bg-light text-dark" style="color:#111111"><div style="color:#111111;" class="rounded p-6 gap-3 bg-light text-dark"><h5 style="text-align:center;">Thank You to Our 2026 Sponsors</h5>
 
 <p style="text-align:center;">
 	<span style="font-size:20px;"><strong>Presenting Sponsors</strong></span>
@@ -256,7 +256,7 @@
 
 <p style="text-align:center;">
 	<span style="font-size:20px;"></span>
-</p></div>
+</p></div></div>
 		</div>
 	</div>
 </div>

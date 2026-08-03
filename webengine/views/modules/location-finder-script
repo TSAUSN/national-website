@@ -869,7 +869,7 @@ async function updateMapPosition(address) {
 
         // Center the map on the searched location and zoom in
         window.map.setCenter(location);
-        window.map.setZoom(12);
+        window.map.setZoom(10);
 
         resolve(location);
       } else {
@@ -915,7 +915,7 @@ async function searchServices() {
     const map = window.map;
     if (map) {
       map.setCenter(geocodeResult);
-      map.setZoom(12);
+      map.setZoom(10);
     }
     // Fetch all locations
     const locations = window.locationDatas;
@@ -1065,7 +1065,7 @@ async function searchServices() {
 
         // Center and zoom the map on the clicked marker
         window.map.setCenter(locationMarker.getPosition());
-        window.map.setZoom(15);
+        window.map.setZoom(10);
 
         // Track the marker click
         if (typeof LocationTrackingMapClickEvent === 'function') {
@@ -1390,7 +1390,7 @@ async function initLocationFinder() {
               });
 
               window.map.setCenter(result);
-              window.map.setZoom(12);
+              window.map.setZoom(10);
               
             } catch (error) {
               console.error('Error:', error);
