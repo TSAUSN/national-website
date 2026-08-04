@@ -1413,26 +1413,6 @@ function setDynamicColumnCount() {
       })
     }
 
-    const links = document.querySelectorAll('a');
-      links.forEach(link => {
-        if(link.getAttribute('href') !== ""){
-          const url = new URL(link.getAttribute('href'), window.location.origin);
-          if(url.hostname !== window.location.hostname){
-            link.setAttribute('target', '_blank')
-            link.setAttribute('data-url', url)
-          }
-          
-        }
-    });
-
-     document.querySelectorAll('a[target="_blank"]').forEach(link => {
-      if (!link.hasAttribute('rel')) {
-        link.setAttribute('rel', 'noopener noreferrer');
-      }
-
-      link.addEventListener('mouseup', () => link.blur());
-      });
-
       document.querySelectorAll('button').forEach(btn => {
       btn.addEventListener('mouseup', () => btn.blur());
       
@@ -1491,4 +1471,3 @@ function setDynamicColumnCount() {
     }
   });
 </script>
-

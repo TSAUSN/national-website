@@ -1,3 +1,74 @@
+// Keep external links consistent, including links rendered after page load.
+(function initExternalLinks() {
+  function applyExternalLinkAttributes(link) {
+    const href = link.getAttribute('href');
+    if (!href) return;
+
+    let url;
+    try {
+      url = new URL(href, window.location.href);
+    } catch (error) {
+      return;
+    }
+
+    // A hostname excludes hashes, relative URLs, mailto:, tel:, and other actions.
+    if (!url.hostname || url.hostname === window.location.hostname) return;
+
+    link.setAttribute('target', '_blank');
+    link.setAttribute('data-url', url.href);
+
+    const relValues = (link.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
+    const normalizedRelValues = relValues.map((value) => value.toLowerCase());
+
+    if (!normalizedRelValues.includes('noopener')) relValues.push('noopener');
+    if (!normalizedRelValues.includes('noreferrer')) relValues.push('noreferrer');
+
+    link.setAttribute('rel', relValues.join(' '));
+  }
+
+  function applyExternalLinkAttributesWithin(root) {
+    if (root.nodeType === Node.ELEMENT_NODE && root.matches('a[href]')) {
+      applyExternalLinkAttributes(root);
+    }
+
+    if (typeof root.querySelectorAll === 'function') {
+      root.querySelectorAll('a[href]').forEach(applyExternalLinkAttributes);
+    }
+  }
+
+  function observeExternalLinks() {
+    applyExternalLinkAttributesWithin(document);
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes') {
+          applyExternalLinkAttributes(mutation.target);
+          return;
+        }
+
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            applyExternalLinkAttributesWithin(node);
+          }
+        });
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['href'],
+      childList: true,
+      subtree: true
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', observeExternalLinks, { once: true });
+  } else {
+    observeExternalLinks();
+  }
+})();
+
 // Callback when Google Maps API is loaded
 window.onGoogleMapsLoaded = function () {
   // Initialize map functionality
