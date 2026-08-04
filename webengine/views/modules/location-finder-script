@@ -940,7 +940,9 @@ async function searchServices() {
       if (distance <= 50) {
         // Check if location has ALL of the selected services
         if (selectedServices.length > 0) {
-          
+          console.log('selectedServices:', selectedServices);
+          console.log('locationServices (raw split):', loc.service_types ? loc.service_types.split(",") : []);
+
           const locationServices = loc.service_types ? loc.service_types.split(",") : [];
           const hasAllSelectedServices = selectedServices.some(service => 
             locationServices.includes(service)
