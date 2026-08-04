@@ -947,7 +947,7 @@ async function searchServices() {
           const hasAllSelectedServices = selectedServices.some(service => 
             locationServices.includes(service)
           );
-
+          console.log("hasAllSelectedServices", hasAllSelectedServices)
           if (hasAllSelectedServices) {
             allFilteredLocations.push(loc);
           }
