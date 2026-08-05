@@ -95,10 +95,15 @@
     return externalLinks;
   };
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', observeExternalLinks, { once: true });
-  } else {
+  function initializeExternalLinks() {
     observeExternalLinks();
+    window.logExternalLinks();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeExternalLinks, { once: true });
+  } else {
+    initializeExternalLinks();
   }
 })();
 
