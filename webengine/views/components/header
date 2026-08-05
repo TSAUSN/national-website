@@ -1001,7 +1001,7 @@
         aboutUsItemContainers.forEach((c) =>{
         const newLinkElement = document.createElement('a');
 
-        newLinkElement.classList.add('dropdown-item', 'py-2', 'px-2');
+        newLinkElement.classList.add('dropdown-item', 'py-2', 'px-2', 'display-3', 'display-xl-2');
         newLinkElement.textContent = link.title;
         if(link.external_link){
             newLinkElement.setAttribute('href', link.external_link);
@@ -1028,7 +1028,7 @@
         const newLinkElement = document.createElement('a');
         const isDonateMoneyLink = link.title && link.title.trim().toLowerCase() === 'donate money';
 
-        newLinkElement.classList.add('dropdown-item', 'py-2', 'px-2');
+        newLinkElement.classList.add('dropdown-item', 'py-2', 'px-2', 'display-3', 'display-xl-2');
         newLinkElement.textContent = link.title;
         if(isDonateMoneyLink){
             newLinkElement.classList.add('header-donate-button');
