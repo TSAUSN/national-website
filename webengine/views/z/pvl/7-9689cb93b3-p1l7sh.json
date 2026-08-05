@@ -1,0 +1,97 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:4:0:54": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-f486fea0ca-gq7k5f')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-f486fea0ca-gq7k5f')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:4:0:54",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:5:90": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:5:90",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:5:90-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:3": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:3",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:5:90-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:46": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"text-align:center;\">\n\t<strong><span style=\"color:#111111;\"><span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\">Sunday</span></span></span></strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">9:45am Sunday School</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">11Am Worship Service</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\"></span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong><span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">Tuesdays and Thursdays</span></span></span></strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">9Am - 11am &amp; 1 pm - 3pm Food pantry</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\"></span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong><span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">Wednesday</span></span></span></strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">5:30 Youth Programs (follows the school calendar for Clay County)</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">8:15 Band practice</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">9:00 Praise and Worship practice</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\"></span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\"><strong>Thursday</strong> (resuming August 8th)</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">5:30 School of Performing Arts (Piano, Percussion, Dance, Guitar, Brass, and Ukulele)</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">6:30 Adult Bible Study</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">5:30 Final concert for School of Performing Arts</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\"></span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong><span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">Office Hours </span></span></span></strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">Monday - Friday 9am-12pm | <em>&amp;</em>1pm-4pm</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\"><strong>Regular weekly/monthly meetings: </strong></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">First Wednesday @ 12 Advisory Council </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">First Thursday @ 10:30 Women’s Auxiliary </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">Every Wednesday from 5:30-8 Youth Programs </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">Every Wednesday from 8:15-9 Band practice </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">Every Thursday from 5:30-8:30 School of Performing Arts </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">Sunday School @ 9:45 </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">Holiness Meeting @ 11 </span>\n</p>\n\n<p>\n\t \n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"text-align:center;\">\n\t<strong><span style=\"color:#111111;\"><span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\">Sunday</span></span></span></strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">9:45am Sunday School</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">11Am Worship Service</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\"></span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong><span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">Tuesdays and Thursdays</span></span></span></strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">9Am - 11am &amp; 1 pm - 3pm Food pantry</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\"></span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong><span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">Wednesday</span></span></span></strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">5:30 Youth Programs (follows the school calendar for Clay County)</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">8:15 Band practice</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">9:00 Praise and Worship practice</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\"></span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\"><strong>Thursday</strong> (resuming August 8th)</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">5:30 School of Performing Arts (Piano, Percussion, Dance, Guitar, Brass, and Ukulele)</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">6:30 Adult Bible Study</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">5:30 Final concert for School of Performing Arts</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\"></span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong><span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">Office Hours </span></span></span></strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">Monday - Friday 9am-12pm | <em>&amp;</em>1pm-4pm</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\"><strong>Regular weekly/monthly meetings: </strong></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">First Wednesday @ 12 Advisory Council </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">First Thursday @ 10:30 Women’s Auxiliary </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">Every Wednesday from 5:30-8 Youth Programs </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">Every Wednesday from 8:15-9 Band practice </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">Every Thursday from 5:30-8:30 School of Performing Arts </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">Sunday School @ 9:45 </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">Holiness Meeting @ 11 </span>\n</p>\n\n<p>\n\t \n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:46",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:46",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:5:90-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><p style=\"text-align:center;\">\n\t<strong><span style=\"color:#111111;\"><span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\">Sunday</span></span></span></strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">9:45am Sunday School</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">11Am Worship Service</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\"></span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong><span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">Tuesdays and Thursdays</span></span></span></strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">9Am - 11am &amp; 1 pm - 3pm Food pantry</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\"></span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong><span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">Wednesday</span></span></span></strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">5:30 Youth Programs (follows the school calendar for Clay County)</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">8:15 Band practice</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">9:00 Praise and Worship practice</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\"></span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\"><strong>Thursday</strong> (resuming August 8th)</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">5:30 School of Performing Arts (Piano, Percussion, Dance, Guitar, Brass, and Ukulele)</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">6:30 Adult Bible Study</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">5:30 Final concert for School of Performing Arts</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\"></span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong><span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">Office Hours </span></span></span></strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:12.0pt;\"><span style=\"font-family:&quot;Aptos&quot;,sans-serif;\"><span style=\"color:black;\">Monday - Friday 9am-12pm | <em>&amp;</em>1pm-4pm</span></span></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\"><strong>Regular weekly/monthly meetings: </strong></span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">First Wednesday @ 12 Advisory Council </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">First Thursday @ 10:30 Women’s Auxiliary </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">Every Wednesday from 5:30-8 Youth Programs </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">Every Wednesday from 8:15-9 Band practice </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">Every Thursday from 5:30-8:30 School of Performing Arts </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">Sunday School @ 9:45 </span>\n</p>\n\n<p style=\"text-align:center;\">\n\t<span style=\"font-size:16px;\">Holiness Meeting @ 11 </span>\n</p>\n\n<p>\n\t \n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}
