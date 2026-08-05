@@ -1,18 +1,25 @@
 // Keep external links consistent, including links rendered after page load.
 (function initExternalLinks() {
-  function applyExternalLinkAttributes(link) {
+  function getExternalUrl(link) {
     const href = link.getAttribute('href');
-    if (!href) return;
+    if (!href) return null;
 
     let url;
     try {
       url = new URL(href, window.location.href);
     } catch (error) {
-      return;
+      return null;
     }
 
     // A hostname excludes hashes, relative URLs, mailto:, tel:, and other actions.
-    if (!url.hostname || url.hostname === window.location.hostname) return;
+    if (!url.hostname || url.hostname === window.location.hostname) return null;
+
+    return url;
+  }
+
+  function applyExternalLinkAttributes(link) {
+    const url = getExternalUrl(link);
+    if (!url) return;
 
     link.setAttribute('target', '_blank');
     link.setAttribute('data-url', url.href);
@@ -24,6 +31,22 @@
     if (!normalizedRelValues.includes('noreferrer')) relValues.push('noreferrer');
 
     link.setAttribute('rel', relValues.join(' '));
+  }
+
+  function collectExternalLinks() {
+    return Array.from(document.querySelectorAll('a[href]')).reduce((links, link) => {
+      const url = getExternalUrl(link);
+      if (!url) return links;
+
+      links.push({
+        text: link.textContent.trim().replace(/\s+/g, ' ') || '(no text)',
+        url: url.href,
+        target: link.getAttribute('target') || '',
+        rel: link.getAttribute('rel') || ''
+      });
+
+      return links;
+    }, []);
   }
 
   function applyExternalLinkAttributesWithin(root) {
@@ -61,6 +84,16 @@
       subtree: true
     });
   }
+
+  window.logExternalLinks = function logExternalLinks() {
+    // Apply the rule synchronously in case this is called immediately after DOM insertion.
+    applyExternalLinkAttributesWithin(document);
+
+    const externalLinks = collectExternalLinks();
+    console.info(`[External links] ${externalLinks.length} found`);
+    console.table(externalLinks);
+    return externalLinks;
+  };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', observeExternalLinks, { once: true });
