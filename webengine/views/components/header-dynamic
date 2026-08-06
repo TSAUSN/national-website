@@ -419,7 +419,7 @@
 
     <!-- mobile -->
     <div
-      class="mx-4 py-2 px-4 rounded-9 d-lg-none align-items-center justify-content-between d-sm-flex position-absolute bg-light start-0 end-0"
+      class="location-indicator-mobile mx-4 py-2 px-4 rounded-9 d-lg-none align-items-center justify-content-between d-sm-flex position-absolute bg-light start-0 end-0"
       style="top: 5.8rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);"
     >
       <div class="me-2 d-flex align-items-center justify-content-center">
