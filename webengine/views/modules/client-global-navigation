@@ -2346,12 +2346,12 @@
           const territoryZUID = `{{$territory}}`;
 
           cookieManager.set(cookieKeys.organizationCorp, model.content.name);
-          cookieManager.set(cookieKeys.organizationDivision, model.content.divisions.data[0].name);
-          cookieManager.set(cookieKeys.organizationTerritory, model.content.territory.data[0].name);
+          cookieManager.set(cookieKeys.organizationDivision, model.content?.division.data[0].name);
+          cookieManager.set(cookieKeys.organizationTerritory, model.content?.territory.data[0].name);
           cookieManager.set(cookieKeys.organizationLevel, levels.corp);
-          cookieManager.set(cookieKeys.contactUsImage, model.content.contact_us_image.data[0].url);
-          cookieManager.set(cookieKeys.contactUsTitle, model.content.contact_us_title);
-          cookieManager.set(cookieKeys.contactUsHeader, model.content.contact_us_cta_header);
+          cookieManager.set(cookieKeys.contactUsImage, model.content?.contact_us_image?.data[0].url);
+          cookieManager.set(cookieKeys.contactUsTitle, model.content?.contact_us_title);
+          cookieManager.set(cookieKeys.contactUsHeader, model.content?.contact_us_cta_header);
           cookieManager.set(cookieKeys.locationAddress, model.address);
           cookieManager.set(cookieKeys.locationCity, model.city);
           cookieManager.set(cookieKeys.locationState, model.state);

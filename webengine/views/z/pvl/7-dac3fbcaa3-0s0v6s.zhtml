@@ -1,149 +1,149 @@
-<div className={styles.pvlRoot}>
+<div classname="{styles.pvlRoot}">
 	{{block('/-/block/hero_full.html?variant=7-d2a98e80b4-m8d279')}}
-	<div class="row my-3">
+	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
 		<div class="col-lg-12 col-md-12 col-sm-12">
-			<div class="row" style="border-color:#9ca6ae;color:#fff;">
-<div class="col-sm-4 margin-bottom-md"><a class="btn btn-secondary gap-1 mt-2"> Recent Stories </a></div>
-<div class="col-sm-4 margin-bottom-md"><a class="btn btn-secondary gap-1 mt-2"> PR Contacts </a></div>
-<div class="col-sm-4 margin-bottom-md"><a class="btn btn-secondary gap-1 mt-2" style="border-color: #9ca6ae; color: #fff;" href="https://www.salvationarmyusa.org/usn/tell-us-a-story/">Tell Us A Story </a></div>
+			<div class="row">
+<div class="col-sm-4 margin-bottom-md"><a onclick="symphony.site.animateScrollTo($('#stories-container-0'))" class="btn btn-secondary gap-1 mt-2"><i class="fa fa-align-left"></i> Recent Stories </a></div>
+<div class="col-sm-4 margin-bottom-md"><a onclick="symphony.site.animateScrollTo($('#freeTextArea-2'))" class="btn btn-secondary gap-1 mt-2"><i class="far fa-address-card"></i> PR Contacts </a></div>
+<div class="col-sm-4 margin-bottom-md"><a href="https://www.salvationarmyusa.org/usn/tell-us-a-story/" style="border-color: #9ca6ae; color: #fff;" class="btn btn-secondary gap-1 mt-2">Tell Us A Story </a></div>
 </div>
 <hr>
 			<div class="my-2"></div>
-			<div class="pvlRichtext"></div>
+			
 			<div class="my-2"></div>
-			<div class="btgrid" style="width:100% !important;">
+			<div class="btgrid">
 <div class="row row-1">
 <div class="col col-md-6">
 <div class="content">
-<p>&nbsp;</p>
+<p> </p>
 <h5>MEDIA CONTACTS</h5>
 <p>Following is a media relations contact list for The Salvation Army in Florida. State media relations are handled by Florida Divisional Headquarters. All local media are asked to first contact their local Salvation Army representative for requests for spokespersons and other inquiries.</p>
-<p>&nbsp;</p>
+<p> </p>
 <div class="contacts">
 <div class="card" style="width: 100% !important;">
-<div class="layer">&nbsp;</div>
-<div class="content">
+<div class="layer"> </div>
+<div class="content"><i class="ministriesGrid-icon icon icon-shield"></i>
 <div class="details">
-<h5>Divisional Headquarters:<br><a href="https://salvationarmyflorida.org" target="">Website</a></h5>
+<h5>Divisional Headquarters:<br><a href="https://salvationarmyflorida.org" target=""><span>Website</span></a></h5>
 </div>
-<p>Divisional Communications Director&nbsp;<br>813.383.5668</p>
+<p>Divisional Communications Director <br>813.383.5668</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="col col-md-6">
-<div class="content">&nbsp;</div>
+<div class="content"></div>
 </div>
 </div>
 </div>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+<p> </p>
+<p></p>
 <div class="contacts">
 <div class="card">
-<div class="layer">&nbsp;</div>
-<div class="content">
+<div class="layer"> </div>
+<div class="content"><i class="ministriesGrid-icon icon icon-shield"></i>
 <div class="details">
-<h5>PENSACOLA:<br><a href="https://pensacola.salvationarmyflorida.org/" target="">Website</a></h5>
+<h5>PENSACOLA:<br><a href="https://pensacola.salvationarmyflorida.org/" target=""><span>Website</span></a></h5>
 </div>
 <p>Captain Stephan Wildish Stephan.Wildish@uss.salvationarmy.org<br>407-973-4628</p>
 </div>
 </div>
 <div class="card">
-<div class="layer">&nbsp;</div>
-<div class="content">
+<div class="layer"> </div>
+<div class="content"><i class="ministriesGrid-icon icon icon-shield"></i>
 <div class="details">
-<h5>PANAMA CITY:<br><a href="https://panamacity.salvationarmyflorida.org/" target="">Website</a></h5>
+<h5>PANAMA CITY:<br><a href="https://panamacity.salvationarmyflorida.org/" target=""><span>Website</span></a></h5>
 </div>
 <p>Captain Arnaldo Pena arnaldo.pena@uss.salvationarmy.org<br>850-769-5359</p>
 </div>
 </div>
 <div class="card">
-<div class="layer">&nbsp;</div>
-<div class="content">
+<div class="layer"> </div>
+<div class="content"><i class="ministriesGrid-icon icon icon-shield"></i>
 <div class="details">
-<h5>TALLAHASSEE:<br><a href="https://TALLAHASSEE.salvationarmyflorida.org/" target="">Website</a></h5>
+<h5>TALLAHASSEE:<br><a href="https://TALLAHASSEE.salvationarmyflorida.org/" target=""><span>Website</span></a></h5>
 </div>
 <p>Jeremy Bridges Jeremy.Bridges@uss.salvationarmy.org 850-222-0304</p>
 </div>
 </div>
 <div class="card">
-<div class="layer">&nbsp;</div>
-<div class="content">
+<div class="layer"> </div>
+<div class="content"><i class="ministriesGrid-icon icon icon-shield"></i>
 <div class="details">
-<h5>GAINESVILLE:<br><a href="https://gainesville.salvationarmyflorida.org/" target="">Website</a></h5>
+<h5>GAINESVILLE:<br><a href="https://gainesville.salvationarmyflorida.org/" target=""><span>Website</span></a></h5>
 </div>
 <p>Major Ernest Hull ernest.hull@uss.salvationarmy.org 352-376-1743</p>
 </div>
 </div>
 <div class="card">
-<div class="layer">&nbsp;</div>
-<div class="content">
+<div class="layer"> </div>
+<div class="content"><i class="ministriesGrid-icon icon icon-shield"></i>
 <div class="details">
-<h5>JACKSONVILLE:<br><a href="https://nefl.salvationarmyflorida.org/" target="">Website</a></h5>
+<h5>JACKSONVILLE:<br><a href="https://nefl.salvationarmyflorida.org/" target=""><span>Website</span></a></h5>
 </div>
 <p>Lillie Carnes lillie.carnes@uss.salvationarmy.org<br>904-301-4839</p>
 </div>
 </div>
 <div class="card">
-<div class="layer">&nbsp;</div>
-<div class="content">
+<div class="layer"> </div>
+<div class="content"><i class="ministriesGrid-icon icon icon-shield"></i>
 <div class="details">
-<h5>ORLANDO:<br><a href="https://orlando.salvationarmyflorida.org/" target="">Website</a></h5>
+<h5>ORLANDO:<br><a href="https://orlando.salvationarmyflorida.org/" target=""><span>Website</span></a></h5>
 </div>
 <p>Natasha Player Natasha.Player@uss.salvationarmy.org 407-388-8258</p>
 </div>
 </div>
 <div class="card">
-<div class="layer">&nbsp;</div>
-<div class="content">
+<div class="layer"> </div>
+<div class="content"><i class="ministriesGrid-icon icon icon-shield"></i>
 <div class="details">
-<h5>TAMPA:<br><a href="https://tampa.salvationarmyflorida.org/" target="">Website</a></h5>
+<h5>TAMPA:<br><a href="https://tampa.salvationarmyflorida.org/" target=""><span>Website</span></a></h5>
 </div>
 <p>Aaron DeWinter aaron.deWinter@uss.salvationarmy.org<br>813-374-4331</p>
 </div>
 </div>
 <div class="card">
-<div class="layer">&nbsp;</div>
-<div class="content">
+<div class="layer"> </div>
+<div class="content"><i class="ministriesGrid-icon icon icon-shield" style="color: #f1f1f1 !important;"></i>
 <div class="details">
-<h5>FT. MYERS:<br><a href="https://fortmyers.salvationarmyflorida.org/" target="">Website</a></h5>
+<h5>FT. MYERS:<br><a href="https://fortmyers.salvationarmyflorida.org/" target=""><span>Website</span></a></h5>
 </div>
 <p>David Asselin David.Asselin@uss.salvationarmy.org<br>239-278-7725</p>
 </div>
 </div>
 <div class="card">
-<div class="layer">&nbsp;</div>
-<div class="content">
+<div class="layer"> </div>
+<div class="content"><i class="ministriesGrid-icon icon icon-shield" style="color: #f1f1f1 !important;"></i>
 <div class="details">
-<h5>WEST PALM BEACH:<br><a href="https://palmbeachcounty.salvationarmyflorida.org/" target="">Website</a></h5>
+<h5>WEST PALM BEACH:<br><a href="https://palmbeachcounty.salvationarmyflorida.org/" target=""><span>Website</span></a></h5>
 </div>
 <p>Major James Hall James.Hall@uss.salvationarmy.org<br>561-232-9143</p>
 </div>
 </div>
 <div class="card">
-<div class="layer">&nbsp;</div>
-<div class="content">
+<div class="layer"> </div>
+<div class="content"><i class="ministriesGrid-icon icon icon-shield"></i>
 <div class="details">
-<h5>MIAMI:<br><a href="https://miami.salvationarmyflorida.org/" target="">Website</a></h5>
+<h5>MIAMI:<br><a href="https://miami.salvationarmyflorida.org/" target=""><span>Website</span></a></h5>
 </div>
 <p>Joanne Joseph<br>Joanne.Joseph@uss.salvationarmy.org 305-637-6700 ext. 26644</p>
 </div>
 </div>
 <div class="card">
-<div class="layer">&nbsp;</div>
-<div class="content">
+<div class="layer"> </div>
+<div class="content"><i class="ministriesGrid-icon icon icon-shield" style="color: #f1f1f1 !important;"></i>
 <div class="details">
-<h5>FORT LAUDERDALE:<br><a href="https://fortlauderdale.salvationarmyflorida.org/" target="">Website</a></h5>
+<h5>FORT LAUDERDALE:<br><a href="https://fortlauderdale.salvationarmyflorida.org/" target=""><span>Website</span></a></h5>
 </div>
 <p>David Hayton David.Hayton@uss.salvationarmy.org<br>954-524-6991</p>
 </div>
 </div>
 <div class="card">
-<div class="layer">&nbsp;</div>
-<div class="content">
+<div class="layer"> </div>
+<div class="content"><i class="ministriesGrid-icon icon icon-shield" style="color: #f1f1f1 !important;"></i>
 <div class="details">
-<h5>SARASOTA:<br><a href="https://sarasota.salvationarmyflorida.org/" target="">Website</a></h5>
+<h5>SARASOTA:<br><a href="https://sarasota.salvationarmyflorida.org/" target=""><span>Website</span></a></h5>
 </div>
 <p>Kelley Granahan Kelley.Granahan@uss.salvationarmy.org<br>941-552-5148</p>
 </div>
