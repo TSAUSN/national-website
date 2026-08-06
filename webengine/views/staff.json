@@ -28,7 +28,7 @@
 
 [
   {{if {$hasProperty} == 1 }}
-      {{ each staffs as staff where find_in_set("{$property}", {$findInSet} ) OR title_rank LIKE '%General%' OR national_member=1 sort by sort_order asc }}
+      {{ each staffs as staff where (find_in_set("{$property}", {$findInSet} ) OR title_rank LIKE '%General%' OR national_member=1) AND (job_role != 'National Advisory Board') sort by sort_order asc }}
       {{$about =  {staff.about.escapeForJs()} }}
         {{if {staff.display_on_website} == 1}}
           {
