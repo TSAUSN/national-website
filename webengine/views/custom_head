@@ -103,7 +103,7 @@
 
 {{include modules/client-global-navigation}}
 {{include modules/indexdb}}
-
+{{include modules/external-links}}
 <!-- Add this before your Tealium script -->
 <script type="text/javascript">
   window.ServicesObserver = new ServicesSubject();
