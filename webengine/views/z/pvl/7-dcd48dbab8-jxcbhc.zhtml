@@ -1,0 +1,18 @@
+<div className={styles.pvlRoot}>
+	<div class="row bg-light p-6 rounded-5 mb-18">
+		<div class="column p-6 rounded-5 bg-light mb-18">
+			<div class="pvlRichtext" style="text-align:center"><h1 style="text-align: center;"><span>The Salvation Army of Chatham County</span></h1>
+<p style="text-align: center;"><span>The Salvation Army Chatham County Crisis Assistance Program is a social service agency&nbsp;</span><span>that assists individuals and families in various capacities to prevent homelessness and address the client's </span><span>basic needs that lead to self-sufficiency, such as food, clothing, hotel vouchers, rental, and utility assistance.</span></p></div>
+			<div class="row my-3">
+				<div class="col-lg-8 col-md-6 col-sm-12">
+					<img width="100%" src="https://8hxvw8tw.media.zestyio.com/greensboro-chatham-services.jpg" alt="placeholder">
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="pvlRichtext" style="text-align:left"><h2 style="text-align: left;">Volunteers Needed</h2>
+<p style="text-align: left;"><span>Interested in helping us out? Contact us today about our volunteer opportunities!</span><br><span>Please contact us&nbsp;at <a href="tel:336-763-6400" target="_blank" rel="noopener">336-763-6400</a></span><span>&nbsp;or complete our&nbsp;</span><a target="_blank">VOLUNTEER SIGN UP FORM</a><span>&nbsp;if you are interested in volunteering this year!</span></p></div>
+				</div>
+			</div>
+			<div class="pvlRichtext" style="margin-top:12px"></div>
+		</div>
+	</div>
+</div>
