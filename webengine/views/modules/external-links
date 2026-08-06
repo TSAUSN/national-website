@@ -1,7 +1,6 @@
 <script>
     // Keep external links consistent, including links rendered after page load.
     (function initExternalLinks() {
-        console.log('Init External Lnk');
         function getExternalUrl(link) {
             const href = link.getAttribute('href');
             if (!href) return null;
@@ -23,7 +22,7 @@
 
         function applyExternalLinkAttributes(link) {
             const url = getExternalUrl(link);
-            if (!url) return false;
+            if (!url) return;
 
             link.setAttribute('target', '_blank');
             link.setAttribute('data-url', url.href);
@@ -35,60 +34,30 @@
             if (!normalizedRelValues.includes('noreferrer')) relValues.push('noreferrer');
 
             link.setAttribute('rel', relValues.join(' '));
-            return true;
-        }
-
-        function collectExternalLinks() {
-            return Array.from(document.querySelectorAll('a[href]')).reduce((links, link) => {
-                const url = getExternalUrl(link);
-                if (!url) return links;
-
-                links.push({
-                    text: link.textContent.trim().replace(/\s+/g, ' ') || '(no text)',
-                    url: url.href,
-                    target: link.getAttribute('target') || '',
-                    rel: link.getAttribute('rel') || ''
-                });
-
-                return links;
-            }, []);
         }
 
         function applyExternalLinkAttributesWithin(root) {
-            let externalLinkCount = 0;
-
             if (root.nodeType === 1 && root.matches('a[href]')) {
-                if (applyExternalLinkAttributes(root)) externalLinkCount += 1;
+                applyExternalLinkAttributes(root);
             }
 
             if (typeof root.querySelectorAll === 'function') {
-                root.querySelectorAll('a[href]').forEach((link) => {
-                    if (applyExternalLinkAttributes(link)) externalLinkCount += 1;
-                });
+                root.querySelectorAll('a[href]').forEach(applyExternalLinkAttributes);
             }
-
-            return externalLinkCount;
         }
 
         function observeExternalLinks() {
             const observer = new MutationObserver((mutations) => {
-                let externalLinksChanged = false;
-
                 mutations.forEach((mutation) => {
                     if (mutation.type === 'attributes') {
                         applyExternalLinkAttributes(mutation.target);
-                        externalLinksChanged = true;
                         return;
                     }
 
                     mutation.addedNodes.forEach((node) => {
-                        if (node.nodeType === 1 && applyExternalLinkAttributesWithin(node) > 0) {
-                            externalLinksChanged = true;
-                        }
+                        if (node.nodeType === 1) applyExternalLinkAttributesWithin(node);
                     });
                 });
-
-                if (externalLinksChanged) window.logExternalLinks();
             });
 
             // Observing document starts working even when this bundle runs before the
@@ -101,18 +70,8 @@
             });
         }
 
-        window.logExternalLinks = function logExternalLinks() {
-            // Apply the rule synchronously in case this is called immediately after DOM insertion.
-            applyExternalLinkAttributesWithin(document);
-
-            const externalLinks = collectExternalLinks();
-            console.log(`[External links] ${externalLinks.length} found`);
-            if (typeof console.table === 'function') console.table(externalLinks);
-            return externalLinks;
-        };
-
         observeExternalLinks();
-        window.logExternalLinks();
+        applyExternalLinkAttributesWithin(document);
     })();
 
 </script>
