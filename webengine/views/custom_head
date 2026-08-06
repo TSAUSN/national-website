@@ -57,7 +57,8 @@
   name="twitter:description"
   content="{{ !this._meta_description }}"
 />
-
+<link rel="apple-touch-icon" href="{{ setting.fav_icon }}">
+<link rel="apple-touch-icon-precomposed" href="{{ setting.fav_icon }}">
 <link
   rel="icon"
   type="image/png"
