@@ -71,15 +71,15 @@
   {
     "type": "menu",
     "key": "events",
-    "page_name": "New Orleans Area Command",
-    "page-zuid": "7-80ded8ea8b-bwft0n",
+    "page_name": "Events",
+    "page-zuid": null,
     "parent": null
   },
   {
     "type": "menu",
     "key": "newsroom",
-    "page_name": "New Orleans Area Command",
-    "page-zuid": "7-8ac0b2f58e-rdf0nk",
+    "page_name": "Newsroom",
+    "page-zuid": null,
     "parent": null
   },
   {
@@ -149,7 +149,14 @@
     "type": "menu",
     "key": "contact_us",
     "page_name": "Contact Us",
-    "page-zuid": "7-eaebfda084-whp0q7",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "Ways We Help",
+    "page-zuid": null,
     "parent": null
   }
 ]
