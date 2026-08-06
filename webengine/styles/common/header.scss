@@ -59,17 +59,18 @@ header {
 // The shield is the header's fixed visual anchor and must never be used as
 // flexbox's overflow release valve when the desktop navigation gets crowded.
 .header-home-image {
-  flex: 0 0 39px;
-  width: 39px;
-  min-width: 39px;
+  flex: 0 0 39px !important;
+  width: 39px !important;
+  min-width: 39px !important;
+  max-width: 39px !important;
 }
 
 .header-home-image img {
   display: block;
-  width: 39px;
-  min-width: 39px;
-  max-width: 39px;
-  height: 46px;
+  width: 39px !important;
+  min-width: 39px !important;
+  max-width: 39px !important;
+  height: 46px !important;
 }
 
 #hero-full-image,
@@ -271,9 +272,9 @@ input.donate-price-pill::placeholder {
 
 // The theme's desktop breakpoint starts at 1280px, but the full navigation can
 // still be wider than the available space on content-heavy headers. Keep the
-// tablet composition active until 1400px so the shield never competes with the
-// desktop navigation for space.
-@media screen and (min-width: 1280px) and (max-width: 1399.98px) {
+// tablet composition active until the theme's 1536px XL breakpoint so the
+// shield never competes with the desktop navigation for space.
+@media screen and (min-width: 1280px) and (max-width: 1535.98px) {
   #header {
     padding-left: 1rem !important;
     padding-right: 1rem !important;

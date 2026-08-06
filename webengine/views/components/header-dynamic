@@ -61,8 +61,9 @@
     <nav class="navbar navbar-expand-lg py-0">
       <a
         href="{{truepath({$locZUID})}}"
-        class="me-8 header-home-image"
+        class="me-8 header-home-image flex-shrink-0"
         ><img
+          class="flex-shrink-0"
           src="https://8hxvw8tw.media.zestyio.com/shield-1.svg"
           alt="The Salvation Army Logo"
           width="39"
