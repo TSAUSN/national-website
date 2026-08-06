@@ -11,15 +11,17 @@
       return null;
     }
 
-    // A hostname excludes hashes, relative URLs, mailto:, tel:, and other actions.
-    if (!url.hostname || url.hostname === window.location.hostname) return null;
+    // Only web links can be external. Compare the complete hostname so a
+    // subdomain (for example, give.example.org from www.example.org) is external.
+    if (!['http:', 'https:'].includes(url.protocol)) return null;
+    if (url.hostname === window.location.hostname) return null;
 
     return url;
   }
 
   function applyExternalLinkAttributes(link) {
     const url = getExternalUrl(link);
-    if (!url) return;
+    if (!url) return false;
 
     link.setAttribute('target', '_blank');
     link.setAttribute('data-url', url.href);
@@ -31,6 +33,7 @@
     if (!normalizedRelValues.includes('noreferrer')) relValues.push('noreferrer');
 
     link.setAttribute('rel', relValues.join(' '));
+    return true;
   }
 
   function collectExternalLinks() {
@@ -50,34 +53,45 @@
   }
 
   function applyExternalLinkAttributesWithin(root) {
-    if (root.nodeType === Node.ELEMENT_NODE && root.matches('a[href]')) {
-      applyExternalLinkAttributes(root);
+    let externalLinkCount = 0;
+
+    if (root.nodeType === 1 && root.matches('a[href]')) {
+      if (applyExternalLinkAttributes(root)) externalLinkCount += 1;
     }
 
     if (typeof root.querySelectorAll === 'function') {
-      root.querySelectorAll('a[href]').forEach(applyExternalLinkAttributes);
+      root.querySelectorAll('a[href]').forEach((link) => {
+        if (applyExternalLinkAttributes(link)) externalLinkCount += 1;
+      });
     }
+
+    return externalLinkCount;
   }
 
   function observeExternalLinks() {
-    applyExternalLinkAttributesWithin(document);
-
     const observer = new MutationObserver((mutations) => {
+      let externalLinksChanged = false;
+
       mutations.forEach((mutation) => {
         if (mutation.type === 'attributes') {
           applyExternalLinkAttributes(mutation.target);
+          externalLinksChanged = true;
           return;
         }
 
         mutation.addedNodes.forEach((node) => {
-          if (node.nodeType === Node.ELEMENT_NODE) {
-            applyExternalLinkAttributesWithin(node);
+          if (node.nodeType === 1 && applyExternalLinkAttributesWithin(node) > 0) {
+            externalLinksChanged = true;
           }
         });
       });
+
+      if (externalLinksChanged) window.logExternalLinks();
     });
 
-    observer.observe(document.documentElement, {
+    // Observing document starts working even when this bundle runs before the
+    // document element or before asynchronously rendered navigation is ready.
+    observer.observe(document, {
       attributes: true,
       attributeFilter: ['href'],
       childList: true,
@@ -90,21 +104,13 @@
     applyExternalLinkAttributesWithin(document);
 
     const externalLinks = collectExternalLinks();
-    console.info(`[External links] ${externalLinks.length} found`);
-    console.table(externalLinks);
+    console.log(`[External links] ${externalLinks.length} found`);
+    if (typeof console.table === 'function') console.table(externalLinks);
     return externalLinks;
   };
 
-  function initializeExternalLinks() {
-    observeExternalLinks();
-    window.logExternalLinks();
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeExternalLinks, { once: true });
-  } else {
-    initializeExternalLinks();
-  }
+  observeExternalLinks();
+  window.logExternalLinks();
 })();
 
 // Callback when Google Maps API is loaded
