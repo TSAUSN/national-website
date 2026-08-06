@@ -57,8 +57,13 @@
   name="twitter:description"
   content="{{ !this._meta_description }}"
 />
-<link rel="apple-touch-icon" href="{{ setting.fav_icon }}">
-<link rel="apple-touch-icon-precomposed" href="{{ setting.fav_icon }}">
+{{$favIconZUID = 3-134a2142-044p4h}}
+{{$favIconURL = }}
+{{ each media.{$favIconZUID} as media }}
+  {{$favIconURL = { media.image.getImage() } }}
+{{ end-each }}
+<link rel="apple-touch-icon" href="{{ $favIconURL }}">
+<link rel="apple-touch-icon-precomposed" href="{{ $favIconURL }}">
 <link
   rel="icon"
   type="image/png"
