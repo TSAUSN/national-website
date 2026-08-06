@@ -1,5 +1,6 @@
 // Keep external links consistent, including links rendered after page load.
 (function initExternalLinks() {
+  console.log('Init External Lnk');
   function getExternalUrl(link) {
     const href = link.getAttribute('href');
     if (!href) return null;
