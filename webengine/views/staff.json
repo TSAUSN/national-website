@@ -57,7 +57,7 @@
         {{/if}}
       {{/each}}
   {{else-if {$hasProperty} == 0 && {$property} }}
-    {{ each staffs as staff where national_member=1 OR title_rank LIKE '%General%' order by sort_order asc limit {$limit} }}
+    {{ each staffs as staff where (national_member=1 OR title_rank LIKE '%General%') AND (job_role != 'National Advisory Board') order by sort_order asc limit {$limit} }}
       {{$about =  {staff.about.escapeForJs()} }}
         {
           "fullname": "{{staff.first_name}} {{staff.last_name}}",
