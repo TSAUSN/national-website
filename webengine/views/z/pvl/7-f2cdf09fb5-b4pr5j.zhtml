@@ -1,0 +1,165 @@
+<div className={styles.pvlRoot}>
+	<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Seasonal-Offerings-Web-Banner.jpg.png" alt="placeholder">
+	<style>
+    .rba-card {
+        width: 100%;
+        max-width: 1800px;
+        margin: 40px auto 30px auto;
+        padding: 35px 45px;
+        box-sizing: border-box;
+        background-color: #ffffff;
+        border-radius: 12px;
+    }
+
+    .rba-card h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 30px;
+    }
+
+    .rba-card h3 {
+        margin-top: 30px;
+        margin-bottom: 10px;
+        font-size: 22px;
+    }
+
+    .rba-card p {
+        font-size: 17px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .registration {
+        margin-top: 30px;
+        padding: 15px 20px;
+        font-weight: bold;
+        font-size: 18px;
+        background-color: #f5f5f5;
+        border-left: 5px solid #e21e2b;
+        border-radius: 5px;
+    }
+
+    @media (max-width: 768px) {
+        .rba-card {
+            width: 95%;
+            padding: 25px 20px;
+        }
+
+        .rba-card h2 {
+            font-size: 25px;
+        }
+
+        .rba-card h3 {
+            font-size: 20px;
+        }
+
+        .rba-card p {
+            font-size: 16px;
+        }
+    }
+</style>
+
+
+<!-- FALL -->
+<section class="rba-card">
+
+    <h2>🏀 Fall Basketball (Grades K–3)</h2>
+
+  <p>
+    Fall basketball is led by RBA staff and volunteer coaches focusing on fundamental development of basketball and character skills. These skills include change of speed and direction, handling the ball, passing, shooting, teamwork, sportsmanship and team offense and defense. <a href="https://duluthrba.leagueapps.com/leagues/basketball/5046621-2026-fall-basketball">Registration will open August 25.</a>
+</p>
+
+    <h3>Kindergarten – Intro to Basketball</h3>
+
+    <p>
+        This exciting four-week session focuses on fundamental skills and teamwork. Coaches teach basic basketball skills including running, jumping, change of speed and direction, handling the ball, and shooting at the target in a controlled format. Teams meet once a week for one hour on weeknights at The Salvation Army.
+    </p>
+
+    <h3>Grades 2–3 – Skills Warm-Up</h3>
+
+    <p>
+        These sessions focus on building confidence in fundamental skills. Staff focus on teaching and developing basic basketball skills including change of speed and direction, handling the ball, passing, shooting at the target, and teamwork. Sessions will be for one hour over four weeks at The Salvation Army.
+    </p>
+<p>
+Families interested in applying for <a href="https://www.salvationarmyusa.org/usa-central-territory/northern/scholarships-and-sponsors/">scholarships</a> must do so BEFORE registering. 
+    </p>
+    <img src="https://8hxvw8tw.media.zestyio.com/05a9b0b6-43dc-412c-893b-19ae254111df_26-save-the-date.jpg" alt="Fall Basketball Save the Date" style="max-width: 100%; height: auto;">
+
+</section>
+
+
+<!-- WINTER -->
+<section class="rba-card">
+
+    <h2>❄️ Winter League (Grades K–8)</h2>
+
+    <p>
+        Winter basketball is led by a team of volunteer coaches focusing on fundamental development of basketball and character skills. These skills include change of speed and direction, handling the ball, passing, shooting, teamwork, sportsmanship, and team offense and defense. <a href="https://duluthrba.leagueapps.com/leagues/basketball/5047495-2026-2027-winter-basketball-league---season-39">Registration for the 2026–2027 winter season will open Friday, September 4.</a>
+  </p>
+
+    <p>
+<ul>
+    <li>Grades K-1 will have two separate six-week sessions: one in November/December, the other in January/February. K-1 sessions will be one evening per week. </li>
+<li>Grades 2-8 will have one weekly evening practice and play games on Saturdays between November and early March, depending on division. </li>
+</ul>
+    </p>
+<p>
+Families interested in applying for <a href="https://www.salvationarmyusa.org/usa-central-territory/northern/scholarships-and-sponsors/">scholarships</a> must do so BEFORE registering. 
+    </p>
+    <div class="registration">
+        Registration opens Friday, September 4.
+    </div>
+
+</section>
+
+
+<!-- SPRING -->
+<section class="rba-card">
+
+    <h2>🌸 Spring Basketball (Grades K–7)</h2>
+
+    <h3>Grades K-1 (Skills &amp; Scrimmage)</h3>
+
+    <p>
+        Spring K-1 Skills &amp; Scrimmage is an exciting four-week session focused on fundamental skills, teamwork, and scrimmage play. Players will practice their basketball skills and apply what they've learned in scrimmage play. Two-thirds of the sessions focus on basic skills such as running, jumping, change of speed and direction, handling the ball, and shooting. The final one-third focuses on scrimmage play. All sessions are held at The Salvation Army and facilitated by RBA staff.
+    </p>
+
+    <h3>Grades 2–7 (3-on-3 League)</h3>
+
+    <p>
+        Spring 3-on-3 will consist of a staff-led warm-up followed by 3-on-3 play. Players should expect up to three games per session, which are all held  at Lincoln Park Middle School. This league focuses on improving fundamentals.
+    </p>
+<p>
+Families interested in applying for <a href="https://www.salvationarmyusa.org/usa-central-territory/northern/scholarships-and-sponsors/">scholarships</a> must do so BEFORE registering. 
+    </p>
+    <div class="registration">
+        Registration opens February 2027.
+    </div>
+
+</section>
+
+
+<!-- SUMMER -->
+<section class="rba-card">
+
+    <h2>☀️ Summer Clinics (Grades K–6)</h2>
+
+    <p>
+        We offer summer basketball clinics for boys and girls in grades K–6. These clinics focus on developing basketball fundamentals, as well as character qualities of sportsmanship, teamwork and excellence. Players will develop their individual and team skills through training activities, participating in individual contests, and playing in games.
+   </p>
+    <p>
+Clinics are 9 a.m.–4 p.m. Lunch, snack, and t-shirt are included in the registration fee. 
+  </p>
+    <p>
+Families interested in applying for <a href="https://www.salvationarmyusa.org/usa-central-territory/northern/scholarships-and-sponsors/">scholarships</a> must do so BEFORE registering. 
+    </p>
+
+    <div class="registration">
+        Registration opens April 2027.
+    </div>
+
+</section>
+
+
+<!-- PARENT & PLAYER RESOURCES --> <section class="rba-card"> <h2>📚 Parent and Player Resources</h2> <p> Rookie Basketball lessons take place both on and off the court, with each parent’s involvement being key to the development of their child. The Rookie Basketball program has developed a <a href="https://drive.google.com/file/d/1ZrxSc0LCjwzIrEXARBMe5oXGkA3B-Uo3/view?usp=sharing" target="_blank" rel="noopener noreferrer">Parent Guide</a> and <a href="https://s3.amazonaws.com/usc-cache.salvationarmy.org/3334141f-603f-44b4-a2cc-446801ba70e6_2024-2025+Code+of+Conduct.pdf" target="_blank" rel="noopener noreferrer">RBA Code of Conduct</a> to help ensure the league is a positive learning and growing experience. </p> </section>
+</div>

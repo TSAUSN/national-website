@@ -1,0 +1,281 @@
+<div className={styles.pvlRoot}>
+	<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Coaches-and-Volunteers---RBA.png" alt="placeholder">
+	<style>
+/* ==============================
+   COACHING PAGE
+   ============================== */
+
+.rba-coaching {
+   width: 100%;
+        max-width: 1800px;
+        margin: 40px auto 30px auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ==============================
+   PAGE BANNER
+   ============================== */
+
+.coaching-banner {
+    position: relative;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 35px;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("YOUR-IMAGE-URL-HERE") center center / cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+}
+
+.coaching-banner h1 {
+    color: #ffffff;
+    font-size: 52px;
+    font-weight: 500;
+    margin: 0;
+}
+
+
+/* ==============================
+   COACHING SECTIONS
+   ============================== */
+
+.rba-coach-card {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    padding: 35px 40px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.rba-coach-card h2 {
+    margin: 0 0 20px 0;
+    font-size: 30px;
+    font-weight: 600;
+    color: #222222;
+}
+
+.rba-coach-card h3 {
+    margin: 28px 0 10px 0;
+    font-size: 19px;
+    font-weight: 600;
+    color: #333333;
+}
+
+.rba-coach-card p {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555555;
+}
+
+
+/* ==============================
+   REQUIREMENTS LIST
+   ============================== */
+
+.rba-coach-card ul {
+    margin: 15px 0 20px 0;
+    padding-left: 25px;
+}
+
+.rba-coach-card li {
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555555;
+}
+
+
+/* Links */
+
+.rba-coach-card a {
+    color: #333333;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.rba-coach-card a:hover {
+    opacity: 0.7;
+}
+
+
+/* ==============================
+   COACH OF THE YEAR IMAGE
+   ============================== */
+
+.coach-of-year-image {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.coach-of-year-image img {
+    width: 75%;
+    max-width: 750px;
+    height: auto;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 768px) {
+
+    .rba-coaching {
+        margin: 25px 15px;
+    }
+
+    .coaching-banner {
+        height: 220px;
+        padding-left: 30px;
+        border-radius: 15px;
+    }
+
+    .coaching-banner h1 {
+        font-size: 36px;
+    }
+
+    .rba-coach-card {
+        padding: 25px;
+        border-radius: 12px;
+    }
+
+    .rba-coach-card h2 {
+        font-size: 25px;
+    }
+
+    .rba-coach-card h3 {
+        font-size: 18px;
+    }
+
+    .rba-coach-card p,
+    .rba-coach-card li {
+        font-size: 15px;
+    }
+
+    .coach-of-year-image img {
+        width: 100%;
+    }
+}
+</style>
+
+
+<div class="rba-coaching">
+
+
+
+    <!-- ==============================
+         COACH REQUIREMENTS
+         ============================== -->
+
+    <section class="rba-coach-card">
+
+        <h2>Coach Requirements</h2>
+
+        <p>
+            The Rookie Basketball program relies on volunteers to coach teams
+            for each winter season. The time commitment varies from one to
+            three hours per week. <u>If you volunteered for this role last year,
+            you will need to register but you do not need to fill out a new
+            application.</u> 
+     </p> 
+<p>
+Registration for volunteer coaches for the 2026–2027
+            season is now open.
+        </p>
+
+        <h3>Each volunteer will need to complete the following:</h3>
+
+        <ul>
+
+            <li>
+                Online volunteer application and registration, including
+                references.
+                <a href="https://x.gldn.io/e/Ie8AGhIJP3b" target="_blank">
+                    Click here to apply.
+                </a>
+            </li>
+
+            <li>
+                Online background check, linked in the volunteer application.
+            </li>
+
+            <li>
+                Attend Salvation Army Safe From Harm training, good for four
+                years.
+            </li>
+
+            <li>
+                Online concussion training, state-mandated and needed every
+                three years.
+                <a href="https://nfhslearn.com/courses/concussion-in-sports-2"
+                   target="_blank">
+                    View training.
+                </a>
+            </li>
+
+            <li>
+                Attend coaches meeting and training, date to be determined.
+            </li>
+
+            <li>
+                To register as a volunteer coach, 
+                <a href="https://duluthrba.leagueapps.com/leagues/basketball/4665516-20252026-volunteer-coach-registration"
+                   target="_blank">
+                    click here.
+                </a>
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- ==============================
+         COACHING RESOURCES
+         ============================== -->
+
+    <section class="rba-coach-card">
+
+        <h2>Coaching Resources</h2>
+
+        <p>
+          <ul> <li> <a href="https://drive.google.com/file/d/1j0fIdzjl4_xBsU0dIUK3kQ0w8OKdIIKM/view?usp=sharing" target="_blank" rel="noopener noreferrer">RBA Coaches Guide</a> </li> <li> <a href="https://s3.amazonaws.com/usc-cache.salvationarmy.org/361d1eb4-5b84-41b8-95c8-dc0f871e2286_RBDuluth-Basketball-Signal-Chart.pdf" target="_blank" rel="noopener noreferrer">Official basketball Signal Chart</a></li> <li> <a href="https://s3.amazonaws.com/usc-cache.salvationarmy.org/7197be99-f39a-436d-be68-5957c13d17a4_Rookie-Basketball-Coaching-Resources.pdf" target="_blank" rel="noopener noreferrer">RBA Coaching Tips, Tools, and other Resources</a>  </li> </ul>
+        </p>
+
+ 
+
+    </section>
+
+
+    <!-- ==============================
+         COACH OF THE YEAR
+         ============================== -->
+
+    <section class="rba-coach-card">
+
+        <h2>2025–2026 Coach of the Year – Beth Moncrief</h2>
+
+        <div class="coach-of-year-image">
+
+            <img
+                src="https://8hxvw8tw.media.zestyio.com/WEB-COY-25.26-BMoncrief.webp"
+                alt="2025–2026 Coach of the Year – Beth Moncrief"
+            >
+
+        </div>
+
+    </section>
+
+
+</div>
+</div>
