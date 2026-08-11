@@ -15,6 +15,70 @@
   },
   {
     "type": "menu",
+    "key": null,
+    "page_name": "Youth Services",
+    "page-zuid": "7-de9bd7bd9f-j04vhj",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Shelter",
+    "page-zuid": "7-ca819cfdf0-hqgt20",
+    "sort": 1,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Senior Services",
+    "page-zuid": "7-e4a5eab69b-sk4gn5",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Services",
+    "page-zuid": "7-deb098f2c8-m11pq5",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Food Pantry",
+    "page-zuid": "7-acafb5e1ff-z2hcv1",
+    "sort": 4,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Spiritual Healing",
+    "page-zuid": "7-a2dac3b393-24lz5b",
+    "sort": 5,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Disaster Relief",
+    "page-zuid": "7-aac7a68db2-p2fwb5",
+    "sort": 6,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Utility Rent Assistance",
+    "page-zuid": "7-9ce1c6c89b-kh13gz",
+    "sort": 7,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
     "key": "about_us",
     "page_name": "About Us",
     "page-zuid": null,
@@ -23,57 +87,9 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "About Us",
-    "page-zuid": "7-e8e78c9b82-96fs17",
-    "sort": 0,
-    "parent": "about_us"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Commitment to all",
-    "page-zuid": "7-90eff9e999-tpj14d",
-    "sort": 1,
-    "parent": "about_us"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Leadership",
-    "page-zuid": "7-8acdfc9d9d-sxx198",
-    "sort": 2,
-    "parent": "about_us"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "History",
-    "page-zuid": "7-b8c09b84c2-fp57hm",
-    "sort": 3,
-    "parent": "about_us"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Employment Opportunities",
-    "page-zuid": "7-88deb6e6f5-l6xv5v",
-    "sort": 4,
-    "parent": "about_us"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Give With Joy",
-    "page-zuid": "give_with_joy",
-    "sort": 5,
-    "parent": "about_us"
-  },
-  {
-    "type": "menu",
-    "key": null,
     "page_name": "USDA Nondiscrimination Statement",
     "page-zuid": "7-c4d69880b9-1c1ml6",
-    "sort": 6,
+    "sort": 0,
     "parent": "about_us"
   },
   {
@@ -81,7 +97,7 @@
     "key": null,
     "page_name": "The Salvation Army of the Triad",
     "page-zuid": "7-c0adf6b995-9vwn32",
-    "sort": 7,
+    "sort": 1,
     "parent": "about_us"
   },
   {
@@ -89,9 +105,56 @@
     "key": null,
     "page_name": "Our Privacy Policy",
     "page-zuid": "7-b6c6d1ae8d-kf94vz",
+    "sort": 2,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "About Us",
+    "page-zuid": "7-e8e78c9b82-96fs17",
+    "sort": 3,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
+    "sort": 4,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Leadership",
+    "page-zuid": "7-8acdfc9d9d-sxx198",
+    "sort": 5,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "History",
+    "page-zuid": "7-b8c09b84c2-fp57hm",
+    "sort": 6,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-88deb6e6f5-l6xv5v",
+    "sort": 7,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Give With Joy",
+    "page-zuid": "give_with_joy",
     "sort": 8,
-    "parent": "about_us",
-    "external_link": "https://www.salvationarmyusa.org/usa-southern-territory/our-privacy-policy/"
+    "parent": "about_us"
   },
   {
     "type": "menu",
@@ -176,8 +239,7 @@
     "page_name": "Legacy and Estate Gifts",
     "page-zuid": "7-98d0a39ea4-lvrr21",
     "sort": 7,
-    "parent": "ways_to_give",
-    "external_link": "https://www.salvationarmyusa.org/usa-southern-territory/north-and-south-carolina/legacy-and-estate-gifts/"
+    "parent": "ways_to_give"
   },
   {
     "type": "menu",
@@ -185,8 +247,7 @@
     "page_name": "Charitable Gifts",
     "page-zuid": "7-e496b5cccd-k5lb7c",
     "sort": 8,
-    "parent": "ways_to_give",
-    "external_link": "https://www.salvationarmyusa.org/usa-southern-territory/north-and-south-carolina/charitable-gifts/"
+    "parent": "ways_to_give"
   },
   {
     "type": "menu",
@@ -232,7 +293,6 @@
     "page_name": "Inspiration In Your Inbox",
     "page-zuid": "7-dcc6afa5b5-sbzbt0",
     "sort": 2,
-    "parent": "custom_menu",
-    "external_link": "https://manage.kmail-lists.com/subscriptions/subscribe?a=R46drN&g=WFHPZm"
+    "parent": "custom_menu"
   }
 ]

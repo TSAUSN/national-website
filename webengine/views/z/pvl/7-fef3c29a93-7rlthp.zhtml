@@ -1,4 +1,5 @@
 <div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-ace6da998a-6hjxxq&version=2')}}
 	<div class="row bg-light p-6 rounded-5 mb-18">
 		<div class="column p-6 rounded-5 bg-light mb-18">
 			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/communityHero.jpg" alt="placeholder">
