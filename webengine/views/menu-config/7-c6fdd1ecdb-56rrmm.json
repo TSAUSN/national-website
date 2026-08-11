@@ -15,54 +15,6 @@
   },
   {
     "type": "menu",
-    "key": null,
-    "page_name": "Homelessness",
-    "page-zuid": "7-dcf194a9fb-bq6m12",
-    "sort": 0,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Spiritual Healing",
-    "page-zuid": "7-e2a396dbf6-qzmjkm",
-    "sort": 1,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Youth Services",
-    "page-zuid": "7-928bdf8df5-gd0t21",
-    "sort": 2,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Family Counseling",
-    "page-zuid": "7-f4f1da9fdc-4ktpbp",
-    "sort": 3,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Disaster Relief",
-    "page-zuid": "7-e6f4b5b0e6-7cr1qf",
-    "sort": 4,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Adult Program Services",
-    "page-zuid": "7-aafef6c0d3-mr22tg",
-    "sort": 5,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
     "key": "about_us",
     "page_name": "About Us",
     "page-zuid": null,
@@ -119,15 +71,15 @@
   {
     "type": "menu",
     "key": "events",
-    "page_name": "Demonstration Corps",
-    "page-zuid": "7-ece3abf296-4r199b",
+    "page_name": "Events",
+    "page-zuid": null,
     "parent": null
   },
   {
     "type": "menu",
     "key": "newsroom",
-    "page_name": "Demonstration Corps",
-    "page-zuid": "7-f4f09acf97-l9b3qm",
+    "page_name": "Newsroom",
+    "page-zuid": null,
     "parent": null
   },
   {
@@ -197,14 +149,14 @@
     "type": "menu",
     "key": "contact_us",
     "page_name": "Contact Us",
-    "page-zuid": "7-d899c88cd3-h3g6wd",
+    "page-zuid": null,
     "parent": null
   },
   {
     "type": "menu",
     "key": "custom_menu",
-    "page_name": "Test Menu",
-    "page-zuid": "7-f0c9c3f3fc-vqc2f3",
+    "page_name": "Menu Item with Dropdown",
+    "page-zuid": null,
     "parent": null
   }
 ]
