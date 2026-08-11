@@ -1,5 +1,9 @@
 {{ $property = {request.queryParam(property)} }}
 {{ $model = {request.queryParam(model)} }}
+{{$excludedJobRole = 'National Advisory Board'}}
+{{if {$model} == '6-a0898ca2c1-krnm0f' }}
+  {{$excludedJobRole = '__no_excluded_job_role__'}}
+{{/if}}
 {{$hasProperty = 0}}
 {{if {request.queryParam(limit)} }}
   {{$limit = {request.queryParam(limit)} }}
@@ -28,7 +32,7 @@
 
 [
   {{if {$hasProperty} == 1 }}
-      {{ each staffs as staff where (find_in_set("{$property}", {$findInSet} ) OR title_rank LIKE '%General%' OR national_member=1) AND job_role != 'National Advisory Board' sort by sort_order asc }}
+      {{ each staffs as staff where (find_in_set("{$property}", {$findInSet} ) OR title_rank LIKE '%General%' OR national_member=1) AND (job_role != '{$excludedJobRole}' OR job_role IS NULL) sort by sort_order asc }}
       {{$about =  {staff.about.escapeForJs()} }}
         {{if {staff.display_on_website} == 1}}
           {
@@ -57,7 +61,7 @@
         {{/if}}
       {{/each}}
   {{else-if {$hasProperty} == 0 && {$property} }}
-    {{ each staffs as staff where (national_member=1 OR title_rank LIKE '%General%') order by sort_order asc limit {$limit} }}
+    {{ each staffs as staff where (national_member=1 OR title_rank LIKE '%General%') AND (job_role != '{$excludedJobRole}' OR job_role IS NULL) order by sort_order asc limit {$limit} }}
       {{$about =  {staff.about.escapeForJs()} }}
         {
           "fullname": "{{staff.first_name}} {{staff.last_name}}",
@@ -83,7 +87,7 @@
         }{{staff._arraycomma}}
       {{/each}}
   {{else-if {$hasProperty} == 0 && !{$property} }}
-    {{ each staffs as staff where national_member=1 OR title_rank LIKE '%General%' order by sort_order asc limit {$limit} }}
+    {{ each staffs as staff where (national_member=1 OR title_rank LIKE '%General%') AND (job_role != '{$excludedJobRole}' OR job_role IS NULL) order by sort_order asc limit {$limit} }}
       {{$about =  {staff.about.escapeForJs()} }}
 
       {
