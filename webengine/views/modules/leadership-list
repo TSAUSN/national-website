@@ -17,25 +17,30 @@
 
 <script>
 function fixMalformedJSON(rawText) {
+  // First: don't modify valid JSON at all.
+  try {
+    return JSON.parse(rawText);
+  } catch (originalError) {
     try {
-      // Remove line breaks and unnecessary whitespace
-      let cleaned = rawText.replace(/\n/g, ' ').replace(/\s+/g, ' ');
+      let cleaned = rawText;
 
-      // Remove trailing commas before closing brackets
-      cleaned = cleaned.replace(/,\s*]/g, ']');
-      cleaned = cleaned.replace(/,\s*}/g, '}');
+      // Do NOT globally collapse whitespace.
+      // JSON.parse already accepts whitespace/newlines outside strings.
 
-      // Remove empty lines or invalid commas between objects
+      // Limited cleanup for trailing commas.
+      cleaned = cleaned.replace(/,\s*([}\]])/g, '$1');
+
+      // Fix accidental duplicate comma between objects.
       cleaned = cleaned.replace(/},\s*,\s*{/g, '}, {');
 
-      // Try to parse it
-      const json = JSON.parse(cleaned);
-      return json;
-    } catch (err) {
-      console.error('Failed to parse JSON:', err.message);
+      return JSON.parse(cleaned);
+    } catch (repairError) {
+      console.error('Failed to parse JSON:', repairError.message);
+      console.error('Original JSON error:', originalError.message);
       return null;
     }
   }
+}
 
   document.addEventListener('DOMContentLoaded', function () {
     let locationModel =  cookieManager.get(cookieKeys.locationModel);
