@@ -115,4 +115,32 @@
 	<div>{{block('/-/block/general_accordion.html?variant=7-e0f5ffadd7-8pq7f2')}}</div>
 	<h2>Stories</h2>
 	<div>{{block('/-/block/stories_carousel.html?variant=7-de8688c6ed-b5gmkj')}}</div>
+	<h2>Community Leaders</h2>
+	<div>{{block('/-/block/profile_card_block.html?variant=7-c880f4858d-3j8c7c')}}</div>
+	<h2>Mobile Desktop Videos</h2>
+	{{block('/-/block/mobile_desktop_videos.html?variant=7-f28dcbcafa-826zs3')}}
+	<h2>Services Selector</h2>
+	{{block('/-/block/service_selector.html?variant=7-f6ccc893c1-s98w6v')}}
+	<h2>Contact Us</h2>
+	<div>{{block('/-/block/contact_us_block.html?variant=7-eaabcfc1f6-p0hwcq')}}</div>
+	<h2>Theater Space</h2>
+	{{block('/-/block/theater_space_block.html?variant=7-b2e9cac0d8-jn7qjm')}}
+	<h2>Ways to Give Blocks</h2>
+	{{block('/-/block/way_to_give_block.html?variant=7-e6a194f8b3-dzrbt9')}}
+	<h2>Annual Reports</h2>
+	{{block('/-/block/annual_reports_blocks.html?variant=7-e8b5e49ab2-zlddpf')}}
+	<h2>Fundraising Thermometer</h2>
+	{{block('/-/block/fundraising_thermometer_block.html?variant=7-a4eca5a4e7-1mrl1k')}}
+	<h2>Location Card</h2>
+	<div>{{block('/-/block/mobile_desktop_location_card_block.html?variant=7-e6db97dcc3-j0grjk')}}</div>
+	<h2>Greatest Need</h2>
+	<div>{{block('/-/block/greatest_need.html?variant=7-f0e8f690c9-m3c8jg')}}</div>
+	<h2>Stats Block</h2>
+	{{block('/-/block/stats_block.html?variant=7-a4e0f3f5a5-5kdzc4')}}
+	<h2>Single Card</h2>
+	<div>{{block('/-/block/base_card.html?variant=7-d8c9a2f6b7-gc1fcl')}}</div>
+	<h2>Dynamic Stories Carousel</h2>
+	{{block('/-/block/dynamic_stories_carousel.html?variant=7-b4cd96ffce-tc9j6q')}}
+	<h2>CTA Button</h2>
+	<div>{{block('/-/block/cta_button.html?variant=7-ccf9ebd38e-pk1vsc')}}</div>
 </div>
