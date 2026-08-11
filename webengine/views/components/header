@@ -807,17 +807,15 @@
 
         const icon = document.createElement('span');
         icon.className = 'material-symbols-outlined me-4 text-primary-200';
-        // instant-endpoint services have content.icon_name; IndexDB services have .icon
-        icon.textContent = service.content?.icon_name || service.icon || 'local_offer';
+        icon.textContent = service.icon || 'local_offer';
 
         const text = document.createElement('span');
         text.className = 'flex-grow-1 text-wrap';
-        // instant-endpoint services have content.title; IndexDB services have .title
-        text.textContent = service.content?.title || service.title;
+        text.textContent = service.title;
 
         const input = createCheckboxInput(service, containerType);
         input.className = 'form-check-input';
-
+        
         label.appendChild(icon);
         label.appendChild(text);
         label.appendChild(input);
@@ -825,10 +823,14 @@
         return item;
       }
 
-      // Update mobile containers (header dropdowns only — location finder mobile is handled separately below)
+      // Update mobile containers
       const mobileContainers = [
         {
           selector: '.d-md-none .dropdown-menu .dropdown-menu__wrapper',
+          type: 'mobile'
+        },
+        {
+          selector: '.services-list--mobile .dropdown-menu',
           type: 'mobile'
         },
         {
@@ -847,7 +849,7 @@
           });
 
           });
-
+ 
 
           // Add action buttons
           const actionDiv = document.createElement('div');
@@ -861,19 +863,6 @@
           // container.appendChild(actionDiv);
         }
       });
-
-      // Location finder mobile dropdown — built from the same instant-endpoint data as desktop
-      // so checkbox values use service.content.Zuid.data[0].Zuid and match loc.service_types
-      const locationFinderMobileContainer = document.querySelector('.services-list--mobile .dropdown-menu');
-      if (locationFinderMobileContainer) {
-        locationFinderMobileContainer.innerHTML = '';
-        data
-          .filter(s => s.content.show_on_menus === "1")
-          .sort((a, b) => Number(a.content.sort_order) - Number(b.content.sort_order))
-          .forEach(service => {
-            locationFinderMobileContainer.appendChild(createMobileItem(service, 'body'));
-          });
-      }
 
       const address = '{{request.queryParam(address)}}';
       const services = '{{request.queryParam(services)}}';
