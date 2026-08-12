@@ -130,6 +130,58 @@
       return urlParams.get('stat');
     }
 
+    function escapeInvalidJSONBackslashes(rawText) {
+      let repaired = '';
+      let inString = false;
+
+      for (let index = 0; index < rawText.length; index += 1) {
+        const character = rawText[index];
+
+        if (character === '"') {
+          inString = !inString;
+          repaired += character;
+          continue;
+        }
+
+        if (inString && character === '\\') {
+          const nextCharacter = rawText[index + 1];
+          const isSimpleEscape = '"\\/bfnrt'.includes(nextCharacter);
+          const isUnicodeEscape =
+            nextCharacter === 'u' &&
+            /^[0-9a-fA-F]{4}$/.test(rawText.slice(index + 2, index + 6));
+
+          if (!isSimpleEscape && !isUnicodeEscape) {
+            repaired += '\\\\';
+            continue;
+          }
+
+          const escapeLength = isUnicodeEscape ? 6 : 2;
+          repaired += rawText.slice(index, index + escapeLength);
+          index += escapeLength - 1;
+          continue;
+        }
+
+        repaired += character;
+      }
+
+      return repaired;
+    }
+
+    function parseStatsJSON(rawText) {
+      try {
+        return JSON.parse(rawText);
+      } catch (originalError) {
+        const repaired = escapeInvalidJSONBackslashes(rawText);
+
+        try {
+          return JSON.parse(repaired);
+        } catch (repairError) {
+          console.error('The stats endpoint returned invalid JSON:', repairError);
+          throw originalError;
+        }
+      }
+    }
+
     async function getStats() {
       try {
         let fetchUrl = ``;
@@ -149,14 +201,28 @@
         if ( cookieLocation === '6-a0898ca2c1-krnm0f') { // Territories and Homepage
           fetchUrl += `https://{{instance.domain}}/stats-info.json?zuid=${cookieLocationZUID}&page-model=6-a0898ca2c1-krnm0f`;
         }
-    
+
+        if (!fetchUrl) {
+          throw new Error(`Unsupported location model: ${cookieLocation || 'missing'}`);
+        }
 
         const result = await fetch(fetchUrl);
-        const stats = await result.json();
+
+        if (!result.ok) {
+          throw new Error(`Stats request failed with status ${result.status}`);
+        }
+
+        const rawText = await result.text();
+        const stats = parseStatsJSON(rawText);
+
+        if (!Array.isArray(stats)) {
+          throw new TypeError('The stats endpoint did not return an array.');
+        }
 
         return stats;
       } catch (err) {
-        console.error('Error:', err);
+        console.error('Unable to load stats:', err);
+        return [];
       }
     }
 
@@ -659,7 +725,12 @@ function filterCarousel(stats) {
 
     async function renderCarousel() {
       const stats = await getStats();
-      console.log(stats)
+
+      if (stats.length === 0) {
+        console.error('Unable to render stats because no valid data was returned.');
+        return;
+      }
+
       generateCarousel(stats);
     }
 

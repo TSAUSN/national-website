@@ -26,15 +26,13 @@
     {{if {$count} === 1 }}
       {{each stats as stat WHERE stat.locations = '{$zuid}' }}
     {
-          {{$rsc  = {stat.right_side_content.striptags()} }}
-          {{$description = {stat.description.striptags()} }}
           "general_statistic": "{{stat.general_statistic}}",
           "categories": "{{stat.categories}}",
           "stats_name": "{{stat.stats_name.escapeForJs()}}",
           "stats_sub_text": "{{stat.stats_sub_text.escapeForJs()}}",
-          "description": "{{$description.escapeForJs()}}",
+          "description": "{{stat.description.striptags().escapeForJs()}}",
           "right_side_header": "{{stat.right_side_header.striptags().escapeForJs()}}",
-          "right_side_content": "{{$rsc.escapeForJs()}}",
+          "right_side_content": "{{stat.right_side_content.striptags().escapeForJs()}}",
           "territories": "{{stat.territories}}",
           "divisions": "{{stat.divisions}}",
           "locations": "{{stat.locations}}",
