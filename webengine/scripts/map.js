@@ -683,7 +683,7 @@ async function displayLocationMarkers(searchLocation) {
     locationMarkers = [];
 
     // If we haven't loaded the location data yet, load it
-    if (window.locationDatas.length === 0) {
+    if (!window.locationDatas || window.locationDatas.length === 0) {
       await fetchLocationData();
     }
 
