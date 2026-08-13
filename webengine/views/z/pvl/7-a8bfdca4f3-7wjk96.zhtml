@@ -1,11 +1,14 @@
-<div classname="{styles.pvlRoot}">
-	<div data-zesty-id="content:block:6-bcfbdaa6d3-vjj3qs:27:2:0:22">{{block('/-/block/hero_full.html?variant=7-f2b1f585fa-rp974w')}}</div>
-	<div class="my-2" data-zesty-id="design:design:whitespace-sm:1:6699"></div>
-	<div class="p-6 rounded-5 bg-light mb-18" data-zesty-id="design:columns:1 column - 1 row my-3:16:21">
-<div class="col-lg-12 col-md-12 col-sm-12" data-zesty-id="design:columns:1 column - 1 row my-3:16:21-1:1 column - 1 row:0">
-<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/bcb6b7fe-8979-4e24-91ce-64cc29b4700d_2026+R4H+Theater+Right+Align+%281300x508%29.svg" alt="placeholder" class="img-fluid w-100 d-block mx-auto mb-3 rounded" style="max-width:100%;height:auto;" loading="lazy" data-zesty-id="content:images:0:4042">
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:1:70"></div>
-<div style="color:#111111;" class="rounded p-6 gap-3 bg-light text-dark" data-zesty-id="content:wysiwyg_basic:2:36"><h5>The Mission</h5>
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-f2b1f585fa-rp974w&version=5')}}
+	<div class="my-2"></div>
+	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Run-For-Hope-2026.rkZKGB5rzx.jpg" alt="placeholder" style="max-width:100%;display:block;margin-left:auto;margin-right:auto;width:50%" class="img-fluid w-100 d-block mx-auto mb-3 rounded">
+			<div class="pvlRichtext" style="text-align:center"><p style="text-align: center;"><span>2026 Run for Hope</span></p>
+<p style="text-align: center;"><span>Run with family.</span><br><span>Run with a friend.</span><br><span>RUN FOR HOPE.</span><br><span>Run, volunteer or donate.</span></p>
+<p style="text-align: center;"><a class="btn btn-secondary" href="https://www.salvationarmyusa.org/events/run-for-hope-1/">Register</a></p></div>
+			<div class="py-5"></div>
+			<div class="pvlRichtext rounded p-6 gap-3 bg-light text-dark" style="color:#111111"><div style="color:#111111;" class="rounded p-6 gap-3 bg-light text-dark"><h5>The Mission</h5>
 
 <p>
 	Our mission is to enable all young people, especially those who need us most, to reach their full potential as productive, caring, responsible citizens.
@@ -77,8 +80,8 @@
 	</div>
 </div>
 
-<h5> </h5></div>
+<h5> </h5></div></div>
 		</div>
 	</div>
-	<div data-zesty-id="content:block:6-caf0f4baac-ctljlz:2:30">{{block('/-/block/general_accordion.html?variant=7-d2faa7b586-65718w')}}</div>
+	{{block('/-/block/general_accordion.html?variant=7-d2faa7b586-65718w')}}
 </div>

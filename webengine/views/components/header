@@ -15,8 +15,9 @@
     <nav class="navbar navbar-expand-lg py-0">
       <a
         href="/"
-        class="me-4 me-xl-8 header-home-image"
+        class="me-4 me-xl-8 header-home-image flex-shrink-0"
         ><img
+          class="flex-shrink-0"
           src="https://8hxvw8tw.media.zestyio.com/shield-1.svg"
           alt="The Salvation Army Logo"
           width="39"
@@ -419,7 +420,7 @@
 
     <!-- mobile -->
     <div
-      class="mx-4 py-2 px-4 rounded-9 d-lg-none align-items-center justify-content-between d-sm-flex position-absolute bg-light start-0 end-0"
+      class="location-indicator-mobile mx-4 py-2 px-4 rounded-9 d-lg-none align-items-center justify-content-between d-sm-flex position-absolute bg-light start-0 end-0"
       style="top: 5.8rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);"
     >
       <div class="me-2 d-flex align-items-center justify-content-center">
@@ -1491,4 +1492,3 @@ function setDynamicColumnCount() {
     }
   });
 </script>
-
