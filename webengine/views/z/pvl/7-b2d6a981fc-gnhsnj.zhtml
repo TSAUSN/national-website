@@ -1,5 +1,6 @@
 <div className={styles.pvlRoot}>
 	{{block('/-/block/hero_full.html?variant=7-aaa5a8bc8b-nzgq56')}}
+	{{block('/-/block/dynamic_stories_carousel.html?variant=7-94f0c492ac-6z3rcd')}}
 	<div class="row bg-light p-6 rounded-5 mb-18">
 		<div class="column p-6 rounded-5 bg-light mb-18">
 			<div class="row my-3 column-gap-6">
