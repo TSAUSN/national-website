@@ -176,7 +176,7 @@
     const servicesContainer = document.getElementById('services-container');
     if (!servicesContainer) return;
 
-    const serviceTypeZuids = '{{this.service_types}}'
+    const serviceTypeZuids = '{{this.services_offered}}'
       .split(',')
       .map(s => s.trim())
       .filter(Boolean);
