@@ -1,1 +1,77 @@
- 
+<script>
+    // Keep external links consistent, including links rendered after page load.
+    (function initExternalLinks() {
+        function getExternalUrl(link) {
+            const href = link.getAttribute('href');
+            if (!href) return null;
+
+            let url;
+            try {
+                url = new URL(href, window.location.href);
+            } catch (error) {
+                return null;
+            }
+
+            // Only web links can be external. Compare the complete hostname so a
+            // subdomain (for example, give.example.org from www.example.org) is external.
+            if (!['http:', 'https:'].includes(url.protocol)) return null;
+            if (url.hostname === window.location.hostname) return null;
+
+            return url;
+        }
+
+        function applyExternalLinkAttributes(link) {
+            const url = getExternalUrl(link);
+            if (!url) return;
+
+            link.setAttribute('target', '_blank');
+            link.setAttribute('data-url', url.href);
+
+            const relValues = (link.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
+            const normalizedRelValues = relValues.map((value) => value.toLowerCase());
+
+            if (!normalizedRelValues.includes('noopener')) relValues.push('noopener');
+            if (!normalizedRelValues.includes('noreferrer')) relValues.push('noreferrer');
+
+            link.setAttribute('rel', relValues.join(' '));
+        }
+
+        function applyExternalLinkAttributesWithin(root) {
+            if (root.nodeType === 1 && root.matches('a[href]')) {
+                applyExternalLinkAttributes(root);
+            }
+
+            if (typeof root.querySelectorAll === 'function') {
+                root.querySelectorAll('a[href]').forEach(applyExternalLinkAttributes);
+            }
+        }
+
+        function observeExternalLinks() {
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'attributes') {
+                        applyExternalLinkAttributes(mutation.target);
+                        return;
+                    }
+
+                    mutation.addedNodes.forEach((node) => {
+                        if (node.nodeType === 1) applyExternalLinkAttributesWithin(node);
+                    });
+                });
+            });
+
+            // Observing document starts working even when this bundle runs before the
+            // document element or before asynchronously rendered navigation is ready.
+            observer.observe(document, {
+                attributes: true,
+                attributeFilter: ['href'],
+                childList: true,
+                subtree: true
+            });
+        }
+
+        observeExternalLinks();
+        applyExternalLinkAttributesWithin(document);
+    })();
+
+</script>

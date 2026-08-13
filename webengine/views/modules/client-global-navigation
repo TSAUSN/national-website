@@ -1799,10 +1799,10 @@
           );
 
 
-          (`{{$CL = {locations.filter({!this.location}).city} }}`)
-          (`{{$CLT = {cities.filter({$CL}).title} }}`)
-          (`{{$SL = {locations.filter({!this.location}).state} }}`)
-          (`{{$SLT = { states.filter({$SL}).name} }}`)
+          (`{{$CL = {locations.filter({!this.location}).city} }}`) ;
+          (`{{$CLT = {cities.filter({$CL}).title} }}`);
+          (`{{$SL = {locations.filter({!this.location}).state} }}`);
+          (`{{$SLT = { states.filter({$SL}).name} }}`);
 
           cookieManager.set(cookieKeys.locationCity, `{{$CLT}}`);
           cookieManager.set(cookieKeys.locationState, `{{$SLT}}`);
