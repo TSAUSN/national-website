@@ -1,5 +1,4 @@
-
-{{ setting.fav_icon }}
+{{$baseUrl = https://tags.tiqcdn.com/utag/salvationarmy}}
 <script type="text/javascript">
   function checkPropertyType() {
     const propType = cookieManager.get(cookieKeys.locationPropertyType);
