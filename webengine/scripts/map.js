@@ -281,7 +281,7 @@ function handleMarkerContent(markerData) {
   const contentWrapper = document.querySelector('.map-content-wrapper');
   const searchData = window.searchInfoData;
   const resetButton = document.getElementById('map__reset');
-  resetButton.classList.remove('d-none');
+  if (resetButton) resetButton.classList.remove('d-none');
   if (!contentWrapper) return;
 
   // Remove existing location-detail div if it exists
@@ -514,8 +514,8 @@ function handleMarkerContent(markerData) {
 
   const renderServicesForMap = async function(services) {
     const servicesContainer = document.getElementById('services-container');
+    console.log("MARKER DATA service_types:", markerData.service_types, "| servicesContainer:", servicesContainer);
     if (!servicesContainer) return;
-    console.log("MARKER DATA:", markerData.service_types);
     const serviceTypeZuids = (markerData.service_types || '')
       .split(',')
       .map(s => s.trim())
