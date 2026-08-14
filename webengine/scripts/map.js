@@ -279,7 +279,7 @@ let mapInitialized = false;
 // Function to handle marker click and update content
 function handleMarkerContent(markerData) {
   const contentWrapper = document.querySelector('.map-content-wrapper');
-  const searchData = window.searchInfoData;
+  const searchData = window.searchInfoData || { searchTerm: '', totalResults: 0, searchMethod: '', filterType: '', filterValue: '' };
   const resetButton = document.getElementById('map__reset');
   if (resetButton) resetButton.classList.remove('d-none');
   if (!contentWrapper) return;
