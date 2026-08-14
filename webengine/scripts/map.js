@@ -515,7 +515,7 @@ function handleMarkerContent(markerData) {
   const renderServicesForMap = async function(services) {
     const servicesContainer = document.getElementById('services-container');
     if (!servicesContainer) return;
-
+    console.log("MARKER DATA:", markerData.service_types);
     const serviceTypeZuids = (markerData.service_types || '')
       .split(',')
       .map(s => s.trim())
@@ -525,10 +525,9 @@ function handleMarkerContent(markerData) {
       servicesContainer.innerHTML = '<div class="col">No services available</div>';
       return;
     }
-    console.log("Services Types ZUIDS:", serviceTypeZuids)
 
     const servicesInnerHTML = [];
-
+    console.log("Services DATA For Locations:", )
     for (const serviceTypeZuid of serviceTypeZuids) {
       const serviceTypeData = await getServiceTypeForMap(serviceTypeZuid);
       if (!serviceTypeData || !serviceTypeData[0]) continue;
