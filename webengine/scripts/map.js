@@ -532,7 +532,8 @@ function handleMarkerContent(markerData) {
     for (const serviceTypeZuid of serviceTypeZuids) {
       const serviceTypeData = await getServiceTypeForMap(serviceTypeZuid);
       if (!serviceTypeData || !serviceTypeData[0]) continue;
-      const iconName = serviceTypeData[0]?.icon_name || '';
+      const rawIconName = serviceTypeData[0]?.icon_name;
+      const iconName = (rawIconName && rawIconName !== 'NULL') ? rawIconName : '';
       const matchingService = Array.isArray(services)
         ? services.find(s => s.service_type?.data?.[0]?.meta?.zuid === serviceTypeZuid)
         : null;
