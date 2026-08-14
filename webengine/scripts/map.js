@@ -525,6 +525,7 @@ function handleMarkerContent(markerData) {
       servicesContainer.innerHTML = '<div class="col">No services available</div>';
       return;
     }
+    console.log("Services Types ZUIDS:", serviceTypeZuids)
 
     const servicesInnerHTML = [];
 
