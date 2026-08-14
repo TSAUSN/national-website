@@ -501,7 +501,18 @@ function handleMarkerContent(markerData) {
         </div>
         </div>
     `;
-  // Load services from services_offered ZUIDs on the marker data
+  // Remove existing location info and inject HTML into DOM first
+  let locationInfo = contentWrapper.querySelector('.location-info');
+  if (locationInfo) {
+    locationInfo.remove();
+  }
+  const initialContent = document.querySelector('.map-init-content');
+  if (initialContent) {
+    initialContent.classList.add('d-none');
+  }
+  contentWrapper.insertAdjacentHTML('afterbegin', html);
+
+  // Load services after HTML is in the DOM so getElementById finds the container
   (async function () {
     const servicesContainer = document.getElementById('services-container');
     if (!servicesContainer) return;
@@ -516,26 +527,52 @@ function handleMarkerContent(markerData) {
       return;
     }
 
+    const fetchServicesForLocation = async function (zuidArg) {
+      try {
+        const response = await fetch(`${window.location.origin}/services.json?location=${zuidArg}`);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+        return Array.isArray(data) ? data : [];
+      } catch (error) {
+        console.error('Error fetching services:', error);
+        return [];
+      }
+    };
+
+    const fetchServiceType = async function (serviceTypeZuid) {
+      try {
+        const response = await fetch(`${window.location.origin}/service-types.json?zuid=${serviceTypeZuid}`);
+        if (!response.ok) throw new Error('Network response was not ok');
+        return await response.json();
+      } catch (error) {
+        console.error('Error fetching service type:', error);
+        return false;
+      }
+    };
+
     try {
-      const services = await window.fetchServicesForLocation(markerData.zuid);
+      const services = await fetchServicesForLocation(markerData.zuid);
       const servicesInnerHTML = [];
 
       for (const serviceTypeZuid of serviceTypeZuids) {
-        const serviceTypeData = await getServiceType(serviceTypeZuid);
+        const serviceTypeData = await fetchServiceType(serviceTypeZuid);
         if (!serviceTypeData || !serviceTypeData[0]) continue;
-        const iconName = serviceTypeData[0]?.icon_name || '';
+
+        const rawIconName = serviceTypeData[0]?.icon_name;
+        const iconName = (rawIconName && rawIconName !== 'NULL') ? rawIconName : '';
+
         const matchingService = Array.isArray(services)
           ? services.find((s) => s.service_type?.data?.[0]?.meta?.zuid === serviceTypeZuid)
           : null;
 
         if (matchingService) {
-          const title = matchingService.title?.replace(/<\/?b>/g, '') || '';
+          const title = matchingService.title || '';
           if (!title) continue;
           servicesInnerHTML.push(`
             <div class="col">
               <div class="d-flex align-items-start">
                 <span class="material-symbols-outlined text-primary-200 display-6">${iconName}</span>
-                <a href="${matchingService.meta?.web?.url || '#'}" class="display-4 text-dark-100 display-md-1 ms-2">${title}</a>
+                <a href="${matchingService.meta?.web?.url || '#'}" class="display-5 text-dark-100 display-md-1 ms-2">${title}</a>
               </div>
             </div>
           `);
@@ -546,7 +583,7 @@ function handleMarkerContent(markerData) {
             <div class="col">
               <div class="d-flex align-items-start">
                 <span class="material-symbols-outlined text-primary-200 display-6">${iconName}</span>
-                <span class="display-4 text-dark-100 display-md-1 ms-2">${label}</span>
+                <span class="display-5 text-dark-100 display-md-1 ms-2">${label}</span>
               </div>
             </div>
           `);
@@ -558,24 +595,10 @@ function handleMarkerContent(markerData) {
         : '<div class="col">No services available</div>';
     } catch (error) {
       console.error('Error loading services:', error);
-      const servicesContainer = document.getElementById('services-container');
-      if (servicesContainer) {
-        servicesContainer.innerHTML = '<div class="col">Error loading services</div>';
-      }
+      const sc = document.getElementById('services-container');
+      if (sc) sc.innerHTML = '<div class="col">Error loading services</div>';
     }
   })();
-
-  // Find existing location info and remove it
-  let locationInfo = contentWrapper.querySelector('.location-info');
-  if (locationInfo) {
-    locationInfo.remove();
-  }
-  const initialContent = document.querySelector('.map-init-content');
-  if (initialContent) {
-    initialContent.classList.add('d-none');
-  }
-  // Prepend the new content before the existing content
-  contentWrapper.insertAdjacentHTML('afterbegin', html);
 }
 
 // Add event listener for marker clicks
