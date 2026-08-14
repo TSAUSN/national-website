@@ -822,7 +822,7 @@ async function displayLocationMarkers(searchLocation) {
           location.corps || ''
         }`,
         services: location.services ? location.services.map((s) => s.title).join(',') : '',
-        services_offered: location.services_offered || '',
+        services_offered: location.service_types || '',
         address:
           addressBuilder(location.address, location.city, location.state, location.zipcode) || '',
         contact_number: location.contact_number || '',
