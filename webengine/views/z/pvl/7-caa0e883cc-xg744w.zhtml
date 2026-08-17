@@ -1,7 +1,7 @@
-<div classname="{styles.pvlRoot}">
+<div className={styles.pvlRoot}>
 	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
 		<div class="col-lg-12 col-md-12 col-sm-12">
-			<div style="color: #111111;" class="rounded p-6 gap-3 bg-light text-dark">
+			<div class="pvlRichtext rounded p-6 gap-3 bg-light text-dark" style="color:#111111"><div class="rounded p-6 gap-3 bg-light text-dark" style="color: #111111;">
 <h4 style="text-align: center;"><span style="font-size: 36px;"><strong><span style="color: #ed1c2b;">Locations</span></strong></span></h4>
 <p></p>
 <p style="text-align: center;"><strong><span style="font-size: 20px;">The Salvation Army Metro Atlanta Area Command Administrative Office</span></strong></p>
@@ -13,44 +13,44 @@
 <div class="btgrid">
 <div class="row row-1">
 <div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content" spellcheck="false">
+<div class="content">
 <h5 style="text-align: center;"><strong><span style="font-size: 16px;">Atlanta International Corps</span></strong></h5>
 <p style="text-align: center;">3771 Central Avenue<br>Doraville, GA 30340<br><a href="/atlanta-international" target="_blank" rel="noopener">Website</a> | <span style="color: #ed1c2b;"><a href="tel:4044862820">404-486-2820</a><br><br></span></p>
 </div>
 </div>
 <div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content" spellcheck="false">
+<div class="content">
 <h5 style="text-align: center;"><strong><span style="font-size: 16px;">Atlanta Peachcrest Corps</span></strong></h5>
 <p style="text-align: center;">3500 Sherrydale Lane<br>Decatur, GA 30032<br><a href="https://southernusa.salvationarmy.org/atlanta-peachcrest" target="_blank" rel="noopener">Website</a> | <span style="color: #ed1c2b;"><a href="tel:4044862870">404-486-2870</a><br><br></span></p>
 </div>
 </div>
 <div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content" spellcheck="false">
-<h5 style="text-align: center;"><strong><span style="font-size: 16px;">Atlanta Red Shield | Harbor Light Corps</span></strong></h5>
+<div class="content">
+<h5 style="text-align: center;"><strong><span style="font-size: 16px;">Center of Hope | Harbor Light Corps</span></strong></h5>
 <p style="text-align: center;">469 Marietta Street NW<br>Atlanta, GA 30313<br><a href="https://southernusa.salvationarmy.org/metro-atlanta/center-of-hope" target="_blank" rel="noopener">Website</a> | <span style="color: #ed1c2b;"><a href="tel:4044862700">404-486-2700</a></span></p>
 </div>
 </div>
 </div>
 <div class="row row-2">
 <div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content" spellcheck="false">
-<h5 style="text-align: center;"></h5>
+<div class="content">
+<h5 style="text-align: center;">&nbsp;</h5>
 <h5 style="text-align: center;"><strong><span style="font-size: 16px;">Atlanta Temple Corps</span></strong></h5>
 <p style="text-align: center;">2090 N. Druid Hills Road NE<br>Atlanta, GA 30329<br><a href="https://southernusa.salvationarmy.org/atlanta-temple/" target="_blank" rel="noopener">Website</a> | <span style="color: #ed1c2b;"><a href="tel:4044862800">404-486-2800</a></span></p>
 </div>
 </div>
 <div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content" spellcheck="false">
-<h5 style="text-align: center;"></h5>
+<div class="content">
+<h5 style="text-align: center;">&nbsp;</h5>
 <h5 style="text-align: center;"><strong><span style="font-size: 16px;">Clayton/Fayette County Corps</span></strong></h5>
 <p style="text-align: center;">130 Spring Street<br>Jonesboro, GA 30236<br><a href="https://southernusa.salvationarmy.org/jonesboro-ga" target="_blank" rel="noopener">Website</a> | <span style="color: #ed1c2b;"><a href="tel:7707241680">770-724-1680</a></span></p>
 </div>
 </div>
 <div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content" spellcheck="false">
-<h5 style="text-align: center;"></h5>
+<div class="content">
+<h5 style="text-align: center;">&nbsp;</h5>
 <h5 style="text-align: center;"><strong><span style="font-size: 16px;">Gwinnett County Corps</span></strong></h5>
-<p style="text-align: center;">3455 Sugarloaf Parkway<br>Lawrenceville, GA 30044<br><a href="https://southernusa.salvationarmy.org/gwinnett" target="_blank" rel="noopener">Website</a> | <span style="color: #ed1c2b;"><a href="tel:7707241677">770-724-1677</a></span></p>
+<p style="text-align: center;">3455 Sugarloaf Parkway<br>Lawrenceville, GA 30044<br><a href="https://southernusa.salvationarmy.org/gwinnett" target="_blank" rel="noopener">Website</a> | <span style="color: #ed1c2b;"><a href="tel:7707241677">770-724-1663</a></span></p>
 </div>
 </div>
 </div>
@@ -58,15 +58,15 @@
 <div class="btgrid">
 <div class="row row-1">
 <div class="col-lg-6 col-md-12 col-sm-12">
-<div class="content" spellcheck="false">
-<h5 style="text-align: center;"></h5>
+<div class="content">
+<h5 style="text-align: center;">&nbsp;</h5>
 <h5 style="text-align: center;"><strong><span style="font-size: 16px;">Cobb/Douglas County Corps</span></strong></h5>
 <p style="text-align: center;">202 Waterman Street SE<br>Marietta, GA 30060<br><a href="https://southernusa.salvationarmy.org/marietta" target="_blank" rel="noopener">Website</a> | <span style="color: #ed1c2b;"><a href="tel:7707241640">770-724-1640</a></span></p>
 </div>
 </div>
 <div class="col-lg-6 col-md-12 col-sm-12">
-<div class="content" spellcheck="false">
-<h5 style="text-align: center;"></h5>
+<div class="content">
+<h5 style="text-align: center;">&nbsp;</h5>
 <h5 style="text-align: center;"><strong><span style="font-size: 16px;">Ray and Joan Kroc Corps Community Center</span></strong></h5>
 <p style="text-align: center;">967 Dewey Street SW<br>Atlanta, GA 30310<br><a href="https://kroccenteratlanta.org/" target="_blank" rel="noopener">Website</a> | <span style="color: #ed1c2b;"><a href="tel:4046387195">404-638-7195</a></span></p>
 </div>
@@ -74,12 +74,12 @@
 </div>
 <div class="row row-2">
 <div class="col-lg-6 col-md-12 col-sm-12">
-<div class="content" spellcheck="false">
+<div class="content">
 <p></p>
 </div>
 </div>
 <div class="col-lg-6 col-md-12 col-sm-12">
-<div class="content" spellcheck="false">
+<div class="content">
 <p></p>
 </div>
 </div>
@@ -91,13 +91,13 @@
 <div class="btgrid">
 <div class="row row-1">
 <div class="col-lg-6 col-md-12 col-sm-12">
-<div class="content" spellcheck="false">
-<h5 style="text-align: center;"><strong><span style="font-size: 16px;">Red Shield Services</span></strong></h5>
+<div class="content">
+<h5 style="text-align: center;"><strong><span style="font-size: 16px;">Center of Hope</span></strong></h5>
 <p style="text-align: center;">469 Marietta Street NW<br>Atlanta, GA 30313<br><a href="/usa-southern-territory/georgia/metro-atlanta-area-command/homelessness/" target="">Website</a> | <span style="color: #ed1c2b;"><a href="tel:4044862700">404-486-2700</a><br><br></span></p>
 </div>
 </div>
 <div class="col-lg-6 col-md-12 col-sm-12">
-<div class="content" spellcheck="false">
+<div class="content">
 <h5 style="text-align: center;"><strong><span style="font-size: 16px;">Adult Rehabilitation Center</span></strong></h5>
 <p style="text-align: center;">740 Marietta Street NW<br>Atlanta, GA 30318<br><span style="color: #ed1c2b;"><a href="tel:4045229785">404-522-9785</a></span></p>
 </div>
@@ -105,23 +105,23 @@
 </div>
 <div class="row row-2">
 <div class="col-lg-6 col-md-12 col-sm-12">
-<div class="content" spellcheck="false">
-<h5 style="text-align: center;"></h5>
+<div class="content">
+<h5 style="text-align: center;">&nbsp;</h5>
 <h5 style="text-align: center;"><strong><span style="font-size: 16px;">Gwinnett County HOME-SWEET-HOME</span></strong></h5>
 <p style="text-align: center;">3455 Sugarloaf Parkway<br>Lawrenceville, GA 30044<br><span style="color: #ed1c2b;"><a href="tel:7707241661">770-724-1661</a></span></p>
 </div>
 </div>
 <div class="col-lg-6 col-md-12 col-sm-12">
-<div class="content" spellcheck="false">
-<h5 style="text-align: center;"></h5>
-<h5 style="text-align: center;"></h5>
+<div class="content">
+<h5 style="text-align: center;">&nbsp;</h5>
+<h5 style="text-align: center;">&nbsp;</h5>
 <p style="text-align: center;"></p>
 </div>
 </div>
 </div>
 </div>
-</div>
-			<div style="color: #111111;" class="rounded p-6 gap-3 bg-light text-dark"><hr>
+</div></div>
+			<div class="pvlRichtext rounded p-6 gap-3 bg-light text-dark" style="color:#111111"><div style="color: #111111;" class="rounded p-6 gap-3 bg-light text-dark"><hr>
 <h5 style="text-align: center;"><span style="font-size: 20px;">The Salvation Army Youth Centers</span></h5>
 <div class="btgrid">
 <div class="row row-1">
@@ -235,7 +235,7 @@
 </div>
 <hr>
 <p></p>
-</div>
+</div></div>
 		</div>
 	</div>
 </div>

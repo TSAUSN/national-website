@@ -1,0 +1,147 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:21:0:81": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-fa95f6f8b2-5rftqq')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-fa95f6f8b2-5rftqq')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:21:0:81",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:9:2": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:9:2",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:9:2-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:79": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:79",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:9:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:42": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><h4 align=\"center\">Angel Tree</h4>\n\n<p>\n\tEach year, The Salvation Army of Augusta’s Angel Tree Program ensures that local children experiencing financial hardship wake up to gifts, clothing, and essentials on Christmas morning. This year, we are honored to serve about 500 families — representing more than 1,200 children across the Augusta area. Your generosity makes this possible.\n</p>\n\n<p>\n\t \n</p>\n\n<h5>How to Adopt an Angel</h5>\n\n<p>\n\tAngel Tree tags list a child’s age, clothing sizes, needs, and holiday wish list. You can select a tag in person or shop <a href=\"https://www.walmart.com/registry/RR/e550f2c6-3fa0-4bab-86c7-216302b0c88f\" target=\"\">online</a>.\n</p>\n\n<p>\n\tAngel Tree tags are available at:\n</p>\n\n<ul>\n\t<li>The Salvation Army Kroc Center of Augusta (1833 Broad Street)</li>\n\t<li>New Moon Café (Downtown Augusta)</li>\n\t<li>Panera Bread (Augusta, Evans &amp; Grovetown locations)</li>\n\t<li>Augusta Mall</li>\n</ul>\n\n<p>\n\t<strong>Beginning November 24, tags will also be available at:</strong>\n</p>\n\n<ul>\n\t<li>Evans Walmart Supercenter — 4469 Washington Rd, Evans, GA</li>\n\t<li>North Augusta Walmart Supercenter — 1201 Knox Ave, North Augusta, SC</li>\n</ul>\n\n<p>\n\t<strong>Prefer to give from home?</strong> You can purchase gifts directly through our Walmart Angel Tree Registry, and items will ship straight to us.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.walmart.com/registry/RR/e550f2c6-3fa0-4bab-86c7-216302b0c88f\" class=\"btn btn-secondary gap-1 mt-2\">Shop online</a></p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<h5>Gift Drop-Off Information</h5>\n\n<p>\n\t<u><strong>All Angel Tree gifts must be dropped off by Tuesday, December 9, at The Salvation Army Kroc Center (1833 Broad Street, Augusta, GA). Please return gifts unwrapped and with their Angel tag attached.</strong></u>\n</p>\n\n<p>\n\t \n</p>\n\n<h5>Volunteer with Angel Tree</h5>\n\n<p>\n\tBehind the scenes, dozens of volunteers help sort gifts and prepare for our distribution day. We invite you to give the gift of your time this Christmas. Volunteers are needed for gift sorting and prep, as well as support on Distribution Day. Click the button below to register.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://salvationarmyaugusta.galaxydigital.com/agency/detail/angeltree/?agency_id=158175\" class=\"btn btn-secondary gap-1 mt-2\">Volunteer</a></p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><h4 align=\"center\">Angel Tree</h4>\n\n<p>\n\tEach year, The Salvation Army of Augusta’s Angel Tree Program ensures that local children experiencing financial hardship wake up to gifts, clothing, and essentials on Christmas morning. This year, we are honored to serve about 500 families — representing more than 1,200 children across the Augusta area. Your generosity makes this possible.\n</p>\n\n<p>\n\t \n</p>\n\n<h5>How to Adopt an Angel</h5>\n\n<p>\n\tAngel Tree tags list a child’s age, clothing sizes, needs, and holiday wish list. You can select a tag in person or shop <a href=\"https://www.walmart.com/registry/RR/e550f2c6-3fa0-4bab-86c7-216302b0c88f\" target=\"\">online</a>.\n</p>\n\n<p>\n\tAngel Tree tags are available at:\n</p>\n\n<ul>\n\t<li>The Salvation Army Kroc Center of Augusta (1833 Broad Street)</li>\n\t<li>New Moon Café (Downtown Augusta)</li>\n\t<li>Panera Bread (Augusta, Evans &amp; Grovetown locations)</li>\n\t<li>Augusta Mall</li>\n</ul>\n\n<p>\n\t<strong>Beginning November 24, tags will also be available at:</strong>\n</p>\n\n<ul>\n\t<li>Evans Walmart Supercenter — 4469 Washington Rd, Evans, GA</li>\n\t<li>North Augusta Walmart Supercenter — 1201 Knox Ave, North Augusta, SC</li>\n</ul>\n\n<p>\n\t<strong>Prefer to give from home?</strong> You can purchase gifts directly through our Walmart Angel Tree Registry, and items will ship straight to us.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.walmart.com/registry/RR/e550f2c6-3fa0-4bab-86c7-216302b0c88f\" class=\"btn btn-secondary gap-1 mt-2\">Shop online</a></p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<h5>Gift Drop-Off Information</h5>\n\n<p>\n\t<u><strong>All Angel Tree gifts must be dropped off by Tuesday, December 9, at The Salvation Army Kroc Center (1833 Broad Street, Augusta, GA). Please return gifts unwrapped and with their Angel tag attached.</strong></u>\n</p>\n\n<p>\n\t \n</p>\n\n<h5>Volunteer with Angel Tree</h5>\n\n<p>\n\tBehind the scenes, dozens of volunteers help sort gifts and prepare for our distribution day. We invite you to give the gift of your time this Christmas. Volunteers are needed for gift sorting and prep, as well as support on Distribution Day. Click the button below to register.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://salvationarmyaugusta.galaxydigital.com/agency/detail/angeltree/?agency_id=158175\" class=\"btn btn-secondary gap-1 mt-2\">Volunteer</a></p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:42",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:42",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:9:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h4 align=\"center\">Angel Tree</h4>\n\n<p>\n\tEach year, The Salvation Army of Augusta’s Angel Tree Program ensures that local children experiencing financial hardship wake up to gifts, clothing, and essentials on Christmas morning. This year, we are honored to serve about 500 families — representing more than 1,200 children across the Augusta area. Your generosity makes this possible.\n</p>\n\n<p>\n\t \n</p>\n\n<h5>How to Adopt an Angel</h5>\n\n<p>\n\tAngel Tree tags list a child’s age, clothing sizes, needs, and holiday wish list. You can select a tag in person or shop <a href=\"https://www.walmart.com/registry/RR/e550f2c6-3fa0-4bab-86c7-216302b0c88f\" target=\"\">online</a>.\n</p>\n\n<p>\n\tAngel Tree tags are available at:\n</p>\n\n<ul>\n\t<li>The Salvation Army Kroc Center of Augusta (1833 Broad Street)</li>\n\t<li>New Moon Café (Downtown Augusta)</li>\n\t<li>Panera Bread (Augusta, Evans &amp; Grovetown locations)</li>\n\t<li>Augusta Mall</li>\n</ul>\n\n<p>\n\t<strong>Beginning November 24, tags will also be available at:</strong>\n</p>\n\n<ul>\n\t<li>Evans Walmart Supercenter — 4469 Washington Rd, Evans, GA</li>\n\t<li>North Augusta Walmart Supercenter — 1201 Knox Ave, North Augusta, SC</li>\n</ul>\n\n<p>\n\t<strong>Prefer to give from home?</strong> You can purchase gifts directly through our Walmart Angel Tree Registry, and items will ship straight to us.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.walmart.com/registry/RR/e550f2c6-3fa0-4bab-86c7-216302b0c88f\" class=\"btn btn-light\">Shop online</a></p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<h5>Gift Drop-Off Information</h5>\n\n<p>\n\t<u><strong>All Angel Tree gifts must be dropped off by Tuesday, December 9, at The Salvation Army Kroc Center (1833 Broad Street, Augusta, GA). Please return gifts unwrapped and with their Angel tag attached.</strong></u>\n</p>\n\n<p>\n\t \n</p>\n\n<h5>Volunteer with Angel Tree</h5>\n\n<p>\n\tBehind the scenes, dozens of volunteers help sort gifts and prepare for our distribution day. We invite you to give the gift of your time this Christmas. Volunteers are needed for gift sorting and prep, as well as support on Distribution Day. Click the button below to register.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://salvationarmyaugusta.galaxydigital.com/agency/detail/angeltree/?agency_id=158175\" class=\"btn btn-light\">Volunteer</a></p></div>"
+							},
+							"design:design:whitespace-xl:3:69": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:69",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:9:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"design:design:whitespace-xl:4:85": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:whitespace-xl:4:85",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:9:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:5:50": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><h4 align=\"center\">Applications:</h4>\n\n<p>\n\t<u><strong>Angel Tree Applications for the 2025 Holiday season will open on Monday, October, 6th at 9 AM. Click the button below to apply. </strong></u>This program is available for children ages 12 and under. To qualify, your child must still be 12 years old by December 31, 2025. To apply, click the button below. Before applying, we encourage you to review the <a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5382620b-6c12-49d7-86b2-d2ca8589c049_AngelTreeAppInfo2025_compressed.pdf\">application guidelines</a> to ensure you have all the necessary information. \n</p>\n\n<p>\n\t<strong><u>Las solicitudes para el programa Angel Tree de la temporada navideña 2025 se abrirán el lunes 6 de octubre a las 9 a. M. Haga clic en el botón de abajo para aplicar.</u> </strong>Este programa está disponible para niños de 12 años o menos. Para calificar, su hijo debe tener 12 años o menos al 31 de diciembre de 2025. Para aplicar, haga clic en el botón de abajo. Antes de aplicar, le recomendamos que revise las <a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/b1264c00-fc43-401e-ab6e-84e12773ea40_AngelTreeAppInfo2025_compressed.pdf\">guías de solicitud</a> para asegurarse de tener toda la información necesaria.\n</p>\n\n<p>\n\t \n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"></span>\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>We’ve Reached our quota for Angel Tree applications, and the online portal is now closed. Our team is currently processing submitted applications. If additional spots become available, we’ll post an update here and on our social pages. </strong></span>\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"></span>\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Hemos alcanzado el límite de solicitudes para el programa de Angel Tree, y el portal en línea ya está cerrado. Nuestro equipo está procesando las solicitudes recibidas. </strong></span><span style=\"color:#ed1c2b;\"><strong>Si se abren más cupos, publicaremos una actualización aquí y en nuestras redes sociales.</strong></span>\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"></span>\n</p>\n\n<p>\n\t \n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://saangeltree.org/\" class=\"btn btn-secondary gap-1 mt-2\">Apply</a></p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<h5> </h5></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><h4 align=\"center\">Applications:</h4>\n\n<p>\n\t<u><strong>Angel Tree Applications for the 2025 Holiday season will open on Monday, October, 6th at 9 AM. Click the button below to apply. </strong></u>This program is available for children ages 12 and under. To qualify, your child must still be 12 years old by December 31, 2025. To apply, click the button below. Before applying, we encourage you to review the <a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5382620b-6c12-49d7-86b2-d2ca8589c049_AngelTreeAppInfo2025_compressed.pdf\">application guidelines</a> to ensure you have all the necessary information. \n</p>\n\n<p>\n\t<strong><u>Las solicitudes para el programa Angel Tree de la temporada navideña 2025 se abrirán el lunes 6 de octubre a las 9 a. M. Haga clic en el botón de abajo para aplicar.</u> </strong>Este programa está disponible para niños de 12 años o menos. Para calificar, su hijo debe tener 12 años o menos al 31 de diciembre de 2025. Para aplicar, haga clic en el botón de abajo. Antes de aplicar, le recomendamos que revise las <a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/b1264c00-fc43-401e-ab6e-84e12773ea40_AngelTreeAppInfo2025_compressed.pdf\">guías de solicitud</a> para asegurarse de tener toda la información necesaria.\n</p>\n\n<p>\n\t \n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"></span>\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>We’ve Reached our quota for Angel Tree applications, and the online portal is now closed. Our team is currently processing submitted applications. If additional spots become available, we’ll post an update here and on our social pages. </strong></span>\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"></span>\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Hemos alcanzado el límite de solicitudes para el programa de Angel Tree, y el portal en línea ya está cerrado. Nuestro equipo está procesando las solicitudes recibidas. </strong></span><span style=\"color:#ed1c2b;\"><strong>Si se abren más cupos, publicaremos una actualización aquí y en nuestras redes sociales.</strong></span>\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"></span>\n</p>\n\n<p>\n\t \n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://saangeltree.org/\" class=\"btn btn-secondary gap-1 mt-2\">Apply</a></p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<h5> </h5></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 4,
+								"fullName": "content:wysiwyg_basic:5:50",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:5:50",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:9:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h4 align=\"center\">Applications:</h4>\n\n<p>\n\t<u><strong>Angel Tree Applications for the 2025 Holiday season will open on Monday, October, 6th at 9 AM. Click the button below to apply. </strong></u>This program is available for children ages 12 and under. To qualify, your child must still be 12 years old by December 31, 2025. To apply, click the button below. Before applying, we encourage you to review the <a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5382620b-6c12-49d7-86b2-d2ca8589c049_AngelTreeAppInfo2025_compressed.pdf\">application guidelines</a> to ensure you have all the necessary information. \n</p>\n\n<p>\n\t<strong><u>Las solicitudes para el programa Angel Tree de la temporada navideña 2025 se abrirán el lunes 6 de octubre a las 9 a. M. Haga clic en el botón de abajo para aplicar.</u> </strong>Este programa está disponible para niños de 12 años o menos. Para calificar, su hijo debe tener 12 años o menos al 31 de diciembre de 2025. Para aplicar, haga clic en el botón de abajo. Antes de aplicar, le recomendamos que revise las <a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/b1264c00-fc43-401e-ab6e-84e12773ea40_AngelTreeAppInfo2025_compressed.pdf\">guías de solicitud</a> para asegurarse de tener toda la información necesaria.\n</p>\n\n<p>\n\t \n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"></span>\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>We’ve Reached our quota for Angel Tree applications, and the online portal is now closed. Our team is currently processing submitted applications. If additional spots become available, we’ll post an update here and on our social pages. </strong></span>\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"></span>\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Hemos alcanzado el límite de solicitudes para el programa de Angel Tree, y el portal en línea ya está cerrado. Nuestro equipo está procesando las solicitudes recibidas. </strong></span><span style=\"color:#ed1c2b;\"><strong>Si se abren más cupos, publicaremos una actualización aquí y en nuestras redes sociales.</strong></span>\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"></span>\n</p>\n\n<p>\n\t \n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://saangeltree.org/\" class=\"btn btn-light\">Apply</a></p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<h5> </h5></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}
