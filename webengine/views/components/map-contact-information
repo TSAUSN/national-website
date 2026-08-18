@@ -160,54 +160,78 @@
   };
 
 
-  const fetchServicesOfferedForLocation = async function(zuid) {
+  const getServiceType = async function(serviceTypeZuid) {
     try {
-      const response = await fetch(`${window.location.origin}/services-offered.json?zuid=${zuid}`);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const rawData = await response.text(); 
-      const data = JSON.parse(rawData);
-      
-      return Array.isArray(data) ? data : [];
+      const response = await fetch(`${window.location.origin}/service-types.json?zuid=${serviceTypeZuid}`);
+      if (!response.ok) throw new Error('Network response was not ok');
+      const data = await response.json();
+      return data;
     } catch (error) {
-      console.error('Error checking location:', error);
-      return [];
+      console.error('Error fetching service type:', error);
+      return false;
     }
   };
+
+  const renderServicesForContact = async function(services) {
+    const servicesContainer = document.getElementById('services-container');
+    if (!servicesContainer) return;
+
+    const serviceTypeZuids = '{{this.services_offered}}'
+      .split(',')
+      .map(s => s.trim())
+      .filter(Boolean);
+
+    if (serviceTypeZuids.length === 0) {
+      servicesContainer.innerHTML = '<div class="col">No services available</div>';
+      return;
+    }
+
+    const servicesInnerHTML = [];
+
+    for (const serviceTypeZuid of serviceTypeZuids) {
+      const serviceTypeData = await getServiceType(serviceTypeZuid);
+      if (!serviceTypeData || !serviceTypeData[0]) continue;
+      const rawIconName = serviceTypeData[0]?.icon_name;
+      const iconName = (rawIconName && rawIconName !== 'NULL') ? rawIconName : '';
+      const matchingService = Array.isArray(services)
+        ? services.find(s => s.service_type?.data?.[0]?.meta?.zuid === serviceTypeZuid)
+        : null;
+
+      if (matchingService) {
+        const title = matchingService.title || '';
+        if (!title) continue;
+        servicesInnerHTML.push(`
+          <div class="col">
+            <div class="d-flex align-items-start">
+              <span class="material-symbols-outlined text-primary-200 display-6">${iconName}</span>
+              <a href="${matchingService.meta?.web?.url || '#'}" class="display-5 text-dark-100 display-md-1 ms-2">${title}</a>
+            </div>
+          </div>
+        `);
+      } else {
+        const label = serviceTypeData[0]?.meta?.web_title || serviceTypeData[0]?.title || '';
+        if (!label) continue;
+        servicesInnerHTML.push(`
+          <div class="col">
+            <div class="d-flex align-items-start">
+              <span class="material-symbols-outlined text-primary-200 display-6">${iconName}</span>
+              <span class="display-5 text-dark-100 display-md-1 ms-2">${label}</span>
+            </div>
+          </div>
+        `);
+      }
+    }
+
+    servicesContainer.innerHTML = servicesInnerHTML.length > 0
+      ? servicesInnerHTML.join('')
+      : '<div class="col">No services available</div>';
+  };
+
   // Initialize when the page loads
   document.addEventListener('DOMContentLoaded', async function () {
     // Load services asynchronously
     fetchServicesForLocation(locZuid).then(services => {
-        const servicesContainer = document.getElementById(`services-container`);
-        if (servicesContainer && services && Array.isArray(services) && services.length > 0) {
-          servicesContainer.innerHTML = services
-            .filter(service => service.service_type && service.service_type.data && service.service_type.data[0])
-            .map(service => `
-            <div class="col">
-              <div class="d-flex align-items-start">
-                <span class="material-symbols-outlined text-primary-200 display-6">${service.service_type ? service.service_type.data[0].icon_name : `settings`}</span>
-                <a href="${service.meta.web.url}" class="display-4 text-dark-100 display-md-1 ms-2">${service.title}</a>
-              </div>
-            </div>
-          `).join('');
-        } else if (servicesContainer) {
-
-          fetchServicesOfferedForLocation(locZuid).then(services => {
-            const servicesContainer = document.getElementById(`services-container`);
-            if (servicesContainer && services && Array.isArray(services)) {
-              servicesContainer.innerHTML = services.map(service => `
-              <div class="col">
-                <div class="d-flex align-items-start">
-                  <span class="material-symbols-outlined text-primary-200 display-6">${service.icon_name}</span>
-                  <span class="display-5 text-dark-100 display-md-1 ms-2">${service.title}</span>
-                </div>
-              </div>
-          `).join('');
-            }
-          })
-          
-        }
+        renderServicesForContact(services);
       }).catch(error => {
         console.error('Error loading services:', error);
         const servicesContainer = document.getElementById(`services-container`);
