@@ -19,7 +19,7 @@ function getCookieByName(name) {
 function formatCityName(city = '') {
   if (!city) return '';
   const cityName = String(city);
-  return cityName.charAt(0).toUpperCase() + cityName.slice(1).toLowerCase();
+  return cityName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 }
 
 async function getProperty() {
