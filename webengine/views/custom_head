@@ -57,11 +57,13 @@
   name="twitter:description"
   content="{{ !this._meta_description }}"
 />
-
+{{$mediaLibraryURL = https://8hxvw8tw.media.zestyio.com/}}
+<link rel="apple-touch-icon" href="{{ $mediaLibraryURL }}The-Salvation-Army-Favicon.png">
+<link rel="apple-touch-icon-precomposed" href="{{ instance.domain }}The-Salvation-Army-Favicon.png">
 <link
   rel="icon"
   type="image/png"
-  href="{{ setting.fav_icon }}"
+  href="{{ $mediaLibraryURL }}The-Salvation-Army-Favicon.png"
 />
 <script>
   (function () {
