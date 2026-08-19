@@ -1,139 +1,228 @@
-{{ $property = {request.queryParam(property)} }}
-{{ $model = {request.queryParam(model)} }}
-{{$hasProperty = 0}}
-{{if {request.queryParam(limit)} }}
-  {{$limit = {request.queryParam(limit)} }}
-{{else}}
-{{$limit = 15 }}
-{{/if}}
-
-{{if {$model} }}
-  {{if {$model} == '6-b4c9aba69c-h2nqvm' }}
-    {{$findInSet = member_locations}}
-  {{else-if {$model} == '6-acb19a94bd-4q8ftj' }}
-    {{$findInSet = member_divisions}}
-  {{else-if {$model} == '6-deab97cfd9-wb5km4' }}
-    {{$findInSet = member_territories}}
-  {{/if}}
-{{else}}
-  {{$findInSet = member_locations }}
-{{/if}}
-{{if {$findInSet} }}
-  {{$staffChecking = {staffs.filter( {$findInSet} LIKE "%{$property}%").zuid} }}
-{{/if}}
-
-{{if {$staffChecking} }}
-  {{$hasProperty = 1}}
-{{/if}}
+{{$zuid = {request.queryParam(zuid)} }}
+{{$page_model = {request.queryParam(page-model)} }}
+{{$parent_division = {request.queryParam(parent-division)} }}
+{{$parent_territory = {request.queryParam(parent-territory)} }}
 
 [
-  {{if {$model} == '6-a0898ca2c1-krnm0f' }}
-    {{ each staffs as staff where national_member=1 OR title_rank LIKE '%General%' order by sort_order asc limit {$limit} }}
-      {{$about =  {staff.about.escapeForJs()} }}
-        {
-          "fullname": "{{staff.first_name}} {{staff.last_name}}",
-          "title_rank": "{{staff.title_rank}}",
-          "job_role": "{{staff.job_role}}",
-          "email": "{{staff.email}}",
-          "about": "{{ $about.html_entity_decode() }}",
-          "portrait_image": "{{staff.portrait_image.getMediaURL()}}",
-          "member_locations": "{{staff.member_locations}}",
-          "sort_order": "{{staff.sort_order}}",
-          "display_on_website": {{staff.display_on_website}},
-          {{if {staff.staff_role_type} !== null }}
-            "staff_role_type": [{{each staff_role_types as staff_role_type WHERE z.zuid = "{staff.staff_role_type}" }}
-              {
-                "role_name": "{{staff_role_type.role_name}}",
-                "zuid": "{{staff_role_type.zuid}}"
-              }{{staff_role_type._arraycomma}}
-            {{/each}}]
-          {{else}}
-            "staff_role_type": null
-          {{/if}}
-        }{{staff._arraycomma}}
-      {{/each}}
-  {{else-if {$hasProperty} == 1 }}
-      {{ each staffs as staff where (find_in_set("{$property}", {$findInSet} ) OR title_rank LIKE '%General%' OR national_member=1) AND z.zuid != '7-8ed48083e0-hgjwqf' sort by sort_order asc }}
-      {{$about =  {staff.about.escapeForJs()} }}
-        {{if {staff.display_on_website} == 1}}
-          {
-            "fullname": "{{staff.first_name}} {{staff.last_name}}",
-            "title_rank": "{{staff.title_rank}}",
-            "has": "property",
-            "job_role": "{{staff.job_role}}",
-            "email": "{{staff.email}}",
-            "about": "{{ $about.html_entity_decode() }}",
-            "portrait_image": "{{staff.portrait_image.getMediaURL()}}",
-            "member_locations": "{{staff.member_locations}}",
-            "sort_order": "{{staff.sort_order}}",
-            "display_on_website": {{staff.display_on_website}},
-            {{if {staff.staff_role_type} !== null }}
-              "staff_role_type": [{{each staff_role_types as staff_role_type WHERE z.zuid = "{staff.staff_role_type}" }}
-                {
-                  "role_name": "{{staff_role_type.role_name}}",
-                  "zuid": "{{staff_role_type.zuid}}"
-                }{{staff_role_type._arraycomma}}
-              {{/each}}]
-            {{else}}
-              "staff_role_type": null
-            {{/if}}
-            
-          }{{staff._arraycomma}}
-        {{/if}}
-      {{/each}}
-  {{else-if {$hasProperty} == 0 && {$property} }}
-    {{ each staffs as staff where (national_member=1 OR title_rank LIKE '%General%') AND z.zuid != '7-8ed48083e0-hgjwqf' order by sort_order asc limit {$limit} }}
-      {{$about =  {staff.about.escapeForJs()} }}
-        {
-          "fullname": "{{staff.first_name}} {{staff.last_name}}",
-          "title_rank": "{{staff.title_rank}}",
-          "job_role": "{{staff.job_role}}",
-          "email": "{{staff.email}}",
-          "about": "{{ $about.html_entity_decode() }}",
-          "portrait_image": "{{staff.portrait_image.getMediaURL()}}",
-          "member_locations": "{{staff.member_locations}}",
-          "sort_order": "{{staff.sort_order}}",
-          "display_on_website": {{staff.display_on_website}},
-          {{if {staff.staff_role_type} !== null }}
-            "staff_role_type": [{{each staff_role_types as staff_role_type WHERE z.zuid = "{staff.staff_role_type}" }}
-              {
-                "role_name": "{{staff_role_type.role_name}}",
-                "zuid": "{{staff_role_type.zuid}}"
-              }{{staff_role_type._arraycomma}}
-            {{/each}}]
-          {{else}}
-            "staff_role_type": null
-          {{/if}}
-          
-        }{{staff._arraycomma}}
-      {{/each}}
-  {{else-if {$hasProperty} == 0 && !{$property} }}
-    {{ each staffs as staff where (national_member=1 OR title_rank LIKE '%General%') AND z.zuid != '7-8ed48083e0-hgjwqf' order by sort_order asc limit {$limit} }}
-      {{$about =  {staff.about.escapeForJs()} }}
+    {{if {$page_model} === '6-b4c9aba69c-h2nqvm'}}
+    {{$count = 0}}
 
-      {
-        "fullname": "{{staff.first_name}} {{staff.last_name}}",
-        "title_rank": "{{staff.title_rank}}",
-        "job_role": "{{staff.job_role}}",
-        "email": "{{staff.email}}",
-        "about": "{{ $about.html_entity_decode()  }}",
-        "portrait_image": "{{staff.portrait_image.getMediaURL()}}",
-        "member_locations": "{{staff.member_locations}}",
-        "sort_order": "{{staff.sort_order}}",
-        "display_on_website": {{staff.display_on_website}},
-        {{if {staff.staff_role_type} !== null }}
-          "staff_role_type": [{{each staff_role_types as staff_role_type WHERE z.zuid = "{staff.staff_role_type}" }}
-            {
-              "role_name": "{{staff_role_type.role_name}}",
-              "zuid": "{{staff_role_type.zuid}}"
-            }{{staff_role_type._arraycomma}}
-          {{/each}}]
-        {{else}}
-          "staff_role_type": null
-        {{/if}}
-        
-      }{{staff._arraycomma}}
+    {{each stats as stat WHERE stat.locations = '{$zuid}' limit 1 }}
+      {{$count = 1}}
     {{/each}}
-  {{/if}} 
 
+    {{if {$count} === 0 }}
+      {{each stats as stat WHERE stat.divisions = '{$parent_division}' limit 1 }}
+          {{$count = 2}}
+      {{/each}}
+    {{/if}}
+
+    {{if {$count} === 0 }}
+      {{each stats as stat WHERE stat.territories = '{$parent_territory}' limit 1 }}
+        {{$count = 3}}
+      {{/each}}
+    {{/if}}
+
+    {{if {$count} === 1 }}
+      {{each stats as stat WHERE stat.locations = '{$zuid}' }}
+    {
+          {{$rsc  = {stat.right_side_content.striptags()} }}
+          {{$description = {stat.description.striptags()} }}
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name.escapeForJs()}}",
+          "stats_sub_text": "{{stat.stats_sub_text.escapeForJs()}}",
+          "description": "{{$description.escapeForJs()}}",
+          "right_side_header": "{{stat.right_side_header.striptags().escapeForJs()}}",
+          "right_side_content": "{{$rsc.escapeForJs()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{else-if {$count} === 2 }}
+      {{each stats as stat WHERE stat.divisions = '{$parent_division}' }}
+ {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name.escapeForJs()}}",
+          "stats_sub_text": "{{stat.stats_sub_text.escapeForJs()}}",
+          "description": "{{stat.description.striptags().escapeForJs()}}",
+          "right_side_header": "{{stat.right_side_header.striptags().escapeForJs()}}",
+          "right_side_content": "{{stat.right_side_content.striptags().escapeForJs()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{else-if {$count} === 3}}
+      {{each stats as stat WHERE stat.territories = '{$parent_territory}' }}
+ {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name.escapeForJs()}}",
+          "stats_sub_text": "{{stat.stats_sub_text.escapeForJs()}}",
+          "description": "{{stat.description.striptags().escapeForJs()}}",
+          "right_side_header": "{{stat.right_side_header.striptags().escapeForJs()}}",
+          "right_side_content": "{{stat.right_side_content.striptags().escapeForJs()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{else}}
+      {{each stats as stat WHERE stat.national = 1 }}
+ {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name.escapeForJs()}}",
+          "stats_sub_text": "{{stat.stats_sub_text.escapeForJs()}}",
+          "description": "{{stat.description.striptags().escapeForJs()}}",
+          "right_side_header": "{{stat.right_side_header.striptags().escapeForJs()}}",
+          "right_side_content": "{{stat.right_side_content.striptags().escapeForJs()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{/if}}
+  {{/if}}
+
+  {{if {$page_model} === '6-acb19a94bd-4q8ftj'}}
+    {{$count = 0}}
+      {{each stats as stat WHERE stat.divisions = '{$zuid}' limit 1 }}
+          {{$count = 1}}
+      {{/each}}
+    
+    {{if {$count} === 0 }}
+      {{each stats as stat WHERE stat.territories = '{$parent_territory}' limit 1 }}
+        {{$count = 2}}
+      {{/each}}
+    {{/if}}
+
+    {{if {$count} === 1 }}
+      {{each stats as stat WHERE stat.divisions = '{$zuid}' }}
+       {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name.escapeForJs()}}",
+          "stats_sub_text": "{{stat.stats_sub_text.escapeForJs()}}",
+          "description": "{{stat.description.striptags().escapeForJs()}}",
+          "right_side_header": "{{stat.right_side_header.striptags().escapeForJs()}}",
+          "right_side_content": "{{stat.right_side_content.striptags().escapeForJs()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{else-if {$count} === 2}}
+      {{each stats as stat WHERE stat.territories = '{$parent_territory}' }}
+ {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name.escapeForJs()}}",
+          "stats_sub_text": "{{stat.stats_sub_text.escapeForJs()}}",
+          "description": "{{stat.description.striptags().escapeForJs()}}",
+          "right_side_header": "{{stat.right_side_header.striptags().escapeForJs()}}",
+          "right_side_content": "{{stat.right_side_content.striptags().escapeForJs()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{else}}
+      {{each stats as stat WHERE stat.national = 1 }}
+ {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name.escapeForJs()}}",
+          "stats_sub_text": "{{stat.stats_sub_text.escapeForJs()}}",
+          "description": "{{stat.description.striptags().escapeForJs()}}",
+          "right_side_header": "{{stat.right_side_header.striptags().escapeForJs()}}",
+          "right_side_content": "{{stat.right_side_content.striptags().escapeForJs()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{/if}}
+  {{/if}}
+
+  {{if {$page_model} === '6-deab97cfd9-wb5km4'}}
+    {{$count = 0}}
+
+    {{each stats as stat WHERE stat.territories = '{$zuid}' limit 1 }}
+      {{$count = 1}}
+    {{/each}}
+
+    {{if {$count} === 1}}
+      {{each stats as stat WHERE stat.territories = '{$zuid}' }}
+         {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name.escapeForJs()}}",
+          "stats_sub_text": "{{stat.stats_sub_text.escapeForJs()}}",
+          "description": "{{stat.description.striptags().escapeForJs()}}",
+          "right_side_header": "{{stat.right_side_header.striptags().escapeForJs()}}",
+          "right_side_content": "{{stat.right_side_content.striptags().escapeForJs()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{else}}
+      {{each stats as stat WHERE stat.national = 1 }}
+ {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name.escapeForJs()}}",
+          "stats_sub_text": "{{stat.stats_sub_text.escapeForJs()}}",
+          "description": "{{stat.description.striptags().escapeForJs()}}",
+          "right_side_header": "{{stat.right_side_header.striptags().escapeForJs()}}",
+          "right_side_content": "{{stat.right_side_content.striptags().escapeForJs()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+      {{/each}}
+    {{/if}}
+  {{/if}}
+
+  {{if {$page_model} === '6-a0898ca2c1-krnm0f'}}
+    {{each stats as stat WHERE stat.national = 1 }}
+      {{$relatedURL = {stat.related_service} }}
+       {
+          "general_statistic": "{{stat.general_statistic}}",
+          "categories": "{{stat.categories}}",
+          "stats_name": "{{stat.stats_name.escapeForJs()}}",
+          "stats_sub_text": "{{stat.stats_sub_text.escapeForJs()}}",
+          "description": "{{stat.description.escapeForJs()}}",
+          "right_side_header": "{{stat.right_side_header.striptags().escapeForJs()}}",
+          "right_side_content": "{{stat.right_side_content.striptags().escapeForJs()}}",
+          "territories": "{{stat.territories}}",
+          "divisions": "{{stat.divisions}}",
+          "locations": "{{stat.locations}}",
+          "image": "{{stat.image.getImage()}}",
+          "relatedUrl": "{{ truepath({stat.related_service}) }}"
+        }{{stat._arraycomma}}
+    {{/each}}
+  {{/if}}
 ]
