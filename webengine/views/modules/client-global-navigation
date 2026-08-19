@@ -124,9 +124,9 @@
 {{$territoryParentZipcode = {territories.filter({this.parent_zuid}).zipcode} }}
 
 {{$statesTerritoryZUID = {!this.territory} }}
-{{$statesTerritory = {territories.filter({this.territory}).name} }}
-{{$statesTerritoryCityZUID = {territories.filter({this.territory}).city} }}
-{{$statesTerritoryStateZUID = {territories.filter({this.territory}).state} }}
+{{$statesTerritory = {territories.filter({!this.territory}).name} }}
+{{$statesTerritoryCityZUID = {territories.filter({!this.territory}).city} }}
+{{$statesTerritoryStateZUID = {territories.filter({!this.territory}).state} }}
 {{$statesTerritoryCity = {cities.filter({$statesTerritoryCityZUID}).title} }}
 {{$statesTerritoryState = {states.filter({$statesTerritoryStateZUID}).name} }}
 
@@ -2055,27 +2055,27 @@
         cookieManager.set(cookieKeys.locationName, `{{$statesTerritory}}`);
         cookieManager.set(
           cookieKeys.locationAddress,
-          `{{territories.filter({this.territory}).address}}`
+          `{{territories.filter({!this.territory}).address}}`
         );
         cookieManager.set(cookieKeys.locationCity, `{{$statesTerritoryCity}}`);
         cookieManager.set(cookieKeys.locationState, `{{$statesTerritoryState}}`);
         cookieManager.set(
           cookieKeys.locationZipcode,
-          `{{territories.filter({this.territory}).zipcode}}`
+          `{{territories.filter({!this.territory}).zipcode}}`
         );
         cookieManager.set(cookieKeys.organizationTerritory, `{{$statesTerritory}}`);
         cookieManager.set(cookieKeys.organizationLevel, levels.territory);
         cookieManager.set(
           cookieKeys.contactUsImage,
-          `{{territories.filter({this.territory}).contact_us_image.getImage()}}`
+          `{{territories.filter({!this.territory}).contact_us_image.getImage()}}`
         );
         cookieManager.set(
           cookieKeys.contactUsTitle,
-          `{{territories.filter({this.territory}).contact_us_title}}`
+          `{{territories.filter({!this.territory}).contact_us_title}}`
         );
         cookieManager.set(
           cookieKeys.contactUsHeader,
-          `{{territories.filter({this.territory}).contact_us_cta_header}}`
+          `{{territories.filter({!this.territory}).contact_us_cta_header}}`
         );
 
         cookieManager.delete(cookieKeys.divisionZUID);
