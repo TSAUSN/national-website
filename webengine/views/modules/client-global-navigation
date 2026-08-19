@@ -259,6 +259,30 @@
     );
   }
 
+  function setContactUsCookiesWithNationalFallback(contactUsValues = {}) {
+    const fields = [
+      {
+        key: cookieKeys.contactUsImage,
+        value: contactUsValues.image,
+        nationalValue: nationalContactUs.image
+      },
+      {
+        key: cookieKeys.contactUsTitle,
+        value: contactUsValues.title,
+        nationalValue: nationalContactUs.title
+      },
+      {
+        key: cookieKeys.contactUsHeader,
+        value: contactUsValues.header,
+        nationalValue: nationalContactUs.header
+      }
+    ];
+
+    fields.forEach(({ key, value, nationalValue }) => {
+      cookieManager.set(key, hasContactUsValue(value) ? value : nationalValue);
+    });
+  }
+
   function setMissingContactUsCookies(contactUsFallbacks = {}) {
     const fields = [
       {
@@ -2065,18 +2089,11 @@
         );
         cookieManager.set(cookieKeys.organizationTerritory, `{{$statesTerritory}}`);
         cookieManager.set(cookieKeys.organizationLevel, levels.territory);
-        cookieManager.set(
-          cookieKeys.contactUsImage,
-          `{{territories.filter({!this.territory}).contact_us_image.getImage()}}`
-        );
-        cookieManager.set(
-          cookieKeys.contactUsTitle,
-          `{{territories.filter({!this.territory}).contact_us_title}}`
-        );
-        cookieManager.set(
-          cookieKeys.contactUsHeader,
-          `{{territories.filter({!this.territory}).contact_us_cta_header}}`
-        );
+        setContactUsCookiesWithNationalFallback({
+          image: `{{territories.filter({!this.territory}).contact_us_image.getImage()}}`,
+          title: `{{territories.filter({!this.territory}).contact_us_title}}`,
+          header: `{{territories.filter({!this.territory}).contact_us_cta_header}}`
+        });
 
         cookieManager.delete(cookieKeys.divisionZUID);
         cookieManager.delete(cookieKeys.organizationCorp);
