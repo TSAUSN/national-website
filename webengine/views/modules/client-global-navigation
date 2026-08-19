@@ -123,6 +123,12 @@
 {{$territoryParentContactHeader = {territories.filter({this.parent_zuid}).contact_us_cta_header} }}
 {{$territoryParentZipcode = {territories.filter({this.parent_zuid}).zipcode} }}
 
+{{$statesTerritoryZUID = {!this.territory} }}
+{{$statesTerritory = {territories.filter({this.territory}).name} }}
+{{$statesTerritoryCityZUID = {territories.filter({this.territory}).city} }}
+{{$statesTerritoryStateZUID = {territories.filter({this.territory}).state} }}
+{{$statesTerritoryCity = {cities.filter({$statesTerritoryCityZUID}).title} }}
+{{$statesTerritoryState = {states.filter({$statesTerritoryStateZUID}).name} }}
 
 <script>
   const cookieManager = {
@@ -2027,11 +2033,6 @@
         }
         break;
       case `6-ce888daf92-fpzvz1`: //States
-        if (!cookieManager.get(cookieKeys.locationZUID)) {
-          await setNationalLocationCookies();
-          break;
-        }
-
         if (
           cookieManager.get(cookieKeys.locationZUID) &&
           cookieManager.get(cookieKeys.locationModel)
@@ -2043,7 +2044,47 @@
           cookieManager.set(cookieKeys.lastVisitedZUID, cookieManager.get(cookieKeys.locationZUID));
         }
 
-        await ensurePersistedContactUsCookies();
+        const statesTerritoryZUID = `{{$statesTerritoryZUID}}`;
+
+        cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
+        cookieManager.set(cookieKeys.locationZUID, statesTerritoryZUID);
+        cookieManager.set(
+          cookieKeys.locationHomeURL,
+          `{{truepath({$statesTerritoryZUID})}}`
+        );
+        cookieManager.set(cookieKeys.locationName, `{{$statesTerritory}}`);
+        cookieManager.set(
+          cookieKeys.locationAddress,
+          `{{territories.filter({this.territory}).address}}`
+        );
+        cookieManager.set(cookieKeys.locationCity, `{{$statesTerritoryCity}}`);
+        cookieManager.set(cookieKeys.locationState, `{{$statesTerritoryState}}`);
+        cookieManager.set(
+          cookieKeys.locationZipcode,
+          `{{territories.filter({this.territory}).zipcode}}`
+        );
+        cookieManager.set(cookieKeys.organizationTerritory, `{{$statesTerritory}}`);
+        cookieManager.set(cookieKeys.organizationLevel, levels.territory);
+        cookieManager.set(
+          cookieKeys.contactUsImage,
+          `{{territories.filter({this.territory}).contact_us_image.getImage()}}`
+        );
+        cookieManager.set(
+          cookieKeys.contactUsTitle,
+          `{{territories.filter({this.territory}).contact_us_title}}`
+        );
+        cookieManager.set(
+          cookieKeys.contactUsHeader,
+          `{{territories.filter({this.territory}).contact_us_cta_header}}`
+        );
+
+        cookieManager.delete(cookieKeys.divisionZUID);
+        cookieManager.delete(cookieKeys.organizationCorp);
+        cookieManager.delete(cookieKeys.organizationDivision);
+        cookieManager.delete(cookieKeys.locationPropertyType);
+
+        setLocationCookiesByTerritory(statesTerritoryZUID);
+        await setCodeCookie(statesTerritoryZUID, `6-deab97cfd9-wb5km4`);
         break;
       case `6-dcd5c9b192-tgsnht`: // Cities
         if (!cookieManager.get(cookieKeys.locationZUID)) {
