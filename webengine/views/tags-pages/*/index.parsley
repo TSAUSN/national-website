@@ -1,1 +1,11 @@
-hello world
+{{$tagZUID = }}
+{{$locationZUID = @location_zuid}}
+{{$locationModel = @location_model}}
+
+{{each tags as tag WHERE title LIKE "{request.pathpart(2)} limit 1"}}
+  {{$tagZUID = item.ZUID}}
+{{/each}}
+
+{{each stories as story WHERE find_in_set('tags', {$tagZUID})}}
+  {{story.title}}
+{{/each}}
