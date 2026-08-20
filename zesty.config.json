@@ -31877,15 +31877,15 @@
                 "zuid": "11-94c5eae8bd-hcpj6q",
                 "type": "ajax-json",
                 "updatedAt": "2026-08-14T16:20:59Z",
-                "createdAt": "2026-08-20T14:44:02Z",
-                "lastSyncedAt": "2026-08-20T14:44:02Z"
+                "createdAt": "2026-08-20T14:55:58Z",
+                "lastSyncedAt": "2026-08-20T14:55:58Z"
             },
             "/z/pvl/7-e2c9c0f18d-4b42jh.zhtml": {
                 "zuid": "11-88b99087c2-dqnk8n",
                 "type": "ajax-json",
                 "updatedAt": "2026-08-14T16:21:00Z",
-                "createdAt": "2026-08-20T14:44:04Z",
-                "lastSyncedAt": "2026-08-20T14:44:04Z"
+                "createdAt": "2026-08-20T14:55:58Z",
+                "lastSyncedAt": "2026-08-20T14:55:58Z"
             },
             "/z/pvl/7-ce819ae9d6-5zz0nc.zhtml": {
                 "zuid": "11-989bbaa7d0-ww4c2p",
@@ -32069,13 +32069,6 @@
                 "createdAt": "2026-08-19T19:02:48Z",
                 "lastSyncedAt": "2026-08-19T19:02:48Z"
             },
-            "tag": {
-                "zuid": "11-b2e28b9bab-69jc87",
-                "type": "pageset",
-                "updatedAt": "2026-08-20T13:06:00Z",
-                "createdAt": "2026-08-20T13:06:00Z",
-                "lastSyncedAt": "2026-08-20T13:06:00Z"
-            },
             "/z/pvl/7-bca3e8d5b8-65s7wm.json": {
                 "zuid": "11-eed8e796d8-htqq6p",
                 "type": "ajax-json",
@@ -32136,22 +32129,15 @@
                 "zuid": "11-e4ebbba4b2-bc1p9c",
                 "type": "pageset",
                 "updatedAt": "2026-08-20T14:43:56Z",
-                "createdAt": "2026-08-20T14:43:56Z",
-                "lastSyncedAt": "2026-08-20T14:43:56Z"
+                "createdAt": "2026-08-20T15:02:51Z",
+                "lastSyncedAt": "2026-08-20T15:02:51Z"
             },
-            "tags_pages": {
-                "zuid": "11-e6b2fd97aa-vsm0rc",
-                "type": "pageset",
-                "updatedAt": "2026-08-20T14:44:12Z",
-                "createdAt": "2026-08-20T14:44:12Z",
-                "lastSyncedAt": "2026-08-20T14:44:12Z"
-            },
-            "tags_pages/*/index.parsley": {
-                "zuid": "11-98e3a28eef-2cvcp3",
-                "type": "snippet",
-                "updatedAt": "2026-08-20T14:46:04Z",
-                "createdAt": "2026-08-20T14:46:04Z",
-                "lastSyncedAt": "2026-08-20T14:46:04Z"
+            "/tags-pages/*/index.parsley": {
+                "zuid": "11-88e1b6b297-ftcg48",
+                "type": "ajax-json",
+                "updatedAt": "2026-08-20T14:55:20Z",
+                "createdAt": "2026-08-20T14:55:33Z",
+                "lastSyncedAt": "2026-08-20T14:55:33Z"
             }
         },
         "styles": {
