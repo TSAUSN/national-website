@@ -949,11 +949,13 @@
           informationalLinksMore.forEach((ip) =>{
             ip.classList.add("dropdown-item__container-repeat-1")
             ip.classList.remove("dropdown-item__container-repeat-3")
+            ip.classList.add( 'display-3', 'display-xl-2')
           })
       }else{
           informationalLinksMore.forEach((ip) =>{
             ip.classList.remove("dropdown-item__container-repeat-1")
             ip.classList.add("dropdown-item__container-repeat-3")
+            ip.classList.add( 'display-3', 'display-xl-2')
           })
       }
     })
@@ -974,7 +976,7 @@
 
         ipLinks.forEach((link) => {
           const newLinkElement = document.createElement('a');
-          newLinkElement.classList.add('dropdown-item', 'py-2', 'px-2');
+          newLinkElement.classList.add('dropdown-item', 'py-2', 'px-2', 'display-3', 'display-xl-2');
           newLinkElement.textContent = link.title;
           if(link.external_link){
             newLinkElement.setAttribute('href', link.external_link);
