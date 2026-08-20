@@ -1969,7 +1969,7 @@
             cookieKeys.contactUsImage,
             `{{homepage.first().contact_us_image.getImage()}}`
           );
-    cookieManager.set(cookieKeys.contactUsTitle, `{{homepage.first().contact_us_title}}`);
+            cookieManager.set(cookieKeys.contactUsTitle, `{{homepage.first().contact_us_title}}`);
             cookieManager.set(cookieKeys.contactUsHeader, `{{homepage.first().contact_us_cta_header}}`);
           cookieManager.set(cookieKeys.organizationLevel, levels.national);
 
@@ -2013,8 +2013,8 @@
             cookieKeys.contactUsImage,
             `{{homepage.first().contact_us_image.getImage()}}`
           );
-    cookieManager.set(cookieKeys.contactUsTitle, `{{homepage.first().contact_us_title}}`);
-            cookieManager.set(cookieKeys.contactUsHeader, `{{homepage.first().contact_us_cta_header}}`);
+          cookieManager.set(cookieKeys.contactUsTitle, `{{homepage.first().contact_us_title}}`);
+          cookieManager.set(cookieKeys.contactUsHeader, `{{homepage.first().contact_us_cta_header}}`);
           cookieManager.delete(cookieKeys.territoryZUID);
           cookieManager.delete(cookieKeys.divisionZUID);
           cookieManager.delete(cookieKeys.organizationCorp);
@@ -2054,8 +2054,8 @@
         await ensurePersistedContactUsCookies();
         break;
 
-      case "6-d8d999eeaf-zw7rd1": // Informational DEV
-        console.log("Informational DEV")
+      case `6-d8d999eeaf-zw7rd1`: // Informational DEV
+        console.log("Informational DEV");
       break;
     }
     logCurrentDataLayerValues(`init-complete`, { source });
