@@ -1,0 +1,664 @@
+{{$state = {request.pathpart(1)} }}
+{{$city = {request.pathpart(2)} }}
+{{$location = {request.pathpart(3)} }}
+{{$url = /{$state}/{$city}/{$location}/ }}
+
+
+{{each locations as location}}
+  {{if {$url} == {location.path_full} }}
+    {{$location_zuid = {location.zuid} }}
+  {{/if}}
+{{/each}}
+
+{{if {$location_zuid} }}
+<div id="location-finder" class="location-finder container" data-component-type="location-finder">
+  <div class="mb-15 nico">
+    <h1 class="fs-4 mb-8">{{locations.filter(path_full like '%{$url}%').name}} Information</h1>
+    
+<div class="container mt-4 bg-light rounded-5 px-8 py-8">
+    <div class="row">
+        <div class="col-md-6 d-md-flex justify-content-between align-items-center mb-4 mb-md-0">
+            <h1 class="fs-5 fs-md-4">{{locations.filter(path_full like '%{$url}%' ).name}}</h1>
+            <p class="text-primary-200 display-1">3.5 miles away from your general location</p>
+        </div>
+        <div class="col-md-6">
+            <h2 class="fs-4 d-none d-md-block">Services Available</h2>
+        </div>
+    </div>
+
+    <div class="row mt-4 gx-14">
+        <div class="col-md-6 py-5">
+            <!-- Desktop version (visible on md screens and up) -->
+            <div class="d-none d-md-flex justify-content-between align-items-start border-2 border-top py-3">
+                <div class="col-md-3">
+                    <h3 class="text-dark-100 fs-7">General Hours</h3>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-between mb-5 text-end">
+                            <span class="text-dark-50 fs-7 fw-normal">Monday</span>
+                            <span class="text-dark-50 fs-7 fw-normal">Open 9:00 AM</span>
+                            <span class="text-dark-50 fs-7 fw-normal">|</span>
+                            <span class="text-dark-50 fs-7 fw-normal">Closes 12:00 PM</span>
+                        </div>
+                        <div class="col-12 d-flex justify-content-between mb-5">
+                            <span class="text-dark-50 fs-7 fw-normal">Tuesday</span>
+                            <span class="text-dark-50 fs-7 fw-normal">Open 9:00 AM</span>
+                            <span class="text-dark-50 fs-7 fw-normal">|</span>
+                            <span class="text-dark-50 fs-7 fw-normal">Closes 12:00 PM</span>
+                        </div>
+                        <div class="col-12 d-flex justify-content-between mb-5">
+                            <span class="text-dark-50 fs-7 fw-normal">Wednesday</span>
+                            <span class="text-dark-50 fs-7 fw-normal">Open 9:00 AM</span>
+                            <span class="text-dark-50 fs-7 fw-normal">|</span>
+                            <span class="text-dark-50 fs-7 fw-normal">Closes 12:00 PM</span>
+                        </div>
+                        <div class="col-12 d-flex justify-content-between mb-5">
+                            <span class="text-dark-50 fs-7 fw-normal">Thursday</span>
+                            <span class="text-dark-50 fs-7 fw-normal">Open 9:00 AM</span>
+                            <span class="text-dark-50 fs-7 fw-normal">|</span>
+                            <span class="text-dark-50 fs-7 fw-normal">Closes 12:00 PM</span>
+                        </div>
+                        <div class="col-12 d-flex justify-content-between mb-5">
+                            <span class="text-dark-50 fs-7 fw-normal">Friday</span>
+                            <span class="text-dark-50 fs-7 fw-normal">Open 9:00 AM</span>
+                            <span class="text-dark-50 fs-7 fw-normal">|</span>
+                            <span class="text-dark-50 fs-7 fw-normal">Closes 12:00 PM</span>
+                        </div>
+                        <div class="col-12 d-flex justify-content-between mb-5">
+                            <span class="text-dark-50 fs-7 fw-normal">Saturday</span>
+                            <span class="text-dark-50 fs-7 fw-normal">Open 9:00 AM</span>
+                            <span class="text-dark-50 fs-7 fw-normal">|</span>
+                            <span class="text-dark-50 fs-7 fw-normal">Closes 12:00 PM</span>
+                        </div>
+                        <div class="col-12 d-flex justify-content-between mb-5">
+                            <span class="text-dark-50 fs-7 fw-normal">Sunday</span>
+                            <span class="text-dark-50 fs-7 fw-normal">Open 9:00 AM</span>
+                            <span class="text-dark-50 fs-7 fw-normal">|</span>
+                            <span class="text-dark-50 fs-7 fw-normal">Closes 12:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile version (visible on screens smaller than md) -->
+            <div class="d-md-none">
+                <div class="accordion" id="generalHoursAccordion">
+                    <div class="accordion-item border-0">
+                        <h2 class="accordion-header border-0" id="generalHoursHeading">
+                            <button class="accordion-button bg-transparent border-0 px-0" type="button" data-bs-toggle="collapse" data-bs-target="#generalHoursCollapse" aria-expanded="true" aria-controls="generalHoursCollapse">
+                                <h3 class="text-dark-100 display-3 mb-0">General Hours</h3>
+                            </button>
+                        </h2>
+                        <div id="generalHoursCollapse" class="accordion-collapse collapse show" aria-labelledby="generalHoursHeading" data-bs-parent="#generalHoursAccordion">
+                            <div class="accordion-body p-0">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="d-flex justify-content-between align-items-center py-5">
+                                            <span class="text-dark-50 display-3 fw-normal">Monday</span>
+                                            <span class="text-dark-50 display-3 fw-normal">Open 9:00 AM | Closes 12:00 PM</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center py-5">
+                                            <span class="text-dark-50 display-3 fw-normal">Tuesday</span>
+                                            <span class="text-dark-50 display-3 fw-normal">Open 9:00 AM | Closes 12:00 PM</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center py-5">
+                                            <span class="text-dark-50 display-3 fw-normal">Wednesday</span>
+                                            <span class="text-dark-50 display-3 fw-normal">Open 9:00 AM | Closes 12:00 PM</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center py-5">
+                                            <span class="text-dark-50 display-3 fw-normal">Thursday</span>
+                                            <span class="text-dark-50 display-3 fw-normal">Open 9:00 AM | Closes 12:00 PM</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center py-5">
+                                            <span class="text-dark-50 display-3 fw-normal">Friday</span>
+                                            <span class="text-dark-50 display-3 fw-normal">Open 9:00 AM | Closes 12:00 PM</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center py-5">
+                                            <span class="text-dark-50 display-3 fw-normal">Saturday</span>
+                                            <span class="text-dark-50 display-3 fw-normal">Open 9:00 AM | Closes 12:00 PM</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center py-5">
+                                            <span class="text-dark-50 display-3 fw-normal">Sunday</span>
+                                            <span class="text-dark-50 display-3 fw-normal">Open 9:00 AM | Closes 12:00 PM</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center py-5 border-top border-2">
+                <h3 class="text-dark-100 display-3">Phone</h3>
+                <p class="text-dark-50 me-2 display-3">(214) 234 - 5678</p>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center py-5 border-top border-2">
+                <h3 class="text-dark-100 display-3">Address</h3>
+                <p class="text-dark-50 me-2 display-3">36 Eastern Ave, Augusta, ME 04330</p>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center py-5 border-top border-2">
+                <h3 class="text-dark-100 display-3">Directions</h3>
+                <p class="text-dark-50 me-2 display-3">
+                    <a href="#" class="text-dark-50 display-3 text-underline">Walking</a>
+                    <a href="#" class="text-dark-50 display-3 text-underline">Driving</a>
+                    <a href="#" class="text-dark-50 display-3 text-underline">Public Transport</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-6 py-5">
+            <h3 class="fs-6 fs-md-4 d-md-none mb-4">Services Available</h3>
+            <div class="row border-2 border-top py-5">
+                <div class="col-6 col-md-6">
+                    <p class="d-inline-flex align-items-center justify-content-start">
+                        <span class="material-symbols-outlined me-4 text-primary-200">
+                            location_home
+                            </span>
+                        <a href="#" class="text-dark-50 display-4 display-md-1 text-underline">Food Pantries</a>
+                    </p>
+                </div>
+                <div class="col-6 col-md-6">
+                    <p class="d-inline-flex align-items-center justify-content-start">
+                        <span class="material-symbols-outlined me-4 text-primary-200">
+                            location_home
+                            </span>
+                        <a href="#" class="text-dark-50 display-4 display-md-1 text-underline">Veteran Services</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row border-2 border-top py-5">
+                <div class="col-6 col-md-6">
+                    <p class="d-inline-flex align-items-center justify-content-start">
+                        <span class="material-symbols-outlined me-4 text-primary-200">
+                            location_home
+                            </span>
+                        <a href="#" class="text-dark-50 display-4 display-md-1 text-underline">Job Training</a>
+                    </p>
+                </div>
+                <div class="col-6 col-md-6">
+                    <p class="d-inline-flex align-items-center justify-content-start">
+                        <span class="material-symbols-outlined me-4 text-primary-200">
+                            location_home
+                            </span>
+                        <a href="#" class="text-dark-50 display-4 display-md-1 text-underline">LGBTQ+ Support</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row border-2 border-top py-5">
+                <div class="col-6 col-md-6">
+                    <p class="d-inline-flex align-items-center justify-content-start">
+                        <span class="material-symbols-outlined me-4 text-primary-200">
+                            location_home
+                            </span>
+                        <a href="#" class="text-dark-50 display-4 display-md-1 text-underline">Holiday Giving</a>
+                    </p>
+                </div>
+                <div class="col-6 col-md-6">
+                    <p class="d-inline-flex align-items-center justify-content-start">
+                        <span class="material-symbols-outlined me-4 text-primary-200">
+                            location_home
+                            </span>
+                        <a href="#" class="text-dark-50 display-4 display-md-1 text-underline">Rehabilitation</a>
+                    </p>
+                </div>
+            </div>  
+            <div class="row border-2 border-top py-5">
+                <div class="col-6 col-md-6 mb-3">
+                    <p class="d-inline-flex align-items-center justify-content-start">
+                        <span class="material-symbols-outlined me-4 text-primary-200">
+                            location_home
+                            </span>
+                        <a href="#" class="text-dark-50 display-4 display-md-1 text-underline">Rent & Utility Assistance</a>
+                    </p>
+                </div>
+                <div class="col-6 col-md-6 mb-3">
+                    <p class="d-inline-flex align-items-center justify-content-start">
+                        <span class="material-symbols-outlined me-4 text-primary-200">
+                            location_home
+                            </span>
+                        <a href="#" class="text-dark-50 display-4 display-md-1 text-underline">Help for Domestic Abuse</a>
+                    </p>
+                </div>
+            </div>
+                
+            <div class="row border-2 border-top py-5">
+                <div class="col-6 col-md-6">
+                    <p class="d-inline-flex align-items-center justify-content-start">
+                        <span class="material-symbols-outlined me-4 text-primary-200">
+                            location_home
+                            </span>
+                        <a href="#" class="text-dark-50 display-4 display-md-1 text-underline">Grassroots Services</a>
+                    </p>
+                </div>
+                <div class="col-6 col-md-6">
+                    <p class="d-inline-flex align-items-center justify-content-start">
+                        <span class="material-symbols-outlined me-4 text-primary-200">
+                            location_home
+                            </span>
+                        <a href="#" class="text-dark-50 display-4 display-md-1 text-underline">Disaster Relief</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row border-2 border-top py-5">
+                <div class="col-6 col-md-6">
+                    <p class="d-inline-flex align-items-center justify-content-start">
+                        <span class="material-symbols-outlined me-4 text-primary-200">
+                            location_home
+                            </span>
+                        <a href="#" class="text-dark-50 display-4 display-md-1 text-underline">Life Skills to Escape Poverty</a>
+                    </p>
+                </div>
+                <div class="col-6 col-md-6">
+                    <p class="d-inline-flex align-items-center justify-content-start">
+                        <span class="material-symbols-outlined me-4 text-primary-200">
+                            location_home
+                            </span>
+                        <a href="#" class="text-dark-50 display-4 display-md-1 text-underline">Summer Camps</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row border-2 border-top py-5">
+                <div class="col-6 col-md-6">
+                    <p class="d-inline-flex align-items-center justify-content-start">
+                        <span class="material-symbols-outlined me-4 text-primary-200">
+                            location_home
+                            </span>
+                        <a href="#" class="text-dark-50 display-4 display-md-1 text-underline">Spiritual Help</a>
+                    </p>
+                </div>
+                <div class="col-6 col-md-6">
+                    <p class="d-inline-flex align-items-center justify-content-start">
+                        <span class="material-symbols-outlined me-4 text-primary-200">
+                            location_home
+                            </span>
+                        <a href="#" class="text-dark-50 display-4 display-md-1 text-underline">Aging Services</a>
+                    </p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  </div>
+  <h1 class="fs-4 mb-8">Find A Salvation Army Near You</h1>
+  <div class="rounded-5 overflow-hidden">
+    <div class="goggle-map"></div>
+    <div class="services-filter row bg-light p-8">
+      <h2 class="mb-4 fs-4">What Services Are You Looking For?</h2>
+      <div class="col-md-8"> 
+        <span class="mb-5 text-dark-50 display-2 d-inline-block">Which services would be helpful to you?</span>
+        <!-- Desktop view (unchanged) -->
+        <div class="d-none d-md-block">
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <div class="form-check d-flex align-items-center justify-content-between ps-0">
+                <label class="form-check-label" for="holidayGiving">
+                  <i class="fas fa-gift text-danger"></i> Holiday Giving
+                </label>
+                <input class="form-check-input" type="checkbox" id="holidayGiving">
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="form-check d-flex align-items-center justify-content-between ps-0">
+                <label class="form-check-label" for="summerCamps">
+                  <i class="fas fa-campground text-danger"></i> Summer Camps
+                </label>
+                <input class="form-check-input" type="checkbox" id="summerCamps">
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="form-check d-flex align-items-center justify-content-between ps-0">
+                <label class="form-check-label" for="rehabilitation">
+                  <i class="fas fa-hand-holding-heart text-danger"></i> Rehabilitation
+                </label>
+                <input class="form-check-input" type="checkbox" id="rehabilitation">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Mobile view (unchanged) -->
+        <div class="d-md-none mb-4">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle w-100 text-start bg-dark-100 bg-opacity-5" type="button" id="servicesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              Homelessness
+            </button>
+            <div class="dropdown-menu w-100 bg-dark-100 bg-opacity-5" aria-labelledby="servicesDropdown">
+              <div class="dropdown-item">
+                <label class="d-flex align-items-center w-100">
+                  <span class="material-symbols-outlined me-4 text-primary-200">
+                            location_home
+                            </span>
+                  <span class="flex-grow-1">Shelter Assistance</span>
+                  <input class="form-check-input border border-2 " type="checkbox" id="shelterAssistanceMobile">
+                </label>
+              </div>
+              <div class="dropdown-item">
+                <label class="d-flex align-items-center w-100">
+                  <span class="material-symbols-outlined me-4 text-primary-200">
+                    location_home
+                    </span>
+                  <span class="flex-grow-1">Spiritual Help</span>
+                  <input class="form-check-input border border-2" type="checkbox" id="spiritualHelpMobile1">
+                </label>
+              </div>
+              <div class="dropdown-item">
+                <label class="d-flex align-items-center w-100">
+                  <span class="material-symbols-outlined me-4 text-primary-200">
+                    location_home
+                    </span>
+                  <span class="flex-grow-1">Spiritual Help</span>
+                  <input class="form-check-input border border-2" type="checkbox" id="spiritualHelpMobile2">
+                </label>
+              </div>
+              <div class="dropdown-item">
+                <label class="d-flex align-items-center w-100">
+                  <span class="material-symbols-outlined me-4 text-primary-200">
+                    location_home
+                    </span>
+                  <span class="flex-grow-1">Spiritual Help</span>
+                  <input class="form-check-input border border-2" type="checkbox" id="spiritualHelpMobile3">
+                </label>
+              </div>
+              <div class="dropdown-item">
+                <label class="d-flex align-items-center w-100">
+                  <span class="material-symbols-outlined me-4 text-primary-200">
+                    location_home
+                    </span>
+                  <span class="flex-grow-1">Spiritual Help</span>
+                  <input class="form-check-input border border-2" type="checkbox" id="spiritualHelpMobile4">
+                </label>
+              </div>
+              <div class="dropdown-item">
+                <label class="d-flex align-items-center w-100">
+                  <span class="material-symbols-outlined me-4 text-primary-200">
+                    location_home
+                    </span>
+                  <span class="flex-grow-1">Spiritual Help</span>
+                  <input class="form-check-input border border-2" type="checkbox" id="spiritualHelpMobile5">
+                </label>
+              </div>
+              <div class="dropdown-item">
+                <div class="d-flex justify-content-between mt-3">
+                  <button class="btn btn-secondary flex-grow-1 me-2">Reset</button>
+                  <button class="btn btn-primary flex-grow-1">Apply</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mt-4">
+        <h4 class="display-2 text-dark-50 mb-2">Find local help</h4>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Enter your city, address, or zip code" aria-label="Enter your city, address, or zip code" id="pac-input">
+        </div>
+        <button class="btn btn-outline-danger w-100 mb-3 d-flex align-items-center justify-content-end text-primary-200 display-1 use-my-location">
+          <span class="material-symbols-outlined me-2">
+            my_location
+          </span> Use My Location
+        </button>
+        <button class="btn btn-primary w-100" onclick="searchServices()">
+          Search Services
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="location-results" class="location-results mt-15" style="display: none;">
+    <div class="fs-4 result-text mb-8"></div>
+    <div class="location-results__list row gx-4">
+      <!-- Location results will be dynamically inserted here -->
+    </div>
+  </div>
+</div>
+
+<script>
+async function getProperty() {
+  try {
+    const response = await fetch(`https://{{instance.domain}}/location-finder.json?query={{$location_zuid}}`);
+    const rawData = await response.text(); 
+    const data = JSON.parse(rawData);
+    return data.address || null;
+  } catch (error) {
+    console.error('Error fetching property:', error);
+    return null;
+  }
+}
+
+async function searchServices() {
+  const location = document.getElementById('pac-input').value;
+  window.searchLocation(location);
+  
+  // Add the search term to the .result-text div
+  const resultTextDiv = document.querySelector('.result-text');
+  resultTextDiv.textContent = `Search results for: ${location}`;
+
+  // Show the location-results section
+  const locationResults = document.getElementById('location-results');
+  locationResults.style.display = 'block';
+
+  try {
+    // Get the locations data
+    const locations = await window.fetchLocationData();
+    
+    // Get the geocoded location
+    const geocoder = new google.maps.Geocoder();
+    const geocodeResult = await new Promise((resolve, reject) => {
+      geocoder.geocode({ address: location, componentRestrictions: { country: 'US' } }, (results, status) => {
+        if (status === "OK" && results.length > 0) {
+          resolve(results[0].geometry.location);
+        } else {
+          reject(new Error("Geocoding failed"));
+        }
+      });
+    });
+
+    // Filter locations within 50 miles
+    const filteredLocations = locations.filter(loc => {
+      if (!loc || !loc.latitude || !loc.longitude) return false;
+      
+      const distance = window.calculateDistance(
+        geocodeResult.lat(),
+        geocodeResult.lng(),
+        loc.latitude,
+        loc.longitude
+      );
+      return distance <= 50;
+    });
+
+    // Sort locations by distance
+    filteredLocations.sort((a, b) => {
+      const distanceA = window.calculateDistance(
+        geocodeResult.lat(),
+        geocodeResult.lng(),
+        a.latitude,
+        a.longitude
+      );
+      const distanceB = window.calculateDistance(
+        geocodeResult.lat(),
+        geocodeResult.lng(),
+        b.latitude,
+        b.longitude
+      );
+      return distanceA - distanceB;
+    });
+
+    // Clear existing results
+    const resultsContainer = document.querySelector('.location-results__list');
+    resultsContainer.innerHTML = '';
+
+    // Build and append HTML for each location
+    filteredLocations.forEach((loc, index) => {
+      const distance = window.calculateDistance(
+        geocodeResult.lat(),
+        geocodeResult.lng(),
+        loc.latitude,
+        loc.longitude
+      ).toFixed(1);
+
+      const locationHtml = `
+        <div class="col-md-6 mb-4">
+          <div class="location-finder-results bg-light rounded-5 overflow-hidden p-8">
+            <div class="d-flex flex-column gap-4 justify-content-between h-100">
+              <div>
+                <h4 class="display-1 fs-md-7">${loc.name || 'Salvation Army Location'}</h4>
+                <p class="display-4 display-md-2 text-primary-200">${distance} miles away from your location</p>
+              </div>
+              <div class="mb-auto">
+                <div class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-3">
+                  <span class="display-4 display-md-1">General Hours</span>
+                  <div class="text-dark-50 ms-auto me-2 display-4 display-md-1">
+                    <span>${loc.hours_of_operation || 'Hours not available'}</span>
+                  </div>
+                  <button class="btn p-0 d-flex align-items-center justify-content-center">
+                    <span class="material-symbols-outlined text-dark-50">add</span>
+                  </button>
+                </div>
+                <div class="d-flex align-items-center justify-content-between py-3">
+                  <span class="display-4 display-md-1">Phone</span>
+                  <div class="text-dark-50 display-4 display-md-1">
+                    <span>${loc.contact_number || 'Phone not available'}</span>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-between py-3">
+                  <span class="display-4 display-md-1">Address</span>
+                  <div class="text-dark-50 display-4 display-md-1">
+                    <span>${loc.address || 'Address not available'}</span>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-between py-3">
+                  <span class="display-4 display-md-1">Directions</span>
+                  <div class="text-dark-50 display-4 display-md-1">
+                    <span>Walking</span>
+                    <span>Driving</span>
+                    <span>Public Transport</span>
+                  </div>
+                </div>
+                <div class="border-top border-2 border-dark-50 py-3">
+                  <div class="accordion" id="servicesAccordion${index}">
+                    <div class="accordion-item border-0">
+                      <h2 class="accordion-header" id="servicesHeading${index}">
+                        <button class="accordion-button collapsed p-0 bg-transparent shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#servicesCollapse${index}" aria-expanded="false" aria-controls="servicesCollapse${index}">
+                          <div class="d-flex align-items-center justify-content-between w-100">
+                            <span class="display-2 fs-md-7">Services Offered</span>
+                            <span class="text-dark-50 text-decoration-none display-2 fs-md-7 me-1">View More</span>
+                          </div>
+                        </button>
+                      </h2>
+                      <div id="servicesCollapse${index}" class="accordion-collapse collapse" aria-labelledby="servicesHeading${index}" data-bs-parent="#servicesAccordion${index}">
+                        <div class="accordion-body p-0 pt-3">
+                          <div class="row row-cols-2 row-cols-md-3 g-3">
+                            ${(loc.services || []).map(service => `
+                              <div class="col">
+                                <div class="d-flex align-items-center">
+                                  <span class="material-symbols-outlined text-danger me-2">home</span>
+                                  <span class="display-4 fs-md-7">${service}</span>
+                                </div>
+                              </div>
+                            `).join('')}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="${loc.url || '#'}" class="btn btn-info d-flex align-items-center justify-content-center w-100 display-4">
+                  <span class="material-symbols-outlined text-light me-2">arrow_outward</span>
+                  View Location Website
+                </a>
+                <button class="btn btn-secondary d-flex align-items-center justify-content-center w-100 display-4">
+                  <span class="material-symbols-outlined text-light me-2">arrow_outward</span>
+                  View Service Hours & Info
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      resultsContainer.insertAdjacentHTML('beforeend', locationHtml);
+    });
+
+    if (filteredLocations.length === 0) {
+      resultsContainer.innerHTML = `
+        <div class="col-12">
+          <div class="alert alert-info">
+            No locations found within 50 miles of your search location.
+          </div>
+        </div>
+      `;
+    }
+
+  } catch (error) {
+    console.error('Error in searchServices:', error);
+    const resultsContainer = document.querySelector('.location-results__list');
+    resultsContainer.innerHTML = `
+      <div class="col-12">
+        <div class="alert alert-danger">
+          Error searching for locations. Please try again.
+        </div>
+      </div>
+    `;
+  }
+}
+
+// Add event listener for the "Use My Location" button
+document.addEventListener('DOMContentLoaded', function() {
+  const useMyLocationButton = document.querySelector(".use-my-location");
+  if (useMyLocationButton) {
+    useMyLocationButton.addEventListener("click", window.getCurrentLocation);
+  }
+});
+</script>
+
+
+<style>
+  @media (max-width: 767px) {
+    .dropdown-toggle {
+      background-color: #f8f9fa;
+      border-color: #ced4da;
+    }
+    .services-filter .dropdown-menu {
+      position: static !important;
+      width: 100%;
+      margin-top: 0.5rem;
+      box-shadow: none;
+      border: 1px solid #ced4da;
+      min-width: unset !important;
+      transform: translate3d(0, 1rem, 0) !important;
+    }
+    .dropdown-item {
+      padding: 10px 15px;
+    }
+    .dropdown-item label {
+      margin-bottom: 0;
+    }
+    .dropdown-item .icon {
+      font-size: 20px;
+      width: 30px;
+      text-align: center;
+    }
+    .form-check-input {
+      width: 20px;
+      height: 20px;
+      margin-left: auto;
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+    .btn-primary {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+  }
+</style>
+{{else}}
+  {{response.return404(Location Not Found)}}
+{{/if}}
