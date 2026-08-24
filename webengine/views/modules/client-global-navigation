@@ -301,8 +301,14 @@
       territories: normalizeInformationalRelationships(relationships?.territories)
     };
     const persistedLocationZUID = persistedContext.locationZUID;
+    const persistedLocationModel = persistedContext.locationModel;
+    const hasPersistedLocalContext = Boolean(
+      persistedLocationZUID &&
+      persistedLocationZUID !== national &&
+      persistedLocationModel !== `6-a0898ca2c1-krnm0f`
+    );
 
-    if (persistedLocationZUID) {
+    if (hasPersistedLocalContext) {
       const persistedDivisionZUID = persistedContext.divisionZUID;
       const persistedTerritoryZUID = persistedContext.territoryZUID;
       let matchedRelationship = null;
