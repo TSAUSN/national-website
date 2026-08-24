@@ -2168,36 +2168,68 @@
         break;
 
       case `6-d8d999eeaf-zw7rd1`: // Informational DEV
+        const informationalRawRelationships = {
+          locations: `{{!this.locations}}`,
+          divisions: `{{!this.divisions}}`,
+          territories: `{{!this.territories}}`
+        };
+        const informationalNational = `{{!this.national}}`;
+        const informationalPersistedContext = {
+          locationZUID: cookieManager.get(cookieKeys.locationZUID),
+          locationModel: cookieManager.get(cookieKeys.locationModel),
+          divisionZUID: cookieManager.get(cookieKeys.divisionZUID),
+          territoryZUID: cookieManager.get(cookieKeys.territoryZUID)
+        };
         const informationalContext = resolveInformationalPageContext(
-          {
-            // The plural fields are one-to-many. Keep singular fallbacks so
-            // pre-syndication entries remain safe during content migration.
-            locations: [`{{!this.locations}}`, `{{!this.location}}`],
-            divisions: [`{{!this.divisions}}`, `{{!this.division}}`],
-            territories: [`{{!this.territories}}`, `{{!this.territory}}`]
-          },
-          {
-            locationZUID: cookieManager.get(cookieKeys.locationZUID),
-            divisionZUID: cookieManager.get(cookieKeys.divisionZUID),
-            territoryZUID: cookieManager.get(cookieKeys.territoryZUID)
-          }
+          informationalRawRelationships,
+          informationalPersistedContext
         );
+        const logInformationalDev = (label, details = {}) => {
+          console.groupCollapsed(`[CGN][Informational DEV] ${label}`);
+          console.log(`page`, {
+            source,
+            zuid: `{{this.zuid}}`,
+            parentZUID: `{{this.parent_zuid}}`
+          });
+          console.log(`raw relationships`, informationalRawRelationships);
+          console.log(`national`, informationalNational);
+          console.log(`persisted context`, informationalPersistedContext);
+          console.log(`resolved context`, informationalContext);
+          console.log(`cookie snapshot`, getCookieSnapshot());
+
+          if (Object.keys(details).length) {
+            console.log(`details`, details);
+          }
+
+          console.groupEnd();
+        };
 
         logCurrentDataLayerValues(`informational-context-resolution`, {
           informationalContext
         });
+        logInformationalDev(`context resolved`);
 
         if (informationalContext.type === `persisted`) {
           await ensurePersistedContactUsCookies();
           ensureDonationUrlCookies();
+          logInformationalDev(`persisted context preserved`, {
+            matchedRelationship: informationalContext.matchedRelationship
+          });
           break;
         }
 
         if (informationalContext.type === `national`) {
           await setNationalLocationCookies();
+          logInformationalDev(`national fallback applied`, {
+            reason: `relationship hierarchy did not resolve a single context`
+          });
           break;
         }
 
+        logInformationalDev(`hydrating selected context`, {
+          selectedType: informationalContext.type,
+          selectedZUID: informationalContext.zuid
+        });
         const informationalContextWasSet = await setInformationalPageContextCookies(
           informationalContext.type,
           informationalContext.zuid
@@ -2205,6 +2237,16 @@
 
         if (!informationalContextWasSet) {
           await setNationalLocationCookies();
+          logInformationalDev(`national fallback applied`, {
+            reason: `selected context could not be hydrated`,
+            selectedType: informationalContext.type,
+            selectedZUID: informationalContext.zuid
+          });
+        } else {
+          logInformationalDev(`selected context applied`, {
+            selectedType: informationalContext.type,
+            selectedZUID: informationalContext.zuid
+          });
         }
         break;
     }
