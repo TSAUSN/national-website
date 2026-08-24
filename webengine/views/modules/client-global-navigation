@@ -294,46 +294,12 @@
     return [...new Set(relationshipZUIDs)];
   }
 
-  function resolveInformationalPageContext(relationships, persistedContext = {}) {
+  function resolveInformationalPageContext(relationships) {
     const normalizedRelationships = {
       locations: normalizeInformationalRelationships(relationships?.locations),
       divisions: normalizeInformationalRelationships(relationships?.divisions),
       territories: normalizeInformationalRelationships(relationships?.territories)
     };
-    const persistedLocationZUID = persistedContext.locationZUID;
-    const persistedLocationModel = persistedContext.locationModel;
-    const hasPersistedLocalContext = Boolean(
-      persistedLocationZUID &&
-      persistedLocationZUID !== national &&
-      persistedLocationModel !== `6-a0898ca2c1-krnm0f`
-    );
-
-    if (hasPersistedLocalContext) {
-      const persistedDivisionZUID = persistedContext.divisionZUID;
-      const persistedTerritoryZUID = persistedContext.territoryZUID;
-      let matchedRelationship = null;
-
-      if (normalizedRelationships.locations.includes(persistedLocationZUID)) {
-        matchedRelationship = `location`;
-      } else if (
-        normalizedRelationships.divisions.includes(persistedLocationZUID) ||
-        normalizedRelationships.divisions.includes(persistedDivisionZUID)
-      ) {
-        matchedRelationship = `division`;
-      } else if (
-        normalizedRelationships.territories.includes(persistedLocationZUID) ||
-        normalizedRelationships.territories.includes(persistedTerritoryZUID)
-      ) {
-        matchedRelationship = `territory`;
-      }
-
-      return {
-        type: `persisted`,
-        zuid: persistedLocationZUID,
-        matchedRelationship,
-        relationships: normalizedRelationships
-      };
-    }
 
     if (normalizedRelationships.locations.length === 1) {
       return {
@@ -2180,16 +2146,13 @@
           territories: `{{!this.territories}}`
         };
         const informationalNational = `{{!this.national}}`;
-        const informationalPersistedContext = {
+        const informationalExistingCookieContext = {
           locationZUID: cookieManager.get(cookieKeys.locationZUID),
           locationModel: cookieManager.get(cookieKeys.locationModel),
           divisionZUID: cookieManager.get(cookieKeys.divisionZUID),
           territoryZUID: cookieManager.get(cookieKeys.territoryZUID)
         };
-        const informationalContext = resolveInformationalPageContext(
-          informationalRawRelationships,
-          informationalPersistedContext
-        );
+        const informationalContext = resolveInformationalPageContext(informationalRawRelationships);
         const logInformationalDev = (label, details = {}) => {
           console.groupCollapsed(`[CGN][Informational DEV] ${label}`);
           console.log(`page`, {
@@ -2199,7 +2162,10 @@
           });
           console.log(`raw relationships`, informationalRawRelationships);
           console.log(`national`, informationalNational);
-          console.log(`persisted context`, informationalPersistedContext);
+          console.log(
+            `existing cookie context (ignored for Informational DEV resolution)`,
+            informationalExistingCookieContext
+          );
           console.log(`resolved context`, informationalContext);
           console.log(`cookie snapshot`, getCookieSnapshot());
 
@@ -2214,15 +2180,6 @@
           informationalContext
         });
         logInformationalDev(`context resolved`);
-
-        if (informationalContext.type === `persisted`) {
-          await ensurePersistedContactUsCookies();
-          ensureDonationUrlCookies();
-          logInformationalDev(`persisted context preserved`, {
-            matchedRelationship: informationalContext.matchedRelationship
-          });
-          break;
-        }
 
         if (informationalContext.type === `national`) {
           await setNationalLocationCookies();
