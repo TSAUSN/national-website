@@ -1,3 +1,16 @@
 <h1>
     Informational DEV
 </h1>
+
+<script>
+    try {
+        const res = await fetch(
+            `https://{{instance.domain}}/get-informational-page-dev.json?zuid=${zuid}`
+        );
+        const body = await res.json();
+
+        console.log(body)
+    } catch (err) {
+        console.error('error: ', err);
+    }
+</script>

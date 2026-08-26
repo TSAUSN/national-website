@@ -1,0 +1,55 @@
+{{$zuid = {request.queryParam(zuid)} }}
+
+{{each informational_pages as ip WHERE z.zuid = '{$zuid}' LIMIT 1}}
+    {{$locationCount = 0}}
+    {{$divisionCount = 0}}
+    {{$territoryCount = 0}}
+
+    {{each {ip.locations} as relatedLocation}}
+        {{$locationCount = {relatedLocation._length}}}
+    {{/each}}
+
+    {{each {ip.divisions} as relatedDivision}}
+        {{$divisionCount = {relatedDivision._length}}}
+    {{/each}}
+
+    {{each {ip.territories} as relatedTerritory}}
+        {{$territoryCount = {relatedTerritory._length}}}
+    {{/each}}
+
+    {
+        {{if {$locationCount} == 1}}
+            {{each {ip.locations} as location}}
+                {{$cityZUID = {location.city} }}
+                {{$stateZUID = {location.state} }}
+                "content": {{location.toJSON()}},
+                "address": "{{location.address.escapeForJs()}}",
+                "city": "{{cities.filter({$cityZUID}).title.escapeForJs()}}",
+                "state": "{{states.filter({$stateZUID}).name.escapeForJs()}}"
+            {{/each}}
+        {{else-if {$locationCount} > 1 && {$divisionCount} == 1}}
+            {{each {ip.divisions} as division}}
+                {{$cityZUID = {division.city} }}
+                {{$stateZUID = {division.state} }}
+                "content": {{division.toJSON()}},
+                "address": "{{division.address.escapeForJs()}}",
+                "city": "{{cities.filter({$cityZUID}).title.escapeForJs()}}",
+                "state": "{{states.filter({$stateZUID}).name.escapeForJs()}}"
+            {{/each}}
+        {{else-if {$divisionCount} > 1 && {$territoryCount} == 1}}
+            {{each {ip.territories} as territory}}
+                {{$cityZUID = {territory.city} }}
+                {{$stateZUID = {territory.state} }}
+                "content": {{territory.toJSON()}},
+                "address": "{{territory.address.escapeForJs()}}",
+                "city": "{{cities.filter({$cityZUID}).title.escapeForJs()}}",
+                "state": "{{states.filter({$stateZUID}).name.escapeForJs()}}"
+            {{/each}}
+        {{else}}
+            "content": {{homepage.first().toJSON()}},
+            "address": "",
+            "city": "",
+            "state": ""
+        {{/if}}
+    }
+{{/each}}
