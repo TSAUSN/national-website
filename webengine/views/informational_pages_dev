@@ -13,6 +13,31 @@
                 await window.cookiesReady;
             }
 
+            const locationZuid = persistedZuid || cookieManager.get(cookieKeys.locationZUID);
+
+            if (locationZuid) {
+                const linksQuery = new URLSearchParams({
+                    zuid: locationZuid
+                });
+                const linksRes = await fetch(
+                    `/get-informational-page-links-dev.json?${linksQuery.toString()}`,
+                    { credentials: 'same-origin' }
+                );
+
+                console.log('[Informational DEV] links endpoint status', {
+                    ok: linksRes.ok,
+                    status: linksRes.status,
+                    statusText: linksRes.statusText
+                });
+
+                if (linksRes.ok) {
+                    const links = await linksRes.json();
+                    console.log('[Informational DEV] links endpoint response', links);
+                }
+            } else {
+                console.warn('[Informational DEV] links endpoint skipped: no location ZUID');
+            }
+
             const query = new URLSearchParams({
                 zuid: `{{this.zuid}}`
             });
@@ -22,7 +47,7 @@
             }
 
             const res = await fetch(
-                `/get-informational-page-dev.json?${query.toString()}`,
+                `/get-informational-page.json?${query.toString()}`,
                 { credentials: 'same-origin' }
             );
 
