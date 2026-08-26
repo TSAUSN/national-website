@@ -17,7 +17,8 @@
 
             if (locationZuid) {
                 const linksQuery = new URLSearchParams({
-                    zuid: locationZuid
+                    zuid: locationZuid,
+                    navParent: "more"
                 });
                 const linksRes = await fetch(
                     `/get-informational-page-links-dev.json?${linksQuery.toString()}`,
@@ -37,29 +38,6 @@
             } else {
                 console.warn('[Informational DEV] links endpoint skipped: no location ZUID');
             }
-
-            const query = new URLSearchParams({
-                zuid: `{{this.zuid}}`
-            });
-
-            if (persistedZuid) {
-                query.set('persisted_zuid', persistedZuid);
-            }
-
-            const res = await fetch(
-                `/get-informational-page.json?${query.toString()}`,
-                { credentials: 'same-origin' }
-            );
-
-            if (!res.ok) {
-                throw new Error(`Request failed with status ${res.status}`);
-            }
-
-            const body = await res.json();
-            console.log({
-                persistedZuid,
-                currentInformation: body
-            });
         } catch (err) {
             console.error('Unable to load the current informational page:', err);
         }
