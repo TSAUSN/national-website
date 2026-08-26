@@ -39,7 +39,7 @@
 
     (** Division **)
     {{else-if {$zuidFoundIn} == 2 }}
-        {{each informational_pages_dev AS ip WHERE ip.display_on_header_navigation = 1 AND ip.navigation_parent = '{$navParent}' AND (ip.locations = "" OR ip.locations IS NULL) AND find_in_set('{$zuid}', ip.divisions) SORT by z.sort }}
+        {{each informational_pages_dev AS ip WHERE ip.display_on_header_navigation = 1 AND ip.navigation_parent = '{$navParent}' AND find_in_set('{$zuid}', ip.divisions) SORT by z.sort }}
             {
                 "title": "{{ip.title.escapeForJs()}}",
                 "url": "{{truepath({ip.zuid})}}",
@@ -51,7 +51,7 @@
 
     (** Territory **)
     {{else-if {$zuidFoundIn} == 3 }}
-        {{each informational_pages_dev AS ip WHERE ip.display_on_header_navigation = 1 AND ip.navigation_parent = '{$navParent}' AND (ip.divisions = "" OR ip.divisions IS NULL) AND find_in_set('{$zuid}', ip.territories) SORT by z.sort }}
+        {{each informational_pages_dev AS ip WHERE ip.display_on_header_navigation = 1 AND ip.navigation_parent = '{$navParent}' AND find_in_set('{$zuid}', ip.territories) SORT by z.sort }}
             {
                 "title": "{{ip.title.escapeForJs()}}",
                 "url": "{{truepath({ip.zuid})}}",
