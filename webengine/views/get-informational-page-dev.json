@@ -1,6 +1,6 @@
 {{$zuid = {request.queryParam(zuid)} }}
 
-{{each informational_pages as ip WHERE z.zuid = '{$zuid}' LIMIT 1}}
+{{each informational_pages_dev as ip WHERE z.zuid = '{$zuid}' LIMIT 1}}
     {{$locationCount = 0}}
     {{$divisionCount = 0}}
     {{$territoryCount = 0}}
