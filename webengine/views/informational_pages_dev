@@ -3,14 +3,31 @@
 </h1>
 
 <script>
-    try {
-        const res = await fetch(
-            `https://{{instance.domain}}/get-informational-page-dev.json?zuid=${zuid}`
-        );
-        const body = await res.json();
+    (async function loadPersistedInformationalPage() {
+        try {
+            if (window.cookiesReady && typeof window.cookiesReady.then === 'function') {
+                await window.cookiesReady;
+            }
 
-        console.log(body)
-    } catch (err) {
-        console.error('error: ', err);
-    }
+            const zuid = cookieManager.get(cookieKeys.locationZUID);
+
+            if (!zuid) {
+                console.warn('No persisted location cookie is available.');
+                return;
+            }
+
+            const res = await fetch(
+                `https://{{instance.domain}}/get-informational-page-dev.json?zuid=${encodeURIComponent(zuid)}`
+            );
+
+            if (!res.ok) {
+                throw new Error(`Request failed with status ${res.status}`);
+            }
+
+            const body = await res.json();
+            console.log(body);
+        } catch (err) {
+            console.error('Unable to load the persisted informational page:', err);
+        }
+    })();
 </script>
