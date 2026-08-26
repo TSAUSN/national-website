@@ -3,21 +3,27 @@
 </h1>
 
 <script>
-    (async function loadPersistedInformationalPage() {
+    (async function loadCurrentInformationalPage() {
         try {
+            // Capture the incoming location before initCookies resolves the
+            // context for this informational page.
+            const persistedZuid = cookieManager.get(cookieKeys.locationZUID);
+
             if (window.cookiesReady && typeof window.cookiesReady.then === 'function') {
                 await window.cookiesReady;
             }
 
-            const zuid = cookieManager.get(cookieKeys.locationZUID);
+            const query = new URLSearchParams({
+                zuid: `{{this.zuid}}`
+            });
 
-            if (!zuid) {
-                console.warn('No persisted location cookie is available.');
-                return;
+            if (persistedZuid) {
+                query.set('persisted_zuid', persistedZuid);
             }
 
             const res = await fetch(
-                `https://{{instance.domain}}/get-informational-page-dev.json?zuid=${encodeURIComponent(zuid)}`
+                `/get-informational-page-dev.json?${query.toString()}`,
+                { credentials: 'same-origin' }
             );
 
             if (!res.ok) {
@@ -25,9 +31,12 @@
             }
 
             const body = await res.json();
-            console.log(body);
+            console.log({
+                persistedZuid,
+                currentInformation: body
+            });
         } catch (err) {
-            console.error('Unable to load the persisted informational page:', err);
+            console.error('Unable to load the current informational page:', err);
         }
     })();
 </script>

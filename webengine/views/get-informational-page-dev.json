@@ -1,23 +1,34 @@
 {{$zuid = {request.queryParam(zuid)} }}
+{{$persistedZUID = {request.queryParam(persisted_zuid)} }}
+{{$pageFound = 0}}
 
 {{each informational_pages_dev as ip WHERE z.zuid = '{$zuid}' LIMIT 1}}
+    {{$pageFound = 1}}
     {{$locationCount = 0}}
     {{$divisionCount = 0}}
     {{$territoryCount = 0}}
 
-    {{each {ip.locations} as relatedLocation}}
-        {{$locationCount = {relatedLocation._length}}}
-    {{/each}}
+    {{if {ip.locations} }}
+        {{each {ip.locations} as relatedLocation}}
+            {{$locationCount = {relatedLocation._length}}}
+        {{/each}}
+    {{/if}}
 
-    {{each {ip.divisions} as relatedDivision}}
-        {{$divisionCount = {relatedDivision._length}}}
-    {{/each}}
+    {{if {ip.divisions} }}
+        {{each {ip.divisions} as relatedDivision}}
+            {{$divisionCount = {relatedDivision._length}}}
+        {{/each}}
+    {{/if}}
 
-    {{each {ip.territories} as relatedTerritory}}
-        {{$territoryCount = {relatedTerritory._length}}}
-    {{/each}}
+    {{if {ip.territories} }}
+        {{each {ip.territories} as relatedTerritory}}
+            {{$territoryCount = {relatedTerritory._length}}}
+        {{/each}}
+    {{/if}}
 
     {
+        "page_zuid": "{{ip.zuid}}",
+        "persisted_zuid": "{{$persistedZUID.escapeForJs()}}",
         {{if {$locationCount} == 1}}
             {{each {ip.locations} as location}}
                 {{$cityZUID = {location.city} }}
@@ -25,7 +36,8 @@
                 "content": {{location.toJSON()}},
                 "address": "{{location.address.escapeForJs()}}",
                 "city": "{{cities.filter({$cityZUID}).title.escapeForJs()}}",
-                "state": "{{states.filter({$stateZUID}).name.escapeForJs()}}"
+                "state": "{{states.filter({$stateZUID}).name.escapeForJs()}}",
+                "zipcode": "{{location.zipcode.escapeForJs()}}"
             {{/each}}
         {{else-if {$locationCount} > 1 && {$divisionCount} == 1}}
             {{each {ip.divisions} as division}}
@@ -34,7 +46,8 @@
                 "content": {{division.toJSON()}},
                 "address": "{{division.address.escapeForJs()}}",
                 "city": "{{cities.filter({$cityZUID}).title.escapeForJs()}}",
-                "state": "{{states.filter({$stateZUID}).name.escapeForJs()}}"
+                "state": "{{states.filter({$stateZUID}).name.escapeForJs()}}",
+                "zipcode": "{{division.zipcode.escapeForJs()}}"
             {{/each}}
         {{else-if {$divisionCount} > 1 && {$territoryCount} == 1}}
             {{each {ip.territories} as territory}}
@@ -43,13 +56,23 @@
                 "content": {{territory.toJSON()}},
                 "address": "{{territory.address.escapeForJs()}}",
                 "city": "{{cities.filter({$cityZUID}).title.escapeForJs()}}",
-                "state": "{{states.filter({$stateZUID}).name.escapeForJs()}}"
+                "state": "{{states.filter({$stateZUID}).name.escapeForJs()}}",
+                "zipcode": "{{territory.zipcode.escapeForJs()}}"
             {{/each}}
         {{else}}
             "content": {{homepage.first().toJSON()}},
             "address": "",
             "city": "",
-            "state": ""
+            "state": "",
+            "zipcode": ""
         {{/if}}
     }
 {{/each}}
+
+{{if {$pageFound} == 0}}
+    {
+        "error": "Informational page not found",
+        "page_zuid": "{{$zuid.escapeForJs()}}",
+        "persisted_zuid": "{{$persistedZUID.escapeForJs()}}"
+    }
+{{/if}}
