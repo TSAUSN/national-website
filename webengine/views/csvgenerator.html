@@ -340,6 +340,14 @@
           placeholder="Search this server page"
         />
       </div>
+      <div class="publish-status-filter">
+        <label for="publishStatusFilter">Status</label>
+        <select id="publishStatusFilter" class="form-select form-select-sm">
+          <option value="">All statuses</option>
+          <option value="publish">Published</option>
+          <option value="unpublish">Unpublished</option>
+        </select>
+      </div>
       <div class="server-pager" aria-label="Server pagination">
         <label for="page-size">Rows</label>
         <select id="page-size" class="form-select form-select-sm">
@@ -480,6 +488,7 @@
   const pageNextBtn = document.getElementById('page-next');
   const pageIndicator = document.getElementById('page-indicator');
   const pageNumberError = document.getElementById('pageNumberError');
+  const publishStatusFilter = document.getElementById('publishStatusFilter');
   const errorAlert = document.getElementById('csv-error');
   const exportAllBtn = document.getElementById('export-all-btn');
   const downloadCsvBtn = document.getElementById('download-csv-btn');
@@ -978,7 +987,8 @@
       downloadCsvBtn,
       exportAllBtn,
       pageNumberInput,
-      pageSizeSelect
+      pageSizeSelect,
+      publishStatusFilter
     ];
     controls.forEach((control) => {
       if (control) {
@@ -1854,6 +1864,7 @@
     hasNextServerPage = false;
     knownLastPage = null;
     searchInput.value = '';
+    publishStatusFilter.value = '';
     downloadCsvBtn.classList.add('d-none');
     exportAllBtn.classList.add('d-none');
     columnControls.classList.add('d-none');
@@ -2095,8 +2106,9 @@
       if (shouldOpenColumnPanel) {
         columnControls.open = true;
       }
+      applyTableFilters();
       renderTable();
-      resultsSummary.textContent = `${data.length} row${data.length === 1 ? '' : 's'} on server page ${page}`;
+      updateResultsSummary();
       if (data.length) {
         downloadCsvBtn.classList.remove('d-none');
         exportAllBtn.classList.remove('d-none');
@@ -2128,17 +2140,33 @@
     }
   }
 
-function formatPublishStatus(value) {
+function normalizePublishStatus(value) {
   if (value === true) {
-    return 'Published';
+    return 'publish';
   }
   if (value === false) {
+    return 'unpublish';
+  }
+
+  const normalized = `${value ?? ''}`.trim().toLowerCase();
+  if (['publish', 'published', 'true', '1'].includes(normalized)) {
+    return 'publish';
+  }
+  if (['unpublish', 'unpublished', 'false', '0'].includes(normalized)) {
+    return 'unpublish';
+  }
+  return '';
+}
+
+function formatPublishStatus(value) {
+  const status = normalizePublishStatus(value);
+  if (status === 'publish') {
+    return 'Published';
+  }
+  if (status === 'unpublish') {
     return 'Unpublished';
   }
-  if (value === null || value === undefined) {
-    return '';
-  }
-  return `${value}`;
+  return '';
 }
 
   const updateTableNavigation = () => {
@@ -2157,7 +2185,7 @@ function renderTable() {
   dataTableBody.innerHTML = '';
   dataTableHeadRow.innerHTML = '';
 
-  const displayData = searchInput.value ? filteredData : data;
+  const displayData = hasActiveTableFilters() ? filteredData : data;
   const selectedColumns = getSelectedColumns();
 
   selectedColumns.forEach((column) => {
@@ -2288,7 +2316,10 @@ function renderTable() {
     if (!data.length) {
       throw new Error('No data to export. Please generate data first.');
     }
-    const rows = searchInput.value ? filteredData : data;
+    const rows = hasActiveTableFilters() ? filteredData : data;
+    if (!rows.length) {
+      throw new Error('No rows match the current filters.');
+    }
     await hydrateRowsForExport(rows, columns);
     downloadRowsAsCSV(rows, columns);
   };
@@ -2380,11 +2411,11 @@ function renderTable() {
         throw new Error('No data returned to export.');
       }
 
-      const exportRows = searchInput.value
-        ? allData.filter(rowMatchesSearch)
+      const exportRows = hasActiveTableFilters()
+        ? allData.filter(rowMatchesTableFilters)
         : allData;
       if (!exportRows.length) {
-        throw new Error('No rows match the current table search.');
+        throw new Error('No rows match the current filters.');
       }
       loaderText.textContent = 'Loading selected export fields...';
       await hydrateRowsForExport(exportRows, columns);
@@ -2589,8 +2620,8 @@ function renderTable() {
       return 0;
     });
 
-    if (searchInput.value) {
-      applySearchFilter();
+    if (hasActiveTableFilters()) {
+      applyTableFilters();
     }
 
     renderTable();
@@ -2607,18 +2638,41 @@ function rowMatchesSearch(row) {
   );
 }
 
-function applySearchFilter() {
-  filteredData = data.filter(rowMatchesSearch);
+function rowMatchesPublishStatus(row) {
+  const selectedStatus = publishStatusFilter.value;
+  return (
+    !selectedStatus ||
+    normalizePublishStatus(row.publish_status) === selectedStatus
+  );
 }
 
-searchInput.addEventListener('input', () => {
-  applySearchFilter();
+function rowMatchesTableFilters(row) {
+  return rowMatchesSearch(row) && rowMatchesPublishStatus(row);
+}
+
+function hasActiveTableFilters() {
+  return Boolean(searchInput.value.trim() || publishStatusFilter.value);
+}
+
+function applyTableFilters() {
+  filteredData = data.filter(rowMatchesTableFilters);
+}
+
+function updateResultsSummary() {
   const page = getPageNumber();
-  resultsSummary.textContent = searchInput.value.trim()
-    ? `${filteredData.length} of ${data.length} rows match on server page ${page}`
+  resultsSummary.textContent = hasActiveTableFilters()
+    ? `${filteredData.length} of ${data.length} rows match filters on server page ${page}`
     : `${data.length} row${data.length === 1 ? '' : 's'} on server page ${page}`;
+}
+
+function handleTableFilterChange() {
+  applyTableFilters();
+  updateResultsSummary();
   renderTable();
-});
+}
+
+searchInput.addEventListener('input', handleTableFilterChange);
+publishStatusFilter.addEventListener('change', handleTableFilterChange);
 
   resultsTable.addEventListener('scroll', () => {
     tableTopScrollbar.scrollLeft = resultsTable.scrollLeft;
@@ -3028,6 +3082,25 @@ body {
 .results-search {
   flex: 1 1 320px;
   max-width: 460px;
+}
+
+.publish-status-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.publish-status-filter label {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.publish-status-filter select {
+  width: 150px;
+  min-width: 150px;
 }
 
 .server-pager {
@@ -3561,6 +3634,10 @@ th.active-desc .sort-icon .down {
   .results-search {
     flex: 0 1 auto;
     max-width: none;
+  }
+
+  .publish-status-filter {
+    justify-content: flex-start;
   }
 
   .server-pager {
