@@ -870,7 +870,7 @@
   async function fetchInformationalLinks(zuid, navParent) {
     try {
       const res = await fetch(
-        `https://{{instance.domain}}/get-informational-page-links.json?zuid=${zuid}&navParent=${navParent}`
+        `https://{{instance.domain}}/get-informational-page-links-dev.json?zuid=${zuid}&navParent=${navParent}`
       );
       const body = await res.json();
 
