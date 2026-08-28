@@ -15,6 +15,38 @@
   },
   {
     "type": "menu",
+    "key": null,
+    "page_name": "Utility Rent Assistance",
+    "page-zuid": "7-c695c2cfc5-4w26vz",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Poverty",
+    "page-zuid": "7-e6f5a4edc2-hbct6g",
+    "sort": 1,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Food Pantries",
+    "page-zuid": "7-a8eef5a3c0-h21bx2",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Disaster Relief",
+    "page-zuid": "7-c08499c9bc-s4l719",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
     "key": "about_us",
     "page_name": "About Us",
     "page-zuid": null,
@@ -150,6 +182,13 @@
     "key": "contact_us",
     "page_name": "Contact Us",
     "page-zuid": "7-eaebfda084-whp0q7",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "Ways We Help",
+    "page-zuid": null,
     "parent": null
   }
 ]

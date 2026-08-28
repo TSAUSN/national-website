@@ -1,0 +1,241 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:43:0:44": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-cc9abbf8c6-0ltc6p')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-cc9abbf8c6-0ltc6p')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:43:0:44",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:12:44": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:12:44",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:12:44-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:textarea:1:43": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\t<strong>The First Chapter IN Florida</strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The First Chapter IN Florida",
+								"position": 0,
+								"fullName": "content:textarea:1:43",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:1:43",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:columns:2columns:6:10": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3 g-4",
+								"html": "<div class=\"row my-3 g-4\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12 col-xs-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12 col-xs-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 1,
+								"fullName": "design:columns:2columns:6:10",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:6:10-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12 col-xs-12",
+										"droppable": true,
+										"children": {
+											"content:text:2:59": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h6>Our Mission</h6>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "Our Mission",
+												"position": 0,
+												"fullName": "content:text:2:59",
+												"htmlElement": "h6",
+												"primarytype": "content",
+												"id": "content:text:2:59",
+												"styles": {},
+												"newLoc": "design:columns:2columns:6:10-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:3:50": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>Echelon seeks to mobilize the next generation for The Salvation Army by providing opportunities for young adults to engage with the organization through fellowship and networking, donations and fundraising, and service and volunteering.</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Echelon seeks to mobilize the next generation for The Salvation Army by providing opportunities for young adults to engage with the organization through fellowship and networking, donations and fundraising, and service and volunteering.",
+												"position": 1,
+												"fullName": "content:textarea:3:50",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:3:50",
+												"styles": {},
+												"newLoc": "design:columns:2columns:6:10-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:6:10-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12 col-xs-12",
+										"droppable": true,
+										"children": {
+											"content:text:4:14": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h6>Members</h6>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "Members",
+												"position": 0,
+												"fullName": "content:text:4:14",
+												"htmlElement": "h6",
+												"primarytype": "content",
+												"id": "content:text:4:14",
+												"styles": {},
+												"newLoc": "design:columns:2columns:6:10-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:5:84": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>Echelon members participate in a variety of networking, volunteer, and fundraising activities. These&nbsp;activities directly support Salvation Army services within a chapter’s local community.&nbsp;Whether we are serving, attending one of our social events, or raising money. Echelon is a connected community full of people who are making a difference.</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Echelon members participate in a variety of networking, volunteer, and fundraising activities. These activities directly support Salvation Army services within a chapter’s local community. Whether we are serving, attending one of our social events, or raising money. Echelon is a connected community full of people who are making a difference.",
+												"position": 1,
+												"fullName": "content:textarea:5:84",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:5:84",
+												"styles": {},
+												"newLoc": "design:columns:2columns:6:10-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:whitespace-xl:7:77": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:7:77",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:8:55": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"text-align:center;\">\n\tAnnual Membership Fee: $10\n</p>\n\n<p>\n\tMake checks payable to <em>The Salvation Army of Northeast Florida - Echelon: </em>328 North Ocean Street Jacksonville, FL 32202<em> </em>\n</p>\n\n<p>\n\tOr utilize the qr Code below.\n</p>\n\n<p>\n\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/97a16b4b-05aa-4588-acfc-165baa8461ad_EchelonUpdated2025.png\" style=\"width:179px;height:179px;\" class=\"d-block mx-auto img-fluid rounded\">\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"text-align:center;\">\n\tAnnual Membership Fee: $10\n</p>\n\n<p>\n\tMake checks payable to <em>The Salvation Army of Northeast Florida - Echelon: </em>328 North Ocean Street Jacksonville, FL 32202<em> </em>\n</p>\n\n<p>\n\tOr utilize the qr Code below.\n</p>\n\n<p>\n\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/97a16b4b-05aa-4588-acfc-165baa8461ad_EchelonUpdated2025.png\" style=\"width:179px;height:179px;\" class=\"d-block mx-auto img-fluid rounded\">\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:8:55",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:8:55",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><p style=\"text-align:center;\">\n\tAnnual Membership Fee: $10\n</p>\n\n<p>\n\tMake checks payable to <em>The Salvation Army of Northeast Florida - Echelon: </em>328 North Ocean Street Jacksonville, FL 32202<em> </em>\n</p>\n\n<p>\n\tOr utilize the qr Code below.\n</p>\n\n<p>\n\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/97a16b4b-05aa-4588-acfc-165baa8461ad_EchelonUpdated2025.png\" style=\"width:179px;height:179px;\" class=\"d-block mx-auto img-fluid rounded\">\n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

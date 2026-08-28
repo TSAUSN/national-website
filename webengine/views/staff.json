@@ -27,36 +27,7 @@
 {{/if}}
 
 [
-  {{if {$hasProperty} == 1 }}
-      {{ each staffs as staff where find_in_set("{$property}", {$findInSet} ) OR title_rank LIKE '%General%' OR national_member=1 sort by sort_order asc }}
-      {{$about =  {staff.about.escapeForJs()} }}
-        {{if {staff.display_on_website} == 1}}
-          {
-            "fullname": "{{staff.first_name}} {{staff.last_name}}",
-            "title_rank": "{{staff.title_rank}}",
-            "has": "property",
-            "job_role": "{{staff.job_role}}",
-            "email": "{{staff.email}}",
-            "about": "{{ $about.html_entity_decode() }}",
-            "portrait_image": "{{staff.portrait_image.getMediaURL()}}",
-            "member_locations": "{{staff.member_locations}}",
-            "sort_order": {{staff.sort_order}},
-            "display_on_website": {{staff.display_on_website}},
-            {{if {staff.staff_role_type} !== null }}
-              "staff_role_type": [{{each staff_role_types as staff_role_type WHERE z.zuid = "{staff.staff_role_type}" }}
-                {
-                  "role_name": "{{staff_role_type.role_name}}",
-                  "zuid": "{{staff_role_type.zuid}}"
-                }{{staff_role_type._arraycomma}}
-              {{/each}}]
-            {{else}}
-              "staff_role_type": null
-            {{/if}}
-            
-          }{{staff._arraycomma}}
-        {{/if}}
-      {{/each}}
-  {{else-if {$hasProperty} == 0 && {$property} }}
+  {{if {$model} == '6-a0898ca2c1-krnm0f' }}
     {{ each staffs as staff where national_member=1 OR title_rank LIKE '%General%' order by sort_order asc limit {$limit} }}
       {{$about =  {staff.about.escapeForJs()} }}
         {
@@ -67,7 +38,7 @@
           "about": "{{ $about.html_entity_decode() }}",
           "portrait_image": "{{staff.portrait_image.getMediaURL()}}",
           "member_locations": "{{staff.member_locations}}",
-          "sort_order": {{staff.sort_order}},
+          "sort_order": "{{staff.sort_order}}",
           "display_on_website": {{staff.display_on_website}},
           {{if {staff.staff_role_type} !== null }}
             "staff_role_type": [{{each staff_role_types as staff_role_type WHERE z.zuid = "{staff.staff_role_type}" }}
@@ -79,11 +50,65 @@
           {{else}}
             "staff_role_type": null
           {{/if}}
-          
+        }{{staff._arraycomma}}
+      {{/each}}
+  {{else-if {$hasProperty} == 1 }}
+      {{ each staffs as staff where (find_in_set("{$property}", {$findInSet} ) OR title_rank LIKE '%General%' OR national_member=1) AND z.zuid != '7-8ed48083e0-hgjwqf' sort by sort_order asc }}
+      {{$about =  {staff.about.escapeForJs()} }}
+        {{if {staff.display_on_website} == 1}}
+          {
+            "fullname": "{{staff.first_name}} {{staff.last_name}}",
+            "title_rank": "{{staff.title_rank}}",
+            "has": "property",
+            "job_role": "{{staff.job_role}}",
+            "email": "{{staff.email}}",
+            "about": "{{ $about.html_entity_decode() }}",
+            "portrait_image": "{{staff.portrait_image.getMediaURL()}}",
+            "member_locations": "{{staff.member_locations}}",
+            "sort_order": "{{staff.sort_order}}",
+            "display_on_website": {{staff.display_on_website}},
+            {{if {staff.staff_role_type} !== null }}
+              "staff_role_type": [{{each staff_role_types as staff_role_type WHERE z.zuid = "{staff.staff_role_type}" }}
+                {
+                  "role_name": "{{staff_role_type.role_name}}",
+                  "zuid": "{{staff_role_type.zuid}}"
+                }{{staff_role_type._arraycomma}}
+              {{/each}}]
+            {{else}}
+              "staff_role_type": null
+            {{/if}}
+
+          }{{staff._arraycomma}}
+        {{/if}}
+      {{/each}}
+  {{else-if {$hasProperty} == 0 && {$property} }}
+    {{ each staffs as staff where (national_member=1 OR title_rank LIKE '%General%') AND z.zuid != '7-8ed48083e0-hgjwqf' order by sort_order asc limit {$limit} }}
+      {{$about =  {staff.about.escapeForJs()} }}
+        {
+          "fullname": "{{staff.first_name}} {{staff.last_name}}",
+          "title_rank": "{{staff.title_rank}}",
+          "job_role": "{{staff.job_role}}",
+          "email": "{{staff.email}}",
+          "about": "{{ $about.html_entity_decode() }}",
+          "portrait_image": "{{staff.portrait_image.getMediaURL()}}",
+          "member_locations": "{{staff.member_locations}}",
+          "sort_order": "{{staff.sort_order}}",
+          "display_on_website": {{staff.display_on_website}},
+          {{if {staff.staff_role_type} !== null }}
+            "staff_role_type": [{{each staff_role_types as staff_role_type WHERE z.zuid = "{staff.staff_role_type}" }}
+              {
+                "role_name": "{{staff_role_type.role_name}}",
+                "zuid": "{{staff_role_type.zuid}}"
+              }{{staff_role_type._arraycomma}}
+            {{/each}}]
+          {{else}}
+            "staff_role_type": null
+          {{/if}}
+
         }{{staff._arraycomma}}
       {{/each}}
   {{else-if {$hasProperty} == 0 && !{$property} }}
-    {{ each staffs as staff where national_member=1 OR title_rank LIKE '%General%' order by sort_order asc limit {$limit} }}
+    {{ each staffs as staff where (national_member=1 OR title_rank LIKE '%General%') AND z.zuid != '7-8ed48083e0-hgjwqf' order by sort_order asc limit {$limit} }}
       {{$about =  {staff.about.escapeForJs()} }}
 
       {
@@ -94,7 +119,7 @@
         "about": "{{ $about.html_entity_decode()  }}",
         "portrait_image": "{{staff.portrait_image.getMediaURL()}}",
         "member_locations": "{{staff.member_locations}}",
-        "sort_order": {{staff.sort_order}},
+        "sort_order": "{{staff.sort_order}}",
         "display_on_website": {{staff.display_on_website}},
         {{if {staff.staff_role_type} !== null }}
           "staff_role_type": [{{each staff_role_types as staff_role_type WHERE z.zuid = "{staff.staff_role_type}" }}
@@ -106,9 +131,9 @@
         {{else}}
           "staff_role_type": null
         {{/if}}
-        
+
       }{{staff._arraycomma}}
     {{/each}}
-  {{/if}} 
+  {{/if}}
 
 ]

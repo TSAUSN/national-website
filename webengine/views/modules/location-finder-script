@@ -19,7 +19,7 @@ function getCookieByName(name) {
 function formatCityName(city = '') {
   if (!city) return '';
   const cityName = String(city);
-  return cityName.charAt(0).toUpperCase() + cityName.slice(1).toLowerCase();
+  return cityName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 }
 
 async function getProperty() {
@@ -940,12 +940,12 @@ async function searchServices() {
       if (distance <= 50) {
         // Check if location has ALL of the selected services
         if (selectedServices.length > 0) {
-
+          
           const locationServices = loc.service_types ? loc.service_types.split(",") : [];
           const hasAllSelectedServices = selectedServices.some(service => 
             locationServices.includes(service)
           );
-          
+
           if (hasAllSelectedServices) {
             allFilteredLocations.push(loc);
           }

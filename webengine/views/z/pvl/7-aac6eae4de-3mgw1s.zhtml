@@ -1,75 +1,41 @@
-<div classname="{styles.pvlRoot}">
-	<div data-zesty-id="content:block:6-bcfbdaa6d3-vjj3qs:27:48:0:83">{{block('/-/block/hero_full.html?variant=7-c692e9bff5-hsb4vh')}}</div>
-	<div class="p-6 rounded-5 bg-light mb-18" data-zesty-id="design:columns:1 column - 1 row my-3:9:77">
-<div class="col-lg-12 col-md-12 col-sm-12" data-zesty-id="design:columns:1 column - 1 row my-3:9:77-1:1 column - 1 row:0">
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:1:90"></div>
-<div style="color:#111111;" class="rounded p-6 gap-3 bg-light text-dark" data-zesty-id="content:wysiwyg_basic:2:30"><p style="text-align:center;">
-	<strong>This Christmas, be the reason a child in Hampton Roads believes in the magic of the season.</strong>
-</p>
-
-<p style="text-align:center;">
-	Every Christmas, The Salvation Army Hampton Roads Angel Tree program makes sure thousands of local children wake up to joy on Christmas morning. For many, these gifts are the only ones they’ll receive — a reminder that someone cares and that they are not forgotten. Your support makes this possible. Every donation stays right here in our community, providing toys, clothes, and essentials for children whose families are struggling — and extending hope that lasts long beyond the holidays. Last year, we served over 7,500 children and the need this year is even greater.
-</p>
-
-<p style="text-align:center;">
-	 
-</p>
-
-<p style="text-align:center;">
-	<strong>How It Works</strong>
-</p>
-
-<p style="text-align:center;">
-	Step 1: Pick up an empty stocking from any DollarBank or Salvation Army location.
-</p>
-
-<p style="text-align:center;">
-	Step 2: Fill the stocking with suggested items found inside the stocking topper.
-</p>
-
-<p style="text-align:center;">
-	Step 3: Return the filled stocking to any DollarBank or Salvation Army location by December 5th.
-</p>
-
-<p>
-	 
-</p>
-
-<h5 style="text-align:center;">Stocking Return Deadline – December 5, 2026</h5>
-
-<p>
-	 
-</p>
-
-<p style="text-align:center;">
-	<strong>Please call Beth Hornby, Development Director at <a href="tel:7577384809">757-738-4809</a> for any questions related to late gift drop offs.</strong>
-</p></div>
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:3:21"></div>
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:4:91"></div>
-<div style="color:#111111;" class="rounded p-6 gap-3 bg-light text-dark" data-zesty-id="content:wysiwyg_basic:5:49"><div class="container">
-	<div class="row greyBoxes">
-		<div class="greyBoxes-box u-textCenter">
-			<h5> </h5>
-
-			<h5>In Partnership with</h5>
-
-			<p style="text-align:center;">
-				 
-			</p>
-
-			<p>
-				<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/d1c1c240-0dfa-4f50-8324-6c29140557e3_dollar+bank+logo.png" style="width:469px;height:303px;" class="d-block mx-auto img-fluid rounded">
-			</p>
-
-			<p style="text-align:center;">
-				<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/5aa9ef5a-a325-4b21-8254-963cd261bba1_mytvz+logo.png" style="width:223px;height:141px;display:block;margin-left:auto;margin-right:auto;" class="d-block mx-auto img-fluid rounded">
-			</p>
-
-			<p style="text-align:left;">
-				        <strong> </strong>
-			</p>
-		</div>
-	</div>
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-c692e9bff5-hsb4vh&version=3')}}
+	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="py-5"></div>
+			<div class="pvlRichtext rounded p-6 gap-3 bg-light text-dark" style="color:#111111"><div class="rounded p-6 gap-3 bg-light text-dark" style="color: #111111;">
+<p style="text-align: left;"><span style="font-family: bootstrap-icons, sans-serif;"><strong>This Christmas, be the reason a child in Hampton Roads believes in the magic of the season.</strong></span></p>
+<span style="font-family: bootstrap-icons, sans-serif;">Every Christmas, The Salvation Army Hampton Roads Angel Tree program makes sure thousands of local children wake up to joy on Christmas morning. For many, these gifts are the only ones they’ll receive — a reminder that someone cares and that they are not forgotten. Your support makes this possible. Every donation stays right here in our community, providing toys, clothes, and essentials for children whose families are struggling — and extending hope that lasts long beyond the holidays.&nbsp; </span><span style="font-family: bootstrap-icons, sans-serif; font-size: 16px;">Last year, our community stepped up in an incredible way, and we’re looking forward to making an even greater impact together in 2026!</span></div>
+<p class="MsoNormal"><span style="font-family: bootstrap-icons, sans-serif;"><strong><u>Campaign Details</u></strong></span></p>
+<p class="MsoNormal"><span style="font-family: bootstrap-icons, sans-serif;"><strong>Stocking Reservations</strong>: You can reserve your Stockings today. Please&nbsp;<a href="https://forms.cloud.microsoft/r/W651nSZBdW"><span class="MsoSmartlink">CLICK HERE</span></a> to complete our sponsor reservation form.</span></p>
+<p class="MsoNormal"><span style="font-family: bootstrap-icons, sans-serif;"><strong>Stocking Availability</strong>: Stockings will be available at our Sponsor Breakfast (please see details below).&nbsp;<strong><em>You may coordinate with us to request them earlier. When your order is ready stockings can be picked up at the following locations:</em></strong></span></p>
+<ul style="margin-top: 0in;">
+<li class="MsoListParagraph" style="font-family: bootstrap-icons, sans-serif; margin-left: 0in;"><span style="font-family: bootstrap-icons, sans-serif;">Hampton Roads Area Command Norfolk Office – 5525 Raby Rd, Norfolk VA (Monday to Friday: 8 am to 4:30 pm)</span></li>
+<li class="MsoListParagraph" style="font-family: bootstrap-icons, sans-serif; margin-left: 0in;"><span style="font-family: bootstrap-icons, sans-serif;">Portsmouth Office - 2306 Airline Blvd, Portsmouth, VA&nbsp;(Monday to Friday: 9 am to 4 pm)</span></li>
+<li class="MsoListParagraph" style="font-family: bootstrap-icons, sans-serif; margin-left: 0in;"><span style="font-family: bootstrap-icons, sans-serif;">Sponsorship Breakfast (details below)</span></li>
+</ul>
+<p class="MsoNormal"><span style="font-family: bootstrap-icons, sans-serif;"><strong>Stocking Return Deadline: </strong></span><span style="font-family: bootstrap-icons, sans-serif;">Monday, December 7, 2026<strong></strong></span></p>
+<p class="MsoNormal"><span style="font-family: bootstrap-icons, sans-serif;"><strong>Sponsor Breakfast</strong><br>Please join us for our <strong>2026 Angel Tree &amp; myHoliday Socks Sponsor Breakfast</strong>, where we’ll officially kick off the season, hand out Angel Tags and Stockings, and celebrate the businesses, organizations, and community partners who make this work possible.</span></p>
+<p class="MsoNormal" style="line-height: 150%;"><span style="font-family: bootstrap-icons, sans-serif;"><strong>Date:</strong> Wednesday, October 28, 2026<br><strong>Time:</strong> 8:30 am to 10:30 am<br><strong>Location:</strong> The Salvation Army Christmas Depot (1401 Greenbrier Parkway, Chesapeake VA – the old Sears building at Greenbrier Mall)</span></p>
+<p class="MsoNormal" style="line-height: 150%;"><span style="font-family: bootstrap-icons, sans-serif;"><strong>Reserve your seat:</strong> Please be sure to <a href="https://forms.cloud.microsoft/r/W651nSZBdW"><span class="MsoSmartlink">RSVP</span></a> by October 14, 2026</span></p>
+<p style="text-align: left;"><span style="font-family: bootstrap-icons, sans-serif;"><strong>How It Works</strong></span></p>
+<p style="text-align: left;"><span style="font-family: bootstrap-icons, sans-serif;">Step 1: Pick up an empty stocking from any DollarBank or Salvation Army location.</span></p>
+<p style="text-align: left;"><span style="font-family: bootstrap-icons, sans-serif;">Step 2: Fill the stocking with suggested items found inside the stocking topper.</span></p>
+<p style="text-align: left;"><span style="font-family: bootstrap-icons, sans-serif;">Step 3: Return the filled stocking to any DollarBank or Salvation Army location by December 7th.</span></p>
+<p style="text-align: center;"><span style="font-family: bootstrap-icons, sans-serif;"><strong>Please call Beth Hornby, Development Director at&nbsp;<a href="tel:7577384809">757-738-4809</a> for any questions related to late gift drop offs.</strong></span></p></div>
+			<div class="py-5"></div>
+			<div class="py-5"></div>
+			<div class="pvlRichtext rounded p-6 gap-3 bg-light text-dark" style="color:#111111"><div class="rounded p-6 gap-3 bg-light text-dark" style="color: #111111;">
+<div class="container">
+<div class="row greyBoxes">
+<div class="greyBoxes-box u-textCenter">
+<h5 style="text-align: center;">In Partnership with</h5>
+<p><img class="d-block mx-auto img-fluid rounded" style="height: 303px; width: 469px;" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/d1c1c240-0dfa-4f50-8324-6c29140557e3_dollar+bank+logo.png"></p>
+<p style="text-align: center;"><img class="d-block mx-auto img-fluid rounded" style="display: block; height: 141px; margin-left: auto; margin-right: auto; width: 223px;" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/5aa9ef5a-a325-4b21-8254-963cd261bba1_mytvz+logo.png"></p>
+<p style="text-align: left;"><strong> </strong></p>
+</div>
+</div>
+</div>
 </div></div>
 		</div>
 	</div>

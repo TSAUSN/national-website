@@ -1,0 +1,323 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:45:0:30": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-d68aeafec3-gq9qvf')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-d68aeafec3-gq9qvf')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:45:0:30",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:27:34": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:27:34",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:27:34-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:58": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:58",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:34-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:92": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"margin-bottom:6.0pt;\">\n\t<span style=\"font-size:20px;\"><u><strong><span style=\"line-height:normal;\"><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">Our Purpose</span></span></span><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\"></span></span></strong></u></span>\n</p>\n\n<p style=\"margin-bottom:6.0pt;\">\n\t<span style=\"font-size:16px;\"><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">The purpose of the Women’s Auxiliary is to support the services and programs of The Salvation Army’s Northeast Florida Area Command. As members of The Salvation Army Women’s Auxiliary, we raise community awareness of The Salvation Army by giving our time and talents with compassion, kindness, gentleness, and humility, letting God’s love show through us in all that we may be asked to do. As we help others, with loving hearts, we are blessed with new friendships and the joy that comes from serving others. The Auxiliary’s primary fundraising event is the Annual Celebrity Chefs Tasting Luncheon and Silent Auction. Funds raised from this event support major services and projects of The Salvation Army. For almost four decades, through the dedicated work, service, and love of The Salvation Army the Women’s Auxiliary has touched hundreds of lives. Together we meet human needs in God’s name.</span></span></span>\n</p>\n\n<p style=\"margin-bottom:6.0pt;\">\n\t<span style=\"font-size:20px;\"><strong><span><span style=\"line-height:normal;\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/af98a035-43b1-46fb-a3ef-00e9ba45b22e_Opportunities+to+Get+Involved.pdf\">Opportunities to Get Involved</a></span></span></strong></span>\n</p>\n\n<p>\n\t<span style=\"font-size:16px;\"><span><span style=\"line-height:normal;\"><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">Types of Membership</span></span></span></span></span>\n</p>\n\n<p style=\"margin-top:.05pt;margin-right:.7pt;margin-bottom:0in;margin-left:0in;\">\n\t<span style=\"font-size:16px;\"><span style=\"line-height:normal;\"><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">1<sup>st</sup> Time New Members:</span></span></b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\"> $25     </span></span></span></span><em><strong><span style=\"font-size:14px;\"><span style=\"line-height:normal;\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5d873c54-01a1-4062-8a3f-80cc3169213e_auxiliary+membership+form.pdf\">Become a Member</a></span></span></strong></em><span style=\"font-size:16px;\"><span style=\"line-height:normal;\"><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\"></span></span></span></span>\n</p>\n\n<p style=\"margin-top:.05pt;margin-right:.7pt;margin-bottom:0in;margin-left:0in;\">\n\t<span style=\"font-size:16px;\"><span style=\"line-height:normal;\"><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\"></span></span></b></span></span>\n</p>\n\n<p style=\"margin-top:.05pt;margin-right:.7pt;margin-bottom:0in;margin-left:0in;\">\n\t<span style=\"font-size:16px;\"><span style=\"line-height:normal;\"><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">A</span></span></b><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\">ctive Members</span></b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">: $50 annual dues</span></span></span></span><span style=\"font-size:16px;\"><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"></span></b></span>\n</p>\n\n<p class=\"Default\" style=\"text-align:justify;\">\n\t<span style=\"font-size:16px;\"><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\">Life Members: </span></b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\">Upon request and approval by the Auxiliary Executive Board a Lifetime member is one who has donated a minimum of $1,000 without further payment of dues, service, or attendance at meetings, though such service is desired and encouraged.  They shall have all rights and privileges of membership, including the right to vote, hold office and propose new members. </span></span>\n</p>\n\n<p class=\"Default\" style=\"text-align:justify;\">\n\t<span style=\"font-size:16px;\"><span style=\"color:#111111;\"></span></span><span style=\"font-size:20px;\"><strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/488fa404-3717-41a2-b15a-53f768ed5d11_Auxiliary+Board+Officer+for+2025-2026.pdf\">Auxiliary Board Officers for 2025-2026</a></strong></span><span style=\"font-size:16px;\"><u><span style=\"font-family:&quot;Tahoma&quot;,sans-serif;\"><span style=\"text-transform:uppercase;\"></span></span></u></span>\n</p>\n\n<p class=\"Default\" style=\"text-align:justify;\">\n\t<span style=\"font-size:16px;\"></span><span style=\"font-size:16px;\"><span style=\"font-family:&quot;Tahoma&quot;,sans-serif;\"></span></span><span style=\"font-size:16px;\"></span><span style=\"font-size:20px;\"><strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/61519fd3-ddc4-4237-a0e6-af0545aa0deb_Committee+Chairs.pdf\">Committee Chairs</a></strong></span>\n</p>\n\n<p class=\"Default\" style=\"text-align:justify;\">\n\t<span style=\"font-size:16px;\"></span>\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"margin-bottom:6.0pt;\">\n\t<span style=\"font-size:20px;\"><u><strong><span style=\"line-height:normal;\"><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">Our Purpose</span></span></span><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\"></span></span></strong></u></span>\n</p>\n\n<p style=\"margin-bottom:6.0pt;\">\n\t<span style=\"font-size:16px;\"><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">The purpose of the Women’s Auxiliary is to support the services and programs of The Salvation Army’s Northeast Florida Area Command. As members of The Salvation Army Women’s Auxiliary, we raise community awareness of The Salvation Army by giving our time and talents with compassion, kindness, gentleness, and humility, letting God’s love show through us in all that we may be asked to do. As we help others, with loving hearts, we are blessed with new friendships and the joy that comes from serving others. The Auxiliary’s primary fundraising event is the Annual Celebrity Chefs Tasting Luncheon and Silent Auction. Funds raised from this event support major services and projects of The Salvation Army. For almost four decades, through the dedicated work, service, and love of The Salvation Army the Women’s Auxiliary has touched hundreds of lives. Together we meet human needs in God’s name.</span></span></span>\n</p>\n\n<p style=\"margin-bottom:6.0pt;\">\n\t<span style=\"font-size:20px;\"><strong><span><span style=\"line-height:normal;\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/af98a035-43b1-46fb-a3ef-00e9ba45b22e_Opportunities+to+Get+Involved.pdf\">Opportunities to Get Involved</a></span></span></strong></span>\n</p>\n\n<p>\n\t<span style=\"font-size:16px;\"><span><span style=\"line-height:normal;\"><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">Types of Membership</span></span></span></span></span>\n</p>\n\n<p style=\"margin-top:.05pt;margin-right:.7pt;margin-bottom:0in;margin-left:0in;\">\n\t<span style=\"font-size:16px;\"><span style=\"line-height:normal;\"><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">1<sup>st</sup> Time New Members:</span></span></b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\"> $25     </span></span></span></span><em><strong><span style=\"font-size:14px;\"><span style=\"line-height:normal;\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5d873c54-01a1-4062-8a3f-80cc3169213e_auxiliary+membership+form.pdf\">Become a Member</a></span></span></strong></em><span style=\"font-size:16px;\"><span style=\"line-height:normal;\"><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\"></span></span></span></span>\n</p>\n\n<p style=\"margin-top:.05pt;margin-right:.7pt;margin-bottom:0in;margin-left:0in;\">\n\t<span style=\"font-size:16px;\"><span style=\"line-height:normal;\"><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\"></span></span></b></span></span>\n</p>\n\n<p style=\"margin-top:.05pt;margin-right:.7pt;margin-bottom:0in;margin-left:0in;\">\n\t<span style=\"font-size:16px;\"><span style=\"line-height:normal;\"><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">A</span></span></b><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\">ctive Members</span></b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">: $50 annual dues</span></span></span></span><span style=\"font-size:16px;\"><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"></span></b></span>\n</p>\n\n<p class=\"Default\" style=\"text-align:justify;\">\n\t<span style=\"font-size:16px;\"><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\">Life Members: </span></b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\">Upon request and approval by the Auxiliary Executive Board a Lifetime member is one who has donated a minimum of $1,000 without further payment of dues, service, or attendance at meetings, though such service is desired and encouraged.  They shall have all rights and privileges of membership, including the right to vote, hold office and propose new members. </span></span>\n</p>\n\n<p class=\"Default\" style=\"text-align:justify;\">\n\t<span style=\"font-size:16px;\"><span style=\"color:#111111;\"></span></span><span style=\"font-size:20px;\"><strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/488fa404-3717-41a2-b15a-53f768ed5d11_Auxiliary+Board+Officer+for+2025-2026.pdf\">Auxiliary Board Officers for 2025-2026</a></strong></span><span style=\"font-size:16px;\"><u><span style=\"font-family:&quot;Tahoma&quot;,sans-serif;\"><span style=\"text-transform:uppercase;\"></span></span></u></span>\n</p>\n\n<p class=\"Default\" style=\"text-align:justify;\">\n\t<span style=\"font-size:16px;\"></span><span style=\"font-size:16px;\"><span style=\"font-family:&quot;Tahoma&quot;,sans-serif;\"></span></span><span style=\"font-size:16px;\"></span><span style=\"font-size:20px;\"><strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/61519fd3-ddc4-4237-a0e6-af0545aa0deb_Committee+Chairs.pdf\">Committee Chairs</a></strong></span>\n</p>\n\n<p class=\"Default\" style=\"text-align:justify;\">\n\t<span style=\"font-size:16px;\"></span>\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:92",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:92",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:34-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><p style=\"margin-bottom:6.0pt;\">\n\t<span style=\"font-size:20px;\"><u><strong><span style=\"line-height:normal;\"><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">Our Purpose</span></span></span><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\"></span></span></strong></u></span>\n</p>\n\n<p style=\"margin-bottom:6.0pt;\">\n\t<span style=\"font-size:16px;\"><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">The purpose of the Women’s Auxiliary is to support the services and programs of The Salvation Army’s Northeast Florida Area Command. As members of The Salvation Army Women’s Auxiliary, we raise community awareness of The Salvation Army by giving our time and talents with compassion, kindness, gentleness, and humility, letting God’s love show through us in all that we may be asked to do. As we help others, with loving hearts, we are blessed with new friendships and the joy that comes from serving others. The Auxiliary’s primary fundraising event is the Annual Celebrity Chefs Tasting Luncheon and Silent Auction. Funds raised from this event support major services and projects of The Salvation Army. For almost four decades, through the dedicated work, service, and love of The Salvation Army the Women’s Auxiliary has touched hundreds of lives. Together we meet human needs in God’s name.</span></span></span>\n</p>\n\n<p style=\"margin-bottom:6.0pt;\">\n\t<span style=\"font-size:20px;\"><strong><span style=\"background:white;\"><span style=\"line-height:normal;\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/af98a035-43b1-46fb-a3ef-00e9ba45b22e_Opportunities+to+Get+Involved.pdf\">Opportunities to Get Involved</a></span></span></strong></span>\n</p>\n\n<p>\n\t<span style=\"font-size:16px;\"><span style=\"background:white;\"><span style=\"line-height:normal;\"><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">Types of Membership</span></span></span></span></span>\n</p>\n\n<p style=\"margin-top:.05pt;margin-right:.7pt;margin-bottom:0in;margin-left:0in;\">\n\t<span style=\"font-size:16px;\"><span style=\"line-height:normal;\"><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">1<sup>st</sup> Time New Members:</span></span></b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\"> $25     </span></span></span></span><em><strong><span style=\"font-size:14px;\"><span style=\"line-height:normal;\"><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5d873c54-01a1-4062-8a3f-80cc3169213e_auxiliary+membership+form.pdf\">Become a Member</a></span></span></strong></em><span style=\"font-size:16px;\"><span style=\"line-height:normal;\"><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\"></span></span></span></span>\n</p>\n\n<p style=\"margin-top:.05pt;margin-right:.7pt;margin-bottom:0in;margin-left:0in;\">\n\t<span style=\"font-size:16px;\"><span style=\"line-height:normal;\"><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\"></span></span></b></span></span>\n</p>\n\n<p style=\"margin-top:.05pt;margin-right:.7pt;margin-bottom:0in;margin-left:0in;\">\n\t<span style=\"font-size:16px;\"><span style=\"line-height:normal;\"><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">A</span></span></b><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\">ctive Members</span></b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"><span style=\"color:#111111;\">: $50 annual dues</span></span></span></span><span style=\"font-size:16px;\"><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\"></span></b></span>\n</p>\n\n<p class=\"Default\" style=\"text-align:justify;\">\n\t<span style=\"font-size:16px;\"><b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\">Life Members: </span></b><span style=\"font-family:&quot;Arial&quot;,sans-serif;\">Upon request and approval by the Auxiliary Executive Board a Lifetime member is one who has donated a minimum of $1,000 without further payment of dues, service, or attendance at meetings, though such service is desired and encouraged.  They shall have all rights and privileges of membership, including the right to vote, hold office and propose new members. </span></span>\n</p>\n\n<p class=\"Default\" style=\"text-align:justify;\">\n\t<span style=\"font-size:16px;\"><span style=\"color:#111111;\"></span></span><span style=\"font-size:20px;\"><strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/488fa404-3717-41a2-b15a-53f768ed5d11_Auxiliary+Board+Officer+for+2025-2026.pdf\">Auxiliary Board Officers for 2025-2026</a></strong></span><span style=\"font-size:16px;\"><u><span style=\"font-family:&quot;Tahoma&quot;,sans-serif;\"><span style=\"text-transform:uppercase;\"></span></span></u></span>\n</p>\n\n<p class=\"Default\" style=\"text-align:justify;\">\n\t<span style=\"font-size:16px;\"></span><span style=\"font-size:16px;\"><span style=\"font-family:&quot;Tahoma&quot;,sans-serif;\"></span></span><span style=\"font-size:16px;\"></span><span style=\"font-size:20px;\"><strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/61519fd3-ddc4-4237-a0e6-af0545aa0deb_Committee+Chairs.pdf\">Committee Chairs</a></strong></span>\n</p>\n\n<p class=\"Default\" style=\"text-align:justify;\">\n\t<span style=\"font-size:16px;\"></span>\n</p></div>"
+							},
+							"design:design:whitespace-xl:3:7": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:7",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:34-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"design:design:whitespace-md:4:65": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:whitespace-md:4:65",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:34-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:4:47": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img width=\"1337\" height=\"817\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/dbeffaf9-a536-4005-98f9-8f997b70fa66_image.png\" alt=\"placeholder\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" class=\"img-fluid d-block my-4 rounded mx-auto\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/dbeffaf9-a536-4005-98f9-8f997b70fa66_image.png",
+								"position": 4,
+								"fullName": "content:images:4:47",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:34-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:6:24": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 5,
+								"fullName": "design:design:whitespace-sm:6:24",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:34-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:7:55": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p>\n\t<strong>           </strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/89ce5cf6-7966-4783-b3d3-22d50c0e8d8e_JaxWABylaws-UpdatedAug2024.pdf\">Bylaws</a>               <a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/930ea8bb-8703-470f-84a7-b4fb0141c182_January+2026.pdf\">NEWSLETTER</a>\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p>\n\t<strong>           </strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/89ce5cf6-7966-4783-b3d3-22d50c0e8d8e_JaxWABylaws-UpdatedAug2024.pdf\">Bylaws</a>               <a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/930ea8bb-8703-470f-84a7-b4fb0141c182_January+2026.pdf\">NEWSLETTER</a>\n</p>",
+								"model": "6",
+								"manualContent": "<p>\n\t<strong>           </strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/89ce5cf6-7966-4783-b3d3-22d50c0e8d8e_JaxWABylaws-UpdatedAug2024.pdf\">Bylaws</a>               <a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/930ea8bb-8703-470f-84a7-b4fb0141c182_January+2026.pdf\">NEWSLETTER</a>\n</p>",
+								"position": 6,
+								"fullName": "content:wysiwyg_basic:7:55",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:7:55",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:34-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:8:33": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 7,
+								"fullName": "design:design:whitespace-sm:8:33",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:34-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:14:32": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3 g-4",
+								"html": "<div class=\"row my-3 g-4\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 8,
+								"fullName": "design:columns:3 Columns:14:32",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:34-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:14:32-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:9:8": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\"><strong>Womens Auxiliary Special Events</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Womens Auxiliary Special Events",
+												"position": 0,
+												"fullName": "content:textarea:9:8",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:9:8",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:14:32-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:14:32-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:10:26": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">Email: <a href=\"mailto:darlene.uhler-batiste@uss.salvationarmy.org\">darlene.uhler-batiste@uss.salvationarmy.org</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">Email: <a href=\"mailto:darlene.uhler-batiste@uss.salvationarmy.org\">darlene.uhler-batiste@uss.salvationarmy.org</a></p>",
+												"model": "6",
+												"manualContent": "<p style=\"text-align:center;\">Email: <a href=\"mailto:darlene.uhler-batiste@uss.salvationarmy.org\">darlene.uhler-batiste@uss.salvationarmy.org</a></p>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:10:26",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:10:26",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:14:32-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:14:32-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:12:39": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p style=\"text-align:center;\">Phone: <a href=\"tel:9043014841\">(904) 301-4841</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p style=\"text-align:center;\">Phone: <a href=\"tel:9043014841\">(904) 301-4841</a></p>",
+												"model": "6",
+												"manualContent": "<p style=\"text-align:center;\">Phone: <a href=\"tel:9043014841\">(904) 301-4841</a></p>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:12:39",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:12:39",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:14:32-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}
