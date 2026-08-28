@@ -72,7 +72,7 @@
       <ul class="navbar-nav header-navbar-nav me-auto mb-2 mb-lg-0 d-sm-none d-lg-flex hide-special-prop-type">
         <li class="nav-item">
           <a
-            class="nav-link header-home-link active fw-normal"
+            class="nav-link header-home-link active fw-normal display-3 display-xl-2"
             data-location-type="nav-top"
             data-function-type="navigation"
             data-format-type="text"
@@ -86,7 +86,7 @@
         
         <li class="nav-item dropdown ">
           <a
-            class="nav-link header-dropdown dropdown-toggle fw-normal"
+            class="nav-link header-dropdown dropdown-toggle fw-normal display-3 display-xl-2"
             data-location-type="nav-top"
             data-function-type="navigation"
             data-format-type="text"
@@ -101,7 +101,7 @@
           >
           <ul class="dropdown-menu header-services-dropdown  px-8 py-4 rounded-6 pe-none">
             <li class="d-flex align-items-center justify-content-between mb-4">
-              <span class="p-0 d-block text-dark-50">Services</span>
+              <span class="p-0 d-block text-dark-50 display-3 display-xl-2">Services</span>
               {{if {$viewAllServices} }}
                 <a
                 data-location-type="nav-top"
@@ -111,7 +111,7 @@
                 href="{{$viewAllServices}}"
                 onclick="LinkTrackingClickEvent(this,'header_click')"
                 role="button"
-                class="d-flex align-items-center justify-content-between text-primary-200 display-2 text-decoration-none services-view-all pe-auto"
+                class="d-flex align-items-center justify-content-between text-primary-200 display-3 display-xl-2 text-decoration-none services-view-all pe-auto"
                 >{{$viewAllServicesName}}<span class="material-symbols-outlined ms-4 fs-6"> arrow_outward </span></a
               >
               {{/if}}
@@ -128,7 +128,7 @@
               {{$sort = {obj.sort} }}
               {{$service_type = {services.filter({obj.page-zuid}).service_type} }}
               {{$service_icon = {service_types.filter({$service_type}).icon_name} }}
-                <a class="dropdown-item py-2 px-2 d-flex align-items-center gap-2 header-service-item mb-4" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" data-sort="{{obj.sort}}" aria-current="page" href="{{$serviceUrl}}" onclick="LinkTrackingClickEvent(this,'header_click')" style="order: {{$sort}};"><span class="material-symbols-outlined text-primary-200">{{$service_icon}}</span><span>{{obj.page_name}}</span></a>
+                <a class="dropdown-item py-2 px-2 d-flex align-items-center gap-2 header-service-item mb-4 display-3 display-xl-2" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" data-sort="{{obj.sort}}" aria-current="page" href="{{$serviceUrl}}" onclick="LinkTrackingClickEvent(this,'header_click')" style="order: {{$sort}};"><span class="material-symbols-outlined text-primary-200">{{$service_icon}}</span><span>{{obj.page_name}}</span></a>
               {{/if}}
               {{/each}}  
             </li> 
@@ -140,7 +140,7 @@
 
         <li class="nav-item dropdown">
           <a
-            class="nav-link header-dropdown dropdown-toggle fw-normal"
+            class="nav-link header-dropdown dropdown-toggle fw-normal display-3 display-xl-2"
             data-location-type="nav-top"
             data-function-type="navigation"
             data-format-type="text"
@@ -155,7 +155,7 @@
           >
           <ul class="dropdown-menu px-8 py-4 rounded-6 pe-none">
             <li class="d-flex align-items-center justify-content-between mb-4">
-              <span class="p-0 mb-4 d-block text-dark-50">About Us</span>
+              <span class="p-0 mb-4 d-block text-dark-50 display-3 display-xl-2">About Us</span>
               {{if {$viewAllServices} }}
                 <a
                 data-location-type="nav-top"
@@ -165,7 +165,7 @@
                 href="{{$viewAllServices}}"
                 onclick="LinkTrackingClickEvent(this,'header_click')"
                 role="button"
-                class="d-flex align-items-center justify-content-between text-primary-200 display-2 text-decoration-none services-view-all pe-auto"
+                class="d-flex align-items-center justify-content-between text-primary-200 display-3 display-xl-2 text-decoration-none services-view-all pe-auto"
                 >{{$viewAllServicesName}}<span class="material-symbols-outlined ms-4 fs-6"> arrow_outward </span></a
               >
               {{/if}}
@@ -181,7 +181,7 @@
                   {{$sort = {obj.sort} }}
                   {{if {obj.page-zuid} == 'give_with_joy'}}
                     <a
-                      class="dropdown-item py-2 px-2"
+                      class="dropdown-item py-2 px-2 display-3 display-xl-2"
                       href="/give-with-joy"
                       data-function-type="navigation"
                       data-format-type="text"
@@ -190,7 +190,7 @@
                       >Give With Joy</a
                     >
                   {{else}}
-                  <a class="dropdown-item py-2 px-2" href="{{$aboutUsUrl}}" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'header_click')" rel="noopener noreferrer" style="order: {{$sort}};">{{obj.page_name}}</a>
+                  <a class="dropdown-item py-2 px-2 display-3 display-xl-2" href="{{$aboutUsUrl}}" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'header_click')" rel="noopener noreferrer" style="order: {{$sort}};">{{obj.page_name}}</a>
                   {{/if}}
                 {{/if}}
               {{/each}}
@@ -200,7 +200,7 @@
         {{if {$eventsURL} }}
           <li class="nav-item">
             <a
-              class="nav-link fw-normal"
+              class="nav-link fw-normal display-3 display-xl-2"
               aria-current="page"
               data-location-type="nav-top"
               data-function-type="navigation"
@@ -216,7 +216,7 @@
         {{if {$newsRoomURL} }}
           <li class="nav-item">
             <a
-              class="nav-link fw-normal"
+              class="nav-link fw-normal display-3 display-xl-2"
               aria-current="page"
               data-location-type="nav-top"
               data-function-type="navigation"
@@ -232,7 +232,7 @@
         
         <li class="nav-item dropdown">
           <a
-            class="nav-link  header-dropdown dropdown-toggle fw-normal header-wtg-dropdown"
+            class="nav-link  header-dropdown dropdown-toggle fw-normal header-wtg-dropdown display-3 display-xl-2"
             data-location-type="nav-top"
             data-function-type="navigation"
             data-format-type="text"
@@ -247,7 +247,7 @@
           >
           <ul class="dropdown-menu px-8 py-4 rounded-6 pe-none header-wtg-dropdown-ul">
             <li class="d-flex align-items-center justify-content-between mb-4">
-              <span class="p-0 d-block text-dark-50">Ways to Give</span>
+              <span class="p-0 d-block text-dark-50 display-3 display-xl-2">Ways to Give</span>
             </li>
             <li>
               <hr class="dropdown-divider" />
@@ -259,7 +259,7 @@
                   {{$sort = {obj.sort} + 2 }}
                   {{if {obj.page-zuid} == 'donate_money'}}
                     <a
-                    class="dropdown-item py-2 px-2 header-donate-button"
+                    class="dropdown-item py-2 px-2 header-donate-button display-3 display-xl-2"
                       href="#"
                       data-location-type="nav-top"
                       data-function-type="other"
@@ -269,7 +269,7 @@
                     >Donate Money</a>
                   {{else-if {obj.page-zuid} == 'donate_goods' }}
                     <a
-                      class="dropoff-link dropdown-item py-2 px-2"
+                      class="dropoff-link dropdown-item py-2 px-2 display-3 display-xl-2"
                       href="https://satruck.org"
                       target="_blank"
                       data-function-type="navigation"
@@ -280,7 +280,7 @@
                     >
                   {{else-if {obj.page-zuid} == 'become_fundraiser'}}
                     <a
-                      class="fundraiser-link dropdown-item py-2 px-2"
+                      class="fundraiser-link dropdown-item py-2 px-2 display-3 display-xl-2"
                       href="https://give.salvationarmyusa.org/campaign/fundraise-for-good/c175635"
                       target="_blank"
                       data-function-type="navigation"
@@ -290,7 +290,7 @@
                       >Become a Fundraiser</a
                     >
                   {{else}}
-                    <a class="dropdown-item py-2 px-2" href="{{$aboutUsUrl}}" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'header_click')" rel="noopener noreferrer" style="order: {{$sort}};">{{obj.page_name}}</a>
+                    <a class="dropdown-item py-2 px-2 display-3 display-xl-2" href="{{$aboutUsUrl}}" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'header_click')" rel="noopener noreferrer" style="order: {{$sort}};">{{obj.page_name}}</a>
                   {{/if}}
                 
                 {{/if}}
@@ -307,7 +307,7 @@
         {{if {$contactUsURL} }}
           <li class="nav-item">
             <a
-              class="nav-link fw-normal contact-us-link"
+              class="nav-link fw-normal contact-us-link display-3 display-xl-2"
               aria-current="page"
               data-location-type="nav-top"
               data-function-type="navigation"
@@ -323,7 +323,7 @@
         {{if {$lastParentMenu} }}
           <li class="nav-item dropdown informational-links-more-parent">
             <a
-              class="nav-link header-dropdown header-dropdown-more dropdown-toggle fw-normal"
+              class="nav-link header-dropdown header-dropdown-more dropdown-toggle fw-normal display-3 display-xl-2"
               data-location-type="nav-top"
               data-function-type="navigation"
               data-format-type="text"
@@ -342,7 +342,7 @@
                   {{if {obj.parent} == "custom_menu" && {obj.type} == 'menu'}}
                   {{$customMenuUrl = {truepath({obj.page-zuid})} }}
                   {{$sort = {obj.sort} + 2 }}
-                  <a class="dropdown-item py-2 px-2" href="{{$customMenuUrl}}" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'header_click')" style="order: {{$sort}};">{{obj.page_name}}</a>
+                  <a class="dropdown-item py-2 px-2 display-3 display-xl-2" href="{{$customMenuUrl}}" data-location-type="nav-top" data-function-type="navigation" data-format-type="text" data-link-type="internal" onclick="LinkTrackingClickEvent(this,'header_click')" style="order: {{$sort}};">{{obj.page_name}}</a>
                   {{/if}}
                 {{/each}}
               </li>
