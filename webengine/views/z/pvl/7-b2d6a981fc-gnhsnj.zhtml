@@ -1,46 +1,39 @@
 <div className={styles.pvlRoot}>
 	<div>{{block('/-/block/hero_full.html?variant=7-8296a3848c-0mxv3n')}}</div>
 	<div>{{block('/-/block/dynamic_stories_carousel.html?variant=7-e0dcc8ddda-gk1nm4')}}</div>
-	<div class="row" style="padding-top:30px;">
+	<div class="row" style="display:block !important;padding-top:30px;">
 		<div class="column">
-			<div class="row my-3">
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<img width="100%" src="https://8hxvw8tw.media.zestyio.com/christin-dogooders-podcast-hero.webp" alt="placeholder" class="rounded">
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div>{{block('/-/block/info_block.html?variant=7-f2829cc7ea-7gqw3w')}}</div>
-					<div class="my-2" style="padding-top:30px;"></div>
-					<div>{{block('/-/block/cta_button.html?variant=7-e4e9b6f881-sxdw9k')}}</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="my-5" style="padding-top:30px;"></div>
-	{{block('/-/block/stories_carousel.html?variant=7-808befa5d0-q5lgzj')}}
-	<div class="row">
-		<div class="column">
-			<div class="row my-3">
-				<div class="col-lg-8 col-md-6 col-sm-12">
-					<script async data-uid="92e3382af4" src="https://caringmagazine.kit.com/92e3382af4/index.js"></script>
-				</div>
+			<div class="row my-3" style="display:flex;">
 				<div class="col-lg-4 col-md-6 col-sm-12">
-					<h5>Subscribe to The New Frontier Weekly</h5>
-					<p>Subscribe to The New Frontier Weekly, a curated roundup of good news you don’t want to miss.&nbsp;If you’re receiving this email then you’re on the team and this is what you need to know to stay informed, engaged and empowered in Doing the Most Good.</p>
+					<h5>At The Frontier</h5>
+					<p>Tune in to At The Frontier, a podcast from The New Frontier, for conversations with those doing good and those with good ideas so you can turn inspiration into action and make an impact right where you are.</p>
+				</div>
+				<div class="col-lg-8 col-md-6 col-sm-12">
+					{{block('/-/block/dynamic_stories_carousel.html?variant=7-e2a5b6affa-6twcvs')}}
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="bg-light p-6 rounded-4" style="display:block !important;">
+	<div class="bg-light p-6 rounded-4" style="display:block !important;padding-top:50px;">
 		<div class="column">
-			<div class="row my-3">
+			<div class="row my-3" style="display:flex;">
 				<div class="col-lg-6 col-md-6 col-sm-12">
-					<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Screenshot-2026-08-26-at-2.07.52-PM.rkaf8Rhvfe.png" alt="placeholder" class="rounded-6" style="width:250;height:250;">
+					<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Screenshot-2026-08-26-at-2.08.05-PM.rJnjf1avMe.png" alt="placeholder" class="rounded-6" style="width:250;height:250;margin-top:0px;margin-left:0px;margin-bottom:0px;margin-right:0px;">
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12">
-					<h5 style="padding-top:125px;">About The New Frontier</h5>
-					<p style="margin-bottom:0px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&nbsp;</p>
+					<h5 style="margin-top:100px;">Subscribe to The New Frontier Weekly</h5>
+					<p>Subscribe to The New Frontier Weekly, a curated roundup of good news you don’t want to miss.</p>
+					<script async="" data-uid="92e3382af4" src="https://caringmagazine.kit.com/92e3382af4/index.js" style="padding-top:0px;padding-bottom:100px;"></script>
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="my-2" style="padding-top:50px;"></div>
+	{{block('/-/block/stories_carousel.html?variant=7-808befa5d0-q5lgzj')}}
+	<div class="row" style="margin-top:-90px;display:block !important;padding-left:50px;padding-right:50px;">
+		<div class="column">
+			<h5>About The New Frontier</h5>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
 	</div>
 	<div class="row">
