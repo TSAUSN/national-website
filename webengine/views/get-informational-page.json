@@ -1,28 +1,75 @@
 {{$zuid = {request.queryParam(zuid)} }}
+{{$pageFound = 0}}
 
 {{each informational_pages as ip WHERE z.zuid = '{$zuid}' LIMIT 1}}
+    {{$pageFound = 1}}
+    {{$locationCount = 0}}
+    {{$divisionCount = 0}}
+    {{$territoryCount = 0}}
+
+    {{if {ip.locations} }}
+        {{each {ip.locations} as relatedLocation}}
+            {{$locationCount = {relatedLocation._length}}}
+        {{/each}}
+    {{/if}}
+
+    {{if {ip.divisions} }}
+        {{each {ip.divisions} as relatedDivision}}
+            {{$divisionCount = {relatedDivision._length}}}
+        {{/each}}
+    {{/if}}
+
+    {{if {ip.territories} }}
+        {{each {ip.territories} as relatedTerritory}}
+            {{$territoryCount = {relatedTerritory._length}}}
+        {{/each}}
+    {{/if}}
+
     {
-        {{if {ip.location} }}
-            {{$cityZUID = {locations.filter({ip.location}).city} }}
-            {{$stateZUID = {locations.filter({ip.location}).state} }}
-            "content": {{ locations.filter({ip.location}).toJSON() }},
-            "address": "{{ locations.filter({ip.location}).address }}",
-            "city": "{{cities.filter({$cityZUID}).title }}",
-            "state": "{{states.filter({$stateZUID}).name }}"
-        {{else-if {ip.division} }}
-            {{$cityZUID = {divisions.filter({ip.division}).city} }}
-            {{$stateZUID = {divisions.filter({ip.division}).state} }}
-            "content": {{ divisions.filter({ip.division}).toJSON() }},
-            "address": "{{ divisions.filter({ip.division}).address }}",
-            "city": "{{cities.filter({$cityZUID}).title }}",
-            "state": "{{states.filter({$stateZUID}).name }}"
-        {{else-if {ip.territory} }}
-            {{$cityZUID = {territories.filter({ip.territory}).city} }}
-            {{$stateZUID = {territories.filter({ip.territory}).state} }}
-            "content": {{ territories.filter({ip.territory}).toJSON() }},
-            "address": "{{ territories.filter({ip.territory}).address }}",
-            "city": "{{cities.filter({$cityZUID}).title }}",
-            "state": "{{states.filter({$stateZUID}).name }}"
+        "page_zuid": "{{ip.zuid}}",
+        {{if {$locationCount} == 1}}
+            {{each {ip.locations} as location}}
+                {{$cityZUID = {location.city} }}
+                {{$stateZUID = {location.state} }}
+                "content": {{location.toJSON()}},
+                "address": "{{location.address.escapeForJs()}}",
+                "city": "{{cities.filter({$cityZUID}).title.escapeForJs()}}",
+                "state": "{{states.filter({$stateZUID}).name.escapeForJs()}}",
+                "zipcode": "{{location.zipcode.escapeForJs()}}"
+            {{/each}}
+        {{else-if {$locationCount} > 1 && {$divisionCount} == 1}}
+            {{each {ip.divisions} as division}}
+                {{$cityZUID = {division.city} }}
+                {{$stateZUID = {division.state} }}
+                "content": {{division.toJSON()}},
+                "address": "{{division.address.escapeForJs()}}",
+                "city": "{{cities.filter({$cityZUID}).title.escapeForJs()}}",
+                "state": "{{states.filter({$stateZUID}).name.escapeForJs()}}",
+                "zipcode": "{{division.zipcode.escapeForJs()}}"
+            {{/each}}
+        {{else-if {$divisionCount} > 1 && {$territoryCount} == 1}}
+            {{each {ip.territories} as territory}}
+                {{$cityZUID = {territory.city} }}
+                {{$stateZUID = {territory.state} }}
+                "content": {{territory.toJSON()}},
+                "address": "{{territory.address.escapeForJs()}}",
+                "city": "{{cities.filter({$cityZUID}).title.escapeForJs()}}",
+                "state": "{{states.filter({$stateZUID}).name.escapeForJs()}}",
+                "zipcode": "{{territory.zipcode.escapeForJs()}}"
+            {{/each}}
+        {{else}}
+            "content": {{homepage.first().toJSON()}},
+            "address": "",
+            "city": "",
+            "state": "",
+            "zipcode": ""
         {{/if}}
     }
 {{/each}}
+
+{{if {$pageFound} == 0}}
+    {
+        "error": "Informational page not found",
+        "page_zuid": "{{$zuid.escapeForJs()}}"
+    }
+{{/if}}
