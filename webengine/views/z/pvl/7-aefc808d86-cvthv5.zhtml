@@ -1,1 +1,36 @@
-<div className={styles.pvlRoot}>*</div>
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-a8f0f5c2cb-nsp535&version=4')}}
+	<p style="text-align:center;font-size:25px;font-weight:700">The Salvation Army’s Older Adult Ministries creates welcoming opportunities for older adults to connect, grow in faith, and enjoy life in community.</p>
+	<p style="text-align:left;font-size:25px;padding-top:33px">Through fellowship, special activities, Bible study, and recreation at Camp CONNRI, participants can build friendships, discover new interests, and find a place to belong.</p>
+	<p style="text-align:left;font-size:25px;padding-top:20px;padding-bottom:21px">Throughout the week, participants enjoy delicious meals, fun games, boat rides, crafts, and Bible Study. Programs and activities vary by climate. Anyone aged 55 and older is eligible to register.
+</p>
+	{{block('/-/block/cta_button.html?variant=7-9ec7d38ae6-d3pwdf&version=2')}}
+	<div style="display:flex" className={`${styles.pvlRow} row`}>
+		<div style="flex:1" className={`${styles.pvlColumn} column`}>
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/archery--2-.png" alt="placeholder">
+		</div>
+		<div style="flex:1" className={`${styles.pvlColumn} column`}>
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/misc--3-.png" alt="placeholder">
+		</div>
+		<div style="flex:1" className={`${styles.pvlColumn} column`}>
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/pontoon.png" alt="placeholder">
+		</div>
+		<div style="flex:1" className={`${styles.pvlColumn} column`}>
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/puzzle.png" alt="placeholder">
+		</div>
+	</div>
+	<div style="display:flex" className={`${styles.pvlRow} row`}>
+		<div style="flex:1" className={`${styles.pvlColumn} column`}>
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/misc--4-.png" alt="placeholder">
+		</div>
+		<div style="flex:1" className={`${styles.pvlColumn} column`}>
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/misc--2-.png" alt="placeholder">
+		</div>
+		<div style="flex:1" className={`${styles.pvlColumn} column`}>
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/archery.png" alt="placeholder">
+		</div>
+		<div style="flex:1" className={`${styles.pvlColumn} column`}>
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/misc--5-.rkJJiEv_Ml.png" alt="placeholder">
+		</div>
+	</div>
+</div>

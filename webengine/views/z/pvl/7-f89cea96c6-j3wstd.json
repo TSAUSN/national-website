@@ -1,0 +1,111 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:67:0:4": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-f284a1c3d1-gcr1h7')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-f284a1c3d1-gcr1h7')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:67:0:4",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:design:whitespace-sm:1:4459": {
+				"uid": "351",
+				"name": "Whitespace - Small",
+				"type": "design",
+				"classes": "my-2",
+				"html": "<div class=\"my-2\"></div>",
+				"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+				"droppable": true,
+				"position": 1,
+				"fullName": "design:design:whitespace-sm:1:4459",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank"
+			},
+			"design:columns:1 column - 1 row my-3:5:70": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 2,
+				"fullName": "design:columns:1 column - 1 row my-3:5:70",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:5:70-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:images:0:5167": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<div class=\"position-relative d-block w-100\" style=\"overflow:hidden;\"><img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/c2c8ea86-3ded-48e7-93de-55c7dab8fbd3_echelon+banner.png\" alt=\"placeholder\" class=\"slide-thumbnail img-fluid w-100 d-block mx-auto mb-3 rounded\" style=\"width:100%; height:100%; object-fit:cover;\" loading=\"lazy\"></div>",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/c2c8ea86-3ded-48e7-93de-55c7dab8fbd3_echelon+banner.png",
+								"position": 0,
+								"fullName": "content:images:0:5167",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:5:70-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:2:99": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">Volunteering. Networking. Fundraising.</h5>\n\n<p>\n\tEchelon seeks To mobilize the next generation for The Salvation Army by providing opportunities for young adults to engage with the organization through fellowship and networking, donations and fundraising, and service and volunteering.\n</p>\n\n<p>\n\tEchelon is the emerging professionals arm of The Salvation Army. Our community is serious about having fun while addressing some of today’s most pressing issues within Northwest Arkansas.\n</p>\n\n<p>\n\tEchelon members participate in a variety of networking, volunteering, and fundraising activities. Fundraising and volunteering activities directly support Salvation Army services within Northwest Arkansas.\n</p>\n\n<p>\n\tFor more information about Echelon, visit <a href=\"https://salvationarmyechelon.org/echelon\" target=\"\">SalvationArmyEchelon.org</a> or call our main office at <a href=\"tel:4795212151\" target=\"\">(479) 521-2151</a> to see how you can get involved!\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">Volunteering. Networking. Fundraising.</h5>\n\n<p>\n\tEchelon seeks To mobilize the next generation for The Salvation Army by providing opportunities for young adults to engage with the organization through fellowship and networking, donations and fundraising, and service and volunteering.\n</p>\n\n<p>\n\tEchelon is the emerging professionals arm of The Salvation Army. Our community is serious about having fun while addressing some of today’s most pressing issues within Northwest Arkansas.\n</p>\n\n<p>\n\tEchelon members participate in a variety of networking, volunteering, and fundraising activities. Fundraising and volunteering activities directly support Salvation Army services within Northwest Arkansas.\n</p>\n\n<p>\n\tFor more information about Echelon, visit <a href=\"https://salvationarmyechelon.org/echelon\" target=\"\">SalvationArmyEchelon.org</a> or call our main office at <a href=\"tel:4795212151\" target=\"\">(479) 521-2151</a> to see how you can get involved!\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:99",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:99",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:5:70-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">Volunteering. Networking. Fundraising.</h5>\n\n<p>\n\tEchelon seeks To mobilize the next generation for The Salvation Army by providing opportunities for young adults to engage with the organization through fellowship and networking, donations and fundraising, and service and volunteering.\n</p>\n\n<p>\n\tEchelon is the emerging professionals arm of The Salvation Army. Our community is serious about having fun while addressing some of today’s most pressing issues within Northwest Arkansas.\n</p>\n\n<p>\n\tEchelon members participate in a variety of networking, volunteering, and fundraising activities. Fundraising and volunteering activities directly support Salvation Army services within Northwest Arkansas.\n</p>\n\n<p>\n\tFor more information about Echelon, visit <a href=\"https://salvationarmyechelon.org/echelon\" target=\"\">SalvationArmyEchelon.org</a> or call our main office at <a href=\"tel:4795212151\" target=\"\">(479) 521-2151</a> to see how you can get involved!\n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}
