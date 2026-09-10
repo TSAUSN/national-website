@@ -622,7 +622,7 @@ document.addEventListener('markerClicked', (event) => {
 // it with concurrent large requests.
 async function fetchLocationPage(skip, limit, retriesLeft = 2) {
   const response = await fetch(
-    `${window.location.origin}/locations.json?_bypassError=true&skip=${skip}&limit=${limit}`
+    `${window.location.origin}/locations.json?skip=${skip}&limit=${limit}`
   );
 
   if (!response.ok) {
