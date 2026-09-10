@@ -616,37 +616,60 @@ document.addEventListener('markerClicked', (event) => {
   handleMarkerContent(event.detail);
 });
 
+// /locations.json is paginated server-side (thousands of records, each requiring
+// per-row state/city lookups) - one unbounded request was slow/unreliable and could
+// 503 the endpoint. Fetch it in bounded pages instead, sequentially so we never hit
+// it with concurrent large requests.
+async function fetchLocationPage(skip, limit, retriesLeft = 2) {
+  const response = await fetch(
+    `${window.location.origin}/locations.json?_bypassError=true&skip=${skip}&limit=${limit}`
+  );
+
+  if (!response.ok) {
+    if (retriesLeft > 0) {
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      return fetchLocationPage(skip, limit, retriesLeft - 1);
+    }
+    throw new Error(`Failed to fetch locations (skip=${skip}, status=${response.status})`);
+  }
+
+  const rawData = await response.text();
+  const page = JSON.parse(rawData);
+
+  if (!Array.isArray(page)) {
+    throw new Error('Location data is not in the expected format');
+  }
+
+  return page;
+}
+
 async function fetchLocationData() {
+  const loader = document.querySelector('.map-loader');
+  if (loader) {
+    loader.classList.remove('d-none');
+  }
+
+  const PAGE_SIZE = 500;
+  const MAX_PAGES = 50; // safety valve against a runaway loop
+  let allLocations = [];
+
   try {
-    // Show loader
-    const loader = document.querySelector('.map-loader');
-    if (loader) {
-      loader.classList.remove('d-none');
-    }
-    // const response = await fetch(`${window.location.origin}/-/gql/locations.json`);
-    const response = await fetch(`${window.location.origin}/locations.json?_bypassError=true`);
-    const rawData = await response.text();
+    for (let page = 0; page < MAX_PAGES; page++) {
+      const skip = page * PAGE_SIZE;
+      const batch = await fetchLocationPage(skip, PAGE_SIZE);
+      allLocations = allLocations.concat(batch);
 
-    let data;
-    try {
-      data = JSON.parse(rawData);
-      window.locationDatas = data;
-    } catch (parseError) {
-      console.error('JSON Parse Error:', parseError);
-      throw new Error('Failed to parse location data');
+      // Fewer results than requested means we've reached the last page
+      if (batch.length < PAGE_SIZE) break;
     }
 
-    if (!Array.isArray(data)) {
-      throw new Error('Location data is not in the expected format');
-    }
-
-    return data;
+    window.locationDatas = allLocations;
+    return allLocations;
   } catch (error) {
     console.error('Error fetching location data:', error);
-    return [];
+    window.locationDatas = allLocations;
+    return allLocations;
   } finally {
-    // Hide loader
-    const loader = document.querySelector('.map-loader');
     if (loader) {
       loader.classList.add('d-none');
     }

@@ -1,5 +1,23 @@
+{{$skip = 0 }}
+{{$limit = 500 }}
+
+
+{{if {request.queryParam(skip)} }}
+{{$skip = {request.queryParam(skip)} }}
+{{else}}
+{{$skip = 0}}
+{{end-if}}
+
+
+{{if {request.queryParam(limit)} }}
+{{$limit = {request.queryParam(limit)} }}
+{{else}}
+{{$limit = 500}}
+{{end-if}}
+
+
 [
-  {{each locations as location }}
+  {{each locations as location LIMIT {$skip}, {$limit} SORT BY location.zuid asc }}
   {
     "zuid": "{{location.zuid}}",
     "name": "{{location.name.htmlentities()}}",
