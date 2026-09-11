@@ -125,6 +125,8 @@
 
 
 <script>
+
+alert("FROM the Branch coda-2486")
   const cookieManager = {
     set(name, value, days = 7) {
       const date = new Date();
