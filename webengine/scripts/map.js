@@ -643,37 +643,55 @@ async function fetchLocationPage(skip, limit, retriesLeft = 2) {
   return page;
 }
 
+// Multiple call sites (initAutocomplete, initLocationFinder, displayLocationMarkers)
+// all want the same location data - without this guard each one triggers its own
+// full paginated fetch of the entire dataset, multiplying load on /locations.json.
+window.__locationDataPromise = null;
+
 async function fetchLocationData() {
-  const loader = document.querySelector('.map-loader');
-  if (loader) {
-    loader.classList.remove('d-none');
+  if (window.locationDatas && window.locationDatas.length > 0) {
+    return window.locationDatas;
   }
 
-  const PAGE_SIZE = 1000;
-  const MAX_PAGES = 50; // safety valve against a runaway loop
-  let allLocations = [];
+  if (window.__locationDataPromise) {
+    return window.__locationDataPromise;
+  }
 
-  try {
-    for (let page = 0; page < MAX_PAGES; page++) {
-      const skip = page * PAGE_SIZE;
-      const batch = await fetchLocationPage(skip, PAGE_SIZE);
-      allLocations = allLocations.concat(batch);
-
-      // Fewer results than requested means we've reached the last page
-      if (batch.length < PAGE_SIZE) break;
-    }
-
-    window.locationDatas = allLocations;
-    return allLocations;
-  } catch (error) {
-    console.error('Error fetching location data:', error);
-    window.locationDatas = allLocations;
-    return allLocations;
-  } finally {
+  window.__locationDataPromise = (async () => {
+    const loader = document.querySelector('.map-loader');
     if (loader) {
-      loader.classList.add('d-none');
+      loader.classList.remove('d-none');
     }
-  }
+
+    const PAGE_SIZE = 500;
+    const MAX_PAGES = 50; // safety valve against a runaway loop
+    let allLocations = [];
+
+    try {
+      for (let page = 0; page < MAX_PAGES; page++) {
+        const skip = page * PAGE_SIZE;
+        const batch = await fetchLocationPage(skip, PAGE_SIZE);
+        allLocations = allLocations.concat(batch);
+
+        // Fewer results than requested means we've reached the last page
+        if (batch.length < PAGE_SIZE) break;
+      }
+
+      window.locationDatas = allLocations;
+      return allLocations;
+    } catch (error) {
+      console.error('Error fetching location data:', error);
+      window.locationDatas = allLocations;
+      return allLocations;
+    } finally {
+      if (loader) {
+        loader.classList.add('d-none');
+      }
+      window.__locationDataPromise = null;
+    }
+  })();
+
+  return window.__locationDataPromise;
 }
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
