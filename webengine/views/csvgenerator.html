@@ -345,8 +345,7 @@
         <select id="publishStatusFilter" class="form-select form-select-sm">
           <option value="">All statuses</option>
           <option value="published">Published</option>
-          <option value="unpublished_changes">Published (unsaved changes)</option>
-          <option value="never_published">Unpublished</option>
+          <option value="unpublished">Unpublished</option>
         </select>
       </div>
       <div class="server-pager" aria-label="Server pagination">
@@ -1239,26 +1238,28 @@
 
   // True publish-status verification: WebEngine's isPublished() only reflects whether an
   // item has ever been published, not whether the *latest* saved version is what's live —
-  // an item edited after its last publish still reports "publish". instance.host_live only
-  // resolves while this page is viewed from the preview/stage domain (it's blank on live
-  // per Zesty's docs), so we compare this page's own (preview/latest) generate-csv.json
-  // output against the same request re-issued on the live/production domain: missing there
-  // means never published, differing field values mean it's published but has unpublished
-  // edits, matching values mean the latest version is genuinely the published one.
-  const toOrigin = (value) => {
-    const trimmed = `${value ?? ''}`.trim();
-    if (!trimmed || trimmed.includes('{{')) {
-      return null;
-    }
-    return /^https?:\/\//i.test(trimmed) ? trimmed.replace(/\/+$/, '') : `https://${trimmed}`;
+  // an item edited after its last publish still reports "publish". The fix is to compare
+  // the item's production version number against its active/latest version number via
+  // Zesty's Content API (GET /content/models/{modelZUID}/parsley-items?_active=...), per
+  // https://docs.zesty.io/reference/get-parsley-items.
+  //
+  // That endpoint requires a Bearer token and isn't publicly callable. Editors using this
+  // tool are already logged into the Zesty Manager, which sets an APP_SID session cookie
+  // scoped to .zesty.io; that cookie's value is itself usable as the bearer token, and the
+  // browser will read it from document.cookie regardless of what domain this page is served
+  // from (cookie *readability* depends on the page's own origin matching the cookie's
+  // domain — if this page isn't under a *.zesty.io-style origin, APP_SID won't be visible
+  // here and verification degrades to the legacy isPublished() flag below).
+  const instanceZuid = `{{instance.zuid}}`;
+  const getCookie = (name) => {
+    const match = document.cookie.match(new RegExp(`(?:^|;\\s*)${name}=([^;]*)`));
+    return match ? decodeURIComponent(match[1]) : null;
   };
-  const liveOrigin = toOrigin(`{{instance.host_live}}`);
-  const liveBaseURL = liveOrigin ? `${liveOrigin}/generate-csv.json` : null;
-  if (!liveBaseURL) {
+  const apiToken = getCookie('APP_SID');
+  if (!apiToken) {
     console.warn(
-      'True publish-status verification unavailable: instance.host_live did not resolve ' +
-      '(this page is likely being viewed from the live domain, where isPublished() should ' +
-      'never be stale anyway). Falling back to the legacy publish_status flag.'
+      'True publish-status verification unavailable: no APP_SID cookie found in this browser. ' +
+      'Falling back to the legacy publish_status flag from generate-csv.json.'
     );
   }
   const dataTableBody = document.querySelector('#dataTable tbody');
@@ -2077,90 +2078,121 @@
     }
   };
 
-  const PUBLISH_COMPARISON_FIELDS = ['title', 'path_part', 'territory', 'division', 'location'];
+  const PARSLEY_ITEMS_LIMIT = 1000; // get-parsley-items documents no offset/skip param beyond
+  // parsley_limit, so a scope's full item count has to fit in one page — see limitations note.
 
-  const buildLiveCsvUrl = (scope, page, pageSize) => {
-    const params = new URLSearchParams(scope.modelParams);
-    params.set('page', page);
-    params.set('per_page', pageSize);
-    if (scope.zuid) {
-      params.set('zuid', scope.zuid);
-    }
-    params.set('divisionzuid', scope.zuidD || '');
-    params.set('locationzuid', scope.zuidL || '');
-    return `${liveBaseURL}?${params.toString()}`;
-  };
+  const base64UrlEncode = (value) => btoa(unescape(encodeURIComponent(value)));
 
-  // Deliberately independent of requestScopePage/requestPageData (which are tuned for the
-  // on-screen preview fetch, including 422 model-splitting and probe-based pagination) — this
-  // only needs a best-effort read of the live domain's rows for the same scope/page, and a
-  // failure here should degrade to "couldn't verify" rather than break the primary fetch.
-  const fetchLiveRowsForScope = async (scope, page, pageSize) => {
-    if (!liveBaseURL) {
-      return [];
+  // Mirrors generate-csv's own three WHERE branches (territory-only / +division / +location)
+  // so the version check is scoped the same way the on-screen data already is, instead of
+  // pulling every item in the model. Model ZUIDs come from each row's own model_zuid (already
+  // returned by generate-csv) rather than a hardcoded list, so this doesn't drift if models change.
+  function buildParsleyWhereClause(modelLabel, scope) {
+    const { zuid, zuidD, zuidL } = scope;
+    if (zuidL) {
+      if (modelLabel === 'Territories') return zuid ? `item.zuid = '${zuid}'` : null;
+      if (modelLabel === 'Divisions') return zuidD ? `item.zuid = '${zuidD}'` : null;
+      if (modelLabel === 'Locations') return `item.zuid = '${zuidL}'`;
+      return `item.location = '${zuidL}'`;
     }
-    try {
-      const res = await fetchWithTimeout(buildLiveCsvUrl(scope, page, pageSize), FETCH_TIMEOUT_MS);
-      if (!res.ok) {
-        return [];
-      }
-      return parsePageResponse(await res.text());
-    } catch (error) {
-      console.warn('Unable to load live-domain comparison data for true publish status.', error);
-      return [];
+    if (zuidD) {
+      if (modelLabel === 'Territories') return zuid ? `item.zuid = '${zuid}'` : null;
+      if (modelLabel === 'Divisions') return `item.zuid = '${zuidD}'`;
+      return `item.division = '${zuidD}'`;
     }
-  };
+    if (zuid) {
+      if (modelLabel === 'Territories') return `item.zuid = '${zuid}'`;
+      return `item.territory = '${zuid}'`;
+    }
+    return null;
+  }
 
-  const fetchLiveRowsByZuid = async (scopePages, pageSize) => {
+  // https://docs.zesty.io/reference/get-parsley-items — requires the Bearer token above;
+  // _active=true returns the latest saved version, omitted returns the production/live one.
+  async function fetchParsleyItems(modelZuid, { where, active }) {
+    const params = new URLSearchParams();
+    if (where) {
+      params.set('where', base64UrlEncode(where));
+    }
+    params.set('parsley_limit', base64UrlEncode(String(PARSLEY_ITEMS_LIMIT)));
+    if (active) {
+      params.set('_active', 'true');
+    }
+    const url = `https://${instanceZuid}.api.zesty.io/v1/content/models/${modelZuid}/parsley-items?${params.toString()}`;
+    const res = await fetch(url, { headers: { Authorization: `Bearer ${apiToken}` } });
+    if (!res.ok) {
+      throw new Error(`parsley-items request failed (${res.status})`);
+    }
+    const json = await res.json();
+    return json.data || [];
+  }
+
+  function buildVersionMap(items) {
     const map = new Map();
-    if (!liveBaseURL || !scopePages.length) {
-      return map;
-    }
-    const seen = new Set();
-    const uniqueRequests = scopePages.filter(({ scope, page }) => {
-      const key = `${buildScopeKey([scope])}::${page}`;
-      if (seen.has(key)) {
-        return false;
-      }
-      seen.add(key);
-      return true;
-    });
-    const results = await Promise.all(
-      uniqueRequests.map(({ scope, page }) => fetchLiveRowsForScope(scope, page, pageSize))
-    );
-    results.flat().forEach((row) => {
-      if (row.zuid) {
-        map.set(row.zuid, row);
+    (items || []).forEach((item) => {
+      const zuid = item && item.meta && item.meta.ZUID;
+      if (zuid) {
+        map.set(zuid, item.meta.version);
       }
     });
     return map;
-  };
-
-  function computeTruePublishStatus(row, liveRowsByZuid) {
-    const liveRow = liveRowsByZuid.get(row.zuid);
-    if (!liveRow) {
-      return 'never_published';
-    }
-    const hasUnpublishedChanges = PUBLISH_COMPARISON_FIELDS.some(
-      (field) => `${row[field] ?? ''}` !== `${liveRow[field] ?? ''}`
-    );
-    return hasUnpublishedChanges ? 'unpublished_changes' : 'published';
   }
 
-  // Overwrites each row's publish_status with the verified 3-way status (falls back to the
-  // legacy isPublished()-derived value untouched when the live domain can't be reached, e.g.
-  // this page is being viewed from the live domain itself).
-  const annotateTruePublishStatus = async (rows, scopePages, pageSize) => {
-    if (!liveBaseURL || !rows.length) {
+  // production === latest -> published; latest newer than production -> unpublished edits
+  // exist on top of a real publish; no production version at all -> never published.
+  function categorizeVersions(productionVersion, latestVersion) {
+    if (productionVersion == null) {
+      return 'never_published';
+    }
+    if (Number(latestVersion) > Number(productionVersion)) {
+      return 'unpublished_changes';
+    }
+    return 'published';
+  }
+
+  // Overwrites each row's publish_status with the verified 3-way status, grouped by model so
+  // each content model is only queried once per scope. Falls back to leaving the legacy
+  // isPublished()-derived value untouched for any row/model it can't verify (missing token,
+  // request failure, or the item just isn't in the active/latest response for this scope).
+  const annotateTruePublishStatus = async (rows, scope) => {
+    if (!apiToken || !rows.length) {
       return rows;
     }
-    const liveRowsByZuid = await fetchLiveRowsByZuid(scopePages, pageSize);
-    if (!liveRowsByZuid.size) {
-      return rows;
-    }
+    const rowsByModel = new Map();
     rows.forEach((row) => {
-      row.publish_status = computeTruePublishStatus(row, liveRowsByZuid);
+      if (!row.model_zuid || !row.model) {
+        return;
+      }
+      if (!rowsByModel.has(row.model)) {
+        rowsByModel.set(row.model, { modelZuid: row.model_zuid, rows: [] });
+      }
+      rowsByModel.get(row.model).rows.push(row);
     });
+
+    await Promise.all(
+      [...rowsByModel.entries()].map(async ([modelLabel, group]) => {
+        const whereClause = buildParsleyWhereClause(modelLabel, scope);
+        try {
+          const [productionItems, latestItems] = await Promise.all([
+            fetchParsleyItems(group.modelZuid, { where: whereClause, active: false }),
+            fetchParsleyItems(group.modelZuid, { where: whereClause, active: true })
+          ]);
+          const productionVersions = buildVersionMap(productionItems);
+          const latestVersions = buildVersionMap(latestItems);
+          group.rows.forEach((row) => {
+            if (!latestVersions.has(row.zuid)) {
+              return;
+            }
+            row.publish_status = categorizeVersions(
+              productionVersions.has(row.zuid) ? productionVersions.get(row.zuid) : null,
+              latestVersions.get(row.zuid)
+            );
+          });
+        } catch (error) {
+          console.warn(`Unable to verify true publish status for ${modelLabel}.`, error);
+        }
+      })
+    );
     return rows;
   };
 
@@ -2205,15 +2237,13 @@
       if (!hasNextServerPage) {
         knownLastPage = page;
       }
-      data = mergeRows(pageResults.flatMap((result) => result.rows));
-      if (liveBaseURL) {
+      if (apiToken) {
         loaderText.textContent = 'Verifying true publish status...';
-        await annotateTruePublishStatus(
-          data,
-          scopes.map((scope) => ({ scope, page })),
-          pageSize
+        await Promise.all(
+          scopes.map((scope, i) => annotateTruePublishStatus(pageResults[i].rows, scope))
         );
       }
+      data = mergeRows(pageResults.flatMap((result) => result.rows));
       lastLoadState = {
         page,
         pageSize,
@@ -2292,7 +2322,7 @@ function formatPublishStatus(value) {
     return 'Published';
   }
   if (status === 'unpublished_changes') {
-    return 'Published (unsaved changes)';
+    return 'Published (unpublished changes)';
   }
   if (status === 'never_published') {
     return 'Unpublished';
@@ -2472,7 +2502,6 @@ function renderTable() {
 
     const pageSize = getPageSize();
     const allData = [];
-    const scopePages = [];
     const seenKeys = new Set();
     const canReuseLoadedFirstPage =
       lastLoadState &&
@@ -2487,6 +2516,7 @@ function renderTable() {
       loader.classList.remove('d-none');
 
       if (canReuseLoadedFirstPage) {
+        // Already verified by fetchData when this page was first loaded on screen.
         lastLoadState.rows.forEach((row) => {
           const key = buildRowKey(row);
           if (!seenKeys.has(key)) {
@@ -2494,24 +2524,24 @@ function renderTable() {
             allData.push(row);
           }
         });
-        scopes.forEach((scope) => scopePages.push({ scope, page: 1 }));
       }
 
       const fetchAllPagesForScope = async (scope) => {
         let page = canReuseLoadedFirstPage ? 2 : 1;
         let emptyPageCount = 0;
+        const scopeRows = [];
 
         // Stop if we hit MAX_EXPORT_PAGES or multiple pages return no new rows.
         while (page <= MAX_EXPORT_PAGES) {
           loaderText.textContent = `Exporting server page ${page}...`;
           const pageData = await requestScopePage(scope, page, pageSize);
-          scopePages.push({ scope, page });
           if (!pageData.length) {
             break;
           }
 
           let newItems = 0;
           pageData.forEach((row) => {
+            scopeRows.push(row);
             const key = buildRowKey(row);
             if (!seenKeys.has(key)) {
               seenKeys.add(key);
@@ -2535,6 +2565,11 @@ function renderTable() {
         if (page > MAX_EXPORT_PAGES) {
           throw new Error('Export stopped after reaching the maximum page limit.');
         }
+
+        if (apiToken && scopeRows.length) {
+          loaderText.textContent = 'Verifying true publish status...';
+          await annotateTruePublishStatus(scopeRows, scope);
+        }
       };
 
       for (const scope of scopes) {
@@ -2543,11 +2578,6 @@ function renderTable() {
 
       if (!allData.length) {
         throw new Error('No data returned to export.');
-      }
-
-      if (liveBaseURL) {
-        loaderText.textContent = 'Verifying true publish status...';
-        await annotateTruePublishStatus(allData, scopePages, pageSize);
       }
 
       const exportRows = hasActiveTableFilters()
@@ -2777,12 +2807,19 @@ function rowMatchesSearch(row) {
   );
 }
 
+// The filter dropdown only offers Published/Unpublished (per team request), but rows still
+// carry the precise 3-way status — "Unpublished" here matches both never-published items and
+// published items with newer unpublished edits, while the table/CSV still shows all three.
 function rowMatchesPublishStatus(row) {
   const selectedStatus = publishStatusFilter.value;
-  return (
-    !selectedStatus ||
-    normalizePublishStatus(row.publish_status) === selectedStatus
-  );
+  if (!selectedStatus) {
+    return true;
+  }
+  const status = normalizePublishStatus(row.publish_status);
+  if (selectedStatus === 'unpublished') {
+    return status === 'never_published' || status === 'unpublished_changes';
+  }
+  return status === selectedStatus;
 }
 
 function rowMatchesTableFilters(row) {
