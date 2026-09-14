@@ -1243,8 +1243,7 @@
   // version, including unpublished drafts) and the production domain (only ever serves the
   // currently published version) directly, regardless of which domain this page itself is
   // hosted on.
-  const PUBLISH_CHECK_DEV_URL = 'http://8hxvw8tw-dev.webengine.zesty.io/generate-csv.json';
-  const PUBLISH_CHECK_DEV_PASSWORD = 'tsasecret123'; // required zpw query param on the dev domain
+  const PUBLISH_CHECK_DEV_URL = 'https://salstage.zesty.dev/generate-csv.json';
   const PUBLISH_CHECK_PRODUCTION_URL = 'https://www.salvationarmyusa.org/generate-csv.json';
   const dataTableBody = document.querySelector('#dataTable tbody');
   const loader = document.getElementById('csv-loader');
@@ -2083,8 +2082,6 @@
   // on-screen fetch, including 422 model-splitting and probe-based pagination) — this only
   // needs a best-effort read of each comparison domain's rows for the same scope/page, and a
   // failure here should degrade to "couldn't verify" rather than break the primary fetch.
-  // NOTE: PUBLISH_CHECK_DEV_URL is http:// — if this page is served over https://, browsers
-  // block that fetch as mixed content; check the console if verification isn't happening.
   const fetchComparisonRows = async (baseUrl, scope, page, pageSize, extraParams) => {
     try {
       const url = buildPublishCheckUrl(baseUrl, scope, page, pageSize, extraParams);
@@ -2145,9 +2142,7 @@
     const [devResults, productionResults] = await Promise.all([
       Promise.all(
         uniqueRequests.map(({ scope, page }) =>
-          fetchComparisonRows(PUBLISH_CHECK_DEV_URL, scope, page, pageSize, {
-            zpw: PUBLISH_CHECK_DEV_PASSWORD
-          })
+          fetchComparisonRows(PUBLISH_CHECK_DEV_URL, scope, page, pageSize)
         )
       ),
       Promise.all(
