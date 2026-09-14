@@ -344,8 +344,9 @@
         <label for="publishStatusFilter">Status</label>
         <select id="publishStatusFilter" class="form-select form-select-sm">
           <option value="">All statuses</option>
-          <option value="publish">Published</option>
-          <option value="unpublish">Unpublished</option>
+          <option value="published">Published</option>
+          <option value="unpublished_changes">Published (unsaved changes)</option>
+          <option value="never_published">Unpublished</option>
         </select>
       </div>
       <div class="server-pager" aria-label="Server pagination">
@@ -1235,6 +1236,31 @@
   const baseURL = `${instanceOrigin}/generate-csv.json`;
   const gqlBaseURL = `${instanceOrigin}/-/gql`;
   const instantBaseURL = `${instanceOrigin}/-/instant`;
+
+  // True publish-status verification: WebEngine's isPublished() only reflects whether an
+  // item has ever been published, not whether the *latest* saved version is what's live —
+  // an item edited after its last publish still reports "publish". instance.host_live only
+  // resolves while this page is viewed from the preview/stage domain (it's blank on live
+  // per Zesty's docs), so we compare this page's own (preview/latest) generate-csv.json
+  // output against the same request re-issued on the live/production domain: missing there
+  // means never published, differing field values mean it's published but has unpublished
+  // edits, matching values mean the latest version is genuinely the published one.
+  const toOrigin = (value) => {
+    const trimmed = `${value ?? ''}`.trim();
+    if (!trimmed || trimmed.includes('{{')) {
+      return null;
+    }
+    return /^https?:\/\//i.test(trimmed) ? trimmed.replace(/\/+$/, '') : `https://${trimmed}`;
+  };
+  const liveOrigin = toOrigin(`{{instance.host_live}}`);
+  const liveBaseURL = liveOrigin ? `${liveOrigin}/generate-csv.json` : null;
+  if (!liveBaseURL) {
+    console.warn(
+      'True publish-status verification unavailable: instance.host_live did not resolve ' +
+      '(this page is likely being viewed from the live domain, where isPublished() should ' +
+      'never be stale anyway). Falling back to the legacy publish_status flag.'
+    );
+  }
   const dataTableBody = document.querySelector('#dataTable tbody');
   const loader = document.getElementById('csv-loader');
   const dataTable = document.getElementById('dataTable');
@@ -2051,6 +2077,93 @@
     }
   };
 
+  const PUBLISH_COMPARISON_FIELDS = ['title', 'path_part', 'territory', 'division', 'location'];
+
+  const buildLiveCsvUrl = (scope, page, pageSize) => {
+    const params = new URLSearchParams(scope.modelParams);
+    params.set('page', page);
+    params.set('per_page', pageSize);
+    if (scope.zuid) {
+      params.set('zuid', scope.zuid);
+    }
+    params.set('divisionzuid', scope.zuidD || '');
+    params.set('locationzuid', scope.zuidL || '');
+    return `${liveBaseURL}?${params.toString()}`;
+  };
+
+  // Deliberately independent of requestScopePage/requestPageData (which are tuned for the
+  // on-screen preview fetch, including 422 model-splitting and probe-based pagination) — this
+  // only needs a best-effort read of the live domain's rows for the same scope/page, and a
+  // failure here should degrade to "couldn't verify" rather than break the primary fetch.
+  const fetchLiveRowsForScope = async (scope, page, pageSize) => {
+    if (!liveBaseURL) {
+      return [];
+    }
+    try {
+      const res = await fetchWithTimeout(buildLiveCsvUrl(scope, page, pageSize), FETCH_TIMEOUT_MS);
+      if (!res.ok) {
+        return [];
+      }
+      return parsePageResponse(await res.text());
+    } catch (error) {
+      console.warn('Unable to load live-domain comparison data for true publish status.', error);
+      return [];
+    }
+  };
+
+  const fetchLiveRowsByZuid = async (scopePages, pageSize) => {
+    const map = new Map();
+    if (!liveBaseURL || !scopePages.length) {
+      return map;
+    }
+    const seen = new Set();
+    const uniqueRequests = scopePages.filter(({ scope, page }) => {
+      const key = `${buildScopeKey([scope])}::${page}`;
+      if (seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+    const results = await Promise.all(
+      uniqueRequests.map(({ scope, page }) => fetchLiveRowsForScope(scope, page, pageSize))
+    );
+    results.flat().forEach((row) => {
+      if (row.zuid) {
+        map.set(row.zuid, row);
+      }
+    });
+    return map;
+  };
+
+  function computeTruePublishStatus(row, liveRowsByZuid) {
+    const liveRow = liveRowsByZuid.get(row.zuid);
+    if (!liveRow) {
+      return 'never_published';
+    }
+    const hasUnpublishedChanges = PUBLISH_COMPARISON_FIELDS.some(
+      (field) => `${row[field] ?? ''}` !== `${liveRow[field] ?? ''}`
+    );
+    return hasUnpublishedChanges ? 'unpublished_changes' : 'published';
+  }
+
+  // Overwrites each row's publish_status with the verified 3-way status (falls back to the
+  // legacy isPublished()-derived value untouched when the live domain can't be reached, e.g.
+  // this page is being viewed from the live domain itself).
+  const annotateTruePublishStatus = async (rows, scopePages, pageSize) => {
+    if (!liveBaseURL || !rows.length) {
+      return rows;
+    }
+    const liveRowsByZuid = await fetchLiveRowsByZuid(scopePages, pageSize);
+    if (!liveRowsByZuid.size) {
+      return rows;
+    }
+    rows.forEach((row) => {
+      row.publish_status = computeTruePublishStatus(row, liveRowsByZuid);
+    });
+    return rows;
+  };
+
   async function fetchData(zuid, divisionValues, locationValues, page, pageSize) {
     try {
       if (!zuid) {
@@ -2093,6 +2206,14 @@
         knownLastPage = page;
       }
       data = mergeRows(pageResults.flatMap((result) => result.rows));
+      if (liveBaseURL) {
+        loaderText.textContent = 'Verifying true publish status...';
+        await annotateTruePublishStatus(
+          data,
+          scopes.map((scope) => ({ scope, page })),
+          pageSize
+        );
+      }
       lastLoadState = {
         page,
         pageSize,
@@ -2140,30 +2261,40 @@
     }
   }
 
+// Recognizes both the verified 3-way status set by annotateTruePublishStatus
+// ('published' / 'unpublished_changes' / 'never_published') and the legacy
+// isPublished()-derived boolean/string generate-csv falls back to when the live
+// domain can't be reached for comparison.
 function normalizePublishStatus(value) {
+  if (value === 'published' || value === 'unpublished_changes' || value === 'never_published') {
+    return value;
+  }
   if (value === true) {
-    return 'publish';
+    return 'published';
   }
   if (value === false) {
-    return 'unpublish';
+    return 'never_published';
   }
 
   const normalized = `${value ?? ''}`.trim().toLowerCase();
   if (['publish', 'published', 'true', '1'].includes(normalized)) {
-    return 'publish';
+    return 'published';
   }
   if (['unpublish', 'unpublished', 'false', '0'].includes(normalized)) {
-    return 'unpublish';
+    return 'never_published';
   }
   return '';
 }
 
 function formatPublishStatus(value) {
   const status = normalizePublishStatus(value);
-  if (status === 'publish') {
+  if (status === 'published') {
     return 'Published';
   }
-  if (status === 'unpublish') {
+  if (status === 'unpublished_changes') {
+    return 'Published (unsaved changes)';
+  }
+  if (status === 'never_published') {
     return 'Unpublished';
   }
   return '';
@@ -2341,6 +2472,7 @@ function renderTable() {
 
     const pageSize = getPageSize();
     const allData = [];
+    const scopePages = [];
     const seenKeys = new Set();
     const canReuseLoadedFirstPage =
       lastLoadState &&
@@ -2362,6 +2494,7 @@ function renderTable() {
             allData.push(row);
           }
         });
+        scopes.forEach((scope) => scopePages.push({ scope, page: 1 }));
       }
 
       const fetchAllPagesForScope = async (scope) => {
@@ -2372,6 +2505,7 @@ function renderTable() {
         while (page <= MAX_EXPORT_PAGES) {
           loaderText.textContent = `Exporting server page ${page}...`;
           const pageData = await requestScopePage(scope, page, pageSize);
+          scopePages.push({ scope, page });
           if (!pageData.length) {
             break;
           }
@@ -2409,6 +2543,11 @@ function renderTable() {
 
       if (!allData.length) {
         throw new Error('No data returned to export.');
+      }
+
+      if (liveBaseURL) {
+        loaderText.textContent = 'Verifying true publish status...';
+        await annotateTruePublishStatus(allData, scopePages, pageSize);
       }
 
       const exportRows = hasActiveTableFilters()

@@ -48,6 +48,7 @@ function resetMap() {
 function requestGoogleMapsAPI() {
   if (window.__mapsRequested) return;
 
+  let warned = false;
   const tryLoad = (attempt = 0) => {
     if (window.__mapsRequested) return;
     if (typeof loadGoogleMapsAPI === 'function') {
@@ -55,9 +56,18 @@ function requestGoogleMapsAPI() {
       loadGoogleMapsAPI();
       return;
     }
-    if (attempt < 30) {
-      setTimeout(() => tryLoad(attempt + 1), 100);
+    // main.js (which defines loadGoogleMapsAPI) hasn't finished loading yet.
+    // Keep retrying instead of silently giving up - fast for the first 3s,
+    // then back off so we don't spam timers if the page/tab is throttled
+    // (e.g. a backgrounded Edge tab), but never abandon the load entirely.
+    if (attempt >= 30 && !warned) {
+      warned = true;
+      console.warn(
+        'Google Maps: loadGoogleMapsAPI (main.js) is not available yet after 3s. Still retrying...'
+      );
     }
+    const delay = attempt < 30 ? 100 : 1000;
+    setTimeout(() => tryLoad(attempt + 1), delay);
   };
 
   tryLoad();
@@ -606,41 +616,82 @@ document.addEventListener('markerClicked', (event) => {
   handleMarkerContent(event.detail);
 });
 
+// /locations.json is paginated server-side (thousands of records, each requiring
+// per-row state/city lookups) - one unbounded request was slow/unreliable and could
+// 503 the endpoint. Fetch it in bounded pages instead, sequentially so we never hit
+// it with concurrent large requests.
+async function fetchLocationPage(skip, limit, retriesLeft = 2) {
+  const response = await fetch(
+    `${window.location.origin}/locations.json?_bypassError=true&skip=${skip}&limit=${limit}`
+  );
+
+  if (!response.ok) {
+    if (retriesLeft > 0) {
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      return fetchLocationPage(skip, limit, retriesLeft - 1);
+    }
+    throw new Error(`Failed to fetch locations (skip=${skip}, status=${response.status})`);
+  }
+
+  const rawData = await response.text();
+  const page = JSON.parse(rawData);
+
+  if (!Array.isArray(page)) {
+    throw new Error('Location data is not in the expected format');
+  }
+
+  return page;
+}
+
+// Multiple call sites (initAutocomplete, initLocationFinder, displayLocationMarkers)
+// all want the same location data - without this guard each one triggers its own
+// full paginated fetch of the entire dataset, multiplying load on /locations.json.
+window.__locationDataPromise = null;
+
 async function fetchLocationData() {
-  try {
-    // Show loader
+  if (window.locationDatas && window.locationDatas.length > 0) {
+    return window.locationDatas;
+  }
+
+  if (window.__locationDataPromise) {
+    return window.__locationDataPromise;
+  }
+
+  window.__locationDataPromise = (async () => {
     const loader = document.querySelector('.map-loader');
     if (loader) {
       loader.classList.remove('d-none');
     }
-    // const response = await fetch(`${window.location.origin}/-/gql/locations.json`);
-    const response = await fetch(`${window.location.origin}/locations.json?_bypassError=true`);
-    const rawData = await response.text();
 
-    let data;
+    const PAGE_SIZE = 500;
+    const MAX_PAGES = 50; // safety valve against a runaway loop
+    let allLocations = [];
+
     try {
-      data = JSON.parse(rawData);
-      window.locationDatas = data;
-    } catch (parseError) {
-      console.error('JSON Parse Error:', parseError);
-      throw new Error('Failed to parse location data');
-    }
+      for (let page = 0; page < MAX_PAGES; page++) {
+        const skip = page * PAGE_SIZE;
+        const batch = await fetchLocationPage(skip, PAGE_SIZE);
+        allLocations = allLocations.concat(batch);
 
-    if (!Array.isArray(data)) {
-      throw new Error('Location data is not in the expected format');
-    }
+        // Fewer results than requested means we've reached the last page
+        if (batch.length < PAGE_SIZE) break;
+      }
 
-    return data;
-  } catch (error) {
-    console.error('Error fetching location data:', error);
-    return [];
-  } finally {
-    // Hide loader
-    const loader = document.querySelector('.map-loader');
-    if (loader) {
-      loader.classList.add('d-none');
+      window.locationDatas = allLocations;
+      return allLocations;
+    } catch (error) {
+      console.error('Error fetching location data:', error);
+      window.locationDatas = allLocations;
+      return allLocations;
+    } finally {
+      if (loader) {
+        loader.classList.add('d-none');
+      }
+      window.__locationDataPromise = null;
     }
-  }
+  })();
+
+  return window.__locationDataPromise;
 }
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
@@ -650,8 +701,10 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   return google.maps.geometry.spherical.computeDistanceBetween(p1, p2) * 0.000621371;
 }
 
-// Helper function to geocode an address
-function geocodeAddress(address) {
+// Helper function to geocode an address. Retries with backoff when Google
+// throttles us (OVER_QUERY_LIMIT), which becomes more likely the more
+// addresses we geocode concurrently (see GEOCODE_BATCH_SIZE below).
+function geocodeAddress(address, retriesLeft = 3, retryDelay = 500) {
   return new Promise((resolve, reject) => {
     if (!window.geocoder) {
       reject(new Error('Geocoder not initialized'));
@@ -670,8 +723,14 @@ function geocodeAddress(address) {
             lat: location.lat(),
             lng: location.lng()
           });
+        } else if (status === 'OVER_QUERY_LIMIT' && retriesLeft > 0) {
+          setTimeout(() => {
+            geocodeAddress(address, retriesLeft - 1, retryDelay * 2)
+              .then(resolve)
+              .catch(reject);
+          }, retryDelay + Math.random() * retryDelay);
         } else {
-          reject(new Error(`Geocoding failed for address: ${address}`));
+          reject(new Error(`Geocoding failed for address: ${address} (status: ${status})`));
         }
       }
     );
@@ -742,16 +801,25 @@ async function displayLocationMarkers(searchLocation) {
       return distance <= 50; // 50 miles radius
     });
 
-    // Process locations needing geocoding
-    for (const location of locationsNeedingGeocoding) {
-      try {
-        const coords = await geocodeAddress(location.address);
-        const distance = calculateDistance(
-          searchLocation.lat(),
-          searchLocation.lng(),
-          coords.lat,
-          coords.lng
-        );
+    // Process locations needing geocoding in parallel batches instead of one at a
+    // time, since sequential awaits here could add up to a long delay when many
+    // locations are missing coordinates.
+    const GEOCODE_BATCH_SIZE = 100;
+    for (let i = 0; i < locationsNeedingGeocoding.length; i += GEOCODE_BATCH_SIZE) {
+      const batch = locationsNeedingGeocoding.slice(i, i + GEOCODE_BATCH_SIZE);
+      const results = await Promise.allSettled(
+        batch.map((location) => geocodeAddress(location.address))
+      );
+
+      results.forEach((result, index) => {
+        const location = batch[index];
+        if (result.status !== 'fulfilled') {
+          console.warn(`Failed to geocode address for location: ${location.name}`, result.reason);
+          return;
+        }
+
+        const coords = result.value;
+        const distance = calculateDistance(searchLat, searchLng, coords.lat, coords.lng);
 
         if (distance <= 50) {
           // Add geocoded coordinates to the location object
@@ -759,9 +827,7 @@ async function displayLocationMarkers(searchLocation) {
           location.longitude = coords.lng;
           filteredLocations.push(location);
         }
-      } catch (error) {
-        console.warn(`Failed to geocode address for location: ${location.name}`, error);
-      }
+      });
     }
 
     // Get current search information
