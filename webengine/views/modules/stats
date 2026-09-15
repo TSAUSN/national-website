@@ -284,6 +284,9 @@ function filterCarousel(stats) {
       }
     }
 
+    // TODO: temporary static value until a "Source URL" field is added to the Stats schema
+    const STATS_SOURCE_URL = 'https://www.salvationarmyusa.org/usn/about-us/annual-report/';
+
     let carouselItemsRight;
     let carouselItemsLeft;
     function generateCarouselItems(stats) {
@@ -297,6 +300,7 @@ function filterCarousel(stats) {
           activeCriteria && isHomepage !== 'true'
             ? 'fetchpriority="high" loading="eager"'
             : 'loading="lazy"';
+        const sourceUrl = stat.source_url || STATS_SOURCE_URL;
         return /*html*/ `
         <div
                 class="carousel-item ${activeCriteria? 'active' : ''}"
@@ -312,8 +316,27 @@ function filterCarousel(stats) {
                       ${stat.description}
                     </div>
                   </div>
+                  ${sourceUrl ? /*html*/ `
+                  <div class="p-12 p-sm-8">
+                    <a
+                      data-location-type="body:stats"
+                      data-function-type="other"
+                      data-format-type="icon-block"
+                      data-link-type="external"
+                      data-link-text="Source"
+                      onclick="LinkTrackingClickEvent(this,'view_content_click')"
+                      href="${sourceUrl}"
+                      target="_blank"
+                      rel="noopener"
+                      class="stat-source-link social-icon fs-5 text-light"
+                      aria-label="View source"
+                    >
+                      <span class="material-symbols-outlined">info</span>
+                    </a>
+                  </div>
+                  ` : ''}
                 </div>
-                
+
                 <img
                  ${statsPriorityAttr}
                   class="w-100 h-100"
