@@ -1,0 +1,27 @@
+<div classname="{styles.pvlRoot}">
+	{{block('/-/block/hero_full.html?variant=7-be89e5ff82-01fphn')}}
+	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<h4 style="text-align:center;">Community Center Hours</h4>
+			<p style="text-align:center;">
+	7 AM. - 6 PM. | Monday - Friday 
+</p>
+			<div class="my-4"></div>
+			<h4 style="text-align:center;">After School Program Hours:</h4>
+			<p style="text-align:center;"><strong>When School Is in Session:</strong></p>
+			<p style="text-align:center;">3:00 PM. - 6:00 PM. | Monday-Friday</p>
+			<p style="text-align:center;"><strong>When School Is Not in Session:</strong></p>
+			<p style="text-align:center;">7:00 AM. - 6:00 PM. | Monday-Friday</p>
+			<div class="my-4"></div>
+			<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/18cab063-7017-4861-a412-1fc5e4834a00_IMG_8794.JPG" alt="placeholder" style="max-width:100%;height:auto;" loading="lazy" class="img-fluid d-block my-4 rounded mx-auto">
+			<div class="my-2"></div>
+			<h4 style="text-align:center;">Our Programs</h4>
+			<p style="text-align:center;">
+	The Salvation Army Red Shield Youth Center programs are an invaluable resource for children and teenagers, offering a wide range of activities and opportunities for growth and development. These programs are designed to create a safe and supportive environment where young individuals can thrive and reach their full potential. Through a combination of educational, recreational, and character-building activities, The Salvation Army Red Shield Youth Center instills important life skills, fosters academic success, and promotes healthy lifestyles. From mentoring programs and homework assistance to sports, arts, and leadership development initiatives, these programs empower young children to become responsible, confident, and compassionate individuals. By providing a nurturing community and comprehensive programming, The Salvation Army Red Shield Youth Center inspires young minds, promotes positive relationships, and prepares them for a better future.
+</p>
+			<h4 style="text-align:center;">More Opportunities to Learn, Grow &amp; Connect</h4>
+			<p style="text-align:center;">Learn more about after-school programs, school break day camps, summer day camps, and other enrichment opportunities that help young people discover more, make friends, and experience growth.</p>
+			<div class="text-center"><a href="https://sandsprings.redshieldyouth.org/" class="btn btn-secondary mt-2">Learn more</a></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+<div className={styles.pvlRoot}>
+	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<h6 style="text-align:center;">Thank you for Doing the Most Good</h6>
+			<p>Thanks to generous community support, The Salvation Army Central Virginia Area Command is able to make a powerful impact on our community by serving those in need. The Army believes in treating each person who comes to us as an individual, not a statistic. And each person or family that the Army touches represents a miracle, whether it’s in the form of shelter, a hot meal, a listening ear, or any of our other services.</p>
+			<div class="pvlRichtext"><p>
+	View our current list of volunteer opportunities below or <a href="https://www.cervistech.com/acts/login.php?org_id=0243" target="">log in to your volunteer profile</a>.
+</p></div>
+			<div class="my-2"></div>
+			<div class="pvlRichtext" style="font-weight:700;font-style:italic"><p>For <strong>group volunteer opportunities,</strong> please contact our <em>Volunteer &amp; Special Events Coordinator,</em> <a href="mailto:Elena.Messina@uss.salvationarmy.org"><span style="text-decoration: underline;"><strong><span data-olk-copy-source="MessageBody">Elena Messina</span></strong></span></a>.</p></div>
+			<div class="my-2"></div>
+			<p>Thank you for serving your time to serve our community.</p>
+			<div class="my-2"></div>
+			<div class="row my-3 gap-3">
+				<div class="col-md-8 col-sm-12 col-xs-12">
+					<iframe class="w-100 my-4" frameborder="0" height="550" id="myFrame" name="myFrame" src="https://volunteer.cvac.salvationarmypotomac.org/acts/webreg/eventwebreglist.php?org_id=0243" title="CERVIS Opportunity Registration" width="1050" style="width:100%;min-height:600px;border:0"></iframe>
+				</div>
+				<div class="col-sm-4 col-sm-12 col-xs-12">
+					<div class="pvlRichtext" style="font-weight:700"><p>
+					<strong><img class="img-fluid rounded" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/810f59c1-446f-47b6-a4a8-e2f8d701bb1e_IMG_4963.jpeg"><br>
+					Volunteers prepping the dining room meal service for our shelter residents.</strong>
+				</p></div>
+					<div class="pvlRichtext" style="font-weight:700"><p>
+					<strong><img class="img-fluid rounded" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/970714f5-feb3-4ee7-93ee-78d589927bcb_Senior+Connection+Scrapbooking.jpeg"><br>
+					A Senior Connections volunteer teaching a scrapbooking activity to the youth.</strong>
+				</p></div>
+					<div class="pvlRichtext" style="font-weight:700"><p>
+					<strong><img class="img-fluid rounded" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/733b0621-1b60-4355-9ae1-b1b8cfb9f4dc_David%2C+Sammie%2C+James+food+organizing.jpeg"><br>
+					Organizing Feed More and Food Lion weekly deliveries.</strong>
+				</p></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

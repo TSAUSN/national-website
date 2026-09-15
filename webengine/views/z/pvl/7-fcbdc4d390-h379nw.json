@@ -1,0 +1,189 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:34:0:29": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-aed9ebe2a5-w39rdz')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-aed9ebe2a5-w39rdz')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:34:0:29",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:12:64": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:12:64",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:12:64-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:95": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:95",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:64-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:18": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\"><a name=\"music\"></a><h5 style=\"text-align:center;\"><br>\nFree&nbsp;Youth &amp; Music Programs</h5>\n\n<p style=\"text-align:center;\">\n\t<strong>A place for kids to grow spiritually, physically, mentally, socially, and emotionally while in a safe environment.&nbsp;</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tDinner | Bible Lessons | Character Building Programs (Life Skills)<br>\n\tElectives (Band, Piano, Guitar, Dance) | Afterschool Enrichment Program &amp;&nbsp;Summer DayCamp\n</p>\n\n<p style=\"text-align:center;\">\n\t&nbsp;\n</p></div>",
+								"content": "<div class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\" style=\"color:#111111;\"><a name=\"music\"></a><h5 style=\"text-align:center;\"><br>\nFree&nbsp;Youth &amp; Music Programs</h5>\n\n<p style=\"text-align:center;\">\n\t<strong>A place for kids to grow spiritually, physically, mentally, socially, and emotionally while in a safe environment.&nbsp;</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tDinner | Bible Lessons | Character Building Programs (Life Skills)<br>\n\tElectives (Band, Piano, Guitar, Dance) | Afterschool Enrichment Program &amp;&nbsp;Summer DayCamp\n</p>\n\n<p style=\"text-align:center;\">\n\t&nbsp;\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:18",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:18",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:64-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:3:75": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:75",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:64-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:4:91": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\">When:</h5>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\tWednesdays, 5pm-7pm<br>\n\t\t\t\t\t(Starts September 6th)\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\">Where:</h5>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t570 E. Beasley Road<br>\n\t\t\t\t\tJackson, MS 39206\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p style=\"text-align:center;color:#fff;\">\n\t<strong>Transportation Available</strong>\n</p>\n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"text-white rounded p-6 gap-3 my-5\" style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\">When:</h5>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\tWednesdays, 5pm-7pm<br>\n\t\t\t\t\t(Starts September 6th)\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-6 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\">Where:</h5>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t570 E. Beasley Road<br>\n\t\t\t\t\tJackson, MS 39206\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p style=\"text-align:center;color:#fff;\">\n\t<strong>Transportation Available</strong>\n</p>\n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:4:91",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:4:91",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "300px",
+									"background": "#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/0848a12b-c18a-464f-949d-80479b708809_Blue+BG.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover",
+									"fontWeight": "700"
+								},
+								"classes": "text-white rounded p-6 gap-3 my-5",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:64-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:5:39": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:5:39",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:64-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:6:63": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 5,
+								"fullName": "design:design:whitespace-xl:6:63",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:64-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:7:32": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\"><p style=\"text-align:center;\">\n\t&nbsp;\n</p>\n\n<h5 style=\"text-align:center;\">Questions?</h5>\n\n<p style=\"text-align:center;\">\n\tFor More Information Please Contact Eldridge Walker at <a href=\"tel:+16013980998\" target=\"\">601-398-0998</a><br>\n\tor via email at <a href=\"mailto:Eldridge.Walker@uss.SalvationArmy.org\" target=\"\">Eldridge.Walker@uss.SalvationArmy.org</a>\n</p>\n\n<p>\n\t&nbsp;\n</p></div>",
+								"content": "<div class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\" style=\"color:#111111;\"><p style=\"text-align:center;\">\n\t&nbsp;\n</p>\n\n<h5 style=\"text-align:center;\">Questions?</h5>\n\n<p style=\"text-align:center;\">\n\tFor More Information Please Contact Eldridge Walker at <a href=\"tel:+16013980998\" target=\"\">601-398-0998</a><br>\n\tor via email at <a href=\"mailto:Eldridge.Walker@uss.SalvationArmy.org\" target=\"\">Eldridge.Walker@uss.SalvationArmy.org</a>\n</p>\n\n<p>\n\t&nbsp;\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 6,
+								"fullName": "content:wysiwyg_basic:7:32",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:7:32",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:64-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

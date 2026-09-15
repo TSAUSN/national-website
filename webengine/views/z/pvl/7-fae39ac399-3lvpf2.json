@@ -1,0 +1,449 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:1:0:54": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-e8bb98d69e-jz7nwp')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-e8bb98d69e-jz7nwp')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:1:0:54",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:design:whitespace-sm:1:8521": {
+				"uid": "351",
+				"name": "Whitespace - Small",
+				"type": "design",
+				"classes": "my-2",
+				"html": "<div class=\"my-2\"></div>",
+				"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+				"droppable": true,
+				"position": 1,
+				"fullName": "design:design:whitespace-sm:1:8521",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank"
+			},
+			"design:columns:1 column - 1 row my-3:26:52": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 2,
+				"fullName": "design:columns:1 column - 1 row my-3:26:52",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:26:52-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:images:0:9629": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a5463e0a-d438-4b16-b454-340fe334f628_BASE+1300X508+TX.png\" alt=\"placeholder\" class=\"img-fluid w-100 d-block mx-auto mb-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/a5463e0a-d438-4b16-b454-340fe334f628_BASE+1300X508+TX.png",
+								"position": 0,
+								"fullName": "content:images:0:9629",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:26:52-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:2:21": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\"><h5 style=\"text-align:center;\">&nbsp;</h5>\n\n<h5 style=\"text-align:center;\">Our Programs</h5>\n\n<p>\n\tThe Salvation Army Is Committed To Sharing God’s Love And Message Of Jesus Christ By Actively Meeting Human Needs In His Name Without Discrimination. For Our Area Youth, We Offer Several Salvation Army Scouting And Other Character-Building Ministry Programs That Help Our Youngest Residents Grow In An Understanding Of God’s Love Through A Lifelong Relationship With Jesus Christ.&nbsp;\n</p>\n\n<h5 style=\"text-align:center;\">&nbsp;</h5></div>",
+								"content": "<div class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\" style=\"color:#111111;\"><h5 style=\"text-align:center;\">&nbsp;</h5>\n\n<h5 style=\"text-align:center;\">Our Programs</h5>\n\n<p>\n\tThe Salvation Army Is Committed To Sharing God’s Love And Message Of Jesus Christ By Actively Meeting Human Needs In His Name Without Discrimination. For Our Area Youth, We Offer Several Salvation Army Scouting And Other Character-Building Ministry Programs That Help Our Youngest Residents Grow In An Understanding Of God’s Love Through A Lifelong Relationship With Jesus Christ.&nbsp;\n</p>\n\n<h5 style=\"text-align:center;\">&nbsp;</h5></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:21",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:21",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:26:52-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:3:23": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:23",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:26:52-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"design:columns:4 Columns:13:33": {
+								"uid": "358",
+								"name": "4 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 4,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 3,
+								"fullName": "design:columns:4 Columns:13:33",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:26:52-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:4 Columns:13:33-1:4 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:4:41": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/1ba14b3f-bcf6-419c-accd-7ccf646ec2ab_Moonmbeams%2Bphoto.png\" alt=\"placeholder\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" class=\"img-fluid d-block my-3 rounded mx-auto\">",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/1ba14b3f-bcf6-419c-accd-7ccf646ec2ab_Moonmbeams%2Bphoto.png",
+												"position": 0,
+												"fullName": "content:images:4:41",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:4 Columns:13:33-1:4 Columns:0",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 0
+									},
+									"design:columns:4 Columns:13:33-1:4 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:text:6:82": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h5>The Moonbeams</h5>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "The Moonbeams",
+												"position": 0,
+												"fullName": "content:text:6:82",
+												"htmlElement": "h5",
+												"primarytype": "content",
+												"id": "content:text:6:82",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:13:33-1:4 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:7:15": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tIs a holistic Christian Education experience for girls and boys in pre-k and their self-image and their image of God. The purpose of the character-building programs is to give boys and girls an opportunity for personal growth spiritually, mentally, physically, and socially, thereby increasing their understanding of life and service.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Is a holistic Christian Education experience for girls and boys in pre-k and their self-image and their image of God. The purpose of the character-building programs is to give boys and girls an opportunity for personal growth spiritually, mentally, physically, and socially, thereby increasing their understanding of life and service.",
+												"position": 1,
+												"fullName": "content:textarea:7:15",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:7:15",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:13:33-1:4 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:4 Columns:13:33-1:4 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:8:1": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/4a664ae7-904a-4e16-84ca-e956e416c98b_Sunbeams%2Band%2BGirl%2BGuards%2Bphoto.jpg\" alt=\"placeholder\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" class=\"img-fluid d-block my-3 rounded mx-auto\">",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/4a664ae7-904a-4e16-84ca-e956e416c98b_Sunbeams%2Band%2BGirl%2BGuards%2Bphoto.jpg",
+												"position": 0,
+												"fullName": "content:images:8:1",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:4 Columns:13:33-1:4 Columns:2",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 2
+									},
+									"design:columns:4 Columns:13:33-1:4 Columns:3": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:text:10:66": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h5>Sunbeams and Girl Guards</h5>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "Sunbeams and Girl Guards",
+												"position": 0,
+												"fullName": "content:text:10:66",
+												"htmlElement": "h5",
+												"primarytype": "content",
+												"id": "content:text:10:66",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:13:33-1:4 Columns:3",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:11:36": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\tSunbeams and Girl Guards are for young girls, which allows them to mature as Christian young women while having fun and learning.\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Sunbeams and Girl Guards are for young girls, which allows them to mature as Christian young women while having fun and learning.",
+												"position": 1,
+												"fullName": "content:textarea:11:36",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:11:36",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:13:33-1:4 Columns:3",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:12:54": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t\t\t\t\t&nbsp;The Sunbeam program is for girls in grades 1-5. the Girl Guards is for girls in grades 6-12. the purpose of both of these guarding programs is to give girls an opportunity for personal growth spiritually, mentally, physically, and socially, thereby increasing their understanding of life and service. It emphasizes discipleship, evangelism, and the development of life skills. It also offers opportunities for building relationships with other youths in the community.&nbsp;\n\t\t\t\t</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "&nbsp;The Sunbeam program is for girls in grades 1-5. the Girl Guards is for girls in grades 6-12. the purpose of both of these guarding programs is to give girls an opportunity for personal growth spiritually, mentally, physically, and socially, thereby increasing their understanding of life and service. It emphasizes discipleship, evangelism, and the development of life skills. It also offers opportunities for building relationships with other youths in the community.&nbsp;",
+												"position": 2,
+												"fullName": "content:textarea:12:54",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:12:54",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:13:33-1:4 Columns:3",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 3
+									}
+								}
+							},
+							"content:wysiwyg_basic:14:82": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d66aa8be-9105-4e58-b95b-3484d0e03f67_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t<img class=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/dba27240-d9c5-494a-ba66-de8d276e7e17_The%2BAdventure%2BCorps%2Bphoto.jpg\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-8 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\">The Adventure Corps</h5>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\tIs a character-building program designed for boys in grades 1-8. Adventure Corps is a faith-based community program focusing on the physical, mental, and spiritual growth needed in males today. Adventure Corps is an important aspect of Corps ministry that could provide a Corps with a strong young male church base.&nbsp;\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t<strong>To learn more about our scouting and youth ministry programs,</strong>\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\tCall <a href=\"tel:+12253554483\" target=\"\">225-355-4483</a> x.401\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"text-white rounded p-6 gap-3 my-5\" style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d66aa8be-9105-4e58-b95b-3484d0e03f67_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t<img class=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/dba27240-d9c5-494a-ba66-de8d276e7e17_The%2BAdventure%2BCorps%2Bphoto.jpg\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-8 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\">The Adventure Corps</h5>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\tIs a character-building program designed for boys in grades 1-8. Adventure Corps is a faith-based community program focusing on the physical, mental, and spiritual growth needed in males today. Adventure Corps is an important aspect of Corps ministry that could provide a Corps with a strong young male church base.&nbsp;\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t<strong>To learn more about our scouting and youth ministry programs,</strong>\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\tCall <a href=\"tel:+12253554483\" target=\"\">225-355-4483</a> x.401\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"position": 4,
+								"fullName": "content:wysiwyg_basic:14:82",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:14:82",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "300px",
+									"background": "#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d66aa8be-9105-4e58-b95b-3484d0e03f67_Blue+BG.png') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d66aa8be-9105-4e58-b95b-3484d0e03f67_Blue+BG.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover",
+									"fontWeight": "700"
+								},
+								"classes": "text-white rounded p-6 gap-3 my-5",
+								"newLoc": "design:columns:1 column - 1 row my-3:26:52-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:15:93": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 5,
+								"fullName": "design:design:whitespace-sm:15:93",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:26:52-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:16:57": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 6,
+								"fullName": "design:design:whitespace-xl:16:57",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:26:52-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:17:52": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\"><p>\n\t&nbsp;\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/fa4e4917-37ba-4e18-be87-fa345000e4fe_Camp%2Bphoto%2B2.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-8\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5><span style=\"font-size:20px;\">Summer Camp&nbsp;</span></h5>\n\n\t\t\t\t<p>\n\t\t\t\t\tMany children leave school each spring and head out for a fun-filled summer of camps. However, for many kids from income-limited homes, the possibility of going to summer camp is not an option.&nbsp;\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tWe believe every child should experience summer camp—exploring nature, learning new skills, developing confidence, and building life-long friendships in a fun and nurturing environment. That’s why we offer kids from across Alabama, Louisiana, and Mississippi to experience one or more summer camp programs at Camp Hidden Lake, our 300-acre camp in Lexington, Mississippi.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tCamp Hidden Lake is residential for a week (6 days), and transportation is provided. During the week, campers experience long, hot summer days, dips in the pool, star-filled nights, campfires, roasted marshmallows, pillow fights, cabin devotions, emblem work, seeing old friends, and making new ones.\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tFor more information, &nbsp;call <a href=\"tel:+12253554483\" target=\"\">225-355-4483</a> x.401\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div></div>",
+								"content": "<div class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\" style=\"color:#111111;\"><p>\n\t&nbsp;\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/fa4e4917-37ba-4e18-be87-fa345000e4fe_Camp%2Bphoto%2B2.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-8\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5><span style=\"font-size:20px;\">Summer Camp&nbsp;</span></h5>\n\n\t\t\t\t<p>\n\t\t\t\t\tMany children leave school each spring and head out for a fun-filled summer of camps. However, for many kids from income-limited homes, the possibility of going to summer camp is not an option.&nbsp;\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tWe believe every child should experience summer camp—exploring nature, learning new skills, developing confidence, and building life-long friendships in a fun and nurturing environment. That’s why we offer kids from across Alabama, Louisiana, and Mississippi to experience one or more summer camp programs at Camp Hidden Lake, our 300-acre camp in Lexington, Mississippi.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tCamp Hidden Lake is residential for a week (6 days), and transportation is provided. During the week, campers experience long, hot summer days, dips in the pool, star-filled nights, campfires, roasted marshmallows, pillow fights, cabin devotions, emblem work, seeing old friends, and making new ones.\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tFor more information, &nbsp;call <a href=\"tel:+12253554483\" target=\"\">225-355-4483</a> x.401\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 7,
+								"fullName": "content:wysiwyg_basic:17:52",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:17:52",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:26:52-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:18:95": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 8,
+								"fullName": "design:design:whitespace-xl:18:95",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:26:52-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:19:3": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d66aa8be-9105-4e58-b95b-3484d0e03f67_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <h6 style=\"text-align:center;\">For More Information Contact</h6>\n\n<h6 style=\"text-align:center;\">Captain Crystal Hicks</h6>\n\n<p style=\"text-align:center;color:#fff;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"mailto:Crystal.Hicks@uss.salvationarmy.org\" class=\"btn btn-secondary gap-1 mt-2\">Crystal.Hicks@uss.salvationarmy.org</a></p>\n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"text-white rounded p-6 gap-3 my-5\" style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d66aa8be-9105-4e58-b95b-3484d0e03f67_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <h6 style=\"text-align:center;\">For More Information Contact</h6>\n\n<h6 style=\"text-align:center;\">Captain Crystal Hicks</h6>\n\n<p style=\"text-align:center;color:#fff;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"mailto:Crystal.Hicks@uss.salvationarmy.org\" class=\"btn btn-secondary gap-1 mt-2\">Crystal.Hicks@uss.salvationarmy.org</a></p>\n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"position": 9,
+								"fullName": "content:wysiwyg_basic:19:3",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:19:3",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "300px",
+									"background": "#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d66aa8be-9105-4e58-b95b-3484d0e03f67_Blue+BG.png') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d66aa8be-9105-4e58-b95b-3484d0e03f67_Blue+BG.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover"
+								},
+								"classes": "text-white rounded p-6 gap-3 my-5",
+								"newLoc": "design:columns:1 column - 1 row my-3:26:52-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

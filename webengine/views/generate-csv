@@ -13,6 +13,7 @@
 {{$volunteerPages = {request.queryParam(volunteer_pages)} }}
 {{$page = 1}}
 {{$perPage = 50}}
+{{$pageStride = 50}}
 
 {{if {request.queryParam(page)} }}
 {{$page = {request.queryParam(page)} }}
@@ -22,11 +23,16 @@
 {{$perPage = {request.queryParam(per_page)} }}
 {{/if}}
 
+{{$pageStride = {$perPage} }}
+{{if {request.queryParam(page_stride)} }}
+{{$pageStride = {request.queryParam(page_stride)} }}
+{{/if}}
 
-{{$offset = {math(({$page} - 1) * {$perPage})} }}
+{{$offset = {math(({$page} - 1) * {$pageStride})} }}
 [
 {{if {$zuid} && {$zuidD} == "" && {$zuidL} == "" }}
 {{$isFirst = 1}}
+    {{if {$page} == 1 }}
     {
         "model": "Territories",
         "model_zuid": "{{territories.filter({$zuid}).set_zuid}}",
@@ -41,6 +47,7 @@
         "url": "https://{{instance.domain}}{{truepath({$zuid})}}"
     }
     {{$isFirst = 0}}
+    {{/if}}
 
     {{if {$divisions} }}
         {{each divisions as div WHERE territory = '{$zuid}' LIMIT {$offset}, {$perPage} }}
@@ -243,40 +250,31 @@
             }
         {{/each}}
     {{/if}}
-    
+
     {{if {$services} }}
-        {{each services as ser LIMIT {$offset}, {$perPage} }}
-            {{$territory = {locations.filter({ser.location}).territory} }}
+        {{each services as ser WHERE territory = '{$zuid}' LIMIT {$offset}, {$perPage} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Services",
+                "model_zuid": "{{ser.set_zuid}}",
+                "zuid": "{{ser.zuid}}",
+                "title": "{{ser.title.escapeForJs() }}",
+                "territory": "{{territories.filter({ser.territory}).name.escapeForJs() }}",
+                "division": null,
+                "location": null,
+                "path_part": "{{truepath({ser.zuid})}}",
 
-
-            {{if {$territory} == {$zuid} }}
-            {{$division = {locations.filter({ser.location}).division} }}
-
-            {{$territoryName = {territories.filter({$territory}).name.escapeForJs()} }}
-            {{$divisionName = {divisions.filter({$division}).name.escapeForJs()} }}
-            {{$locationName = {locations.filter({ser.location}).name.escapeForJs()} }}
-                {{if {$isFirst} == 0}},{{/if}}
-                {{$isFirst = 0}}
-                {
-                    "model": "Services",
-                    "model_zuid": "{{ser.set_zuid}}",
-                    "zuid": "{{ser.zuid}}",
-                    "title": "{{ser.title.escapeForJs() }}",
-                    "territory": {{if {$territory} }} "{{$territoryName}}" {{else}} null {{/if}},
-                    "division":  {{if {$division} }} "{{$divisionName}}" {{else}} null {{/if}},
-                    "location":  {{if {ser.location} }} "{{$locationName}}" {{else}} null {{/if}},
-                    "path_part": "{{truepath({ser.zuid})}}",
-
-                    "publish_status": "{{if {isPublished({ser.zuid})} }}publish{{else}}unpublish{{/if}}",
-                    "url": "https://{{instance.domain}}{{truepath({ser.zuid})}}"
-                }
-            {{/if}}
+                "publish_status": "{{if {isPublished({ser.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({ser.zuid})}}"
+            }
         {{/each}}
     {{/if}}
 {{/if}}
 
 {{if {$zuid} && {$zuidD} && {$zuidL} == "" }}
 {{$isFirst = 1}}
+    {{if {$page} == 1 }}
       {
         "model": "Territories",
         "model_zuid": "{{territories.filter({$zuid}).set_zuid}}",
@@ -311,6 +309,7 @@
                 "url": "https://{{instance.domain}}{{truepath({div.zuid})}}"
             }
         {{/each}}
+    {{/if}}
     {{/if}}
 
     {{if {$locations} }}
@@ -494,34 +493,24 @@
             }
         {{/each}}
     {{/if}}
-    
+
     {{if {$services} }}
-        {{each services as ser LIMIT {$offset}, {$perPage} }}
-            {{$division = {locations.filter({ser.location}).division} }}
+        {{each services as ser WHERE division = '{$zuidD}' LIMIT {$offset}, {$perPage} }}
+            {{if {$isFirst} == 0}},{{/if}}
+            {{$isFirst = 0}}
+            {
+                "model": "Services",
+                "model_zuid": "{{ser.set_zuid}}",
+                "zuid": "{{ser.zuid}}",
+                "title": "{{ser.title.escapeForJs() }}",
+                "territory": "{{territories.filter({ser.territory}).name.escapeForJs() }}",
+                "division": "{{divisions.filter({ser.division}).name.escapeForJs() }}",
+                "location": null,
+                "path_part": "{{truepath({ser.zuid})}}",
 
-
-            {{if {$division} == {$zuidD} }}
-            {{$territory = {locations.filter({ser.location}).territory} }}
-
-            {{$territoryName = {territories.filter({$territory}).name.escapeForJs()} }}
-            {{$divisionName = {divisions.filter({$division}).name.escapeForJs()} }}
-            {{$locationName = {locations.filter({ser.location}).name.escapeForJs()} }}
-                {{if {$isFirst} == 0}},{{/if}}
-                {{$isFirst = 0}}
-                {
-                    "model": "Services",
-                    "model_zuid": "{{ser.set_zuid}}",
-                    "zuid": "{{ser.zuid}}",
-                    "title": "{{ser.title.escapeForJs() }}",
-                    "territory": {{if {$territory} }} "{{$territoryName}}" {{else}} null {{/if}},
-                    "division":  {{if {$division} }} "{{$divisionName}}" {{else}} null {{/if}},
-                    "location":  {{if {ser.location} }} "{{$locationName}}" {{else}} null {{/if}},
-                    "path_part": "{{truepath({ser.zuid})}}",
-
-                    "publish_status": "{{if {isPublished({ser.zuid})} }}publish{{else}}unpublish{{/if}}",
-                    "url": "https://{{instance.domain}}{{truepath({ser.zuid})}}"
-                }
-            {{/if}}
+                "publish_status": "{{if {isPublished({ser.zuid})} }}publish{{else}}unpublish{{/if}}",
+                "url": "https://{{instance.domain}}{{truepath({ser.zuid})}}"
+            }
         {{/each}}
     {{/if}}
 {{/if}}
@@ -529,6 +518,7 @@
 
 {{if {$zuid} && {$zuidD} && {$zuidL} }}
 {{$isFirst = 1}}
+    {{if {$page} == 1 }}
       {
         "model": "Territories",
         "model_zuid": "{{territories.filter({$zuid}).set_zuid}}",
@@ -582,6 +572,7 @@
                 "url": "https://{{instance.domain}}{{truepath({loc.zuid})}}"
             }
         {{/each}}
+    {{/if}}
     {{/if}}
 
     {{if {$aboutUs} }}

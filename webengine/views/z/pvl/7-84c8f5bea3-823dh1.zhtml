@@ -1,0 +1,4 @@
+<div className={styles.pvlRoot}>
+	<h1>Heading 1</h1>
+	{{block('/-/block/profile_card_block.html?variant=7-92c5b5f0b5-v48lc5')}}
+</div>

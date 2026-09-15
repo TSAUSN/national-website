@@ -1,0 +1,161 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:3:0:89": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-ded5f1f1ae-c6h693')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-ded5f1f1ae-c6h693')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:3:0:89",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:design:whitespace-sm:1:2448": {
+				"uid": "351",
+				"name": "Whitespace - Small",
+				"type": "design",
+				"classes": "my-2",
+				"html": "<div class=\"my-2\"></div>",
+				"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+				"droppable": true,
+				"position": 1,
+				"fullName": "design:design:whitespace-sm:1:2448",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank"
+			},
+			"design:columns:1 column - 1 row my-3:9:38": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 2,
+				"fullName": "design:columns:1 column - 1 row my-3:9:38",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:9:38-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:images:0:2501": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a2f1ef6b-7021-4029-985b-c4ff8050fa9c_09357b50-20c2-43b4-966d-b0a45b536648_Potomac%2BJuly23%2BWeb%2BBanner%2BBack%2BTo%2BSchool%2B1300x508%2BBlank.jpg\" alt=\"placeholder\" class=\"img-fluid w-100 d-block mx-auto mb-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/a2f1ef6b-7021-4029-985b-c4ff8050fa9c_09357b50-20c2-43b4-966d-b0a45b536648_Potomac%2BJuly23%2BWeb%2BBanner%2BBack%2BTo%2BSchool%2B1300x508%2BBlank.jpg",
+								"position": 0,
+								"fullName": "content:images:0:2501",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:9:38-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:2:3": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"text-align:center;\">\n\tFor over 30 years, The Salvation Army Hampton Roads Area Command, with the help of our community partners and donors, has worked to ensure that children in Hampton Roads start the new school year with the “Write Stuff.\" The Write Stuff back-to-school initiative is an annual event that distributes backpacks filled with school supplies to students in grades K through 12 who reside in Norfolk, Chesapeake, Virginia Beach, Portsmouth, Suffolk, and Western Tidewater.\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>You can support this important fundraiser by becoming a sponsor, making a donation, or dropping off school supplies. To donate supplies or participate in a supply donation drive, please contact: <br>\n\tBeth Hornby | <a href=\"mailto:beth.hornby@uss.salvationarmy.org\">beth.hornby@uss.salvationarmy.org</a> | <a href=\"tel:7572718431\">757-271-8431</a></strong><span style=\"color:#212121;\"><span style=\"tab-stops:list .5in;\"></span></span>\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmymarylandvirginiawestvirginiawashingtondc.org/event/2026-write-stuff-back-to-school-campaign/e803232\" class=\"btn btn-primary gap-1 mt-2\">Sponsor OR Donate Today</a></p>\n\n<p style=\"text-align:center;\">\n\t \n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"text-align:center;\">\n\tFor over 30 years, The Salvation Army Hampton Roads Area Command, with the help of our community partners and donors, has worked to ensure that children in Hampton Roads start the new school year with the “Write Stuff.\" The Write Stuff back-to-school initiative is an annual event that distributes backpacks filled with school supplies to students in grades K through 12 who reside in Norfolk, Chesapeake, Virginia Beach, Portsmouth, Suffolk, and Western Tidewater.\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>You can support this important fundraiser by becoming a sponsor, making a donation, or dropping off school supplies. To donate supplies or participate in a supply donation drive, please contact: <br>\n\tBeth Hornby | <a href=\"mailto:beth.hornby@uss.salvationarmy.org\">beth.hornby@uss.salvationarmy.org</a> | <a href=\"tel:7572718431\">757-271-8431</a></strong><span style=\"color:#212121;\"><span style=\"tab-stops:list .5in;\"></span></span>\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmymarylandvirginiawestvirginiawashingtondc.org/event/2026-write-stuff-back-to-school-campaign/e803232\" class=\"btn btn-primary gap-1 mt-2\">Sponsor OR Donate Today</a></p>\n\n<p style=\"text-align:center;\">\n\t \n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:3",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:3",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:9:38-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><p style=\"text-align:center;\">\n\tFor over 30 years, The Salvation Army Hampton Roads Area Command, with the help of our community partners and donors, has worked to ensure that children in Hampton Roads start the new school year with the “Write Stuff.\" The Write Stuff back-to-school initiative is an annual event that distributes backpacks filled with school supplies to students in grades K through 12 who reside in Norfolk, Chesapeake, Virginia Beach, Portsmouth, Suffolk, and Western Tidewater.\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>You can support this important fundraiser by becoming a sponsor, making a donation, or dropping off school supplies. To donate supplies or participate in a supply donation drive, please contact: <br>\n\tBeth Hornby | <a href=\"mailto:beth.hornby@uss.salvationarmy.org\">beth.hornby@uss.salvationarmy.org</a> | <a href=\"tel:7572718431\">757-271-8431</a></strong><span style=\"color:#212121;\"><span style=\"tab-stops:list .5in;\"></span></span>\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmymarylandvirginiawestvirginiawashingtondc.org/event/2026-write-stuff-back-to-school-campaign/e803232\" class=\"btn btn-light\">Sponsor OR Donate Today</a></p>\n\n<p style=\"text-align:center;\">\n\t \n</p></div>"
+							},
+							"design:design:whitespace-xl:3:51": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:51",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:9:38-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"design:design:whitespace-xl:4:83": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:whitespace-xl:4:83",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:9:38-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:5:74": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5 style=\"text-align:center;\">Thank You to Our 2026 Write Stuff Sponsors</h5>\n\n<h5 style=\"text-align:center;\"> </h5>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<h5 style=\"text-align:center;\"> </h5>\n\n<h5 style=\"text-align:center;\">In-Kind Supporters</h5>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/9969f0ae-2a09-413a-9685-dc4a64278c03_Sinclair_Logo_2024.png\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-3\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\"> </h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-4\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-5\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5 style=\"text-align:center;\">Thank You to Our 2026 Write Stuff Sponsors</h5>\n\n<h5 style=\"text-align:center;\"> </h5>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<h5 style=\"text-align:center;\"> </h5>\n\n<h5 style=\"text-align:center;\">In-Kind Supporters</h5>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/9969f0ae-2a09-413a-9685-dc4a64278c03_Sinclair_Logo_2024.png\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-3\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\"> </h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-4\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-5\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 4,
+								"fullName": "content:wysiwyg_basic:5:74",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:5:74",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:9:38-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">Thank You to Our 2026 Write Stuff Sponsors</h5>\n\n<h5 style=\"text-align:center;\"> </h5>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<h5 style=\"text-align:center;\"> </h5>\n\n<h5 style=\"text-align:center;\">In-Kind Supporters</h5>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/9969f0ae-2a09-413a-9685-dc4a64278c03_Sinclair_Logo_2024.png\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-3\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5 style=\"text-align:center;\"> </h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-4\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-5\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

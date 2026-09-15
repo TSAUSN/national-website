@@ -29,6 +29,9 @@
 .datepicker-input {
   display: none;
 }
+.stuff__datepicker.datepicker-input {
+  display: flex;
+}
 /* Custom styles to match the screenshot and ensure static positioning */
 .datepicker {
   font-family: inherit;

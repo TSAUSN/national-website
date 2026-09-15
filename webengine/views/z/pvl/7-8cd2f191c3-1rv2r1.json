@@ -1,0 +1,192 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:15:0:30": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-8abc97cc8a-9sj5j0')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-8abc97cc8a-9sj5j0')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:15:0:30",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:12:3": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:12:3",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:12:3-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:36": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:36",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:0": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h6 style=\"text-align:center;\"> </h6>\n\n<h6 style=\"text-align:center;\">Administration Building</h6>\n\n<p style=\"text-align:center;\">\n\t4526 South Claiborne Avenue, New Orleans, LA  70125<br>\n\t<strong>Phone:</strong> <a href=\"tel:504-899-4569\" target=\"\"> (504) 899-4569&nbsp;</a>   Fax:  <a href=\"tel:5048911444\">(504) 891-1444</a><br>\n\t<strong>Area Commanders:</strong> Majors Christopher And Lynda Thornhill\n</p>\n\n<p style=\"text-align:center;\">\n\t \n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h6 style=\"text-align:center;\"> </h6>\n\n<h6 style=\"text-align:center;\">Administration Building</h6>\n\n<p style=\"text-align:center;\">\n\t4526 South Claiborne Avenue, New Orleans, LA  70125<br>\n\t<strong>Phone:</strong> <a href=\"tel:504-899-4569\" target=\"\"> (504) 899-4569&nbsp;</a>   Fax:  <a href=\"tel:5048911444\">(504) 891-1444</a><br>\n\t<strong>Area Commanders:</strong> Majors Christopher And Lynda Thornhill\n</p>\n\n<p style=\"text-align:center;\">\n\t \n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:0",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:0",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h6 style=\"text-align:center;\"> </h6>\n\n<h6 style=\"text-align:center;\">Administration Building</h6>\n\n<p style=\"text-align:center;\">\n\t4526 South Claiborne Avenue, New Orleans, LA  70125<br>\n\t<strong>Phone:</strong> <a href=\"tel:504-899-4569\" target=\"\"> (504) 899-4569&nbsp;</a>   Fax:  <a href=\"tel:5048911444\">(504) 891-1444</a><br>\n\t<strong>Area Commanders:</strong> Majors Christopher And Lynda Thornhill\n</p>\n\n<p style=\"text-align:center;\">\n\t \n</p></div>"
+							},
+							"design:design:whitespace-xl:3:26": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:26",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:4:87": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/e94f0f47-ae74-4090-8a13-6b07cc2c4105_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h6 style=\"text-align:center;\">New Orleans Citadel</h6>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t4530 South Claiborne Avenue, New Orleans, LA  70125<br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Phone:</strong></span> <a href=\"tel:504-899-4569\" target=\"\">(504) 899-4569</a><br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Fax: </strong></span><a href=\"tel:5048911444\">(504) 891-1444</a><span style=\"color:#ed1c2b;\"></span>\n\t\t\t\t</p>\n\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h6 style=\"text-align:center;\">Center of Hope</h6>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t4500 South Claiborne Avenue, New Orleans, LA  70125<br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Phone: </strong></span><a href=\"tel:504-899-4569\" target=\"\">(504) 899-4569</a><br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Fax: </strong></span><a href=\"tel:5048961076\">(504) 896-1076</a><span style=\"color:#ed1c2b;\"></span>\n\t\t\t\t</p>\n\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h6 style=\"text-align:center;\">Adult Rehabilitation Center</h6>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t200 Jefferson Highway, New Orleans, LA 70121<br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Phone:</strong> </span><a href=\"tel:800-728-7825\" target=\"\">800-728-7825</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h6 style=\"text-align:center;\">Thrift Store</h6>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t100 Jefferson Highway, New Orleans, LA 70121<br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Phone:</strong> </span><a href=\"tel:504-835-9755\" target=\"\">(504) 835-9755</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/e94f0f47-ae74-4090-8a13-6b07cc2c4105_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h6 style=\"text-align:center;\">New Orleans Citadel</h6>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t4530 South Claiborne Avenue, New Orleans, LA  70125<br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Phone:</strong></span> <a href=\"tel:504-899-4569\" target=\"\">(504) 899-4569</a><br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Fax: </strong></span><a href=\"tel:5048911444\">(504) 891-1444</a><span style=\"color:#ed1c2b;\"></span>\n\t\t\t\t</p>\n\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h6 style=\"text-align:center;\">Center of Hope</h6>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t4500 South Claiborne Avenue, New Orleans, LA  70125<br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Phone: </strong></span><a href=\"tel:504-899-4569\" target=\"\">(504) 899-4569</a><br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Fax: </strong></span><a href=\"tel:5048961076\">(504) 896-1076</a><span style=\"color:#ed1c2b;\"></span>\n\t\t\t\t</p>\n\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h6 style=\"text-align:center;\">Adult Rehabilitation Center</h6>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t200 Jefferson Highway, New Orleans, LA 70121<br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Phone:</strong> </span><a href=\"tel:800-728-7825\" target=\"\">800-728-7825</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h6 style=\"text-align:center;\">Thrift Store</h6>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t100 Jefferson Highway, New Orleans, LA 70121<br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Phone:</strong> </span><a href=\"tel:504-835-9755\" target=\"\">(504) 835-9755</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"manualContent": "<div style=\"position:relative;overflow:hidden;min-height:300px;background:#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/e94f0f47-ae74-4090-8a13-6b07cc2c4105_Blue+BG.png') center center / cover no-repeat;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/e94f0f47-ae74-4090-8a13-6b07cc2c4105_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h6 style=\"text-align:center;\">New Orleans Citadel</h6>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t4530 South Claiborne Avenue, New Orleans, LA  70125<br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Phone:</strong></span> <a href=\"tel:504-899-4569\" target=\"\">(504) 899-4569</a><br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Fax: </strong></span><a href=\"tel:5048911444\">(504) 891-1444</a><span style=\"color:#ed1c2b;\"></span>\n\t\t\t\t</p>\n\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h6 style=\"text-align:center;\">Center of Hope</h6>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t4500 South Claiborne Avenue, New Orleans, LA  70125<br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Phone: </strong></span><a href=\"tel:504-899-4569\" target=\"\">(504) 899-4569</a><br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Fax: </strong></span><a href=\"tel:5048961076\">(504) 896-1076</a><span style=\"color:#ed1c2b;\"></span>\n\t\t\t\t</p>\n\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h6 style=\"text-align:center;\">Adult Rehabilitation Center</h6>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t200 Jefferson Highway, New Orleans, LA 70121<br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Phone:</strong> </span><a href=\"tel:800-728-7825\" target=\"\">800-728-7825</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h6 style=\"text-align:center;\">Thrift Store</h6>\n\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\t100 Jefferson Highway, New Orleans, LA 70121<br>\n\t\t\t\t\t<span style=\"color:#ed1c2b;\"><strong>Phone:</strong> </span><a href=\"tel:504-835-9755\" target=\"\">(504) 835-9755</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n                </div>\n            </div>\n        </div>",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:4:87",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:4:87",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "300px",
+									"background": "#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/e94f0f47-ae74-4090-8a13-6b07cc2c4105_Blue+BG.png') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/e94f0f47-ae74-4090-8a13-6b07cc2c4105_Blue+BG.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover",
+									"fontWeight": "700"
+								},
+								"classes": "text-white rounded p-6 gap-3 my-5",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:5:31": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:5:31",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:3-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:6:15": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 5,
+								"fullName": "design:design:whitespace-xl:6:15",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:7:94": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h6 style=\"text-align:center;\"> </h6>\n\n<h6 style=\"text-align:center;\">For More Information</h6>\n\n<p style=\"text-align:center;\">\n\t<strong>About The Salvation Army’s social service programs, please call the Center of Hope phone number listed above.</strong>\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h6 style=\"text-align:center;\"> </h6>\n\n<h6 style=\"text-align:center;\">For More Information</h6>\n\n<p style=\"text-align:center;\">\n\t<strong>About The Salvation Army’s social service programs, please call the Center of Hope phone number listed above.</strong>\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 6,
+								"fullName": "content:wysiwyg_basic:7:94",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:7:94",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:3-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h6 style=\"text-align:center;\"> </h6>\n\n<h6 style=\"text-align:center;\">For More Information</h6>\n\n<p style=\"text-align:center;\">\n\t<strong>About The Salvation Army’s social service programs, please call the Center of Hope phone number listed above.</strong>\n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

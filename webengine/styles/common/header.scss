@@ -56,6 +56,20 @@ header {
   display: none;
 }
 
+.header-home-image {
+  flex: 0 0 39px;
+  width: 39px;
+  min-width: 39px;
+}
+
+.header-home-image img {
+  display: block;
+  width: 39px;
+  min-width: 39px;
+  max-width: 39px;
+  height: 46px;
+}
+
 #hero-full-image,
 .contact-us-hero-image,
 .states__banner {

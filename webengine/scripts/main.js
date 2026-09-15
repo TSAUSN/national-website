@@ -86,10 +86,10 @@ function dateFormatter(date) {
 }
 
 function addressBuilder(address = '', city = '', state = '', zipcode = '') {
-  let addressArr = [address, city, state, zipcode];
-  let filteredAddressInfo = addressArr.filter((item) => item !== '' && item !== null);
-  const fullAddress = filteredAddressInfo.join(', ');
-  return fullAddress;
+  const isValid = (item) => item !== null && item !== undefined && item.trim() !== '' && item.trim().toLowerCase() !== 'unspecified';
+  console.log("isValid:", isValid)
+  let filteredAddressInfo = [address, city, state, zipcode].filter(isValid);
+  return filteredAddressInfo.join(', ');
 }
 
 function convertHtmlEntities(text) {
@@ -455,7 +455,8 @@ function initLocationCardInstances() {
     /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
 
   function addressBuilder(address, city, state, zipcode) {
-    return [address || '', city || '', state || '', zipcode || ''].filter(Boolean).join(', ');
+    const isValid = (item) => item && item.trim() !== '' && item.trim().toLowerCase() !== 'unspecified';
+    return [address, city, state, zipcode].filter(isValid).join(', ');
   }
 
   function calculateDistanceMiles(lat1, lng1, lat2, lng2) {

@@ -1,0 +1,15 @@
+.stuff__filter {
+  width: 11px;
+  height: 11px;
+}
+.stuff__datepicker.datepicker-input {
+  display: flex;
+}
+#stb-date-range-filter .position-relative { 
+  overflow: visible;
+}
+#stb-date-range-filter .datepicker { 
+  position: absolute !important;
+  z-index: 1060 !important;
+  width: auto !important;
+}

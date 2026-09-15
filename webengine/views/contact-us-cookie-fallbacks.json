@@ -1,0 +1,67 @@
+{{$zuid = {request.queryParam(zuid)} }}
+{{$modelZuid = {request.queryParam(model)} }}
+
+{{if {$modelZuid} == '6-b4c9aba69c-h2nqvm' }}
+    {{$divisionZUID = {locations.filter({$zuid}).division} }}
+    {{$territoryZUID = {locations.filter({$zuid}).territory} }}
+    {
+        "image": [
+            "{{locations.filter({$zuid}).contact_us_image.getImage()}}",
+            "{{divisions.filter({$divisionZUID}).contact_us_image.getImage()}}",
+            "{{territories.filter({$territoryZUID}).contact_us_image.getImage()}}",
+            "{{homepage.first().contact_us_image.getImage()}}"
+        ],
+        "title": [
+            "{{locations.filter({$zuid}).contact_us_title.escapeForJs()}}",
+            "{{divisions.filter({$divisionZUID}).contact_us_title.escapeForJs()}}",
+            "{{territories.filter({$territoryZUID}).contact_us_title.escapeForJs()}}",
+            "{{homepage.first().contact_us_title.escapeForJs()}}"
+        ],
+        "header": [
+            "{{locations.filter({$zuid}).contact_us_cta_header.escapeForJs()}}",
+            "{{divisions.filter({$divisionZUID}).contact_us_cta_header.escapeForJs()}}",
+            "{{territories.filter({$territoryZUID}).contact_us_cta_header.escapeForJs()}}",
+            "{{homepage.first().contact_us_cta_header.escapeForJs()}}"
+        ]
+    }
+{{else if {$modelZuid} == '6-acb19a94bd-4q8ftj' }}
+    {{$territoryZUID = {divisions.filter({$zuid}).territory} }}
+    {
+        "image": [
+            "{{divisions.filter({$zuid}).contact_us_image.getImage()}}",
+            "{{territories.filter({$territoryZUID}).contact_us_image.getImage()}}",
+            "{{homepage.first().contact_us_image.getImage()}}"
+        ],
+        "title": [
+            "{{divisions.filter({$zuid}).contact_us_title.escapeForJs()}}",
+            "{{territories.filter({$territoryZUID}).contact_us_title.escapeForJs()}}",
+            "{{homepage.first().contact_us_title.escapeForJs()}}"
+        ],
+        "header": [
+            "{{divisions.filter({$zuid}).contact_us_cta_header.escapeForJs()}}",
+            "{{territories.filter({$territoryZUID}).contact_us_cta_header.escapeForJs()}}",
+            "{{homepage.first().contact_us_cta_header.escapeForJs()}}"
+        ]
+    }
+{{else if {$modelZuid} == '6-deab97cfd9-wb5km4' }}
+    {
+        "image": [
+            "{{territories.filter({$zuid}).contact_us_image.getImage()}}",
+            "{{homepage.first().contact_us_image.getImage()}}"
+        ],
+        "title": [
+            "{{territories.filter({$zuid}).contact_us_title.escapeForJs()}}",
+            "{{homepage.first().contact_us_title.escapeForJs()}}"
+        ],
+        "header": [
+            "{{territories.filter({$zuid}).contact_us_cta_header.escapeForJs()}}",
+            "{{homepage.first().contact_us_cta_header.escapeForJs()}}"
+        ]
+    }
+{{else}}
+    {
+        "image": ["{{homepage.first().contact_us_image.getImage()}}"],
+        "title": ["{{homepage.first().contact_us_title.escapeForJs()}}"],
+        "header": ["{{homepage.first().contact_us_cta_header.escapeForJs()}}"]
+    }
+{{/if}}

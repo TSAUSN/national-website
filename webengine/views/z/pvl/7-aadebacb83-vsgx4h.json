@@ -1,0 +1,97 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:16:0:87": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-cec390adaa-h1zvrr')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-cec390adaa-h1zvrr')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:16:0:87",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:5:59": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:5:59",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:5:59-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:66": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:66",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:5:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:50": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5 style=\"text-align:center;\">The Salvation Army Of Metro Atlanta's Planned Giving</h5>\n\n<hr>\n<p style=\"text-align:center;\">\n\tThank you for considering supporting the future work of The Salvation Army through the impact of your charitable legacy. We are pleased to offer you opportunities to realize the value of your estate for yourself, your family, and your community by supporting the causes that matter most to you.\n</p>\n\n<p>\n\tWe would enjoy hearing of the human needs that you feel most passionate about, and how we can partner together to help alleviate those needs. As we learn more about your interests and your situation, we can help you determine the best ways for you to give that will help meet the needs that are most concerning to you. Your planned gift can also benefit you in the form of lifetime income, tax deductions and in other ways.\n</p>\n\n<p>\n\tThere are many popular giving options for you to choose from, such as:\n</p>\n\n<ul>\n\t<li>A gift in your Will (often referred to as a bequest)</li>\n\t<li>Charitable trust</li>\n\t<li>Gift of real estate</li>\n\t<li>Charitable Gift Annuity</li>\n\t<li><a href=\"https://bnymelloncharitablegiftfund.org/salvationarmy/\" target=\"\">Donor-Advised Fund</a></li>\n\t<li>Cryptocurrency</li>\n\t<li>Endowment</li>\n\t<li>Qualified Charitable Distribution from an IRA</li>\n\t<li>Beneficiary designation in a life insurance policy, a retirement account, or a bank or investment account</li>\n</ul>\n\n<p>\n\tA Charitable Gift Annuity, backed by The Salvation Army, can be a compelling means of giving that benefits you by providing lifetime income to you. If you would like to receive an illustration of how a gift annuity could work for you, please contact us below. If you would like to gain a greater understanding of how Planned Giving can help you achieve your charitable intentions, please <a href=\"https://www.tsalegacyoflove.org/\" target=\"\">click here</a> to view our Planned Giving site which has more information about the giving options listed above.\n</p>\n\n<p>\n\tThank you again for supporting The Salvation Army's mission to meet human needs in His name, without discrimination. Please contact us if you would like to explore the charitable planning options available to you. We are glad to have a conversation with you and provide helpful planning resources.\n</p>\n\n<p>\n\tSincerely,\n</p>\n\n<p>\n\tDoug Cozart<br>\n\t<span style=\"color:#999999;\">Divisional Planned Giving Director</span>\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/e95fd878-0de7-43b0-b86e-933f5a3a7ae3_Doug-Cozart-webNEW-240x300.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tDoug Cozart<br>\n\t\t\t\t\tPlanned Giving Director<br>\n\t\t\t\t\tMetro Atlanta &amp; Northwest Georgia<br>\n\t\t\t\t\t<a href=\"mailto:doug.cozart@uss.salvationarmy.org\" target=\"\">doug.cozart@uss.salvationarmy.org</a> <br>\n\t\t\t\t\t<a href=\"tel:6784184605\">678-418-4605</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/e26ee1af-7112-480e-b2af-56601b5c5327_mark.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tMark Walker<br>\n\t\t\t\t\tAssociate Planned Giving Director<br>\n\t\t\t\t\tCentral &amp; Northeast Georgia<br>\n\t\t\t\t\t<a href=\"mailto:mark.walker@uss.salvationarmy.org\" target=\"\">mark.walker@uss.salvationarmy.org</a> <br>\n\t\t\t\t\t <a href=\"tel:4702611803\">470-261-1803</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p>\n\t   \n</p>\n\n<p>\n\t \n</p>\n\n<p>\n\t \n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5 style=\"text-align:center;\">The Salvation Army Of Metro Atlanta's Planned Giving</h5>\n\n<hr>\n<p style=\"text-align:center;\">\n\tThank you for considering supporting the future work of The Salvation Army through the impact of your charitable legacy. We are pleased to offer you opportunities to realize the value of your estate for yourself, your family, and your community by supporting the causes that matter most to you.\n</p>\n\n<p>\n\tWe would enjoy hearing of the human needs that you feel most passionate about, and how we can partner together to help alleviate those needs. As we learn more about your interests and your situation, we can help you determine the best ways for you to give that will help meet the needs that are most concerning to you. Your planned gift can also benefit you in the form of lifetime income, tax deductions and in other ways.\n</p>\n\n<p>\n\tThere are many popular giving options for you to choose from, such as:\n</p>\n\n<ul>\n\t<li>A gift in your Will (often referred to as a bequest)</li>\n\t<li>Charitable trust</li>\n\t<li>Gift of real estate</li>\n\t<li>Charitable Gift Annuity</li>\n\t<li><a href=\"https://bnymelloncharitablegiftfund.org/salvationarmy/\" target=\"\">Donor-Advised Fund</a></li>\n\t<li>Cryptocurrency</li>\n\t<li>Endowment</li>\n\t<li>Qualified Charitable Distribution from an IRA</li>\n\t<li>Beneficiary designation in a life insurance policy, a retirement account, or a bank or investment account</li>\n</ul>\n\n<p>\n\tA Charitable Gift Annuity, backed by The Salvation Army, can be a compelling means of giving that benefits you by providing lifetime income to you. If you would like to receive an illustration of how a gift annuity could work for you, please contact us below. If you would like to gain a greater understanding of how Planned Giving can help you achieve your charitable intentions, please <a href=\"https://www.tsalegacyoflove.org/\" target=\"\">click here</a> to view our Planned Giving site which has more information about the giving options listed above.\n</p>\n\n<p>\n\tThank you again for supporting The Salvation Army's mission to meet human needs in His name, without discrimination. Please contact us if you would like to explore the charitable planning options available to you. We are glad to have a conversation with you and provide helpful planning resources.\n</p>\n\n<p>\n\tSincerely,\n</p>\n\n<p>\n\tDoug Cozart<br>\n\t<span style=\"color:#999999;\">Divisional Planned Giving Director</span>\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/e95fd878-0de7-43b0-b86e-933f5a3a7ae3_Doug-Cozart-webNEW-240x300.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tDoug Cozart<br>\n\t\t\t\t\tPlanned Giving Director<br>\n\t\t\t\t\tMetro Atlanta &amp; Northwest Georgia<br>\n\t\t\t\t\t<a href=\"mailto:doug.cozart@uss.salvationarmy.org\" target=\"\">doug.cozart@uss.salvationarmy.org</a> <br>\n\t\t\t\t\t<a href=\"tel:6784184605\">678-418-4605</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/e26ee1af-7112-480e-b2af-56601b5c5327_mark.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tMark Walker<br>\n\t\t\t\t\tAssociate Planned Giving Director<br>\n\t\t\t\t\tCentral &amp; Northeast Georgia<br>\n\t\t\t\t\t<a href=\"mailto:mark.walker@uss.salvationarmy.org\" target=\"\">mark.walker@uss.salvationarmy.org</a> <br>\n\t\t\t\t\t <a href=\"tel:4702611803\">470-261-1803</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p>\n\t   \n</p>\n\n<p>\n\t \n</p>\n\n<p>\n\t \n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:50",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:50",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:5:59-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">The Salvation Army Of Metro Atlanta's Planned Giving</h5>\n\n<hr>\n<p style=\"text-align:center;\">\n\tThank you for considering supporting the future work of The Salvation Army through the impact of your charitable legacy. We are pleased to offer you opportunities to realize the value of your estate for yourself, your family, and your community by supporting the causes that matter most to you.\n</p>\n\n<p>\n\tWe would enjoy hearing of the human needs that you feel most passionate about, and how we can partner together to help alleviate those needs. As we learn more about your interests and your situation, we can help you determine the best ways for you to give that will help meet the needs that are most concerning to you. Your planned gift can also benefit you in the form of lifetime income, tax deductions and in other ways.\n</p>\n\n<p>\n\tThere are many popular giving options for you to choose from, such as:\n</p>\n\n<ul>\n\t<li>A gift in your Will (often referred to as a bequest)</li>\n\t<li>Charitable trust</li>\n\t<li>Gift of real estate</li>\n\t<li>Charitable Gift Annuity</li>\n\t<li><a href=\"https://bnymelloncharitablegiftfund.org/salvationarmy/\" target=\"\">Donor-Advised Fund</a></li>\n\t<li>Cryptocurrency</li>\n\t<li>Endowment</li>\n\t<li>Qualified Charitable Distribution from an IRA</li>\n\t<li>Beneficiary designation in a life insurance policy, a retirement account, or a bank or investment account</li>\n</ul>\n\n<p>\n\tA Charitable Gift Annuity, backed by The Salvation Army, can be a compelling means of giving that benefits you by providing lifetime income to you. If you would like to receive an illustration of how a gift annuity could work for you, please contact us below. If you would like to gain a greater understanding of how Planned Giving can help you achieve your charitable intentions, please <a href=\"https://www.tsalegacyoflove.org/\" target=\"\">click here</a> to view our Planned Giving site which has more information about the giving options listed above.\n</p>\n\n<p>\n\tThank you again for supporting The Salvation Army's mission to meet human needs in His name, without discrimination. Please contact us if you would like to explore the charitable planning options available to you. We are glad to have a conversation with you and provide helpful planning resources.\n</p>\n\n<p>\n\tSincerely,\n</p>\n\n<p>\n\tDoug Cozart<br>\n\t<span style=\"color:#999999;\">Divisional Planned Giving Director</span>\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/e95fd878-0de7-43b0-b86e-933f5a3a7ae3_Doug-Cozart-webNEW-240x300.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tDoug Cozart<br>\n\t\t\t\t\tPlanned Giving Director<br>\n\t\t\t\t\tMetro Atlanta &amp; Northwest Georgia<br>\n\t\t\t\t\t<a href=\"mailto:doug.cozart@uss.salvationarmy.org\" target=\"\">doug.cozart@uss.salvationarmy.org</a> <br>\n\t\t\t\t\t<a href=\"tel:6784184605\">678-418-4605</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/e26ee1af-7112-480e-b2af-56601b5c5327_mark.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tMark Walker<br>\n\t\t\t\t\tAssociate Planned Giving Director<br>\n\t\t\t\t\tCentral &amp; Northeast Georgia<br>\n\t\t\t\t\t<a href=\"mailto:mark.walker@uss.salvationarmy.org\" target=\"\">mark.walker@uss.salvationarmy.org</a> <br>\n\t\t\t\t\t <a href=\"tel:4702611803\">470-261-1803</a>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p>\n\t   \n</p>\n\n<p>\n\t \n</p>\n\n<p>\n\t \n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

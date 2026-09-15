@@ -1,0 +1,227 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:75:0:46": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-e2e5e4e185-xj6dpn')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-e2e5e4e185-xj6dpn')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:75:0:46",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:17:17": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:17:17",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:17:17-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:1:67": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">The Salvation Army&nbsp;Red Shield Center</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "The Salvation Army&nbsp;Red Shield Center",
+								"position": 0,
+								"fullName": "content:text:1:67",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:1:67",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:17-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:11": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t\tThe Salvation Army’s Red Shield Center is the only emergency shelter in Hillsborough County open 365 days a year. Adult men and women looking for shelter have an opportunity to receive lodging each day at our 172-bed Center.\n\t</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army’s Red Shield Center is the only emergency shelter in Hillsborough County open 365 days a year. Adult men and women looking for shelter have an opportunity to receive lodging each day at our 172-bed Center.",
+								"position": 1,
+								"fullName": "content:textarea:2:11",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:11",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:17-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:3:45": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:45",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:17-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:4:10": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\"><h5>How we help provide housing</h5>\n\n<p>\n\tDuring a stay at a Salvation Army shelter, clients will participate in programs and workshops developed to promote self-sufficiency and personal development. The Salvation Army also works with clients to help them transition into a more permanent housing situation.\n</p>\n\n<p>\n\tOn-site case workers develop, in cooperation with clients, an extensive goal-oriented program. Case workers continually motivate clients to meet these goals.\n</p>\n\n<p>\n\tSupport and referral services are also available for men and women committed to regaining independence .\n</p>\n\n<p>\n\tFor more information on how to qualify to receive shelter and other programs and services, contact Tampa, <span style=\"color:#ed1c2b;\">813.549.0641</span> or S. Hillsborough, <span style=\"color:#ed1c2b;\">813.450.1110</span>.\n</p>\n\n<p>\n\t&nbsp;\n</p></div>",
+								"content": "<div class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\" style=\"color:#111111;\"><h5>How we help provide housing</h5>\n\n<p>\n\tDuring a stay at a Salvation Army shelter, clients will participate in programs and workshops developed to promote self-sufficiency and personal development. The Salvation Army also works with clients to help them transition into a more permanent housing situation.\n</p>\n\n<p>\n\tOn-site case workers develop, in cooperation with clients, an extensive goal-oriented program. Case workers continually motivate clients to meet these goals.\n</p>\n\n<p>\n\tSupport and referral services are also available for men and women committed to regaining independence .\n</p>\n\n<p>\n\tFor more information on how to qualify to receive shelter and other programs and services, contact Tampa, <span style=\"color:#ed1c2b;\">813.549.0641</span> or S. Hillsborough, <span style=\"color:#ed1c2b;\">813.450.1110</span>.\n</p>\n\n<p>\n\t&nbsp;\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:4:10",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:4:10",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:17-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:5:80": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 4,
+								"fullName": "design:design:whitespace-xl:5:80",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:17-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:6:55": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:420px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/1d57c574-8f51-4e2b-91b1-234913b266fe_testimonial-4.jpg');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"testimonialbox-section text-white rounded\">\n  <div class=\"bg-photo-overlay bg-opacity-60\" style=\"position:absolute;inset:0;z-index:1;\"></div>\n  <div style=\"position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:420px;padding:48px 40px;\">\n    <div style=\"max-width:720px;text-align:center;\">\n      <h6 style=\"text-align:center;\">Recuperative Care Program</h6>\n      <p style=\"text-align:center;color:#fff;\">The&nbsp;Recuperative Care Program&nbsp;provides short- term shelter&nbsp;and&nbsp;case management to homeless people&nbsp;who are recovering from an acute illness or injury, whose conditions would be exacerbated by living&nbsp;on the&nbsp;street.<br><br>&nbsp;SERVICES Provided<br>Housing for adult men and women Case management<br><br>Location: 1603 N Florida Ave, Tampa 33602</p>\n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"testimonialbox-section text-white rounded\" style=\"position:relative;overflow:hidden;min-height:420px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/1d57c574-8f51-4e2b-91b1-234913b266fe_testimonial-4.jpg');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n  <div class=\"bg-photo-overlay bg-opacity-60\" style=\"position:absolute;inset:0;z-index:1;\"></div>\n  <div style=\"position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:420px;padding:48px 40px;\">\n    <div style=\"max-width:720px;text-align:center;\">\n      <h6 style=\"text-align:center;\">Recuperative Care Program</h6>\n      <p style=\"text-align:center;color:#fff;\">The&nbsp;Recuperative Care Program&nbsp;provides short- term shelter&nbsp;and&nbsp;case management to homeless people&nbsp;who are recovering from an acute illness or injury, whose conditions would be exacerbated by living&nbsp;on the&nbsp;street.<br><br>&nbsp;SERVICES Provided<br>Housing for adult men and women Case management<br><br>Location: 1603 N Florida Ave, Tampa 33602</p>\n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"model": "6",
+								"position": 5,
+								"fullName": "content:wysiwyg_basic:6:55",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:6:55",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "420px",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/1d57c574-8f51-4e2b-91b1-234913b266fe_testimonial-4.jpg')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover"
+								},
+								"classes": "testimonialbox-section text-white rounded",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:17-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:7:14": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 6,
+								"fullName": "design:design:whitespace-sm:7:14",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:17-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:8:82": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 7,
+								"fullName": "design:design:whitespace-xl:8:82",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:17:17-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:9:59": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\"><h5 style=\"text-align:center;\">Emergency Financial Assistance:&nbsp;</h5>\n\n<p style=\"text-align:center;\">\n\t<strong>Debbie Alderson:</strong>&nbsp;(813) 549.0641\n</p>\n\n<p style=\"text-align:center;\">\n\t<a href=\"https://www.SAHelp.org\" target=\"\"><b>www.SAHelp.org</b></a>\n</p></div>",
+								"content": "<div class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\" style=\"color:#111111;\"><h5 style=\"text-align:center;\">Emergency Financial Assistance:&nbsp;</h5>\n\n<p style=\"text-align:center;\">\n\t<strong>Debbie Alderson:</strong>&nbsp;(813) 549.0641\n</p>\n\n<p style=\"text-align:center;\">\n\t<a href=\"https://www.SAHelp.org\" target=\"\"><b>www.SAHelp.org</b></a>\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 8,
+								"fullName": "content:wysiwyg_basic:9:59",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:9:59",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:17:17-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

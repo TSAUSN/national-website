@@ -1,0 +1,96 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:62:0:7": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-b8f983bb8c-97tqpn')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-b8f983bb8c-97tqpn')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:62:0:7",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:5:72": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:5:72",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:5:72-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:53": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:53",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:5:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:43": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\"><div class=\"mt-4\"><style type=\"text/css\">\n.iframe-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}</style>\n<script type=\"text/javascript\" src=\"https://cdn.cervistech.com/acts/javascript/resize.js\"></script><div class=\"container\">\n\t<div class=\"iframe-container\">\n\t\t<div class=\"ratio ratio-16x9\"><iframe src=\"https://tampasalvationarmyfl.cervistech.com/acts/webreg/eventwebreglist.php?org_id=0019\" title=\"Video\" allowfullscreen=\"\" loading=\"lazy\"></iframe></div>\n\t</div>\n</div></div></div>",
+								"content": "<div class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\" style=\"color:#111111;\"><div class=\"mt-4\"><style type=\"text/css\">\n.iframe-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}</style>\n<script type=\"text/javascript\" src=\"https://cdn.cervistech.com/acts/javascript/resize.js\"></script><div class=\"container\">\n\t<div class=\"iframe-container\">\n\t\t<div class=\"ratio ratio-16x9\"><iframe src=\"https://tampasalvationarmyfl.cervistech.com/acts/webreg/eventwebreglist.php?org_id=0019\" title=\"Video\" allowfullscreen=\"\" loading=\"lazy\"></iframe></div>\n\t</div>\n</div></div></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:43",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:43",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:5:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

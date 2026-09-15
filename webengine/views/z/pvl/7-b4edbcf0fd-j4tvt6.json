@@ -1,0 +1,97 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:59:0:46": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-a88ffaf48d-gdz06r')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-a88ffaf48d-gdz06r')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:59:0:46",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:5:95": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:5:95",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:5:95-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:24": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:24",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:5:95-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:80": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5>Towers Center of Hope</h5>\n\n<p>\n\tThe Towers Center of Hope provides a safe, supportive environment for individuals and families facing times of uncertainty. Through our housing and community programs, we offer temporary refuge, stability, and personalized support to help each person take the next step toward independence and long-term success.\n</p>\n\n<p>\n\tOur mission is to meet people with compassion, restore hope, and empower them to rebuild their lives with dignity and confidence.\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Transitional Housing Programs</strong></span>\n</p>\n\n<p>\n\tHope Crossing and Red Shield Lodge offer structured, short-term housing designed to support<br>\n\tIndividuals and families working toward stability and independence.\n</p>\n\n<ul>\n\t<li>Hope Crossing - 40 beds serving single men</li>\n\t<li>Red Shield Lodge - 40 beds serving single women and families</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Residents in these programs receive access to:</strong></span>\n</p>\n\n<ul>\n\t<li>Three nutritious meals per day</li>\n\t<li>Individualized case management and goal planning</li>\n\t<li>Budgeting, financial literacy, and life skills workshops</li>\n\t<li>Educational and employment support</li>\n\t<li>Spiritual counseling and encouragement</li>\n\t<li>Transportation assistance (bus passes provided when available)</li>\n\t<li>Job placement support</li>\n\t<li>A focus on self-sufficiency and permanent housing solutions</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Emergency Beds Services Program</strong></span>\n</p>\n\n<p>\n\tOur Emergency Beds Services Program offers safe, overnight shelter for individuals in urgent need of<br>\n\tA place to rest. This short-term support provides immediate care and stability while helping guests<br>\n\tConnect to additional community resources.\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Guests in this program receive:</strong></span>\n</p>\n\n<ul>\n\t<li>Access to 40 emergency beds</li>\n\t<li>Toiletries and hygiene items</li>\n\t<li>Evening meals and breakfast</li>\n\t<li>Clean, secure sleeping quarters</li>\n\t<li>Guidance and referrals for long-term support</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Homelessness Prevention Program</strong></span>\n</p>\n\n<p>\n\tOur Homelessness Prevention Program is designed to support individuals and families facing<br>\n\tHousing instability by providing essential resources and services, including:\n</p>\n\n<ul>\n\t<li>Rental Assistance</li>\n\t<li>Utility Assistance</li>\n\t<li>Food Pantry Access<ul>\n\t\t<li>Supportive Services</li>\n\t\t<li>Food Insecurity Support (including food boxes and essential provisions)</li>\n\t</ul>\n\t</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Meal Ministry</strong></span>\n</p>\n\n<ul>\n\t<li>Currently closed until further notice</li>\n</ul>\n\n<p>\n\t<em>When active, the Meal Ministry provides hot lunch and dinner meals 365 days a year to anyone in<br>\n\tNeed, offering nourishment, fellowship, and hope in a welcoming environment</em>\n</p>\n\n<p>\n\t \n</p>\n\n<p>\n\t<span style=\"font-size:20px;\"><u><strong>Additional Salvation Army Programs in Duval County</strong></u></span>\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Emergency Disaster Services (EDS)</strong></span>\n</p>\n\n<ul>\n\t<li>Provides essential relief including meals, water, emotional and spiritual care, and practical recovery support for individuals and families affected by natural disasters, fires, or other major crises</li>\n\t<li>Collaborates with local first responders and partner agencies to assist communities in recovery and rebuilding efforts, helping survivors restore stability and hope</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Adult Rehabilitation Center (arc)</strong></span>\n</p>\n\n<ul>\n\t<li>No-cost, Residential program for men seeking recovery from alcohol and substance use</li>\n\t<li>125-Bed program combining faith-based counseling, work therapy, and life-skills development</li>\n\t<li>Supports long-term sobriety, personal growth, and independence in a supportive community</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>The Salvation Army Batterers Intervention Program (sabip)</strong></span>\n</p>\n\n<ul>\n\t<li>Offers education and support to individuals working to change patterns of violence and anger</li>\n\t<li>Structured classes focus on accountability, empathy, and conflict resolution</li>\n\t<li>Helps participants build respect, manage emotions, and create safer relationships</li>\n</ul></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5>Towers Center of Hope</h5>\n\n<p>\n\tThe Towers Center of Hope provides a safe, supportive environment for individuals and families facing times of uncertainty. Through our housing and community programs, we offer temporary refuge, stability, and personalized support to help each person take the next step toward independence and long-term success.\n</p>\n\n<p>\n\tOur mission is to meet people with compassion, restore hope, and empower them to rebuild their lives with dignity and confidence.\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Transitional Housing Programs</strong></span>\n</p>\n\n<p>\n\tHope Crossing and Red Shield Lodge offer structured, short-term housing designed to support<br>\n\tIndividuals and families working toward stability and independence.\n</p>\n\n<ul>\n\t<li>Hope Crossing - 40 beds serving single men</li>\n\t<li>Red Shield Lodge - 40 beds serving single women and families</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Residents in these programs receive access to:</strong></span>\n</p>\n\n<ul>\n\t<li>Three nutritious meals per day</li>\n\t<li>Individualized case management and goal planning</li>\n\t<li>Budgeting, financial literacy, and life skills workshops</li>\n\t<li>Educational and employment support</li>\n\t<li>Spiritual counseling and encouragement</li>\n\t<li>Transportation assistance (bus passes provided when available)</li>\n\t<li>Job placement support</li>\n\t<li>A focus on self-sufficiency and permanent housing solutions</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Emergency Beds Services Program</strong></span>\n</p>\n\n<p>\n\tOur Emergency Beds Services Program offers safe, overnight shelter for individuals in urgent need of<br>\n\tA place to rest. This short-term support provides immediate care and stability while helping guests<br>\n\tConnect to additional community resources.\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Guests in this program receive:</strong></span>\n</p>\n\n<ul>\n\t<li>Access to 40 emergency beds</li>\n\t<li>Toiletries and hygiene items</li>\n\t<li>Evening meals and breakfast</li>\n\t<li>Clean, secure sleeping quarters</li>\n\t<li>Guidance and referrals for long-term support</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Homelessness Prevention Program</strong></span>\n</p>\n\n<p>\n\tOur Homelessness Prevention Program is designed to support individuals and families facing<br>\n\tHousing instability by providing essential resources and services, including:\n</p>\n\n<ul>\n\t<li>Rental Assistance</li>\n\t<li>Utility Assistance</li>\n\t<li>Food Pantry Access<ul>\n\t\t<li>Supportive Services</li>\n\t\t<li>Food Insecurity Support (including food boxes and essential provisions)</li>\n\t</ul>\n\t</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Meal Ministry</strong></span>\n</p>\n\n<ul>\n\t<li>Currently closed until further notice</li>\n</ul>\n\n<p>\n\t<em>When active, the Meal Ministry provides hot lunch and dinner meals 365 days a year to anyone in<br>\n\tNeed, offering nourishment, fellowship, and hope in a welcoming environment</em>\n</p>\n\n<p>\n\t \n</p>\n\n<p>\n\t<span style=\"font-size:20px;\"><u><strong>Additional Salvation Army Programs in Duval County</strong></u></span>\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Emergency Disaster Services (EDS)</strong></span>\n</p>\n\n<ul>\n\t<li>Provides essential relief including meals, water, emotional and spiritual care, and practical recovery support for individuals and families affected by natural disasters, fires, or other major crises</li>\n\t<li>Collaborates with local first responders and partner agencies to assist communities in recovery and rebuilding efforts, helping survivors restore stability and hope</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Adult Rehabilitation Center (arc)</strong></span>\n</p>\n\n<ul>\n\t<li>No-cost, Residential program for men seeking recovery from alcohol and substance use</li>\n\t<li>125-Bed program combining faith-based counseling, work therapy, and life-skills development</li>\n\t<li>Supports long-term sobriety, personal growth, and independence in a supportive community</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>The Salvation Army Batterers Intervention Program (sabip)</strong></span>\n</p>\n\n<ul>\n\t<li>Offers education and support to individuals working to change patterns of violence and anger</li>\n\t<li>Structured classes focus on accountability, empathy, and conflict resolution</li>\n\t<li>Helps participants build respect, manage emotions, and create safer relationships</li>\n</ul></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:80",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:80",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:5:95-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5>Towers Center of Hope</h5>\n\n<p>\n\tThe Towers Center of Hope provides a safe, supportive environment for individuals and families facing times of uncertainty. Through our housing and community programs, we offer temporary refuge, stability, and personalized support to help each person take the next step toward independence and long-term success.\n</p>\n\n<p>\n\tOur mission is to meet people with compassion, restore hope, and empower them to rebuild their lives with dignity and confidence.\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Transitional Housing Programs</strong></span>\n</p>\n\n<p>\n\tHope Crossing and Red Shield Lodge offer structured, short-term housing designed to support<br>\n\tIndividuals and families working toward stability and independence.\n</p>\n\n<ul>\n\t<li>Hope Crossing - 40 beds serving single men</li>\n\t<li>Red Shield Lodge - 40 beds serving single women and families</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Residents in these programs receive access to:</strong></span>\n</p>\n\n<ul>\n\t<li>Three nutritious meals per day</li>\n\t<li>Individualized case management and goal planning</li>\n\t<li>Budgeting, financial literacy, and life skills workshops</li>\n\t<li>Educational and employment support</li>\n\t<li>Spiritual counseling and encouragement</li>\n\t<li>Transportation assistance (bus passes provided when available)</li>\n\t<li>Job placement support</li>\n\t<li>A focus on self-sufficiency and permanent housing solutions</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Emergency Beds Services Program</strong></span>\n</p>\n\n<p>\n\tOur Emergency Beds Services Program offers safe, overnight shelter for individuals in urgent need of<br>\n\tA place to rest. This short-term support provides immediate care and stability while helping guests<br>\n\tConnect to additional community resources.\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Guests in this program receive:</strong></span>\n</p>\n\n<ul>\n\t<li>Access to 40 emergency beds</li>\n\t<li>Toiletries and hygiene items</li>\n\t<li>Evening meals and breakfast</li>\n\t<li>Clean, secure sleeping quarters</li>\n\t<li>Guidance and referrals for long-term support</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Homelessness Prevention Program</strong></span>\n</p>\n\n<p>\n\tOur Homelessness Prevention Program is designed to support individuals and families facing<br>\n\tHousing instability by providing essential resources and services, including:\n</p>\n\n<ul>\n\t<li>Rental Assistance</li>\n\t<li>Utility Assistance</li>\n\t<li>Food Pantry Access<ul>\n\t\t<li>Supportive Services</li>\n\t\t<li>Food Insecurity Support (including food boxes and essential provisions)</li>\n\t</ul>\n\t</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Meal Ministry</strong></span>\n</p>\n\n<ul>\n\t<li>Currently closed until further notice</li>\n</ul>\n\n<p>\n\t<em>When active, the Meal Ministry provides hot lunch and dinner meals 365 days a year to anyone in<br>\n\tNeed, offering nourishment, fellowship, and hope in a welcoming environment</em>\n</p>\n\n<p>\n\t \n</p>\n\n<p>\n\t<span style=\"font-size:20px;\"><u><strong>Additional Salvation Army Programs in Duval County</strong></u></span>\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Emergency Disaster Services (EDS)</strong></span>\n</p>\n\n<ul>\n\t<li>Provides essential relief including meals, water, emotional and spiritual care, and practical recovery support for individuals and families affected by natural disasters, fires, or other major crises</li>\n\t<li>Collaborates with local first responders and partner agencies to assist communities in recovery and rebuilding efforts, helping survivors restore stability and hope</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Adult Rehabilitation Center (arc)</strong></span>\n</p>\n\n<ul>\n\t<li>No-cost, Residential program for men seeking recovery from alcohol and substance use</li>\n\t<li>125-Bed program combining faith-based counseling, work therapy, and life-skills development</li>\n\t<li>Supports long-term sobriety, personal growth, and independence in a supportive community</li>\n</ul>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>The Salvation Army Batterers Intervention Program (sabip)</strong></span>\n</p>\n\n<ul>\n\t<li>Offers education and support to individuals working to change patterns of violence and anger</li>\n\t<li>Structured classes focus on accountability, empathy, and conflict resolution</li>\n\t<li>Helps participants build respect, manage emotions, and create safer relationships</li>\n</ul></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

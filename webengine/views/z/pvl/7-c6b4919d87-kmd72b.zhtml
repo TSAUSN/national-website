@@ -1,0 +1,30 @@
+<div classname="{styles.pvlRoot}">
+	<div class="p-6 rounded-5 bg-light mb-18" data-zesty-id="design:columns:1 column - 1 row my-3:17:6">
+<div class="col-lg-12 col-md-12 col-sm-12" data-zesty-id="design:columns:1 column - 1 row my-3:17:6-1:1 column - 1 row:0">
+<h6 data-zesty-id="content:text:1:86">Past Events</h6>
+<p data-zesty-id="content:textarea:2:8">
+	The event might have passed but the memories and sponsor appreciation remains steadfast.
+</p>
+<p data-zesty-id="content:textarea:3:92">
+	Enjoy a look back at our past events. We hope to see you at an upcoming, community event.
+</p>
+<div class="py-5" data-zesty-id="design:design:whitespace-xl:4:84"></div>
+<div style="color:#111111;" class="rounded p-6 gap-3 bg-light text-dark" data-zesty-id="content:wysiwyg_basic:5:19"><h5><span style="color:#f2c75d;">Signature Events</span></h5>
+
+<p>
+	<a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/428af846-7c5b-40d5-b2cc-a0c037718c17_Sig+Events+Updated+1.2025.pdf"><img class="img-fluid rounded" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/84348c12-b126-48c3-9033-8442c3a5ccb5_Sig+Banner+Updated+%281200x250%29.svg"></a>
+</p>
+
+<p>
+	Click the image above or the link here to view the <a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/720c2cbb-8ada-43fb-9eb2-cf2af3066f9c_Sig+Events+Updated+May+2025.pdf">Signature Events Flyer</a>
+</p></div>
+		</div>
+	</div>
+	<div data-zesty-id="content:block:6-caf0f4baac-ctljlz:1:14">{{block('/-/block/general_accordion.html?variant=7-c080b0e6aa-21z130')}}</div>
+	<div class="p-6 rounded-5 bg-light mb-18" data-zesty-id="design:columns:1 column - 1 row my-3:18:13">
+<div class="col-lg-12 col-md-12 col-sm-12" data-zesty-id="design:columns:1 column - 1 row my-3:18:13-1:1 column - 1 row:0">
+<div style="color:#111111;" class="rounded p-6 gap-3 bg-light text-dark" data-zesty-id="content:wysiwyg_basic:9:25"><h5><span style="color:#005788;">Other Events</span></h5></div>
+		</div>
+	</div>
+	<div data-zesty-id="content:block:6-caf0f4baac-ctljlz:3:64">{{block('/-/block/general_accordion.html?variant=7-94ecc386b6-twh5kl')}}</div>
+</div>

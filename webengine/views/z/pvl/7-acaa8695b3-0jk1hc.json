@@ -1,0 +1,97 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:55:0:96": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-cadae8c59b-2kq0ms')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-cadae8c59b-2kq0ms')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:55:0:96",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:5:51": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:5:51",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:5:51-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:74": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:74",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:5:51-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:32": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><h5><span style=\"color:#ed1c2b;\">Women's Auxiliary</span></h5>\n\n<p>\n\tThe Women’s Auxiliary is a civic group of over 100 community-minded women who want to make a difference in Savannah, GA, and the surrounding counties by raising awareness and funds to expand the amount and quality of help that is given by The Salvation Army of Savannah.\n</p>\n\n<p>\n\t<span style=\"font-size:24px;\">2021-2022 Officers</span>\n</p>\n\n<p>\n\tKrissy Williams, <em>President</em>\n</p>\n\n<p>\n\tMarsha Scott, <em>Vice President</em>\n</p>\n\n<p>\n\tMary Ann Hogan, <em>Treasurer</em>\n</p>\n\n<p>\n\tSandi Page, <em>Membership Committee Chair</em>\n</p>\n\n<p>\n\tCarol Downs, <em>Nominating Committee Chair</em>\n</p>\n\n<p>\n\tMary Redding, <em>Finance Committee Chair</em>\n</p>\n\n<p>\n\tDianne Brown, <em>Public Relation Committee Chair</em>\n</p>\n\n<p>\n\tSharyn Baggett, <em>Family Boutique Committee Chair</em>\n</p>\n\n<p>\n\tGail DeLoach &amp; Sharon Wilkerson, <em>Christmas Committee Co-Chairs</em>\n</p>\n\n<p>\n\tCarol Grable, <em>Hospitality Committee Chair</em>\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><h5><span style=\"color:#ed1c2b;\">Women's Auxiliary</span></h5>\n\n<p>\n\tThe Women’s Auxiliary is a civic group of over 100 community-minded women who want to make a difference in Savannah, GA, and the surrounding counties by raising awareness and funds to expand the amount and quality of help that is given by The Salvation Army of Savannah.\n</p>\n\n<p>\n\t<span style=\"font-size:24px;\">2021-2022 Officers</span>\n</p>\n\n<p>\n\tKrissy Williams, <em>President</em>\n</p>\n\n<p>\n\tMarsha Scott, <em>Vice President</em>\n</p>\n\n<p>\n\tMary Ann Hogan, <em>Treasurer</em>\n</p>\n\n<p>\n\tSandi Page, <em>Membership Committee Chair</em>\n</p>\n\n<p>\n\tCarol Downs, <em>Nominating Committee Chair</em>\n</p>\n\n<p>\n\tMary Redding, <em>Finance Committee Chair</em>\n</p>\n\n<p>\n\tDianne Brown, <em>Public Relation Committee Chair</em>\n</p>\n\n<p>\n\tSharyn Baggett, <em>Family Boutique Committee Chair</em>\n</p>\n\n<p>\n\tGail DeLoach &amp; Sharon Wilkerson, <em>Christmas Committee Co-Chairs</em>\n</p>\n\n<p>\n\tCarol Grable, <em>Hospitality Committee Chair</em>\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:32",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:32",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:5:51-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5><span style=\"color:#ed1c2b;\">Women's Auxiliary</span></h5>\n\n<p>\n\tThe Women’s Auxiliary is a civic group of over 100 community-minded women who want to make a difference in Savannah, GA, and the surrounding counties by raising awareness and funds to expand the amount and quality of help that is given by The Salvation Army of Savannah.\n</p>\n\n<p>\n\t<span style=\"font-size:24px;\">2021-2022 Officers</span>\n</p>\n\n<p>\n\tKrissy Williams, <em>President</em>\n</p>\n\n<p>\n\tMarsha Scott, <em>Vice President</em>\n</p>\n\n<p>\n\tMary Ann Hogan, <em>Treasurer</em>\n</p>\n\n<p>\n\tSandi Page, <em>Membership Committee Chair</em>\n</p>\n\n<p>\n\tCarol Downs, <em>Nominating Committee Chair</em>\n</p>\n\n<p>\n\tMary Redding, <em>Finance Committee Chair</em>\n</p>\n\n<p>\n\tDianne Brown, <em>Public Relation Committee Chair</em>\n</p>\n\n<p>\n\tSharyn Baggett, <em>Family Boutique Committee Chair</em>\n</p>\n\n<p>\n\tGail DeLoach &amp; Sharon Wilkerson, <em>Christmas Committee Co-Chairs</em>\n</p>\n\n<p>\n\tCarol Grable, <em>Hospitality Committee Chair</em>\n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

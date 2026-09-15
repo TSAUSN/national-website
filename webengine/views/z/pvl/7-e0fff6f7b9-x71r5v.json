@@ -1,0 +1,147 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:79:0:42": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-c081cbccbf-11qtwm')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-c081cbccbf-11qtwm')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:79:0:42",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:12:54": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:12:54",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:12:54-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:wysiwyg_basic:2:88": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h6 style=\"text-align:center;\"><br>\n2022-2023 Advisory Board Members</h6>\n\n<p style=\"text-align:center;\">\n\t<strong>Officers</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tTim Scandurro, Chair<br>\n\tMichael Moffitt, Vice Chair<br>\n\tGuy Cook, Treasurer\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h6 style=\"text-align:center;\"><br>\n2022-2023 Advisory Board Members</h6>\n\n<p style=\"text-align:center;\">\n\t<strong>Officers</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tTim Scandurro, Chair<br>\n\tMichael Moffitt, Vice Chair<br>\n\tGuy Cook, Treasurer\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 0,
+								"fullName": "content:wysiwyg_basic:2:88",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:88",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h6 style=\"text-align:center;\"><br>\n2022-2023 Advisory Board Members</h6>\n\n<p style=\"text-align:center;\">\n\t<strong>Officers</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tTim Scandurro, Chair<br>\n\tMichael Moffitt, Vice Chair<br>\n\tGuy Cook, Treasurer\n</p></div>"
+							},
+							"design:design:whitespace-xl:3:76": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 1,
+								"fullName": "design:design:whitespace-xl:3:76",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:4:81": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/e94f0f47-ae74-4090-8a13-6b07cc2c4105_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <h6 style=\"text-align:center;\">Members</h6>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\tAderonke F. Akingbola, M.D.<br>\n\t\t\t\t\tChristian Blessey<br>\n\t\t\t\t\tJulie Breitmeyer<br>\n\t\t\t\t\tWinnie Brown<br>\n\t\t\t\t\tPatricia Brinson<br>\n\t\t\t\t\tDaniel Bruni<br>\n\t\t\t\t\tChristian Todd Cannon<br>\n\t\t\t\t\tCharles Carson<br>\n\t\t\t\t\tNicholas Chisesi<br>\n\t\t\t\t\tPatrick Cresson<br>\n\t\t\t\t\tMason Curran ii<br>\n\t\t\t\t\tJohn Menge Eastman<br>\n\t\t\t\t\tDonald Espenan<br>\n\t\t\t\t\tMatthew Fantaci\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\tChristina Fay<br>\n\t\t\t\t\tDonna Flower<br>\n\t\t\t\t\tElla Flower<br>\n\t\t\t\t\tSusan Glennon<br>\n\t\t\t\t\tJennifer Heebe<br>\n\t\t\t\t\tBrandon Key<br>\n\t\t\t\t\tBenjamin J. Kerber, Sr.<br>\n\t\t\t\t\tRyan Lewis<br>\n\t\t\t\t\tRobert L. Livingston<br>\n\t\t\t\t\tGregory Manning<br>\n\t\t\t\t\tDick Meyers<br>\n\t\t\t\t\tPeggy Monsted<br>\n\t\t\t\t\tSally Moring<br>\n\t\t\t\t\tAnn Rafferty\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\tCarroll Rogers<br>\n\t\t\t\t\tTed Ruddock<br>\n\t\t\t\t\tElizabeth Ryan<br>\n\t\t\t\t\tMichael Simmons<br>\n\t\t\t\t\tBen Slater<br>\n\t\t\t\t\tKelly Ward Sloss<br>\n\t\t\t\t\tJerry J. St. Pierre M.D.<br>\n\t\t\t\t\tIndia Fleming Stewart<br>\n\t\t\t\t\tLamar Teaford<br>\n\t\t\t\t\tMichael S. Todd<br>\n\t\t\t\t\tSharon Truxillo<br>\n\t\t\t\t\tShelley Winstead<br>\n\t\t\t\t\tCindy Woessner\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/e94f0f47-ae74-4090-8a13-6b07cc2c4105_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <h6 style=\"text-align:center;\">Members</h6>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\tAderonke F. Akingbola, M.D.<br>\n\t\t\t\t\tChristian Blessey<br>\n\t\t\t\t\tJulie Breitmeyer<br>\n\t\t\t\t\tWinnie Brown<br>\n\t\t\t\t\tPatricia Brinson<br>\n\t\t\t\t\tDaniel Bruni<br>\n\t\t\t\t\tChristian Todd Cannon<br>\n\t\t\t\t\tCharles Carson<br>\n\t\t\t\t\tNicholas Chisesi<br>\n\t\t\t\t\tPatrick Cresson<br>\n\t\t\t\t\tMason Curran ii<br>\n\t\t\t\t\tJohn Menge Eastman<br>\n\t\t\t\t\tDonald Espenan<br>\n\t\t\t\t\tMatthew Fantaci\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\tChristina Fay<br>\n\t\t\t\t\tDonna Flower<br>\n\t\t\t\t\tElla Flower<br>\n\t\t\t\t\tSusan Glennon<br>\n\t\t\t\t\tJennifer Heebe<br>\n\t\t\t\t\tBrandon Key<br>\n\t\t\t\t\tBenjamin J. Kerber, Sr.<br>\n\t\t\t\t\tRyan Lewis<br>\n\t\t\t\t\tRobert L. Livingston<br>\n\t\t\t\t\tGregory Manning<br>\n\t\t\t\t\tDick Meyers<br>\n\t\t\t\t\tPeggy Monsted<br>\n\t\t\t\t\tSally Moring<br>\n\t\t\t\t\tAnn Rafferty\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\tCarroll Rogers<br>\n\t\t\t\t\tTed Ruddock<br>\n\t\t\t\t\tElizabeth Ryan<br>\n\t\t\t\t\tMichael Simmons<br>\n\t\t\t\t\tBen Slater<br>\n\t\t\t\t\tKelly Ward Sloss<br>\n\t\t\t\t\tJerry J. St. Pierre M.D.<br>\n\t\t\t\t\tIndia Fleming Stewart<br>\n\t\t\t\t\tLamar Teaford<br>\n\t\t\t\t\tMichael S. Todd<br>\n\t\t\t\t\tSharon Truxillo<br>\n\t\t\t\t\tShelley Winstead<br>\n\t\t\t\t\tCindy Woessner\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"manualContent": "<div style=\"position:relative;overflow:hidden;min-height:300px;background:#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/e94f0f47-ae74-4090-8a13-6b07cc2c4105_Blue+BG.png') center center / cover no-repeat;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/e94f0f47-ae74-4090-8a13-6b07cc2c4105_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <h6 style=\"text-align:center;\">Members</h6>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\tAderonke F. Akingbola, M.D.<br>\n\t\t\t\t\tChristian Blessey<br>\n\t\t\t\t\tJulie Breitmeyer<br>\n\t\t\t\t\tWinnie Brown<br>\n\t\t\t\t\tPatricia Brinson<br>\n\t\t\t\t\tDaniel Bruni<br>\n\t\t\t\t\tChristian Todd Cannon<br>\n\t\t\t\t\tCharles Carson<br>\n\t\t\t\t\tNicholas Chisesi<br>\n\t\t\t\t\tPatrick Cresson<br>\n\t\t\t\t\tMason Curran ii<br>\n\t\t\t\t\tJohn Menge Eastman<br>\n\t\t\t\t\tDonald Espenan<br>\n\t\t\t\t\tMatthew Fantaci\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\tChristina Fay<br>\n\t\t\t\t\tDonna Flower<br>\n\t\t\t\t\tElla Flower<br>\n\t\t\t\t\tSusan Glennon<br>\n\t\t\t\t\tJennifer Heebe<br>\n\t\t\t\t\tBrandon Key<br>\n\t\t\t\t\tBenjamin J. Kerber, Sr.<br>\n\t\t\t\t\tRyan Lewis<br>\n\t\t\t\t\tRobert L. Livingston<br>\n\t\t\t\t\tGregory Manning<br>\n\t\t\t\t\tDick Meyers<br>\n\t\t\t\t\tPeggy Monsted<br>\n\t\t\t\t\tSally Moring<br>\n\t\t\t\t\tAnn Rafferty\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;color:#fff;\">\n\t\t\t\t\tCarroll Rogers<br>\n\t\t\t\t\tTed Ruddock<br>\n\t\t\t\t\tElizabeth Ryan<br>\n\t\t\t\t\tMichael Simmons<br>\n\t\t\t\t\tBen Slater<br>\n\t\t\t\t\tKelly Ward Sloss<br>\n\t\t\t\t\tJerry J. St. Pierre M.D.<br>\n\t\t\t\t\tIndia Fleming Stewart<br>\n\t\t\t\t\tLamar Teaford<br>\n\t\t\t\t\tMichael S. Todd<br>\n\t\t\t\t\tSharon Truxillo<br>\n\t\t\t\t\tShelley Winstead<br>\n\t\t\t\t\tCindy Woessner\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n                </div>\n            </div>\n        </div>",
+								"position": 2,
+								"fullName": "content:wysiwyg_basic:4:81",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:4:81",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "300px",
+									"background": "#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/e94f0f47-ae74-4090-8a13-6b07cc2c4105_Blue+BG.png') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/e94f0f47-ae74-4090-8a13-6b07cc2c4105_Blue+BG.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover"
+								},
+								"classes": "text-white rounded p-6 gap-3 my-5",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:7:69": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h6 style=\"text-align:center;\"><br>\nLife Members</h6>\n\n<p style=\"text-align:center;\">\n\tEmanuel Blessey<br>\n\tDick Piner<br>\n\tFrank Stewart\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h6 style=\"text-align:center;\"><br>\nLife Members</h6>\n\n<p style=\"text-align:center;\">\n\tEmanuel Blessey<br>\n\tDick Piner<br>\n\tFrank Stewart\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:7:69",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:7:69",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:54-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h6 style=\"text-align:center;\"><br>\nLife Members</h6>\n\n<p style=\"text-align:center;\">\n\tEmanuel Blessey<br>\n\tDick Piner<br>\n\tFrank Stewart\n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

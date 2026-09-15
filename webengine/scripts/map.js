@@ -501,53 +501,7 @@ function handleMarkerContent(markerData) {
         </div>
         </div>
     `;
-  // Make fetchServicesForMapLocation available globally
-  window.fetchServicesForMapLocation = async function (zuid) {
-    try {
-      const response = await fetch(`${window.location.origin}/services.json?location=${zuid}`);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const rawData = await response.text();
-      const data = JSON.parse(rawData);
-      return Array.isArray(data) ? data : [];
-    } catch (error) {
-      console.error('Error checking location:', error);
-      return [];
-    }
-  };
-
-  // Load services asynchronously
-  window
-    .fetchServicesForMapLocation(markerData.zuid)
-    .then((services) => {
-      const servicesContainer = document.getElementById(`services-container`);
-      if (servicesContainer && services && Array.isArray(services)) {
-        servicesContainer.innerHTML = services
-          .map(
-            (service) => `
-            <div class="col">
-              <div class="d-flex align-items-start">
-                <span class="material-symbols-outlined text-primary-200 display-6">${service.service_page_icon}</span>
-                <a href="${service.meta.web.url}" class="display-4 text-dark-100 display-md-1 ms-2">${service.title}</a>
-              </div>
-            </div>
-          `
-          )
-          .join('');
-      } else if (servicesContainer) {
-        servicesContainer.innerHTML = 'No services available';
-      }
-    })
-    .catch((error) => {
-      console.error('Error loading services:', error);
-      const servicesContainer = document.getElementById(`services-container-${index}`);
-      if (servicesContainer) {
-        servicesContainer.innerHTML = 'Error loading services';
-      }
-    });
-
-  // Find existing location info and remove it
+  // Remove existing location info and inject HTML into DOM first
   let locationInfo = contentWrapper.querySelector('.location-info');
   if (locationInfo) {
     locationInfo.remove();
@@ -556,8 +510,95 @@ function handleMarkerContent(markerData) {
   if (initialContent) {
     initialContent.classList.add('d-none');
   }
-  // Prepend the new content before the existing content
   contentWrapper.insertAdjacentHTML('afterbegin', html);
+
+  // Load services after HTML is in the DOM so getElementById finds the container
+  (async function () {
+    const servicesContainer = document.getElementById('services-container');
+    if (!servicesContainer) return;
+
+    const serviceTypeZuids = (markerData.services_offered || '')
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
+
+    if (serviceTypeZuids.length === 0) {
+      servicesContainer.innerHTML = '<div class="col">No services available</div>';
+      return;
+    }
+
+    const fetchServicesForLocation = async function (zuidArg) {
+      try {
+        const response = await fetch(`${window.location.origin}/services.json?location=${zuidArg}`);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+        return Array.isArray(data) ? data : [];
+      } catch (error) {
+        console.error('Error fetching services:', error);
+        return [];
+      }
+    };
+
+    const fetchServiceType = async function (serviceTypeZuid) {
+      try {
+        const response = await fetch(`${window.location.origin}/service-types.json?zuid=${serviceTypeZuid}`);
+        if (!response.ok) throw new Error('Network response was not ok');
+        return await response.json();
+      } catch (error) {
+        console.error('Error fetching service type:', error);
+        return false;
+      }
+    };
+
+    try {
+      const services = await fetchServicesForLocation(markerData.zuid);
+      const servicesInnerHTML = [];
+
+      for (const serviceTypeZuid of serviceTypeZuids) {
+        const serviceTypeData = await fetchServiceType(serviceTypeZuid);
+        if (!serviceTypeData || !serviceTypeData[0]) continue;
+
+        const rawIconName = serviceTypeData[0]?.icon_name;
+        const iconName = (rawIconName && rawIconName !== 'NULL') ? rawIconName : '';
+
+        const matchingService = Array.isArray(services)
+          ? services.find((s) => s.service_type?.data?.[0]?.meta?.zuid === serviceTypeZuid)
+          : null;
+
+        if (matchingService) {
+          const title = matchingService.title || '';
+          if (!title) continue;
+          servicesInnerHTML.push(`
+            <div class="col">
+              <div class="d-flex align-items-start">
+                <span class="material-symbols-outlined text-primary-200 display-6">${iconName}</span>
+                <a href="${matchingService.meta?.web?.url || '#'}" class="display-5 text-dark-100 display-md-1 ms-2">${title}</a>
+              </div>
+            </div>
+          `);
+        } else {
+          const label = serviceTypeData[0]?.meta?.web_title || serviceTypeData[0]?.title || '';
+          if (!label) continue;
+          servicesInnerHTML.push(`
+            <div class="col">
+              <div class="d-flex align-items-start">
+                <span class="material-symbols-outlined text-primary-200 display-6">${iconName}</span>
+                <span class="display-5 text-dark-100 display-md-1 ms-2">${label}</span>
+              </div>
+            </div>
+          `);
+        }
+      }
+
+      servicesContainer.innerHTML = servicesInnerHTML.length > 0
+        ? servicesInnerHTML.join('')
+        : '<div class="col">No services available</div>';
+    } catch (error) {
+      console.error('Error loading services:', error);
+      const sc = document.getElementById('services-container');
+      if (sc) sc.innerHTML = '<div class="col">Error loading services</div>';
+    }
+  })();
 }
 
 // Add event listener for marker clicks
@@ -804,6 +845,7 @@ async function displayLocationMarkers(searchLocation) {
           location.corps || ''
         }`,
         services: location.services ? location.services.map((s) => s.title).join(',') : '',
+        services_offered: location.service_types || '',
         address:
           addressBuilder(location.address, location.city, location.state, location.zipcode) || '',
         contact_number: location.contact_number || '',

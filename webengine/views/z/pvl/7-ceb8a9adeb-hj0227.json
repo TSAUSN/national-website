@@ -1,0 +1,530 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:76:0:77": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-f8a2b0f981-9kxblm')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-f8a2b0f981-9kxblm')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:76:0:77",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:27:8": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:27:8",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:27:8-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:26:35": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:26:35",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:8-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:1:76": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 1,
+								"fullName": "design:design:whitespace-xl:1:76",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:8-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:83": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5 style=\"text-align:center;\">We feed the hungry, shelter the homeless and bring hope to the dispirited.</h5>\n\n<p>\n\tPoverty is so often the result of and the catalyst for chronic struggles with hunger, addiction, housing insecurity, mental illness, unemployment, educational voids and various forms of abuse. These interconnected struggles continue year after year, and often span generations. That's Why The Salvation Army works to meet the needs of the whole person through short and long-term assistance first alleviating the symptoms of poverty and then addressing the root issues that cause it.\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Utility Assistance</strong></span>\n</p>\n\n<p>\n\tWe help struggling families and individuals avoid falling into the cycle of crisis by supplementing their income with utility assistance. This service often becomes the difference between going hungry or being evicted. \n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Seasonal Assistance</strong></span>\n</p>\n\n<p>\n\tDuring certain times of the year, there is assistance available to meet a specific seasonally based need. Seasonal assistance consists of help with a Winter Coat giveaway and toys for children in need at Christmas.\n</p>\n\n<p>\n\t<strong><span style=\"color:#ed1c2b;\">The Salvation Army Of Gwinnett Family and Social Services &amp; Programs:</span></strong>\n</p>\n\n<ul>\n\t<li><p>\n\t\t<strong>Financial Emergency Services:  </strong>Utilities, Mortgage &amp; Rental Assistance\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Sally’s Emergency Market: </strong> Toiletries, comfort kits, ready-to-eat meals &amp; shelf stable food.\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Home Sweet Home Gwinnett:</strong>  Hotel/Motel Vouchers; Assistance with permanent housing solutions &amp; self-sufficiency.\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Men Ministry and Youth Ministries </strong>\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Angel Tree</strong>\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Nursery</strong> \n\t</p>\n\n\t<p>\n\t\tWe offer free childcare every <strong>Wednesday night and Sunday morning</strong> for those who are participating in our worship programs. Your child will have the opportunity to play, explore, and learn with other kids their age. To use our childcare, just stop at the front desk when you arrive. \n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Thrive</strong>\n\t</p>\n\n\t<p>\n\t\tKindergarden - 5th Grade\n\t</p>\n\n\t<p>\n\t\tWednesdays at 6:30 pm\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Reverb</strong>\n\t</p>\n\n\t<p>\n\t\tWednesdays at 6:30 PM \n\t</p>\n\n\t<p>\n\t\tReverb is a place where 6th-12th graders can come and build long-lasting friendships while exploring their relationship with God. <br>\n\t\t​Reverb meets every Wednesday at 6:30 pm. \n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Music and Arts </strong>\n\t</p>\n\n\t<p>\n\t\tThursdays at 6:15 PM \n\t</p>\n\t</li>\n\t<li><p>\n\t\t<b>Life Groups</b>\n\t</p>\n\n\t<p>\n\t\tWednesdays at 6:15-7:30 PM (offered in both English and Spanish)<br>\n\t\t<span style=\"color:black;\"><br>\n\t\tLife Groups are an opportunity for adult fellowship and discipleship with your church community. You will explore portions of the Bible together, as you discover how the Bible applies to your life right now. Through videos and questions, you will study God's words and His character, allowing you to better understand Him and your purpose. </span><span style=\"color:#212121;\"></span><span style=\"caret-color:#212121;\"><span style=\"font-variant-caps:normal;\"><span style=\"orphans:auto;\"><span style=\"widows:auto;\"><span style=\"word-spacing:0px;\"><span style=\"color:black;\">God has something to tell you today, will you listen?</span><span style=\"color:#212121;\"></span></span></span></span></span></span>\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Bible Study </strong>\n\t</p>\n\n\t<p>\n\t\tWednesdays at 6:30 PM \n\t</p>\n\n\t<p>\n\t\tOur mid-week Bible Study is a safe place for anyone to explore the Bible with others who are doing the same thing. Regardless if you have studied the Bible your entire life, or are brand new to the Bible, this class will give you the tools needed to help understand and apply the stories and lessons of the Bible to our lives.\n\t</p>\n\t</li>\n</ul>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://southernusa.salvationarmy.org/gwinnett/contact-us\" class=\"btn btn-secondary gap-1 mt-2\">Request Family and Social Services Information&nbsp;</a></p>\n\n<hr>\n<p>\n\t \n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5 style=\"text-align:center;\">We feed the hungry, shelter the homeless and bring hope to the dispirited.</h5>\n\n<p>\n\tPoverty is so often the result of and the catalyst for chronic struggles with hunger, addiction, housing insecurity, mental illness, unemployment, educational voids and various forms of abuse. These interconnected struggles continue year after year, and often span generations. That's Why The Salvation Army works to meet the needs of the whole person through short and long-term assistance first alleviating the symptoms of poverty and then addressing the root issues that cause it.\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Utility Assistance</strong></span>\n</p>\n\n<p>\n\tWe help struggling families and individuals avoid falling into the cycle of crisis by supplementing their income with utility assistance. This service often becomes the difference between going hungry or being evicted. \n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Seasonal Assistance</strong></span>\n</p>\n\n<p>\n\tDuring certain times of the year, there is assistance available to meet a specific seasonally based need. Seasonal assistance consists of help with a Winter Coat giveaway and toys for children in need at Christmas.\n</p>\n\n<p>\n\t<strong><span style=\"color:#ed1c2b;\">The Salvation Army Of Gwinnett Family and Social Services &amp; Programs:</span></strong>\n</p>\n\n<ul>\n\t<li><p>\n\t\t<strong>Financial Emergency Services:  </strong>Utilities, Mortgage &amp; Rental Assistance\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Sally’s Emergency Market: </strong> Toiletries, comfort kits, ready-to-eat meals &amp; shelf stable food.\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Home Sweet Home Gwinnett:</strong>  Hotel/Motel Vouchers; Assistance with permanent housing solutions &amp; self-sufficiency.\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Men Ministry and Youth Ministries </strong>\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Angel Tree</strong>\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Nursery</strong> \n\t</p>\n\n\t<p>\n\t\tWe offer free childcare every <strong>Wednesday night and Sunday morning</strong> for those who are participating in our worship programs. Your child will have the opportunity to play, explore, and learn with other kids their age. To use our childcare, just stop at the front desk when you arrive. \n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Thrive</strong>\n\t</p>\n\n\t<p>\n\t\tKindergarden - 5th Grade\n\t</p>\n\n\t<p>\n\t\tWednesdays at 6:30 pm\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Reverb</strong>\n\t</p>\n\n\t<p>\n\t\tWednesdays at 6:30 PM \n\t</p>\n\n\t<p>\n\t\tReverb is a place where 6th-12th graders can come and build long-lasting friendships while exploring their relationship with God. <br>\n\t\t​Reverb meets every Wednesday at 6:30 pm. \n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Music and Arts </strong>\n\t</p>\n\n\t<p>\n\t\tThursdays at 6:15 PM \n\t</p>\n\t</li>\n\t<li><p>\n\t\t<b>Life Groups</b>\n\t</p>\n\n\t<p>\n\t\tWednesdays at 6:15-7:30 PM (offered in both English and Spanish)<br>\n\t\t<span style=\"color:black;\"><br>\n\t\tLife Groups are an opportunity for adult fellowship and discipleship with your church community. You will explore portions of the Bible together, as you discover how the Bible applies to your life right now. Through videos and questions, you will study God's words and His character, allowing you to better understand Him and your purpose. </span><span style=\"color:#212121;\"></span><span style=\"caret-color:#212121;\"><span style=\"font-variant-caps:normal;\"><span style=\"orphans:auto;\"><span style=\"widows:auto;\"><span style=\"word-spacing:0px;\"><span style=\"color:black;\">God has something to tell you today, will you listen?</span><span style=\"color:#212121;\"></span></span></span></span></span></span>\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Bible Study </strong>\n\t</p>\n\n\t<p>\n\t\tWednesdays at 6:30 PM \n\t</p>\n\n\t<p>\n\t\tOur mid-week Bible Study is a safe place for anyone to explore the Bible with others who are doing the same thing. Regardless if you have studied the Bible your entire life, or are brand new to the Bible, this class will give you the tools needed to help understand and apply the stories and lessons of the Bible to our lives.\n\t</p>\n\t</li>\n</ul>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://southernusa.salvationarmy.org/gwinnett/contact-us\" class=\"btn btn-secondary gap-1 mt-2\">Request Family and Social Services Information&nbsp;</a></p>\n\n<hr>\n<p>\n\t \n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 2,
+								"fullName": "content:wysiwyg_basic:2:83",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:83",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:8-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">We feed the hungry, shelter the homeless and bring hope to the dispirited.</h5>\n\n<p>\n\tPoverty is so often the result of and the catalyst for chronic struggles with hunger, addiction, housing insecurity, mental illness, unemployment, educational voids and various forms of abuse. These interconnected struggles continue year after year, and often span generations. That's Why The Salvation Army works to meet the needs of the whole person through short and long-term assistance first alleviating the symptoms of poverty and then addressing the root issues that cause it.\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Utility Assistance</strong></span>\n</p>\n\n<p>\n\tWe help struggling families and individuals avoid falling into the cycle of crisis by supplementing their income with utility assistance. This service often becomes the difference between going hungry or being evicted. \n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Seasonal Assistance</strong></span>\n</p>\n\n<p>\n\tDuring certain times of the year, there is assistance available to meet a specific seasonally based need. Seasonal assistance consists of help with a Winter Coat giveaway and toys for children in need at Christmas.\n</p>\n\n<p>\n\t<strong><span style=\"color:#ed1c2b;\">The Salvation Army Of Gwinnett Family and Social Services &amp; Programs:</span></strong>\n</p>\n\n<ul>\n\t<li><p>\n\t\t<strong>Financial Emergency Services:  </strong>Utilities, Mortgage &amp; Rental Assistance\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Sally’s Emergency Market: </strong> Toiletries, comfort kits, ready-to-eat meals &amp; shelf stable food.\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Home Sweet Home Gwinnett:</strong>  Hotel/Motel Vouchers; Assistance with permanent housing solutions &amp; self-sufficiency.\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Men Ministry and Youth Ministries </strong>\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Angel Tree</strong>\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Nursery</strong> \n\t</p>\n\n\t<p>\n\t\tWe offer free childcare every <strong>Wednesday night and Sunday morning</strong> for those who are participating in our worship programs. Your child will have the opportunity to play, explore, and learn with other kids their age. To use our childcare, just stop at the front desk when you arrive. \n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Thrive</strong>\n\t</p>\n\n\t<p>\n\t\tKindergarden - 5th Grade\n\t</p>\n\n\t<p>\n\t\tWednesdays at 6:30 pm\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Reverb</strong>\n\t</p>\n\n\t<p>\n\t\tWednesdays at 6:30 PM \n\t</p>\n\n\t<p>\n\t\tReverb is a place where 6th-12th graders can come and build long-lasting friendships while exploring their relationship with God. <br>\n\t\t​Reverb meets every Wednesday at 6:30 pm. \n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Music and Arts </strong>\n\t</p>\n\n\t<p>\n\t\tThursdays at 6:15 PM \n\t</p>\n\t</li>\n\t<li><p>\n\t\t<b>Life Groups</b>\n\t</p>\n\n\t<p>\n\t\tWednesdays at 6:15-7:30 PM (offered in both English and Spanish)<br>\n\t\t<span style=\"color:black;\"><br>\n\t\tLife Groups are an opportunity for adult fellowship and discipleship with your church community. You will explore portions of the Bible together, as you discover how the Bible applies to your life right now. Through videos and questions, you will study God's words and His character, allowing you to better understand Him and your purpose. </span><span style=\"color:#212121;\"></span><span style=\"caret-color:#212121;\"><span style=\"font-variant-caps:normal;\"><span style=\"orphans:auto;\"><span style=\"widows:auto;\"><span style=\"word-spacing:0px;\"><span style=\"color:black;\">God has something to tell you today, will you listen?</span><span style=\"color:#212121;\"></span></span></span></span></span></span>\n\t</p>\n\t</li>\n\t<li><p>\n\t\t<strong>Bible Study </strong>\n\t</p>\n\n\t<p>\n\t\tWednesdays at 6:30 PM \n\t</p>\n\n\t<p>\n\t\tOur mid-week Bible Study is a safe place for anyone to explore the Bible with others who are doing the same thing. Regardless if you have studied the Bible your entire life, or are brand new to the Bible, this class will give you the tools needed to help understand and apply the stories and lessons of the Bible to our lives.\n\t</p>\n\t</li>\n</ul>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://southernusa.salvationarmy.org/gwinnett/contact-us\" class=\"btn btn-light\">Request Family and Social Services Information&nbsp;</a></p>\n\n<hr>\n<p>\n\t \n</p></div>"
+							},
+							"design:design:whitespace-xl:3:23": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:whitespace-xl:3:23",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:8-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"design:design:whitespace-xl:4:33": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 4,
+								"fullName": "design:design:whitespace-xl:4:33",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:8-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:5:85": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"text-align:center;\">\n\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/c08686f4-f362-4e22-8b15-d86c031919be_Screen+Shot+2022-04-26+at+10.36.34+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"text-align:center;\">\n\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/c08686f4-f362-4e22-8b15-d86c031919be_Screen+Shot+2022-04-26+at+10.36.34+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 5,
+								"fullName": "content:wysiwyg_basic:5:85",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:5:85",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:27:8-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><p style=\"text-align:center;\">\n\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/c08686f4-f362-4e22-8b15-d86c031919be_Screen+Shot+2022-04-26+at+10.36.34+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n</p></div>"
+							},
+							"design:design:whitespace-xl:6:39": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 6,
+								"fullName": "design:design:whitespace-xl:6:39",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:8-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"design:design:whitespace-sm:8:9": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 7,
+								"fullName": "design:design:whitespace-sm:8:9",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:8-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:13:30": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 8,
+								"fullName": "design:columns:3 Columns:13:30",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:8-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:13:30-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:7:14": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><h5 class=\"wsite-content-title\" style=\"overflow-wrap:break-word;margin:0px auto 20px;padding:0px;font-weight:300;line-height:1.1em;letter-spacing:0.03em;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;orphans:2;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;text-align:center;\"><imgclass=\"img-fluid rounded=\"\" d-block=\"\" mx-auto\"=\"\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a7d9ee8f-1687-49a8-beb0-306b59350261_Screen+Shot+2022-04-26+at+10.39.06+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;\"></imgclass=\"img-fluid></h5>\n\n<p style=\"text-align:center;\">\n\t<strong>A place for your \"little\" ones. </strong>\n</p>\n\n<div style=\"text-align:center;\">\n\tWe offer free childcare every Wednesday night and Sunday morning for those who are participating in our worship programs. Your child will have the opportunity to play, explore, and learn with other kids their age. To use our childcare, just stop at the front desk when you arrive. \n</div></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><h5 class=\"wsite-content-title\" style=\"overflow-wrap:break-word;margin:0px auto 20px;padding:0px;font-weight:300;line-height:1.1em;letter-spacing:0.03em;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;orphans:2;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;text-align:center;\"><imgclass=\"img-fluid rounded=\"\" d-block=\"\" mx-auto\"=\"\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a7d9ee8f-1687-49a8-beb0-306b59350261_Screen+Shot+2022-04-26+at+10.39.06+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;\"></imgclass=\"img-fluid></h5>\n\n<p style=\"text-align:center;\">\n\t<strong>A place for your \"little\" ones. </strong>\n</p>\n\n<div style=\"text-align:center;\">\n\tWe offer free childcare every Wednesday night and Sunday morning for those who are participating in our worship programs. Your child will have the opportunity to play, explore, and learn with other kids their age. To use our childcare, just stop at the front desk when you arrive. \n</div></div>",
+												"model": "6",
+												"manualContent": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><h5 class=\"wsite-content-title\" style=\"overflow-wrap:break-word;margin:0px auto 20px;padding:0px;font-weight:300;line-height:1.1em;letter-spacing:0.03em;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;orphans:2;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;text-align:center;\"><imgclass=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a7d9ee8f-1687-49a8-beb0-306b59350261_Screen+Shot+2022-04-26+at+10.39.06+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;\"></h5>\n\n<p style=\"text-align:center;\">\n\t<strong>A place for your \"little\" ones. </strong>\n</p>\n\n<div style=\"text-align:center;\">\n\tWe offer free childcare every Wednesday night and Sunday morning for those who are participating in our worship programs. Your child will have the opportunity to play, explore, and learn with other kids their age. To use our childcare, just stop at the front desk when you arrive. \n</div></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:7:14",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:7:14",
+												"styles": {
+													"overflowWrap": "break-word",
+													"margin": "0px auto 20px",
+													"padding": "0px",
+													"fontWeight": "300",
+													"lineHeight": "1.1em",
+													"letterSpacing": "0.03em",
+													"fontStyle": "normal",
+													"fontVariantLigatures": "normal",
+													"fontVariantCaps": "normal",
+													"orphans": "2",
+													"textTransform": "none",
+													"whiteSpace": "normal",
+													"widows": "2",
+													"wordSpacing": "0px",
+													"WebkitTextStrokeWidth": "0px",
+													"textDecorationThickness": "initial",
+													"textDecorationStyle": "initial",
+													"textDecorationColor": "initial",
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:13:30-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:13:30-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:9:33": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded=\"\" d-block=\"\" mx-auto\"=\"\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/d2764f39-cbbc-435b-a65d-4f7d17873986_Screen+Shot+2022-04-26+at+10.43.01+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</imgclass=\"img-fluid></p>\n\n<p style=\"text-align:center;\">\n\t<strong>Let your life be heard. </strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tReverb is a place where 6th-12th graders can come and build long lasting friendships while exploring their relationship with God. ​Reverb meets every Wednesday at 6:30pm.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded=\"\" d-block=\"\" mx-auto\"=\"\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/d2764f39-cbbc-435b-a65d-4f7d17873986_Screen+Shot+2022-04-26+at+10.43.01+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</imgclass=\"img-fluid></p>\n\n<p style=\"text-align:center;\">\n\t<strong>Let your life be heard. </strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tReverb is a place where 6th-12th graders can come and build long lasting friendships while exploring their relationship with God. ​Reverb meets every Wednesday at 6:30pm.\n</p></div>",
+												"model": "6",
+												"manualContent": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/d2764f39-cbbc-435b-a65d-4f7d17873986_Screen+Shot+2022-04-26+at+10.43.01+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Let your life be heard. </strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tReverb is a place where 6th-12th graders can come and build long lasting friendships while exploring their relationship with God. ​Reverb meets every Wednesday at 6:30pm.\n</p></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:9:33",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:9:33",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:13:30-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:13:30-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:11:59": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded=\"\" d-block=\"\" mx-auto\"=\"\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/91724e44-25a9-4756-9732-c0c655e6ce51_Life+Group+logo.png\" style=\"max-width:100%;height:auto;display:block;margin-left:auto;margin-right:auto;\">\n</imgclass=\"img-fluid></p>\n\n<p style=\"text-align:center;\">\n\tWednesdays<br>\n\t6:15-7:30 Pm\n</p>\n\n<p style=\"text-align:center;\">\n\t(Offered in both English and Spanish)<br>\n\t<br>\n\tLife Groups are an opportunity for adult fellowship and discipleship with your church community. You will explore portions of the Bible together, as you discover how the Bible applies to your life right now. Through videos and questions, you will study God's words and His character, allowing you to better understand Him and your purpose. God has something to tell you today, will you listen?\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded=\"\" d-block=\"\" mx-auto\"=\"\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/91724e44-25a9-4756-9732-c0c655e6ce51_Life+Group+logo.png\" style=\"max-width:100%;height:auto;display:block;margin-left:auto;margin-right:auto;\">\n</imgclass=\"img-fluid></p>\n\n<p style=\"text-align:center;\">\n\tWednesdays<br>\n\t6:15-7:30 Pm\n</p>\n\n<p style=\"text-align:center;\">\n\t(Offered in both English and Spanish)<br>\n\t<br>\n\tLife Groups are an opportunity for adult fellowship and discipleship with your church community. You will explore portions of the Bible together, as you discover how the Bible applies to your life right now. Through videos and questions, you will study God's words and His character, allowing you to better understand Him and your purpose. God has something to tell you today, will you listen?\n</p></div>",
+												"model": "6",
+												"manualContent": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/91724e44-25a9-4756-9732-c0c655e6ce51_Life+Group+logo.png\" style=\"max-width:100%;height:auto;display:block;margin-left:auto;margin-right:auto;\">\n</p>\n\n<p style=\"text-align:center;\">\n\tWednesdays<br>\n\t6:15-7:30 Pm\n</p>\n\n<p style=\"text-align:center;\">\n\t(Offered in both English and Spanish)<br>\n\t<br>\n\tLife Groups are an opportunity for adult fellowship and discipleship with your church community. You will explore portions of the Bible together, as you discover how the Bible applies to your life right now. Through videos and questions, you will study God's words and His character, allowing you to better understand Him and your purpose. God has something to tell you today, will you listen?\n</p></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:11:59",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:11:59",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:13:30-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:design:whitespace-sm:15:37": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 9,
+								"fullName": "design:design:whitespace-sm:15:37",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:8-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:4 Columns:22:46": {
+								"uid": "358",
+								"name": "4 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 4,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 10,
+								"fullName": "design:columns:4 Columns:22:46",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:27:8-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:4 Columns:22:46-1:4 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:14:89": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded=\"\" d-block=\"\" mx-auto\"=\"\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/9a286321-44dd-432b-bdd4-93717299685b_Screen+Shot+2022-04-26+at+11.09.12+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</imgclass=\"img-fluid></p>\n\n<p style=\"text-align:center;\">\n\t<strong>Kinder- 5th grade</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tWednesday Nights<br>\n\t​6:30 Pm\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded=\"\" d-block=\"\" mx-auto\"=\"\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/9a286321-44dd-432b-bdd4-93717299685b_Screen+Shot+2022-04-26+at+11.09.12+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</imgclass=\"img-fluid></p>\n\n<p style=\"text-align:center;\">\n\t<strong>Kinder- 5th grade</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tWednesday Nights<br>\n\t​6:30 Pm\n</p></div>",
+												"model": "6",
+												"manualContent": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/9a286321-44dd-432b-bdd4-93717299685b_Screen+Shot+2022-04-26+at+11.09.12+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Kinder- 5th grade</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tWednesday Nights<br>\n\t​6:30 Pm\n</p></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:14:89",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:14:89",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:22:46-1:4 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:4 Columns:22:46-1:4 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:16:57": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded=\"\" d-block=\"\" mx-auto\"=\"\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/bcfcad39-306f-41b7-9b9e-22ff9bd31cb2_Screen+Shot+2022-04-26+at+11.11.03+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;text-align:center;\">\n</imgclass=\"img-fluid></p>\n\n<p style=\"text-align:center;\">\n\tThursday ​Nights<br>\n\t​6:15 Pm\n</p>\n\n<p style=\"text-align:center;\">\n\tClick <u><a href=\"https://southernusa.salvationarmy.org/gwinnett/music-and-arts\" target=\"\"><span style=\"color:#005788;\"><strong>here</strong></span></a></u> for more info.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded=\"\" d-block=\"\" mx-auto\"=\"\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/bcfcad39-306f-41b7-9b9e-22ff9bd31cb2_Screen+Shot+2022-04-26+at+11.11.03+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;text-align:center;\">\n</imgclass=\"img-fluid></p>\n\n<p style=\"text-align:center;\">\n\tThursday ​Nights<br>\n\t​6:15 Pm\n</p>\n\n<p style=\"text-align:center;\">\n\tClick <u><a href=\"https://southernusa.salvationarmy.org/gwinnett/music-and-arts\" target=\"\"><span style=\"color:#005788;\"><strong>here</strong></span></a></u> for more info.\n</p></div>",
+												"model": "6",
+												"manualContent": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/bcfcad39-306f-41b7-9b9e-22ff9bd31cb2_Screen+Shot+2022-04-26+at+11.11.03+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;text-align:center;\">\n</p>\n\n<p style=\"text-align:center;\">\n\tThursday ​Nights<br>\n\t​6:15 Pm\n</p>\n\n<p style=\"text-align:center;\">\n\tClick <u><a href=\"https://southernusa.salvationarmy.org/gwinnett/music-and-arts\" target=\"\"><span style=\"color:#005788;\"><strong>here</strong></span></a></u> for more info.\n</p></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:16:57",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:16:57",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:22:46-1:4 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:4 Columns:22:46-1:4 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:18:65": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded=\"\" d-block=\"\" mx-auto\"=\"\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/077e47a2-f9e7-48b7-839a-6139e8a2dedc_Screen+Shot+2022-04-26+at+11.13.14+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</imgclass=\"img-fluid></p>\n\n<p style=\"text-align:center;\">\n\tThursday ​Nights<br>\n\t​6:15 Pm\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Know a lot, or a little, about the Bible? This is the class for you. </strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tOur mid-week Bible Study is a safe place for anyone to explore the Bible with others who are doing the same thing. Regardless if you have studied the Bible your entire life, or are brand new to the Bible, this class will give you the tools needed to help understand and apply the stories and lessons of the Bible to our lives.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded=\"\" d-block=\"\" mx-auto\"=\"\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/077e47a2-f9e7-48b7-839a-6139e8a2dedc_Screen+Shot+2022-04-26+at+11.13.14+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</imgclass=\"img-fluid></p>\n\n<p style=\"text-align:center;\">\n\tThursday ​Nights<br>\n\t​6:15 Pm\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Know a lot, or a little, about the Bible? This is the class for you. </strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tOur mid-week Bible Study is a safe place for anyone to explore the Bible with others who are doing the same thing. Regardless if you have studied the Bible your entire life, or are brand new to the Bible, this class will give you the tools needed to help understand and apply the stories and lessons of the Bible to our lives.\n</p></div>",
+												"model": "6",
+												"manualContent": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/077e47a2-f9e7-48b7-839a-6139e8a2dedc_Screen+Shot+2022-04-26+at+11.13.14+AM.png\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</p>\n\n<p style=\"text-align:center;\">\n\tThursday ​Nights<br>\n\t​6:15 Pm\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Know a lot, or a little, about the Bible? This is the class for you. </strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tOur mid-week Bible Study is a safe place for anyone to explore the Bible with others who are doing the same thing. Regardless if you have studied the Bible your entire life, or are brand new to the Bible, this class will give you the tools needed to help understand and apply the stories and lessons of the Bible to our lives.\n</p></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:18:65",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:18:65",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:22:46-1:4 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									},
+									"design:columns:4 Columns:22:46-1:4 Columns:3": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:20:79": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded=\"\" d-block=\"\" mx-auto\"=\"\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/4d3048c7-a8ac-4c24-a3d2-0578ed655d19_LIfe+Group+Spanish+logo.png\" style=\"max-width:100%;height:auto;display:block;margin-left:auto;margin-right:auto;\">\n</imgclass=\"img-fluid></p>\n\n<p style=\"text-align:center;\">\n\t<strong>Grupos de Vida</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Miércoles</strong><br>\n\t6:15 - 7:30 Pm\n</p>\n\n<p style=\"text-align:center;\">\n\tLos Grupos de Vida son una oportunidad para la comunión y el discipulado de adultos dentro de tu comunidad de iglesia. Explorarás Juntos porciones de la Biblia, descubriendo cómo se aplica a tu vida en este momento. A través de videos y preguntas, estudiarás la palabra de Dios y Su carácter, para entender mejor a Él y a tu propósito.\n</p>\n\n<p style=\"text-align:center;\">\n\tDios tiene algo que decirte hoy, ¿escucharás?\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded=\"\" d-block=\"\" mx-auto\"=\"\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/4d3048c7-a8ac-4c24-a3d2-0578ed655d19_LIfe+Group+Spanish+logo.png\" style=\"max-width:100%;height:auto;display:block;margin-left:auto;margin-right:auto;\">\n</imgclass=\"img-fluid></p>\n\n<p style=\"text-align:center;\">\n\t<strong>Grupos de Vida</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Miércoles</strong><br>\n\t6:15 - 7:30 Pm\n</p>\n\n<p style=\"text-align:center;\">\n\tLos Grupos de Vida son una oportunidad para la comunión y el discipulado de adultos dentro de tu comunidad de iglesia. Explorarás Juntos porciones de la Biblia, descubriendo cómo se aplica a tu vida en este momento. A través de videos y preguntas, estudiarás la palabra de Dios y Su carácter, para entender mejor a Él y a tu propósito.\n</p>\n\n<p style=\"text-align:center;\">\n\tDios tiene algo que decirte hoy, ¿escucharás?\n</p></div>",
+												"model": "6",
+												"manualContent": "<div style=\"text-align:center;\" class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\"><p style=\"text-align:center;\">\n\t<imgclass=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/4d3048c7-a8ac-4c24-a3d2-0578ed655d19_LIfe+Group+Spanish+logo.png\" style=\"max-width:100%;height:auto;display:block;margin-left:auto;margin-right:auto;\">\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Grupos de Vida</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Miércoles</strong><br>\n\t6:15 - 7:30 Pm\n</p>\n\n<p style=\"text-align:center;\">\n\tLos Grupos de Vida son una oportunidad para la comunión y el discipulado de adultos dentro de tu comunidad de iglesia. Explorarás Juntos porciones de la Biblia, descubriendo cómo se aplica a tu vida en este momento. A través de videos y preguntas, estudiarás la palabra de Dios y Su carácter, para entender mejor a Él y a tu propósito.\n</p>\n\n<p style=\"text-align:center;\">\n\tDios tiene algo que decirte hoy, ¿escucharás?\n</p></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:20:79",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:20:79",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:22:46-1:4 Columns:3",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 3
+									}
+								}
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

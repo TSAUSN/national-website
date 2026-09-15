@@ -1,0 +1,135 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"design:columns:1 column - 1 row my-3:9:70": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 0,
+				"fullName": "design:columns:1 column - 1 row my-3:9:70",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:9:70-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:68": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:68",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:9:70-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:33": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5 style=\"text-align:center;\">2025-2026 Advisory Board Members</h5>\n\n<p class=\"u-textLg u-textGreyMedium no-margin-bottom padding-left-md padding-right-md\" style=\"text-align:center;max-width:768px;margin:auto;\">\n\tThe Hampton Roads Area Command advisory board comprises a wide spectrum of hard-working men and women who share the vision to transform and restore lives in Norfolk, Portsmouth, Chesapeake, and Virginia Beach.\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension>\n<div class=\"content\" spellcheck=\"false\">\n\t\t\t\t<p>\n\t\t\t\t\tDr. Rebecca Adams<br>\n\t\t\t\t\tScott Bateman<br>\n\t\t\t\t\tJim Beale<br>\n\t\t\t\t\tTroy a. Brinkley<br>\n\t\t\t\t\tMarilyn Castro<br>\n\t\t\t\t\tDavid Cobbs<br>\n\t\t\t\t\tBlake Hadley<br>\n\t\t\t\t\tCheryl Hickok<br>\n\t\t\t\t\t \n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension>\n<div class=\"content\" spellcheck=\"false\">\n\t\t\t\t<p>\n\t\t\t\t\tShana James<br>\n\t\t\t\t\tAudra Jeffries<br>\n\t\t\t\t\tGerard “Jerry” Kent<br>\n\t\t\t\t\tAndrew Knox<br>\n\t\t\t\t\tRichard Law<br>\n\t\t\t\t\tScott Lowery<br>\n\t\t\t\t\tAshleigh Newman<br>\n\t\t\t\t\tHarvey Newton, Vice Chair<br>\n\t\t\t\t\tMichele Potter\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension>\n<div class=\"content\" spellcheck=\"false\">\n\t\t\t\t<p>\n\t\t\t\t\tTodd V. Savage, Chair<br>\n\t\t\t\t\tDaniel T. Thibodeau<br>\n\t\t\t\t\tSarah Taylor<br>\n\t\t\t\t\tTracy Urig, Treasurer<br>\n\t\t\t\t\tAngela Whilden\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tDr. Deloris Wilson – Emeritus Member<br>\n\t\t\t\t\tRoby Blankenship – Lifetime Member<br>\n\t\t\t\t\tDwight Schaubach – Lifetime Member\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5 style=\"text-align:center;\">2025-2026 Advisory Board Members</h5>\n\n<p class=\"u-textLg u-textGreyMedium no-margin-bottom padding-left-md padding-right-md\" style=\"text-align:center;max-width:768px;margin:auto;\">\n\tThe Hampton Roads Area Command advisory board comprises a wide spectrum of hard-working men and women who share the vision to transform and restore lives in Norfolk, Portsmouth, Chesapeake, and Virginia Beach.\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension>\n<div class=\"content\" spellcheck=\"false\">\n\t\t\t\t<p>\n\t\t\t\t\tDr. Rebecca Adams<br>\n\t\t\t\t\tScott Bateman<br>\n\t\t\t\t\tJim Beale<br>\n\t\t\t\t\tTroy a. Brinkley<br>\n\t\t\t\t\tMarilyn Castro<br>\n\t\t\t\t\tDavid Cobbs<br>\n\t\t\t\t\tBlake Hadley<br>\n\t\t\t\t\tCheryl Hickok<br>\n\t\t\t\t\t \n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension>\n<div class=\"content\" spellcheck=\"false\">\n\t\t\t\t<p>\n\t\t\t\t\tShana James<br>\n\t\t\t\t\tAudra Jeffries<br>\n\t\t\t\t\tGerard “Jerry” Kent<br>\n\t\t\t\t\tAndrew Knox<br>\n\t\t\t\t\tRichard Law<br>\n\t\t\t\t\tScott Lowery<br>\n\t\t\t\t\tAshleigh Newman<br>\n\t\t\t\t\tHarvey Newton, Vice Chair<br>\n\t\t\t\t\tMichele Potter\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension>\n<div class=\"content\" spellcheck=\"false\">\n\t\t\t\t<p>\n\t\t\t\t\tTodd V. Savage, Chair<br>\n\t\t\t\t\tDaniel T. Thibodeau<br>\n\t\t\t\t\tSarah Taylor<br>\n\t\t\t\t\tTracy Urig, Treasurer<br>\n\t\t\t\t\tAngela Whilden\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tDr. Deloris Wilson – Emeritus Member<br>\n\t\t\t\t\tRoby Blankenship – Lifetime Member<br>\n\t\t\t\t\tDwight Schaubach – Lifetime Member\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:33",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:33",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:9:70-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">2025-2026 Advisory Board Members</h5>\n\n<p class=\"u-textLg u-textGreyMedium no-margin-bottom padding-left-md padding-right-md\" style=\"text-align:center;max-width:768px;margin:auto;\">\n\tThe Hampton Roads Area Command advisory board comprises a wide spectrum of hard-working men and women who share the vision to transform and restore lives in Norfolk, Portsmouth, Chesapeake, and Virginia Beach.\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension>\n<div class=\"content\" spellcheck=\"false\">\n\t\t\t\t<p>\n\t\t\t\t\tDr. Rebecca Adams<br>\n\t\t\t\t\tScott Bateman<br>\n\t\t\t\t\tJim Beale<br>\n\t\t\t\t\tTroy a. Brinkley<br>\n\t\t\t\t\tMarilyn Castro<br>\n\t\t\t\t\tDavid Cobbs<br>\n\t\t\t\t\tBlake Hadley<br>\n\t\t\t\t\tCheryl Hickok<br>\n\t\t\t\t\t \n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t \n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension>\n<div class=\"content\" spellcheck=\"false\">\n\t\t\t\t<p>\n\t\t\t\t\tShana James<br>\n\t\t\t\t\tAudra Jeffries<br>\n\t\t\t\t\tGerard “Jerry” Kent<br>\n\t\t\t\t\tAndrew Knox<br>\n\t\t\t\t\tRichard Law<br>\n\t\t\t\t\tScott Lowery<br>\n\t\t\t\t\tAshleigh Newman<br>\n\t\t\t\t\tHarvey Newton, Vice Chair<br>\n\t\t\t\t\tMichele Potter\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension>\n<div class=\"content\" spellcheck=\"false\">\n\t\t\t\t<p>\n\t\t\t\t\tTodd V. Savage, Chair<br>\n\t\t\t\t\tDaniel T. Thibodeau<br>\n\t\t\t\t\tSarah Taylor<br>\n\t\t\t\t\tTracy Urig, Treasurer<br>\n\t\t\t\t\tAngela Whilden\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tDr. Deloris Wilson – Emeritus Member<br>\n\t\t\t\t\tRoby Blankenship – Lifetime Member<br>\n\t\t\t\t\tDwight Schaubach – Lifetime Member\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div></div>"
+							},
+							"design:design:whitespace-xl:3:14": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:14",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:9:70-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"design:design:whitespace-xl:4:52": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:whitespace-xl:4:52",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:9:70-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:5:31": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"text-align:center;\">\n\t<strong>Join Our Advisory Board and Make a Lasting Impact</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tAre you passionate about creating meaningful change in our community? The Salvation Army Hampton Roads Area Command is seeking dedicated leaders to serve on our Advisory Board . Individuals must be ready to share their time, talents, and influence to help us meet urgent needs and uplift lives across the region. Our Advisory Board members play a critical role in guiding the mission and strategic direction of The Salvation Army locally. From supporting fundraising initiatives to providing community insight and advocacy, our advisory board members serve as ambassadors for hope, compassion, and service.\n</p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>By joining the Advisory Board, you can:</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tHelp shape programs that serve thousands of families each year\n</p>\n\n<p style=\"text-align:center;\">\n\tAdvocate for solutions to hunger, homelessness, and poverty\n</p>\n\n<p style=\"text-align:center;\">\n\tUse your professional skills to strengthen organizational impact\n</p>\n\n<p style=\"text-align:center;\">\n\tNetwork with other community-minded leaders\n</p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<p style=\"text-align:center;\">\n\tIf you are ready to make a difference and want to learn more about becoming an Advisory Board member, we invite you to reach out today. Please complete our Advisory Board Interest Form by clicking the button below.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://forms.office.com/r/YF8zkCs51G\" class=\"btn btn-secondary gap-1 mt-2\">Advisory Board Interest Form</a></p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<p style=\"text-align:center;\">\n\tIf you have any additional questions, please contact Beth Hornby, Development Director at <a href=\"mailto:beth.hornby@uss.salvationarmy.org\">beth.hornby@uss.salvationarmy.org</a> or call <a href=\"tel:7572718431\">757-271-8431</a>.\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"text-align:center;\">\n\t<strong>Join Our Advisory Board and Make a Lasting Impact</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tAre you passionate about creating meaningful change in our community? The Salvation Army Hampton Roads Area Command is seeking dedicated leaders to serve on our Advisory Board . Individuals must be ready to share their time, talents, and influence to help us meet urgent needs and uplift lives across the region. Our Advisory Board members play a critical role in guiding the mission and strategic direction of The Salvation Army locally. From supporting fundraising initiatives to providing community insight and advocacy, our advisory board members serve as ambassadors for hope, compassion, and service.\n</p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>By joining the Advisory Board, you can:</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tHelp shape programs that serve thousands of families each year\n</p>\n\n<p style=\"text-align:center;\">\n\tAdvocate for solutions to hunger, homelessness, and poverty\n</p>\n\n<p style=\"text-align:center;\">\n\tUse your professional skills to strengthen organizational impact\n</p>\n\n<p style=\"text-align:center;\">\n\tNetwork with other community-minded leaders\n</p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<p style=\"text-align:center;\">\n\tIf you are ready to make a difference and want to learn more about becoming an Advisory Board member, we invite you to reach out today. Please complete our Advisory Board Interest Form by clicking the button below.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://forms.office.com/r/YF8zkCs51G\" class=\"btn btn-secondary gap-1 mt-2\">Advisory Board Interest Form</a></p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<p style=\"text-align:center;\">\n\tIf you have any additional questions, please contact Beth Hornby, Development Director at <a href=\"mailto:beth.hornby@uss.salvationarmy.org\">beth.hornby@uss.salvationarmy.org</a> or call <a href=\"tel:7572718431\">757-271-8431</a>.\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 4,
+								"fullName": "content:wysiwyg_basic:5:31",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:5:31",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:9:70-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><p style=\"text-align:center;\">\n\t<strong>Join Our Advisory Board and Make a Lasting Impact</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tAre you passionate about creating meaningful change in our community? The Salvation Army Hampton Roads Area Command is seeking dedicated leaders to serve on our Advisory Board . Individuals must be ready to share their time, talents, and influence to help us meet urgent needs and uplift lives across the region. Our Advisory Board members play a critical role in guiding the mission and strategic direction of The Salvation Army locally. From supporting fundraising initiatives to providing community insight and advocacy, our advisory board members serve as ambassadors for hope, compassion, and service.\n</p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>By joining the Advisory Board, you can:</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tHelp shape programs that serve thousands of families each year\n</p>\n\n<p style=\"text-align:center;\">\n\tAdvocate for solutions to hunger, homelessness, and poverty\n</p>\n\n<p style=\"text-align:center;\">\n\tUse your professional skills to strengthen organizational impact\n</p>\n\n<p style=\"text-align:center;\">\n\tNetwork with other community-minded leaders\n</p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<p style=\"text-align:center;\">\n\tIf you are ready to make a difference and want to learn more about becoming an Advisory Board member, we invite you to reach out today. Please complete our Advisory Board Interest Form by clicking the button below.\n</p>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://forms.office.com/r/YF8zkCs51G\" class=\"btn btn-light\">Advisory Board Interest Form</a></p>\n\n<p style=\"text-align:center;\">\n\t \n</p>\n\n<p style=\"text-align:center;\">\n\tIf you have any additional questions, please contact Beth Hornby, Development Director at <a href=\"mailto:beth.hornby@uss.salvationarmy.org\">beth.hornby@uss.salvationarmy.org</a> or call <a href=\"tel:7572718431\">757-271-8431</a>.\n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

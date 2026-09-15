@@ -15,46 +15,6 @@
   },
   {
     "type": "menu",
-    "key": null,
-    "page_name": "Spiritual Healing",
-    "page-zuid": "7-86e19fd2d5-0lcfns",
-    "sort": 0,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Food Pantries",
-    "page-zuid": "7-84dcc5fcce-q4wmnj",
-    "sort": 1,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Family Counseling",
-    "page-zuid": "7-ccf39089dc-949bfk",
-    "sort": 2,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Disaster Relief",
-    "page-zuid": "7-aefb9aa7c1-9jj0gz",
-    "sort": 3,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Homelessness",
-    "page-zuid": "7-bc9bfdb5c8-c65cj3",
-    "sort": 4,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
     "key": "about_us",
     "page_name": "About Us",
     "page-zuid": null,
@@ -111,15 +71,15 @@
   {
     "type": "menu",
     "key": "events",
-    "page_name": "Duluth Worship and Service Center",
-    "page-zuid": "7-bc84a6f48e-979bl4",
+    "page_name": "Events",
+    "page-zuid": null,
     "parent": null
   },
   {
     "type": "menu",
     "key": "newsroom",
-    "page_name": "Duluth Worship and Service Center",
-    "page-zuid": "7-def49fc289-s4rvpj",
+    "page_name": "Newsroom",
+    "page-zuid": null,
     "parent": null
   },
   {
@@ -189,7 +149,20 @@
     "type": "menu",
     "key": "contact_us",
     "page_name": "Contact Us",
-    "page-zuid": "7-9684c9e2a8-7lzq8v",
+    "page-zuid": null,
     "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "RBA",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "view-all",
+    "page_name": "Rookie Basketball Association",
+    "page-zuid": "7-a2d08ccddb-x70qkr",
+    "parent": "custom_menu"
   }
 ]

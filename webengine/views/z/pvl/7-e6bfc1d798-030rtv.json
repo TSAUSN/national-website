@@ -1,0 +1,190 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:64:0:91": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-d6c9c78aba-434lbm')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-d6c9c78aba-434lbm')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:64:0:91",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:12:74": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:12:74",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:12:74-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:84": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:84",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:74-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:72": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"text-align:left;\">\n\tSince 2009, we’ve offered a full spectrum of support services that educate, empower, and equip homeless or impoverished women with the tools and skills they need to pursue a brighter future for themselves and their children.\n</p>\n\n<p style=\"text-align:left;\">\n\tWe provide stable housing and a 6-month program for qualified applicants who need help getting on their feet. But what we do here at H.O.P.E. Village is about so much more than simply providing housing. Our ultimate goal is to help each woman that enters our program develop the skills needed to thrive on her own, and to live a fulfilling, successful life.\n</p>\n\n<p style=\"text-align:left;\">\n\tEach member of our residential community – comprised of 10 single-family homes, a Learning Center, and an administrative office – is given the opportunity to work through trauma, and address the issues that led to her homelessness, in a safe, supportive environment while also developing the skills needed to live independently.\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"text-align:left;\">\n\tSince 2009, we’ve offered a full spectrum of support services that educate, empower, and equip homeless or impoverished women with the tools and skills they need to pursue a brighter future for themselves and their children.\n</p>\n\n<p style=\"text-align:left;\">\n\tWe provide stable housing and a 6-month program for qualified applicants who need help getting on their feet. But what we do here at H.O.P.E. Village is about so much more than simply providing housing. Our ultimate goal is to help each woman that enters our program develop the skills needed to thrive on her own, and to live a fulfilling, successful life.\n</p>\n\n<p style=\"text-align:left;\">\n\tEach member of our residential community – comprised of 10 single-family homes, a Learning Center, and an administrative office – is given the opportunity to work through trauma, and address the issues that led to her homelessness, in a safe, supportive environment while also developing the skills needed to live independently.\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:72",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:72",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:74-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><p style=\"text-align:left;\">\n\tSince 2009, we’ve offered a full spectrum of support services that educate, empower, and equip homeless or impoverished women with the tools and skills they need to pursue a brighter future for themselves and their children.\n</p>\n\n<p style=\"text-align:left;\">\n\tWe provide stable housing and a 6-month program for qualified applicants who need help getting on their feet. But what we do here at H.O.P.E. Village is about so much more than simply providing housing. Our ultimate goal is to help each woman that enters our program develop the skills needed to thrive on her own, and to live a fulfilling, successful life.\n</p>\n\n<p style=\"text-align:left;\">\n\tEach member of our residential community – comprised of 10 single-family homes, a Learning Center, and an administrative office – is given the opportunity to work through trauma, and address the issues that led to her homelessness, in a safe, supportive environment while also developing the skills needed to live independently.\n</p></div>"
+							},
+							"design:design:whitespace-xl:3:97": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:97",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:74-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:4:62": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:420px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d8a80aee-4961-4153-88ec-2832fb4b1757_brighten-the-holidays.jpg');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"testimonialbox-section text-white rounded\">\n  <div class=\"bg-photo-overlay bg-opacity-60\" style=\"position:absolute;inset:0;z-index:1;\"></div>\n  <div style=\"position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:420px;padding:48px 40px;\">\n    <div style=\"max-width:720px;text-align:center;\">\n      <h6 style=\"text-align:center;\">246 Women and 119 have found hope here</h6>\n      <p style=\"text-align:center;color:#fff;\">In the past 10 years, H.O.P.E. Village has graduated 246 women and 119 children into self-sufficiency.</p>\n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div style=\"position:relative;overflow:hidden;min-height:420px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d8a80aee-4961-4153-88ec-2832fb4b1757_brighten-the-holidays.jpg');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"testimonialbox-section text-white rounded\">\n  <div class=\"bg-photo-overlay bg-opacity-60\" style=\"position:absolute;inset:0;z-index:1;\"></div>\n  <div style=\"position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:420px;padding:48px 40px;\">\n    <div style=\"max-width:720px;text-align:center;\">\n      <h6 style=\"text-align:center;\">246 Women and 119 have found hope here</h6>\n      <p style=\"text-align:center;color:#fff;\">In the past 10 years, H.O.P.E. Village has graduated 246 women and 119 children into self-sufficiency.</p>\n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"model": "6",
+								"manualContent": "<div style=\"position:relative;overflow:hidden;min-height:420px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d8a80aee-4961-4153-88ec-2832fb4b1757_brighten-the-holidays.jpg');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"testimonialbox-section text-white rounded\">\n  <div class=\"bg-photo-overlay bg-opacity-60\" style=\"position:absolute;inset:0;z-index:1;\"></div>\n  <div style=\"position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:420px;padding:48px 40px;\">\n    <div style=\"max-width:720px;text-align:center;\">\n      <h6 style=\"text-align:center;\">246 Women and 119 have found hope here</h6>\n      <p style=\"text-align:center;color:#fff;\">In the past 10 years, H.O.P.E. Village has graduated 246 women and 119 children into self-sufficiency.</p>\n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:4:62",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:4:62",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "420px",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d8a80aee-4961-4153-88ec-2832fb4b1757_brighten-the-holidays.jpg')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover"
+								},
+								"classes": "testimonialbox-section text-white rounded",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:74-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:5:74": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:5:74",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:74-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:6:61": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 5,
+								"fullName": "design:design:whitespace-xl:6:61",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:74-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:7:35": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5>How to Apply for the Program</h5>\n\n<p>\n\tPlease note – participants are referred by our Southeastern Virginia Homeless Coalition (svhc) partner agencies. We cannot accept direct calls for entry into the program. If you are in need of housing assistance, please contact the Regional Housing Crisis Hotline at <a href=\"tel:7575874202.\" target=\"\">757-587-4202.</a> The Regional Crisis Hotline serves as the single point of contact for homeless families and individuals in Hampton Roads.\n</p>\n\n<h5>Hope Village Donation Wishlist</h5>\n\n<ul style=\"margin-bottom:0in;caret-color:#000000;color:#000000;font-family:Calibri;font-style:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:auto;text-align:start;text-transform:none;white-space:normal;widows:auto;word-spacing:0px;-webkit-text-stroke-width:0px;margin-top:0in;\" type=\"disc\">\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Trash bags (kitchen size)</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Window Cleaner</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Cleaning towels/cloths</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Mops (not Swiffer, but the old-school ones)</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Kitchen trashcans</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Bathroom trashcans</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Sponges</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Steel Wool</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Paper plates</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Plastic utensils</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Single-use Cups</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Feminine pads (various sizes and brands a plus)</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">2025 calendars And planning books</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Toilet plungers</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Toilet scrub brushes</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Full-size Blankets and linens (must be new in packaging) </li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Twin-size Blankets and linens (must be new in packaging)</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Twin and Full Size Sheet Sets</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Furniture &amp; Décor (new or very gently used)</li>\n</ul></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5>How to Apply for the Program</h5>\n\n<p>\n\tPlease note – participants are referred by our Southeastern Virginia Homeless Coalition (svhc) partner agencies. We cannot accept direct calls for entry into the program. If you are in need of housing assistance, please contact the Regional Housing Crisis Hotline at <a href=\"tel:7575874202.\" target=\"\">757-587-4202.</a> The Regional Crisis Hotline serves as the single point of contact for homeless families and individuals in Hampton Roads.\n</p>\n\n<h5>Hope Village Donation Wishlist</h5>\n\n<ul style=\"margin-bottom:0in;caret-color:#000000;color:#000000;font-family:Calibri;font-style:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:auto;text-align:start;text-transform:none;white-space:normal;widows:auto;word-spacing:0px;-webkit-text-stroke-width:0px;margin-top:0in;\" type=\"disc\">\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Trash bags (kitchen size)</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Window Cleaner</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Cleaning towels/cloths</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Mops (not Swiffer, but the old-school ones)</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Kitchen trashcans</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Bathroom trashcans</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Sponges</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Steel Wool</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Paper plates</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Plastic utensils</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Single-use Cups</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Feminine pads (various sizes and brands a plus)</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">2025 calendars And planning books</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Toilet plungers</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Toilet scrub brushes</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Full-size Blankets and linens (must be new in packaging) </li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Twin-size Blankets and linens (must be new in packaging)</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Twin and Full Size Sheet Sets</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Furniture &amp; Décor (new or very gently used)</li>\n</ul></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 6,
+								"fullName": "content:wysiwyg_basic:7:35",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:7:35",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:74-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5>How to Apply for the Program</h5>\n\n<p>\n\tPlease note – participants are referred by our Southeastern Virginia Homeless Coalition (svhc) partner agencies. We cannot accept direct calls for entry into the program. If you are in need of housing assistance, please contact the Regional Housing Crisis Hotline at <a href=\"tel:7575874202.\" target=\"\">757-587-4202.</a> The Regional Crisis Hotline serves as the single point of contact for homeless families and individuals in Hampton Roads.\n</p>\n\n<h5>Hope Village Donation Wishlist</h5>\n\n<ul style=\"margin-bottom:0in;caret-color:#000000;color:#000000;font-family:Calibri;font-style:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:auto;text-align:start;text-transform:none;white-space:normal;widows:auto;word-spacing:0px;-webkit-text-stroke-width:0px;margin-top:0in;\" type=\"disc\">\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Trash bags (kitchen size)</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Window Cleaner</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Cleaning towels/cloths</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Mops (not Swiffer, but the old-school ones)</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Kitchen trashcans</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Bathroom trashcans</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Sponges</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Steel Wool</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Paper plates</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Plastic utensils</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Single-use Cups</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Feminine pads (various sizes and brands a plus)</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">2025 calendars And planning books</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Toilet plungers</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Toilet scrub brushes</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Full-size Blankets and linens (must be new in packaging) </li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Twin-size Blankets and linens (must be new in packaging)</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Twin and Full Size Sheet Sets</li>\n\t<li style=\"margin:0in;font-size:11pt;font-family:Calibri, sans-serif;\">Furniture &amp; Décor (new or very gently used)</li>\n</ul></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

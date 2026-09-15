@@ -1,0 +1,202 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:58:0:70": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-90c8f1f7ea-zrblc2')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-90c8f1f7ea-zrblc2')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:58:0:70",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:11:57": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:11:57",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:11:57-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:40": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:40",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:11:57-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:2:8": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">What We Believe</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "What We Believe",
+								"position": 1,
+								"fullName": "content:text:2:8",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:2:8",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:11:57-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:3:23": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 2,
+								"fullName": "design:design:whitespace-sm:3:23",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:11:57-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:8:31": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3 g-4",
+								"html": "<div class=\"row my-3 g-4\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 3,
+								"fullName": "design:columns:2columns:8:31",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:11:57-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:8:31-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:4:63": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<ul>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThe Scriptures of the Old and New Testaments were given by inspiration of God, and that they only constitute the Divine rule of Christian faith and practice.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThere is only one God, who is infinitely perfect, the Creator, Preserver, and Governor of all things, and who is the only proper object of religious worship.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThere are three persons in the Godhead – the Father, the Son, and the Holy Ghost, undivided in essence and co-equal in power and glory.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tIn the person of Jesus Christ, the Divine and human natures are united, so that He is truly and properly God and truly and properly man.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tOur first parents were created in a state of innocence, but by their disobedience, they lost their purity and happiness, and that in consequence of their fall, all men have become sinners, totally depraved, and as such are justly exposed to the wrath of God.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<ul>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThe Scriptures of the Old and New Testaments were given by inspiration of God, and that they only constitute the Divine rule of Christian faith and practice.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThere is only one God, who is infinitely perfect, the Creator, Preserver, and Governor of all things, and who is the only proper object of religious worship.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThere are three persons in the Godhead – the Father, the Son, and the Holy Ghost, undivided in essence and co-equal in power and glory.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tIn the person of Jesus Christ, the Divine and human natures are united, so that He is truly and properly God and truly and properly man.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tOur first parents were created in a state of innocence, but by their disobedience, they lost their purity and happiness, and that in consequence of their fall, all men have become sinners, totally depraved, and as such are justly exposed to the wrath of God.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>",
+												"model": "6",
+												"manualContent": "<ul>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThe Scriptures of the Old and New Testaments were given by inspiration of God, and that they only constitute the Divine rule of Christian faith and practice.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThere is only one God, who is infinitely perfect, the Creator, Preserver, and Governor of all things, and who is the only proper object of religious worship.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThere are three persons in the Godhead – the Father, the Son, and the Holy Ghost, undivided in essence and co-equal in power and glory.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tIn the person of Jesus Christ, the Divine and human natures are united, so that He is truly and properly God and truly and properly man.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tOur first parents were created in a state of innocence, but by their disobedience, they lost their purity and happiness, and that in consequence of their fall, all men have become sinners, totally depraved, and as such are justly exposed to the wrath of God.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:4:63",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:4:63",
+												"styles": {},
+												"newLoc": "design:columns:2columns:8:31-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:8:31-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:6:34": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<ul>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThe Scriptures of the Old and New Testaments were given by inspiration of God, and that they only constitute the Divine rule of Christian faith and practice.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThere is only one God, who is infinitely perfect, the Creator, Preserver, and Governor of all things, and who is the only proper object of religious worship.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThere are three persons in the Godhead – the Father, the Son, and the Holy Ghost, undivided in essence and co-equal in power and glory.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tIn the person of Jesus Christ, the Divine and human natures are united, so that He is truly and properly God and truly and properly man.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tOur first parents were created in a state of innocence, but by their disobedience, they lost their purity and happiness, and that in consequence of their fall, all men have become sinners, totally depraved, and as such are justly exposed to the wrath of God.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<ul>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThe Scriptures of the Old and New Testaments were given by inspiration of God, and that they only constitute the Divine rule of Christian faith and practice.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThere is only one God, who is infinitely perfect, the Creator, Preserver, and Governor of all things, and who is the only proper object of religious worship.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThere are three persons in the Godhead – the Father, the Son, and the Holy Ghost, undivided in essence and co-equal in power and glory.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tIn the person of Jesus Christ, the Divine and human natures are united, so that He is truly and properly God and truly and properly man.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tOur first parents were created in a state of innocence, but by their disobedience, they lost their purity and happiness, and that in consequence of their fall, all men have become sinners, totally depraved, and as such are justly exposed to the wrath of God.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>",
+												"model": "6",
+												"manualContent": "<ul>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThe Scriptures of the Old and New Testaments were given by inspiration of God, and that they only constitute the Divine rule of Christian faith and practice.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThere is only one God, who is infinitely perfect, the Creator, Preserver, and Governor of all things, and who is the only proper object of religious worship.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tThere are three persons in the Godhead – the Father, the Son, and the Holy Ghost, undivided in essence and co-equal in power and glory.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tIn the person of Jesus Christ, the Divine and human natures are united, so that He is truly and properly God and truly and properly man.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><p>\n\t\t\t\t\t\tOur first parents were created in a state of innocence, but by their disobedience, they lost their purity and happiness, and that in consequence of their fall, all men have become sinners, totally depraved, and as such are justly exposed to the wrath of God.\n\t\t\t\t\t</p>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:6:34",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:6:34",
+												"styles": {},
+												"newLoc": "design:columns:2columns:8:31-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

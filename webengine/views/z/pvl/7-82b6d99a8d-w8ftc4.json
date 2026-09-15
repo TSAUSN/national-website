@@ -1,0 +1,147 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:72:0:21": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-be8be38dbb-btc8vm')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-be8be38dbb-btc8vm')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:72:0:21",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:9:97": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:9:97",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:9:97-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:2": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:2",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:9:97-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:51": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5 style=\"text-align:center;\">Programs that Your Gift Will Support:</h5>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-3 col-lg-3 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5edb36f3-1b69-40b2-abba-d7ec0fe44f0b_5D__7303copy-1.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:20px;\">General Operations Fund</span></h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-3 col-lg-3 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/2bbb3d42-533f-40b2-80dd-4035a9350103_residential-800x800-1.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:20px;\">Family and Household Stability</span></h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-3 col-lg-3 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/131afd49-5f78-4368-a50e-d5730a11543c_b-family-2-1-300x300.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:20px;\">Youth Development Programs</span></h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-3 col-lg-3 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/7a6f4f0c-e86b-426e-8be7-465da3bcfeba_b-kno-programs-22-bw-1.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:20px;\">Hunger and Food Insecurity</span></h5>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5 style=\"text-align:center;\">Programs that Your Gift Will Support:</h5>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-3 col-lg-3 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5edb36f3-1b69-40b2-abba-d7ec0fe44f0b_5D__7303copy-1.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:20px;\">General Operations Fund</span></h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-3 col-lg-3 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/2bbb3d42-533f-40b2-80dd-4035a9350103_residential-800x800-1.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:20px;\">Family and Household Stability</span></h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-3 col-lg-3 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/131afd49-5f78-4368-a50e-d5730a11543c_b-family-2-1-300x300.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:20px;\">Youth Development Programs</span></h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-3 col-lg-3 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/7a6f4f0c-e86b-426e-8be7-465da3bcfeba_b-kno-programs-22-bw-1.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:20px;\">Hunger and Food Insecurity</span></h5>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:51",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:51",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:9:97-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">Programs that Your Gift Will Support:</h5>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-3 col-lg-3 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5edb36f3-1b69-40b2-abba-d7ec0fe44f0b_5D__7303copy-1.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:20px;\">General Operations Fund</span></h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-3 col-lg-3 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/2bbb3d42-533f-40b2-80dd-4035a9350103_residential-800x800-1.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:20px;\">Family and Household Stability</span></h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-3 col-lg-3 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/131afd49-5f78-4368-a50e-d5730a11543c_b-family-2-1-300x300.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:20px;\">Youth Development Programs</span></h5>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-3 col-lg-3 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/7a6f4f0c-e86b-426e-8be7-465da3bcfeba_b-kno-programs-22-bw-1.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<h5 style=\"text-align:center;\"><span style=\"font-size:20px;\">Hunger and Food Insecurity</span></h5>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div></div>"
+							},
+							"design:design:whitespace-xl:3:98": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:98",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:9:97-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"design:design:whitespace-xl:4:81": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:whitespace-xl:4:81",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:9:97-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:5:53": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmyalm.org/give/552180/#!/donation/checkout\" class=\"btn btn-primary gap-1 mt-2\">Donate Now</a></p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmyalm.org/give/552180/#!/donation/checkout\" class=\"btn btn-primary gap-1 mt-2\">Donate Now</a></p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 4,
+								"fullName": "content:wysiwyg_basic:5:53",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:5:53",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:9:97-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://give.salvationarmyalm.org/give/552180/#!/donation/checkout\" class=\"btn btn-light\">Donate Now</a></p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

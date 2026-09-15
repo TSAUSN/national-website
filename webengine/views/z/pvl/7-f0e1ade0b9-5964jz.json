@@ -1,0 +1,459 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:84:0:52": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-f8bcc5bace-zvbk4c')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-f8bcc5bace-zvbk4c')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:84:0:52",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:24:85": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:24:85",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:24:85-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:22:73": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:22:73",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:24:85-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:1:34": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Members</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Members",
+								"position": 1,
+								"fullName": "content:text:1:34",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:1:34",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:24:85-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:3:85": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 2,
+								"fullName": "design:design:whitespace-sm:3:85",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:24:85-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:6:27": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 3,
+								"fullName": "design:columns:2columns:6:27",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:24:85-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:6:27-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:2:48": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Michael Babb, 2021</strong>\n</p>\n\n<ul>\n\t<li>Managing Partner Osceola Capital Management</li>\n</ul>\n\n<p>\n\t<strong>Fred Carlson, 2017</strong>\n</p>\n\n<ul>\n\t<li>President Alliance Exchange Corp.</li>\n</ul>\n\n<p>\n\t<strong>Elizabeth Cooper 2025</strong>\n</p>\n\n<ul>\n\t<li>Director of Behavioral Health Acute Inpatient Services, BayCare Health System</li>\n</ul>\n\n<p>\n\t<strong>Charles Gagliano, 2024</strong>\n</p>\n\n<ul>\n\t<li>Retired <em>Brown </em>International</li>\n</ul>\n\n<p>\n\t<strong>Rob Catoe, 2015</strong>\n</p>\n\n<ul>\n\t<li>Vice President td Bank</li>\n</ul>\n\n<p>\n\t<strong>Elena Dawson, 2021</strong>\n</p>\n\n<ul>\n\t<li>Sr. Vp, Dir. Credit Risk Gov. Raymond James</li>\n</ul>\n\n<p>\n\t<strong>Bob Deans, 2021</strong>\n</p>\n\n<ul>\n\t<li>Vp Regional Operations FedEx</li>\n</ul>\n\n<p>\n\t<strong>John <em>DeLaVergne</em>, 2011</strong>\n</p>\n\n<ul>\n\t<li>President <em>DeLaVergne </em>&amp; Co.</li>\n</ul>\n\n<p>\n\t<strong>David DeWeese, 2019</strong>\n</p>\n\n<ul>\n\t<li>Sr. Vp, Wealth Management Regions Bank</li>\n</ul>\n\n<p>\n\t<strong>Terrod Bright, 2024</strong>\n</p>\n\n<ul>\n\t<li>Avp Business Banking Relationship Manager at jp Morgan Chase</li>\n</ul>\n\n<p>\n\t<strong>Hiram Green, 2021</strong>\n</p>\n\n<ul>\n\t<li>Dir. <em>Community </em>Engagement USF</li>\n</ul>\n\n<p>\n\t<strong>Allen<em> </em>Greene II, 2022</strong>\n</p>\n\n<ul>\n\t<li>President and<em> </em>Co-Founder Envision</li>\n</ul>\n\n<p>\n\t<strong>J.D. Pellecchia, cfp®, cima®, cka®</strong>\n</p>\n\n<ul>\n\t<li>Managing Partner, Founder&nbsp;PFS Signature Wealth</li>\n</ul>\n\n<p>\n\t<strong>Kimberly Derryberry</strong>\n</p>\n\n<ul>\n\t<li>Morgan Auto Group</li>\n</ul></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Michael Babb, 2021</strong>\n</p>\n\n<ul>\n\t<li>Managing Partner Osceola Capital Management</li>\n</ul>\n\n<p>\n\t<strong>Fred Carlson, 2017</strong>\n</p>\n\n<ul>\n\t<li>President Alliance Exchange Corp.</li>\n</ul>\n\n<p>\n\t<strong>Elizabeth Cooper 2025</strong>\n</p>\n\n<ul>\n\t<li>Director of Behavioral Health Acute Inpatient Services, BayCare Health System</li>\n</ul>\n\n<p>\n\t<strong>Charles Gagliano, 2024</strong>\n</p>\n\n<ul>\n\t<li>Retired <em>Brown </em>International</li>\n</ul>\n\n<p>\n\t<strong>Rob Catoe, 2015</strong>\n</p>\n\n<ul>\n\t<li>Vice President td Bank</li>\n</ul>\n\n<p>\n\t<strong>Elena Dawson, 2021</strong>\n</p>\n\n<ul>\n\t<li>Sr. Vp, Dir. Credit Risk Gov. Raymond James</li>\n</ul>\n\n<p>\n\t<strong>Bob Deans, 2021</strong>\n</p>\n\n<ul>\n\t<li>Vp Regional Operations FedEx</li>\n</ul>\n\n<p>\n\t<strong>John <em>DeLaVergne</em>, 2011</strong>\n</p>\n\n<ul>\n\t<li>President <em>DeLaVergne </em>&amp; Co.</li>\n</ul>\n\n<p>\n\t<strong>David DeWeese, 2019</strong>\n</p>\n\n<ul>\n\t<li>Sr. Vp, Wealth Management Regions Bank</li>\n</ul>\n\n<p>\n\t<strong>Terrod Bright, 2024</strong>\n</p>\n\n<ul>\n\t<li>Avp Business Banking Relationship Manager at jp Morgan Chase</li>\n</ul>\n\n<p>\n\t<strong>Hiram Green, 2021</strong>\n</p>\n\n<ul>\n\t<li>Dir. <em>Community </em>Engagement USF</li>\n</ul>\n\n<p>\n\t<strong>Allen<em> </em>Greene II, 2022</strong>\n</p>\n\n<ul>\n\t<li>President and<em> </em>Co-Founder Envision</li>\n</ul>\n\n<p>\n\t<strong>J.D. Pellecchia, cfp®, cima®, cka®</strong>\n</p>\n\n<ul>\n\t<li>Managing Partner, Founder&nbsp;PFS Signature Wealth</li>\n</ul>\n\n<p>\n\t<strong>Kimberly Derryberry</strong>\n</p>\n\n<ul>\n\t<li>Morgan Auto Group</li>\n</ul></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:2:48",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:2:48",
+												"styles": {
+													"fontWeight": "700",
+													"fontStyle": "italic"
+												},
+												"newLoc": "design:columns:2columns:6:27-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:6:27-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:4:91": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Ariana Greene, 2022</strong>\n</p>\n\n<ul>\n\t<li>Dir. Of Operations Envision</li>\n</ul>\n\n<p>\n\t<strong>Howard Grosswirth, 2008</strong>\n</p>\n\n<ul>\n\t<li>Vice President of Marketing New York Yankees</li>\n</ul>\n\n<p>\n\t<strong>Usha Menon, 2022</strong>\n</p>\n\n<ul>\n\t<li>Dean of the College of Nursing usf</li>\n</ul>\n\n<p>\n\t<strong>Bob Morrison 2025</strong>\n</p>\n\n<ul>\n\t<li>President / CEO Morrison and Associates, Inc.</li>\n</ul>\n\n<p>\n\t<strong>John Talbot “Tal” Land, 2013</strong>\n</p>\n\n<ul>\n\t<li>Managing Director Talbot &amp; Associates Healthcare Consulting, llc</li>\n</ul>\n\n<p>\n\t<strong>J.D. Pellecchia, 2015</strong>\n</p>\n\n<ul>\n\t<li>President pfs Financial</li>\n</ul>\n\n<p>\n\t<strong>Karen Perez, 2021</strong>\n</p>\n\n<ul>\n\t<li>School Board Hillsborough County</li>\n</ul>\n\n<p>\n\t<strong>Deborah Powe, 2021</strong>\n</p>\n\n<ul>\n\t<li>Senior<em> </em>Pastor Revealing Truth Ministries</li>\n</ul>\n\n<p>\n\t<strong>Tony Umholtz, 2017</strong>\n</p>\n\n<ul>\n\t<li>Senior Vice President, Mortgage Banking First Horizon Mortgage</li>\n</ul>\n\n<p>\n\t<strong>Brooke Asiatico, 2024</strong>\n</p>\n\n<ul>\n\t<li>Managing Partner Asiatico Law</li>\n</ul>\n\n<p>\n\t<strong>Judge Paul Huey, 2024</strong>\n</p>\n\n<ul>\n\t<li>13th Judicial Circuit Court Judge</li>\n</ul>\n\n<p>\n\t<strong>David Doney 2025</strong>\n</p>\n\n<ul>\n\t<li>Partner at Akerman llp</li>\n</ul>\n\n<p>\n\t<strong>Dale Peterson, ccim</strong>\n</p>\n\n<ul>\n\t<li>Managing Director | Investment Advisory Group Foundry Commercial</li>\n</ul>\n\n<p>\n\t<strong>Sage Robertson</strong>\n</p>\n\n<ul>\n\t<li>Raymond James</li>\n</ul></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Ariana Greene, 2022</strong>\n</p>\n\n<ul>\n\t<li>Dir. Of Operations Envision</li>\n</ul>\n\n<p>\n\t<strong>Howard Grosswirth, 2008</strong>\n</p>\n\n<ul>\n\t<li>Vice President of Marketing New York Yankees</li>\n</ul>\n\n<p>\n\t<strong>Usha Menon, 2022</strong>\n</p>\n\n<ul>\n\t<li>Dean of the College of Nursing usf</li>\n</ul>\n\n<p>\n\t<strong>Bob Morrison 2025</strong>\n</p>\n\n<ul>\n\t<li>President / CEO Morrison and Associates, Inc.</li>\n</ul>\n\n<p>\n\t<strong>John Talbot “Tal” Land, 2013</strong>\n</p>\n\n<ul>\n\t<li>Managing Director Talbot &amp; Associates Healthcare Consulting, llc</li>\n</ul>\n\n<p>\n\t<strong>J.D. Pellecchia, 2015</strong>\n</p>\n\n<ul>\n\t<li>President pfs Financial</li>\n</ul>\n\n<p>\n\t<strong>Karen Perez, 2021</strong>\n</p>\n\n<ul>\n\t<li>School Board Hillsborough County</li>\n</ul>\n\n<p>\n\t<strong>Deborah Powe, 2021</strong>\n</p>\n\n<ul>\n\t<li>Senior<em> </em>Pastor Revealing Truth Ministries</li>\n</ul>\n\n<p>\n\t<strong>Tony Umholtz, 2017</strong>\n</p>\n\n<ul>\n\t<li>Senior Vice President, Mortgage Banking First Horizon Mortgage</li>\n</ul>\n\n<p>\n\t<strong>Brooke Asiatico, 2024</strong>\n</p>\n\n<ul>\n\t<li>Managing Partner Asiatico Law</li>\n</ul>\n\n<p>\n\t<strong>Judge Paul Huey, 2024</strong>\n</p>\n\n<ul>\n\t<li>13th Judicial Circuit Court Judge</li>\n</ul>\n\n<p>\n\t<strong>David Doney 2025</strong>\n</p>\n\n<ul>\n\t<li>Partner at Akerman llp</li>\n</ul>\n\n<p>\n\t<strong>Dale Peterson, ccim</strong>\n</p>\n\n<ul>\n\t<li>Managing Director | Investment Advisory Group Foundry Commercial</li>\n</ul>\n\n<p>\n\t<strong>Sage Robertson</strong>\n</p>\n\n<ul>\n\t<li>Raymond James</li>\n</ul></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:4:91",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:4:91",
+												"styles": {
+													"fontWeight": "700",
+													"fontStyle": "italic"
+												},
+												"newLoc": "design:columns:2columns:6:27-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:whitespace-sm:8:82": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:8:82",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:24:85-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:13:55": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 5,
+								"fullName": "design:columns:3 Columns:13:55",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:24:85-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:13:55-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:7:40": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Emeritus Members</strong>\n</p>\n\n<p>\n\tRon K. Bailey\n</p>\n\n<ul>\n\t<li>Founder Bailey Family Foundation</li>\n</ul>\n\n<p>\n\tLarry Carey, M.D.\n</p>\n\n<ul>\n\t<li>Retired Surgeon now Administrator for VA Hospital</li>\n</ul>\n\n<p>\n\tO. Fred Dobbins\n</p>\n\n<ul>\n\t<li>City President SunTrust Bank</li>\n</ul>\n\n<p>\n\tJohn W. Harvey\n</p>\n\n<ul>\n\t<li>John Harvey &amp; Company</li>\n</ul>\n\n<p>\n\tHaynes Hendry\n</p>\n\n<ul>\n\t<li>Owner Hendry Real Estate Advisors</li>\n</ul>\n\n<p>\n\tJohn J. Howley\n</p>\n\n<ul>\n\t<li>Retired SunTrust Bank</li>\n</ul>\n\n<p>\n\tGene McNichols\n</p>\n\n<ul>\n\t<li>CFO McNichols Company</li>\n</ul>\n\n<p>\n\tCyndy Miller\n</p>\n\n<ul>\n\t<li>CFO <em>Chris </em>Kids (Atlanta, GA)</li>\n</ul>\n\n<p>\n\tEdyth B Roberts\n</p>\n\n<ul>\n\t<li>Administration usf Medical School</li>\n</ul>\n\n<p>\n\tPatricia Reid Rudy\n</p>\n\n<ul>\n\t<li>Retired</li>\n</ul>\n\n<p>\n\tW. Lawrence Smith\n</p>\n\n<ul>\n\t<li>Attorney Hill Ward Henderson</li>\n</ul></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Emeritus Members</strong>\n</p>\n\n<p>\n\tRon K. Bailey\n</p>\n\n<ul>\n\t<li>Founder Bailey Family Foundation</li>\n</ul>\n\n<p>\n\tLarry Carey, M.D.\n</p>\n\n<ul>\n\t<li>Retired Surgeon now Administrator for VA Hospital</li>\n</ul>\n\n<p>\n\tO. Fred Dobbins\n</p>\n\n<ul>\n\t<li>City President SunTrust Bank</li>\n</ul>\n\n<p>\n\tJohn W. Harvey\n</p>\n\n<ul>\n\t<li>John Harvey &amp; Company</li>\n</ul>\n\n<p>\n\tHaynes Hendry\n</p>\n\n<ul>\n\t<li>Owner Hendry Real Estate Advisors</li>\n</ul>\n\n<p>\n\tJohn J. Howley\n</p>\n\n<ul>\n\t<li>Retired SunTrust Bank</li>\n</ul>\n\n<p>\n\tGene McNichols\n</p>\n\n<ul>\n\t<li>CFO McNichols Company</li>\n</ul>\n\n<p>\n\tCyndy Miller\n</p>\n\n<ul>\n\t<li>CFO <em>Chris </em>Kids (Atlanta, GA)</li>\n</ul>\n\n<p>\n\tEdyth B Roberts\n</p>\n\n<ul>\n\t<li>Administration usf Medical School</li>\n</ul>\n\n<p>\n\tPatricia Reid Rudy\n</p>\n\n<ul>\n\t<li>Retired</li>\n</ul>\n\n<p>\n\tW. Lawrence Smith\n</p>\n\n<ul>\n\t<li>Attorney Hill Ward Henderson</li>\n</ul></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:7:40",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:7:40",
+												"styles": {
+													"fontWeight": "700",
+													"fontStyle": "italic"
+												},
+												"newLoc": "design:columns:3 Columns:13:55-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:13:55-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:9:15": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Ambassadors</strong>\n</p>\n\n<p>\n\tJennifer Steinbrenner Swindal<br>\n\tIan MacKechnie\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Ambassadors</strong>\n</p>\n\n<p>\n\tJennifer Steinbrenner Swindal<br>\n\tIan MacKechnie\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:9:15",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:9:15",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:13:55-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:13:55-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:11:20": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Ex-Officio Members</strong>\n</p>\n\n<p>\n\tJim Crookston, Adult Rehabilitation Center\n<br>\n\tPeggy Land, Community Activist &amp; Donor\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Ex-Officio Members</strong>\n</p>\n\n<p>\n\tJim Crookston, Adult Rehabilitation Center\n<br>\n\tPeggy Land, Community Activist &amp; Donor\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:11:20",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:11:20",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:13:55-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:design:whitespace-sm:15:59": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 6,
+								"fullName": "design:design:whitespace-sm:15:59",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:24:85-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:18:60": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 7,
+								"fullName": "design:columns:2columns:18:60",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:24:85-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:18:60-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:14:89": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Life Members</strong>\n</p>\n\n<p>\n\tBarbara Alonso Byars\n</p>\n\n<ul>\n\t<li>Retired Attorney</li>\n</ul>\n\n<p>\n\tRichard T. Farrior, M.D.\n</p>\n\n<ul>\n\t<li>Retired Plastic Surgeon</li>\n</ul>\n\n<p>\n\tThomas W. Vann\n</p>\n\n<ul>\n\t<li>Former City of Tampa Council Member</li>\n</ul>\n\n<p>\n\tJames W. Warren, iii\n</p>\n\n<ul>\n\t<li>Financial Advisor Wells Fargo Assoc.</li>\n</ul></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Life Members</strong>\n</p>\n\n<p>\n\tBarbara Alonso Byars\n</p>\n\n<ul>\n\t<li>Retired Attorney</li>\n</ul>\n\n<p>\n\tRichard T. Farrior, M.D.\n</p>\n\n<ul>\n\t<li>Retired Plastic Surgeon</li>\n</ul>\n\n<p>\n\tThomas W. Vann\n</p>\n\n<ul>\n\t<li>Former City of Tampa Council Member</li>\n</ul>\n\n<p>\n\tJames W. Warren, iii\n</p>\n\n<ul>\n\t<li>Financial Advisor Wells Fargo Assoc.</li>\n</ul></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:14:89",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:14:89",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:18:60-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:18:60-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:16:70": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Officers</strong>\n</p>\n\n<ul>\n\t<li>Major Rhea &amp; Mark Woodcock, Tampa/Hillsborough Area Commanders</li>\n\t<li>Captains Jeremy &amp; Crystal Porter, Corps Officers</li>\n\t<li>Captains Miguel &amp; Adieny Ramos, Corps Officers</li>\n\t<li>Majors Eileen &amp; Tim Farrell, Administrators, Adult Rehabilitation Center</li>\n</ul></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Officers</strong>\n</p>\n\n<ul>\n\t<li>Major Rhea &amp; Mark Woodcock, Tampa/Hillsborough Area Commanders</li>\n\t<li>Captains Jeremy &amp; Crystal Porter, Corps Officers</li>\n\t<li>Captains Miguel &amp; Adieny Ramos, Corps Officers</li>\n\t<li>Majors Eileen &amp; Tim Farrell, Administrators, Adult Rehabilitation Center</li>\n</ul></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:16:70",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:16:70",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:18:60-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}
