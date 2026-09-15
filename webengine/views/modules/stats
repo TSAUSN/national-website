@@ -285,7 +285,7 @@ function filterCarousel(stats) {
     }
 
     // TODO: temporary static value until a "Source URL" field is added to the Stats schema
-    const STATS_SOURCE_URL = 'https://www.salvationarmyusa.org/usn/about-us/annual-report/';
+    const STATS_SOURCE_URL = 'https://www.salvationarmyusa.org/';
 
     let carouselItemsRight;
     let carouselItemsLeft;
