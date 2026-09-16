@@ -317,7 +317,7 @@ function filterCarousel(stats) {
                     </div>
                   </div>
                   ${sourceUrl ? /*html*/ `
-                  <div class="p-12 p-sm-8">
+                  <div class="p-16 p-sm-6">
                     <a
                       data-location-type="body:stats"
                       data-function-type="other"
@@ -328,7 +328,7 @@ function filterCarousel(stats) {
                       href="${sourceUrl}"
                       target="_blank"
                       rel="noopener"
-                      class="stat-source-link social-icon fs-5 text-light"
+                      class="stat-source-link social-icon fs-3 text-light mx-3"
                       aria-label="View source"
                     >
                       <span class="material-symbols-outlined">info</span>
