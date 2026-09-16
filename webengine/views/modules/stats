@@ -331,7 +331,7 @@ function filterCarousel(stats) {
                       class="stat-source-link social-icon text-light mx-3"
                       aria-label="View source"
                     >
-                      <span class="material-symbols-outlined">info</span>
+                      <span class="material-symbols-outlined fs-4">info</span>
                     </a>
                   </div>
                   ` : ''}
