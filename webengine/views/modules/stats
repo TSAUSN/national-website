@@ -284,9 +284,6 @@ function filterCarousel(stats) {
       }
     }
 
-    // TODO: temporary static value until a "Source URL" field is added to the Stats schema
-    const STATS_SOURCE_URL = 'https://www.salvationarmyusa.org/';
-
     let carouselItemsRight;
     let carouselItemsLeft;
     function generateCarouselItems(stats) {
@@ -300,7 +297,7 @@ function filterCarousel(stats) {
           activeCriteria && isHomepage !== 'true'
             ? 'fetchpriority="high" loading="eager"'
             : 'loading="lazy"';
-        const sourceUrl = stat.source_url || STATS_SOURCE_URL;
+        const sourceUrl = stat.source_url;
         return /*html*/ `
         <div
                 class="carousel-item ${activeCriteria? 'active' : ''}"
