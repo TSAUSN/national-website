@@ -1,36 +1,49 @@
 {{$zuid = {request.queryParam(zuid)} }}
 {{$model = {request.queryParam(model)} }}
+{{$matchCount = 0 }}
 
 [
 {{if {$model} == "6-deab97cfd9-wb5km4" }}
-    {{each events as event WHERE find_in_set('{$zuid}', territories) LIMIT 0, 500 SORT BY event.event_date_with_time DESC }}
-        {
-            "content":{{event.toJSON()}},
-            "city": {{if {event.city} }} "{{cities.filter({event.city}).title }}" {{else}} "" {{/if}},
-            "state": {{if {event.state} }} "{{states.filter({event.state}).name }}" {{else}} "" {{/if}},
-            "date": "{{event.event_date_with_time.date(F j, Y g:i A)}} {{if {event.event_end_date_with_time} }} - {{event.event_end_date_with_time.date(F j, Y g:i A)}} {{/if}}"
-        }{{event._arraycomma}}
+    {{each events as event LIMIT 0, 500 SORT BY event.event_date_with_time DESC }}
+        {{if find_in_set('{$zuid}', event.territories) }}
+            {{if {$matchCount} > 0}},{{/if}}
+            {
+                "content":{{event.toJSON()}},
+                "city": {{if {event.city} }} "{{cities.filter({event.city}).title }}" {{else}} "" {{/if}},
+                "state": {{if {event.state} }} "{{states.filter({event.state}).name }}" {{else}} "" {{/if}},
+                "date": "{{event.event_date_with_time.date(F j, Y g:i A)}} {{if {event.event_end_date_with_time} }} - {{event.event_end_date_with_time.date(F j, Y g:i A)}} {{/if}}"
+            }
+            {{$matchCount = {$matchCount} + 1 }}
+        {{/if}}
     {{/each}}
 
 {{else if {$model} == "6-acb19a94bd-4q8ftj"}}
-    {{each events as event WHERE find_in_set('{$zuid}', divisions) LIMIT 0, 500 SORT BY event.event_date_with_time DESC }}
-        {
-            "content":{{event.toJSON()}},
-            "city": {{if {event.city} }} "{{cities.filter({event.city}).title }}" {{else}} "" {{/if}},
-            "state": {{if {event.state} }} "{{states.filter({event.state}).name }}" {{else}} "" {{/if}},
+    {{each events as event LIMIT 0, 500 SORT BY event.event_date_with_time DESC }}
+        {{if find_in_set('{$zuid}', event.divisions) }}
+            {{if {$matchCount} > 0}},{{/if}}
+            {
+                "content":{{event.toJSON()}},
+                "city": {{if {event.city} }} "{{cities.filter({event.city}).title }}" {{else}} "" {{/if}},
+                "state": {{if {event.state} }} "{{states.filter({event.state}).name }}" {{else}} "" {{/if}},
 
-                     "date": "{{event.event_date_with_time.date(F j, Y g:i A)}} {{if {event.event_end_date_with_time} }} - {{event.event_end_date_with_time.date(F j, Y g:i A)}} {{/if}}"
-        }{{event._arraycomma}}
+                         "date": "{{event.event_date_with_time.date(F j, Y g:i A)}} {{if {event.event_end_date_with_time} }} - {{event.event_end_date_with_time.date(F j, Y g:i A)}} {{/if}}"
+            }
+            {{$matchCount = {$matchCount} + 1 }}
+        {{/if}}
     {{/each}}
 {{else if {$model} == "6-b4c9aba69c-h2nqvm"}}
-    {{each events as event WHERE find_in_set('{$zuid}', property) LIMIT 0, 500 SORT BY event.event_date_with_time DESC }}
-        {
-            "content":{{event.toJSON()}},
-            "city": {{if {event.city} }} "{{cities.filter({event.city}).title }}" {{else}} "" {{/if}},
-            "state": {{if {event.state} }} "{{states.filter({event.state}).name }}" {{else}} "" {{/if}},
+    {{each events as event LIMIT 0, 500 SORT BY event.event_date_with_time DESC }}
+        {{if find_in_set('{$zuid}', event.property) }}
+            {{if {$matchCount} > 0}},{{/if}}
+            {
+                "content":{{event.toJSON()}},
+                "city": {{if {event.city} }} "{{cities.filter({event.city}).title }}" {{else}} "" {{/if}},
+                "state": {{if {event.state} }} "{{states.filter({event.state}).name }}" {{else}} "" {{/if}},
 
-                     "date": "{{event.event_date_with_time.date(F j, Y g:i A)}} {{if {event.event_end_date_with_time} }} - {{event.event_end_date_with_time.date(F j, Y g:i A)}} {{/if}}"
-        }{{event._arraycomma}}
+                         "date": "{{event.event_date_with_time.date(F j, Y g:i A)}} {{if {event.event_end_date_with_time} }} - {{event.event_end_date_with_time.date(F j, Y g:i A)}} {{/if}}"
+            }
+            {{$matchCount = {$matchCount} + 1 }}
+        {{/if}}
     {{/each}}
 {{/if}}
 ]
