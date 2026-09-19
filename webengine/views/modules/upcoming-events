@@ -105,6 +105,19 @@ async function initEvents() {
     loader.classList.remove('d-none');
     const data = await fetchEvents();
 
+    // fetchEvents() returns `false` when the request times out, is aborted, or otherwise
+    // fails (see CODA-2533 — a hung /events.json request left the spinner stuck forever).
+    // Treat anything that isn't an array as "couldn't load events" and bail out to the
+    // empty/error state instead of letting `.sort()` throw on a non-array value.
+    if (!Array.isArray(data)) {
+      document.querySelector('.events-section').innerHTML = `
+        <div class="text-center w-100 py-5">
+          <p class="text-secondary mb-0">We're unable to load events right now. Please try again later.</p>
+        </div>
+      `;
+      return;
+    }
+
     // Sort events by start date ascending
     const sortedData = data.sort((a, b) => {
       const getEventDate = (event) =>
@@ -309,18 +322,39 @@ initEvents();
    }
 
    async function fetchEvents() {
+     // Bound the request with an AbortController (see CODA-2533). This feed has always been
+     // slow for some territories, but with no timeout a hung request left `fetchEvents()`'s
+     // promise never resolving/rejecting, so the `finally` in initEvents() that hides the
+     // loader never ran either — an infinite spinner instead of an error/empty state.
+     // 30s is intentionally generous so normal slow-but-successful loads aren't cut short.
+     const EVENTS_FETCH_TIMEOUT_MS = 30000;
+     const controller = new AbortController();
+     const timeoutId = setTimeout(() => controller.abort(), EVENTS_FETCH_TIMEOUT_MS);
+
      try {
        const model = await fetch(
          `https://{{instance.domain}}/events.json?zuid=${cookieManager.get(
            cookieKeys.locationZUID
-         )}&model=${cookieManager.get(cookieKeys.locationModel)}`
+         )}&model=${cookieManager.get(cookieKeys.locationModel)}`,
+         { signal: controller.signal }
        );
+
+       if (!model.ok) {
+         console.error(`Error in fetchEvents: events.json responded with status ${model.status}`);
+         return false;
+       }
 
        const data = await model.json();
        return data;
      } catch (error) {
-       console.error('Error in fetchPageData:', error);
+       if (error.name === 'AbortError') {
+         console.error(`Error in fetchEvents: request to events.json timed out after ${EVENTS_FETCH_TIMEOUT_MS}ms`);
+       } else {
+         console.error('Error in fetchEvents:', error);
+       }
        return false;
+     } finally {
+       clearTimeout(timeoutId);
      }
    }
 

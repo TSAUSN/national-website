@@ -2,6 +2,7 @@
 
 Status: **Draft — pending review**
 Last generated: 2026-09-19 by Documentation Maker (automated codebase scan)
+Updated: 2026-09-20 by Documentation Maker — added a cross-reference from the Events model to the CODA-2533 perf-risk flag (`find_in_set` scan); see `docs/templates.md` and `docs/custom-patterns.md` §14 for detail.
 
 ## How this document was built (read this first)
 
@@ -130,7 +131,7 @@ Thin wrapper models whose page just includes `modules/news-archive`; org-scoped 
 ### Events
 | Field | Inferred type | Notes |
 |---|---|---|
-| `territories`, `divisions`, `property` | relationship (comma-list, queried with `find_in_set`) | |
+| `territories`, `divisions`, `property` | relationship (comma-list, queried with `find_in_set`) | Queried via `webengine/views/events` (the `/events.json` ajax endpoint) — see `docs/templates.md` (Ajax-JSON table) and `docs/custom-patterns.md` §14 for the `find_in_set` unindexed-scan perf-risk flag raised during the CODA-2533 investigation (Draft, not yet QA'd/merged). |
 | `city` (rel → Cities), `state` (rel → States) | | |
 | `event_date_with_time`, `event_end_date_with_time` | datetime | |
 

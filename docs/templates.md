@@ -2,6 +2,7 @@
 
 Status: **Draft — pending review**
 Last generated: 2026-09-19 by Documentation Maker (automated codebase scan)
+Updated: 2026-09-20 by Documentation Maker — added CODA-2533 (`modules/upcoming-events` infinite-spinner fix) and corrected an outdated entry for the `events` view; see "Stories / news / events" and "Ajax-JSON" sections below. **CODA-2533 is implemented on branch `coda-2533` only — not yet QA'd, merged, or deployed** — treat that content as Draft on top of this file's existing Draft status.
 
 ## How views are stored in this repo
 
@@ -58,7 +59,7 @@ Most page-type views are thin — they just `{{include}}` a sequence of modules.
 | `stories_new` | `all-stories-archive` | Looks like a newer/alternate stories-landing template; unclear if `stories_landing_page` or `stories_new` is the live one — flag for confirmation. |
 | `news_archive` | `news-archive-search` (component) | |
 | `events_landing_pages` | `hero-full-events`, `upcoming-events` | |
-| `events` | Empty container (no content-driving logic beyond styling) | Looks like a stub/placeholder page. |
+| `events` | Ajax-JSON data endpoint — serves `/events.json` | **Correction (2026-09-20):** an earlier pass in this doc described `events` as an empty/stub container. That was outdated/wrong — the file (no extension, but rendered as a JSON array, not HTML) branches on a `?model=` query param and returns `events` content items filtered by org relationship. See the `events.json` row in the Ajax-JSON table below for the full contract, and `custom-patterns.md` for a perf-risk flag on its filter logic. Consumed by `modules/upcoming-events`. |
 
 ### About / contact / leadership / volunteer
 | View | Renders | Notes |
@@ -103,6 +104,15 @@ Modules are the actual content-rendering building blocks, included by page-type 
 
 ### Stories / news
 `news` (full search/filter/swiper module, fetches `stories.json`/`service-types.json` client-side, has a date-picker filter), `news-cards` (simpler homepage carousel variant, same data source), `news-archive`, `all-stories-archive`, `featured-stories`, `recent-stories`.
+
+### Events
+
+`upcoming-events` — renders the "Upcoming Events" swiper carousel on `events_landing_pages` (via `hero-full-events` + `upcoming-events`). Client-side `initEvents()` (~line 101) calls `fetchEvents()` (~line 324), which fetches `/events.json` (see Ajax-JSON table below) scoped by the `locationZUID`/`locationModel` cookies that `modules/client-global-navigation` sets (see `custom-patterns.md` §2) — sorts the results by event date, filters to upcoming-only, and renders event cards into the swiper; a `finally` block hides the loading spinner regardless of outcome.
+
+- **Status: Draft — pending review.** A bug fix for **CODA-2533** is implemented on branch `coda-2533` as of 2026-09-20 — **not yet QA'd, merged, or deployed.** Do not treat this fix as shipped until a human confirms the merge (per this project's PR-ownership convention).
+- **Bug fixed (CODA-2533):** the Events Landing Page got stuck on an infinite loading spinner. First reported on USA Southern Territory's page (`/usa-southern-territory/events/`), but confirmed to affect every territory/division/location Events Landing Page, since `upcoming-events` is one shared module/template, not something Southern-specific. Root cause: `fetchEvents()` called `fetch('/events.json...')` with no timeout/`AbortController`. A request that *hung* (as opposed to one that errored out — which the existing `finally` already handled by hiding the loader) meant `initEvents()`'s `await fetchEvents()` never completed, so the loader was never hidden. (The `locationZUID`/`locationModel` cookie logic in `client-global-navigation` was checked and ruled out — it's uniform across all territories.)
+- **Fix:** `fetchEvents()` now wraps its `fetch()` call in an `AbortController` with a 30s timeout (`EVENTS_FETCH_TIMEOUT_MS`), clears the timeout in a `finally`, and treats a non-OK HTTP response (`!model.ok`) as a logged failure returning `false` rather than trying to parse a bad response. `initEvents()` now guards on the result: if `fetchEvents()` didn't return an array (timeout, abort, bad status, or thrown error), it shows a "We're unable to load events right now. Please try again later." message and returns, instead of letting the subsequent `.sort()` throw on `false`.
+- **Net effect:** a hang now degrades to a bounded (~30s) error state instead of an infinite spinner; normal slow-but-successful loads under 30s are unaffected. This fix does **not** address the `find_in_set` unindexed-scan performance risk inside `/events.json` itself — see the Ajax-JSON table below and `custom-patterns.md` §13 for that separate, still-open concern.
 
 ### Stats
 `stats` (large module: dual-carousel with left image / right content+share, fetches `stats-info.json`, filters client-side by org level with a location→division→territory→national cascade, share-to-social buttons using `navigator.share`/manual share links).
@@ -154,6 +164,7 @@ These are Parsley views with a `.json` extension — Zesty renders them as `ajax
 | `stories.json` | `show`, `limit`, `name` (search), `most-recent`, `related-service`, `date`, `model`, `location` | Story cards for the news/story modules; also returns `modelJumpedName` when results "jump" from location scope up to a broader org level. |
 | `service-types.json` | `zuid` (optional) | All service types, or one by zuid. |
 | `services-info.json` / `services.json` (page) | — | Related to service listing; `services.json` at repo root is the **page-type view** for individual service pages, not a data endpoint (see page table above). |
+| `events.json` (view name `events`, no file extension) | `zuid`, `model` | Events for a Territory (`model=6-deab97cfd9-wb5km4`), Division (`6-acb19a94bd-4q8ftj`), or Location/property (`6-b4c9aba69c-h2nqvm`), each branch filtering with `{{each events as event WHERE find_in_set('{$zuid}', <territories\|divisions\|property>)}}`. **Perf-risk flag:** this is an unindexed string-function scan over the entire `events` content model on every request — not changed by CODA-2533, but worth future attention if the `events` model grows; see `custom-patterns.md` §13 (the same `find_in_set`-in-`WHERE` pattern recurs in ~30+ other views in this repo, so any future fix/index strategy is likely worth applying broadly, not just here). Consumed by `modules/upcoming-events`'s client-side `fetchEvents()` — see that module's entry above for the CODA-2533 hang/timeout fix (Draft, not yet merged). |
 | `services-offered.json` | `zuid` | A location's `services_offered` list. |
 | `service-catalog.json`, `api_test`, `get-services-territories`, `get-services-divisions`, `get-services-locations`, `get-services-national` | `zuid`, `model_zuid` | Services scoped to a territory/division/location/national level; consumed by `modules/indexdb`'s `ServicesDB` cache. |
 | `stats-info.json` | `zuid`, `page-model`, `parent-division`, `parent-territory` | Stats scoped to the requesting page's org level. |
@@ -187,3 +198,5 @@ A set of `.json` views under `datasets/mobile_editor/` (content_list, locations,
 6. **`components/card`, `components/service-card`, `components/stat-group`** contain static placeholder markup; the actually-rendered cards are built by inline JS template strings in the owning module. Confirm whether these component files are still used anywhere (e.g. as an editor preview) or are stale.
 7. **Multiple independent Tealium bootstrap implementations** (`loader`, `custom_head`, `404-page`, `global-analytics`/`.html`, `tealium-analytics`) — see custom-patterns.md for the consolidated flag.
 8. Several `.json` endpoints (`find-event.json`, `find-story.json`, `paginated-locations.json`, `paginated-divisions.json`, `all-service-pages.json`, `all-informational-pages.json`, `get-stories-by-location.json`, `contact-us-cookie-fallbacks.json`, and the `datasets/mobile_editor/**` tree) were **not opened in this pass** — their purpose above is inferred from filenames only and should be verified before relying on it.
+9. **`events` view corrected (2026-09-20):** an earlier version of this doc described the `events` page-type view as an empty/stub container. That was wrong — it's actually the `/events.json` data endpoint (see Ajax-JSON table). Flagging in case this incorrect description was copied elsewhere (e.g. release notes, onboarding notes) before this correction.
+10. **CODA-2533 (`modules/upcoming-events` hang fix)** is Draft — pending review, implemented on branch `coda-2533` only, not yet QA'd/merged/deployed. Do not cite this fix as shipped in customer-facing release notes until a human confirms the merge.

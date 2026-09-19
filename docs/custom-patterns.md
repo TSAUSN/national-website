@@ -2,6 +2,7 @@
 
 Status: **Draft — pending review**
 Last generated: 2026-09-19 by Documentation Maker (automated codebase scan)
+Updated: 2026-09-20 by Documentation Maker — added §13 and §14 on CODA-2533 (`modules/upcoming-events` fetch-timeout fix and the `find_in_set` scan perf-risk flag it surfaced). CODA-2533 is implemented on branch `coda-2533` only — not yet QA'd, merged, or deployed; treat that content as Draft on top of this file's existing Draft status.
 
 This file documents non-obvious, cross-cutting patterns a new contributor needs to know before touching templates or scripts in this repo. It intentionally skips anything that's standard/obvious Parsley or Bootstrap usage.
 
@@ -92,7 +93,23 @@ A `MutationObserver`-based script (loaded via `custom_head`) automatically adds 
 
 There is a `backup/` folder at the repo root (`backup/custom_head`, `backup/services`, `backup/news`, `backup/map.js`, `backup/*.scss`, `backup/client-nav`) that duplicates several live view/script names. This wasn't diffed line-by-line against the live versions in this pass, but its presence suggests either (a) manual pre-deploy backups someone made locally, or (b) stale content that should be removed. The repo's `.gitignore` also shows as modified in the current git status — worth confirming with the user/web-developer whether `backup/` is meant to be tracked at all.
 
-## 12. Hardcoded third-party credential in a client-side script
+## 13. Bounding a client-side `fetch()` with `AbortController` + timeout (CODA-2533)
+
+**Draft — pending review.** Fix implemented on branch `coda-2533` as of 2026-09-20; **not yet QA'd, merged, or deployed.**
+
+`modules/upcoming-events`'s `fetchEvents()` (~line 324) previously called `/events.json` via a plain `fetch()` with no timeout. If that request *hung* — never resolved or rejected, as opposed to erroring out, which the module's existing `finally` already handled by hiding the loader — the `await` in `initEvents()` never completed, so the loading spinner on the Events Landing Page spun forever. First reported on USA Southern Territory's page, but confirmed to affect every territory/division/location Events Landing Page, since `upcoming-events` is one shared module.
+
+The fix: wrap the `fetch()` in an `AbortController` with a 30-second timeout (`EVENTS_FETCH_TIMEOUT_MS`), `clearTimeout` in a `finally`, treat a non-OK HTTP response as a logged failure, and have the caller (`initEvents()`) guard on "did I actually get an array back" before doing anything else with the result (sorting, etc.) instead of assuming success.
+
+**Convention to consider for other client-side fetches in this codebase:** as of this writing, none of the other client-side `fetch()` calls documented in `templates.md` (`stats.json`, `staff.json`, `stories.json`, `get-services-*.json`, etc.) have an equivalent timeout/`AbortController` guard — this fix was scoped to `upcoming-events` only. If a similar "infinite spinner on a hung request" bug shows up in another module, this is the pattern to copy; it may also be worth a proactive audit rather than waiting for the next bug report.
+
+## 14. `find_in_set()` scan over a whole content model in a `{{each ... WHERE ...}}` (perf-risk, not fixed by CODA-2533)
+
+While investigating CODA-2533, `web-developer` traced `/events.json` (`webengine/views/events`) filtering events with `{{each events as event WHERE find_in_set('{$zuid}', territories)}}` (and the `divisions`/`property` equivalents) — an unindexed string-function scan over the entire `events` content model on every request. This wasn't changed by the CODA-2533 fix (which only bounds the client-side `fetch()`'s wait time) and isn't itself confirmed to be the cause of the reported slowness, but it's a real perf risk worth future attention, especially as the `events` model grows.
+
+**This is not isolated to `events.json`** — a repo-wide search turns up the same `find_in_set(...)` inside a `WHERE` clause in ~30+ other views (a mix of Block Library blocks, page modules, and ajax-json endpoints, e.g. `modules/programs-schedule`, `modules/services-service-area`, `modules/contact-us-officers`, `stories.json`, `staff.json`, several `datasets/mobile_editor/**` views). If this pattern is ever revisited for performance, it's likely worth treating as a systemic question (e.g. "should relationship filtering use an indexed join instead of `find_in_set` over a full scan") rather than a one-off fix to `events.json`.
+
+## 15. Hardcoded third-party credential in a client-side script
 
 `webengine/views/angel-tree-script` contains a client-side (`<script>`) integration with QuickBase (`https://api.quickbase.com/v1/records/query`) that includes a **hardcoded `QB_TOKEN`** in plain text, sent from the browser. This is a genuine security concern (the token is visible to anyone who views source on whatever page includes this script) — flagged here for visibility, not something Documentation Maker can or should fix. Recommend escalating to web-developer/security review rather than treating as a doc note only.
 
@@ -103,6 +120,8 @@ There is a `backup/` folder at the repo root (`backup/custom_head`, `backup/serv
 1. **Org-level fallback cascade duplicated 3×** (§3) — candidate for consolidation into a shared script; not this agent's call to make, but worth raising with web-developer.
 2. **Tealium bootstrap duplicated 4×** (§6) — same recommendation.
 3. **`backup/` folder** (§11) — confirm with the user whether it should be deleted, `.gitignore`d, or is intentionally kept.
-4. **Hardcoded QuickBase token** (§12) — flagged for security follow-up, not a documentation-only issue.
-5. **Hardcoded Zesty session token in `.mcp.json`** — see `docs/api-tools.md` "Needs live verification" §8; same category of concern as §12 above but for the MCP server credential.
+4. **Hardcoded QuickBase token** (§15) — flagged for security follow-up, not a documentation-only issue.
+5. **Hardcoded Zesty session token in `.mcp.json`** — see `docs/api-tools.md` "Needs live verification" §8; same category of concern as §15 above but for the MCP server credential.
 6. Could not confirm whether `webengine/scripts/**` files (e.g. `link-tracking.js`, `main.js`) are the actual live copies served to the browser or whether the site pulls a built/minified bundle from elsewhere — the sync script treats them as 1:1 Zesty "script" resources, so assumed live, but not verified against the rendered site.
+7. **CODA-2533 fetch-timeout fix** (§13) is Draft — pending review, implemented on branch `coda-2533` only, not yet QA'd/merged/deployed. Other client-side `fetch()` calls in this repo (`stats.json`, `staff.json`, `stories.json`, `get-services-*.json`, etc.) don't have an equivalent guard — worth a proactive audit rather than waiting for the next "infinite spinner" report.
+8. **`find_in_set()` scan perf-risk** (§14) — flagged from the CODA-2533 investigation, recurs in ~30+ views repo-wide. Not itself confirmed as the cause of any reported slowness; worth a `web-developer` follow-up to assess if/when the `events` (or other) models grow large enough for it to matter.
