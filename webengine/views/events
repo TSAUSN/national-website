@@ -3,7 +3,7 @@
 
 [
 {{if {$model} == "6-deab97cfd9-wb5km4" }}
-    {{each events as event WHERE find_in_set('{$zuid}', territories) }}
+    {{each events as event WHERE find_in_set('{$zuid}', territories) LIMIT 0, 500 SORT BY event.event_date_with_time DESC }}
         {
             "content":{{event.toJSON()}},
             "city": {{if {event.city} }} "{{cities.filter({event.city}).title }}" {{else}} "" {{/if}},
@@ -13,7 +13,7 @@
     {{/each}}
 
 {{else if {$model} == "6-acb19a94bd-4q8ftj"}}
-    {{each events as event WHERE find_in_set('{$zuid}', divisions) }}
+    {{each events as event WHERE find_in_set('{$zuid}', divisions) LIMIT 0, 500 SORT BY event.event_date_with_time DESC }}
         {
             "content":{{event.toJSON()}},
             "city": {{if {event.city} }} "{{cities.filter({event.city}).title }}" {{else}} "" {{/if}},
@@ -23,7 +23,7 @@
         }{{event._arraycomma}}
     {{/each}}
 {{else if {$model} == "6-b4c9aba69c-h2nqvm"}}
-    {{each events as event WHERE find_in_set('{$zuid}', property) }}
+    {{each events as event WHERE find_in_set('{$zuid}', property) LIMIT 0, 500 SORT BY event.event_date_with_time DESC }}
         {
             "content":{{event.toJSON()}},
             "city": {{if {event.city} }} "{{cities.filter({event.city}).title }}" {{else}} "" {{/if}},

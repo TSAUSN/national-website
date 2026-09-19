@@ -4,6 +4,8 @@ Status: **Draft — pending review**
 Last generated: 2026-09-19 by Documentation Maker (automated codebase scan)
 Updated: 2026-09-20 by Documentation Maker — added a cross-reference from the Events model to the CODA-2533 perf-risk flag (`find_in_set` scan); see `docs/templates.md` and `docs/custom-patterns.md` §14 for detail.
 
+Corrected 2026-09-20 (same day, follow-up): the `find_in_set` scan referenced below is no longer just a flagged perf-risk — it's the **confirmed root cause** of the CODA-2533 Events Landing Page bug (an unbounded scan hitting WebEngine's 3000-query cap), and a `LIMIT`/`SORT` fix has been applied in `webengine/views/events`. See the corrected Events section below and `docs/custom-patterns.md` §14 for full detail.
+
 ## How this document was built (read this first)
 
 There is **no schema/config file in this repo that declares content models or field types**. `zesty.config.json` only maps WebEngine **views** (templates) to their ZUIDs for the deploy script (`scripts/sync-to-zesty.js`) — it has no `models` or `fields` section. `webengine/views/model-info.json` and `webengine/views/models-info.json` are themselves *Parsley templates* (ajax-json endpoints), not schema definitions.
@@ -131,9 +133,10 @@ Thin wrapper models whose page just includes `modules/news-archive`; org-scoped 
 ### Events
 | Field | Inferred type | Notes |
 |---|---|---|
-| `territories`, `divisions`, `property` | relationship (comma-list, queried with `find_in_set`) | Queried via `webengine/views/events` (the `/events.json` ajax endpoint) — see `docs/templates.md` (Ajax-JSON table) and `docs/custom-patterns.md` §14 for the `find_in_set` unindexed-scan perf-risk flag raised during the CODA-2533 investigation (Draft, not yet QA'd/merged). |
+| `territories`, `divisions`, `property` | relationship (comma-list, queried with `find_in_set`) | Queried via `webengine/views/events` (the `/events.json` ajax endpoint), one branch per relationship depending on which model ZUID the caller passes. **CODA-2533 (Draft, not yet QA'd/merged):** until 2026-09-20 all three branches queried this with no `LIMIT`/`SORT` — an unbounded scan of the entire `events` model that was confirmed live to hit WebEngine's 3000-query-execution cap (error suppressed in production, which is why the front-end hung instead of erroring). Fixed by adding `LIMIT 0, 500 SORT BY event.event_date_with_time DESC` to all three branches. See `docs/templates.md` (Ajax-JSON table, `events.json` row) and `docs/custom-patterns.md` §14 for full detail and residual risks. |
 | `city` (rel → Cities), `state` (rel → States) | | |
-| `event_date_with_time`, `event_end_date_with_time` | datetime | |
+| `event_date_with_time`, `event_end_date_with_time` | datetime | Now also the `SORT BY` key for `/events.json` (see above). |
+| `date_time_summary` | text (inferred — used for recurring-event display text in `modules/upcoming-events`) | **Flag:** recurring events that only populate this field (no `event_date_with_time`) have no comparable value to sort on with the new `SORT BY event.event_date_with_time DESC` above, and could sort toward the bottom — risking truncation first under the new `LIMIT 0, 500` in a high-volume territory. Not fixable without a schema/content change; noted as an open residual risk, not resolved. |
 
 ### Events Landing Page
 Org-scoped wrapper; renders `modules/hero-full-events` + `modules/upcoming-events`.
@@ -259,3 +262,4 @@ Flag: `base_card.html` and `hero_full.html` (blocks) look like earlier iteration
 4. **`corps`** page-type view is a 0-byte file — either an unfinished/unused content model or content intentionally has no dedicated template. Needs a decision, not a guess.
 5. **Information Page Types** model is referenced (`information_page_types.filter(...)`) but has no page template of its own — appears to be a pure lookup/taxonomy model.
 6. **Duplicate/near-duplicate Block Library items** (`base_card.html`, `hero_full.html`) vs. their module counterparts — confirm if still in use before documenting them as "current."
+7. **CODA-2533 (Events model)** — Draft, not yet QA'd/merged/deployed. Confirmed root cause: unbounded `find_in_set` scan in `webengine/views/events` hit WebEngine's 3000-query cap; fixed with `LIMIT 0, 500 SORT BY event.event_date_with_time DESC`. Residual, unresolved: (a) `LIMIT`-short-circuit behavior assumed, not independently verified live — worth an `api-integrator` check if the error recurs; (b) `date_time_summary`-only (no `event_date_with_time`) recurring events have nothing to sort on and could truncate first in a high-volume territory; (c) any territory/division/location with >500 legitimately-tagged events would still silently lose events beyond the cap. See `docs/templates.md` and `docs/custom-patterns.md` §14 for full detail.
