@@ -2,9 +2,28 @@
 {{$model = {request.queryParam(model)} }}
 {{$matchCount = 0 }}
 
+{{$page = 1}}
+{{$perPage = 100}}
+{{$pageStride = 100}}
+
+{{if {request.queryParam(page)} }}
+{{$page = {request.queryParam(page)} }}
+{{/if}}
+
+{{if {request.queryParam(per_page)} }}
+{{$perPage = {request.queryParam(per_page)} }}
+{{/if}}
+
+{{$pageStride = {$perPage} }}
+{{if {request.queryParam(page_stride)} }}
+{{$pageStride = {request.queryParam(page_stride)} }}
+{{/if}}
+
+{{$offset = {math(({$page} - 1) * {$pageStride})} }}
+
 [
 {{if {$model} == "6-deab97cfd9-wb5km4" }}
-    {{each events as event LIMIT 0, 50 SORT BY event.event_date_with_time DESC }}
+    {{each events as event LIMIT {$offset}, {$perPage} }}
         {{if find_in_set('{$zuid}', event.territories) }}
             {{if {$matchCount} > 0}},{{/if}}
             {
@@ -18,7 +37,7 @@
     {{/each}}
 
 {{else if {$model} == "6-acb19a94bd-4q8ftj"}}
-    {{each events as event LIMIT 0, 50 SORT BY event.event_date_with_time DESC }}
+    {{each events as event LIMIT {$offset}, {$perPage} }}
         {{if find_in_set('{$zuid}', event.divisions) }}
             {{if {$matchCount} > 0}},{{/if}}
             {
@@ -32,7 +51,7 @@
         {{/if}}
     {{/each}}
 {{else if {$model} == "6-b4c9aba69c-h2nqvm"}}
-    {{each events as event LIMIT 0, 50 SORT BY event.event_date_with_time DESC }}
+    {{each events as event LIMIT {$offset}, {$perPage} }}
         {{if find_in_set('{$zuid}', event.property) }}
             {{if {$matchCount} > 0}},{{/if}}
             {
