@@ -105,6 +105,19 @@ async function initEvents() {
     loader.classList.remove('d-none');
     const data = await fetchEvents();
 
+    // fetchEvents() returns `false` when every page request fails outright (see CODA-2533 —
+    // a hung/erroring get-events.json request left the spinner stuck forever). Treat anything
+    // that isn't an array as "couldn't load events" and bail out to the empty/error state
+    // instead of letting `.sort()` throw on a non-array value.
+    if (!Array.isArray(data)) {
+      document.querySelector('.events-section').innerHTML = `
+        <div class="text-center w-100 py-5">
+          <p class="text-secondary mb-0">We're unable to load events right now. Please try again later.</p>
+        </div>
+      `;
+      return;
+    }
+
     // Sort events by start date ascending
     const sortedData = data.sort((a, b) => {
       const getEventDate = (event) =>
@@ -309,19 +322,92 @@ initEvents();
    }
 
    async function fetchEvents() {
-     try {
-       const model = await fetch(
-         `https://{{instance.domain}}/get-events.json?zuid=${cookieManager.get(
-           cookieKeys.locationZUID
-         )}&model=${cookieManager.get(cookieKeys.locationModel)}`
-       );
+     // CODA-2533: get-events.json can't sort or WHERE server-side — both were confirmed live to
+     // blow WebEngine's undocumented "3000 query limit" on the `events` model regardless of LIMIT
+     // size (see docs/custom-patterns.md §14). It instead paginates a raw LIMIT offset,perPage
+     // window and gates matches with a per-row "if find_in_set(...)" check. That means a single
+     // request only returns one page of the *raw* (unsorted, unfiltered-until-render) events
+     // model, and the matches in it are not guaranteed to be "upcoming" or in date order. So
+     // instead of a single fetch, walk pages until we've either seen everything or hit a safety
+     // cap, and do all date filtering/sorting client-side afterward (initEvents() already does
+     // this).
+     //
+     // Param names (`page`, `per_page`) mirror webengine/views/generate-csv's pagination
+     // convention for consistency across this codebase's paginated endpoints.
+     const PAGE_SIZE = 100; // matches the default $perPage in webengine/views/get-events.json
+     const MAX_PAGES = 20; // safety cap — see warning below if this is ever hit
+     const PER_PAGE_TIMEOUT_MS = 30000;
 
-       const data = await model.json();
-       return data;
-     } catch (error) {
-       console.error('Error in fetchPageData:', error);
-       return false;
+     const zuid = cookieManager.get(cookieKeys.locationZUID);
+     const model = cookieManager.get(cookieKeys.locationModel);
+
+     let allEvents = [];
+     let firstPageSucceeded = false;
+     let page = 1;
+
+     for (; page <= MAX_PAGES; page++) {
+       // A fresh AbortController per page (rather than one shared 30s budget across the whole
+       // walk) — with N sequential requests, a single fixed cap sized for one request would
+       // either be too short once there are several pages, or too long for a single hang. Each
+       // request gets the same generous 30s used previously; we stop walking on the first
+       // failure/timeout rather than retrying, so the worst-case added latency from a hang is
+       // one timeout window, not MAX_PAGES of them.
+       const controller = new AbortController();
+       const timeoutId = setTimeout(() => controller.abort(), PER_PAGE_TIMEOUT_MS);
+
+       let pageData;
+       try {
+         const response = await fetch(
+           `https://{{instance.domain}}/get-events.json?zuid=${zuid}&model=${model}&page=${page}&per_page=${PAGE_SIZE}`,
+           { signal: controller.signal }
+         );
+
+         if (!response.ok) {
+           console.error(`Error in fetchEvents: get-events.json responded with status ${response.status} on page ${page}`);
+           break;
+         }
+
+         pageData = await response.json();
+       } catch (error) {
+         if (error.name === 'AbortError') {
+           console.error(`Error in fetchEvents: request to get-events.json (page ${page}) timed out after ${PER_PAGE_TIMEOUT_MS}ms`);
+         } else {
+           console.error('Error in fetchEvents:', error);
+         }
+         break;
+       } finally {
+         clearTimeout(timeoutId);
+       }
+
+       if (!Array.isArray(pageData)) {
+         console.error(`Error in fetchEvents: get-events.json page ${page} did not return an array`);
+         break;
+       }
+
+       firstPageSucceeded = true;
+       allEvents = allEvents.concat(pageData);
+
+       // Last page reached: server returned fewer rows than we asked for.
+       if (pageData.length < PAGE_SIZE) {
+         break;
+       }
+
+       // Deliberately NOT early-exiting here based on "found enough upcoming events already".
+       // Since get-events.json doesn't sort server-side, upcoming events can be scattered across
+       // any page in any order — stopping early on a heuristic could silently drop real upcoming
+       // events that happen to live on a later page. We keep walking until a short page or the
+       // MAX_PAGES cap, then let initEvents() do the date filtering/sorting on the full set.
      }
+
+     if (page > MAX_PAGES) {
+       console.warn(`fetchEvents: hit MAX_PAGES safety cap (${MAX_PAGES}) while paginating get-events.json — results may be incomplete.`);
+     }
+
+     // Preserve the original contract: `false` means "couldn't load anything, show the error
+     // state" (initEvents() checks Array.isArray()). Only signal total failure if we never got a
+     // single successful page; a failure partway through still returns whatever was collected so
+     // far (best-effort) rather than discarding a successful first page.
+     return firstPageSucceeded ? allEvents : false;
    }
 
    function formatDateRange(input) {
