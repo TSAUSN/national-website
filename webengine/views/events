@@ -24,7 +24,7 @@
 [
 {{if {$model} == "6-deab97cfd9-wb5km4" }}
     {{each events as event LIMIT {$offset}, {$perPage} }}
-        {{if find_in_set('{$zuid}', event.territories) }}
+        {{if find_in_set('{$zuid}', territories) }}
             {{if {$matchCount} > 0}},{{/if}}
             {
                 "content":{{event.toJSON()}},
@@ -38,7 +38,7 @@
 
 {{else if {$model} == "6-acb19a94bd-4q8ftj"}}
     {{each events as event LIMIT {$offset}, {$perPage} }}
-        {{if find_in_set('{$zuid}', event.divisions) }}
+        {{if find_in_set('{$zuid}', divisions) }}
             {{if {$matchCount} > 0}},{{/if}}
             {
                 "content":{{event.toJSON()}},
@@ -52,7 +52,7 @@
     {{/each}}
 {{else if {$model} == "6-b4c9aba69c-h2nqvm"}}
     {{each events as event LIMIT {$offset}, {$perPage} }}
-        {{if find_in_set('{$zuid}', event.property) }}
+        {{if find_in_set('{$zuid}', property) }}
             {{if {$matchCount} > 0}},{{/if}}
             {
                 "content":{{event.toJSON()}},
