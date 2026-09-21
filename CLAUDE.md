@@ -19,7 +19,9 @@ This is the WebEngine source for a Zesty.io CMS instance (instance ZUID `8-da979
 
 ## Deployment model — read before assuming a branch is "live"
 
-`.github/workflows/zesty-deploy.yml` only triggers automatically on push to `stage` or `production`. **Feature/ticket branches (e.g. `coda-2529`) are never auto-synced** — pushing to one does not update any Zesty preview environment. To get a feature branch's changes onto a live preview, someone has to run the workflow manually via `workflow_dispatch`, or the changes need to land on `stage` first. Don't assume `qa-tester` can verify a fix live just because it was pushed; check with the user before trying to trigger a manual deploy, since that touches shared CI/infrastructure.
+`.github/workflows/zesty-deploy.yml` (this repo's custom sync/publish script) only triggers automatically on push to `stage` or `production`, and manually otherwise via `workflow_dispatch`. That workflow is what promotes content into the shared dev/live Zesty versions (see below) — do not trigger it on your own initiative; check with the user first, since it writes to shared dev/live content and touches shared CI/infrastructure.
+
+Branch preview environments (`https://8hxvw8tw-{branch-name}.webengine.zesty.io/...`, used by `qa-tester` as the first promotion-workflow stage) are a separate mechanism from `zesty-deploy.yml` and sync automatically on push to any branch — no workflow trigger and no merge needed. `qa-tester` can test a feature branch's preview as soon as it's pushed. The manual-trigger / check-with-the-user caveat above applies to promoting into development/stage/production (each gated on the user explicitly confirming a merge happened — see `qa-tester`'s promotion workflow), not to branch-preview testing.
 
 `sync-to-zesty.js` treats `stage` as "save to dev" and `production` as "publish dev→live" — production pushes never write new content, only promote what's already on dev. New on-disk files under `webengine/{views,styles,scripts}` that aren't yet in `zesty.config.json` get auto-created as new resources during a stage sync; extensionless view files can't have their resource type (templateset vs. pageset) inferred automatically and are skipped with a warning until created manually in the Zesty admin and mapped by hand.
 
@@ -35,9 +37,12 @@ There is no content-model schema file in this repo — field shapes have to be i
 - A shared fallback pattern exists for missing hero/OG images: `globals.default_og_image`, used in `webengine/views/custom_head`, `webengine/views/modules/hero`, and (as of the empty-state fix) `webengine/views/-/block/hero_full.html`. Reuse this pattern rather than inventing a new fallback image mechanism.
 - `docs/content-models.md`, `docs/templates.md`, and `docs/custom-patterns.md` contain a fuller (code-derived, still Draft) inventory of models, templates, and cross-cutting patterns, including known duplicate/dead-code candidates (e.g. `stories_landing_page` vs. `stories_new`, empty stub views, a top-level `backup/` folder that duplicates live view names).
 
-## MCP server (`zesty`)
+## MCP servers
 
-`.mcp.json` (gitignored) configures a local MCP server exposing read-only Zesty Instance API tools. Its source lives outside this repo. On this dev machine it only runs inside WSL (Node isn't on the Windows PATH here), so the command is `wsl.exe -e node /home/.../mcp-local-server/build/index.js`, not a bare `node` call — check `.mcp.json` for the actual path before assuming it. `docs/api-tools.md` documents the tools as implemented in code, plus a list of behaviors that still need confirming against a live API call.
+`.mcp.json` (gitignored) configures two local MCP servers:
+
+- `zesty` — read-only Zesty Instance API tools. Source lives outside this repo. On this dev machine it only runs inside WSL (Node isn't on the Windows PATH here), so the command is `wsl.exe -e node /home/.../mcp-local-server/build/index.js`, not a bare `node` call — check `.mcp.json` for the actual path before assuming it. `docs/api-tools.md` documents the tools as implemented in code, plus a list of behaviors that still need confirming against a live API call.
+- `playwright` — the official `@playwright/mcp` package (run via `npx -y @playwright/mcp@latest`), giving `mcp__playwright__*` tools for real browser testing. `qa-tester` uses this to drive branch-preview/dev/stage URLs instead of guessing from raw HTTP responses. Requires a Claude Code session restart/reconnect after being added to `.mcp.json` before the tools show up.
 
 ## Agent workflow
 
