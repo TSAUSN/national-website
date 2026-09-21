@@ -21,16 +21,6 @@
       <p class="mb-3 text-white display-1 w-lg-75 w-sm-100 city-card-name">
         This page lists all of The Salvation Army locations in the city of {{this.seo_meta_title}}. Click below to visit a location's official website.
       </p>
-       <a
-        href="/location-finder"
-        class="btn btn-primary hero-full-cta-button"
-        data-location-type="body:hero-section"
-        data-function-type="navigation"
-        data-format-type="button"
-        data-link-type="internal"
-        onclick="LinkTrackingClickEvent(this,'cta_click')"
-        >Location Finder</a
-      >
     </div>
   </div>
   {{/if}}
