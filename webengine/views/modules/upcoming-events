@@ -334,8 +334,17 @@ initEvents();
      //
      // Param names (`page`, `per_page`) mirror webengine/views/generate-csv's pagination
      // convention for consistency across this codebase's paginated endpoints.
-     const PAGE_SIZE = 100; // matches the default $perPage in webengine/views/get-events.json
-     const MAX_PAGES = 20; // safety cap — see warning below if this is ever hit
+     //
+     // PAGE_SIZE dropped from 100 to 25 (2026-09-22) as a live sanity check: the 100-row window
+     // still hit "Maximum query limit of 3000 reached" even with find_in_set moved out of WHERE
+     // and SORT removed (the exact shape reverted in git history as commit da3aee8, then
+     // reintroduced and reconfirmed broken). If a 25-row window *also* hits the cap on page 1
+     // (offset 0), that points to something structural to the `events` model itself rather than
+     // window size, and this endpoint needs to move off Parsley's each-loop iteration entirely
+     // (see docs/custom-patterns.md §14) — LIMIT tuning alone will not fix it. MAX_PAGES raised to 80
+     // to keep total worst-case coverage (2000 rows) roughly on par with the old 20x100 walk.
+     const PAGE_SIZE = 25; // matches the default $perPage in webengine/views/get-events.json
+     const MAX_PAGES = 80; // safety cap — see warning below if this is ever hit
      const PER_PAGE_TIMEOUT_MS = 30000;
 
      const zuid = cookieManager.get(cookieKeys.locationZUID);
