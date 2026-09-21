@@ -193,7 +193,7 @@ async function initEvents() {
           </div>
           <div class="card-footer w-100 bg-transparent border-0 px-6 pb-6">
             <a
-              href="${event.content.meta?.web?.url || event.content.url || '#'}"
+              href="${event.content.uri || '#'}"
               class="btn btn-secondary text-white w-100"
               data-location-type="body:news-section"
               data-function-type="navigation"
@@ -448,8 +448,7 @@ initEvents();
 
        // Re-shape into the same `{content, city, state, date}` array initEvents() already expects.
        // `content` is now the flat raw event row (no `.content`/`.meta` wrapper the way
-       // Parsley's `.toJSON()` produced) — see the "NEEDS LIVE VERIFICATION" note above and the
-       // defensive `meta?.web?.url` / `meta?.zuid` fallbacks in initEvents().
+       // Parsley's `.toJSON()` produced) — initEvents() reads `content.uri` for the event link.
        return matched.map((event) => {
          const cityName = event.city ? cityNameByZuid.get(event.city) || '' : '';
          const stateName = event.state ? stateNameByZuid.get(event.state) || '' : '';
