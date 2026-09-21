@@ -16,9 +16,57 @@
   {
     "type": "menu",
     "key": null,
+    "page_name": "Senior Services",
+    "page-zuid": "7-8e98948588-phlnxg",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Food Pantries",
+    "page-zuid": "7-949d8bb2f3-2lvz2z",
+    "sort": 1,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Giving Back",
+    "page-zuid": "7-d0ff969ce1-flt2vr",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Services",
+    "page-zuid": "7-e2b6ee81eb-qj573j",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Poverty",
+    "page-zuid": "7-ccbd8de9f4-tgxfxw",
+    "sort": 4,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Recovery",
+    "page-zuid": "7-e2b28bcf88-xv6mf8",
+    "sort": 5,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
     "page_name": "Adult Program Services",
     "page-zuid": "7-8c95f281fb-4jvg3p",
-    "sort": 0,
+    "sort": 6,
     "parent": "services"
   },
   {
@@ -26,7 +74,7 @@
     "key": null,
     "page_name": "Spiritual Healing",
     "page-zuid": "7-a2ead5c4f4-wpq813",
-    "sort": 1,
+    "sort": 7,
     "parent": "services"
   },
   {
@@ -34,7 +82,7 @@
     "key": null,
     "page_name": "Youth Services",
     "page-zuid": "7-b4e59d8e88-cjd10m",
-    "sort": 2,
+    "sort": 8,
     "parent": "services"
   },
   {
@@ -42,7 +90,7 @@
     "key": null,
     "page_name": "Disaster Relief",
     "page-zuid": "7-82e2e0e0e3-g2p38f",
-    "sort": 3,
+    "sort": 9,
     "parent": "services"
   },
   {
@@ -50,15 +98,7 @@
     "key": null,
     "page_name": "Homelessness",
     "page-zuid": "7-b0e7a1d1ea-6pl2vw",
-    "sort": 4,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Family Counseling",
-    "page-zuid": "7-f0baf6ba81-sxgv2t",
-    "sort": 5,
+    "sort": 10,
     "parent": "services"
   },
   {
@@ -122,8 +162,7 @@
     "page_name": "Our Privacy Policy",
     "page-zuid": "7-8c9bebd6fa-6tpcv6",
     "sort": 6,
-    "parent": "about_us",
-    "external_link": "https://www.salvationarmyusa.org/usa-southern-territory/our-privacy-policy/"
+    "parent": "about_us"
   },
   {
     "type": "menu",

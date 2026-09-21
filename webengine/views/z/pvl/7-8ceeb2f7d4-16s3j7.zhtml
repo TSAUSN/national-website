@@ -1,28 +1,48 @@
 <div className={styles.pvlRoot}>
-	{{block('/-/block/hero_full.html?variant=7-84f6d3c1e5-nqxvsv&version=2')}}
+	{{block('/-/block/hero_full.html?variant=7-84f6d3c1e5-nqxvsv&version=12')}}
 	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
 		<div class="col-lg-12 col-md-12 col-sm-12">
-			<h6 style="text-align:center;">Volunteer with The Salvation Army Of Greater Charlotte</h6>
+			<h3 style="text-align:center;">Volunteer with The Salvation Army of Greater Charlotte</h3>
 			<p style="text-align:center;">Choose from serving meals at the Center of Hope, organizing collection drives for homeless families, or helping to empower youth through our Salvation Army Youth Programs.&nbsp;Your contribution can profoundly impact lives. Why not start today?</p>
-			<div class="pvlRichtext cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align:center"><p style="text-align:center;" class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center"><a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/a5b73512-5fdb-42af-9f17-1a71c5db544a_NEW+Volunteer+Application+Packet+9-25.pdf" class="btn btn-secondary gap-1 mt-2">Volunteer Application</a></p></div>
+			<div class="pvlRichtext cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align:center"><p><a class="btn btn-secondary btn-lg" href="https://volunteer.southern.salvationarmyusa.org/opportunities/cH46cErCBY">Volunteer Application</a></p></div>
+			<div class="pvlRichtext" style="text-align:center"><p style="text-align: center;"><strong>Looking for Community Service Hours?</strong><br>The Salvation Army is unable to accommodate court ordered and lawyer suggested community service requests.</p>
+<p style="text-align: center;"><a href="https://acrobat.adobe.com/id/urn:aaid:sc:us:616e8e77-08be-421b-a3f6-6fb9445c27dd">Find local organizations that may accept required service.</a></p></div>
 			<div class="my-2"></div>
-			<p style="text-align:center;">Additional Information:</p>
+			<hr>
+			<h3 style="text-align:center">Featured Volunteer Opportunities</h3>
 			<div class="row my-3">
 				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="pvlRichtext"><p style="text-align: center;"><strong><a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/5f602b3d-cffc-4c64-aac2-22a9340a3f1c_Background+Check+Documents.pdf">Background Check Documents</a></strong></p>
-<p style="text-align: center;">Please only complete the background check and volunteer application if you are planning on volunteering with our Salvation Army Youth Programs&nbsp;or the Center of Hope Shelter for Women and Children. You do not have to fill them out if you are volunteering at our Christmas Center.</p></div>
+					<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Christmas-Center-Volunteers.JPG" alt="placeholder">
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="pvlRichtext"><p style="text-align: center;"><strong>Looking for Community Service Hours?</strong><br>The Salvation Army is unable to accommodate court ordered and lawyer suggested community service requests. <a href="https://acrobat.adobe.com/id/urn:aaid:sc:us:616e8e77-08be-421b-a3f6-6fb9445c27dd">Find local organizations that may accept required service.</a></p></div>
+					<div class="pvlRichtext"><h5>Christmas</h5>
+<p>Help bring Christmas joy to families in need through The Salvation Army. Volunteers can assist with Angel Tree adoptions, sorting toys and donations at the Christmas Center, and distributing gifts to families in need.</p>
+<p><a class="btn btn-secondary btn-lg" href="https://www.cervistech.com/acts/webreg/eventwebreglist.php?org_id=0160&amp;event_category_id=39">Christmas Volunteer Opportunities</a></p></div>
+					<div class="pvlRichtext"><h5>Red Kettle Bell Ringing</h5>
+<p>Ring in the holiday season and sprad cheer to the community by bell ringing with The Salvation Army! Your friendly smile, warm greeting, and willingness to ring the bell can help provide hope and essential support to neighbors in need.</p>
+<p><a class="btn btn-secondary btn-lg" href="https://volunteer.salvationarmyusa.org/">Bell Ringing Opportunities</a></p></div>
 				</div>
 			</div>
 			<hr>
 			<div class="row my-3">
 				<div class="col-lg-6 col-md-6 col-sm-12">
-					<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Meal-Service-Volunteer.png" alt="placeholder">
+					<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Low-Res-Web-Ready-Birmingham-Volunteer-Photo-1.png" alt="placeholder">
+					<div class="pvlRichtext"><h5>Center of Hope&nbsp;</h5>
+<p>Make a difference in the lives of women and children, staying at the Center of Hope. Your time and compassion can make a meaningful difference to women and children experiencing homelessness. Our shelter welcomes caring volunteers who want to serve, encourage, and support families as they work toward stability and a brighter future.</p>
+<p><a class="btn btn-secondary btn-lg" href="https://www.cervistech.com/acts/webreg/eventwebreglist.php?org_id=0160&amp;event_category_id=19"> Volunteer at the Center of Hope</a></p></div>
+					<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Charlotte-NC-04622.S1rQemwYGe.jpg" alt="placeholder">
+					<div class="pvlRichtext"><h5>Red Shield Youth Centers&nbsp;</h5>
+<p>Help local youth learn, grow, and have fun! Volunteers at our youth center provide positive support and meaningful experiences that help young people build confidence and reach their potential. This is your opportunity help with homework, lead or assist with recreational activities, and be a positive role model and encouraging presence.</p>
+<p><a class="btn btn-secondary btn-lg" href="https://www.cervistech.com/acts/webreg/eventwebreglist.php?org_id=0160&amp;event_category_id=21">Volunteer at the Youth Centers</a></p></div>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="pvlRichtext"><p><strong><a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/29e85ce4-6a51-44a7-8c18-d752056d7643_Center+of+Hope+Meal+Service.pdf">Center of Hope Meal Service</a>:</strong>&nbsp;Providing nourishment and comfort to individuals and families experiencing homelessness.</p>
+					<img width="100%" src="https://8hxvw8tw.media.zestyio.com/IMG_7924.jpeg" alt="placeholder">
+					<div class="pvlRichtext"><h5>Impact Drives and Various Activites</h5>
+<p>Provide essential needs like snack packs, household supplies, and other basic necessities. Assist with approved activities and tasks that help create a safe, clean, and comfortable environment for students and residents. Offer encouragement, kindness, and a welcoming presence to those staying at the Center of Hope, or attending one of our Red Shield Youth Centers.</p>
+<p><a class="btn btn-secondary btn-lg" href="https://www.cervistech.com/acts/webreg/eventwebreglist.php?org_id=0160&amp;event_category_id=73">Impact Drive Opportunities</a></p></div>
+					<hr>
+					<h5>Additional Information</h5>
+					<div class="pvlRichtext"><p><a href="https://acrobat.adobe.com/id/urn:aaid:sc:us:616e8e77-08be-421b-a3f6-6fb9445c27dd"><strong></strong></a><strong><a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/29e85ce4-6a51-44a7-8c18-d752056d7643_Center+of+Hope+Meal+Service.pdf">Center of Hope Meal Service</a>:</strong>&nbsp;Providing nourishment and comfort to individuals and families experiencing homelessness.</p>
 <p><strong><a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/1702429a-e3a3-45a9-86dd-b69014149772_Group+Adopt+a+Meal+Overview.pdf">Adopt a Meal Program</a>: </strong> This program provides a much-needed meal to the women and children at our Center of Hope Homeless Shelter. Organizations, church groups, corporate teams, and individuals are needed to provide meals for the families staying with us.&nbsp;</p>
 <p><strong><a href="https://s3.amazonaws.com/uss-cache.salvationarmy.org/c3583a11-357c-412c-bf39-0a9115f79577_Group+Engagement+Packet+2025.pdf">Group Opportunities</a>:</strong>&nbsp;We can accommodate your group’s desire to do something good together – whether family, friends, coworkers, civic or church groups.&nbsp;</p>
 <p><em><strong>Other Group and&nbsp;Individual Volunteer Opportunities:</strong></em></p>
@@ -39,7 +59,6 @@
 			</div>
 			<div class="my-2"></div>
 			<div class="my-4"></div>
-			<div class="rounded p-6 gap-3 text-dark" style="width:100%;max-width:750px;margin:0 auto"><iframe style="width: min(750px,100%); height: 600px; border: 0; display: block; margin: 0 auto;" id="myFrame" name="myFrame" src="https://www.cervistech.com/acts/webreg/eventwebreglist.php?org_id=0160" title="CERVIS Opportunity Registration" frameborder="0" loading="lazy"></iframe></div>
 		</div>
 	</div>
 </div>

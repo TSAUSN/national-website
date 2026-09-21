@@ -616,31 +616,25 @@ document.addEventListener('markerClicked', (event) => {
   handleMarkerContent(event.detail);
 });
 
-// /locations.json is paginated server-side (thousands of records, each requiring
-// per-row state/city lookups) - one unbounded request was slow/unreliable and could
-// 503 the endpoint. Fetch it in bounded pages instead, sequentially so we never hit
-// it with concurrent large requests.
-async function fetchLocationPage(skip, limit, retriesLeft = 2) {
-  const response = await fetch(
-    `${window.location.origin}/locations.json?_bypassError=true&skip=${skip}&limit=${limit}`
-  );
+async function fetchAllLocations(retriesLeft = 2) {
+  const response = await fetch(`${window.location.origin}/locations.json?_bypassError=true`);
 
   if (!response.ok) {
     if (retriesLeft > 0) {
       await new Promise((resolve) => setTimeout(resolve, 500));
-      return fetchLocationPage(skip, limit, retriesLeft - 1);
+      return fetchAllLocations(retriesLeft - 1);
     }
-    throw new Error(`Failed to fetch locations (skip=${skip}, status=${response.status})`);
+    throw new Error(`Failed to fetch locations (status=${response.status})`);
   }
 
   const rawData = await response.text();
-  const page = JSON.parse(rawData);
+  const data = JSON.parse(rawData);
 
-  if (!Array.isArray(page)) {
+  if (!Array.isArray(data)) {
     throw new Error('Location data is not in the expected format');
   }
 
-  return page;
+  return data;
 }
 
 // Multiple call sites (initAutocomplete, initLocationFinder, displayLocationMarkers)
@@ -663,26 +657,14 @@ async function fetchLocationData() {
       loader.classList.remove('d-none');
     }
 
-    const PAGE_SIZE = 500;
-    const MAX_PAGES = 50; // safety valve against a runaway loop
-    let allLocations = [];
-
     try {
-      for (let page = 0; page < MAX_PAGES; page++) {
-        const skip = page * PAGE_SIZE;
-        const batch = await fetchLocationPage(skip, PAGE_SIZE);
-        allLocations = allLocations.concat(batch);
-
-        // Fewer results than requested means we've reached the last page
-        if (batch.length < PAGE_SIZE) break;
-      }
-
+      const allLocations = await fetchAllLocations();
       window.locationDatas = allLocations;
       return allLocations;
     } catch (error) {
       console.error('Error fetching location data:', error);
-      window.locationDatas = allLocations;
-      return allLocations;
+      window.locationDatas = [];
+      return [];
     } finally {
       if (loader) {
         loader.classList.add('d-none');
