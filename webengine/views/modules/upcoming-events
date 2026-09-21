@@ -406,7 +406,25 @@ initEvents();
      });
    }
 
+   // modules/client-global-navigation sets the location_zuid/location_model cookies from a
+   // `DOMContentLoaded` listener, and at least one of its org-level branches (Services) awaits a
+   // network call before writing them. upcoming-events' own <script> runs synchronously at parse
+   // time, well before that — reading the cookies immediately would see them still unset on a
+   // cold visit and fail-safe to "no events" for every visitor. Wait for the DOM to finish
+   // loading, then give the cookie a short window to actually land, before ever reading it.
+   async function waitForLocationCookie(timeoutMs = 3000, intervalMs = 100) {
+     if (document.readyState === 'loading') {
+       await new Promise((resolve) => document.addEventListener('DOMContentLoaded', resolve, { once: true }));
+     }
+     const start = Date.now();
+     while (!cookieManager.get(cookieKeys.locationZUID) && Date.now() - start < timeoutMs) {
+       await new Promise((resolve) => setTimeout(resolve, intervalMs));
+     }
+   }
+
    async function fetchEvents() {
+     await waitForLocationCookie();
+
      const FETCH_TIMEOUT_MS = 30000;
      const controller = new AbortController();
      const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
