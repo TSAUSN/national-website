@@ -311,7 +311,7 @@ initEvents();
    async function fetchEvents() {
      try {
        const model = await fetch(
-         `https://{{instance.domain}}/events.json?zuid=${cookieManager.get(
+         `https://{{instance.domain}}/get-events.json?zuid=${cookieManager.get(
            cookieKeys.locationZUID
          )}&model=${cookieManager.get(cookieKeys.locationModel)}`
        );
