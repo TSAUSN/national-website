@@ -97,6 +97,25 @@ function isUpcomingEvent(dateTimeSummary) {
   return defaultImages[Math.floor(Math.random()*defaultImages.length)];
   }
 
+  // Model ZUIDs for the org level the current page/location cookie is scoped to — mirrors the
+  // three branches the old get-events.json used, and the constants defined in modules/hero.
+  // Declared here (before initEvents() is invoked below) rather than down by fetchEvents():
+  // fetchEvents() is a hoisted function declaration so its own position doesn't matter, but it
+  // runs synchronously up to its first `await` the moment initEvents() calls it, and these are
+  // `const` — referencing them before this line actually executes throws a temporal-dead-zone
+  // ReferenceError, which is exactly what happened when they lived next to fetchEvents() further
+  // down the file, after the initEvents(); call.
+  const EVENTS_TERRITORY_MODEL_ZUID = '6-deab97cfd9-wb5km4';
+  const EVENTS_DIVISION_MODEL_ZUID = '6-acb19a94bd-4q8ftj';
+  const EVENTS_LOCATION_MODEL_ZUID = '6-b4c9aba69c-h2nqvm';
+
+  // Which raw `events` field to match the current page's ZUID against, per org level.
+  const EVENTS_MATCH_FIELD_BY_MODEL = {
+    [EVENTS_TERRITORY_MODEL_ZUID]: 'territories',
+    [EVENTS_DIVISION_MODEL_ZUID]: 'divisions',
+    [EVENTS_LOCATION_MODEL_ZUID]: 'property',
+  };
+
   const loader = document.getElementById("events-loader")
 async function initEvents() {
   try {
@@ -355,19 +374,10 @@ initEvents();
    //   3. That `/-/gql/cities.json` and `/-/gql/states.json` return flat `{zuid, title}` /
    //      `{zuid, name}` rows the same way.
    // See docs/custom-patterns.md §14 for exactly what a human/qa-tester needs to check.
-
-   // Model ZUIDs for the org level the current page/location cookie is scoped to — mirrors the
-   // three branches the old get-events.json used, and the constants defined in modules/hero.
-   const EVENTS_TERRITORY_MODEL_ZUID = '6-deab97cfd9-wb5km4';
-   const EVENTS_DIVISION_MODEL_ZUID = '6-acb19a94bd-4q8ftj';
-   const EVENTS_LOCATION_MODEL_ZUID = '6-b4c9aba69c-h2nqvm';
-
-   // Which raw `events` field to match the current page's ZUID against, per org level.
-   const EVENTS_MATCH_FIELD_BY_MODEL = {
-     [EVENTS_TERRITORY_MODEL_ZUID]: 'territories',
-     [EVENTS_DIVISION_MODEL_ZUID]: 'divisions',
-     [EVENTS_LOCATION_MODEL_ZUID]: 'property',
-   };
+   //
+   // EVENTS_TERRITORY_MODEL_ZUID / EVENTS_DIVISION_MODEL_ZUID / EVENTS_LOCATION_MODEL_ZUID /
+   // EVENTS_MATCH_FIELD_BY_MODEL are declared up near `loader`, before initEvents() is invoked —
+   // see the comment there for why (a temporal-dead-zone ReferenceError when they lived here).
 
    async function fetchJSON(url, options) {
      const response = await fetch(url, options);
