@@ -2326,8 +2326,15 @@
   async function handleInformationalPage(zuid) {
     const locationCookie = cookieManager.get(cookieKeys.locationZUID);
     console.log(locationCookie)
-    if (locationCookie) {
-      const model = await fetchInformation(`get-informational-page`, zuid);
+    // Previously gated on an existing location_zuid cookie, which meant a
+    // first-time visit (no prior cookie, e.g. a direct link/ad/search hit to a
+    // nested campaign page like angel-tree-donation) never looked up this page's
+    // location at all and silently fell back to the NHQ address in the footer.
+    // Always resolve via the API; guard against a missing/empty response (fetch
+    // failure, or an informational page with no location chain at all) instead
+    // of crashing on `model.content.meta.model_name`.
+    const model = await fetchInformation(`get-informational-page`, zuid);
+    if (model && model.content && model.content.meta && model.content.meta.model_name) {
       switch (model.content.meta.model_name) {
         case `locations`:
           cookieManager.set(cookieKeys.locationModel, `{{$locationModelZUID}}`);
