@@ -99,6 +99,20 @@ The server's **source code is a separate project** at `/home/kharljhon14/project
 
 ---
 
+## Known issue — CONNECTION_CLOSED on startup (diagnosed & fixed 2026-09-22)
+
+**Symptom**: MCP client reports `CONNECTION_CLOSED` immediately when connecting to the `zesty` server; no tools are ever registered.
+
+**Root cause**: `.mcp.json` sets `ZESTY_SESSION_TOKEN` / `ZESTY_INSTANCE_ZUID` in the `env` block of the `wsl.exe` command, but the launch command is a **bare** `wsl.exe -e node <path>` (no login shell). WSL does **not** forward arbitrary Windows-side environment variables into the Linux process unless they're listed in `WSLENV` — so `process.env.ZESTY_SESSION_TOKEN` / `ZESTY_INSTANCE_ZUID` were both `undefined` inside the Node process. `src/tools/register.ts` calls `new SDK(process.env.ZESTY_INSTANCE_ZUID, process.env.ZESTY_SESSION_TOKEN, opts)` with no guard, and the SDK constructor throws synchronously (`SDK:constructor() missing required 'token' parameter`) when `token` is falsy. That throw happens inside `registerAllTools()`, which is awaited in `initializeServer()` inside `main()`'s try/catch in `src/index.ts` — so the process logs `Fatal error: ...` to stderr and calls `process.exit(1)` **before** `server.connect(transport)` is ever reached. The MCP client sees the child process exit immediately after spawn, which surfaces as `CONNECTION_CLOSED`.
+
+Confirmed live by reproducing the exact bare `wsl.exe -e node build/index.js` invocation from Windows with the env vars set only on the Windows/`wsl.exe`-parent side (no `WSLENV`) — it throws that exact error and exits 1. Setting `WSLENV=ZESTY_SESSION_TOKEN:ZESTY_INSTANCE_ZUID` in the same `env` block and re-running the identical invocation lets the process complete a real MCP `initialize` handshake successfully.
+
+**Fix applied**: added `"WSLENV": "ZESTY_SESSION_TOKEN:ZESTY_INSTANCE_ZUID"` to the `env` block in this machine's `.mcp.json`. Not yet confirmed working from inside the actual MCP client session (config is read at session boot, so a running session won't pick this up until reconnect) — **flagging for user confirmation on next session start.**
+
+**Correction 2026-09-22: `.mcp.json` is NOT gitignored, contrary to what this doc and `CLAUDE.md` previously assumed.** It's tracked in git (`git ls-files .mcp.json` confirms) and was committed in `54b6814` with a live `ZESTY_SESSION_TOKEN` in plaintext, already pushed to both `origin/coda-2533` and `origin/stage`. That token should be rotated/revoked and this file should be untracked + added to `.gitignore` going forward — flagged to the user directly, not something this doc fixes on its own.
+
+Ruled out as causes: WSL itself (`wsl.exe` runs and is healthy), the build artifacts (present and current, `build/index.js` exists and runs), Node (`v18.19.1` present in WSL), and the session token (confirmed valid — `GET https://auth.api.zesty.io/verify` with this token returns `200 {"message":"Session valid", ...}`).
+
 ## Needs live verification
 
 Everything below is a **specific claim from the source code that should be confirmed against a real API call**, not trusted from code/comments alone. Send these to `api-integrator`:
