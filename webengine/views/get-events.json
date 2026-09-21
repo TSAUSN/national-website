@@ -1,0 +1,36 @@
+{{$zuid = {request.queryParam(zuid)} }}
+{{$model = {request.queryParam(model)} }}
+
+[
+{{if {$model} == "6-deab97cfd9-wb5km4" }}
+    {{each events as event WHERE find_in_set('{$zuid}', territories) }}
+        {
+            "content":{{event.toJSON()}},
+            "city": {{if {event.city} }} "{{cities.filter({event.city}).title }}" {{else}} "" {{/if}},
+            "state": {{if {event.state} }} "{{states.filter({event.state}).name }}" {{else}} "" {{/if}},
+            "date": "{{event.event_date_with_time.date(F j, Y g:i A)}} {{if {event.event_end_date_with_time} }} - {{event.event_end_date_with_time.date(F j, Y g:i A)}} {{/if}}"
+        }{{event._arraycomma}}
+    {{/each}}
+
+{{else if {$model} == "6-acb19a94bd-4q8ftj"}}
+    {{each events as event WHERE find_in_set('{$zuid}', divisions) }}
+        {
+            "content":{{event.toJSON()}},
+            "city": {{if {event.city} }} "{{cities.filter({event.city}).title }}" {{else}} "" {{/if}},
+            "state": {{if {event.state} }} "{{states.filter({event.state}).name }}" {{else}} "" {{/if}},
+
+                     "date": "{{event.event_date_with_time.date(F j, Y g:i A)}} {{if {event.event_end_date_with_time} }} - {{event.event_end_date_with_time.date(F j, Y g:i A)}} {{/if}}"
+        }{{event._arraycomma}}
+    {{/each}}
+{{else if {$model} == "6-b4c9aba69c-h2nqvm"}}
+    {{each events as event WHERE find_in_set('{$zuid}', property) }}
+        {
+            "content":{{event.toJSON()}},
+            "city": {{if {event.city} }} "{{cities.filter({event.city}).title }}" {{else}} "" {{/if}},
+            "state": {{if {event.state} }} "{{states.filter({event.state}).name }}" {{else}} "" {{/if}},
+
+                     "date": "{{event.event_date_with_time.date(F j, Y g:i A)}} {{if {event.event_end_date_with_time} }} - {{event.event_end_date_with_time.date(F j, Y g:i A)}} {{/if}}"
+        }{{event._arraycomma}}
+    {{/each}}
+{{/if}}
+]

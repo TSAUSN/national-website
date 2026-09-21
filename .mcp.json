@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "zesty": {
+      "command": "wsl.exe",
+      "args": ["-e", "node", "/home/kharljhon14/projects/zesty/mcp-local-server/build/index.js"],
+      "env": {
+        "ZESTY_SESSION_TOKEN": "PTK-9b3rfb59hwb83jkpbl3gx75dxg07zchgsvxsrrp6h6plm",
+        "ZESTY_INSTANCE_ZUID": "8-da979ebeab-d59gnx"
+      }
+    }
+  }
+}
