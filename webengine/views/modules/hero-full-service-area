@@ -5,8 +5,9 @@
   <img
     id="hero-full-image"
     class="w-100 rounded-5 object-fit-cover"
-    src="{{ this.image.getImage() }}"
+    src="{{if {this.image} }}{{ this.image.getImage() }}{{else}}{{ globals.default_og_image.getImage() }}{{/if}}"
     alt="Featured Article"
+    onerror="this.onerror=null;this.src='{{ globals.default_og_image.getImage() }}' + (window.innerWidth <= 768 ? '?width=396&height=264&crop=3:2,smart' : '?width=1400&crop=3:1,smart');"
     fetchpriority="high"
     decoding="async"
     loading="eager"
@@ -30,13 +31,23 @@
 {{/if}}
 <script>
   function setBannerImage() {
-    let bannerImage = '{{ this.image.getImage() }}';
+    // Fall back to the site-wide default hero image (globals.default_og_image)
+    // when image is empty or fails to load, matching the pattern used in
+    // webengine/views/modules/hero-full.
+    let bannerImage = '{{if {this.image} }}{{ this.image.getImage() }}{{else}}{{ globals.default_og_image.getImage() }}{{/if}}';
     let bannerImg = document.querySelector("#hero-full-image");
+    let fallbackImage = '{{ globals.default_og_image.getImage() }}';
     if(window.innerWidth <= 768) {
       bannerImage += "?width=396&height=264&crop=3:2,smart";
+      fallbackImage += "?width=396&height=264&crop=3:2,smart";
     } else {
       bannerImage += "?width=1400&crop=3:1,smart";
+      fallbackImage += "?width=1400&crop=3:1,smart";
     }
+    bannerImg.onerror = function () {
+      this.onerror = null;
+      this.src = fallbackImage;
+    };
     bannerImg.setAttribute('src', bannerImage)
 
   }

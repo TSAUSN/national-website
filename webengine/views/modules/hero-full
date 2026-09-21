@@ -1,4 +1,3 @@
-{{if {this.hero_image} && {this.title} }}
 <div
   id="hero-full"
   class="featured-article bg-opacity-25 mb-4 position-relative rounded-5 position-relative overflow-hidden mb-15"
@@ -6,8 +5,9 @@
   <img
     id="hero-full-image"
     class="w-100 rounded-5 object-fit-cover"
-    src="{{ this.hero_image.getImage() }}"
+    src="{{if {this.hero_image} }}{{ this.hero_image.getImage() }}{{else}}{{ globals.default_og_image.getImage() }}{{/if}}"
     alt="Featured Article"
+    onerror="this.onerror=null;this.src='{{ globals.default_og_image.getImage() }}' + (window.innerWidth <= 768 ? '?width=396&crop=3:2,smart' : '?width=1046&crop=3:1,smart');"
     fetchpriority="high"
     decoding="async"
     loading="eager"
@@ -53,16 +53,28 @@
     </div>
   </div>
 </div>
-{{/if}}
 <script>
   function setBannerImage() {
-    let bannerImage = '{{ this.hero_image.getImage() }}';
+    // Fall back to the site-wide default hero image (globals.default_og_image)
+    // when hero_image is empty or fails to load (e.g. points at a missing file),
+    // matching the pattern used in webengine/views/modules/hero and
+    // webengine/views/-/block/hero_full.html.
+    let bannerImage = '{{if {this.hero_image} }}{{ this.hero_image.getImage() }}{{else}}{{ globals.default_og_image.getImage() }}{{/if}}';
     let bannerImg = document.querySelector('#hero-full-image');
+    let fallbackImage = '{{ globals.default_og_image.getImage() }}';
     if (window.innerWidth <= 768) {
       bannerImage += '?width=396&crop=3:2,smart';
+      fallbackImage += '?width=396&crop=3:2,smart';
     } else {
       bannerImage += '?width=1046&crop=3:1,smart';
+      fallbackImage += '?width=1046&crop=3:1,smart';
     }
+    // If the resolved image (existing or freshly swapped) 404s/fails to load,
+    // swap to the fallback so the crop params don't clobber the empty-state image.
+    bannerImg.onerror = function () {
+      this.onerror = null;
+      this.src = fallbackImage;
+    };
     bannerImg.setAttribute('src', bannerImage);
   }
 
