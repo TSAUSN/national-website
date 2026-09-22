@@ -41,14 +41,184 @@
   <div class="bg-light p-8 rounded-5 align-items-center gap-4">
     <div class="row g-3">
       {{each locations as location sort by name ASC where find_in_set('{page.zuid}', city )}}
-      <div class="col-12 col-md-4 col-lg-3">
-        <div class="bg-area p-6 rounded-5 h-100">
-          <a
-            class="text-secondary city-card-name"
-            href="{{truepath({location.zuid})}} "
-            >{{if {location.site_name} !== null && {location.site_name} !== ""}}{{ location.site_name }}{{else}}{{ location.name }}{{/if}}</a
-          >
-          <p class="m-0 text-dark-50 text-capitalize">{{ location.address }}</p>
+      {{$cityName = ""}}
+      {{if {location.city} !== null && {location.city} !== ""}}
+        {{$cityName = {cities.filter({location.city}).title} }}
+      {{/if}}
+      {{$stateName = ""}}
+      {{if {location.state} !== null && {location.state} !== ""}}
+        {{$stateName = {states.filter({location.state}).name} }}
+      {{/if}}
+      <div class="col-12 col-md-4 col-lg-4">
+        <div class="accordion h-100" id="locationAccordion-{{location.zuid}}">
+          <div class="accordion-item border-0 bg-area rounded-5 h-100">
+            <h2 class="accordion-header" id="locationHeading-{{location.zuid}}">
+              <button
+                class="accordion-button collapsed bg-transparent shadow-none p-6 rounded-5"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#locationCollapse-{{location.zuid}}"
+                aria-expanded="false"
+                aria-controls="locationCollapse-{{location.zuid}}"
+                data-location-type="body:city-locations"
+                data-function-type="other"
+                data-format-type="accordion-block"
+                data-page-componentType-type="location card component"
+                data-page-componentIndex-type="null"
+                onclick="LinkTrackingClickEvent(this,'view_content_click')"
+              >
+                <span class="text-secondary city-card-name fw-bold"
+                  >{{if {location.site_name} !== null && {location.site_name} !== ""}}{{ location.site_name }}{{else}}{{ location.name }}{{/if}}</span
+                >
+              </button>
+            </h2>
+            <div
+              id="locationCollapse-{{location.zuid}}"
+              class="accordion-collapse collapse"
+              aria-labelledby="locationHeading-{{location.zuid}}"
+              data-bs-parent="#locationAccordion-{{location.zuid}}"
+            >
+              <div class="accordion-body pt-0 px-6 pb-6">
+                <div
+                  class="d-flex align-items-start justify-content-between border-top border-2 border-dark-50 py-3"
+                >
+                  <span class="display-4 display-md-2 fw-bold me-2">General Hours</span>
+                  {{if {location.hours_of_operation} == "Contact Store for hours" || {location.hours_of_operation} == "Contact for hours"}}
+                  <span class="text-dark-50 display-4 display-md-2 text-end">Contact location for hours</span>
+                  {{else if {location.hours_of_operation} !== null && {location.hours_of_operation} !== ""}}
+                  <span class="text-dark-50 display-4 display-md-2 text-end">{{location.hours_of_operation}}</span>
+                  {{else}}
+                  <span class="text-dark-50 display-4 display-md-2 text-end">Hours not available</span>
+                  {{/if}}
+                </div>
+
+                <div class="d-flex align-items-center justify-content-between py-3">
+                  <span class="display-4 display-md-2 fw-bold me-2">Phone</span>
+                  {{if {location.contact_number} !== null && {location.contact_number} !== ""}}
+                  <a
+                    href="tel:{{location.contact_number}}"
+                    class="text-secondary-200 display-4 display-md-2 text-decoration-none text-end"
+                    data-link-location-type="body:city-locations"
+                    data-link-function-type="other"
+                    data-link-format-type="button"
+                    data-link-type="internal"
+                    data-location-id="{{location.zuid}}"
+                    data-location-name="{{location.name}}"
+                    onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
+                    >{{location.contact_number}}</a
+                  >
+                  {{else}}
+                  <span class="text-dark-50 display-4 display-md-2">Phone not available</span>
+                  {{/if}}
+                </div>
+
+                <div class="d-flex align-items-start justify-content-between py-3">
+                  <span class="display-4 display-md-2 fw-bold me-2">Address</span>
+                  {{if {location.address} !== null && {location.address} !== ""}}
+                  <span class="text-dark-50 display-4 display-md-2 text-end"
+                    >{{location.address}}{{if {$cityName} !== null && {$cityName} !== ""}}, {{$cityName}}{{/if}}{{if {$stateName} !== null && {$stateName} !== ""}}, {{$stateName}}{{/if}}{{if {location.zipcode} !== null && {location.zipcode} !== ""}} {{location.zipcode}}{{/if}}</span
+                  >
+                  {{else}}
+                  <span class="text-dark-50 display-4 display-md-2 text-end">Address not available</span>
+                  {{/if}}
+                </div>
+
+                {{if {location.address} !== null && {location.address} !== ""}}
+                <div class="d-flex align-items-start justify-content-between py-3">
+                  <span class="display-4 display-md-2 fw-bold me-2">Directions</span>
+                  <div class="text-dark-50 display-4 display-md-2 text-end">
+                    <a
+                      href="https://www.google.com/maps/dir/?api=1&origin=current-location&destination={{location.address}}{{if {$cityName} !== null && {$cityName} !== ""}}, {{$cityName}}{{/if}}{{if {$stateName} !== null && {$stateName} !== ""}}, {{$stateName}}{{/if}}{{if {location.zipcode} !== null && {location.zipcode} !== ""}} {{location.zipcode}}{{/if}}&travelmode=walking"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-dark-50 me-2 text-decoration-underline"
+                      data-link-location-type="body:city-locations"
+                      data-link-function-type="other"
+                      data-link-format-type="button"
+                      data-link-type="external"
+                      data-location-id="{{location.zuid}}"
+                      data-location-name="{{location.name}}"
+                      onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
+                      >Walking</a
+                    >
+                    <a
+                      href="https://www.google.com/maps/dir/?api=1&origin=current-location&destination={{location.address}}{{if {$cityName} !== null && {$cityName} !== ""}}, {{$cityName}}{{/if}}{{if {$stateName} !== null && {$stateName} !== ""}}, {{$stateName}}{{/if}}{{if {location.zipcode} !== null && {location.zipcode} !== ""}} {{location.zipcode}}{{/if}}&travelmode=driving"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-dark-50 me-2 text-decoration-underline"
+                      data-link-location-type="body:city-locations"
+                      data-link-function-type="other"
+                      data-link-format-type="button"
+                      data-link-type="external"
+                      data-location-id="{{location.zuid}}"
+                      data-location-name="{{location.name}}"
+                      onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
+                      >Driving</a
+                    >
+                    <a
+                      href="https://www.google.com/maps/dir/?api=1&origin=current-location&destination={{location.address}}{{if {$cityName} !== null && {$cityName} !== ""}}, {{$cityName}}{{/if}}{{if {$stateName} !== null && {$stateName} !== ""}}, {{$stateName}}{{/if}}{{if {location.zipcode} !== null && {location.zipcode} !== ""}} {{location.zipcode}}{{/if}}&travelmode=transit"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-dark-50 text-decoration-underline"
+                      data-link-location-type="body:city-locations"
+                      data-link-function-type="other"
+                      data-link-format-type="button"
+                      data-link-type="external"
+                      data-location-id="{{location.zuid}}"
+                      data-location-name="{{location.name}}"
+                      onclick="LocationTrackingSearchEvent(this,'location_search_results_click')"
+                      >Public Transport</a
+                    >
+                  </div>
+                </div>
+                {{/if}}
+
+                {{if {location.redirect_url} !== null && {location.redirect_url} !== ""}}
+                <div class="d-flex gap-2 mt-4">
+                  <a
+                    href="{{location.redirect_url}}"
+                    class="btn btn-info d-flex align-items-center justify-content-center w-100 display-4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-link-function="navigation"
+                    data-link-format="button"
+                    data-link-location="body:city-locations"
+                    data-link-type="external"
+                    data-link-url="{{location.redirect_url}}"
+                    data-location-id="{{location.zuid}}"
+                    data-location-name="{{location.name}}"
+                    data-link-text="View Location Website"
+                    onclick="LocationTrackingResultsClickEvent(this)"
+                  >
+                    <span class="material-symbols-outlined text-light me-2">arrow_outward</span>
+                    View Location Website
+                  </a>
+                </div>
+                {{else if {location.url} !== null && {location.url} !== ""}}
+                <div class="d-flex gap-2 mt-4">
+                  <a
+                    href="{{location.url}}"
+                    class="btn btn-info d-flex align-items-center justify-content-center w-100 display-4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-link-function="navigation"
+                    data-link-format="button"
+                    data-link-location="body:city-locations"
+                    data-link-type="external"
+                    data-link-url="{{location.url}}"
+                    data-location-id="{{location.zuid}}"
+                    data-location-name="{{location.name}}"
+                    data-link-text="View Location Website"
+                    onclick="LocationTrackingResultsClickEvent(this)"
+                  >
+                    <span class="material-symbols-outlined text-light me-2">arrow_outward</span>
+                    View Location Website
+                  </a>
+                </div>
+                {{/if}}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       {{/each}}
@@ -58,7 +228,7 @@
 
 <script>
   const cityCardNames = document.querySelectorAll('.city-card-name');
-  const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
+  const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9À-ſ]+(?:['-][A-Za-z0-9À-ſ]+)*)\b/gi;
 
   cityCardNames.forEach((cityCardName) => {
     const result = cityCardName.textContent.replace(regex, (word) => {
