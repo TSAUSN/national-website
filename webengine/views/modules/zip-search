@@ -194,18 +194,18 @@
                     View Location Website
                   </a>
                 </div>
-                {{else if {location.url} !== null && {location.url} !== ""}}
+                {{else}}
                 <div class="d-flex gap-2 mt-4">
                   <a
-                    href="{{location.url}}"
+                    href="{{truepath({location.zuid})}}"
                     class="btn btn-info d-flex align-items-center justify-content-center w-100 display-4"
                     target="_blank"
                     rel="noopener noreferrer"
                     data-link-function="navigation"
                     data-link-format="button"
                     data-link-location="body:city-locations"
-                    data-link-type="external"
-                    data-link-url="{{location.url}}"
+                    data-link-type="internal"
+                    data-link-url="{{truepath({location.zuid})}}"
                     data-location-id="{{location.zuid}}"
                     data-location-name="{{location.name}}"
                     data-link-text="View Location Website"
