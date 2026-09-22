@@ -11,6 +11,22 @@
         </div>
       </div>
       {{/if}}
+
+      <div class="mb-6">
+        <span class="text-secondary fw-semibold text-uppercase d-block mb-2" style="font-size:0.7rem;letter-spacing:0.08em;">Registry Type</span>
+        <div class="d-flex gap-2" id="angel-tree-type-toggle">
+          <button type="button" class="angel-tree-type-btn btn flex-fill d-flex align-items-center justify-content-center gap-2 border rounded-3 py-2 active" data-registry-type="online">
+            <span class="rounded-circle flex-shrink-0 d-inline-block" style="width:10px;height:10px;background-color:#12825F;"></span>
+            Online registry
+          </button>
+          <button type="button" class="angel-tree-type-btn btn flex-fill d-flex align-items-center justify-content-center gap-2 border rounded-3 py-2" data-registry-type="store">
+            <span class="rounded-circle flex-shrink-0 d-inline-block" style="width:10px;height:10px;background-color:#2F6FED;"></span>
+            Physical store
+          </button>
+        </div>
+        <p class="text-muted display-3 mb-0 mt-2" id="angel-tree-type-helper">Showing registries that ship to your area.</p>
+      </div>
+
       <div class="input-group mb-6">
         <input
           type="text"
@@ -39,9 +55,13 @@
       </div>
     </div>
     <div>
+      <div class="d-flex justify-content-between align-items-center mt-6 d-none" id="angel-tree-results-header">
+        <span class="fw-bold" id="angel-tree-results-count"></span>
+        <span class="text-muted display-3">Nearest first</span>
+      </div>
       <div id="angel-tree-result" class="container d-flex flex-column mt-4 overflow-auto mb-2 pt-2 d-none"></div>
     </div>
-    
+
   </div>
   <div class="col-sm-12 col-lg-7 p-sm-4 p-lg-7">
     <div class="col-12 p-0 order-sm-1 order-lg-2 position-relative">
@@ -53,10 +73,49 @@
   </div>
 </div>
 
+<style>
+  .angel-tree-type-btn {
+    background-color: #fff;
+    color: #495057;
+    font-weight: 500;
+    transition: border-color .15s ease, color .15s ease, background-color .15s ease;
+  }
+  .angel-tree-type-btn.active {
+    border-color: var(--bs-danger, #dc3545) !important;
+    color: var(--bs-danger, #dc3545);
+    background-color: rgba(220, 53, 69, 0.06);
+    font-weight: 600;
+  }
+</style>
 
 <script>
 let map = null;
 let items = [];
+
+const REGISTRY_TYPE_ONLINE = 'online';
+const REGISTRY_TYPE_STORE = 'store';
+
+let activeRegistryType = REGISTRY_TYPE_ONLINE;
+let currentResults = { [REGISTRY_TYPE_ONLINE]: [], [REGISTRY_TYPE_STORE]: [] };
+let lastSearchCenter = null;
+let lastSearchTerm = '';
+
+const REGISTRY_TYPE_CONFIG = {
+  [REGISTRY_TYPE_ONLINE]: {
+    badgeLabel: 'Online',
+    color: '#12825F',
+    helperText: 'Showing registries that ship to your area.',
+    emptyText: 'No online registries found within 50 miles. Try a different address.',
+    countLabel: (n) => `${n} online ${n === 1 ? 'registry' : 'registries'}`
+  },
+  [REGISTRY_TYPE_STORE]: {
+    badgeLabel: 'Physical Store',
+    color: '#2F6FED',
+    helperText: 'Showing physical store locations near you.',
+    emptyText: 'No physical stores found within 50 miles. Try a different address.',
+    countLabel: (n) => `${n} physical ${n === 1 ? 'store' : 'stores'}`
+  }
+};
 
 // OPTIMIZED BATCH GEOCODER - Only for user input address
 const createOptimizedBatchGeocoder = (rateLimitMs = 10) => {
@@ -73,7 +132,7 @@ const createOptimizedBatchGeocoder = (rateLimitMs = 10) => {
   const geocodeSingle = async (address) => {
     return new Promise((resolve) => {
       const delay = Math.random() * rateLimitMs;
-      
+
       setTimeout(() => {
         geocoder.geocode({ address }, (results, status) => {
           let result = null;
@@ -84,7 +143,7 @@ const createOptimizedBatchGeocoder = (rateLimitMs = 10) => {
               formatted_address: results[0].formatted_address
             };
           }
-          
+
           resolve(result);
         });
       }, delay);
@@ -115,8 +174,8 @@ const buildAddressString = (location) => {
   return parts.length > 0 ? parts.join(', ') : '';
 };
 
-// SIMPLIFIED LOCATION PROCESSOR - No coordinate processing needed
-const createSimpleLocationProcessor = () => {
+// SIMPLIFIED LOCATION PROCESSOR - tags each location with its registry type
+const createSimpleLocationProcessor = (registryType) => {
   const processLocations = (locations) => {
     return locations
       .map(location => {
@@ -127,21 +186,22 @@ const createSimpleLocationProcessor = () => {
 
         const orgDetails = `SAL^${location[16]?.value}` || 'SAL';
         const fullAddress = buildAddressString(location);
-        
+
         // Skip locations without address info
         if (!fullAddress) {
           return null;
         }
-        
+
         return {
           ...location,
+          type: registryType,
           fullAddress,
           coordinates: {
             lat: parseFloat(location[156].value),
             lng: parseFloat(location[157].value)
           },
           displayName: location[162]?.value || 'Unknown Location',
-          giveUrl: location[32]?.value || '#',
+          giveUrl: location[32]?.value || '',
           organization_details: orgDetails
         };
       })
@@ -152,27 +212,23 @@ const createSimpleLocationProcessor = () => {
 };
 
 // SIMPLIFIED PREPROCESSING FUNCTION
-const preprocessLocationDataOptimized = async (locations) => {
-  console.log('Starting simplified preprocessing...');
+const preprocessLocationDataOptimized = async (locations, registryType) => {
+  console.log(`Starting simplified preprocessing for ${registryType}...`);
   const startTime = Date.now();
-  
-  // Initialize simple processor
-  const processor = createSimpleLocationProcessor();
-  
-  // Process locations directly (no geocoding needed)
+
+  const processor = createSimpleLocationProcessor(registryType);
   const processedLocations = processor.processLocations(locations);
-  
+
   const endTime = Date.now();
   const processingTime = (endTime - startTime) / 1000;
-  console.log(`Preprocessing complete: ${processedLocations.length} locations processed in ${processingTime.toFixed(2)}s`);
-  
+  console.log(`Preprocessing complete: ${processedLocations.length} ${registryType} locations processed in ${processingTime.toFixed(2)}s`);
+
   return processedLocations;
 };
 
 // Optimized filtering with pre-stored coordinates
 const filterLocationsByRadius = async (processedLocations, inputLocation, radiusMiles = 50) => {
   console.log("Input Text", inputLocation);
-  console.log("Processed Location", location)
   if (!processedLocations?.length) {
     throw new Error('No processed locations available');
   }
@@ -182,17 +238,17 @@ const filterLocationsByRadius = async (processedLocations, inputLocation, radius
   if (!centerCoordinates) {
     throw new Error('Could not geocode input location');
   }
-  
+
   // Filter using pre-stored coordinates
   const filteredLocations = processedLocations
     .map(location => {
       const distance = calculateLocationDistance(
-        centerCoordinates.lat, 
+        centerCoordinates.lat,
         centerCoordinates.lng,
-        location.coordinates.lat, 
+        location.coordinates.lat,
         location.coordinates.lng
       );
-      
+
       return {
         ...location,
         distanceFromCenter: Math.round(distance * 100) / 100
@@ -204,133 +260,130 @@ const filterLocationsByRadius = async (processedLocations, inputLocation, radius
   return { filteredLocations, centerCoordinates };
 };
 
-// Optimized marker creation with object pooling
-const createMarkerPool = () => {
+// Colored pin icon, per registry type
+const createPinIcon = (color) => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+    <path d="M20 2C13.37 2 8 7.37 8 14c0 8.75 12 24 12 24s12-15.25 12-24c0-6.63-5.37-12-12-12zm0 16.5c-2.49 0-4.5-2.01-4.5-4.5S17.51 9.5 20 9.5 24.5 11.51 24.5 14 22.49 18.5 20 18.5z" fill="${color}" stroke="#FFFFFF" stroke-width="1"/>
+  </svg>`;
+  return {
+    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(20, 40),
+    scaledSize: new google.maps.Size(40, 40)
+  };
+};
+
+const markerPool = (() => {
   const activeMarkers = [];
-  const inactiveMarkers = [];
 
-  const createOrReuseMarker = (map, lat, lng, title) => {
-    let marker;
-    
-    if (inactiveMarkers.length > 0) {
-      // Reuse existing marker
-      marker = inactiveMarkers.pop();
-      marker.setPosition({ lat: parseFloat(lat), lng: parseFloat(lng) });
-      marker.setTitle(title || 'Custom Marker');
-      marker.setMap(map);
-    } else {
-      // Create new marker
-      const customIcon = {
-        url: 'https://8hxvw8tw.media.zestyio.com/location_filled50.png',
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(15, 40),
-        scaledSize: new google.maps.Size(40, 40)
-      };
-
-      marker = new google.maps.Marker({
-        position: { lat: parseFloat(lat), lng: parseFloat(lng) },
-        map: map,
-        title: title || 'Custom Marker',
-        icon: customIcon
-      });
-    }
-    
+  const addMarker = (mapInstance, lat, lng, title, icon) => {
+    const marker = new google.maps.Marker({ position: { lat, lng }, map: mapInstance, title, icon });
     activeMarkers.push(marker);
     return marker;
   };
 
   const clearAllMarkers = () => {
-    // Hide all active markers and move to inactive pool
-    activeMarkers.forEach(marker => {
-      marker.setMap(null);
-      inactiveMarkers.push(marker);
-    });
+    activeMarkers.forEach(marker => marker.setMap(null));
     activeMarkers.length = 0;
   };
 
-  return { createOrReuseMarker, clearAllMarkers };
-};
-
-const markerPool = createMarkerPool();
+  return { addMarker, clearAllMarkers };
+})();
 
 // Calculate distance (unchanged)
 const calculateLocationDistance = (lat1, lon1, lat2, lon2) => {
   const R = 3959; // Earth's radius in miles
   const dLat = toRadians(lat2 - lat1);
   const dLon = toRadians(lon2 - lon1);
-  
+
   const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
     Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) *
     Math.sin(dLon / 2) * Math.sin(dLon / 2);
-  
+
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   return R * c;
 };
 
 const toRadians = (degrees) => degrees * (Math.PI / 180);
 
-// Optimized card generation
-const generateCards = (locations, analyticsObject) => {
-  return locations.map((location, index) => 
-    `<div class="angel-tree__items card mb-2 mt-2" data-id="${index}">
-      <div class="card-body d-flex justify-content-between align-items-center">
-        <div class="col-7 justify-content-center">
-          <h5 class="card-title fw-bold text-secondary-200 mb-1 display-2">
-            ${location.displayName}
-          </h5>
-          <p class="text-muted mb-0 display-3">${location.distanceFromCenter} mi</p>
-        </div>
-        <div class="col-5 text-end justify-content-center">
-          <a
-            class="btn btn-primary btn-sm fw-bold px-4 py-2 text-uppercase fs-6 display-3"
-            target="_blank"
-            href="${location.giveUrl}"
-            data-link-location-type="body:map"
-            data-link-function-type="other"
-            data-link-format-type="button"
-            data-link-type="external"
-            data-location-name="${location.displayName}"
-            data-location-search-term="${analyticsObject.search_term}"
-            data-location-search-results="${analyticsObject.total_results}"
-            data-location-search-type="location search - body"
-            data-location-search-method-type="user-entered"
-            data-location-search-result-index="${index}"
-            onclick="LocationTrackingResultsClickEvent(this, 'angel_tree_result_click')"
-          >
-            View Registry
-          </a>
+// Card generation - differentiates online registries from physical stores
+const generateCards = (locations, registryType, analyticsObject) => {
+  const config = REGISTRY_TYPE_CONFIG[registryType];
+
+  return locations.map((location, index) => {
+    const cta = registryType === REGISTRY_TYPE_ONLINE
+      ? `<a
+          class="btn btn-primary btn-sm fw-bold px-4 py-2 text-uppercase fs-6 display-3"
+          target="_blank"
+          href="${location.giveUrl || '#'}"
+          data-link-location-type="body:map"
+          data-link-function-type="other"
+          data-link-format-type="button"
+          data-link-type="external"
+          data-location-name="${location.displayName}"
+          data-location-search-term="${analyticsObject.search_term}"
+          data-location-search-results="${analyticsObject.total_results}"
+          data-location-search-type="location search - body"
+          data-location-search-method-type="user-entered"
+          data-location-search-result-index="${index}"
+          onclick="LocationTrackingResultsClickEvent(this, 'angel_tree_result_click')"
+        >View Registry</a>`
+      : `<a
+          class="btn btn-outline-primary btn-sm fw-bold px-4 py-2 text-uppercase fs-6 display-3"
+          target="_blank"
+          href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.fullAddress)}"
+          data-link-location-type="body:map"
+          data-link-function-type="other"
+          data-link-format-type="button"
+          data-link-type="external"
+          data-location-name="${location.displayName}"
+          data-location-search-term="${analyticsObject.search_term}"
+          data-location-search-results="${analyticsObject.total_results}"
+          data-location-search-type="location search - body"
+          data-location-search-method-type="user-entered"
+          data-location-search-result-index="${index}"
+          onclick="LocationTrackingResultsClickEvent(this, 'angel_tree_result_click')"
+        >Get Directions</a>`;
+
+    return `<div class="angel-tree__items card mb-2 mt-2" data-id="${index}" data-type="${registryType}">
+      <div class="card-body">
+        <span class="badge mb-2" style="background-color:${config.color}">${config.badgeLabel}</span>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="col-7 justify-content-center">
+            <h5 class="card-title fw-bold text-secondary-200 mb-1 display-2">
+              ${location.displayName}
+            </h5>
+            <p class="text-muted mb-0 display-3">${location.fullAddress}</p>
+            <p class="text-muted mb-0 display-3">${location.distanceFromCenter} mi away</p>
+          </div>
+          <div class="col-5 text-end justify-content-center">
+            ${cta}
+          </div>
         </div>
       </div>
-    </div>`
-  ).join('');
+    </div>`;
+  }).join('');
 };
 
 // Function to handle marker click and card interaction
 const handleMarkerClick = (markerId) => {
   const cardsContainer = document.querySelector('#angel-tree-result');
-  
+
   // Remove active class from all cards
   const allCards = cardsContainer.querySelectorAll('.angel-tree__items');
   allCards.forEach((card) => {
     card.classList.remove('active');
     card.classList.remove('bg-primary-50');
-  } );
-  
+  });
+
   // Find and activate the corresponding card
   const targetCard = cardsContainer.querySelector(`[data-id="${markerId}"]`);
   if (targetCard) {
-    // Add active class bg-primary-50
     targetCard.classList.add('active');
     targetCard.classList.add('bg-primary-50');
-    
-    // Scroll within the cards container only
-    const containerRect = cardsContainer.getBoundingClientRect();
-    const cardRect = targetCard.getBoundingClientRect();
-    
-    // Calculate scroll position relative to container
+
     const scrollTop = targetCard.offsetTop - cardsContainer.offsetTop - 10;
-    
-    // Smooth scroll within the container
+
     cardsContainer.scrollTo({
       top: scrollTop,
       behavior: 'smooth'
@@ -338,8 +391,78 @@ const handleMarkerClick = (markerId) => {
   }
 };
 
-// Data fetching (unchanged)
-const getData = async () => {
+// Render the currently selected registry type's markers + result cards
+const renderActiveType = () => {
+  const cardsContainer = document.querySelector('#angel-tree-result');
+  const headerEl = document.querySelector('#angel-tree-results-header');
+  const countEl = document.querySelector('#angel-tree-results-count');
+  const config = REGISTRY_TYPE_CONFIG[activeRegistryType];
+  const list = currentResults[activeRegistryType] || [];
+
+  markerPool.clearAllMarkers();
+
+  if (list.length > 0) {
+    const icon = createPinIcon(config.color);
+    const analyticsObject = { search_term: lastSearchTerm, total_results: list.length };
+
+    list.forEach((item, index) => {
+      const marker = markerPool.addMarker(map, item.coordinates.lat, item.coordinates.lng, item.displayName, icon);
+
+      marker.addListener('click', function () {
+        handleMarkerClick(index);
+        const searchInfo = {
+          searchTerm: lastSearchTerm,
+          totalResults: list.length,
+          searchMethod: 'user-entered',
+          filterType: activeRegistryType,
+          filterValue: activeRegistryType
+        };
+        const locationData = {
+          resultIndex: index || '1',
+          location_id: item.id || '',
+          name: item.displayName,
+          location_org_detail: item.organization_details || ''
+        };
+
+        LocationTrackingMapClickEvent(locationData, searchInfo, 'angel_tree_map_click');
+      });
+    });
+
+    cardsContainer.innerHTML = generateCards(list, activeRegistryType, analyticsObject);
+    if (headerEl) headerEl.classList.remove('d-none');
+    if (countEl) countEl.textContent = config.countLabel(list.length);
+  } else {
+    cardsContainer.innerHTML = `<p class="p-3">${config.emptyText}</p>`;
+    if (headerEl) headerEl.classList.add('d-none');
+  }
+
+  if (lastSearchCenter) {
+    map.setZoom(10);
+    map.setCenter(lastSearchCenter);
+  }
+};
+
+// Wires up the "Online registry" / "Physical store" toggle
+const setupRegistryTypeToggle = () => {
+  const buttons = document.querySelectorAll('#angel-tree-type-toggle button[data-registry-type]');
+  const helper = document.querySelector('#angel-tree-type-helper');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', function () {
+      const type = this.dataset.registryType;
+      if (type === activeRegistryType) return;
+
+      activeRegistryType = type;
+      buttons.forEach(b => b.classList.toggle('active', b === this));
+      if (helper) helper.textContent = REGISTRY_TYPE_CONFIG[type].helperText;
+
+      if (lastSearchCenter) renderActiveType();
+    });
+  });
+};
+
+// Data fetching - online registries
+const getOnlineRegistryData = async () => {
   try {
     const response = await fetch(`https://api.quickbase.com/v1/records/query`, {
       method: "POST",
@@ -354,12 +477,41 @@ const getData = async () => {
         "where": "{52.CampaignType.'Online Angel Tree'}"
       })
     });
-    
+
     const { data, fields } = await response.json();
-    console.log('Returned Data', fields, data)
+    console.log('Returned Online Registry Data', fields, data);
     return data;
   } catch (error) {
-    console.log("ERROR Angel Tree", error.message);
+    console.log("ERROR Angel Tree Online Registry", error.message);
+    return [];
+  }
+};
+
+// Data fetching - physical store / partner locations
+// NOTE: placeholder query, reusing the online-registry table per stakeholder request (2026-09-22).
+// The CampaignType filter below ('Angel Tree') needs to be confirmed against QuickBase and updated
+// once the physical-location source is finalized.
+const getPhysicalStoreData = async () => {
+  try {
+    const response = await fetch(`https://api.quickbase.com/v1/records/query`, {
+      method: "POST",
+      headers: {
+        'QB-Realm-Hostname': 'saapps.quickbase.com',
+        'Authorization': 'QB-USER-TOKEN ca43nd_mn6f_0_vff9axtcqg3fceraqiic2kasz7',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        "from": "bs44qugfi",
+        "select": [130, 153, 158, 15, 121, 122, 31, 32, 16, 17, 156, 157, 162],
+        "where": "{52.CampaignType.'Angel Tree'}"
+      })
+    });
+
+    const { data, fields } = await response.json();
+    console.log('Returned Physical Store Data', fields, data);
+    return data;
+  } catch (error) {
+    console.log("ERROR Angel Tree Physical Store", error.message);
     return [];
   }
 };
@@ -369,7 +521,7 @@ const handleUseMyLocation = async () => {
   const button = document.querySelector('.use-my-location-angel');
   const input = document.querySelector('#angel-tree__input');
   const loader = document.querySelector('.map-loader');
-  
+
   // Show loading state
   if (button) {
     button.disabled = true;
@@ -378,16 +530,14 @@ const handleUseMyLocation = async () => {
       Getting Location...
     `;
   }
-  
+
   if (loader) loader.classList.remove('d-none');
 
   try {
-    // Check if geolocation is supported
     if (!navigator.geolocation) {
       throw new Error('Geolocation is not supported by this browser.');
     }
 
-    // Get current position
     const position = await new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
         resolve,
@@ -403,9 +553,8 @@ const handleUseMyLocation = async () => {
     const { latitude, longitude } = position.coords;
     console.log('Current coordinates:', latitude, longitude);
 
-    // Use Google Maps Geocoder to reverse geocode the coordinates
     const geocoder = new google.maps.Geocoder();
-    
+
     const geocodeResult = await new Promise((resolve, reject) => {
       geocoder.geocode(
         { location: { lat: latitude, lng: longitude } },
@@ -419,31 +568,24 @@ const handleUseMyLocation = async () => {
       );
     });
 
-    // Get the formatted address
     const formattedAddress = geocodeResult.formatted_address;
     console.log('Formatted address:', formattedAddress);
 
-    // Populate the input field
     if (input) {
       input.value = formattedAddress;
-      
-      // Trigger input event to update any listeners
       const inputEvent = new Event('input', { bubbles: true });
       input.dispatchEvent(inputEvent);
     }
 
-    // Wait a moment for the input to be fully updated
     await new Promise(resolve => setTimeout(resolve, 100));
 
-    // Run the search function
     await searchAngelTreeLocations();
 
   } catch (error) {
     console.error('Error getting location:', error);
-    
-    // Show user-friendly error messages
+
     let errorMessage = 'Unable to get your location. ';
-    
+
     if (error.code === 1) {
       errorMessage += 'Location access was denied. Please enable location services and try again.';
     } else if (error.code === 2) {
@@ -453,12 +595,10 @@ const handleUseMyLocation = async () => {
     } else {
       errorMessage += error.message || 'Please try again or enter your address manually.';
     }
-    
-    // You can replace this alert with a more elegant notification system
+
     alert(errorMessage);
-    
+
   } finally {
-    // Reset button state
     if (button) {
       button.disabled = false;
       button.innerHTML = `
@@ -467,93 +607,61 @@ const handleUseMyLocation = async () => {
         </span> Use My Location
       `;
     }
-    
+
     if (loader) loader.classList.add('d-none');
   }
 };
 
-// Main search function - now much faster
+// Main search function - runs the radius filter once against both datasets,
+// then renders whichever registry type is currently selected
 const searchAngelTreeLocations = async () => {
   const loader = document.querySelector('.map-loader');
   const cardsContainer = document.querySelector('#angel-tree-result');
   const mapContentContainer = document.querySelector('#angel-tree-content');
   const input = document.querySelector("#angel-tree__input");
   const inputValue = input.value;
-  cardsContainer.setAttribute('style', 'height: 400px; max-height: 400px;');
 
+  if (!inputValue) return;
+
+  cardsContainer.setAttribute('style', 'height: 400px; max-height: 400px;');
   cardsContainer.classList.remove('d-none');
-  mapContentContainer.classList.add('d-none');
-  
+  if (mapContentContainer) mapContentContainer.classList.add('d-none');
+
   if (loader) loader.classList.remove('d-none');
-  
+
   try {
-    // Clear existing markers
     markerPool.clearAllMarkers();
-    console.log('Locations', items)
-    // Use preprocessed data for filtering
+    console.log('Locations', items);
+
     const { filteredLocations, centerCoordinates } = await filterLocationsByRadius(
-      items.processedData || [], 
+      items.processedData || [],
       inputValue
     );
-    
-    if (filteredLocations.length > 0) {
-      const analyticsObject = {
-        search_term: inputValue,
-        total_results: filteredLocations.length
-      };
 
-      // Create markers efficiently
-      filteredLocations.forEach((item, index) => {
-        const marker = markerPool.createOrReuseMarker(
-          map, 
-          item.coordinates.lat, 
-          item.coordinates.lng, 
-          item.displayName
-        );
-        
-        marker.addListener('click', function() {
-          // Handle marker click
-          handleMarkerClick(index);
-          const searchInfo = {
-            searchTerm: inputValue,
-            totalResults: filteredLocations.length,
-            searchMethod: 'user-entered',
-            filterType: 'angel_tree',
-            filterValue: 'angel_tree'
-          };
-          console.log('Item Index', index);
-          const locationData = {
-            resultIndex: index || '1',
-            location_id: item.id || '',
-            name: item.displayName,
-            location_org_detail: item.organization_details || '',
-          }
-          
-          LocationTrackingMapClickEvent(locationData, searchInfo, 'angel_tree_map_click');
-        });
-      });
-      
-      // Update map view
-      map.setZoom(10);
-      map.setCenter(centerCoordinates);
-      
-      // Generate and display cards
-      const cardsHtml = generateCards(filteredLocations, analyticsObject);
-      cardsContainer.innerHTML = cardsHtml;
-      
-      input.setAttribute('data-search-term-type', inputValue);
-      input.setAttribute('data-search-filter-type', 'angel_tree');
-      input.setAttribute('data-search-results-type', filteredLocations.length);
-      input.setAttribute('data-search-method-type', 'user-entered');
-      input.setAttribute('data-search-type-type', 'location search - body');
+    lastSearchCenter = centerCoordinates;
+    lastSearchTerm = inputValue;
+    currentResults = {
+      [REGISTRY_TYPE_ONLINE]: filteredLocations.filter(loc => loc.type === REGISTRY_TYPE_ONLINE),
+      [REGISTRY_TYPE_STORE]: filteredLocations.filter(loc => loc.type === REGISTRY_TYPE_STORE)
+    };
 
-      LocationTrackingSearchEvent(input, 'angel_tree_search')
-    } else {
-      cardsContainer.innerHTML = '<p>No locations found within the specified radius.</p>';
-    }
+    map.setZoom(10);
+    map.setCenter(centerCoordinates);
+
+    renderActiveType();
+
+    input.setAttribute('data-search-term-type', inputValue);
+    input.setAttribute('data-search-filter-type', activeRegistryType);
+    input.setAttribute('data-search-results-type', filteredLocations.length);
+    input.setAttribute('data-search-method-type', 'user-entered');
+    input.setAttribute('data-search-type-type', 'location search - body');
+
+    LocationTrackingSearchEvent(input, 'angel_tree_search');
   } catch (error) {
     console.error('Search error:', error);
-    cardsContainer.innerHTML = '<p>Error occurred during search. Please try again.</p>';
+    cardsContainer.innerHTML = '<p class="p-3">Error occurred during search. Please try again.</p>';
+    const headerEl = document.querySelector('#angel-tree-results-header');
+    if (headerEl) headerEl.classList.add('d-none');
   } finally {
     if (loader) loader.classList.add('d-none');
   }
@@ -563,14 +671,12 @@ function angelTreeInputAddressSuggestion() {
   const input = document.querySelector('#angel-tree__input');
 
   if (input) {
-    // Create session token to group autocomplete requests (reduces API costs)
     let sessionToken = new google.maps.places.AutocompleteSessionToken();
     const autocompleteService = new google.maps.places.AutocompleteService();
 
     let debounceTimer;
-    const debounceDelay = 300; // Wait 300ms after user stops typing
+    const debounceDelay = 300;
 
-    // Create autocomplete dropdown container with enhanced styling
     const autocompleteContainer = document.createElement('div');
     autocompleteContainer.className = 'autocomplete-dropdown-container-angel-tree';
     autocompleteContainer.style.cssText = `
@@ -588,7 +694,6 @@ function angelTreeInputAddressSuggestion() {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     `;
 
-    // Add custom styles for angel tree dropdown
     if (!document.getElementById('autocomplete-styles-angel-tree')) {
       const style = document.createElement('style');
       style.id = 'autocomplete-styles-angel-tree';
@@ -643,7 +748,7 @@ function angelTreeInputAddressSuggestion() {
     input.parentNode.style.position = 'relative';
     input.parentNode.appendChild(autocompleteContainer);
 
-    input.addEventListener('input', function() {
+    input.addEventListener('input', function () {
       const value = this.value;
 
       clearTimeout(debounceTimer);
@@ -653,11 +758,10 @@ function angelTreeInputAddressSuggestion() {
         return;
       }
 
-      // Debounce API call - only fire after user stops typing
       debounceTimer = setTimeout(() => {
         autocompleteService.getPlacePredictions({
           input: value,
-          types: ['(regions)'],  // Regions type for city/ZIP searches (cheaper than geocode)
+          types: ['(regions)'],
           componentRestrictions: { country: 'US' },
           sessionToken: sessionToken
         }, (predictions, status) => {
@@ -676,11 +780,9 @@ function angelTreeInputAddressSuggestion() {
                 <span class="autocomplete-text-angel-tree">${prediction.description}</span>
               `;
 
-              item.addEventListener('click', function() {
+              item.addEventListener('click', function () {
                 input.value = prediction.description;
                 autocompleteContainer.style.display = 'none';
-
-                // Create new session token for next search
                 sessionToken = new google.maps.places.AutocompleteSessionToken();
               });
               autocompleteContainer.appendChild(item);
@@ -692,8 +794,7 @@ function angelTreeInputAddressSuggestion() {
       }, debounceDelay);
     });
 
-    // Hide dropdown when clicking outside
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
       if (e.target !== input && !autocompleteContainer.contains(e.target)) {
         autocompleteContainer.style.display = 'none';
       }
@@ -705,32 +806,37 @@ function angelTreeInputAddressSuggestion() {
 window.addEventListener('mapReady', async (event) => {
   map = event.detail.map;
   const submitBtn = document.querySelector('#angel-tree__search-btn');
-  
+
   if (map) {
     const loader = document.querySelector('.map-loader');
     if (loader) loader.classList.remove('d-none');
-    
+
     try {
-      // Initialize the geocoder now that Google Maps is ready
       if (!batchGeocoder.initialize()) {
         throw new Error('Failed to initialize Google Maps geocoder');
       }
-      
-      // Load raw data
-      const rawItems = await getData();
-      console.log("Raw Data", rawItems)
-      // Process with optimized function
-      const processedData = await preprocessLocationDataOptimized(rawItems);
-      
-      items = { 
-        data: rawItems, 
-        processedData: processedData 
+
+      const [rawOnline, rawStore] = await Promise.all([
+        getOnlineRegistryData(),
+        getPhysicalStoreData()
+      ]);
+      console.log("Raw Online Data", rawOnline);
+      console.log("Raw Physical Store Data", rawStore);
+
+      const [processedOnline, processedStore] = await Promise.all([
+        preprocessLocationDataOptimized(rawOnline, REGISTRY_TYPE_ONLINE),
+        preprocessLocationDataOptimized(rawStore, REGISTRY_TYPE_STORE)
+      ]);
+
+      items = {
+        processedData: [...processedOnline, ...processedStore]
       };
-      
+
       submitBtn.removeAttribute('disabled');
       angelTreeInputAddressSuggestion();
-      console.log(`Ready! Processed ${processedData.length} locations.`);
-      
+      setupRegistryTypeToggle();
+      console.log(`Ready! Processed ${processedOnline.length} online + ${processedStore.length} physical locations.`);
+
     } catch (error) {
       console.error('Initialization error:', error);
     } finally {
@@ -738,9 +844,8 @@ window.addEventListener('mapReady', async (event) => {
     }
 
     const useLocationButton = document.querySelector('.use-my-location-angel');
-  
+
     if (useLocationButton) {
-      // Remove any existing listeners to avoid duplicates
       useLocationButton.removeEventListener('click', handleUseMyLocation);
       useLocationButton.addEventListener('click', handleUseMyLocation);
     }
