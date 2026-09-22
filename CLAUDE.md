@@ -2,6 +2,35 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Project scope
+
+This is a Zesty.io CMS templating project — nothing more. Treat it as such
+before reaching for generic web-app assumptions.
+
+In scope:
+- Parsley templates, stylesheets, and scripts under `webengine/` (block
+  library, modules, components — see Content models and templates).
+- Content model usage as inferred from template code (there's no schema
+  file to check instead).
+- `scripts/sync-to-zesty.js` and its config (`zesty.config.json`) — the
+  only mechanism that moves local files to the live instance.
+- The local read-only MCP server (`zesty`) for Instance API access.
+- Docs under `/docs` describing models, templates, and cross-cutting
+  patterns.
+
+Out of scope — don't introduce these or assume they apply:
+- Any database. This project must not connect to one directly; content
+  lives in Zesty and is reached only through the Parsley API / Instance
+  API.
+- A build step, bundler, test runner, or lint config. There isn't one —
+  don't add one or assume standard Node-app tooling applies.
+- A custom backend/API beyond what Zesty itself provides. There's no
+  server in this repo other than the sync script and the read-only MCP
+  server.
+- Deploying, publishing, or triggering `zesty-deploy.yml` on an agent's
+  own initiative — see Deployment model below; that's a human decision.
+- Treating a feature/ticket branch, or any unmerged PR, as "live."
+
 ## What this repo is
 
 This is the WebEngine source for a Zesty.io CMS instance (instance ZUID `8-da979ebeab-d59gnx`, "the-salvation-army" / national-website). There is no application build — `webengine/{views,styles,scripts}` are Parsley template files, stylesheets, and scripts that get synced 1:1 to Zesty resources by ZUID. There's no bundler, no test runner, and no lint config in this repo; don't go looking for one.
@@ -35,10 +64,32 @@ There is no content-model schema file in this repo — field shapes have to be i
 - A shared fallback pattern exists for missing hero/OG images: `globals.default_og_image`, used in `webengine/views/custom_head`, `webengine/views/modules/hero`, and (as of the empty-state fix) `webengine/views/-/block/hero_full.html`. Reuse this pattern rather than inventing a new fallback image mechanism.
 - `docs/content-models.md`, `docs/templates.md`, and `docs/custom-patterns.md` contain a fuller (code-derived, still Draft) inventory of models, templates, and cross-cutting patterns, including known duplicate/dead-code candidates (e.g. `stories_landing_page` vs. `stories_new`, empty stub views, a top-level `backup/` folder that duplicates live view names).
 
+## Styling
+
+The design system is a custom Bootstrap 5 theme maintained separately at
+https://github.com/zesty-io/salvation-army-theme (custom color scale,
+type scale, shadows, rounded scale, buttons, carousel — see that repo's
+README for the full class list). It is **not** linked per-template:
+`webengine/views/z/layouts/settings.json` injects it globally into every
+page's `<head>` via jsDelivr, pinned to a specific commit
+(`salvation-army-theme@<commit>/styles/bootstrap.css`, plus
+`bootstrap-icons`), alongside the existing Bootstrap grid/utility classes
+already used throughout `webengine/views/z/layouts/layouts.json`'s column
+definitions. Bumping the theme means updating that pinned commit in
+`settings.json`, not editing a webengine file. The one template that
+links it directly is `webengine/views/csvgenerator.html`, an internal
+tool page outside the normal layout.
+
+Prefer the theme's Bootstrap classes/components over new custom CSS.
+Check `webengine/styles/{common,components,modules}/*.scss` for an
+existing partial before adding one. `webengine/styles/common/temporary-usn.css`
+already redefines utilities like `.mb-5`/`.mt-5` instead of using the
+theme's scale — known debt, not a pattern to follow.
+
 ## MCP server (`zesty`)
 
 `.mcp.json` (gitignored) configures a local MCP server exposing read-only Zesty Instance API tools. Its source lives outside this repo. On this dev machine it only runs inside WSL (Node isn't on the Windows PATH here), so the command is `wsl.exe -e node /home/.../mcp-local-server/build/index.js`, not a bare `node` call — check `.mcp.json` for the actual path before assuming it. `docs/api-tools.md` documents the tools as implemented in code, plus a list of behaviors that still need confirming against a live API call.
 
 ## Agent workflow
 
-This project is operated by a set of specialized subagents defined in `.claude/agents/` (gitignored): `task-manager` (coordinates and tracks only, never implements — note it has no ability to invoke other agents itself, despite its description), `web-developer` (templates/content models/Parsley — never deploys/publishes), `qa-tester` (tests only a feature branch's own live preview, and only once it's actually been synced — see Deployment model above; does not test dev rollup or stage), `api-integrator` (maintains the MCP server, read-only tools only), `documentation-maker` (writes `/docs`, marks new/changed docs "Draft — pending review" until the user signs off), `release-notes` (customer-facing changelog entries), and `memory-keeper` (maintains one context file per agent under `/memories/[agent-name].md`; other agents read their own file before starting work and notify memory-keeper when done — memory files are informal working notes, not a substitute for `/docs`).
+This project is operated by a set of specialized subagents defined in `.claude/agents/` (gitignored): `task-manager` (coordinates and tracks only, never implements — note it has no ability to invoke other agents itself, despite its description), `web-developer` (templates/content models/Parsley — never deploys/publishes), `jenny` (independent, read-only verification that a web-developer diff actually matches the original spec and this file's conventions — runs after web-developer, before `qa-tester`; checks source only, never renders the site, never fixes anything itself), `qa-tester` (tests only a feature branch's own live preview — goes straight to the browser and reports what it finds, rather than pre-checking GitHub Actions/zesty-deploy.yml run history to decide whether to test; does not test dev rollup or stage — see Deployment model above), `api-integrator` (maintains the MCP server, read-only tools only), `documentation-maker` (writes `/docs`, marks new/changed docs "Draft — pending review" until the user signs off), `release-notes` (customer-facing changelog entries), and `karen` (on-demand, not part of the fixed sequence — reality-checks a claimed completion or overall project/release status by actually running `deploy:dry`/checking `git`/`gh` history, rather than trusting a summary; hands off to `jenny` for a full spec/CLAUDE.md audit or `qa-tester` for live rendering when the question needs one).
