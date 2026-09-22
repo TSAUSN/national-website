@@ -147,6 +147,18 @@
 {{$ipParentTerCityZUID = {territories.filter({$ipParentTerritoryZUID}).city} }}
 {{$ipParentTerStateZUID = {territories.filter({$ipParentTerritoryZUID}).state} }}
 
+<!-- CODA-2541 (QA follow-up): location_state was rendering empty on nested
+     informational pages even though city/address/zipcode/name from the exact
+     same $ipParentLocationZUID lookup resolved correctly — the record's own
+     `state` relationship wasn't reliably resolving through this filter chain.
+     Rather than depend on a single field lookup, resolve state the same way
+     contact-us image/title/header already cascade in this file: location's
+     own state, falling back to its division's state, falling back to its
+     territory's state. These extra ZUIDs back that cascade below. -->
+{{$ipParentLocDivStateZUID = {divisions.filter({$ipParentLocDivisionZUID}).state} }}
+{{$ipParentLocTerStateZUID = {territories.filter({$ipParentLocTerritoryZUID}).state} }}
+{{$ipParentDivTerStateZUID = {territories.filter({$ipParentDivTerritoryZUID}).state} }}
+
 
 <script>
   const cookieManager = {
@@ -1828,7 +1840,7 @@
           (`{{$CL = {locations.filter({!this.location}).city} }}`) ;
           (`{{$CLT = {cities.filter({$CL}).title} }}`);
           (`{{$SL = {locations.filter({!this.location}).state} }}`);
-          (`{{$SLT = { states.filter({$SL}).name} }}`);
+          (`{{$SLT = {states.filter({$SL}).name} }}`);
 
           cookieManager.set(cookieKeys.locationCity, `{{$CLT}}`);
           cookieManager.set(cookieKeys.locationState, `{{$SLT}}`);
@@ -2037,7 +2049,16 @@
 
             cookieManager.set(cookieKeys.locationAddress, `{{locations.filter({$ipParentLocationZUID}).address}}`);
             cookieManager.set(cookieKeys.locationCity, `{{cities.filter({$ipParentLocCityZUID}).title}}`);
-            cookieManager.set(cookieKeys.locationState, `{{states.filter({$ipParentLocStateZUID}).name}}`);
+            // CODA-2541 (QA follow-up): don't rely on a single state lookup —
+            // cascade location -> division -> territory, same fallback order
+            // already used for contact-us fields above.
+            const ipParentLocStateName = `{{states.filter({$ipParentLocStateZUID}).name}}`.trim();
+            const ipParentLocDivStateName = `{{states.filter({$ipParentLocDivStateZUID}).name}}`.trim();
+            const ipParentLocTerStateName = `{{states.filter({$ipParentLocTerStateZUID}).name}}`.trim();
+            cookieManager.set(
+              cookieKeys.locationState,
+              ipParentLocStateName || ipParentLocDivStateName || ipParentLocTerStateName
+            );
             cookieManager.set(cookieKeys.locationZipcode, `{{locations.filter({$ipParentLocationZUID}).zipcode}}`);
 
             cookieManager.set(cookieKeys.organizationCorp, `{{locations.filter({$ipParentLocationZUID}).name}}`);
@@ -2083,7 +2104,14 @@
 
             cookieManager.set(cookieKeys.locationAddress, `{{divisions.filter({$ipParentDivisionZUID}).address}}`);
             cookieManager.set(cookieKeys.locationCity, `{{cities.filter({$ipParentDivCityZUID}).title}}`);
-            cookieManager.set(cookieKeys.locationState, `{{states.filter({$ipParentDivStateZUID}).name}}`);
+            // CODA-2541 (QA follow-up): cascade division -> territory state,
+            // same reasoning as the location branch above.
+            const ipParentDivStateName = `{{states.filter({$ipParentDivStateZUID}).name}}`.trim();
+            const ipParentDivTerStateName = `{{states.filter({$ipParentDivTerStateZUID}).name}}`.trim();
+            cookieManager.set(
+              cookieKeys.locationState,
+              ipParentDivStateName || ipParentDivTerStateName
+            );
             cookieManager.set(cookieKeys.locationZipcode, `{{divisions.filter({$ipParentDivisionZUID}).zipcode}}`);
 
             cookieManager.set(cookieKeys.organizationDivision, `{{divisions.filter({$ipParentDivisionZUID}).name}}`);
