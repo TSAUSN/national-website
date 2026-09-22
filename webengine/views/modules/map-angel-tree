@@ -480,7 +480,7 @@ const getOnlineRegistryData = async () => {
 
     const { data, fields } = await response.json();
     console.log('Returned Online Registry Data', fields, data);
-    return data;
+    return Array.isArray(data) ? data : [];
   } catch (error) {
     console.log("ERROR Angel Tree Online Registry", error.message);
     return [];
@@ -509,7 +509,7 @@ const getPhysicalStoreData = async () => {
 
     const { data, fields } = await response.json();
     console.log('Returned Physical Store Data', fields, data);
-    return data;
+    return Array.isArray(data) ? data : [];
   } catch (error) {
     console.log("ERROR Angel Tree Physical Store", error.message);
     return [];
