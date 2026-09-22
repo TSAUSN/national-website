@@ -50,8 +50,8 @@
         {{$stateName = {states.filter({location.state}).name} }}
       {{/if}}
       <div class="col-12 col-md-4 col-lg-4">
-        <div class="accordion h-100" id="locationAccordion-{{location.zuid}}">
-          <div class="accordion-item border-0 bg-area rounded-5 h-100">
+        <div class="accordion" id="locationAccordion-{{location.zuid}}">
+          <div class="accordion-item border-0 bg-area rounded-5">
             <h2 class="accordion-header" id="locationHeading-{{location.zuid}}">
               <button
                 class="accordion-button collapsed bg-transparent shadow-none p-6 rounded-5"
@@ -83,7 +83,7 @@
                   class="d-flex align-items-start justify-content-between border-top border-2 border-dark-50 py-3"
                 >
                   <span class="display-4 display-md-2 fw-bold me-2">General Hours</span>
-                  {{if {location.hours_of_operation} == "Contact Store for hours" || {location.hours_of_operation} == "Contact for hours"}}
+                  {{if {location.hours_of_operation} == "Contact Store for hours" || {location.hours_of_operation} == "Contact store for hours" || {location.hours_of_operation} == "Contact for hours"}}
                   <span class="text-dark-50 display-4 display-md-2 text-end">Contact location for hours</span>
                   {{else if {location.hours_of_operation} !== null && {location.hours_of_operation} !== ""}}
                   <span class="text-dark-50 display-4 display-md-2 text-end">{{location.hours_of_operation}}</span>
