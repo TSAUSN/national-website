@@ -5,7 +5,7 @@ Last generated: 2026-09-19 by Documentation Maker (automated codebase scan)
 
 ## How this document was built (read this first)
 
-There is **no schema/config file in this repo that declares content models or field types**. `zesty.config.json` only maps WebEngine **views** (templates) to their ZUIDs for the deploy script (`scripts/sync-to-zesty.js`) — it has no `models` or `fields` section. `webengine/views/model-info.json` and `webengine/views/models-info.json` are themselves *Parsley templates* (ajax-json endpoints), not schema definitions.
+There is **no schema/config file in this repo that declares content models or field types**. `zesty.config.json` only maps WebEngine **views** (templates) to their ZUIDs for the deploy script (`scripts/sync-to-zesty.js`) — it has no `models` or `fields` section. `webengine/views/model-info.json` and `webengine/views/models-info.json` are themselves _Parsley templates_ (ajax-json endpoints), not schema definitions.
 
 Everything below was therefore **inferred from how templates use fields** (`this.fieldname`, `{{model_name}}.filter(...)`, `this.fieldname.getImage()`, `{{each model_name as x}}`, etc.) across `webengine/views/**`. Consequences:
 
@@ -28,48 +28,54 @@ Everything below was therefore **inferred from how templates use fields** (`this
 The site is structured as a 3-level org hierarchy (Territory → Division → Location), plus a National/Homepage root and geographic lookup models (Country, State, City). These are Zesty "pageset"-type models (each item is a real URL).
 
 ### Territories (`6-deab97cfd9-wb5km4`)
-| Field | Inferred type | Notes |
-|---|---|---|
-| `name` | text | Territory display name |
-| `territory_code` | text | 3-letter code used in Tealium `page_hierarchy` (e.g. `SAL^WES`) |
-| `contact_us_image` | image | Used as fallback in `modules/client-global-navigation` |
-| `contact_us_title` / `contact_us_cta_header` | text | Contact-us CTA fallback content |
-| `zipcode` | text | |
-| `classy_url` / `classy_url_mobile` | text/URL | Donation platform (Classy) links |
-| Hero fields (see §7) | | via `hero-full-state`/`hero` modules |
+
+| Field                                        | Inferred type | Notes                                                           |
+| -------------------------------------------- | ------------- | --------------------------------------------------------------- |
+| `name`                                       | text          | Territory display name                                          |
+| `territory_code`                             | text          | 3-letter code used in Tealium `page_hierarchy` (e.g. `SAL^WES`) |
+| `contact_us_image`                           | image         | Used as fallback in `modules/client-global-navigation`          |
+| `contact_us_title` / `contact_us_cta_header` | text          | Contact-us CTA fallback content                                 |
+| `zipcode`                                    | text          |                                                                 |
+| `classy_url` / `classy_url_mobile`           | text/URL      | Donation platform (Classy) links                                |
+| Hero fields (see §7)                         |               | via `hero-full-state`/`hero` modules                            |
 
 ### Divisions (`6-acb19a94bd-4q8ftj`)
-| Field | Inferred type | Notes |
-|---|---|---|
-| `name` | text | |
-| `division_code` | text | |
-| `territory` | relationship → Territories | |
+
+| Field           | Inferred type              | Notes |
+| --------------- | -------------------------- | ----- |
+| `name`          | text                       |       |
+| `division_code` | text                       |       |
+| `territory`     | relationship → Territories |       |
 
 ### Locations (`6-b4c9aba69c-h2nqvm`)
-| Field | Inferred type | Notes |
-|---|---|---|
-| `name` | text | |
-| `territory` / `division` | relationship | |
-| `property_type` | relationship → Properties Types | drives "simplified" layout logic (see `properties_types`, `modules/services`) |
-| `services_offered` | relationship (multi) → services-offered-type list | consumed by `services-offered.json` endpoint |
-| `redirect_url` | text/URL | if set, `locations` view 301-redirects |
-| `page_layout` | select (`simplified` / other) | toggles which modules render |
-| `address`, `city` (rel → Cities), `state` (rel → States), `zipcode`, `contact_number` | text/relationship | contact/schema data |
-| `site_name` | text | used in JSON-LD (`modules/schema`) and `map-contact-information` |
+
+| Field                                                                                 | Inferred type                                     | Notes                                                                         |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `name`                                                                                | text                                              |                                                                               |
+| `territory` / `division`                                                              | relationship                                      |                                                                               |
+| `property_type`                                                                       | relationship → Properties Types                   | drives "simplified" layout logic (see `properties_types`, `modules/services`) |
+| `services_offered`                                                                    | relationship (multi) → services-offered-type list | consumed by `services-offered.json` endpoint                                  |
+| `redirect_url`                                                                        | text/URL                                          | if set, `locations` view 301-redirects                                        |
+| `page_layout`                                                                         | select (`simplified` / other)                     | toggles which modules render                                                  |
+| `address`, `city` (rel → Cities), `state` (rel → States), `zipcode`, `contact_number` | text/relationship                                 | contact/schema data                                                           |
+| `site_name`                                                                           | text                                              | used in JSON-LD (`modules/schema`) and `map-contact-information`              |
 
 ### Cities
-| Field | Inferred type | Notes |
-|---|---|---|
-| `title` | text | |
+
+| Field   | Inferred type                                                                   | Notes |
+| ------- | ------------------------------------------------------------------------------- | ----- |
+| `title` | text                                                                            |       |
 | `state` | relationship → States (locations/cities filtered by `find_in_set(zuid, state)`) |
 
 ### States
-| Field | Inferred type | Notes |
-|---|---|---|
-| `name` | text | |
-| `state_code` | text | used on stories/story detail pages |
+
+| Field        | Inferred type | Notes                              |
+| ------------ | ------------- | ---------------------------------- |
+| `name`       | text          |                                    |
+| `state_code` | text          | used on stories/story detail pages |
 
 ### Country / Properties Types
+
 Both `country` and `properties_types` page-type views are unmodified Parsley `autolayout()` stubs — **no custom fields are referenced anywhere in templates**. `properties_types` ZUIDs (e.g. `7-c8a6abd0b7-xbhndn`) are hardcoded and checked against `locations.property_type` in `modules/services`, so the model exists and is used as a lookup table, just not rendered by its own page template.
 
 ---
@@ -77,32 +83,35 @@ Both `country` and `properties_types` page-type views are unmodified Parsley `au
 ## 2. Services
 
 ### Services (content model, referenced heavily; ZUID pattern seen: items filtered by `territory`/`division`/`location`)
-| Field | Inferred type | Notes |
-|---|---|---|
-| `title` | text | |
-| `subtitle` | text | shown as card excerpt |
-| `service_type` | relationship → Service Types | |
-| `service_page_icon` | text (icon name) | falls back to `service_types.icon_name` if empty |
-| `display_in_services_navigation_dropdown` | boolean/checkbox | |
-| `seo_meta_title` / `seo_meta_description` / `seo_meta_keywords` | text | also reused as on-page search index fields (`data-meta-*` attrs) |
-| `territory` / `division` / `location` | relationship (nullable — org level is inferred from which of the three is set) | |
-| `page_intro` | rich text | |
-| `service_body` | rich text | rendered by `modules/service-wy`, varies heading by org level |
-| `parent_zuid` | (Zesty built-in) | used to resolve the page's location/division/territory context |
+
+| Field                                                           | Inferred type                                                                  | Notes                                                            |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| `title`                                                         | text                                                                           |                                                                  |
+| `subtitle`                                                      | text                                                                           | shown as card excerpt                                            |
+| `service_type`                                                  | relationship → Service Types                                                   |                                                                  |
+| `service_page_icon`                                             | text (icon name)                                                               | falls back to `service_types.icon_name` if empty                 |
+| `display_in_services_navigation_dropdown`                       | boolean/checkbox                                                               |                                                                  |
+| `seo_meta_title` / `seo_meta_description` / `seo_meta_keywords` | text                                                                           | also reused as on-page search index fields (`data-meta-*` attrs) |
+| `territory` / `division` / `location`                           | relationship (nullable — org level is inferred from which of the three is set) |                                                                  |
+| `page_intro`                                                    | rich text                                                                      |                                                                  |
+| `service_body`                                                  | rich text                                                                      | rendered by `modules/service-wy`, varies heading by org level    |
+| `parent_zuid`                                                   | (Zesty built-in)                                                               | used to resolve the page's location/division/territory context   |
 
 ### Service Types
-| Field | Inferred type | Notes |
-|---|---|---|
-| `title` / `name` | text | |
-| `icon_name` | text | Material Symbols icon name |
-| `sort_order` | number | |
-| `national_service_body_content` | rich text | national-level fallback body |
+
+| Field                           | Inferred type | Notes                        |
+| ------------------------------- | ------------- | ---------------------------- |
+| `title` / `name`                | text          |                              |
+| `icon_name`                     | text          | Material Symbols icon name   |
+| `sort_order`                    | number        |                              |
+| `national_service_body_content` | rich text     | national-level fallback body |
 
 ### Service Info Cards ("How We Serve" cards, `modules/benefits-perks`)
-| Field | Inferred type | Notes |
-|---|---|---|
-| `service_page` | relationship → Services (the parent service page) | |
-| `icon_name`, `title`, `description`, `sort_order` | text/number | |
+
+| Field                                             | Inferred type                                     | Notes |
+| ------------------------------------------------- | ------------------------------------------------- | ----- |
+| `service_page`                                    | relationship → Services (the parent service page) |       |
+| `icon_name`, `title`, `description`, `sort_order` | text/number                                       |       |
 
 ---
 
@@ -111,33 +120,51 @@ Both `country` and `properties_types` page-type views are unmodified Parsley `au
 Most of these are "pageset" models with a shared shape: `title`, an org-scoping trio (`territory`/`division`/`location`, all optional), SEO fields, and page-specific fields.
 
 ### Stories (news articles)
-| Field | Inferred type | Notes |
-|---|---|---|
-| `title`, `body` (rich text), `image` | text/rich text/image | |
-| `author` | text | |
-| `story_date_picker` | date | formatted client-side (`.date(F j, Y)`) |
-| `page_layout` | select: `No Image`, `Image Landscape`, `Image Landscape No Sidebar`, `Image Thumbnail` (default = plain) | controls the entire detail-page layout (see `webengine/views/stories`) |
-| `primary_cta_name`/`primary_cta_link`, `secondary_cta_name`/`secondary_cta_link` | text/URL | |
-| `external_url` | URL | if set, redirects away from the story (also used as a "Read More" link) |
-| `property` | relationship → Locations | drives city/state display |
-| `related_service` | relationship → Services | used to show a service-type badge on story cards |
-| `article_tags` | relationship (multi), **commented out** in the live template (`webengine/views/stories`, `modules/news`) — flagged below |
-| `seo_meta_description` | text | also used as card excerpt |
+
+| Field                                                                            | Inferred type                                                                                                            | Notes                                                                                         |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
+| `title`, `body` (rich text), `image`                                             | text/rich text/image                                                                                                     |                                                                                               |
+| `author`                                                                         | text                                                                                                                     |                                                                                               |
+| `story_date_picker`                                                              | date                                                                                                                     | formatted client-side (`.date(F j, Y)`)                                                       |
+| `page_layout`                                                                    | select: `No Image`, `Image Landscape`, `Image Landscape No Sidebar`, `Image Thumbnail` (default = plain)                 | controls the entire detail-page layout (see `webengine/views/stories`)                        |
+| `primary_cta_name`/`primary_cta_link`, `secondary_cta_name`/`secondary_cta_link` | text/URL                                                                                                                 |                                                                                               |
+| `external_url`                                                                   | URL                                                                                                                      | if set, redirects away from the story (also used as a "Read More" link)                       |
+| `property`                                                                       | relationship → Locations                                                                                                 | drives city/state display                                                                     |
+| `divisions`                                                                      | relationship → Divisions                                                                                                 | org-hierarchy scoping (see note below)                                                        |
+| `territory`                                                                      | relationship → Territories                                                                                               | org-hierarchy scoping — **note singular name**, unlike Events' `territories` (see note below) |
+| `related_service`                                                                | relationship → Services                                                                                                  | used to show a service-type badge on story cards                                              |
+| `article_tags`                                                                   | relationship (multi), **commented out** in the live template (`webengine/views/stories`, `modules/news`) — flagged below |
+| `seo_meta_description`                                                           | text                                                                                                                     | also used as card excerpt                                                                     |
+
+> **Draft — pending review.** `property`/`divisions`/`territory` cardinality corrected 2026-09-23 by Documentation Maker: previously this section listed only a single-valued `property` → Locations relationship. That was based on `webengine/views/stories` (the detail template), which does a strict single-value lookup (`{{each locations as location where z.zuid="{!this.property}"}}`) — but four other templates query `stories` with the same multi-value `find_in_set`/`LIKE` cascade pattern used by Events, which only makes sense if `property`, `divisions`, and `territory` can each hold a comma-separated list of ZUIDs, not a single one:
+>
+> - `webengine/views/find-story.json` (lines 6, 12, 18): `find_in_set(zuid, property)` → `find_in_set(zuid, divisions)` → `find_in_set(zuid, territory)`.
+> - `webengine/views/get-stories-by-location.json`: `find_in_set('<zuid>', story.territory)`.
+> - `webengine/views/-/block/dynamic_stories_carousel.html` (lines 6-45): cascades through `stories.filter(property LIKE ...)` → `divisions LIKE ...` → `territory LIKE ...` → national default, mirroring the org-hierarchy scoping pattern used elsewhere in this doc.
+> - `webengine/views/datasets/mobile_editor/content_list/stories.json` (line 71): `find_in_set({$property}, property) OR find_in_set({$division}, divisions) OR find_in_set({$territory}, territory)` — directly parallel to the sibling `content_list/events.json` query for Events (which uses `find_in_set(..., territories)`, plural).
+>
+> **This is inferred from template code, not live-confirmed.** `find_in_set`/`LIKE` query style is _suggestive_ of a multi-valued (comma-list) field but is not authoritative proof of the admin-configured field type — someone should run the `zesty` MCP server's `get-fields` tool against the live Stories model once it reconnects to confirm actual cardinality (single vs. multi) for `property`, `divisions`, and `territory`.
+>
+> **Naming inconsistency to watch for:** Events' territory-scoping field is named `territories` (plural); Stories' equivalent field is named `territory` (singular). Anyone building shared cascade/scoping logic across both models needs to branch on this field-name difference — don't assume the two models share an identical field set just because the pattern (`property`/`divisions`/territory-field) looks the same.
 
 ### Stories Landing Page / News Archive
+
 Thin wrapper models whose page just includes `modules/news-archive`; org-scoped the same way (`territory`/`division`/`location`).
 
 ### Events
-| Field | Inferred type | Notes |
-|---|---|---|
-| `territories`, `divisions`, `property` | relationship (comma-list, queried with `find_in_set`) | |
-| `city` (rel → Cities), `state` (rel → States) | | |
-| `event_date_with_time`, `event_end_date_with_time` | datetime | |
+
+| Field                                              | Inferred type                                         | Notes                                                                                                                                                                                   |
+| -------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `territories`, `divisions`, `property`             | relationship (comma-list, queried with `find_in_set`) | **note plural `territories`** — Stories' equivalent field is singular `territory`; see Draft note in the Stories section above before assuming shared field names across the two models |
+| `city` (rel → Cities), `state` (rel → States)      |                                                       |                                                                                                                                                                                         |
+| `event_date_with_time`, `event_end_date_with_time` | datetime                                              |                                                                                                                                                                                         |
 
 ### Events Landing Page
+
 Org-scoped wrapper; renders `modules/hero-full-events` + `modules/upcoming-events`.
 
 ### About Us / Contact Us / Informational Pages / Leadership Landing Page / Volunteer Pages
+
 Share a common shape used by the `data_code`/`generate-csv`/`get-informational-page-links` endpoints:
 | Field | Inferred type | Notes |
 |---|---|---|
@@ -150,9 +177,11 @@ Share a common shape used by the `data_code`/`generate-csv`/`get-informational-p
 | `location` (Contact Us) | relationship → Locations — if present, renders location-specific contact modules; else renders generic contact info |
 
 ### Corps
+
 `webengine/views/corps` (the page-type view) is a **completely empty file (0 bytes)**. Either this model has no dedicated page template yet, or it's dead. Flagged below.
 
 ### Service Area
+
 Fields inferred from `modules/service-area-body-details` / `service-area-contact-detail`:
 `body` (rich text), `contact_name`, `contact_number`, `email`, plus the standard `territory`/`division`/`location` scoping trio.
 
@@ -161,32 +190,38 @@ Fields inferred from `modules/service-area-body-details` / `service-area-contact
 ## 4. People / staff
 
 ### Staff (and Community Leaders / Advisory Board — same underlying `staff.json` endpoint, filtered by role)
-| Field | Inferred type | Notes |
-|---|---|---|
-| `fullname`, `title_rank`, `job_role` | text | |
-| `about` | rich text | shown on card flip-back |
-| `portrait_image` | image | |
-| `property` | relationship → Locations | |
-| `staff_role_type` | relationship (multi) → **Staff Role Types** model | used to filter which staff show as "leaders" (`staff_role_types.json`) |
-| `display_on_website` | boolean | |
+
+| Field                                | Inferred type                                     | Notes                                                                  |
+| ------------------------------------ | ------------------------------------------------- | ---------------------------------------------------------------------- |
+| `fullname`, `title_rank`, `job_role` | text                                              |                                                                        |
+| `about`                              | rich text                                         | shown on card flip-back                                                |
+| `portrait_image`                     | image                                             |                                                                        |
+| `property`                           | relationship → Locations                          |                                                                        |
+| `staff_role_type`                    | relationship (multi) → **Staff Role Types** model | used to filter which staff show as "leaders" (`staff_role_types.json`) |
+| `display_on_website`                 | boolean                                           |                                                                        |
 
 ---
 
 ## 5. FAQs
-| Field | Inferred type | Notes |
-|---|---|---|
-| `topic` | select: `financial_donations`, `in_kind_donations`, `volunteering`, `getting_help`, `employment_opportunities`, `other` | hardcoded topic buckets in `modules/faqs` |
-| `question`, `answer` | text/rich text | |
+
+| Field                | Inferred type                                                                                                           | Notes                                     |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| `topic`              | select: `financial_donations`, `in_kind_donations`, `volunteering`, `getting_help`, `employment_opportunities`, `other` | hardcoded topic buckets in `modules/faqs` |
+| `question`, `answer` | text/rich text                                                                                                          |                                           |
 
 ## 6. Program Schedule (matrix/relationship items on a service page)
+
 Referenced via `this.matrix_program_schedule` (a relationship/matrix field on Services): each linked item has `title`, `pseudo_multiselect_days`, `time`, `timezone`, `program_schedule_location`, `link`, `description`.
 
 ## 7. Stats
+
 Two shapes coexist:
+
 - **Page-level stat fields** (`modules/stats-modules`, `modules/local-needs`): `stat_title_1/2/3`, `stat_subtitle_1/2/3` directly on the page item.
 - **Stats content model** (fed to `modules/stats` via `stats-info.json`): `stats_name`, `categories`, `description`, `image`, `stats_sub_text`, `right_side_header`, `right_side_content`, `learn_more_url`, `general_statistic`, plus relationships `territories`/`divisions`/`locations` for scoping.
 
 ## 8. Hero Sliders (`matrix_hero_sliders`, fetched via `/-/gql/matrix_hero_sliders.json`)
+
 Fields referenced in `modules/hero`: `title`, `content` (rich text), `image`, `primary_cta_link`/`primary_cta_name`, `secondary_cta_link`/`secondary_cta_name`, `sort_order`, `display_on_national`, `display_on_territories`, `display_on_divisions`, `display_on_locations`. **This is a separate reusable slide model**, not the page item itself — flagged for live verification since the endpoint shape wasn't inspected live.
 
 ---
@@ -195,17 +230,17 @@ Fields referenced in `modules/hero`: `title`, `content` (rich text), `image`, `p
 
 Several unrelated content models each carry their own copy of a hero-banner field set, rendered by one of the many `hero-full-*` modules. Field names are **not** fully consistent between variants:
 
-| Module | Image field | Title-ish fields | CTA fields |
-|---|---|---|---|
-| `modules/hero-full` (generic default) | `hero_image` | `title`, `subtitle` | `primary_cta_link/name`, `secondary_cta_link/name` |
-| `modules/hero-full-donate` | `hero_image` | `title`, `subtitle` | same |
-| `modules/hero-full-events` | `hero_image` | `title` (no subtitle used) | none |
-| `modules/hero-full-leadership` | `image` | `title`, `body` | none |
-| `modules/hero-full-service-area` | `image` | `name`, `body` | none |
-| `modules/hero-full-state` | `image` | `name` | none |
-| `modules/hero-full-cities` | `hero_image` | `seo_meta_title` | none |
-| `modules/hero-full-angel-tree`, `-stuff-the-bus` | `hero_image` | `title` | none |
-| `webengine/views/-/block/hero_full.html` (Block Library — see §10) | `image` | `title`, **`description`** (not `subtitle`) | same |
+| Module                                                             | Image field  | Title-ish fields                            | CTA fields                                         |
+| ------------------------------------------------------------------ | ------------ | ------------------------------------------- | -------------------------------------------------- |
+| `modules/hero-full` (generic default)                              | `hero_image` | `title`, `subtitle`                         | `primary_cta_link/name`, `secondary_cta_link/name` |
+| `modules/hero-full-donate`                                         | `hero_image` | `title`, `subtitle`                         | same                                               |
+| `modules/hero-full-events`                                         | `hero_image` | `title` (no subtitle used)                  | none                                               |
+| `modules/hero-full-leadership`                                     | `image`      | `title`, `body`                             | none                                               |
+| `modules/hero-full-service-area`                                   | `image`      | `name`, `body`                              | none                                               |
+| `modules/hero-full-state`                                          | `image`      | `name`                                      | none                                               |
+| `modules/hero-full-cities`                                         | `hero_image` | `seo_meta_title`                            | none                                               |
+| `modules/hero-full-angel-tree`, `-stuff-the-bus`                   | `hero_image` | `title`                                     | none                                               |
+| `webengine/views/-/block/hero_full.html` (Block Library — see §10) | `image`      | `title`, **`description`** (not `subtitle`) | same                                               |
 
 This is a real inconsistency, not a documentation gap — see Open Questions.
 
@@ -215,29 +250,29 @@ This is a real inconsistency, not a documentation gap — see Open Questions.
 
 These are **separate from WebEngine page views**. They render reusable rich-text/matrix "blocks" that editors can drop into a WYSIWYG field, each with its own field shape:
 
-| Block file | Fields referenced |
-|---|---|
-| `hero_full.html` | `image`, `title`, `description`, `primary_cta_link/name`, `secondary_cta_link/name` |
-| `base_card.html` | `image`, `title`, `description`, `service_types`, `primary_cta_link`, `primary_card_cta_text`, `secondary_cta_link/name` |
-| `cta_button.html` | `cta_button_link`, `cta_type`, `button_size`, `cta_button_text` |
-| `activity_boxes.html` | `activity_box_items` (matrix) |
-| `annual_reports_blocks.html` | `featured_annual_report`, `youtube_url_id`, `annual_reports` (matrix) |
-| `contact_us_block.html` | `title`, `subtitle`, `feathery_id` (Feathery form embed id) |
-| `dynamic_stories_carousel.html` | `locations`, `divisions`, `territories` (scoping), `article_tags` |
-| `fundraising_thermometer_block.html` | `title`, `donate_button_url/text`, `goal`, `raised` |
-| `general_accordion.html` | `title`, `accordion_items` (matrix), `open_first_accordion_item` |
-| `generic_image_text_button_block.html` | `title`, `body`, `cta_buttons_alignment`, `cta_button_link/text`, `cta_button_link_2/text_2`, `should_link_open_to_a_new_tab[_2]` |
-| `greatest_need.html` | `title`, `url`, `open_in_a_new_tab`, `button_text` |
-| `info_block.html` | `icon_name`, `title`, `description` |
-| `mobile_desktop_location_card_block.html` | `locations` (matrix) |
-| `mobile_desktop_videos.html` | `media_1/2/3` (video/image), `media_1/2/3_title` |
-| `our_vision.html` | `left_column_icon/title/description`, `right_column_icon/title/description` |
-| `profile_card_block.html` | `staff_and_community_leaders` (relationship, multi) |
-| `service_selector.html` | `services` (matrix) |
-| `stats_block.html` | `stats` (matrix) |
-| `stories_carousel.html` | `stories_entries` (matrix) |
-| `theater_space_block.html` | `hero_sliders`, `primary_card`, `secondary_card` |
-| `way_to_give_block.html` | `service_info_cards` (matrix) |
+| Block file                                | Fields referenced                                                                                                                 |
+| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `hero_full.html`                          | `image`, `title`, `description`, `primary_cta_link/name`, `secondary_cta_link/name`                                               |
+| `base_card.html`                          | `image`, `title`, `description`, `service_types`, `primary_cta_link`, `primary_card_cta_text`, `secondary_cta_link/name`          |
+| `cta_button.html`                         | `cta_button_link`, `cta_type`, `button_size`, `cta_button_text`                                                                   |
+| `activity_boxes.html`                     | `activity_box_items` (matrix)                                                                                                     |
+| `annual_reports_blocks.html`              | `featured_annual_report`, `youtube_url_id`, `annual_reports` (matrix)                                                             |
+| `contact_us_block.html`                   | `title`, `subtitle`, `feathery_id` (Feathery form embed id)                                                                       |
+| `dynamic_stories_carousel.html`           | `locations`, `divisions`, `territories` (scoping), `article_tags`                                                                 |
+| `fundraising_thermometer_block.html`      | `title`, `donate_button_url/text`, `goal`, `raised`                                                                               |
+| `general_accordion.html`                  | `title`, `accordion_items` (matrix), `open_first_accordion_item`                                                                  |
+| `generic_image_text_button_block.html`    | `title`, `body`, `cta_buttons_alignment`, `cta_button_link/text`, `cta_button_link_2/text_2`, `should_link_open_to_a_new_tab[_2]` |
+| `greatest_need.html`                      | `title`, `url`, `open_in_a_new_tab`, `button_text`                                                                                |
+| `info_block.html`                         | `icon_name`, `title`, `description`                                                                                               |
+| `mobile_desktop_location_card_block.html` | `locations` (matrix)                                                                                                              |
+| `mobile_desktop_videos.html`              | `media_1/2/3` (video/image), `media_1/2/3_title`                                                                                  |
+| `our_vision.html`                         | `left_column_icon/title/description`, `right_column_icon/title/description`                                                       |
+| `profile_card_block.html`                 | `staff_and_community_leaders` (relationship, multi)                                                                               |
+| `service_selector.html`                   | `services` (matrix)                                                                                                               |
+| `stats_block.html`                        | `stats` (matrix)                                                                                                                  |
+| `stories_carousel.html`                   | `stories_entries` (matrix)                                                                                                        |
+| `theater_space_block.html`                | `hero_sliders`, `primary_card`, `secondary_card`                                                                                  |
+| `way_to_give_block.html`                  | `service_info_cards` (matrix)                                                                                                     |
 
 Flag: `base_card.html` and `hero_full.html` (blocks) look like earlier iterations of `modules/hero-full` and `components/card` — worth confirming with web-developer whether they're still actively used in any WYSIWYG content, or dead.
 
