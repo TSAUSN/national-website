@@ -1,7 +1,19 @@
 # WebEngine Templates
 
 Status: **Draft — pending review**
-Last generated: 2026-09-19 by Documentation Maker (automated codebase scan)
+Last generated: 2026-09-24 by Documentation Maker (automated codebase re-scan; see "2026-09-24 refresh" note below)
+
+> **2026-09-24 refresh note:** re-checked against the current repo state
+> (`webengine/views/**`, `zesty.config.json`). One finding was significant
+> enough to call out here: **`events` is not an empty stub** — it's a
+> fully built event-detail-page template (see the corrected row below and
+> `docs/content-models.md`'s Events section). Several new views/modules/
+> endpoints added since 2026-09-19 are documented below.
+>
+> **Follow-up (same day):** zed has since reviewed the 3 passages in this
+> file that were flagged as general Zesty/WebEngine/Parsley platform
+> claims — see the "Review status" section at the bottom for what was
+> confirmed, cited, or left as an honest inference.
 
 ## How views are stored in this repo
 
@@ -11,7 +23,11 @@ Two subtrees are **not templates to review/edit** and were excluded from most of
 - `webengine/views/z/pvl/**` — Zesty CLI's local version-history cache (paired `.zhtml`/`.json` snapshots), auto-generated.
 - `webengine/views/_zesty/rollbacks/**` — Zesty CLI rollback snapshots, auto-generated.
 
+*(Reviewed by zed, 2026-09-24: could not find this documented anywhere on docs.zesty.io — checked the llms.txt index, no Zesty CLI reference page exists there; the closest analog is the Web IDE's manager-UI version-history feature, which is a different mechanism. This passage is kept as-is — an inference from what these files look like on disk, not a docs.zesty.io–confirmed description — so don't cite it as platform-documented behavior.)*
+
 `webengine/views/-/block/*.html` is the **Block Library** (reusable WYSIWYG content blocks), documented in `docs/content-models.md` §10 — it's a different rendering context from the page views below (blocks render inside a rich-text field, not as a full page).
+
+*(Reviewed and confirmed by zed, 2026-09-24: accurate to the platform. docs.zesty.io has no page walking through `{{block()}}` directly, but the [Create Field API reference's `block_selector` datatype](https://docs.zesty.io/reference/create-field) uses matching "variant" terminology, and the live instance has ~25 models with `type: "block"` — confirming this is a first-class Zesty model type, not a repo-specific convention.)*
 
 ---
 
@@ -40,7 +56,9 @@ Most page-type views are thin — they just `{{include}}` a sequence of modules.
 | `territories`, `divisions`, `locations` | `hero`, `map`, `services`, `stats`, `news-cards` | **Identical** across all three — same 5 includes, byte-for-byte. Confirms these three content models share one page layout by convention. |
 | `homepage` | `hero`, `map`, `services`, `stats`, `news` | Same shape as above but with the full `news` module (search/filter) instead of `news-cards` (carousel). |
 | `cities` | `hero-full-cities`, `zip-search` | |
+| `states` | `hero-full-state`, `state-list` | **Added 2026-09-24.** `state-list` (new module, see below) queries `cities` scoped to the current state (`find_in_set('{page.zuid}', state)`). |
 | `country`, `properties_types` | Parsley `autolayout()` stub | Unmodified default — not customized. |
+| `metro_area_command` | Parsley `autolayout()` stub | **Added 2026-09-24.** Unmodified default, same as `country`/`properties_types` — and unlike them, **not yet mapped in `zesty.config.json`**, meaning it hasn't been created as a live Zesty resource yet. Treat as scaffolding, not a real page, until it's built and mapped. |
 
 ### Services & service areas
 | View | Renders | Notes |
@@ -58,7 +76,7 @@ Most page-type views are thin — they just `{{include}}` a sequence of modules.
 | `stories_new` | `all-stories-archive` | Looks like a newer/alternate stories-landing template; unclear if `stories_landing_page` or `stories_new` is the live one — flag for confirmation. |
 | `news_archive` | `news-archive-search` (component) | |
 | `events_landing_pages` | `hero-full-events`, `upcoming-events` | |
-| `events` | Empty container (no content-driving logic beyond styling) | Looks like a stub/placeholder page. |
+| `events` | Inline (no includes except `modules/upcoming-events` at the end) | **Corrected 2026-09-24 — this is not a stub.** Event detail page, parallel in shape to `stories`: branches on `page_layout` (`Image Landscape`, `Image Thumbnail`, `No Image`, `Blank` — a different option list than Stories' `page_layout`, see `docs/content-models.md`), renders primary/secondary CTAs, formats `event_date_with_time`/`event_end_date_with_time` (falling back to `date_time_summary`, then "No specific date"), a "Return to all events"/"Add to Calendar" link, a contact block (`contact_person_name`/`contact_email`/`contact_number`), and a client-side Google Maps geocoded pin built from `address`/`city`/`state`. |
 
 ### About / contact / leadership / volunteer
 | View | Renders | Notes |
@@ -84,6 +102,7 @@ Most page-type views are thin — they just `{{include}}` a sequence of modules.
 | `404` | Literal plain-text `404 not found` (this is the raw HTTP 404 responder, separate from the styled page below). |
 | `404-page` | Full styled 404 page: placeholder header skeleton, `components/header`, `hero-full-404`, `services`, `faqs`, `components/footer`. Duplicates most of `loader`'s Tealium/analytics logic inline rather than including `loader`. |
 | `blocks_test`, `api_test`, `gb_test` | **Scratch/test views left in the repo** (`api_test` echoes a Services JSON list; `gb_test` literally contains "some change / This is some test"; `blocks_test` echoes a query param). Not real product templates — flag for cleanup. |
+| `utility-scripts` | **Added 2026-09-24.** File contains a single blank space — effectively an empty stub, and (like `metro_area_command`) **not yet mapped in `zesty.config.json`**. Flag for cleanup alongside the scratch/test views above, or confirm it's an intentional in-progress placeholder. |
 | `csv_generator`, `generate-csv` (`.json`) | Admin-facing tool: an HTML page (`csv_generator`) with model/territory/division/location filters that calls `generate-csv.json`, an ajax-json endpoint that dumps Territories/Divisions/Locations/About Us/Informational Pages/Contact Us/Leadership/Events/Stories/Volunteer Pages rows (title, org scoping, `path_part`, publish status, URL) as a flat JSON array, paginated via `page`/`per_page`. |
 | `loader`, `custom_head` | See "Global layout & head" above. |
 | `national-legacy-contact-code` | Legacy jQuery/Wufoo/SimpleMaps contact-page CSS+script bundle carried over from a previous ("Symphony") site — comment says it can be deleted once the new contact form ships. |
@@ -93,13 +112,13 @@ Most page-type views are thin — they just `{{include}}` a sequence of modules.
 
 ## Modules (`webengine/views/modules/*`)
 
-Modules are the actual content-rendering building blocks, included by page-type views. ~90 exist; grouped by purpose below (not every module is itemized — see `content-models.md` for field-level detail on the ones that render page fields directly).
+Modules are the actual content-rendering building blocks, included by page-type views. **83 view entries exist under `webengine/views/modules/*` as of 2026-09-24** (one of which, `client-global-navigation-flow.md`, is a stray Markdown doc, not a template — see the flag above; so 82 are actual modules). Grouped by purpose below (not every module is itemized — see `content-models.md` for field-level detail on the ones that render page fields directly).
 
 ### Hero banners
 `hero` (homepage/org-hierarchy carousel: fetches `matrix_hero_sliders.json` client-side, falls back through location→division→territory→national via cookies, and separately resolves "primary/secondary card" CTAs via the `-/instant/<zuid>.json` Zesty endpoint with the same org-level fallback cascade) and a family of single-purpose `hero-full-*` variants (`hero-full`, `-donate`, `-events`, `-leadership`, `-service-area`, `-state`, `-cities`, `-404`, `-angel-tree`, `-stuff-the-bus`) that each render one page's own hero fields directly (no fallback cascade) — see content-models.md §9 for the field-name inconsistency across these.
 
 ### Org / services
-`map` (location search CTA + Google map init), `services` (swiper carousel of service cards, populated client-side by `ServicesObserver`/`ServicesDB`, org-scoped visibility logic based on `property_type`), `services-service-area`, `service-wy` / `service-wy-landing`, `programs-schedule` / `programs-schedule-landing` (accordion of `matrix_program_schedule` items, with day-range formatting JS), `benefits-perks` ("How We Serve" info cards, dynamic CSS grid span based on description length), `local-needs`, `become-a-member`, `donate`, `stats-modules`, `stats-with-stat-group`.
+`map` (location search CTA + Google map init), `services` (swiper carousel of service cards, populated client-side by `ServicesObserver`/`ServicesDB`, org-scoped visibility logic based on `property_type`), `services-service-area`, `service-wy` / `service-wy-landing`, `programs-schedule` / `programs-schedule-landing` (accordion of `matrix_program_schedule` items, with day-range formatting JS), `benefits-perks` ("How We Serve" info cards, dynamic CSS grid span based on description length), `local-needs`, `become-a-member`, `donate`, `stats-modules`, `stats-with-stat-group`, `state-list` (**added 2026-09-24** — renders a grid of Cities scoped to the current State via `find_in_set`, used by the new `states` page), `service-area-form` (**added 2026-09-24** — conditionally renders `this.form_embed` on a Service Area page; see `docs/content-models.md`), `service-program-schedule` (**added 2026-09-24** — hardcoded Lorem-ipsum accordion mockup with no field bindings, same "static placeholder, not the live render path" pattern already flagged for `components/card`/`components/stat-group`; distinct from the real, field-bound `programs-schedule`), `programs` (**added 2026-09-24** — same static-mockup pattern as `service-program-schedule`, also unrelated to `programs-schedule` despite the similar name), `services-national-wysiwyg`, `services-national-wysiwyg-bottom` (**added 2026-09-24** — both files contain only a single blank space; empty stubs, not yet built).
 
 ### Stories / news
 `news` (full search/filter/swiper module, fetches `stories.json`/`service-types.json` client-side, has a date-picker filter), `news-cards` (simpler homepage carousel variant, same data source), `news-archive`, `all-stories-archive`, `featured-stories`, `recent-stories`.
@@ -119,7 +138,9 @@ Modules are the actual content-rendering building blocks, included by page-type 
 ### Navigation / infra (not visual content — shared plumbing)
 `client-global-navigation` (huge — ~2000 lines; defines `cookieManager`/`cookieKeys`, resolves and persists the current org-level context into cookies, sets donate/volunteer/employment URLs, drives `page_hierarchy`/Tealium profile selection — see custom-patterns.md), `global-navigation`, `location-finder` / `location-finder-script` / `zip-search`, `external-links` (auto-adds `target="_blank"`/`rel=noopener noreferrer` to any off-host `<a>`, including ones added after page load, via `MutationObserver`), `indexdb` (defines `ServicesObserver` pub/sub + `ServicesDB` IndexedDB wrapper that caches `get-services-*.json` results), `schema` (JSON-LD `LocalBusiness`/organization structured data, branches by model ZUID), `map-with-info`, `map-with-info-contact`, `map-contact`, `map-contact-information` (component, used by several map modules).
 
-There is also `webengine/views/modules/tags/schema` and `modules/tags/client-global-navigation` — apparent duplicates of `modules/schema` and `modules/client-global-navigation` living under a `tags/` subpath. Not confirmed whether these are used by a `tag`/`tags_pages` view (both of which are unmodified `autolayout()` stubs) or are stray copies — flagged below.
+There is also `webengine/views/modules/tags/schema` and `modules/tags/client-global-navigation` — apparent duplicates of `modules/schema` and `modules/client-global-navigation` living under a `tags/` subpath. Not confirmed whether these are used by a `tag`/`tags_pages` view (both of which are unmodified `autolayout()` stubs) or are stray copies — flagged below. **Re-checked 2026-09-24:** `tag` and `tags_pages` are still unmodified `autolayout()` stubs, and — like `metro_area_command`/`utility-scripts` above — **neither is mapped in `zesty.config.json`**, meaning neither has ever been created as a live Zesty resource. That strengthens the case that this whole `tags/` subpath is unused/dead rather than mid-build; still a question for web-developer to confirm, not something to guess at further here.
+
+**New stray file, added 2026-09-24:** `webengine/views/modules/client-global-navigation-flow.md` is a plain-English manager-summary Markdown document (org-hierarchy cookie fallback logic, written for a non-technical audience) sitting inside the `modules/` views tree — it is not a Parsley template. It is **not currently mapped in `zesty.config.json`**, but per CLAUDE.md's Deployment model, a new on-disk file *with* an extension (`.md`, unlike an extensionless view) would be auto-created as a new Zesty resource the next time this branch's changes sync to `stage` — likely an accidental commit into the wrong folder rather than something meant to become a live "page." Flag for web-developer/the user to either relocate it (e.g. into `/docs` or the repo root) or confirm it's meant to sync as-is.
 
 ---
 
@@ -147,6 +168,10 @@ There is also `webengine/views/modules/tags/schema` and `modules/tags/client-glo
 
 These are Parsley views with a `.json` extension — Zesty renders them as `ajax-json` responses, and the front-end JS in the modules above calls them via `fetch()`. Full request/response contract for each is defined entirely in the Parsley template (not a separate backend) — see the query string params below.
 
+*(Reviewed and confirmed by zed, 2026-09-24: accurate per [docs.zesty.io: Creating a Customizable JSON Endpoint for Content](https://docs.zesty.io/docs/creating-a-customizable-json-endpoint-for-content).)*
+
+**Note (2026-09-24):** not every `ajax-json` endpoint's on-disk filename actually ends in `.json` — e.g. `/services-offered` and `/generate-csv` (referenced elsewhere in this doc as `services-offered.json`/`generate-csv.json` for readability) are mapped in `zesty.config.json` under their extensionless names. Treat the `.json` suffix used throughout this table as the endpoint's conceptual name/URL, not a literal guarantee about the on-disk filename.
+
 | Endpoint | Query params | Returns |
 |---|---|---|
 | `model-info.json` | `zuid` | Full `toJSON()` of a content item, resolved by matching `zuid` against every model in `models` (used to identify "what model is this ZUID"). |
@@ -165,9 +190,11 @@ These are Parsley views with a `.json` extension — Zesty renders them as `ajax
 | `generate-csv.json` (view name `generate-csv`) | `zuid`, `divisionzuid`, `locationzuid`, `<model>=1` flags, `page`, `per_page` | Flat CSV-able export of most content models scoped by org hierarchy (see `csv_generator` above). |
 | `get-informational-page-links` | `zuid`, `navParent` | Informational-page nav links for the header mega-menu, scoped by org level and `navigation_parent`. |
 | `get-informational-page-links copy`, `get-informational-page copy.json` | — | **Appear to be accidental duplicate files** (literal " copy" in the filename) — flag for cleanup, not documented as live endpoints. |
+| `get-informational-page.json` | `zuid` (query param) | **Added 2026-09-24, opened this pass.** Distinct from the two " copy" files above — this is the real endpoint. Looks up an `informational_pages` item by `zuid`, then resolves city/state/address content from whichever of `location`/`division`/`territory` is set on that item (same location→division→territory priority order used elsewhere in this doc), returning `content` (full `toJSON()` of the resolved org-level item), `address`, `city`, `state`. |
 | `get-volunteer-page` | `zuid`, `model` | Resolves the nearest Volunteer Page for a location/division/territory, with a hardcoded national fallback URL (`7-b0e2afd6f9-t0dckq`). |
 | `paginated-locations.json`, `paginated-divisions.json`, `location-finder.json`, `all-service-pages.json`, `all-informational-pages.json`, `get-stories-by-location.json`, `contact-us-cookie-fallbacks.json` | — | Not opened in detail during this pass — flag for follow-up (names strongly suggest their purpose but content wasn't verified). |
 | `angel-tree-data.json`, `angel-tree-dummy-data.json`, `hero-content.json`, `hero-content-test.json`, `gisele-test.json` | — | Names suggest scratch/test data endpoints; not verified — flag for cleanup review. |
+| `thrift-store-locations.json`, `service-areas.json`, `get-events.json`, `about-us-json-to-csv.json`, `program_schedule.json`, `leadership-parent.json`, `locations.json` | — | **Confirmed to exist and be mapped in `zesty.config.json` as of 2026-09-24** (previously not mentioned anywhere in this doc at all, not even as an unopened flag) — not opened in detail this pass, so purpose is inferred from filename only. Flag for follow-up before relying on the inferred names. |
 
 ---
 
@@ -180,10 +207,25 @@ A set of `.json` views under `datasets/mobile_editor/` (content_list, locations,
 ## Open Questions / Flags
 
 1. **Duplicate stories-landing paths**: both `stories_landing_page` (→ `news-archive`) and `stories_new` (→ `all-stories-archive`) exist. Confirm which is actually linked/live.
-2. **`events` page-type view** appears to be an empty/stub container — confirm it's intentional before treating it as a real template.
+2. ~~**`events` page-type view** appears to be an empty/stub container~~ — **Resolved 2026-09-24**: it's a fully built event-detail-page template, not a stub. This entry was flat-out wrong in the previous version of this doc — see the corrected row in the "Stories / news / events" table and `docs/content-models.md`'s Events section. Worth treating as a reminder to re-verify "looks like a stub" claims elsewhere in this doc rather than trusting them indefinitely.
 3. **`contact-us` national fallback**: the `contact-info` include is commented out in `webengine/views/contact_us` for the no-location branch — confirm whether national contact pages are missing content intentionally.
 4. **`modules/tags/schema` and `modules/tags/client-global-navigation`**: duplicate-looking copies of `modules/schema` / `modules/client-global-navigation` under a `tags/` path, while the `tag`/`tags_pages` page-type views are unmodified stubs. Unclear what wires them together.
 5. **Scratch/test content left in the deployed views tree**: `blocks_test`, `api_test`, `gb_test`, `hero-content-test.json`, `gisele-test.json`, files with literal " copy" in the name. These sync to the live Zesty instance via `scripts/sync-to-zesty.js` just like real views — worth confirming they're not reachable/linked in production.
 6. **`components/card`, `components/service-card`, `components/stat-group`** contain static placeholder markup; the actually-rendered cards are built by inline JS template strings in the owning module. Confirm whether these component files are still used anywhere (e.g. as an editor preview) or are stale.
 7. **Multiple independent Tealium bootstrap implementations** (`loader`, `custom_head`, `404-page`, `global-analytics`/`.html`, `tealium-analytics`) — see custom-patterns.md for the consolidated flag.
-8. Several `.json` endpoints (`find-event.json`, `find-story.json`, `paginated-locations.json`, `paginated-divisions.json`, `all-service-pages.json`, `all-informational-pages.json`, `get-stories-by-location.json`, `contact-us-cookie-fallbacks.json`, and the `datasets/mobile_editor/**` tree) were **not opened in this pass** — their purpose above is inferred from filenames only and should be verified before relying on it.
+8. Several `.json` endpoints (`find-event.json`, `find-story.json`, `paginated-locations.json`, `paginated-divisions.json`, `all-service-pages.json`, `all-informational-pages.json`, `get-stories-by-location.json`, `contact-us-cookie-fallbacks.json`, `thrift-store-locations.json`, `service-areas.json`, `get-events.json`, `about-us-json-to-csv.json`, `program_schedule.json`, `leadership-parent.json`, `locations.json`, and the `datasets/mobile_editor/**` tree) were **not opened in this pass** — their purpose above is inferred from filenames only and should be verified before relying on it.
+9. **New unmapped/stub views found 2026-09-24**: `metro_area_command` (unmodified `autolayout()` stub) and `utility-scripts` (single blank space) both exist on disk but have **no entry in `zesty.config.json`** — neither has ever been created as a live Zesty resource. Re-confirmed `tag`/`tags_pages` are in the same state (see item 4 above, updated this pass). Confirm with web-developer/the user whether these are in-progress work or should be removed.
+10. **New stray Markdown file in the views tree**: `webengine/views/modules/client-global-navigation-flow.md` (see the flag in the Modules section above) — likely misplaced, risks being auto-created as a live Zesty resource on next sync per CLAUDE.md's Deployment model.
+11. **Two new module files are placeholder mockups, not live templates**: `service-program-schedule` and `programs` (see Modules → Org/services section) — same "static Lorem-ipsum markup, not the real render path" issue already flagged for `components/card`/`components/service-card`/`components/stat-group` (item 6 above).
+
+---
+
+## Review status
+
+This document is **Draft — pending review**.
+
+- `zed` reviewed and confirmed 3 flagged passages (2026-09-24):
+  - The Zesty CLI pvl-cache/rollback-snapshot description ("How views are stored" section) — **could not confirm against docs.zesty.io** (no CLI reference page found in the llms.txt index); left as an honest inference, not presented as platform-documented.
+  - The Block Library/`{{block()}}` rendering-context description — confirmed accurate, now cited to the Create Field API reference's `block_selector` datatype and the live instance's ~25 `type: "block"` models.
+  - The "ajax-json" view-type description — confirmed accurate, now cited to docs.zesty.io's JSON-endpoint guide.
+- Remaining before this doc is final: the user should confirm the doc overall, per this project's standing documentation review convention. Status stays **Draft — pending review** until the user signs off — that's not dot's call to change unilaterally.
