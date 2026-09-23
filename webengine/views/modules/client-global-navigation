@@ -326,7 +326,7 @@
     }
 
     if (
-      normalizedRelationships.locations.length > 1 &&
+      normalizedRelationships.locations.length !== 1 &&
       normalizedRelationships.divisions.length === 1
     ) {
       return {
@@ -337,7 +337,7 @@
     }
 
     if (
-      normalizedRelationships.divisions.length > 1 &&
+      normalizedRelationships.divisions.length !== 1 &&
       normalizedRelationships.territories.length === 1
     ) {
       return {
