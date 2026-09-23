@@ -41,7 +41,7 @@ The same "try the most specific level, then walk up to national" pattern is impl
 - `modules/hero`'s `cardGenerator1`/`cardGenerator2` — division → territory → national, resolved by chaining fetches to Zesty's built-in `/-/instant/<zuid>.json` endpoint (`Promise.any`-style "first success wins" loop).
 - `modules/stats`'s `generateCarousel()` — location → division → territory → national, filtering a flat stats array by matching `stat.locations`/`.divisions`/`.territories` relationship data against the cookie ZUID.
 
-**Flag:** because this cascade is hand-rolled three times with different matching logic, a future change to "how org-level fallback should work" would need to be made in three places, not one. Worth a `web-developer` follow-up to consider extracting a shared helper (e.g. into `webengine/scripts/`).
+**Flag:** because this cascade is hand-rolled three times with different matching logic, a future change to "how org-level fallback should work" would need to be made in three places, not one. Worth a `wendell` follow-up to consider extracting a shared helper (e.g. into `webengine/scripts/`).
 
 ## 4. `ServicesObserver` / `ServicesDB` (IndexedDB cache) — `modules/indexdb`
 
@@ -71,7 +71,7 @@ A `MutationObserver`-based script (loaded via `custom_head`) automatically adds 
 
 ## 8. Hero-full field-name drift (Block Library vs. Modules)
 
-`webengine/views/-/block/hero_full.html` (a Block Library / WYSIWYG block) and `webengine/views/modules/hero-full` (a WebEngine module) render visually identical markup but read **different field names** for the same concept (`this.image` vs `this.hero_image`; `this.description` vs `this.subtitle`). See `docs/content-models.md` §9 for the full table across all `hero-full-*` variants. This isn't a doc gap — it's an actual inconsistency in the code that a `web-developer` should decide whether to consolidate.
+`webengine/views/-/block/hero_full.html` (a Block Library / WYSIWYG block) and `webengine/views/modules/hero-full` (a WebEngine module) render visually identical markup but read **different field names** for the same concept (`this.image` vs `this.hero_image`; `this.description` vs `this.subtitle`). See `docs/content-models.md` §9 for the full table across all `hero-full-*` variants. This isn't a doc gap — it's an actual inconsistency in the code that a `wendell` should decide whether to consolidate.
 
 ## 9. Deploy pipeline (`scripts/sync-to-zesty.js` + `.github/workflows/zesty-deploy.yml`)
 
@@ -90,17 +90,17 @@ A `MutationObserver`-based script (loaded via `custom_head`) automatically adds 
 
 ## 11. `top-level backup/` folder and `.gitignore` change noted in git status
 
-There is a `backup/` folder at the repo root (`backup/custom_head`, `backup/services`, `backup/news`, `backup/map.js`, `backup/*.scss`, `backup/client-nav`) that duplicates several live view/script names. This wasn't diffed line-by-line against the live versions in this pass, but its presence suggests either (a) manual pre-deploy backups someone made locally, or (b) stale content that should be removed. The repo's `.gitignore` also shows as modified in the current git status — worth confirming with the user/web-developer whether `backup/` is meant to be tracked at all.
+There is a `backup/` folder at the repo root (`backup/custom_head`, `backup/services`, `backup/news`, `backup/map.js`, `backup/*.scss`, `backup/client-nav`) that duplicates several live view/script names. This wasn't diffed line-by-line against the live versions in this pass, but its presence suggests either (a) manual pre-deploy backups someone made locally, or (b) stale content that should be removed. The repo's `.gitignore` also shows as modified in the current git status — worth confirming with the user/wendell whether `backup/` is meant to be tracked at all.
 
 ## 12. Hardcoded third-party credential in a client-side script
 
-`webengine/views/angel-tree-script` contains a client-side (`<script>`) integration with QuickBase (`https://api.quickbase.com/v1/records/query`) that includes a **hardcoded `QB_TOKEN`** in plain text, sent from the browser. This is a genuine security concern (the token is visible to anyone who views source on whatever page includes this script) — flagged here for visibility, not something Documentation Maker can or should fix. Recommend escalating to web-developer/security review rather than treating as a doc note only.
+`webengine/views/angel-tree-script` contains a client-side (`<script>`) integration with QuickBase (`https://api.quickbase.com/v1/records/query`) that includes a **hardcoded `QB_TOKEN`** in plain text, sent from the browser. This is a genuine security concern (the token is visible to anyone who views source on whatever page includes this script) — flagged here for visibility, not something Documentation Maker can or should fix. Recommend escalating to wendell/security review rather than treating as a doc note only.
 
 ---
 
 ## Open Questions / Flags
 
-1. **Org-level fallback cascade duplicated 3×** (§3) — candidate for consolidation into a shared script; not this agent's call to make, but worth raising with web-developer.
+1. **Org-level fallback cascade duplicated 3×** (§3) — candidate for consolidation into a shared script; not this agent's call to make, but worth raising with wendell.
 2. **Tealium bootstrap duplicated 4×** (§6) — same recommendation.
 3. **`backup/` folder** (§11) — confirm with the user whether it should be deleted, `.gitignore`d, or is intentionally kept.
 4. **Hardcoded QuickBase token** (§12) — flagged for security follow-up, not a documentation-only issue.

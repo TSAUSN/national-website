@@ -101,7 +101,7 @@ The server's **source code is a separate project** at `/home/kharljhon14/project
 
 ## Needs live verification
 
-Everything below is a **specific claim from the source code that should be confirmed against a real API call**, not trusted from code/comments alone. Send these to `api-integrator`:
+Everything below is a **specific claim from the source code that should be confirmed against a real API call**, not trusted from code/comments alone. Send these to `ira`:
 
 1. **Exact JSON shape of every tool's response.** The SDK is typed `any` in this project (`src/types/zesty-io__sdk.d.ts`), so no compile-time contract exists — every "Returns" cell above is only the *variable name* being serialized (`data`, `instances.data`, `session`, etc.), not a verified shape.
 2. **`get-instances` / `get-instance` / `get-instance-users` "empty" branches**: confirm the SDK actually returns an object with a `.data` array (vs. e.g. `null` or throwing) when there are no instances/users, since the code assumes `instances.data.length` is safe to read after only checking `!instances`.
@@ -110,7 +110,7 @@ Everything below is a **specific claim from the source code that should be confi
 5. **`get-item-version` parameter**: confirm `VERSION` is a version **number** (as a string) vs. a version ZUID — the Zod schema just says `z.string()`.
 6. **Auth/session flow**: `registerAllTools()` calls `sdk.auth.verifyToken(ZESTY_SESSION_TOKEN)` once at server startup (to set the Sentry user) — confirm this doesn't fail/short-circuit tool registration if the token is invalid or expired, since there's no visible catch around that call in `src/tools/register.ts`.
 7. **`opts`/custom API URL override branch**: confirmed by reading code that it only activates when `ZESTY_AUTH_API` is set (not set in this repo's `.mcp.json`), so the SDK should be hitting Zesty's default/production endpoints — confirm live that calls are in fact going to production and not silently misconfigured.
-8. **Whether the session token embedded in `.mcp.json` (`ZESTY_SESSION_TOKEN`) is still valid / appropriately scoped** — this is a credential checked into the repo; confirm rotation policy with the user/api-integrator rather than assuming it's fine.
+8. **Whether the session token embedded in `.mcp.json` (`ZESTY_SESSION_TOKEN`) is still valid / appropriately scoped** — this is a credential checked into the repo; confirm rotation policy with the user/ira rather than assuming it's fine.
 9. **Rate limits / pagination**: none of the "get all X" tools (`get-models`, `get-instances`, `get-audit-logs`, etc.) take pagination params in this implementation — confirm whether the underlying SDK methods paginate internally or could truncate large result sets silently.
 
 ## Open Questions / Flags

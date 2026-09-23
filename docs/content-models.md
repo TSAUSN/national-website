@@ -239,7 +239,7 @@ These are **separate from WebEngine page views**. They render reusable rich-text
 | `theater_space_block.html` | `hero_sliders`, `primary_card`, `secondary_card` |
 | `way_to_give_block.html` | `service_info_cards` (matrix) |
 
-Flag: `base_card.html` and `hero_full.html` (blocks) look like earlier iterations of `modules/hero-full` and `components/card` — worth confirming with web-developer whether they're still actively used in any WYSIWYG content, or dead.
+Flag: `base_card.html` and `hero_full.html` (blocks) look like earlier iterations of `modules/hero-full` and `components/card` — worth confirming with wendell whether they're still actively used in any WYSIWYG content, or dead.
 
 ---
 
@@ -253,7 +253,7 @@ Flag: `base_card.html` and `hero_full.html` (blocks) look like earlier iteration
 ## Open Questions / Flags
 
 1. **No schema source of truth in-repo.** All types above are inferred from usage; confirm against the live instance via the `zesty` MCP server (`get-models`, `get-fields`) before treating any "inferred type" as fact.
-2. **Hero field-name drift** (§9): at least 3 different field-naming conventions (`hero_image`/`title`/`subtitle` vs `image`/`title`/`body` vs `image`/`name`/`body`) across hero-full variants, plus a 4th shape in the Block Library `hero_full.html` (`description` instead of `subtitle`). This looks like organic drift across copies rather than a deliberate design — worth confirming with web-developer whether these should be consolidated to one model/field set.
+2. **Hero field-name drift** (§9): at least 3 different field-naming conventions (`hero_image`/`title`/`subtitle` vs `image`/`title`/`body` vs `image`/`name`/`body`) across hero-full variants, plus a 4th shape in the Block Library `hero_full.html` (`description` instead of `subtitle`). This looks like organic drift across copies rather than a deliberate design — worth confirming with wendell whether these should be consolidated to one model/field set.
 3. **`article_tags`** is referenced on Stories/story cards but every usage is commented out in the live templates (`webengine/views/stories`, `modules/news`) — field may exist on the model but is currently unused in the UI. Confirm whether tags are still a planned feature.
 4. **`corps`** page-type view is a 0-byte file — either an unfinished/unused content model or content intentionally has no dedicated template. Needs a decision, not a guess.
 5. **Information Page Types** model is referenced (`information_page_types.filter(...)`) but has no page template of its own — appears to be a pure lookup/taxonomy model.

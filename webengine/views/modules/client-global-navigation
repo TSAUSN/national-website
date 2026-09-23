@@ -160,6 +160,9 @@
 
   const national = `7-dab495a2c1-13lthp`;
 
+  // Placeholder — no real Tags content model exists yet; replace with the actual model ZUID once it's created in the CMS admin.
+  const TAGS_MODEL_ZUID = `__TAGS_MODEL_ZUID_PLACEHOLDER__`;
+
   const territories = {
     west: `7-dcb3daeee7-3l9t49`,
     east: `7-ae82da90c9-zjnfr3`,
@@ -2052,6 +2055,14 @@
         }
 
         await ensurePersistedContactUsCookies();
+        break;
+
+      case TAGS_MODEL_ZUID: // Tags — reads the persisted location, never sets it
+        // Tags pages aren't themselves a location, so only default to National when
+        // nothing is persisted yet; otherwise leave the existing location cookies alone.
+        if (!cookieManager.get(cookieKeys.locationZUID)) {
+          await setNationalLocationCookies();
+        }
         break;
     }
     logCurrentDataLayerValues(`init-complete`, { source });

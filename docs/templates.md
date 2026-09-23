@@ -139,7 +139,7 @@ There is also `webengine/views/modules/tags/schema` and `modules/tags/client-glo
 | `socials-share` | Share-this-story buttons on the story detail page. |
 | `location-finder-results` | Result-card markup for the location finder. |
 
-**Flag:** `components/card`, `components/service-card`, and `components/stat-group` contain hardcoded example content ("Title", "Lorem ipsum...", "Fact 1") rather than field bindings — the live cards you see on the site are actually built as HTML-string templates inside the corresponding module's `<script>` (e.g. `modules/news`, `modules/services`, `modules/stats`). These component files look like they were the original static mockups and may no longer be the live render path — confirm with web-developer before treating them as current.
+**Flag:** `components/card`, `components/service-card`, and `components/stat-group` contain hardcoded example content ("Title", "Lorem ipsum...", "Fact 1") rather than field bindings — the live cards you see on the site are actually built as HTML-string templates inside the corresponding module's `<script>` (e.g. `modules/news`, `modules/services`, `modules/stats`). These component files look like they were the original static mockups and may no longer be the live render path — confirm with wendell before treating them as current.
 
 ---
 
