@@ -2164,77 +2164,60 @@
       cookieManager.set(cookieKeys.lastVisitedZUID, cookieManager.get(cookieKeys.locationZUID));
     }
 
-    const zuid = cookieManager.get(cookieKeys.locationZUID);
+    // Always resolve against THIS Event's own one-to-many location/division/territory
+    // relationships (same 4-rule cascade as Informational Pages), regardless of whether
+    // a location cookie is already persisted — visiting a specific Event must always
+    // reflect that item's own tagged context, not silently inherit leftover state from
+    // earlier browsing. Falls back to National if nothing resolves or hydration fails.
+    // NOTE: Events use `property` (not `locations`) for the location-tier field
+    // and plural `territories` — confirmed via webengine/views/find-event.json
+    // (find_in_set(zuid, property) / divisions / territories).
+    const eventRelationships = {
+      locations: `{{!this.property}}`,
+      divisions: `{{!this.divisions}}`,
+      territories: `{{!this.territories}}`
+    };
+    const eventContext = resolvePageContext(eventRelationships);
 
-    if (zuid) {
-      // PERSISTED COOKIE — a previously-set location/division/territory context
-      // always wins over relationship resolution; leave it untouched.
-      // const eventInformation = await fetchInformation(`find-event`, zuid);
-      // setupCookiesWithInformation(eventInformation, zuid);
+    logCurrentDataLayerValues(`event-context-resolution`, { eventContext });
+
+    if (eventContext.type === `national`) {
+      await setNationalLocationCookies();
     } else {
-      // First-touch visitor with no persisted context: resolve from this Event's
-      // own one-to-many location/division/territory relationships (same 4-rule
-      // cascade as Informational Pages / Stories & Events Landing Pages), falling
-      // back to National if nothing resolves or hydration fails.
-      // NOTE: Events use `property` (not `locations`) for the location-tier field
-      // and plural `territories` — confirmed via webengine/views/find-event.json
-      // (find_in_set(zuid, property) / divisions / territories).
-      const eventRelationships = {
-        locations: `{{!this.property}}`,
-        divisions: `{{!this.divisions}}`,
-        territories: `{{!this.territories}}`
-      };
-      const eventContext = resolvePageContext(eventRelationships);
+      const eventContextWasSet = await setResolvedContextCookies(eventContext.type, eventContext.zuid);
 
-      logCurrentDataLayerValues(`event-context-resolution`, { eventContext });
-
-      if (eventContext.type === `national`) {
+      if (!eventContextWasSet) {
         await setNationalLocationCookies();
-      } else {
-        const eventContextWasSet = await setResolvedContextCookies(eventContext.type, eventContext.zuid);
-
-        if (!eventContextWasSet) {
-          await setNationalLocationCookies();
-        }
       }
     }
   }
 
   async function handleStoryCookies() {
-    // PERSISTED COOKIE
-    const zuid = cookieManager.get(cookieKeys.locationZUID);
+    // Always resolve against THIS Story's own one-to-many location/division/territory
+    // relationships (same 4-rule cascade as Informational Pages), regardless of whether
+    // a location cookie is already persisted — visiting a specific Story must always
+    // reflect that item's own tagged context, not silently inherit leftover state from
+    // earlier browsing. Falls back to National if nothing resolves or hydration fails.
+    // NOTE: Stories use `property` (not `locations`) for the location-tier field
+    // and singular `territory` (unlike Events' plural `territories`) — confirmed
+    // via webengine/views/find-story.json (find_in_set(zuid, property) /
+    // divisions / territory).
+    const storyRelationships = {
+      locations: `{{!this.property}}`,
+      divisions: `{{!this.divisions}}`,
+      territories: `{{!this.territory}}`
+    };
+    const storyContext = resolvePageContext(storyRelationships);
 
-    if (zuid) {
-      // PERSISTED COOKIE — a previously-set location/division/territory context
-      // always wins over relationship resolution; leave it untouched.
-      // const eventInformation = await fetchInformation(`find-story`, zuid);
-      // setupCookiesWithInformation(eventInformation, zuid);
+    logCurrentDataLayerValues(`story-context-resolution`, { storyContext });
+
+    if (storyContext.type === `national`) {
+      await setNationalLocationCookies();
     } else {
-      // First-touch visitor with no persisted context: resolve from this Story's
-      // own one-to-many location/division/territory relationships (same 4-rule
-      // cascade as Informational Pages / Stories & Events Landing Pages), falling
-      // back to National if nothing resolves or hydration fails.
-      // NOTE: Stories use `property` (not `locations`) for the location-tier field
-      // and singular `territory` (unlike Events' plural `territories`) — confirmed
-      // via webengine/views/find-story.json (find_in_set(zuid, property) /
-      // divisions / territory).
-      const storyRelationships = {
-        locations: `{{!this.property}}`,
-        divisions: `{{!this.divisions}}`,
-        territories: `{{!this.territory}}`
-      };
-      const storyContext = resolvePageContext(storyRelationships);
+      const storyContextWasSet = await setResolvedContextCookies(storyContext.type, storyContext.zuid);
 
-      logCurrentDataLayerValues(`story-context-resolution`, { storyContext });
-
-      if (storyContext.type === `national`) {
+      if (!storyContextWasSet) {
         await setNationalLocationCookies();
-      } else {
-        const storyContextWasSet = await setResolvedContextCookies(storyContext.type, storyContext.zuid);
-
-        if (!storyContextWasSet) {
-          await setNationalLocationCookies();
-        }
       }
     }
   }
