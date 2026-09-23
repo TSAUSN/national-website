@@ -767,7 +767,26 @@
 </script>
 
 <script>
-    const locationNameCookieFooter = getCookieByName('location_name');
+  // initCookies() (client-global-navigation) resolves the current page's
+  // Location/Division/Territory context asynchronously — it can need a
+  // model-info.json fetch (see resolvePageContext/setResolvedContextCookies) — so
+  // reading location cookies immediately on script parse can pick up a stale value
+  // still left over from whatever page was visited previously. Wait for the current
+  // page's resolution before reading, same pattern already used by header-dynamic.
+  function getCookiesReadyPromise() {
+    if (window.cookiesReady && typeof window.cookiesReady.then === 'function') {
+      return window.cookiesReady;
+    }
+    if (typeof initCookies === 'function') {
+      return Promise.resolve(initCookies());
+    }
+    return Promise.resolve();
+  }
+
+  function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
   const footerHomes = document.querySelectorAll('.home-footer-link');
   const footerContactUs = document.querySelector('.footer-contact-us');
   const footerAboutUsButtons = document.querySelectorAll('.about-us-footer-link');
@@ -775,35 +794,56 @@
   const footerVolunteerButtons = document.querySelectorAll('.volunteer-footer-link');
   const waysToGiveButtons = document.querySelectorAll('.wtg-footer-link');
 
+  function setFooterLocationLinks() {
+    const locationNameCookieFooter = getCookieByName('location_name');
 
-  if (locationNameCookieFooter == 'NATIONAL' || !locationNameCookieFooter) {
-    
-    footerContactUs.setAttribute('href', '/contact-us');
-    
-    footerAboutUsButtons.forEach((footerAboutUs) => {
-      footerAboutUs.setAttribute('href', '/about-us');
+    if (locationNameCookieFooter == 'NATIONAL' || !locationNameCookieFooter) {
+
+      footerContactUs.setAttribute('href', '/contact-us');
+
+      footerAboutUsButtons.forEach((footerAboutUs) => {
+        footerAboutUs.setAttribute('href', '/about-us');
+      });
+    } else {
+      footerContactUs.setAttribute('href', getCookieByName('location_home_url') + 'contact-us');
+      footerAboutUsButtons.forEach((footerAboutUs) => {
+        footerAboutUs.setAttribute('href', getCookieByName('location_home_url') + 'about-us');
+      });
+    }
+
+    footerEmploymentButtons.forEach((employmentLink) => {
+      employmentLink.setAttribute('href', getCookieByName('employment_url'));
     });
-  } else {
-    footerContactUs.setAttribute('href', getCookieByName('location_home_url') + 'contact-us');
-    footerAboutUsButtons.forEach((footerAboutUs) => {
-      footerAboutUs.setAttribute('href', getCookieByName('location_home_url') + 'about-us');
+    footerVolunteerButtons.forEach((volunteerLink) => {
+      volunteerLink.setAttribute('href', getCookieByName('volunteer_url'));
     });
+
+    waysToGiveButtons.forEach((waysToGiveLink) => {
+      waysToGiveLink.setAttribute('href', getCookieByName('wtg_url'));
+    });
+
+    footerHomes.forEach((footerHome) => {
+      footerHome.setAttribute('href', getCookieByName("location_home_url"));
+    });
+
+    return Boolean(locationNameCookieFooter);
   }
 
-  footerEmploymentButtons.forEach((employmentLink) => {
-    employmentLink.setAttribute('href', getCookieByName('employment_url'));
-  });
-  footerVolunteerButtons.forEach((volunteerLink) => {
-    volunteerLink.setAttribute('href', getCookieByName('volunteer_url'));
-  });
-  
-  waysToGiveButtons.forEach((waysToGiveLink) => {
-    waysToGiveLink.setAttribute('href', getCookieByName('wtg_url'));
-  });
+  // Mirrors header-dynamic's syncHeaderCookieValues(): re-reads the location cookies
+  // a few times after cookies-ready resolves, in case initCookies() is still settling.
+  async function syncFooterLocationLinks(maxAttempts = 12, delayMs = 150) {
+    await getCookiesReadyPromise();
 
-  footerHomes.forEach((footerHome) => {  
-    footerHome.setAttribute('href', getCookieByName("location_home_url"));
-  });
+    for (let attempt = 0; attempt < maxAttempts; attempt++) {
+      const isReady = setFooterLocationLinks();
+      if (isReady) {
+        return;
+      }
+      await wait(delayMs);
+    }
+  }
+
+  syncFooterLocationLinks();
 
   const urlPathArray = window.location.href.split('/');
 </script>
@@ -1104,7 +1144,28 @@ function footerAddress() {
     fullAddressContainer.innerHTML = fullAddress;
   })
 }
-footerAddress();
+// Same stale-cookie race as setFooterLocationLinks() above: wait for the current
+// page's initCookies() resolution before rendering the location-driven footer
+// address, instead of reading whatever was left over from the previous page.
+async function syncFooterAddress(maxAttempts = 12, delayMs = 150) {
+  await getCookiesReadyPromise();
+
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    footerAddress();
+
+    if (
+      getCookieByName('location_city') &&
+      getCookieByName('location_state') &&
+      getCookieByName('location_address')
+    ) {
+      return;
+    }
+
+    await wait(delayMs);
+  }
+}
+
+syncFooterAddress();
 setFooterNavStatus();
 updateSocialLinkURL();
       document.querySelectorAll('a').forEach(link => {
