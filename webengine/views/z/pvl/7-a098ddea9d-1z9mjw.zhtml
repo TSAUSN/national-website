@@ -1,0 +1,16 @@
+<div className={styles.pvlRoot}>
+	<div class="pvlRichtext"><p>Copy</p>
+<p>I can add some text</p>
+<p><img src="https://8hxvw8tw.media.zestyio.com/The-Bell-at-the-Barn-Classy-Header.png" alt="The-Bell-at-the-Barn-Classy-Header.png"></p></div>
+	<div class="row my-3">
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/IMG_9944.jpg" alt="placeholder" style="display:block;margin-left:auto;margin-right:auto;object-fit:fill">
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/IMG_9941.jpg" alt="placeholder">
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-12">
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/IMG_9944.jpg" alt="placeholder">
+		</div>
+	</div>
+</div>

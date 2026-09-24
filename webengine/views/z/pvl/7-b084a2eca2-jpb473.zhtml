@@ -1,58 +1,21 @@
-<div classname="{styles.pvlRoot}">
-	<div data-zesty-id="content:block:6-bcfbdaa6d3-vjj3qs:27:44:0:92">{{block('/-/block/hero_full.html?variant=7-c2b682e8ac-6kq9r1')}}</div>
-	<div class="p-6 rounded-5 bg-light mb-18" data-zesty-id="design:columns:1 column - 1 row my-3:5:19">
-<div class="col-lg-12 col-md-12 col-sm-12" data-zesty-id="design:columns:1 column - 1 row my-3:5:19-1:1 column - 1 row:0">
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:1:22"></div>
-<div style="color:#FFFFFF;" class="rounded p-6 gap-3 bg-dark-50 text-light" data-zesty-id="content:wysiwyg_basic:2:6"><p style="text-align:center;">
-	<strong>PEACHCREST YOUTH Ministry</strong>
-</p>
-
-<p style="text-align:center;">
-	3500 Sherrydale Lane
-</p>
-
-<p style="text-align:center;">
-	Decatur, GA 30032
-</p>
-
-<p style="text-align:center;">
-	<a href="tel:4044862880">404-486-2880</a>
-</p>
-
-<p style="text-align:center;">
-	<strong>Club Manager: Jordan Truesdale</strong>
-</p>
-
-<p style="text-align:center;">
-	 
-</p>
-
-<p style="text-align:center;">
-	<u>Hours of Operation</u>
-</p>
-
-<p style="text-align:center;">
-	<strong>School Year</strong><br>
-	Monday through Friday<br>
-	2:30 p.m. To 8:30 p.m.
-</p>
-
-<p style="text-align:center;">
-	<strong>Summer</strong><br>
-	Monday through Friday<br>
-	7:30 a.m. To 6:00 p.m. 
-</p>
-
-<p style="text-align:center;">
-	 YOUTH Ages 6 to 18
-</p>
-
-<p style="text-align:center;">
-	<strong>Membership Fees</strong><br>
-	After School Program: $35 annually<br>
-	Summer Program: $150 for year-round members<br>
-	$250 For Summer Only Members
-</p></div>
+<div className={styles.pvlRoot}>
+	{{block('/-/block/hero_full.html?variant=7-c2b682e8ac-6kq9r1&version=2')}}
+	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="py-5"></div>
+			<div class="rounded p-6 gap-3">
+<p style="text-align: center;"><strong>Peachcrest Youth Center</strong></p>
+<p style="text-align: center;">3500 Sherrydale Lane</p>
+<p style="text-align: center;">Decatur, GA 30032</p>
+<p style="text-align: center;"><a href="tel:4044862880">404-486-2880</a></p>
+<p style="text-align: center;"><strong>Center Director<br></strong><strong>Jordan Truesdale</strong></p>
+<p style="text-align: center;"></p>
+<p style="text-align: center;"><u>Hours of Operation</u></p>
+<p style="text-align: center;"><strong>School Year</strong><br>Monday through Friday<br>2:30 p.m. To 7:00 p.m.</p>
+<p style="text-align: center;"><strong>Summer</strong><br>Monday through Friday<br>7:30 a.m. To 6:00 p.m.</p>
+<p style="text-align: center;">YOUTH Ages 6 to 18</p>
+<p style="text-align: center;"><strong>Membership Fees</strong><br>After School Program: $35 annually<br>Summer Program: $150 for year-round members<br>$250 For Summer Only Members</p>
+</div>
 		</div>
 	</div>
 </div>

@@ -340,6 +340,14 @@
           placeholder="Search this server page"
         />
       </div>
+      <div class="publish-status-filter">
+        <label for="publishStatusFilter">Status</label>
+        <select id="publishStatusFilter" class="form-select form-select-sm">
+          <option value="">All statuses</option>
+          <option value="published">Published</option>
+          <option value="unpublished">Unpublished</option>
+        </select>
+      </div>
       <div class="server-pager" aria-label="Server pagination">
         <label for="page-size">Rows</label>
         <select id="page-size" class="form-select form-select-sm">
@@ -480,6 +488,7 @@
   const pageNextBtn = document.getElementById('page-next');
   const pageIndicator = document.getElementById('page-indicator');
   const pageNumberError = document.getElementById('pageNumberError');
+  const publishStatusFilter = document.getElementById('publishStatusFilter');
   const errorAlert = document.getElementById('csv-error');
   const exportAllBtn = document.getElementById('export-all-btn');
   const downloadCsvBtn = document.getElementById('download-csv-btn');
@@ -978,7 +987,8 @@
       downloadCsvBtn,
       exportAllBtn,
       pageNumberInput,
-      pageSizeSelect
+      pageSizeSelect,
+      publishStatusFilter
     ];
     controls.forEach((control) => {
       if (control) {
@@ -1225,6 +1235,16 @@
   const baseURL = `${instanceOrigin}/generate-csv.json`;
   const gqlBaseURL = `${instanceOrigin}/-/gql`;
   const instantBaseURL = `${instanceOrigin}/-/instant`;
+
+  // True publish-status verification: WebEngine's isPublished() only reflects whether an
+  // item has ever been published, not whether the *latest* saved version is what's live —
+  // an item edited after its last publish still reports "publish". Fixed by comparing the
+  // same generate-csv.json request against the dev domain (reflects each item's latest saved
+  // version, including unpublished drafts) and the production domain (only ever serves the
+  // currently published version) directly, regardless of which domain this page itself is
+  // hosted on.
+  const PUBLISH_CHECK_DEV_URL = 'https://salstage.zesty.dev/generate-csv.json';
+  const PUBLISH_CHECK_PRODUCTION_URL = 'https://www.salvationarmyusa.org/generate-csv.json';
   const dataTableBody = document.querySelector('#dataTable tbody');
   const loader = document.getElementById('csv-loader');
   const dataTable = document.getElementById('dataTable');
@@ -1854,6 +1874,7 @@
     hasNextServerPage = false;
     knownLastPage = null;
     searchInput.value = '';
+    publishStatusFilter.value = '';
     downloadCsvBtn.classList.add('d-none');
     exportAllBtn.classList.add('d-none');
     columnControls.classList.add('d-none');
@@ -2040,6 +2061,107 @@
     }
   };
 
+  const PUBLISH_COMPARISON_FIELDS = ['title', 'path_part', 'territory', 'division', 'location'];
+
+  const buildPublishCheckUrl = (baseUrl, scope, page, pageSize, extraParams) => {
+    const params = new URLSearchParams(scope.modelParams);
+    params.set('page', page);
+    params.set('per_page', pageSize);
+    if (scope.zuid) {
+      params.set('zuid', scope.zuid);
+    }
+    params.set('divisionzuid', scope.zuidD || '');
+    params.set('locationzuid', scope.zuidL || '');
+    if (extraParams) {
+      Object.entries(extraParams).forEach(([key, value]) => params.set(key, value));
+    }
+    return `${baseUrl}?${params.toString()}`;
+  };
+
+  // Deliberately independent of requestScopePage/requestPageData (which are tuned for the
+  // on-screen fetch, including 422 model-splitting and probe-based pagination) — this only
+  // needs a best-effort read of each comparison domain's rows for the same scope/page, and a
+  // failure here should degrade to "couldn't verify" rather than break the primary fetch.
+  const fetchComparisonRows = async (baseUrl, scope, page, pageSize, extraParams) => {
+    try {
+      const url = buildPublishCheckUrl(baseUrl, scope, page, pageSize, extraParams);
+      const res = await fetchWithTimeout(url, FETCH_TIMEOUT_MS);
+      if (!res.ok) {
+        return [];
+      }
+      return parsePageResponse(await res.text());
+    } catch (error) {
+      console.warn(`Unable to load publish-status comparison data from ${baseUrl}.`, error);
+      return [];
+    }
+  };
+
+  const indexRowsByZuid = (rows) => {
+    const map = new Map();
+    rows.forEach((row) => {
+      if (row.zuid) {
+        map.set(row.zuid, row);
+      }
+    });
+    return map;
+  };
+
+  function computeTruePublishStatus(zuid, devRowsByZuid, productionRowsByZuid) {
+    const productionRow = productionRowsByZuid.get(zuid);
+    if (!productionRow) {
+      return 'never_published';
+    }
+    const devRow = devRowsByZuid.get(zuid);
+    if (!devRow) {
+      // Dev should be a superset of production; if it isn't for this item, don't guess.
+      return 'published';
+    }
+    const hasUnpublishedChanges = PUBLISH_COMPARISON_FIELDS.some(
+      (field) => `${devRow[field] ?? ''}` !== `${productionRow[field] ?? ''}`
+    );
+    return hasUnpublishedChanges ? 'unpublished_changes' : 'published';
+  }
+
+  // Overwrites each row's publish_status with the verified 3-way status by comparing the dev
+  // (latest) and production (published) domains directly for this scope/page. Leaves the
+  // legacy isPublished()-derived value untouched for any row it can't verify (neither
+  // comparison domain reachable, or the item simply isn't present in either response).
+  const annotateTruePublishStatus = async (rows, scopePages, pageSize) => {
+    if (!rows.length || !scopePages.length) {
+      return rows;
+    }
+    const seen = new Set();
+    const uniqueRequests = scopePages.filter(({ scope, page }) => {
+      const key = `${buildScopeKey([scope])}::${page}`;
+      if (seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+    const [devResults, productionResults] = await Promise.all([
+      Promise.all(
+        uniqueRequests.map(({ scope, page }) =>
+          fetchComparisonRows(PUBLISH_CHECK_DEV_URL, scope, page, pageSize)
+        )
+      ),
+      Promise.all(
+        uniqueRequests.map(({ scope, page }) =>
+          fetchComparisonRows(PUBLISH_CHECK_PRODUCTION_URL, scope, page, pageSize)
+        )
+      )
+    ]);
+    const devRowsByZuid = indexRowsByZuid(devResults.flat());
+    const productionRowsByZuid = indexRowsByZuid(productionResults.flat());
+    if (!devRowsByZuid.size && !productionRowsByZuid.size) {
+      return rows;
+    }
+    rows.forEach((row) => {
+      row.publish_status = computeTruePublishStatus(row.zuid, devRowsByZuid, productionRowsByZuid);
+    });
+    return rows;
+  };
+
   async function fetchData(zuid, divisionValues, locationValues, page, pageSize) {
     try {
       if (!zuid) {
@@ -2082,6 +2204,12 @@
         knownLastPage = page;
       }
       data = mergeRows(pageResults.flatMap((result) => result.rows));
+      loaderText.textContent = 'Verifying true publish status...';
+      await annotateTruePublishStatus(
+        data,
+        scopes.map((scope) => ({ scope, page })),
+        pageSize
+      );
       lastLoadState = {
         page,
         pageSize,
@@ -2095,8 +2223,9 @@
       if (shouldOpenColumnPanel) {
         columnControls.open = true;
       }
+      applyTableFilters();
       renderTable();
-      resultsSummary.textContent = `${data.length} row${data.length === 1 ? '' : 's'} on server page ${page}`;
+      updateResultsSummary();
       if (data.length) {
         downloadCsvBtn.classList.remove('d-none');
         exportAllBtn.classList.remove('d-none');
@@ -2128,17 +2257,43 @@
     }
   }
 
-function formatPublishStatus(value) {
+// Recognizes both the verified 3-way status set by annotateTruePublishStatus
+// ('published' / 'unpublished_changes' / 'never_published') and the legacy
+// isPublished()-derived boolean/string generate-csv falls back to when the live
+// domain can't be reached for comparison.
+function normalizePublishStatus(value) {
+  if (value === 'published' || value === 'unpublished_changes' || value === 'never_published') {
+    return value;
+  }
   if (value === true) {
-    return 'Published';
+    return 'published';
   }
   if (value === false) {
+    return 'never_published';
+  }
+
+  const normalized = `${value ?? ''}`.trim().toLowerCase();
+  if (['publish', 'published', 'true', '1'].includes(normalized)) {
+    return 'published';
+  }
+  if (['unpublish', 'unpublished', 'false', '0'].includes(normalized)) {
+    return 'never_published';
+  }
+  return '';
+}
+
+function formatPublishStatus(value) {
+  const status = normalizePublishStatus(value);
+  if (status === 'published') {
+    return 'Published';
+  }
+  if (status === 'unpublished_changes') {
+    return 'Published (unpublished changes)';
+  }
+  if (status === 'never_published') {
     return 'Unpublished';
   }
-  if (value === null || value === undefined) {
-    return '';
-  }
-  return `${value}`;
+  return '';
 }
 
   const updateTableNavigation = () => {
@@ -2157,7 +2312,7 @@ function renderTable() {
   dataTableBody.innerHTML = '';
   dataTableHeadRow.innerHTML = '';
 
-  const displayData = searchInput.value ? filteredData : data;
+  const displayData = hasActiveTableFilters() ? filteredData : data;
   const selectedColumns = getSelectedColumns();
 
   selectedColumns.forEach((column) => {
@@ -2288,7 +2443,10 @@ function renderTable() {
     if (!data.length) {
       throw new Error('No data to export. Please generate data first.');
     }
-    const rows = searchInput.value ? filteredData : data;
+    const rows = hasActiveTableFilters() ? filteredData : data;
+    if (!rows.length) {
+      throw new Error('No rows match the current filters.');
+    }
     await hydrateRowsForExport(rows, columns);
     downloadRowsAsCSV(rows, columns);
   };
@@ -2310,6 +2468,7 @@ function renderTable() {
 
     const pageSize = getPageSize();
     const allData = [];
+    const scopePages = [];
     const seenKeys = new Set();
     const canReuseLoadedFirstPage =
       lastLoadState &&
@@ -2331,6 +2490,7 @@ function renderTable() {
             allData.push(row);
           }
         });
+        scopes.forEach((scope) => scopePages.push({ scope, page: 1 }));
       }
 
       const fetchAllPagesForScope = async (scope) => {
@@ -2341,6 +2501,7 @@ function renderTable() {
         while (page <= MAX_EXPORT_PAGES) {
           loaderText.textContent = `Exporting server page ${page}...`;
           const pageData = await requestScopePage(scope, page, pageSize);
+          scopePages.push({ scope, page });
           if (!pageData.length) {
             break;
           }
@@ -2380,11 +2541,14 @@ function renderTable() {
         throw new Error('No data returned to export.');
       }
 
-      const exportRows = searchInput.value
-        ? allData.filter(rowMatchesSearch)
+      loaderText.textContent = 'Verifying true publish status...';
+      await annotateTruePublishStatus(allData, scopePages, pageSize);
+
+      const exportRows = hasActiveTableFilters()
+        ? allData.filter(rowMatchesTableFilters)
         : allData;
       if (!exportRows.length) {
-        throw new Error('No rows match the current table search.');
+        throw new Error('No rows match the current filters.');
       }
       loaderText.textContent = 'Loading selected export fields...';
       await hydrateRowsForExport(exportRows, columns);
@@ -2589,8 +2753,8 @@ function renderTable() {
       return 0;
     });
 
-    if (searchInput.value) {
-      applySearchFilter();
+    if (hasActiveTableFilters()) {
+      applyTableFilters();
     }
 
     renderTable();
@@ -2607,18 +2771,48 @@ function rowMatchesSearch(row) {
   );
 }
 
-function applySearchFilter() {
-  filteredData = data.filter(rowMatchesSearch);
+// The filter dropdown only offers Published/Unpublished (per team request), but rows still
+// carry the precise 3-way status — "Unpublished" here matches both never-published items and
+// published items with newer unpublished edits, while the table/CSV still shows all three.
+function rowMatchesPublishStatus(row) {
+  const selectedStatus = publishStatusFilter.value;
+  if (!selectedStatus) {
+    return true;
+  }
+  const status = normalizePublishStatus(row.publish_status);
+  if (selectedStatus === 'unpublished') {
+    return status === 'never_published' || status === 'unpublished_changes';
+  }
+  return status === selectedStatus;
 }
 
-searchInput.addEventListener('input', () => {
-  applySearchFilter();
+function rowMatchesTableFilters(row) {
+  return rowMatchesSearch(row) && rowMatchesPublishStatus(row);
+}
+
+function hasActiveTableFilters() {
+  return Boolean(searchInput.value.trim() || publishStatusFilter.value);
+}
+
+function applyTableFilters() {
+  filteredData = data.filter(rowMatchesTableFilters);
+}
+
+function updateResultsSummary() {
   const page = getPageNumber();
-  resultsSummary.textContent = searchInput.value.trim()
-    ? `${filteredData.length} of ${data.length} rows match on server page ${page}`
+  resultsSummary.textContent = hasActiveTableFilters()
+    ? `${filteredData.length} of ${data.length} rows match filters on server page ${page}`
     : `${data.length} row${data.length === 1 ? '' : 's'} on server page ${page}`;
+}
+
+function handleTableFilterChange() {
+  applyTableFilters();
+  updateResultsSummary();
   renderTable();
-});
+}
+
+searchInput.addEventListener('input', handleTableFilterChange);
+publishStatusFilter.addEventListener('change', handleTableFilterChange);
 
   resultsTable.addEventListener('scroll', () => {
     tableTopScrollbar.scrollLeft = resultsTable.scrollLeft;
@@ -3028,6 +3222,25 @@ body {
 .results-search {
   flex: 1 1 320px;
   max-width: 460px;
+}
+
+.publish-status-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.publish-status-filter label {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.publish-status-filter select {
+  width: 150px;
+  min-width: 150px;
 }
 
 .server-pager {
@@ -3561,6 +3774,10 @@ th.active-desc .sort-icon .down {
   .results-search {
     flex: 0 1 auto;
     max-width: none;
+  }
+
+  .publish-status-filter {
+    justify-content: flex-start;
   }
 
   .server-pager {

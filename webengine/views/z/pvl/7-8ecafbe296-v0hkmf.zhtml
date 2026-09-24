@@ -1,55 +1,16 @@
 <div classname="{styles.pvlRoot}">
-	<div data-zesty-id="content:block:6-bcfbdaa6d3-vjj3qs:27:11:0:29">{{block('/-/block/hero_full.html?variant=7-b8a4fbeba6-9pl2cw')}}</div>
-	<div class="p-6 rounded-5 bg-light mb-18" data-zesty-id="design:columns:1 column - 1 row my-3:12:59">
-<div class="col-lg-12 col-md-12 col-sm-12" data-zesty-id="design:columns:1 column - 1 row my-3:12:59-1:1 column - 1 row:0">
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:1:66"></div>
-<div style="color:#111111;" class="rounded p-6 gap-3" data-zesty-id="content:wysiwyg_basic:2:63"><h5 style="text-align:center;">The Salvation Army in Georgia</h5>
-
-<p style="text-align:center;">On October 19, 1890, The Salvation Army began its work in Georgia – by proclaiming the Gospel on Atlanta’s city streets. Its “grand opening” was a small but significant affair, beginning with the open-air evangelistic service on the street corner and proceeding to a meeting in their newly rented assembly room.
-</p>
-
-<p>
-	The Salvation Army In Atlanta grew slowly, and by the end of January 1891, the Army had enlisted 30 soldiers. On April 12, 1891, the second official Corps opened in Georgia – in Augusta.
-</p>
-
-<p>
-	By 1895, the mission was again gaining ground. Columbus opened in 1895, Rome in 1897, Macon in 1899 and Brunswick and Savannah in 1900. Other cities followed. In the years to come, many Corps would flourish. Atlanta’s Central location and economic strength made it a perfect place for Territorial Headquarters.
-</p>
-
-<hr>
-<h5 style="text-align:center;">History of The Salvation Army</h5>
-
-<p><br><img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/40f95e27-7969-4455-8c0e-7551b0bebe2a_william+booth.jpeg" style="max-width:100%;height:auto;" class="img-fluid d-block mx-auto my-4 rounded"></p>
-
-<p>
-	The Salvation Army Began in 1865 when William Booth, a London minister, gave up the comfort of his pulpit and decided to take his message into the streets where it would reach the poor, the homeless, the hungry and the destitute.
-</p>
-
-<p>
-	His original aim was to send converts to established churches of the day, but soon he realized that the poor did not feel comfortable or welcome in the pews of most of the churches and chapels of Victorian England.
-</p>
-
-<p>
-	Regular churchgoers were appalled when these shabbily dressed, unwashed people came to join them in worship.
-</p>
-
-<p>
-	Booth decided to found a church especially for them — the East London Christian Mission. The mission grew slowly, and Booth’s faith in God remained undiminished.
-</p>
-
-<p>
-	In May of 1878, Booth summoned his son, Bramwell, and his good friend George Railton to read a proof of the Christian Mission’s annual report. At the top it read: the christian mission is a volunteer army. Bramwell strongly objected to this wording. He was not a volunteer: he was compelled to do God’s work. So, in a flash of inspiration, Booth crossed out “Volunteer” and wrote “Salvation”. The Salvation Army Was born.
-</p>
-
-<p>
-	By the 1900s, the Army had spread around the world. The Salvation Army Soon had officers and soldiers in 36 countries, including the United States of America. This well-organized yet flexible structure inspired a great many much-needed services: women’s social work, the first food depot, the first day nursery and the first Salvation Army missionary hospital. During World War ii, The Salvation Army operated 3,000 service units for the armed forces, which led to the formation of the uso.
-</p>
-
-<p>
-	Today, The Salvation Army is stronger and more powerful than ever. Now, in over 125 nations around the world, The Salvation Army continues to work where the need is greatest, guided by faith in God and love for all people.
-</p></div>
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:3:67"></div>
-<div style="text-align:center;" class="testimonialbox-section rounded overflow-hidden position-relative text-white bg-black" data-zesty-id="content:wysiwyg_basic:4:53">
+	{{block('/-/block/hero_full.html?variant=7-b8a4fbeba6-9pl2cw')}}
+	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="py-5"></div>
+			<div style="color: #111111;" class="rounded p-6 gap-3">
+<h5 style="text-align: center;">The Salvation Army in Georgia</h5>
+<p style="text-align: center;">On October 19, 1890, The Salvation Army began its work in Georgia – by proclaiming the Gospel on Atlanta’s city streets. Its “grand opening” was a small but significant affair, beginning with the open-air evangelistic service on the street corner and proceeding to a meeting in their newly rented assembly room.</p>
+<p>The Salvation Army In Atlanta grew slowly, and by the end of January 1891, the Army had enlisted 30 soldiers. On April 12, 1891, the second official Corps opened in Georgia – in Augusta.</p>
+<p>By 1895, the mission was again gaining ground. Columbus opened in 1895, Rome in 1897, Macon in 1899 and Brunswick and Savannah in 1900. Other cities followed. In the years to come, many Corps would flourish. Atlanta’s Central location and economic strength made it a perfect place for Territorial Headquarters.</p>
+</div>
+			<div class="py-5"></div>
+			<div style="text-align:center;" class="testimonialbox-section rounded overflow-hidden position-relative text-white bg-black">
   <img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/2c42a5ca-05b3-4dd6-9977-bcf44bec3902_tsa+red+aprons.png" alt="" class="position-absolute top-0 start-0 w-100 h-100 rounded object-fit-cover opacity-50 d-block mx-auto mb-2">
   <div class="position-relative d-flex align-items-center justify-content-center px-5 py-19">
     <div class="py-12">
@@ -59,9 +20,9 @@
   </div>
 </div>
 <div class="py-5"></div>
-<div class="my-2" data-zesty-id="design:design:whitespace-sm:5:22"></div>
-<div class="py-5" data-zesty-id="design:design:whitespace-xl:6:12"></div>
-<div style="color:#111111;" class="rounded p-6 gap-3" data-zesty-id="content:wysiwyg_basic:7:34"><p style="text-align:center;">While The Salvation Army today is a respected and vital part of communities all over the state of Georgia, times were a little different in 1890. Some of the rougher elements of Atlanta society in those early days often greeted Salvation Army officers with salutations of over-ripe eggs, broken windows, and threats of violence. Getting to meetings in the early days often proved a battle in and of itself. Those who ran the local saloons and brothels constantly harassed and assaulted the Salvationists. In 1892, Captain Davis and Sergeant Brown, then in charge of the Atlanta Corps, were arrested for selling the War Cry, the Army’s official publication.
+			<div class="my-2"></div>
+			<div class="py-5"></div>
+			<div style="color:#111111;" class="rounded p-6 gap-3"><p style="text-align:center;">While The Salvation Army today is a respected and vital part of communities all over the state of Georgia, times were a little different in 1890. Some of the rougher elements of Atlanta society in those early days often greeted Salvation Army officers with salutations of over-ripe eggs, broken windows, and threats of violence. Getting to meetings in the early days often proved a battle in and of itself. Those who ran the local saloons and brothels constantly harassed and assaulted the Salvationists. In 1892, Captain Davis and Sergeant Brown, then in charge of the Atlanta Corps, were arrested for selling the War Cry, the Army’s official publication.
 </p>
 
 <p>

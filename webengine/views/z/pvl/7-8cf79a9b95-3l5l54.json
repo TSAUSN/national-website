@@ -1,0 +1,97 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:57:0:19": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-e0d8ad98ae-pszv6z')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-e0d8ad98ae-pszv6z')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:57:0:19",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:5:28": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:5:28",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:5:28-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:4": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:4",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:5:28-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:6": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">What Is Pathway of Hope?</h5>\n\n<p style=\"text-align:center;\">\n\tThe Pathway of Hope initiative is an approach launched by The Salvation Army in 2011 to provide targeted services to families with a desire to take action to break the generational cycle of crisis and enable a path out of poverty. It is rooted in a case management approach, focusing on client needs through a strength-based lens.\n</p>\n\n<p>\n\tTargeting families with children came from the desire to have an intergenerational impact on poverty. By positively influencing the lives of parents, The Salvation Army can create better living conditions for children. Influencing children in their development years is crucial, as studies show that children who spend more than half of their life in poverty are 32 times more likely to be in poverty as an adult.\n</p>\n\n<h5 style=\"text-align:center;\">Pathway of Hope Has Made Significant Progress in the Southern Territory</h5>\n\n<p>\n\t<span style=\"font-size:20px;\"><em>Here’s Where we stand at a glance:</em></span>\n</p>\n\n<ul>\n\t<li>274 Locations with trained personnel</li>\n\t<li>2,000+ Families have been served since 2015   </li>\n\t<li>4,100+ Children have been positively impacted</li>\n\t<li>33% Of clients have increased income</li>\n\t<li>51% Of clients have increased stability</li>\n\t<li>39% Is the average earned income increased for a family</li>\n\t<li>1,300+ Clients have engaged with Salvation Army Corps for Pastoral Care</li>\n\t<li>1,900+ Clients have been connected to Community Partners for coordinated support</li>\n</ul>\n\n<p>\n\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/58681f91-6ff5-41f6-8d92-d1711d622e01_pathway+of+hope+triangle.png\" style=\"display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n</p>\n\n<hr>\n<h5 style=\"text-align:center;\">The Pathway of Hope Approach Includes:</h5>\n\n<p style=\"text-align:center;\">\n\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/d1f11c18-224c-4ab7-ae3c-ee99d72958ae_pathway+of+hope+approach+.png\" class=\"d-block mx-auto img-fluid rounded\">\n</p>\n\n<ul>\n\t<li>Providing targeted services to families with a desire to take action, changing life trajectories and increasing hope.</li>\n\t<li>Bringing all the Army’s internal resources to bear, aligned to the goals of clients.</li>\n\t<li>Catalyzing community collaboration in service with shared clients</li>\n\t<li>Moving families from crises and vulnerability to stability and eventually self-sufficiency, tracking family progress along the way</li>\n\t<li>Strengths-based Case management services</li>\n</ul>\n\n<h5 style=\"text-align:center;\">Who Can Join?</h5>\n\n<p style=\"text-align:center;\">\n\t<strong>You’re Eligible If:</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t 1) You have at least one child under the age of 18.\n</p>\n\n<p style=\"text-align:center;\">\n\t 2) You’re Ready to take action!\n</p>\n\n<hr>\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5>What Does the Initiative Involve?</h5>\n\n\t\t\t\t<p>\n\t\t\t\t\tCaring for your family’s needs, while building a strong future can be challenging in today’s economic times. The Salvation Army Team will offer support, guidance and assistance as we walk alongside you on your family’s journey:\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t<strong>Mapping It Out</strong><br>\n\t\t\t\t\tMeet with a caseworker to develop your personalized action plan.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t<strong>Tracking Progress</strong><br>\n\t\t\t\t\tChart your progress and see your success with your dedicated case worker on a regular basis.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t<strong>Passing Milestones</strong><br>\n\t\t\t\t\tSee where you are at six months and decide what’s next on your journey.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t<strong>Looking Ahead</strong><br>\n\t\t\t\t\tCelebrate your successes. Adjust any further goals.  Encourage Others.\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5>Resources &amp; Connections</h5>\n\n\t\t\t\t<p>\n\t\t\t\t\tThrough your involvement with Pathway of Hope, you’ll be introduced to both Salvation Army and other services that are available within your community which offer:\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>A network of support</li>\n\t\t\t\t\t<li>A sense of community</li>\n\t\t\t\t\t<li>Holistic programs</li>\n\t\t\t\t\t<li>Spiritual guidance</li>\n\t\t\t\t</ul>\n\n\t\t\t\t<p>\n\t\t\t\t\t<strong>Service Connector To:</strong>\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>Job training</li>\n\t\t\t\t\t<li>Health services</li>\n\t\t\t\t\t<li>Childcare and education</li>\n\t\t\t\t\t<li>Housing options</li>\n\t\t\t\t\t<li>Legal services and much more…</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://southernusa.salvationarmy.org/dalton/contact-us\" class=\"btn btn-secondary gap-1 mt-2\">Request Pathway of Hope Assistance</a></p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">What Is Pathway of Hope?</h5>\n\n<p style=\"text-align:center;\">\n\tThe Pathway of Hope initiative is an approach launched by The Salvation Army in 2011 to provide targeted services to families with a desire to take action to break the generational cycle of crisis and enable a path out of poverty. It is rooted in a case management approach, focusing on client needs through a strength-based lens.\n</p>\n\n<p>\n\tTargeting families with children came from the desire to have an intergenerational impact on poverty. By positively influencing the lives of parents, The Salvation Army can create better living conditions for children. Influencing children in their development years is crucial, as studies show that children who spend more than half of their life in poverty are 32 times more likely to be in poverty as an adult.\n</p>\n\n<h5 style=\"text-align:center;\">Pathway of Hope Has Made Significant Progress in the Southern Territory</h5>\n\n<p>\n\t<span style=\"font-size:20px;\"><em>Here’s Where we stand at a glance:</em></span>\n</p>\n\n<ul>\n\t<li>274 Locations with trained personnel</li>\n\t<li>2,000+ Families have been served since 2015   </li>\n\t<li>4,100+ Children have been positively impacted</li>\n\t<li>33% Of clients have increased income</li>\n\t<li>51% Of clients have increased stability</li>\n\t<li>39% Is the average earned income increased for a family</li>\n\t<li>1,300+ Clients have engaged with Salvation Army Corps for Pastoral Care</li>\n\t<li>1,900+ Clients have been connected to Community Partners for coordinated support</li>\n</ul>\n\n<p>\n\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/58681f91-6ff5-41f6-8d92-d1711d622e01_pathway+of+hope+triangle.png\" style=\"display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n</p>\n\n<hr>\n<h5 style=\"text-align:center;\">The Pathway of Hope Approach Includes:</h5>\n\n<p style=\"text-align:center;\">\n\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/d1f11c18-224c-4ab7-ae3c-ee99d72958ae_pathway+of+hope+approach+.png\" class=\"d-block mx-auto img-fluid rounded\">\n</p>\n\n<ul>\n\t<li>Providing targeted services to families with a desire to take action, changing life trajectories and increasing hope.</li>\n\t<li>Bringing all the Army’s internal resources to bear, aligned to the goals of clients.</li>\n\t<li>Catalyzing community collaboration in service with shared clients</li>\n\t<li>Moving families from crises and vulnerability to stability and eventually self-sufficiency, tracking family progress along the way</li>\n\t<li>Strengths-based Case management services</li>\n</ul>\n\n<h5 style=\"text-align:center;\">Who Can Join?</h5>\n\n<p style=\"text-align:center;\">\n\t<strong>You’re Eligible If:</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t 1) You have at least one child under the age of 18.\n</p>\n\n<p style=\"text-align:center;\">\n\t 2) You’re Ready to take action!\n</p>\n\n<hr>\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5>What Does the Initiative Involve?</h5>\n\n\t\t\t\t<p>\n\t\t\t\t\tCaring for your family’s needs, while building a strong future can be challenging in today’s economic times. The Salvation Army Team will offer support, guidance and assistance as we walk alongside you on your family’s journey:\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t<strong>Mapping It Out</strong><br>\n\t\t\t\t\tMeet with a caseworker to develop your personalized action plan.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t<strong>Tracking Progress</strong><br>\n\t\t\t\t\tChart your progress and see your success with your dedicated case worker on a regular basis.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t<strong>Passing Milestones</strong><br>\n\t\t\t\t\tSee where you are at six months and decide what’s next on your journey.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t<strong>Looking Ahead</strong><br>\n\t\t\t\t\tCelebrate your successes. Adjust any further goals.  Encourage Others.\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5>Resources &amp; Connections</h5>\n\n\t\t\t\t<p>\n\t\t\t\t\tThrough your involvement with Pathway of Hope, you’ll be introduced to both Salvation Army and other services that are available within your community which offer:\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>A network of support</li>\n\t\t\t\t\t<li>A sense of community</li>\n\t\t\t\t\t<li>Holistic programs</li>\n\t\t\t\t\t<li>Spiritual guidance</li>\n\t\t\t\t</ul>\n\n\t\t\t\t<p>\n\t\t\t\t\t<strong>Service Connector To:</strong>\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>Job training</li>\n\t\t\t\t\t<li>Health services</li>\n\t\t\t\t\t<li>Childcare and education</li>\n\t\t\t\t\t<li>Housing options</li>\n\t\t\t\t\t<li>Legal services and much more…</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://southernusa.salvationarmy.org/dalton/contact-us\" class=\"btn btn-secondary gap-1 mt-2\">Request Pathway of Hope Assistance</a></p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:6",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:6",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:5:28-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">What Is Pathway of Hope?</h5>\n\n<p style=\"text-align:center;\">\n\tThe Pathway of Hope initiative is an approach launched by The Salvation Army in 2011 to provide targeted services to families with a desire to take action to break the generational cycle of crisis and enable a path out of poverty. It is rooted in a case management approach, focusing on client needs through a strength-based lens.\n</p>\n\n<p>\n\tTargeting families with children came from the desire to have an intergenerational impact on poverty. By positively influencing the lives of parents, The Salvation Army can create better living conditions for children. Influencing children in their development years is crucial, as studies show that children who spend more than half of their life in poverty are 32 times more likely to be in poverty as an adult.\n</p>\n\n<h5 style=\"text-align:center;\">Pathway of Hope Has Made Significant Progress in the Southern Territory</h5>\n\n<p>\n\t<span style=\"font-size:20px;\"><em>Here’s Where we stand at a glance:</em></span>\n</p>\n\n<ul>\n\t<li>274 Locations with trained personnel</li>\n\t<li>2,000+ Families have been served since 2015   </li>\n\t<li>4,100+ Children have been positively impacted</li>\n\t<li>33% Of clients have increased income</li>\n\t<li>51% Of clients have increased stability</li>\n\t<li>39% Is the average earned income increased for a family</li>\n\t<li>1,300+ Clients have engaged with Salvation Army Corps for Pastoral Care</li>\n\t<li>1,900+ Clients have been connected to Community Partners for coordinated support</li>\n</ul>\n\n<p>\n\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/58681f91-6ff5-41f6-8d92-d1711d622e01_pathway+of+hope+triangle.png\" style=\"display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n</p>\n\n<hr>\n<h5 style=\"text-align:center;\">The Pathway of Hope Approach Includes:</h5>\n\n<p style=\"text-align:center;\">\n\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/d1f11c18-224c-4ab7-ae3c-ee99d72958ae_pathway+of+hope+approach+.png\" class=\"d-block mx-auto img-fluid rounded\">\n</p>\n\n<ul>\n\t<li>Providing targeted services to families with a desire to take action, changing life trajectories and increasing hope.</li>\n\t<li>Bringing all the Army’s internal resources to bear, aligned to the goals of clients.</li>\n\t<li>Catalyzing community collaboration in service with shared clients</li>\n\t<li>Moving families from crises and vulnerability to stability and eventually self-sufficiency, tracking family progress along the way</li>\n\t<li>Strengths-based Case management services</li>\n</ul>\n\n<h5 style=\"text-align:center;\">Who Can Join?</h5>\n\n<p style=\"text-align:center;\">\n\t<strong>You’re Eligible If:</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\t 1) You have at least one child under the age of 18.\n</p>\n\n<p style=\"text-align:center;\">\n\t 2) You’re Ready to take action!\n</p>\n\n<hr>\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5>What Does the Initiative Involve?</h5>\n\n\t\t\t\t<p>\n\t\t\t\t\tCaring for your family’s needs, while building a strong future can be challenging in today’s economic times. The Salvation Army Team will offer support, guidance and assistance as we walk alongside you on your family’s journey:\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t<strong>Mapping It Out</strong><br>\n\t\t\t\t\tMeet with a caseworker to develop your personalized action plan.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t<strong>Tracking Progress</strong><br>\n\t\t\t\t\tChart your progress and see your success with your dedicated case worker on a regular basis.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t<strong>Passing Milestones</strong><br>\n\t\t\t\t\tSee where you are at six months and decide what’s next on your journey.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\t<strong>Looking Ahead</strong><br>\n\t\t\t\t\tCelebrate your successes. Adjust any further goals.  Encourage Others.\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col-lg-6 col-md-12 col-sm-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<h5>Resources &amp; Connections</h5>\n\n\t\t\t\t<p>\n\t\t\t\t\tThrough your involvement with Pathway of Hope, you’ll be introduced to both Salvation Army and other services that are available within your community which offer:\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>A network of support</li>\n\t\t\t\t\t<li>A sense of community</li>\n\t\t\t\t\t<li>Holistic programs</li>\n\t\t\t\t\t<li>Spiritual guidance</li>\n\t\t\t\t</ul>\n\n\t\t\t\t<p>\n\t\t\t\t\t<strong>Service Connector To:</strong>\n\t\t\t\t</p>\n\n\t\t\t\t<ul>\n\t\t\t\t\t<li>Job training</li>\n\t\t\t\t\t<li>Health services</li>\n\t\t\t\t\t<li>Childcare and education</li>\n\t\t\t\t\t<li>Housing options</li>\n\t\t\t\t\t<li>Legal services and much more…</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://southernusa.salvationarmy.org/dalton/contact-us\" class=\"btn btn-solid btn-red\">Request Pathway of Hope Assistance</a></p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}
