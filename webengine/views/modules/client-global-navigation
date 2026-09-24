@@ -2564,7 +2564,7 @@
     ensureDonationUrlCookies();
   }
 
-  function setLocationCookiesByTerritory(zuid) {
+  async function setLocationCookiesByTerritory(zuid) {
     if (zuid === territories.west) {
       setDonationUrlCookies(`{{$westCampaignURL}}`, `{{$westClassyDonation}}`);
       cookieManager.set(cookieKeys.volunteerUrl, `{{$westVolunteer}}`);
@@ -2600,8 +2600,13 @@
       cookieManager.set(cookieKeys.classyOrganizationID, `{{$southOrgId}}`);
     } else if (zuid === territories.central) {
       setDonationUrlCookies(`{{$centralCampaignURL}}`, `{{$centralClassyDonation}}`);
-   
-      syncCentralVolunteerUrlFromCurrentProperty();
+
+      // Must be awaited here — otherwise setResolvedContextCookies() (and any other
+      // caller that now awaits this function) can return before volunteer_url has
+      // actually been re-fetched/rewritten for the new page's Central-territory
+      // context, leaving a stale (but still truthy) cookie value that the footer's
+      // readiness poll would accept as "settled" even though it isn't.
+      await syncCentralVolunteerUrlFromCurrentProperty();
 
       cookieManager.set(cookieKeys.employmentUrl, `{{$centralEmployment}}`);
       cookieManager.set(cookieKeys.waysToGiveUrl, `{{$centralWaysToGive}}`);
@@ -2801,7 +2806,7 @@
       setContextCookieValue(cookieKeys.locationZipcode, getRelationshipValue(content.zipcode));
 
       if (hasValidZUIDShape(territoryZUID)) {
-        setLocationCookiesByTerritory(territoryZUID);
+        await setLocationCookiesByTerritory(territoryZUID);
       } else {
         cookieManager.delete(cookieKeys.territoryZUID);
         setDonationUrlCookies(nationalDonateOnceURL, nationalDonateMonthlyURL);

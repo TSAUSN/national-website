@@ -796,6 +796,10 @@
 
   function setFooterLocationLinks() {
     const locationNameCookieFooter = getCookieByName('location_name');
+    const locationHomeUrlCookie = getCookieByName('location_home_url');
+    const employmentUrlCookie = getCookieByName('employment_url');
+    const volunteerUrlCookie = getCookieByName('volunteer_url');
+    const waysToGiveUrlCookie = getCookieByName('wtg_url');
 
     if (locationNameCookieFooter == 'NATIONAL' || !locationNameCookieFooter) {
 
@@ -805,28 +809,39 @@
         footerAboutUs.setAttribute('href', '/about-us');
       });
     } else {
-      footerContactUs.setAttribute('href', getCookieByName('location_home_url') + 'contact-us');
+      footerContactUs.setAttribute('href', locationHomeUrlCookie + 'contact-us');
       footerAboutUsButtons.forEach((footerAboutUs) => {
-        footerAboutUs.setAttribute('href', getCookieByName('location_home_url') + 'about-us');
+        footerAboutUs.setAttribute('href', locationHomeUrlCookie + 'about-us');
       });
     }
 
     footerEmploymentButtons.forEach((employmentLink) => {
-      employmentLink.setAttribute('href', getCookieByName('employment_url'));
+      employmentLink.setAttribute('href', employmentUrlCookie);
     });
     footerVolunteerButtons.forEach((volunteerLink) => {
-      volunteerLink.setAttribute('href', getCookieByName('volunteer_url'));
+      volunteerLink.setAttribute('href', volunteerUrlCookie);
     });
 
     waysToGiveButtons.forEach((waysToGiveLink) => {
-      waysToGiveLink.setAttribute('href', getCookieByName('wtg_url'));
+      waysToGiveLink.setAttribute('href', waysToGiveUrlCookie);
     });
 
     footerHomes.forEach((footerHome) => {
-      footerHome.setAttribute('href', getCookieByName("location_home_url"));
+      footerHome.setAttribute('href', locationHomeUrlCookie);
     });
 
-    return Boolean(locationNameCookieFooter);
+    // All five cookies must have settled before we stop polling — gating on
+    // location_name alone (the header-dynamic pattern this was ported from) let the
+    // loop exit as soon as that one cookie was ready, even if volunteer_url/
+    // employment_url/wtg_url/location_home_url hadn't been (re)written yet by the
+    // page's context-resolution flow, leaving those links stuck on stale hrefs.
+    return Boolean(
+      locationNameCookieFooter &&
+      locationHomeUrlCookie &&
+      employmentUrlCookie &&
+      volunteerUrlCookie &&
+      waysToGiveUrlCookie
+    );
   }
 
   // Mirrors header-dynamic's syncHeaderCookieValues(): re-reads the location cookies
