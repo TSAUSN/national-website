@@ -1,61 +1,124 @@
 {{$locationModelZUID = 6-b4c9aba69c-h2nqvm}}
-{{$westClassyDonation = {territories.filter(7-dcb3daeee7-3l9t49).classy_url_mobile} }}
-{{$eastClassyDonation = {territories.filter(7-ae82da90c9-zjnfr3).classy_url_mobile} }}
-{{$southClassyDonation = {territories.filter(7-b4aeafb8dd-033tjr).classy_url_mobile} }}
-{{$centralClassyDonation = {territories.filter(7-ec8a80fdbe-46hzww).classy_url_mobile} }}
 
-{{$westVolunteer = {truepath(7-cebb9ebd81-vzp4w7)} }}
-{{$eastVolunteer = {truepath(7-a4e9bc9dc3-qrmf4k)} }}
-{{$southVolunteer = {truepath(7-e486fce0d9-h2mflh)} }}
-{{$centralVolunteer = {truepath(7-988aee8a8c-1gjgr8)} }}
-{{$nationalVolunteer = {truepath(7-d8b3f99bc0-707gmt)} }}
+{{$westTerritoryZUID = 7-dcb3daeee7-3l9t49}}
+{{$eastTerritoryZUID = 7-ae82da90c9-zjnfr3}}
+{{$southTerritoryZUID = 7-b4aeafb8dd-033tjr}}
+{{$centralTerritoryZUID = 7-ec8a80fdbe-46hzww}}
 
-{{$westEmployment = {truepath(7-f8a8bcdbd3-2vljtw)} }}
-{{$eastEmployment = {truepath(7-a8e8dda9bb-mph0lw)} }}
-{{$southEmployment = {truepath(7-88deb6e6f5-l6xv5v)} }}
-{{$centralEmployment = {truepath(7-909ec5bbc1-fv94h8)} }}
-{{$nationalEmployment = {truepath(7-e6c1f1aac6-h62c86)} }}
+{{$westVolunteerPageZUID = 7-cebb9ebd81-vzp4w7}}
+{{$eastVolunteerPageZUID = 7-a4e9bc9dc3-qrmf4k}}
+{{$southVolunteerPageZUID = 7-e486fce0d9-h2mflh}}
+{{$centralVolunteerPageZUID = 7-988aee8a8c-1gjgr8}}
+{{$nationalVolunteerPageZUID = 7-d8b3f99bc0-707gmt}}
 
-{{$westWaysToGive = {truepath(7-9ef983beef-swgfd3)} }}
-{{$eastWaysToGive = {truepath(7-d2ccddaeb1-hbpjgb)} }}
-{{$southWaysToGive = {truepath(7-eceab6f8eb-03112w)} }}
-{{$centralWaysToGive = {truepath(7-8cb6efc8b0-bw9xct)} }}
-{{$nationalWaysToGive = {truepath(7-8499a580a9-586bnv)} }}
+{{$westEmploymentPageZUID = 7-f8a8bcdbd3-2vljtw}}
+{{$eastEmploymentPageZUID = 7-a8e8dda9bb-mph0lw}}
+{{$southEmploymentPageZUID = 7-88deb6e6f5-l6xv5v}}
+{{$centralEmploymentPageZUID = 7-909ec5bbc1-fv94h8}}
+{{$nationalEmploymentPageZUID = 7-e6c1f1aac6-h62c86}}
 
-{{$westPlannedGiving = {truepath(7-f2b287aed9-0p8rkp)} }}
-{{$eastPlannedGiving = {truepath(7-d6d7af9fbc-7v6rhf)} }}
-{{$southPlannedGiving = {truepath(7-deb1f3c292-8n177t)} }}
-{{$centralPlannedGiving = {truepath(7-b2c8f8c3a1-p70t2s)} }}
-{{$nationalPlannedGiving = {truepath(7-82ce8e98ae-tvqz03)} }}
+{{$westWaysToGivePageZUID = 7-9ef983beef-swgfd3}}
+{{$eastWaysToGivePageZUID = 7-d2ccddaeb1-hbpjgb}}
+{{$southWaysToGivePageZUID = 7-eceab6f8eb-03112w}}
+{{$centralWaysToGivePageZUID = 7-8cb6efc8b0-bw9xct}}
+{{$nationalWaysToGivePageZUID = 7-8499a580a9-586bnv}}
 
-{{$westMutualFunds = {truepath(7-ceb9aec38c-jg599w)} }}
-{{$eastMutualFunds = {truepath(7-b2a5fdc3ee-b64wj2)} }}
-{{$southMutualFunds = {truepath(7-e8b8d68ccc-t4mw4d)} }}
-{{$centralMutualFunds = {truepath(7-c4bebbe989-d1cqdk)} }}
-{{$nationalMutualFunds = {truepath(7-908ef4edec-70r71l)} }}
+{{$westPlannedGivingPageZUID = 7-f2b287aed9-0p8rkp}}
+{{$eastPlannedGivingPageZUID = 7-d6d7af9fbc-7v6rhf}}
+{{$southPlannedGivingPageZUID = 7-deb1f3c292-8n177t}}
+{{$centralPlannedGivingPageZUID = 7-b2c8f8c3a1-p70t2s}}
+{{$nationalPlannedGivingPageZUID = 7-82ce8e98ae-tvqz03}}
 
-{{$westDgiohid = {territories.filter(7-dcb3daeee7-3l9t49).dgioh_id} }}
-{{$eastDgiohid = {territories.filter(7-ae82da90c9-zjnfr3).dgioh_id} }}
-{{$southDgiohid = {territories.filter(7-b4aeafb8dd-033tjr).dgioh_id} }}
-{{$centralDgiohid = {territories.filter(7-ec8a80fdbe-46hzww).dgioh_id} }}
+{{$westMutualFundsPageZUID = 7-ceb9aec38c-jg599w}}
+{{$eastMutualFundsPageZUID = 7-b2a5fdc3ee-b64wj2}}
+{{$southMutualFundsPageZUID = 7-e8b8d68ccc-t4mw4d}}
+{{$centralMutualFundsPageZUID = 7-c4bebbe989-d1cqdk}}
+{{$nationalMutualFundsPageZUID = 7-908ef4edec-70r71l}}
+
+{{$territoriesModelZUID = 6-deab97cfd9-wb5km4}}
+{{$divisionsModelZUID = 6-acb19a94bd-4q8ftj}}
+{{$homepageModelZUID = 6-a0898ca2c1-krnm0f}}
+{{$servicesModelZUID = 6-fef1bbcecc-cjfmfq}}
+{{$nationalZUID = 7-dab495a2c1-13lthp}}
+{{$contactUsModelZUID = 6-aa8c819c86-953qkz}}
+{{$aboutUsModelZUID = 6-b29d85ada7-5kzkcc}}
+{{$storiesLandingPageModelZUID = 6-f8c59d8382-h4z4pc}}
+{{$eventsLandingPageModelZUID = 6-c4d6a894f1-rtzv2z}}
+{{$leadershipLandingPageModelZUID = 6-cee4dda7e4-0md6ts}}
+{{$volunteerPageModelZUID = 6-8489c3a590-kn21jh}}
+{{$informationalPageModelZUID = 6-c2b7f2a9ad-k4frxv}}
+{{$eventsModelZUID = 6-a2dbc1a6e2-x4pzmx}}
+{{$storiesModelZUID = 6-80c7e29486-k0pq6s}}
+{{$locationFinderModelZUID = 6-8e91efbf9b-jqqxjt}}
+{{$allStoriesModelZUID = 6-8cdcc4c1bf-r8jnvc}}
+{{$statesModelZUID = 6-ce888daf92-fpzvz1}}
+{{$citiesModelZUID = 6-dcd5c9b192-tgsnht}}
+
+{{$adultRehabilitationCenterZUID = 7-b29cb08fe5-379fqs}}
+{{$krocCenterZUID = 7-a0f48bbaad-gzx0rj}}
+{{$familyCenterZUID = 7-d2e39fdd9e-hfnxcs}}
+
+{{$nationalInformationalPage1ZUID = 7-98f6a2b4bf-8xvb3r}}
+{{$nationalInformationalPage2ZUID = 7-b8c09b84c2-fp57hm}}
+{{$nationalInformationalPage3ZUID = 7-a68bca8d8e-l7vs7f}}
+
+{{$westClassyDonation = {territories.filter({$westTerritoryZUID}).classy_url_mobile} }}
+{{$eastClassyDonation = {territories.filter({$eastTerritoryZUID}).classy_url_mobile} }}
+{{$southClassyDonation = {territories.filter({$southTerritoryZUID}).classy_url_mobile} }}
+{{$centralClassyDonation = {territories.filter({$centralTerritoryZUID}).classy_url_mobile} }}
+
+{{$westVolunteer = {truepath({$westVolunteerPageZUID})} }}
+{{$eastVolunteer = {truepath({$eastVolunteerPageZUID})} }}
+{{$southVolunteer = {truepath({$southVolunteerPageZUID})} }}
+{{$centralVolunteer = {truepath({$centralVolunteerPageZUID})} }}
+{{$nationalVolunteer = {truepath({$nationalVolunteerPageZUID})} }}
+
+{{$westEmployment = {truepath({$westEmploymentPageZUID})} }}
+{{$eastEmployment = {truepath({$eastEmploymentPageZUID})} }}
+{{$southEmployment = {truepath({$southEmploymentPageZUID})} }}
+{{$centralEmployment = {truepath({$centralEmploymentPageZUID})} }}
+{{$nationalEmployment = {truepath({$nationalEmploymentPageZUID})} }}
+
+{{$westWaysToGive = {truepath({$westWaysToGivePageZUID})} }}
+{{$eastWaysToGive = {truepath({$eastWaysToGivePageZUID})} }}
+{{$southWaysToGive = {truepath({$southWaysToGivePageZUID})} }}
+{{$centralWaysToGive = {truepath({$centralWaysToGivePageZUID})} }}
+{{$nationalWaysToGive = {truepath({$nationalWaysToGivePageZUID})} }}
+
+{{$westPlannedGiving = {truepath({$westPlannedGivingPageZUID})} }}
+{{$eastPlannedGiving = {truepath({$eastPlannedGivingPageZUID})} }}
+{{$southPlannedGiving = {truepath({$southPlannedGivingPageZUID})} }}
+{{$centralPlannedGiving = {truepath({$centralPlannedGivingPageZUID})} }}
+{{$nationalPlannedGiving = {truepath({$nationalPlannedGivingPageZUID})} }}
+
+{{$westMutualFunds = {truepath({$westMutualFundsPageZUID})} }}
+{{$eastMutualFunds = {truepath({$eastMutualFundsPageZUID})} }}
+{{$southMutualFunds = {truepath({$southMutualFundsPageZUID})} }}
+{{$centralMutualFunds = {truepath({$centralMutualFundsPageZUID})} }}
+{{$nationalMutualFunds = {truepath({$nationalMutualFundsPageZUID})} }}
+
+{{$westDgiohid = {territories.filter({$westTerritoryZUID}).dgioh_id} }}
+{{$eastDgiohid = {territories.filter({$eastTerritoryZUID}).dgioh_id} }}
+{{$southDgiohid = {territories.filter({$southTerritoryZUID}).dgioh_id} }}
+{{$centralDgiohid = {territories.filter({$centralTerritoryZUID}).dgioh_id} }}
 {{$city = {!this.city} }}
 {{$city_name = {cities.filter({$city}).title} }}
 
 
-{{$westClassyId = {territories.filter(7-dcb3daeee7-3l9t49).classy_campaign_id} }}
-{{$eastClassyId = {territories.filter(7-ae82da90c9-zjnfr3).classy_campaign_id} }}
-{{$southClassyId = {territories.filter(7-b4aeafb8dd-033tjr).classy_campaign_id} }}
-{{$centralClassyId = {territories.filter(7-ec8a80fdbe-46hzww).classy_campaign_id} }}
+{{$westClassyId = {territories.filter({$westTerritoryZUID}).classy_campaign_id} }}
+{{$eastClassyId = {territories.filter({$eastTerritoryZUID}).classy_campaign_id} }}
+{{$southClassyId = {territories.filter({$southTerritoryZUID}).classy_campaign_id} }}
+{{$centralClassyId = {territories.filter({$centralTerritoryZUID}).classy_campaign_id} }}
 
-{{$westOrgId = {territories.filter(7-dcb3daeee7-3l9t49).classy_org_id} }}
-{{$eastOrgId = {territories.filter(7-ae82da90c9-zjnfr3).classy_org_id} }}
-{{$southOrgId = {territories.filter(7-b4aeafb8dd-033tjr).classy_org_id} }}
-{{$centralOrgId = {territories.filter(7-ec8a80fdbe-46hzww).classy_org_id} }}
+{{$westOrgId = {territories.filter({$westTerritoryZUID}).classy_org_id} }}
+{{$eastOrgId = {territories.filter({$eastTerritoryZUID}).classy_org_id} }}
+{{$southOrgId = {territories.filter({$southTerritoryZUID}).classy_org_id} }}
+{{$centralOrgId = {territories.filter({$centralTerritoryZUID}).classy_org_id} }}
 
-{{$westCampaignURL = {territories.filter(7-dcb3daeee7-3l9t49).classy_url} }}
-{{$eastCampaignURL = {territories.filter(7-ae82da90c9-zjnfr3).classy_url} }}
-{{$southCampaignURL = {territories.filter(7-b4aeafb8dd-033tjr).classy_url} }}
-{{$centralCampaignURL = {territories.filter(7-ec8a80fdbe-46hzww).classy_url} }}
+{{$westCampaignURL = {territories.filter({$westTerritoryZUID}).classy_url} }}
+{{$eastCampaignURL = {territories.filter({$eastTerritoryZUID}).classy_url} }}
+{{$southCampaignURL = {territories.filter({$southTerritoryZUID}).classy_url} }}
+{{$centralCampaignURL = {territories.filter({$centralTerritoryZUID}).classy_url} }}
 
 
 
@@ -177,13 +240,33 @@
     corp: `corp`
   };
 
-  const national = `7-dab495a2c1-13lthp`;
+  const national = `{{$nationalZUID}}`;
 
   const territories = {
-    west: `7-dcb3daeee7-3l9t49`,
-    east: `7-ae82da90c9-zjnfr3`,
-    south: `7-b4aeafb8dd-033tjr`,
-    central: `7-ec8a80fdbe-46hzww`
+    west: `{{$westTerritoryZUID}}`,
+    east: `{{$eastTerritoryZUID}}`,
+    south: `{{$southTerritoryZUID}}`,
+    central: `{{$centralTerritoryZUID}}`
+  };
+
+  const models = {
+    homepage: `{{$homepageModelZUID}}`,
+    territories: `{{$territoriesModelZUID}}`,
+    divisions: `{{$divisionsModelZUID}}`,
+    services: `{{$servicesModelZUID}}`,
+    contactUs: `{{$contactUsModelZUID}}`,
+    aboutUs: `{{$aboutUsModelZUID}}`,
+    storiesLandingPage: `{{$storiesLandingPageModelZUID}}`,
+    eventsLandingPage: `{{$eventsLandingPageModelZUID}}`,
+    leadershipLandingPage: `{{$leadershipLandingPageModelZUID}}`,
+    volunteerPage: `{{$volunteerPageModelZUID}}`,
+    informationalPage: `{{$informationalPageModelZUID}}`,
+    events: `{{$eventsModelZUID}}`,
+    stories: `{{$storiesModelZUID}}`,
+    locationFinder: `{{$locationFinderModelZUID}}`,
+    allStories: `{{$allStoriesModelZUID}}`,
+    states: `{{$statesModelZUID}}`,
+    cities: `{{$citiesModelZUID}}`
   };
 
   const tealiumProfile = {
@@ -194,10 +277,14 @@
     national: `national`
   };
 
+  const adultRehabilitationCenterZUID = `{{$adultRehabilitationCenterZUID}}`;
+  const krocCenterZUID = `{{$krocCenterZUID}}`;
+  const familyCenterZUID = `{{$familyCenterZUID}}`;
+
   const specialPropertyTypes = {
-    '7-b29cb08fe5-379fqs': `adult_rehabilitation_center`,
-    '7-a0f48bbaad-gzx0rj': `kroc_center`,
-    '7-d2e39fdd9e-hfnxcs': `family_center`
+    [adultRehabilitationCenterZUID]: `adult_rehabilitation_center`,
+    [krocCenterZUID]: `kroc_center`,
+    [familyCenterZUID]: `family_center`
   };
 
   const cookieKeys = {
@@ -409,7 +496,7 @@
   }
 
   async function setNationalLocationCookies() {
-    cookieManager.set(cookieKeys.locationModel, `6-a0898ca2c1-krnm0f`);
+    cookieManager.set(cookieKeys.locationModel, models.homepage);
     cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
     cookieManager.set(cookieKeys.locationHomeURL, `/`);
     cookieManager.set(cookieKeys.locationName, `NATIONAL`);
@@ -486,7 +573,7 @@
     // await setDefaultCookies();
     logCurrentDataLayerValues(`init-start`, { source });
     switch (currentModel) {
-      case `6-a0898ca2c1-krnm0f`: // Homepage
+      case models.homepage: // Homepage
         cookieManager.set(cookieKeys.locationModel, currentModel);
         cookieManager.set(cookieKeys.locationZUID, `{{this.zuid}}`);
         cookieManager.set(cookieKeys.locationHomeURL, `/`);
@@ -524,7 +611,7 @@
         await setCodeCookie(`{{this.zuid}}`);
         break;
 
-      case `6-deab97cfd9-wb5km4`: // Territories
+      case models.territories: // Territories
         if (
           cookieManager.get(cookieKeys.locationZUID) &&
           cookieManager.get(cookieKeys.locationModel)
@@ -561,7 +648,7 @@
         await setCodeCookie(`{{this.zuid}}`, currentModel);
         break;
 
-      case `6-acb19a94bd-4q8ftj`: // Divisions
+      case models.divisions: // Divisions
         if (
           cookieManager.get(cookieKeys.locationZUID) &&
           cookieManager.get(cookieKeys.locationModel)
@@ -714,7 +801,7 @@
         await setCodeCookie(`{{this.zuid}}`, currentModel);
         break;
 
-      case `6-fef1bbcecc-cjfmfq`: // Services
+      case models.services: // Services
         const serviceParentZUID = `{{this.parent_zuid}}`;
         const serviceLocationZUID = `{{!this.location}}`;
         const serviceDivisionZUID = `{{!this.division}}`;
@@ -867,7 +954,7 @@
 
           cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({!this.division})}}`);
           cookieManager.set(cookieKeys.locationName, `{{divisions.filter({!this.division}).name}}`);
-          cookieManager.set(cookieKeys.locationModel, `6-acb19a94bd-4q8ftj`);
+          cookieManager.set(cookieKeys.locationModel, models.divisions);
           cookieManager.set(cookieKeys.locationZUID, serviceDivisionZUID);
           cookieManager.set(cookieKeys.locationAddress, `{{divisions.filter({!this.division}).address}}`);
           (`{{$serviceDivisionCity = {divisions.filter({!this.division}).city} }}`);
@@ -931,12 +1018,12 @@
           if (svcDivOnceURL && svcDivMonthlyURL) {
             setDonationUrlCookies(svcDivOnceURL, svcDivMonthlyURL);
           }
-          await setCodeCookie(serviceDivisionZUID, "6-acb19a94bd-4q8ftj");
+          await setCodeCookie(serviceDivisionZUID, models.divisions);
         } else if (serviceTerritoryZUID) {
           cookieManager.set(cookieKeys.locationZUID, serviceTerritoryZUID);
           cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({!this.territory})}}`);
           cookieManager.set(cookieKeys.locationName, `{{territories.filter({!this.territory}).name}}`);
-          cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
+          cookieManager.set(cookieKeys.locationModel, models.territories);
           cookieManager.set(cookieKeys.locationAddress, `{{territories.filter({!this.territory}).address}}`);
           (`{{$serviceTerritoryCity = {territories.filter({!this.territory}).city} }}`);
           (`{{$serviceTerritoryCityName = {cities.filter({$serviceTerritoryCity}).title} }}`);
@@ -972,7 +1059,7 @@
           cookieManager.delete(cookieKeys.organizationDivision);
           cookieManager.delete(cookieKeys.locationPropertyType);
 
-          await setCodeCookie(serviceTerritoryZUID, "6-deab97cfd9-wb5km4");
+          await setCodeCookie(serviceTerritoryZUID, models.territories);
         } else if (hasParentLocation) {
           (`{{$redirectURL = {locations.filter({this.parent_zuid}).redirect_url} }}`);
           const redirectURL = `{{$redirectURL}}`;
@@ -1071,7 +1158,7 @@
 
           cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({this.parent_zuid})}}`);
           cookieManager.set(cookieKeys.locationName, `{{$divisionParentName}}`);
-          cookieManager.set(cookieKeys.locationModel, `6-acb19a94bd-4q8ftj`);
+          cookieManager.set(cookieKeys.locationModel, models.divisions);
           cookieManager.set(cookieKeys.locationZUID, serviceParentZUID);
           cookieManager.set(cookieKeys.locationAddress, `{{$parentDivisionAddress}}`);
           cookieManager.set(cookieKeys.locationCity, `{{$parentDivisonCity_name}}`);
@@ -1116,12 +1203,12 @@
           if (parentDivOnceURL && parentDivMonthlyURL) {
             setDonationUrlCookies(parentDivOnceURL, parentDivMonthlyURL);
           }
-          await setCodeCookie(serviceParentZUID, "6-acb19a94bd-4q8ftj");
+          await setCodeCookie(serviceParentZUID, models.divisions);
         } else if (hasParentTerritory) {
           cookieManager.set(cookieKeys.locationZUID, serviceParentZUID);
           cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({this.parent_zuid})}}`);
           cookieManager.set(cookieKeys.locationName, `{{$parentTerritoryName}}`);
-          cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
+          cookieManager.set(cookieKeys.locationModel, models.territories);
           cookieManager.set(cookieKeys.locationAddress, `{{$parentTerritoryAddress}}`);
           cookieManager.set(cookieKeys.locationCity, `{{$parentCity_name}}`);
           cookieManager.set(cookieKeys.locationState, `{{$parentState_name}}`);
@@ -1153,9 +1240,9 @@
           cookieManager.delete(cookieKeys.organizationDivision);
           cookieManager.delete(cookieKeys.locationPropertyType);
 
-          await setCodeCookie(serviceParentZUID, "6-deab97cfd9-wb5km4");
+          await setCodeCookie(serviceParentZUID, models.territories);
         } else {
-          cookieManager.set(cookieKeys.locationModel, `6-a0898ca2c1-krnm0f`);
+          cookieManager.set(cookieKeys.locationModel, models.homepage);
           cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
           cookieManager.set(cookieKeys.locationHomeURL, `/`);
           cookieManager.set(cookieKeys.locationName, `NATIONAL`);
@@ -1187,12 +1274,12 @@
         }
         break;
 
-      case `6-aa8c819c86-953qkz`: // Contact Us
-      case `6-b29d85ada7-5kzkcc`: // About Us
-      case `6-f8c59d8382-h4z4pc`: // Stories Landing Page
-      case `6-c4d6a894f1-rtzv2z`: // Events Ladning Page
-      case `6-cee4dda7e4-0md6ts`: // Leadership Landing Page
-      case `6-8489c3a590-kn21jh`: // Volunteer Page
+      case models.contactUs: // Contact Us
+      case models.aboutUs: // About Us
+      case models.storiesLandingPage: // Stories Landing Page
+      case models.eventsLandingPage: // Events Ladning Page
+      case models.leadershipLandingPage: // Leadership Landing Page
+      case models.volunteerPage: // Volunteer Page
         const location = `{{!this.location}}`;
         const division = `{{!this.division}}`;
         const territory = `{{!this.territory}}`;
@@ -1353,7 +1440,7 @@
           (`{{$pageDivisionTerritory = {divisions.filter({!this.division}).territory} }}`);
           const relatedTerritoryZUID = territory || `{{$pageDivisionTerritory}}`;
 
-          cookieManager.set(cookieKeys.locationModel, `6-acb19a94bd-4q8ftj`);
+          cookieManager.set(cookieKeys.locationModel, models.divisions);
           cookieManager.set(cookieKeys.locationZUID, `{{!this.division}}`);
           cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({!this.division})}}`);
 
@@ -1426,9 +1513,9 @@
           if (pgDivOnceURL && pgDivMonthlyURL) {
             setDonationUrlCookies(pgDivOnceURL, pgDivMonthlyURL);
           }
-          await setCodeCookie(`{{!this.division}}`, "6-acb19a94bd-4q8ftj");
+          await setCodeCookie(`{{!this.division}}`, models.divisions);
         } else if (territory) {
-          cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
+          cookieManager.set(cookieKeys.locationModel, models.territories);
           cookieManager.set(cookieKeys.locationZUID, `{{!this.territory}}`);
           cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({!this.territory})}}`);
           cookieManager.set(
@@ -1472,7 +1559,7 @@
           cookieManager.delete(cookieKeys.organizationDivision);
           cookieManager.delete(cookieKeys.locationPropertyType);
 
-          await setCodeCookie(`{{!this.territory}}`, "6-deab97cfd9-wb5km4");
+          await setCodeCookie(`{{!this.territory}}`, models.territories);
         } else if (pageHasLocationParent) {
           (`{{$propType = {$location_propType} }}`);
 
@@ -1572,7 +1659,7 @@
           (`{{$pageDivisionTerritory = {$division_territory} }}`);
           const relatedTerritoryZUID = `{{$pageDivisionTerritory}}`;
 
-          cookieManager.set(cookieKeys.locationModel, `6-acb19a94bd-4q8ftj`);
+          cookieManager.set(cookieKeys.locationModel, models.divisions);
           cookieManager.set(cookieKeys.locationZUID, pageParentZUID);
           cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({this.parent_zuid})}}`);
 
@@ -1627,9 +1714,9 @@
           if (pgParentDivOnceURL && pgParentDivMonthlyURL) {
             setDonationUrlCookies(pgParentDivOnceURL, pgParentDivMonthlyURL);
           }
-          await setCodeCookie(pageParentZUID, "6-acb19a94bd-4q8ftj");
+          await setCodeCookie(pageParentZUID, models.divisions);
         } else if (pageHasTerritoryParent) {
-          cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
+          cookieManager.set(cookieKeys.locationModel, models.territories);
           cookieManager.set(cookieKeys.locationZUID, pageParentZUID);
           cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({this.parent_zuid})}}`);
           cookieManager.set(
@@ -1671,9 +1758,9 @@
           cookieManager.delete(cookieKeys.organizationDivision);
           cookieManager.delete(cookieKeys.locationPropertyType);
 
-          await setCodeCookie(pageParentZUID, "6-deab97cfd9-wb5km4");
+          await setCodeCookie(pageParentZUID, models.territories);
         } else {
-          cookieManager.set(cookieKeys.locationModel, `6-a0898ca2c1-krnm0f`);
+          cookieManager.set(cookieKeys.locationModel, models.homepage);
           cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
           cookieManager.set(cookieKeys.locationHomeURL, `/`);
           cookieManager.set(cookieKeys.locationName, `NATIONAL`);
@@ -1706,7 +1793,7 @@
         }
         break;
 
-      case `6-c2b7f2a9ad-k4frxv`: // Informational Page
+      case models.informationalPage: // Informational Page
         const informationalPageZUID = `{{this.zuid}}`;
         const locationRelational = "{{!this.location}}"
         const divisionRelational = "{{!this.division}}"
@@ -1716,19 +1803,22 @@
         const zuidLocation = `{{$parentLocationName}}`;
         const zuidDivision = `{{$divisionParentName}}`;
         const zuidTerritory = `{{$parentTerritoryName}}`;
+        const nationalInformationalPage1ZUID = `{{$nationalInformationalPage1ZUID}}`;
+        const nationalInformationalPage2ZUID = `{{$nationalInformationalPage2ZUID}}`;
+        const nationalInformationalPage3ZUID = `{{$nationalInformationalPage3ZUID}}`;
         console.log(zuidInformationalPage)
         if (
-          `{{this.zuid}}` === `7-98f6a2b4bf-8xvb3r` &&
+          `{{this.zuid}}` === nationalInformationalPage1ZUID &&
           cookieManager.get(cookieKeys.locationZUID)
         ) {
           return;
         }
 
-        if (`{{this.zuid}}` === `7-b8c09b84c2-fp57hm` || "{{this.zuid}}" === "7-a68bca8d8e-l7vs7f" || "{{this.zuid}}" === "7-98f6a2b4bf-8xvb3r") {
+        if (`{{this.zuid}}` === nationalInformationalPage2ZUID || "{{this.zuid}}" === nationalInformationalPage3ZUID || "{{this.zuid}}" === nationalInformationalPage1ZUID) {
           // await setCodeCookie(`{{this.parent_zuid}}`);
 
           if(!cookieManager.get(cookieKeys.locationZUID)){
-            cookieManager.set(cookieKeys.locationModel, `6-a0898ca2c1-krnm0f`);
+            cookieManager.set(cookieKeys.locationModel, models.homepage);
             cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
             cookieManager.set(cookieKeys.locationHomeURL, `/`);
             cookieManager.set(cookieKeys.locationName, `NATIONAL`);
@@ -1881,7 +1971,7 @@
 
           await setCodeCookie(`{{!this.location}}`, "{{$locationModelZUID}}");
         } else if (divisionRelational) {
-          cookieManager.set(cookieKeys.locationModel, `6-acb19a94bd-4q8ftj`);
+          cookieManager.set(cookieKeys.locationModel, models.divisions);
           cookieManager.set(cookieKeys.locationZUID, `{{!this.division}}`);
           cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({!this.division})}}`);
 
@@ -1944,11 +2034,11 @@
           if (infoDivOnceURL && infoDivMonthlyURL) {
             setDonationUrlCookies(infoDivOnceURL, infoDivMonthlyURL);
           }
-          await setCodeCookie(`{{!this.division}}`, "6-acb19a94bd-4q8ftj");
+          await setCodeCookie(`{{!this.division}}`, models.divisions);
         } else if (territoryRelational) {
           await handleInformationalPage(informationalPageZUID);
 
-          cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
+          cookieManager.set(cookieKeys.locationModel, models.territories);
           cookieManager.set(cookieKeys.locationZUID, `{{!this.territory}}`);
           cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({!this.territory})}}`);
           cookieManager.set(
@@ -1992,11 +2082,11 @@
           cookieManager.delete(cookieKeys.organizationDivision);
           cookieManager.delete(cookieKeys.locationPropertyType);
 
-          await setCodeCookie(`{{!this.territory}}`, "6-deab97cfd9-wb5km4");
+          await setCodeCookie(`{{!this.territory}}`, models.territories);
         } else if (zuidInformationalPage && `{{this.parent_zuid}}` !== `0`) {
           await handleInformationalPage(informationalPageZUID);
         } else {
-          cookieManager.set(cookieKeys.locationModel, `6-a0898ca2c1-krnm0f`);
+          cookieManager.set(cookieKeys.locationModel, models.homepage);
           cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
           cookieManager.set(cookieKeys.locationHomeURL, `/`);
           cookieManager.set(cookieKeys.locationName, `NATIONAL`);
@@ -2030,14 +2120,14 @@
 
         break;
 
-      case `6-a2dbc1a6e2-x4pzmx`: // Events
+      case models.events: // Events
         await handleEventCookies();
         break;
-      case `6-80c7e29486-k0pq6s`: // Stories
+      case models.stories: // Stories
         await handleStoryCookies();
         break;
-      case `6-8e91efbf9b-jqqxjt`: // Location Finder
-      case `6-8cdcc4c1bf-r8jnvc`: // All stories
+      case models.locationFinder: // Location Finder
+      case models.allStories: // All stories
         if (!cookieManager.get(cookieKeys.locationZUID)) {
           cookieManager.set(cookieKeys.locationModel, currentModel);
           cookieManager.set(cookieKeys.locationZUID, `{{this.zuid}}`);
@@ -2069,7 +2159,7 @@
           await setCodeCookie(national);
         }
         break;
-      case `6-ce888daf92-fpzvz1`: //States
+      case models.states: //States
         if (
           cookieManager.get(cookieKeys.locationZUID) &&
           cookieManager.get(cookieKeys.locationModel)
@@ -2083,7 +2173,7 @@
 
         const statesTerritoryZUID = `{{$statesTerritoryZUID}}`;
 
-        cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
+        cookieManager.set(cookieKeys.locationModel, models.territories);
         cookieManager.set(cookieKeys.locationZUID, statesTerritoryZUID);
         cookieManager.set(
           cookieKeys.locationHomeURL,
@@ -2114,9 +2204,9 @@
         cookieManager.delete(cookieKeys.locationPropertyType);
 
         setLocationCookiesByTerritory(statesTerritoryZUID);
-        await setCodeCookie(statesTerritoryZUID, `6-deab97cfd9-wb5km4`);
+        await setCodeCookie(statesTerritoryZUID, models.territories);
         break;
-      case `6-dcd5c9b192-tgsnht`: // Cities
+      case models.cities: // Cities
         if (
           cookieManager.get(cookieKeys.locationZUID) &&
           cookieManager.get(cookieKeys.locationModel)
@@ -2134,7 +2224,7 @@
           break;
         }
 
-        cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
+        cookieManager.set(cookieKeys.locationModel, models.territories);
         cookieManager.set(cookieKeys.locationZUID, citiesTerritoryZUID);
         cookieManager.set(
           cookieKeys.locationHomeURL,
@@ -2165,7 +2255,7 @@
         cookieManager.delete(cookieKeys.locationPropertyType);
 
         setLocationCookiesByTerritory(citiesTerritoryZUID);
-        await setCodeCookie(citiesTerritoryZUID, `6-deab97cfd9-wb5km4`);
+        await setCodeCookie(citiesTerritoryZUID, models.territories);
         break;
     }
     logCurrentDataLayerValues(`init-complete`, { source });
@@ -2183,7 +2273,7 @@
       // const eventInformation = await fetchInformation(`find-event`, zuid);
       // setupCookiesWithInformation(eventInformation, zuid);
     } else {
-      cookieManager.set(cookieKeys.locationModel, `6-a0898ca2c1-krnm0f`);
+      cookieManager.set(cookieKeys.locationModel, models.homepage);
       cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
       cookieManager.set(cookieKeys.locationHomeURL, `/`);
       cookieManager.set(cookieKeys.locationName, `NATIONAL`);
@@ -2220,7 +2310,7 @@
       // setupCookiesWithInformation(eventInformation, zuid);
     } else {
       // NATIONAL
-      cookieManager.set(cookieKeys.locationModel, `6-a0898ca2c1-krnm0f`);
+      cookieManager.set(cookieKeys.locationModel, models.homepage);
       cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
       cookieManager.set(cookieKeys.locationHomeURL, `/`);
       cookieManager.set(cookieKeys.locationName, `NATIONAL`);
@@ -2334,10 +2424,10 @@
         ? validateZUIDForModel(parentZUID, `{{$locationModelZUID}}`)
         : false,
       canCheckDivision
-        ? validateZUIDForModel(parentZUID, `6-acb19a94bd-4q8ftj`)
+        ? validateZUIDForModel(parentZUID, models.divisions)
         : false,
       canCheckTerritory
-        ? validateZUIDForModel(parentZUID, `6-deab97cfd9-wb5km4`)
+        ? validateZUIDForModel(parentZUID, models.territories)
         : false
     ]);
 
@@ -2380,7 +2470,7 @@
 
         break;
       case `divisions`:
-        cookieManager.set(cookieKeys.locationModel, `6-acb19a94bd-4q8ftj`);
+        cookieManager.set(cookieKeys.locationModel, models.divisions);
         cookieManager.set(cookieKeys.organizationDivision, eventInformation.name);
         cookieManager.set(cookieKeys.organizationTerritory, eventInformation.territoryName);
         cookieManager.set(cookieKeys.organizationLevel, levels.division);
@@ -2396,7 +2486,7 @@
         cookieManager.set(cookieKeys.locationZipcode, eventInformation.zipcode);
         break;
       case `territories`:
-        cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
+        cookieManager.set(cookieKeys.locationModel, models.territories);
 
         cookieManager.set(cookieKeys.organizationTerritory, eventInformation.Name);
         cookieManager.set(cookieKeys.organizationLevel, levels.territory);
@@ -2412,7 +2502,7 @@
         cookieManager.set(cookieKeys.locationZipcode, eventInformation.zipcode);
         break;
       default:
-        cookieManager.set(cookieKeys.locationModel, `6-a0898ca2c1-krnm0f`);
+        cookieManager.set(cookieKeys.locationModel, models.homepage);
         cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
         cookieManager.set(cookieKeys.locationHomeURL, `/`);
         cookieManager.set(cookieKeys.locationName, `NATIONAL`);
@@ -2477,7 +2567,7 @@
 
           break;
         case `divisions`:
-          cookieManager.set(cookieKeys.locationModel, `6-acb19a94bd-4q8ftj`);
+          cookieManager.set(cookieKeys.locationModel, models.divisions);
           cookieManager.set(cookieKeys.locationZUID, model.content.meta.zuid);
           cookieManager.set(cookieKeys.locationHomeURL, model.content.meta.web.uri);
           cookieManager.set(cookieKeys.locationName, model.content.name);
@@ -2500,7 +2590,7 @@
           await setCodeCookie(model.content.meta.zuid);
           break;
         case `territories`:
-          cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
+          cookieManager.set(cookieKeys.locationModel, models.territories);
           cookieManager.set(cookieKeys.locationZUID, model.content.meta.zuid);
           cookieManager.set(cookieKeys.locationHomeURL, model.content.meta.web.uri);
           cookieManager.set(cookieKeys.locationName, model.content.name);
@@ -2522,8 +2612,8 @@
           await setCodeCookie(model.content.meta.zuid);
           break;
         default:
-          cookieManager.set(cookieKeys.locationModel, `6-a0898ca2c1-krnm0f`);
-          cookieManager.set(cookieKeys.locationZUID, `7-dab495a2c1-13lthp`);
+          cookieManager.set(cookieKeys.locationModel, models.homepage);
+          cookieManager.set(cookieKeys.locationZUID, national);
           cookieManager.set(cookieKeys.locationHomeURL, `/`);
           cookieManager.set(cookieKeys.locationName, `NATIONAL`);
           cookieManager.set(cookieKeys.volunteerUrl, `/volunteer/`);
@@ -2550,11 +2640,11 @@
       cookieManager.delete(cookieKeys.locationAddress);
       cookieManager.delete(cookieKeys.locationCity);
       cookieManager.delete(cookieKeys.locationState);
-      await setCodeCookie(`7-dab495a2c1-13lthp`);
+      await setCodeCookie(national);
           break;
       }
     } else {
-      cookieManager.set(cookieKeys.locationModel, `6-a0898ca2c1-krnm0f`);
+      cookieManager.set(cookieKeys.locationModel, models.homepage);
       cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
       cookieManager.set(cookieKeys.locationHomeURL, `/`);
       cookieManager.set(cookieKeys.locationName, `NATIONAL`);
