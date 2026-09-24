@@ -1,7 +1,19 @@
 # WebEngine Templates
 
 Status: **Draft — pending review**
-Last generated: 2026-09-24 by Documentation Maker (automated codebase re-scan; see "2026-09-24 refresh" note below)
+Last generated: 2026-09-25 by Documentation Maker (see "2026-09-25 update" note below; earlier history in the "2026-09-24 refresh" note further down)
+
+> **2026-09-25 update:** three web-developer fixes merged to `development`
+> this pass, QA'd by qa-tester and karen (see `docs/changelog.md`):
+> **coda-2434** rewrote large parts of `modules/client-global-navigation`
+> (added `case models.states`/`case models.cities` org-context branches,
+> ~327 insertions/123 deletions) — see the Navigation/infra entry below
+> and `docs/custom-patterns.md` §2; **coda-2480** deleted the entire
+> service-area-model code path (~258 lines) from
+> `modules/location-finder-script`; **coda-2481** is a 1-line fix in
+> `modules/zip-search` (corps-card title now prefers `site_name` over
+> `name`). All three are documented in place below rather than as a new
+> section, since they're changes to templates already covered here.
 
 > **2026-09-24 refresh note:** re-checked against the current repo state
 > (`webengine/views/**`, `zesty.config.json`). One finding was significant
@@ -136,7 +148,7 @@ Modules are the actual content-rendering building blocks, included by page-type 
 `angel-tree-wy`, `angel-tree-wy-2`, `map-angel-tree`, `hero-full-angel-tree`, `stuff-the-bus-wy`, `stuff-the-bus-wy-2`, `map-stuff-the-bus`, `hero-full-stuff-the-bus`. Note: `webengine/views/angel-tree-script` contains a large, separate client-side geocoding/QuickBase-integration script (calls `https://api.quickbase.com/v1/records/query` directly from the browser with a **hardcoded QuickBase token** — see custom-patterns.md flag).
 
 ### Navigation / infra (not visual content — shared plumbing)
-`client-global-navigation` (huge — ~2000 lines; defines `cookieManager`/`cookieKeys`, resolves and persists the current org-level context into cookies, sets donate/volunteer/employment URLs, drives `page_hierarchy`/Tealium profile selection — see custom-patterns.md), `global-navigation`, `location-finder` / `location-finder-script` / `zip-search`, `external-links` (auto-adds `target="_blank"`/`rel=noopener noreferrer` to any off-host `<a>`, including ones added after page load, via `MutationObserver`), `indexdb` (defines `ServicesObserver` pub/sub + `ServicesDB` IndexedDB wrapper that caches `get-services-*.json` results), `schema` (JSON-LD `LocalBusiness`/organization structured data, branches by model ZUID), `map-with-info`, `map-with-info-contact`, `map-contact`, `map-contact-information` (component, used by several map modules).
+`client-global-navigation` (huge — now ~2760 lines after coda-2434, up from ~2000; defines `cookieManager`/`cookieKeys`, resolves and persists the current org-level context into cookies, sets donate/volunteer/employment URLs, drives `page_hierarchy`/Tealium profile selection — see custom-patterns.md §2 for the full state-machine description and the 2026-09-25 note on the new `case models.states`/`case models.cities` branches added by coda-2434), `global-navigation`, `location-finder` / `location-finder-script` (**coda-2480, 2026-09-25:** the entire "service-area-model" matching code path — ~258 lines — was deleted from `location-finder-script`; search/filter now relies only on `services.json`/`service-types.json`, not a separate service-area lookup) / `zip-search` (**coda-2481, 2026-09-25:** the corps-card link on a city page's location grid now shows `location.site_name`, falling back to `location.name` only if `site_name` is null/empty — previously it reverted to the wrong/generic name; renders inside the `cities` page-type view's location grid, see the org-hierarchy pages table above), `external-links` (auto-adds `target="_blank"`/`rel=noopener noreferrer` to any off-host `<a>`, including ones added after page load, via `MutationObserver`), `indexdb` (defines `ServicesObserver` pub/sub + `ServicesDB` IndexedDB wrapper that caches `get-services-*.json` results), `schema` (JSON-LD `LocalBusiness`/organization structured data, branches by model ZUID), `map-with-info`, `map-with-info-contact`, `map-contact`, `map-contact-information` (component, used by several map modules).
 
 There is also `webengine/views/modules/tags/schema` and `modules/tags/client-global-navigation` — apparent duplicates of `modules/schema` and `modules/client-global-navigation` living under a `tags/` subpath. Not confirmed whether these are used by a `tag`/`tags_pages` view (both of which are unmodified `autolayout()` stubs) or are stray copies — flagged below. **Re-checked 2026-09-24:** `tag` and `tags_pages` are still unmodified `autolayout()` stubs, and — like `metro_area_command`/`utility-scripts` above — **neither is mapped in `zesty.config.json`**, meaning neither has ever been created as a live Zesty resource. That strengthens the case that this whole `tags/` subpath is unused/dead rather than mid-build; still a question for web-developer to confirm, not something to guess at further here.
 
@@ -228,4 +240,5 @@ This document is **Draft — pending review**.
   - The Zesty CLI pvl-cache/rollback-snapshot description ("How views are stored" section) — **could not confirm against docs.zesty.io** (no CLI reference page found in the llms.txt index); left as an honest inference, not presented as platform-documented.
   - The Block Library/`{{block()}}` rendering-context description — confirmed accurate, now cited to the Create Field API reference's `block_selector` datatype and the live instance's ~25 `type: "block"` models.
   - The "ajax-json" view-type description — confirmed accurate, now cited to docs.zesty.io's JSON-endpoint guide.
+- 2026-09-25: updated the Navigation/infra entry for `client-global-navigation` (coda-2434), `location-finder`/`location-finder-script` (coda-2480), and `zip-search` (coda-2481) — see the "2026-09-25 update" note at the top of this file. Self-verified against current source only — not yet reviewed by ira/zed.
 - Remaining before this doc is final: the user should confirm the doc overall, per this project's standing documentation review convention. Status stays **Draft — pending review** until the user signs off — that's not dot's call to change unilaterally.

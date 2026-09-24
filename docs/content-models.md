@@ -1,7 +1,18 @@
 # Content Models
 
 Status: **Draft — pending review**
-Last generated: 2026-09-24 by Documentation Maker (automated codebase re-scan; see "2026-09-24 refresh" note below)
+Last generated: 2026-09-25 by Documentation Maker (see "2026-09-25 update" note below; earlier history in the "2026-09-24 refresh" note further down)
+
+> **2026-09-25 update:** three web-developer fixes merged to `development`
+> this pass (coda-2434, coda-2480, coda-2481; QA'd by qa-tester and karen —
+> see `docs/changelog.md` for full detail). Of the three, only **coda-2434**
+> ("Fix territory context for state and city pages") changes anything
+> documented here: it added a `territory` field to **States** and clarified
+> that **Cities** has no `territory` field of its own (derived via
+> `state.territory` instead) — see those sections above. coda-2480
+> (location-finder service-area-model removal) and coda-2481 (zip-search
+> corps-card title fallback) are template/script-only fixes with no new
+> content-model fields; see `docs/templates.md` for those.
 
 > **2026-09-24 refresh note:** this pass re-checked every section against
 > the current repo state. Corrections applied directly (self-verifiable
@@ -85,12 +96,15 @@ The site is structured as a 3-level org hierarchy (Territory → Division → Lo
 | `title` | text                                                                            |       |
 | `state` | relationship → States (locations/cities filtered by `find_in_set(zuid, state)`) |
 
+> **Added 2026-09-25 (coda-2434).** Cities has **no direct `territory` field of its own** — a city's territory context is derived one hop away, through its `state` relationship: `client-global-navigation` resolves `states.filter(this.state).territory` (see States below) to get the territory ZUID, then looks up that territory's name/contact/donation data. If a city's `state` has no `territory` set, the derived ZUID is empty and the page falls back to national context (`hasValidZUIDShape()` guard — see `docs/custom-patterns.md` §2). Don't add a `territory` field directly to Cities to "fix" this — the existing template code expects to reach it via `state`.
+
 ### States
 
-| Field        | Inferred type | Notes                              |
-| ------------ | ------------- | ---------------------------------- |
-| `name`       | text          |                                    |
-| `state_code` | text          | used on stories/story detail pages |
+| Field        | Inferred type              | Notes                              |
+| ------------ | --------------------------- | ---------------------------------- |
+| `name`       | text                        |                                    |
+| `state_code` | text                        | used on stories/story detail pages |
+| `territory`  | relationship → Territories  | **Added 2026-09-25 (coda-2434).** Read by `client-global-navigation`'s `case models.states` branch to derive and persist the state page's own territory context (name, contact-us fallback, donation URLs/cookies) instead of falling through to the national default. |
 
 ### Country / Properties Types
 
@@ -366,4 +380,5 @@ This document is **Draft — pending review**.
 
 - `ira` reviewed and confirmed the Stories cardinality question (2026-09-24) — ran `get-fields` live against the Stories model and confirmed `property`/`divisions`/`territory` are all `one_to_many`, plus clarified `property` relates to the Locations pageset (not a separate "Properties" model). See the Stories section and Open Questions item 9.
 - `zed` reviewed and confirmed 3 flagged items (2026-09-24): the general Parsley field-type-inference claim (confirmed as-is, no change), the find_in_set/LIKE-as-relationship-query-idiom claim (confirmed and strengthened with a docs.zesty.io citation), and the "Globals"/"Clippings" framing (found to be a real error — both are the same feature/model, corrected in §11 and Open Questions item 10).
+- 2026-09-25: added the States `territory` field and the Cities territory-derivation note for coda-2434 (see the "2026-09-25 update" note at the top of this file). Self-verified against the current `client-global-navigation` source only — not yet reviewed by ira/zed.
 - Remaining before this doc is final: the user should confirm the doc overall, per this project's standing documentation review convention. Status stays **Draft — pending review** until the user signs off — that's not dot's call to change unilaterally.

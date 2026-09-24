@@ -1,7 +1,18 @@
 # Custom Patterns & Shared Conventions
 
 Status: **Draft — pending review**
-Last generated: 2026-09-24 by Documentation Maker (automated codebase re-scan; see "2026-09-24 refresh" note below)
+Last generated: 2026-09-25 by Documentation Maker (see "2026-09-25 update" note below; earlier history in the "2026-09-24 refresh" note further down)
+
+> **2026-09-25 update:** documented coda-2434's two new `initCookies()`
+> branches (`case models.states`, `case models.cities`) and the new
+> `hasValidZUIDShape()` guard directly inside §2, since they're an
+> extension of the pattern already described there rather than a new
+> pattern of their own. See `docs/changelog.md` for the full three-fix
+> summary (coda-2434, coda-2480, coda-2481) merged to `development` this
+> pass and QA'd by qa-tester and karen. The other two fixes
+> (coda-2480: location-finder service-area-model removal; coda-2481:
+> zip-search title fallback) don't touch any pattern documented in this
+> file — see `docs/templates.md` for those.
 
 > **2026-09-24 refresh note:** re-checked every numbered pattern below
 > against the current repo state. Items §1–§12 still match the code as
@@ -51,6 +62,35 @@ This is the single most important shared script in the codebase — nearly every
 5. Has a debug mode: `?debugDataLayer=1` in the URL enables `console.groupCollapsed` logging of the resolved cookie snapshot and data-layer values (`logCurrentDataLayerValues`).
 
 **Anywhere you see `cookieManager.get(cookieKeys.locationZUID)` (or similar) in a module, that value came from this file, not from the current page's own fields.**
+
+> **Added 2026-09-25 (coda-2434 — "Fix territory context for state and
+> city pages").** The `initCookies()` switch previously had no branch for
+> `models.states`/`models.cities`, so those two page types fell through
+> to a stale/wrong or national default instead of resolving their own
+> territory. Two new branches were added:
+> - `case models.states`: reads the state item's own `territory` field
+>   (see `docs/content-models.md`'s States section) and sets
+>   `locationZUID`/`locationHomeURL`/`organizationTerritory`/contact-us
+>   and donation-URL cookies from that territory.
+> - `case models.cities`: derives the territory one hop further out, via
+>   the city's `state.territory` (Cities has no `territory` field of its
+>   own — see `docs/content-models.md`'s Cities section), then sets the
+>   same cookie set.
+>
+> Both branches reuse the existing `setLocationCookiesByTerritory()` /
+> `setContactUsCookiesWithNationalFallback()` helpers rather than
+> duplicating cookie-setting logic — **follow that pattern** if you add
+> another org-level branch here, rather than hand-rolling a new one.
+>
+> The cities branch also introduced a small reusable guard,
+> `hasValidZUIDShape(zuid)` (returns `false` for empty/`"0"`/whitespace
+> values): if a city's derived territory ZUID doesn't pass this check
+> (i.e. the city's state has no territory relation), the branch calls
+> `setNationalLocationCookies()` and bails out rather than setting cookies
+> from an empty ZUID. **Reuse `hasValidZUIDShape()` for any future
+> "did I actually resolve a real ZUID before using it" check** in this
+> file instead of writing another ad-hoc truthy/`"0"` check — it's already
+> used in a few other places (`validateZUIDForModel`, `validateParentZUID`).
 
 ## 3. Org-level fallback cascade (repeated in ≥3 places)
 
@@ -154,4 +194,5 @@ This document is **Draft — pending review**.
 
 - `zed` reviewed and confirmed §1's "Globals"/"Clippings" framing (2026-09-24) — found a real error (they're one feature/model, not two) and it's now corrected in place, citing docs.zesty.io.
 - `ira` reviewed and resolved §14/item 8 (2026-09-24) — fixed the actual `.mcp.json` description in `docs/api-tools.md` directly, and corrected the "checked-in credential" framing in item 5 (confirmed `.mcp.json` is gitignored/untracked).
+- 2026-09-25: extended §2 with coda-2434's new `states`/`cities` branches and the `hasValidZUIDShape()` guard (see the "2026-09-25 update" note at the top of this file). Self-verified against current source only — not yet reviewed by ira/zed.
 - Remaining before this doc is final: §13 (`temporary-usn.css` path) and item 7 are flagged for the user, not ira/zed — outside their domains. The user should also confirm the doc overall, per this project's standing documentation review convention. Status stays **Draft — pending review** until the user signs off — that's not dot's call to change unilaterally.
