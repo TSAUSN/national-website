@@ -2,7 +2,7 @@ name: Deploy to Zesty.io
 
 on:
   push:
-    branches: [stage]
+    branches: [stage, production]
   workflow_dispatch:
     inputs:
       publish:
