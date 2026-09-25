@@ -186,6 +186,26 @@
 {{$territoryParentContactHeader = {territories.filter({this.parent_zuid}).contact_us_cta_header} }}
 {{$territoryParentZipcode = {territories.filter({this.parent_zuid}).zipcode} }}
 
+{{$statesTerritoryZUID = {!this.territory} }}
+{{$statesTerritory = {territories.filter({!this.territory}).name} }}
+{{$statesTerritoryCityZUID = {territories.filter({!this.territory}).city} }}
+{{$statesTerritoryStateZUID = {territories.filter({!this.territory}).state} }}
+{{$statesTerritoryCity = {cities.filter({$statesTerritoryCityZUID}).title} }}
+{{$statesTerritoryState = {states.filter({$statesTerritoryStateZUID}).name} }}
+
+{{$citiesStateZUID = {!this.state} }}
+{{$citiesTerritoryZUID = {states.filter({$citiesStateZUID}).territory} }}
+{{$citiesTerritory = {territories.filter({$citiesTerritoryZUID}).name} }}
+{{$citiesTerritoryCityZUID = {territories.filter({$citiesTerritoryZUID}).city} }}
+{{$citiesTerritoryStateZUID = {territories.filter({$citiesTerritoryZUID}).state} }}
+{{$citiesTerritoryCity = {cities.filter({$citiesTerritoryCityZUID}).title} }}
+{{$citiesTerritoryState = {states.filter({$citiesTerritoryStateZUID}).name} }}
+{{$citiesTerritoryAddress = {territories.filter({$citiesTerritoryZUID}).address} }}
+{{$citiesTerritoryZipcode = {territories.filter({$citiesTerritoryZUID}).zipcode} }}
+{{$citiesTerritoryContactImage = {territories.filter({$citiesTerritoryZUID}).contact_us_image.getImage()} }}
+{{$citiesTerritoryContactTitle = {territories.filter({$citiesTerritoryZUID}).contact_us_title} }}
+{{$citiesTerritoryContactHeader = {territories.filter({$citiesTerritoryZUID}).contact_us_cta_header} }}
+
 <!-- Nested informational pages: resolve location/division/territory from the parent informational page. -->
 {{$ipParentLocationZUID = {informational_pages.filter({this.parent_zuid}).location} }}
 {{$ipParentDivisionZUID = {informational_pages.filter({this.parent_zuid}).division} }}
