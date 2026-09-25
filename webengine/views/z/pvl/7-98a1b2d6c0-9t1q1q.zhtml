@@ -1,5 +1,6 @@
 <div className={styles.pvlRoot}>
 	{{block('/-/block/hero_full.html?variant=7-b8a29eebd4-bt8w07')}}
+	<div class="pvlRichtext"><h4><a href="https://volunteer.southern.salvationarmyusa.org/">CLICK HERE</a> to see all volunteer opportunities</h4></div>
 	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
 		<div class="col-lg-12 col-md-12 col-sm-12">
 			<div class="my-2"></div>
