@@ -4,18 +4,6 @@
     {{$ipParentLocation = {informational_pages.filter({ip.parent_zuid}).location} }}
     {{$ipParentDivision = {informational_pages.filter({ip.parent_zuid}).division} }}
     {{$ipParentTerritory = {informational_pages.filter({ip.parent_zuid}).territory} }}
-    {{$ipDirectParentLocation = {locations.filter({ip.parent_zuid}).zuid} }}
-    {{$ipDirectParentDivision = {divisions.filter({ip.parent_zuid}).zuid} }}
-    {{$ipDirectParentTerritory = {territories.filter({ip.parent_zuid}).zuid} }}
-    {{if {$ipDirectParentLocation} }}
-        {{$ipParentLocation = {$ipDirectParentLocation} }}
-    {{/if}}
-    {{if {$ipDirectParentDivision} }}
-        {{$ipParentDivision = {$ipDirectParentDivision} }}
-    {{/if}}
-    {{if {$ipDirectParentTerritory} }}
-        {{$ipParentTerritory = {$ipDirectParentTerritory} }}
-    {{/if}}
     {
         {{if {ip.location} }}
             {{$cityZUID = {locations.filter({ip.location}).city} }}

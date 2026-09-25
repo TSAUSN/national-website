@@ -135,29 +135,6 @@
 {{$ipParentDivisionZUID = {informational_pages.filter({this.parent_zuid}).division} }}
 {{$ipParentTerritoryZUID = {informational_pages.filter({this.parent_zuid}).territory} }}
 
-<!-- CODA-2541 (QA follow-up, defect B): the parent isn't always another
-     informational page. For e.g. ".../raleigh-area-command/stuff-the-bus/"
-     this.parent_zuid IS the Raleigh Area Command *location* record, so the
-     informational_pages lookups above resolve empty and the page fell through
-     to NATIONAL. When the direct parent is itself a location / division /
-     territory record, use its own ZUID as the resolved org record instead.
-     A ZUID belongs to exactly one model, so at most one of these (or the
-     informational-page lookups above) is non-empty — no precedence conflict.
-     Must stay above the $ipParentLoc*/Div*/Ter* derivations below, which all
-     key off these three vars. -->
-{{$ipDirectParentLocationZUID = {locations.filter({this.parent_zuid}).zuid} }}
-{{$ipDirectParentDivisionZUID = {divisions.filter({this.parent_zuid}).zuid} }}
-{{$ipDirectParentTerritoryZUID = {territories.filter({this.parent_zuid}).zuid} }}
-{{if {$ipDirectParentLocationZUID} }}
-{{$ipParentLocationZUID = {$ipDirectParentLocationZUID} }}
-{{/if}}
-{{if {$ipDirectParentDivisionZUID} }}
-{{$ipParentDivisionZUID = {$ipDirectParentDivisionZUID} }}
-{{/if}}
-{{if {$ipDirectParentTerritoryZUID} }}
-{{$ipParentTerritoryZUID = {$ipDirectParentTerritoryZUID} }}
-{{/if}}
-
 {{$ipParentLocDivisionZUID = {locations.filter({$ipParentLocationZUID}).division} }}
 {{$ipParentLocTerritoryZUID = {locations.filter({$ipParentLocationZUID}).territory} }}
 {{$ipParentLocCityZUID = {locations.filter({$ipParentLocationZUID}).city} }}
@@ -2011,18 +1988,7 @@
           cookieManager.delete(cookieKeys.locationPropertyType);
 
           await setCodeCookie(`{{!this.territory}}`, "6-deab97cfd9-wb5km4");
-        } else if (
-          `{{this.parent_zuid}}` !== `0` &&
-          (
-            zuidInformationalPage ||
-            // CODA-2541 (defect B): parent is a location/division/territory
-            // record directly (not an informational page) — the $ipParent*
-            // vars were resolved from it at the top of this file.
-            `{{$ipParentLocationZUID}}` ||
-            `{{$ipParentDivisionZUID}}` ||
-            `{{$ipParentTerritoryZUID}}`
-          )
-        ) {
+        } else if (zuidInformationalPage && `{{this.parent_zuid}}` !== `0`) {
           // CODA-2541: this is the nested-campaign-page case (e.g.
           // angel-tree-donation nested under Hampton Roads Area Command) —
           // `this` has no location/division/territory of its own, so it was
@@ -2257,9 +2223,6 @@
           cookieManager.delete(cookieKeys.locationAddress);
           cookieManager.delete(cookieKeys.locationCity);
           cookieManager.delete(cookieKeys.locationState);
-          // CODA-2541 (defect B): was missing, so a prior page's zipcode
-          // survived the switch to NATIONAL.
-          cookieManager.delete(cookieKeys.locationZipcode);
 
           await setCodeCookie(`{{homepage.first().zuid}}`);
         }
