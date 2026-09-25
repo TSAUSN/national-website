@@ -3,7 +3,7 @@
     <div>
       {{if {!this.map_heading} }}
       <div class="mb-8">
-        <h3 class="fs-5">{{this.map_heading}}</h3>
+        <h3 class="fs-5" id="angel-tree-heading">{{this.map_heading}}</h3>
         <div id="angel-tree-content" class="container mt-8 px-0">
           {{if {!this.map_content} }}
             {{this.map_content}}
@@ -13,44 +13,47 @@
       {{/if}}
 
       <div class="mb-6">
-        <span class="text-secondary fw-semibold text-uppercase d-block mb-2" style="font-size:0.7rem;letter-spacing:0.08em;">Registry Type</span>
-        <div class="d-flex gap-2" id="angel-tree-type-toggle">
-          <button type="button" class="angel-tree-type-btn btn flex-fill d-flex align-items-center justify-content-center gap-2 border rounded-3 py-2 active" data-registry-type="online">
-            <span class="rounded-circle flex-shrink-0 d-inline-block" style="width:10px;height:10px;background-color:#12825F;"></span>
-            Online registry
-          </button>
-          <button type="button" class="angel-tree-type-btn btn flex-fill d-flex align-items-center justify-content-center gap-2 border rounded-3 py-2" data-registry-type="store">
-            <span class="rounded-circle flex-shrink-0 d-inline-block" style="width:10px;height:10px;background-color:#2F6FED;"></span>
-            Physical store
-          </button>
+        <span class="text-secondary fw-semibold d-block mb-2" id="angel-tree-type-label">How would you like to give?</span>
+        <div class="row g-2" id="angel-tree-type-toggle">
+          <div class="col-6" id="angel-tree-type-col-online">
+            <button type="button" class="angel-tree-type-btn btn w-100 h-100 text-start d-flex flex-column align-items-start gap-1 border rounded-3 p-3" data-registry-type="online">
+              <span class="fw-bold">Online registry</span>
+              <span class="text-muted display-3">Buy gifts online and ship them to a local unit</span>
+            </button>
+          </div>
+          <div class="col-6" id="angel-tree-type-col-store">
+            <button type="button" class="angel-tree-type-btn btn w-100 h-100 text-start d-flex flex-column align-items-start gap-1 border rounded-3 p-3" data-registry-type="store">
+              <span class="fw-bold">In store</span>
+              <span class="text-muted display-3">Pick up an Angel Tree tag at a Walmart or Sam's Club</span>
+            </button>
+          </div>
         </div>
-        <p class="text-muted display-3 mb-0 mt-2" id="angel-tree-type-helper">Showing registries that ship to your area.</p>
       </div>
 
-      <div class="input-group mb-6">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Enter your city or Zip Code"
-          aria-label="Enter your city or Zip Code"
-          id="angel-tree__input"
-          data-search-term-type=""
-          data-search-results-type=""
-          data-search-type="location search - body"
-          data-search-method-type="user-entered"
-          data-search-filter-type="Services"
-          data-search-filter-value-type=""
-          onkeydown="if(event.key === 'Enter') { searchAngelTreeLocations(); event.preventDefault(); }"
-        >
-      </div>
-      <div class="d-flex">
-        <button id="angel-tree__search-btn" class="btn btn-primary w-75" onclick="searchAngelTreeLocations()" disabled>
-          Search Location
-        </button>
-        <button class="btn btn-outline-danger w-50 d-flex align-items-center justify-content-end text-primary-200 display-1 use-my-location-angel ">
-          <span class="material-symbols-outlined me-2">
+      <div class="mb-6 d-none" id="angel-tree-search-controls">
+        <div class="d-flex gap-2 mb-2">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter your city or Zip Code"
+            aria-label="Enter your city or Zip Code"
+            id="angel-tree__input"
+            data-search-term-type=""
+            data-search-results-type=""
+            data-search-type="location search - body"
+            data-search-method-type="user-entered"
+            data-search-filter-type="Services"
+            data-search-filter-value-type=""
+            onkeydown="if(event.key === 'Enter') { searchAngelTreeLocations(); event.preventDefault(); }"
+          >
+          <button id="angel-tree__search-btn" class="btn btn-primary text-nowrap" onclick="searchAngelTreeLocations()" disabled>
+            Search
+          </button>
+        </div>
+        <button type="button" class="btn btn-link p-0 text-danger text-decoration-none d-flex align-items-center use-my-location-angel">
+          <span class="material-symbols-outlined me-1">
             my_location
-          </span> Use My Location
+          </span> Use my location
         </button>
       </div>
     </div>
@@ -69,6 +72,9 @@
       <div class="map-loader d-none">
         <div class="map-loader__spinner"></div>
       </div>
+      <div id="angel-tree-map-empty-state" class="position-absolute top-50 start-50 translate-middle text-center px-4" style="pointer-events:none;">
+        <p class="text-muted fw-semibold mb-0 bg-light bg-opacity-75 rounded-3 p-3">Choose how you'd like to give to see locations.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -86,6 +92,10 @@
     background-color: rgba(220, 53, 69, 0.06);
     font-weight: 600;
   }
+  .angel-tree-type-btn.locked {
+    cursor: default;
+    pointer-events: none;
+  }
 </style>
 
 <script>
@@ -95,7 +105,8 @@ let items = [];
 const REGISTRY_TYPE_ONLINE = 'online';
 const REGISTRY_TYPE_STORE = 'store';
 
-let activeRegistryType = REGISTRY_TYPE_ONLINE;
+// null until the user makes their one-time registry-type choice
+let activeRegistryType = null;
 let currentResults = { [REGISTRY_TYPE_ONLINE]: [], [REGISTRY_TYPE_STORE]: [] };
 let lastSearchCenter = null;
 let lastSearchTerm = '';
@@ -104,16 +115,16 @@ const REGISTRY_TYPE_CONFIG = {
   [REGISTRY_TYPE_ONLINE]: {
     badgeLabel: 'Online',
     color: '#12825F',
-    helperText: 'Showing registries that ship to your area.',
+    headingText: "Find a Salvation Army unit and shop their registry online",
     emptyText: 'No online registries found within 50 miles. Try a different address.',
-    countLabel: (n) => `${n} online ${n === 1 ? 'registry' : 'registries'}`
+    countLabel: (n) => `${n} Salvation Army ${n === 1 ? 'unit' : 'units'} near you`
   },
   [REGISTRY_TYPE_STORE]: {
-    badgeLabel: 'Physical Store',
+    badgeLabel: 'In Store',
     color: '#2F6FED',
-    helperText: 'Showing physical store locations near you.',
+    headingText: "Find a participating Walmart or Sam's Club near you",
     emptyText: 'No physical stores found within 50 miles. Try a different address.',
-    countLabel: (n) => `${n} physical ${n === 1 ? 'store' : 'stores'}`
+    countLabel: (n) => `${n} participating ${n === 1 ? 'store' : 'stores'} near you`
   }
 };
 
@@ -457,23 +468,70 @@ const renderActiveType = () => {
   }
 };
 
-// Wires up the "Online registry" / "Physical store" toggle
+// Wires up the "Online registry" / "In store" buttons. The choice is a
+// one-time lock: once picked, the other option disappears and there is no
+// way back short of reloading the page.
 const setupRegistryTypeToggle = () => {
   const buttons = document.querySelectorAll('#angel-tree-type-toggle button[data-registry-type]');
-  const helper = document.querySelector('#angel-tree-type-helper');
 
   buttons.forEach(btn => {
     btn.addEventListener('click', function () {
-      const type = this.dataset.registryType;
-      if (type === activeRegistryType) return;
-
-      activeRegistryType = type;
-      buttons.forEach(b => b.classList.toggle('active', b === this));
-      if (helper) helper.textContent = REGISTRY_TYPE_CONFIG[type].helperText;
-
-      if (lastSearchCenter) renderActiveType();
+      if (activeRegistryType) return; // already locked in
+      selectRegistryType(this.dataset.registryType);
     });
   });
+};
+
+// Locks in the chosen registry type: updates the toggle UI, reveals the
+// search controls, and fetches only that type's dataset.
+const selectRegistryType = async (type) => {
+  if (activeRegistryType) return;
+  activeRegistryType = type;
+
+  const otherType = type === REGISTRY_TYPE_ONLINE ? REGISTRY_TYPE_STORE : REGISTRY_TYPE_ONLINE;
+  const heading = document.querySelector('#angel-tree-heading');
+  const label = document.querySelector('#angel-tree-type-label');
+  const searchControls = document.querySelector('#angel-tree-search-controls');
+  const emptyState = document.querySelector('#angel-tree-map-empty-state');
+  const otherCol = document.querySelector(`#angel-tree-type-col-${otherType}`);
+  const selectedCol = document.querySelector(`#angel-tree-type-col-${type}`);
+  const selectedBtn = selectedCol?.querySelector('button');
+
+  if (otherCol) otherCol.classList.add('d-none');
+  if (selectedCol) {
+    selectedCol.classList.remove('col-6');
+    selectedCol.classList.add('col-12');
+  }
+  if (selectedBtn) {
+    selectedBtn.classList.add('active', 'locked');
+    selectedBtn.setAttribute('aria-disabled', 'true');
+    selectedBtn.tabIndex = -1;
+  }
+  if (heading) heading.textContent = REGISTRY_TYPE_CONFIG[type].headingText;
+  if (label) label.textContent = 'Showing';
+  if (searchControls) searchControls.classList.remove('d-none');
+  if (emptyState) emptyState.classList.add('d-none');
+
+  const loader = document.querySelector('.map-loader');
+  const submitBtn = document.querySelector('#angel-tree__search-btn');
+
+  if (loader) loader.classList.remove('d-none');
+
+  try {
+    const rawData = type === REGISTRY_TYPE_ONLINE
+      ? await getOnlineRegistryData()
+      : await getPhysicalStoreData();
+
+    const processedData = await preprocessLocationDataOptimized(rawData, type);
+    items = { processedData };
+
+    if (submitBtn) submitBtn.removeAttribute('disabled');
+    console.log(`Ready! Processed ${processedData.length} ${type} locations.`);
+  } catch (error) {
+    console.error('Error loading registry data:', error);
+  } finally {
+    if (loader) loader.classList.add('d-none');
+  }
 };
 
 // Data fetching - online registries
@@ -814,45 +872,21 @@ function angelTreeInputAddressSuggestion() {
   }
 }
 
-// Initialize when map is ready
-window.addEventListener('mapReady', async (event) => {
+// Initialize when map is ready. No registry data is fetched here - only
+// once the user locks in a registry type via selectRegistryType().
+window.addEventListener('mapReady', (event) => {
   map = event.detail.map;
-  const submitBtn = document.querySelector('#angel-tree__search-btn');
 
   if (map) {
-    const loader = document.querySelector('.map-loader');
-    if (loader) loader.classList.remove('d-none');
-
     try {
       if (!batchGeocoder.initialize()) {
         throw new Error('Failed to initialize Google Maps geocoder');
       }
 
-      const [rawOnline, rawStore] = await Promise.all([
-        getOnlineRegistryData(),
-        getPhysicalStoreData()
-      ]);
-      console.log("Raw Online Data", rawOnline);
-      console.log("Raw Physical Store Data", rawStore);
-
-      const [processedOnline, processedStore] = await Promise.all([
-        preprocessLocationDataOptimized(rawOnline, REGISTRY_TYPE_ONLINE),
-        preprocessLocationDataOptimized(rawStore, REGISTRY_TYPE_STORE)
-      ]);
-
-      items = {
-        processedData: [...processedOnline, ...processedStore]
-      };
-
-      submitBtn.removeAttribute('disabled');
       angelTreeInputAddressSuggestion();
       setupRegistryTypeToggle();
-      console.log(`Ready! Processed ${processedOnline.length} online + ${processedStore.length} physical locations.`);
-
     } catch (error) {
       console.error('Initialization error:', error);
-    } finally {
-      if (loader) loader.classList.add('d-none');
     }
 
     const useLocationButton = document.querySelector('.use-my-location-angel');
