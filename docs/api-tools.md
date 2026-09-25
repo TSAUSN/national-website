@@ -1,28 +1,32 @@
 # API Tools — `zesty` MCP Local Server
 
-Status: **Draft — pending review**
-Last generated: 2026-09-19 by Documentation Maker (automated codebase scan)
+Status: **Approved** — signed off by the user 2026-09-26
+Last generated: 2026-09-24 by api-integrator (full re-verification pass against `mcp-local-server` source + live `.mcp.json`)
 
 ## What this is
 
-`.mcp.json` in this repo registers a local MCP server named `zesty`:
+`.mcp.json` in this repo (gitignored) registers **two** local MCP servers. This doc covers only the **`zesty`** server — the `playwright` entry (`npx @playwright/mcp@latest`) is a separate, unrelated MCP server for browser automation and is out of scope here.
+
+As of 2026-09-24, `.mcp.json` looks like this (token redacted):
 
 ```json
 {
   "mcpServers": {
     "zesty": {
       "command": "wsl.exe",
-      "args": ["-e", "node", "/home/kharljhon14/projects/zesty/mcp-local-server/build/index.js"],
-      "env": {
-        "ZESTY_SESSION_TOKEN": "PTK-...",
-        "ZESTY_INSTANCE_ZUID": "8-da979ebeab-d59gnx"
-      }
+      "args": ["-e", "bash", "-lc", "ZESTY_SESSION_TOKEN='PTK-...' ZESTY_INSTANCE_ZUID='8-da979ebeab-d59gnx' node /home/kharljhon14/projects/zesty/mcp-local-server/build/index.js"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
     }
   }
 }
 ```
 
-The server's **source code is a separate project** at `/home/kharljhon14/projects/zesty/mcp-local-server` (WSL). It was reachable from this machine at `\\wsl.localhost\Ubuntu\home\kharljhon14\projects\zesty\mcp-local-server` and was read directly for this documentation — this is **not** the same thing as the Parsley `.json` ajax endpoints documented in `docs/templates.md`; this MCP server talks to Zesty's **account/instance management REST APIs** (via the `@zesty-io/sdk` npm package), not to the rendered website.
+This is a **shape change from an earlier version of this doc**: the `zesty` entry used to be a bare `wsl.exe -e node ...` command with a top-level MCP `"env"` block (`{ "ZESTY_SESSION_TOKEN": ..., "ZESTY_INSTANCE_ZUID": ... }`). It no longer has an `env` key at all — the same two env vars are now set inline, ahead of the `node` invocation, inside a single `bash -lc "..."` string passed to `wsl.exe -e bash -lc`. Functionally this is equivalent (both vars still land in the child process's environment before `index.js` runs), but if you're editing `.mcp.json` by hand, don't go looking for an `env` object — it's not there anymore.
+
+The server's **source code is a separate project** at `/home/kharljhon14/projects/zesty/mcp-local-server` (WSL), reachable from this machine at `\\wsl.localhost\Ubuntu\home\kharljhon14\projects\zesty\mcp-local-server`, and was read directly (via `wsl.exe`) for this documentation pass — this is **not** the same thing as the Parsley `.json` ajax endpoints documented in `docs/templates.md`; this MCP server talks to Zesty's **account/instance management REST APIs** (via the `@zesty-io/sdk` npm package), not to the rendered website.
 
 ## Architecture (as implemented)
 
@@ -110,11 +114,12 @@ Everything below is a **specific claim from the source code that should be confi
 5. **`get-item-version` parameter**: confirm `VERSION` is a version **number** (as a string) vs. a version ZUID — the Zod schema just says `z.string()`.
 6. **Auth/session flow**: `registerAllTools()` calls `sdk.auth.verifyToken(ZESTY_SESSION_TOKEN)` once at server startup (to set the Sentry user) — confirm this doesn't fail/short-circuit tool registration if the token is invalid or expired, since there's no visible catch around that call in `src/tools/register.ts`.
 7. **`opts`/custom API URL override branch**: confirmed by reading code that it only activates when `ZESTY_AUTH_API` is set (not set in this repo's `.mcp.json`), so the SDK should be hitting Zesty's default/production endpoints — confirm live that calls are in fact going to production and not silently misconfigured.
-8. **Whether the session token embedded in `.mcp.json` (`ZESTY_SESSION_TOKEN`) is still valid / appropriately scoped** — this is a credential checked into the repo; confirm rotation policy with the user/api-integrator rather than assuming it's fine.
+8. **Whether the session token embedded in `.mcp.json` (`ZESTY_SESSION_TOKEN`, now set inline in the `bash -lc` command string rather than an `env` block — see "What this is" above) is still valid / appropriately scoped** — `.mcp.json` is gitignored so this isn't committed to the repo, but it's still a plaintext credential sitting on disk; confirm rotation policy with the user rather than assuming it's fine.
 9. **Rate limits / pagination**: none of the "get all X" tools (`get-models`, `get-instances`, `get-audit-logs`, etc.) take pagination params in this implementation — confirm whether the underlying SDK methods paginate internally or could truncate large result sets silently.
 
 ## Open Questions / Flags
 
+- **2026-09-24 re-verification pass:** re-read every file under `mcp-local-server/src/tools/**` (all 4 domain-group registrars plus all 16 `instances/*` sub-domain files, `src/index.ts`, `src/tools/register.ts`, `src/prompts/register.ts`, `src/resources/register.ts`, `src/types/zesty-io__sdk.d.ts`) directly from the source tree via `wsl.exe`. Every tool name, param, `sdk.<domain>.<method>` call, and response-serialization shape in the tables above still matches the code exactly — no drift found in tool behavior/schemas since the 2026-09-19 scan. The `mcp-local-server` repo's own git log shows no commits since the prior scan that touch `src/` (last relevant commit was a Sentry upgrade predating 2026-09-19). The only confirmed drift was in `.mcp.json`'s connection wiring (see "What this is" above), which has now been corrected in this doc.
 - The MCP server's own `README.md`/`CLAUDE.md` mark it as "40+ tools" and describe the same five categories confirmed here (Auth, Accounts, Instances, Media) — the tool list above matches the README exactly, so no discrepancy was found between the server's own docs and its code.
 - No prompts or resources are implemented (`src/prompts/register.ts`, `src/resources/register.ts` are both empty stubs per the server's own `CLAUDE.md`) — only tools are usable today.
 - This MCP server operates on the **Zesty account/instance management layer** (models, items, versions, settings, media, users). It has no knowledge of the *rendered* website (Parsley templates, the ajax-json endpoints in `docs/templates.md`, or front-end behavior) — don't use it to answer questions about what the live site displays; use it for schema/content/instance-config questions only.
