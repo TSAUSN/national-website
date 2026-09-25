@@ -186,14 +186,7 @@
 {{$territoryParentContactHeader = {territories.filter({this.parent_zuid}).contact_us_cta_header} }}
 {{$territoryParentZipcode = {territories.filter({this.parent_zuid}).zipcode} }}
 
-<!-- CODA-2541: resolve a nested informational page's location/division/territory
-     from its immediate parent *informational page* (not this.parent_zuid as a
-     location/division/territory record directly, per the vars above — for
-     pages like "angel-tree-donation" the parent is another informational_pages
-     record, e.g. "Hampton Roads Area Command", whose own .location/.division/
-     .territory field holds the real org record). Resolved synchronously here
-     (server-side, at render time) so the footer's cookie read on page load
-     never races a client-side fetch. -->
+<!-- Nested informational pages: resolve location/division/territory from the parent informational page. -->
 {{$ipParentLocationZUID = {informational_pages.filter({this.parent_zuid}).location} }}
 {{$ipParentDivisionZUID = {informational_pages.filter({this.parent_zuid}).division} }}
 {{$ipParentTerritoryZUID = {informational_pages.filter({this.parent_zuid}).territory} }}
@@ -210,14 +203,7 @@
 {{$ipParentTerCityZUID = {territories.filter({$ipParentTerritoryZUID}).city} }}
 {{$ipParentTerStateZUID = {territories.filter({$ipParentTerritoryZUID}).state} }}
 
-<!-- CODA-2541 (QA follow-up): location_state was rendering empty on nested
-     informational pages even though city/address/zipcode/name from the exact
-     same $ipParentLocationZUID lookup resolved correctly — the record's own
-     `state` relationship wasn't reliably resolving through this filter chain.
-     Rather than depend on a single field lookup, resolve state the same way
-     contact-us image/title/header already cascade in this file: location's
-     own state, falling back to its division's state, falling back to its
-     territory's state. These extra ZUIDs back that cascade below. -->
+<!-- Parent state ZUIDs for the location → division → territory state fallback. -->
 {{$ipParentLocDivStateZUID = {divisions.filter({$ipParentLocDivisionZUID}).state} }}
 {{$ipParentLocTerStateZUID = {territories.filter({$ipParentLocTerritoryZUID}).state} }}
 {{$ipParentDivTerStateZUID = {territories.filter({$ipParentDivTerritoryZUID}).state} }}
@@ -1889,10 +1875,7 @@
               window.location.replace(redirectURL);
             }
           }
-          // CODA-2541: this page already has its own `location` field, so
-          // everything below resolves synchronously via Parsley — no need to
-          // await the get-informational-page.json fetch (that fetch was
-          // racing the footer's synchronous cookie read on page load).
+          // Resolve synchronously in Parsley so cookies are set before the footer reads them.
           cookieManager.set(cookieKeys.locationModel, `{{$locationModelZUID}}`);
           cookieManager.set(cookieKeys.locationPropertyType, `{{locations.filter({!this.location}).page_layout }}`);
           cookieManager.set(cookieKeys.locationZUID, `{{!this.location}}`);
@@ -2014,8 +1997,6 @@
           }
 
           (`{{$state = {divisions.filter({!this.division}).state} }}`);
-          // CODA-2541: same reasoning as the location branch above — this
-          // page already has its own `division` field, resolved synchronously.
           cookieManager.set(
             cookieKeys.locationAddress,
             `{{ divisions.filter({!this.division}).address }}`
@@ -2055,8 +2036,6 @@
           }
           await setCodeCookie(`{{!this.division}}`, models.divisions);
         } else if (territoryRelational) {
-          // CODA-2541: same reasoning as above — this page already has its
-          // own `territory` field, resolved synchronously.
           cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
           cookieManager.set(cookieKeys.locationZUID, `{{!this.territory}}`);
           cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({!this.territory})}}`);
@@ -2103,27 +2082,7 @@
 
           await setCodeCookie(`{{!this.territory}}`, models.territories);
         } else if (zuidInformationalPage && `{{this.parent_zuid}}` !== `0`) {
-          // CODA-2541: this is the nested-campaign-page case (e.g.
-          // angel-tree-donation nested under Hampton Roads Area Command) —
-          // `this` has no location/division/territory of its own, so it was
-          // previously relying entirely on `await handleInformationalPage()`,
-          // an async fetch to get-informational-page.json, to figure out
-          // where it lives. That fetch races the footer's inline script,
-          // which reads location_* cookies *synchronously* while the
-          // document is still being parsed (well before this async function
-          // resolves, and before DOMContentLoaded even fires). The result
-          // was footer content showing stale cookies left over from
-          // whichever page was visited previously (or the hardcoded NHQ
-          // fallback on a first visit) — non-deterministic, since it depended
-          // on network timing.
-          //
-          // Fix: resolve the immediate parent informational page's
-          // location/division/territory synchronously via Parsley (server
-          // side, at render time — see $ipParent* vars near the top of this
-          // file), mirroring get-informational-page.json's own fallback
-          // order (location > division > territory > national), so every
-          // cookie the footer reads is correct before any HTML is even sent
-          // to the browser. No fetch, no race.
+          // Nested page: use the parent informational page's location/division/territory, resolved in Parsley so cookies are set before the footer reads them.
           const ipParentLocationZUID = `{{$ipParentLocationZUID}}`;
           const ipParentDivisionZUID = `{{$ipParentDivisionZUID}}`;
           const ipParentTerritoryZUID = `{{$ipParentTerritoryZUID}}`;
@@ -2163,9 +2122,7 @@
 
             cookieManager.set(cookieKeys.locationAddress, `{{locations.filter({$ipParentLocationZUID}).address}}`);
             cookieManager.set(cookieKeys.locationCity, `{{cities.filter({$ipParentLocCityZUID}).title}}`);
-            // CODA-2541 (QA follow-up): don't rely on a single state lookup —
-            // cascade location -> division -> territory, same fallback order
-            // already used for contact-us fields above.
+            // State: location → division → territory fallback.
             const ipParentLocStateName = `{{states.filter({$ipParentLocStateZUID}).name}}`.trim();
             const ipParentLocDivStateName = `{{states.filter({$ipParentLocDivStateZUID}).name}}`.trim();
             const ipParentLocTerStateName = `{{states.filter({$ipParentLocTerStateZUID}).name}}`.trim();
@@ -2218,8 +2175,7 @@
 
             cookieManager.set(cookieKeys.locationAddress, `{{divisions.filter({$ipParentDivisionZUID}).address}}`);
             cookieManager.set(cookieKeys.locationCity, `{{cities.filter({$ipParentDivCityZUID}).title}}`);
-            // CODA-2541 (QA follow-up): cascade division -> territory state,
-            // same reasoning as the location branch above.
+            // State: division → territory fallback.
             const ipParentDivStateName = `{{states.filter({$ipParentDivStateZUID}).name}}`.trim();
             const ipParentDivTerStateName = `{{states.filter({$ipParentDivTerStateZUID}).name}}`.trim();
             cookieManager.set(
@@ -2277,10 +2233,7 @@
 
             await setCodeCookie(ipParentTerritoryZUID, "6-deab97cfd9-wb5km4");
           } else {
-            // Parent informational page has no location/division/territory
-            // chain either — fall back to national, same as the plain
-            // "else" branch below and get-informational-page.json's final
-            // fallback.
+            // No parent location/division/territory: fall back to national.
             cookieManager.set(cookieKeys.locationModel, `6-a0898ca2c1-krnm0f`);
             cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
             cookieManager.set(cookieKeys.locationHomeURL, `/`);
@@ -2750,23 +2703,11 @@
     }
   }
 
-  // CODA-2541: no longer called from the "Informational Page" case in
-  // initCookies() — that switch case now resolves location/division/
-  // territory synchronously via Parsley ($ipParent* vars) instead of this
-  // async fetch, because the fetch was racing the footer's synchronous
-  // cookie read on page load. Left in place (unused) in case another caller
-  // is added later or get-informational-page.json is needed for another
-  // purpose; not removed to keep this change minimal/reviewable.
+  // Unused; kept for reference.
   async function handleInformationalPage(zuid) {
     const locationCookie = cookieManager.get(cookieKeys.locationZUID);
     console.log(locationCookie)
-    // Previously gated on an existing location_zuid cookie, which meant a
-    // first-time visit (no prior cookie, e.g. a direct link/ad/search hit to a
-    // nested campaign page like angel-tree-donation) never looked up this page's
-    // location at all and silently fell back to the NHQ address in the footer.
-    // Always resolve via the API; guard against a missing/empty response (fetch
-    // failure, or an informational page with no location chain at all) instead
-    // of crashing on `model.content.meta.model_name`.
+    // Always resolve via the API; guard against an empty response.
     const model = await fetchInformation(`get-informational-page`, zuid);
     if (model && model.content && model.content.meta && model.content.meta.model_name) {
       switch (model.content.meta.model_name) {
