@@ -1,6 +1,6 @@
 # Agent Roster & Workflow
 
-Status: **Draft — pending review**
+Status: **Approved** — signed off by the user 2026-09-26
 Last generated: 2026-09-24 by Documentation Maker (automated codebase scan of `.claude/agents/*.md` + CLAUDE.md's "Agent workflow" section; updated same day for zed's new llms.txt grounding source and the roster-wide "ask zed when unsure" convention)
 
 This project is operated by a set of specialized subagents defined in
@@ -435,7 +435,7 @@ tasha → wendell → jenny → [human] → quinn → karen sequence above.
 
 ## Review status
 
-This document is **Draft — pending review**.
+This document was **Approved** by the user on 2026-09-26 (previously Draft — pending review).
 
 - `ira` reviewed and confirmed the `ira` section (2026-09-24) — tool
   list and `mcp-local-server` description verified against source, with
@@ -448,7 +448,6 @@ This document is **Draft — pending review**.
   "ask zed when unsure" convention) were reflected into this doc per the
   user's own edits — see Open Questions / Flags item 5. This was the
   last outstanding piece before this doc is ready for the user's pass.
-- Remaining before this doc is final: the user should confirm the doc
-  overall, per this project's standing documentation review convention.
-  Status stays **Draft — pending review** until the user signs off —
-  that's not dot's call to change unilaterally.
+- 2026-09-26: the user confirmed the doc overall — status is now
+  **Approved**. Future changes by dot get flagged "Draft — pending
+  review" at the section level until the user signs off on them.

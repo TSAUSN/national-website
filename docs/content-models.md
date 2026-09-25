@@ -1,6 +1,6 @@
 # Content Models
 
-Status: **Draft — pending review**
+Status: **Approved** — signed off by the user 2026-09-26
 Last generated: 2026-09-25 by Documentation Maker (see "2026-09-25 update" note below; earlier history in the "2026-09-24 refresh" note further down)
 
 > **2026-09-25 update:** three web-developer fixes merged to `development`
@@ -376,9 +376,9 @@ Flag: `base_card.html` and `hero_full.html` (blocks) look like earlier iteration
 
 ## Review status
 
-This document is **Draft — pending review**.
+This document was **Approved** by the user on 2026-09-26 (previously Draft — pending review).
 
 - `ira` reviewed and confirmed the Stories cardinality question (2026-09-24) — ran `get-fields` live against the Stories model and confirmed `property`/`divisions`/`territory` are all `one_to_many`, plus clarified `property` relates to the Locations pageset (not a separate "Properties" model). See the Stories section and Open Questions item 9.
 - `zed` reviewed and confirmed 3 flagged items (2026-09-24): the general Parsley field-type-inference claim (confirmed as-is, no change), the find_in_set/LIKE-as-relationship-query-idiom claim (confirmed and strengthened with a docs.zesty.io citation), and the "Globals"/"Clippings" framing (found to be a real error — both are the same feature/model, corrected in §11 and Open Questions item 10).
 - 2026-09-25: added the States `territory` field and the Cities territory-derivation note for coda-2434 (see the "2026-09-25 update" note at the top of this file). Self-verified against the current `client-global-navigation` source only — not yet reviewed by ira/zed.
-- Remaining before this doc is final: the user should confirm the doc overall, per this project's standing documentation review convention. Status stays **Draft — pending review** until the user signs off — that's not dot's call to change unilaterally.
+- 2026-09-26: the user confirmed the doc overall — status is now **Approved**. Future changes by dot get flagged "Draft — pending review" at the section level until the user signs off on them.

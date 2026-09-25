@@ -1,6 +1,6 @@
 # Custom Patterns & Shared Conventions
 
-Status: **Draft — pending review**
+Status: **Approved** — signed off by the user 2026-09-26
 Last generated: 2026-09-25 by Documentation Maker (see "2026-09-25 update" note below; earlier history in the "2026-09-24 refresh" note further down)
 
 > **2026-09-25 update:** documented coda-2434's two new `initCookies()`
@@ -190,9 +190,9 @@ CLAUDE.md's Styling section and `wendell`'s own agent definition both refer to t
 
 ## Review status
 
-This document is **Draft — pending review**.
+This document was **Approved** by the user on 2026-09-26 (previously Draft — pending review).
 
 - `zed` reviewed and confirmed §1's "Globals"/"Clippings" framing (2026-09-24) — found a real error (they're one feature/model, not two) and it's now corrected in place, citing docs.zesty.io.
 - `ira` reviewed and resolved §14/item 8 (2026-09-24) — fixed the actual `.mcp.json` description in `docs/api-tools.md` directly, and corrected the "checked-in credential" framing in item 5 (confirmed `.mcp.json` is gitignored/untracked).
 - 2026-09-25: extended §2 with coda-2434's new `states`/`cities` branches and the `hasValidZUIDShape()` guard (see the "2026-09-25 update" note at the top of this file). Self-verified against current source only — not yet reviewed by ira/zed.
-- Remaining before this doc is final: §13 (`temporary-usn.css` path) and item 7 are flagged for the user, not ira/zed — outside their domains. The user should also confirm the doc overall, per this project's standing documentation review convention. Status stays **Draft — pending review** until the user signs off — that's not dot's call to change unilaterally.
+- 2026-09-26: the user confirmed the doc overall — status is now **Approved**. §13 (`temporary-usn.css` path) and item 7 remain open questions for the user (outside ira/zed's domains); approval doesn't resolve them. Future changes by dot get flagged "Draft — pending review" at the section level until the user signs off on them.

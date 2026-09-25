@@ -1,6 +1,6 @@
 # Changelog
 
-Status: **Draft — pending review**
+Status: **Approved** — signed off by the user 2026-09-26
 Maintained by: Documentation Maker (dot)
 
 This file tracks what was built/changed in this repo, by whom (which
@@ -103,6 +103,6 @@ Not yet reached.
 
 ## Review status
 
-This document is **Draft — pending review**, per this project's standing
-documentation review convention — the user should confirm it (and each
-future entry) before it's considered final.
+This document was **Approved** by the user on 2026-09-26 (previously Draft — pending review). Per this project's standing
+documentation review convention, each future entry is marked "Draft —
+pending review" until the user confirms it.

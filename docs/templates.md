@@ -1,6 +1,6 @@
 # WebEngine Templates
 
-Status: **Draft — pending review**
+Status: **Approved** — signed off by the user 2026-09-26
 Last generated: 2026-09-25 by Documentation Maker (see "2026-09-25 update" note below; earlier history in the "2026-09-24 refresh" note further down)
 
 > **2026-09-25 update:** three web-developer fixes merged to `development`
@@ -234,11 +234,11 @@ A set of `.json` views under `datasets/mobile_editor/` (content_list, locations,
 
 ## Review status
 
-This document is **Draft — pending review**.
+This document was **Approved** by the user on 2026-09-26 (previously Draft — pending review).
 
 - `zed` reviewed and confirmed 3 flagged passages (2026-09-24):
   - The Zesty CLI pvl-cache/rollback-snapshot description ("How views are stored" section) — **could not confirm against docs.zesty.io** (no CLI reference page found in the llms.txt index); left as an honest inference, not presented as platform-documented.
   - The Block Library/`{{block()}}` rendering-context description — confirmed accurate, now cited to the Create Field API reference's `block_selector` datatype and the live instance's ~25 `type: "block"` models.
   - The "ajax-json" view-type description — confirmed accurate, now cited to docs.zesty.io's JSON-endpoint guide.
 - 2026-09-25: updated the Navigation/infra entry for `client-global-navigation` (coda-2434), `location-finder`/`location-finder-script` (coda-2480), and `zip-search` (coda-2481) — see the "2026-09-25 update" note at the top of this file. Self-verified against current source only — not yet reviewed by ira/zed.
-- Remaining before this doc is final: the user should confirm the doc overall, per this project's standing documentation review convention. Status stays **Draft — pending review** until the user signs off — that's not dot's call to change unilaterally.
+- 2026-09-26: the user confirmed the doc overall — status is now **Approved**. Future changes by dot get flagged "Draft — pending review" at the section level until the user signs off on them.

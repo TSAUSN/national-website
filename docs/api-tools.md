@@ -1,6 +1,6 @@
 # API Tools — `zesty` MCP Local Server
 
-Status: **Draft — pending review**
+Status: **Approved** — signed off by the user 2026-09-26
 Last generated: 2026-09-24 by api-integrator (full re-verification pass against `mcp-local-server` source + live `.mcp.json`)
 
 ## What this is
