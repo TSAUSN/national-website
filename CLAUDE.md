@@ -90,6 +90,28 @@ existing partial before adding one. `webengine/styles/common/temporary-usn.css`
 already redefines utilities like `.mb-5`/`.mt-5` instead of using the
 theme's scale — known debt, not a pattern to follow.
 
+## Styling
+
+The design system is a custom Bootstrap 5 theme maintained separately at
+https://github.com/zesty-io/salvation-army-theme (custom color scale,
+type scale, shadows, rounded scale, buttons, carousel — see that repo's
+README for the full class list). It is **not** linked per-template:
+`webengine/views/z/layouts/settings.json` injects it globally into every
+page's `<head>` via jsDelivr, pinned to a specific commit
+(`salvation-army-theme@<commit>/styles/bootstrap.css`, plus
+`bootstrap-icons`), alongside the existing Bootstrap grid/utility classes
+already used throughout `webengine/views/z/layouts/layouts.json`'s column
+definitions. Bumping the theme means updating that pinned commit in
+`settings.json`, not editing a webengine file. The one template that
+links it directly is `webengine/views/csvgenerator.html`, an internal
+tool page outside the normal layout.
+
+Prefer the theme's Bootstrap classes/components over new custom CSS.
+Check `webengine/styles/{common,components,modules}/*.scss` for an
+existing partial before adding one. `webengine/styles/common/temporary-usn.css`
+already redefines utilities like `.mb-5`/`.mt-5` instead of using the
+theme's scale — known debt, not a pattern to follow.
+
 ## MCP server (`zesty`)
 
 `.mcp.json` (gitignored) configures a local MCP server exposing read-only Zesty Instance API tools. Its source lives outside this repo. On this dev machine it only runs inside WSL (Node isn't on the Windows PATH here), so the command is `wsl.exe -e node /home/.../mcp-local-server/build/index.js`, not a bare `node` call — check `.mcp.json` for the actual path before assuming it. `docs/api-tools.md` documents the tools as implemented in code, plus a list of behaviors that still need confirming against a live API call.

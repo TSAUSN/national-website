@@ -186,25 +186,42 @@
 {{$territoryParentContactHeader = {territories.filter({this.parent_zuid}).contact_us_cta_header} }}
 {{$territoryParentZipcode = {territories.filter({this.parent_zuid}).zipcode} }}
 
-{{$statesTerritoryZUID = {!this.territory} }}
-{{$statesTerritory = {territories.filter({!this.territory}).name} }}
-{{$statesTerritoryCityZUID = {territories.filter({!this.territory}).city} }}
-{{$statesTerritoryStateZUID = {territories.filter({!this.territory}).state} }}
-{{$statesTerritoryCity = {cities.filter({$statesTerritoryCityZUID}).title} }}
-{{$statesTerritoryState = {states.filter({$statesTerritoryStateZUID}).name} }}
+<!-- CODA-2541: resolve a nested informational page's location/division/territory
+     from its immediate parent *informational page* (not this.parent_zuid as a
+     location/division/territory record directly, per the vars above — for
+     pages like "angel-tree-donation" the parent is another informational_pages
+     record, e.g. "Hampton Roads Area Command", whose own .location/.division/
+     .territory field holds the real org record). Resolved synchronously here
+     (server-side, at render time) so the footer's cookie read on page load
+     never races a client-side fetch. -->
+{{$ipParentLocationZUID = {informational_pages.filter({this.parent_zuid}).location} }}
+{{$ipParentDivisionZUID = {informational_pages.filter({this.parent_zuid}).division} }}
+{{$ipParentTerritoryZUID = {informational_pages.filter({this.parent_zuid}).territory} }}
 
-{{$citiesStateZUID = {!this.state} }}
-{{$citiesTerritoryZUID = {states.filter({$citiesStateZUID}).territory} }}
-{{$citiesTerritory = {territories.filter({$citiesTerritoryZUID}).name} }}
-{{$citiesTerritoryCityZUID = {territories.filter({$citiesTerritoryZUID}).city} }}
-{{$citiesTerritoryStateZUID = {territories.filter({$citiesTerritoryZUID}).state} }}
-{{$citiesTerritoryCity = {cities.filter({$citiesTerritoryCityZUID}).title} }}
-{{$citiesTerritoryState = {states.filter({$citiesTerritoryStateZUID}).name} }}
-{{$citiesTerritoryAddress = {territories.filter({$citiesTerritoryZUID}).address} }}
-{{$citiesTerritoryZipcode = {territories.filter({$citiesTerritoryZUID}).zipcode} }}
-{{$citiesTerritoryContactImage = {territories.filter({$citiesTerritoryZUID}).contact_us_image.getImage()} }}
-{{$citiesTerritoryContactTitle = {territories.filter({$citiesTerritoryZUID}).contact_us_title} }}
-{{$citiesTerritoryContactHeader = {territories.filter({$citiesTerritoryZUID}).contact_us_cta_header} }}
+{{$ipParentLocDivisionZUID = {locations.filter({$ipParentLocationZUID}).division} }}
+{{$ipParentLocTerritoryZUID = {locations.filter({$ipParentLocationZUID}).territory} }}
+{{$ipParentLocCityZUID = {locations.filter({$ipParentLocationZUID}).city} }}
+{{$ipParentLocStateZUID = {locations.filter({$ipParentLocationZUID}).state} }}
+
+{{$ipParentDivTerritoryZUID = {divisions.filter({$ipParentDivisionZUID}).territory} }}
+{{$ipParentDivCityZUID = {divisions.filter({$ipParentDivisionZUID}).city} }}
+{{$ipParentDivStateZUID = {divisions.filter({$ipParentDivisionZUID}).state} }}
+
+{{$ipParentTerCityZUID = {territories.filter({$ipParentTerritoryZUID}).city} }}
+{{$ipParentTerStateZUID = {territories.filter({$ipParentTerritoryZUID}).state} }}
+
+<!-- CODA-2541 (QA follow-up): location_state was rendering empty on nested
+     informational pages even though city/address/zipcode/name from the exact
+     same $ipParentLocationZUID lookup resolved correctly — the record's own
+     `state` relationship wasn't reliably resolving through this filter chain.
+     Rather than depend on a single field lookup, resolve state the same way
+     contact-us image/title/header already cascade in this file: location's
+     own state, falling back to its division's state, falling back to its
+     territory's state. These extra ZUIDs back that cascade below. -->
+{{$ipParentLocDivStateZUID = {divisions.filter({$ipParentLocDivisionZUID}).state} }}
+{{$ipParentLocTerStateZUID = {territories.filter({$ipParentLocTerritoryZUID}).state} }}
+{{$ipParentDivTerStateZUID = {territories.filter({$ipParentDivTerritoryZUID}).state} }}
+
 
 <script>
   const cookieManager = {
@@ -1872,8 +1889,10 @@
               window.location.replace(redirectURL);
             }
           }
-          await handleInformationalPage(informationalPageZUID);
-
+          // CODA-2541: this page already has its own `location` field, so
+          // everything below resolves synchronously via Parsley — no need to
+          // await the get-informational-page.json fetch (that fetch was
+          // racing the footer's synchronous cookie read on page load).
           cookieManager.set(cookieKeys.locationModel, `{{$locationModelZUID}}`);
           cookieManager.set(cookieKeys.locationPropertyType, `{{locations.filter({!this.location}).page_layout }}`);
           cookieManager.set(cookieKeys.locationZUID, `{{!this.location}}`);
@@ -1935,7 +1954,7 @@
           (`{{$CL = {locations.filter({!this.location}).city} }}`) ;
           (`{{$CLT = {cities.filter({$CL}).title} }}`);
           (`{{$SL = {locations.filter({!this.location}).state} }}`);
-          (`{{$SLT = { states.filter({$SL}).name} }}`);
+          (`{{$SLT = {states.filter({$SL}).name} }}`);
 
           cookieManager.set(cookieKeys.locationCity, `{{$CLT}}`);
           cookieManager.set(cookieKeys.locationState, `{{$SLT}}`);
@@ -1995,8 +2014,8 @@
           }
 
           (`{{$state = {divisions.filter({!this.division}).state} }}`);
-          await handleInformationalPage(informationalPageZUID);
-
+          // CODA-2541: same reasoning as the location branch above — this
+          // page already has its own `division` field, resolved synchronously.
           cookieManager.set(
             cookieKeys.locationAddress,
             `{{ divisions.filter({!this.division}).address }}`
@@ -2036,9 +2055,9 @@
           }
           await setCodeCookie(`{{!this.division}}`, models.divisions);
         } else if (territoryRelational) {
-          await handleInformationalPage(informationalPageZUID);
-
-          cookieManager.set(cookieKeys.locationModel, models.territories);
+          // CODA-2541: same reasoning as above — this page already has its
+          // own `territory` field, resolved synchronously.
+          cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
           cookieManager.set(cookieKeys.locationZUID, `{{!this.territory}}`);
           cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({!this.territory})}}`);
           cookieManager.set(
@@ -2084,7 +2103,211 @@
 
           await setCodeCookie(`{{!this.territory}}`, models.territories);
         } else if (zuidInformationalPage && `{{this.parent_zuid}}` !== `0`) {
-          await handleInformationalPage(informationalPageZUID);
+          // CODA-2541: this is the nested-campaign-page case (e.g.
+          // angel-tree-donation nested under Hampton Roads Area Command) —
+          // `this` has no location/division/territory of its own, so it was
+          // previously relying entirely on `await handleInformationalPage()`,
+          // an async fetch to get-informational-page.json, to figure out
+          // where it lives. That fetch races the footer's inline script,
+          // which reads location_* cookies *synchronously* while the
+          // document is still being parsed (well before this async function
+          // resolves, and before DOMContentLoaded even fires). The result
+          // was footer content showing stale cookies left over from
+          // whichever page was visited previously (or the hardcoded NHQ
+          // fallback on a first visit) — non-deterministic, since it depended
+          // on network timing.
+          //
+          // Fix: resolve the immediate parent informational page's
+          // location/division/territory synchronously via Parsley (server
+          // side, at render time — see $ipParent* vars near the top of this
+          // file), mirroring get-informational-page.json's own fallback
+          // order (location > division > territory > national), so every
+          // cookie the footer reads is correct before any HTML is even sent
+          // to the browser. No fetch, no race.
+          const ipParentLocationZUID = `{{$ipParentLocationZUID}}`;
+          const ipParentDivisionZUID = `{{$ipParentDivisionZUID}}`;
+          const ipParentTerritoryZUID = `{{$ipParentTerritoryZUID}}`;
+
+          if (ipParentLocationZUID) {
+            cookieManager.set(cookieKeys.locationModel, `{{$locationModelZUID}}`);
+            cookieManager.set(
+              cookieKeys.locationPropertyType,
+              `{{locations.filter({$ipParentLocationZUID}).page_layout}}`
+            );
+            cookieManager.set(cookieKeys.locationZUID, ipParentLocationZUID);
+            cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({$ipParentLocationZUID})}}`);
+            cookieManager.set(cookieKeys.locationName, `{{locations.filter({$ipParentLocationZUID}).name}}`);
+            cookieManager.set(cookieKeys.divisionZUID, `{{$ipParentLocDivisionZUID}}`);
+
+            const locationImage = "{{locations.filter({$ipParentLocationZUID}).contact_us_image.getImage()}}";
+            const divisionImage = "{{divisions.filter({$ipParentLocDivisionZUID}).contact_us_image.getImage()}}";
+            const territoryImage = "{{territories.filter({$ipParentLocTerritoryZUID}).contact_us_image.getImage()}}";
+
+            if (locationImage) {
+              cookieManager.set(cookieKeys.contactUsImage, locationImage);
+              cookieManager.set(cookieKeys.contactUsTitle, `{{locations.filter({$ipParentLocationZUID}).contact_us_title}}`);
+              cookieManager.set(cookieKeys.contactUsHeader, `{{locations.filter({$ipParentLocationZUID}).contact_us_cta_header}}`);
+            } else if (divisionImage) {
+              cookieManager.set(cookieKeys.contactUsImage, divisionImage);
+              cookieManager.set(cookieKeys.contactUsTitle, `{{divisions.filter({$ipParentLocDivisionZUID}).contact_us_title}}`);
+              cookieManager.set(cookieKeys.contactUsHeader, `{{divisions.filter({$ipParentLocDivisionZUID}).contact_us_cta_header}}`);
+            } else if (territoryImage) {
+              cookieManager.set(cookieKeys.contactUsImage, territoryImage);
+              cookieManager.set(cookieKeys.contactUsTitle, `{{territories.filter({$ipParentLocTerritoryZUID}).contact_us_title}}`);
+              cookieManager.set(cookieKeys.contactUsHeader, `{{territories.filter({$ipParentLocTerritoryZUID}).contact_us_cta_header}}`);
+            } else {
+              cookieManager.set(cookieKeys.contactUsImage, `{{homepage.first().contact_us_image.getImage()}}`);
+              cookieManager.set(cookieKeys.contactUsTitle, `{{homepage.first().contact_us_title}}`);
+              cookieManager.set(cookieKeys.contactUsHeader, `{{homepage.first().contact_us_cta_header}}`);
+            }
+
+            cookieManager.set(cookieKeys.locationAddress, `{{locations.filter({$ipParentLocationZUID}).address}}`);
+            cookieManager.set(cookieKeys.locationCity, `{{cities.filter({$ipParentLocCityZUID}).title}}`);
+            // CODA-2541 (QA follow-up): don't rely on a single state lookup —
+            // cascade location -> division -> territory, same fallback order
+            // already used for contact-us fields above.
+            const ipParentLocStateName = `{{states.filter({$ipParentLocStateZUID}).name}}`.trim();
+            const ipParentLocDivStateName = `{{states.filter({$ipParentLocDivStateZUID}).name}}`.trim();
+            const ipParentLocTerStateName = `{{states.filter({$ipParentLocTerStateZUID}).name}}`.trim();
+            cookieManager.set(
+              cookieKeys.locationState,
+              ipParentLocStateName || ipParentLocDivStateName || ipParentLocTerStateName
+            );
+            cookieManager.set(cookieKeys.locationZipcode, `{{locations.filter({$ipParentLocationZUID}).zipcode}}`);
+
+            cookieManager.set(cookieKeys.organizationCorp, `{{locations.filter({$ipParentLocationZUID}).name}}`);
+            cookieManager.set(cookieKeys.organizationDivision, `{{divisions.filter({$ipParentLocDivisionZUID}).name}}`);
+            cookieManager.set(cookieKeys.organizationTerritory, `{{territories.filter({$ipParentLocTerritoryZUID}).name}}`);
+            cookieManager.set(cookieKeys.organizationLevel, levels.corp);
+
+            setLocationCookiesByTerritory(`{{$ipParentLocTerritoryZUID}}`);
+
+            const infoLocDivOnceURL = `{{divisions.filter({$ipParentLocDivisionZUID}).classy_url}}`.trim();
+            const infoLocDivMonthlyURL = `{{divisions.filter({$ipParentLocDivisionZUID}).classy_url_mobile}}`.trim();
+            if (infoLocDivOnceURL && infoLocDivMonthlyURL) {
+              setDonationUrlCookies(infoLocDivOnceURL, infoLocDivMonthlyURL);
+            }
+            const infoLocOnceURL = `{{locations.filter({$ipParentLocationZUID}).classy_url}}`.trim();
+            const infoLocMonthlyURL = `{{locations.filter({$ipParentLocationZUID}).classy_url_mobile}}`.trim();
+            if (infoLocOnceURL && infoLocMonthlyURL) {
+              setDonationUrlCookies(infoLocOnceURL, infoLocMonthlyURL);
+            }
+
+            await setCodeCookie(ipParentLocationZUID, "{{$locationModelZUID}}");
+          } else if (ipParentDivisionZUID) {
+            cookieManager.set(cookieKeys.locationModel, `6-acb19a94bd-4q8ftj`);
+            cookieManager.set(cookieKeys.locationZUID, ipParentDivisionZUID);
+            cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({$ipParentDivisionZUID})}}`);
+            cookieManager.set(cookieKeys.locationName, `{{divisions.filter({$ipParentDivisionZUID}).name}}`);
+
+            const divisionImage = "{{divisions.filter({$ipParentDivisionZUID}).contact_us_image.getImage()}}";
+            const territoryImage = "{{territories.filter({$ipParentDivTerritoryZUID}).contact_us_image.getImage()}}";
+            if (divisionImage) {
+              cookieManager.set(cookieKeys.contactUsImage, divisionImage);
+              cookieManager.set(cookieKeys.contactUsTitle, `{{divisions.filter({$ipParentDivisionZUID}).contact_us_title}}`);
+              cookieManager.set(cookieKeys.contactUsHeader, `{{divisions.filter({$ipParentDivisionZUID}).contact_us_cta_header}}`);
+            } else if (territoryImage) {
+              cookieManager.set(cookieKeys.contactUsImage, territoryImage);
+              cookieManager.set(cookieKeys.contactUsTitle, `{{territories.filter({$ipParentDivTerritoryZUID}).contact_us_title}}`);
+              cookieManager.set(cookieKeys.contactUsHeader, `{{territories.filter({$ipParentDivTerritoryZUID}).contact_us_cta_header}}`);
+            } else {
+              cookieManager.set(cookieKeys.contactUsImage, `{{homepage.first().contact_us_image.getImage()}}`);
+              cookieManager.set(cookieKeys.contactUsTitle, `{{homepage.first().contact_us_title}}`);
+              cookieManager.set(cookieKeys.contactUsHeader, `{{homepage.first().contact_us_cta_header}}`);
+            }
+
+            cookieManager.set(cookieKeys.locationAddress, `{{divisions.filter({$ipParentDivisionZUID}).address}}`);
+            cookieManager.set(cookieKeys.locationCity, `{{cities.filter({$ipParentDivCityZUID}).title}}`);
+            // CODA-2541 (QA follow-up): cascade division -> territory state,
+            // same reasoning as the location branch above.
+            const ipParentDivStateName = `{{states.filter({$ipParentDivStateZUID}).name}}`.trim();
+            const ipParentDivTerStateName = `{{states.filter({$ipParentDivTerStateZUID}).name}}`.trim();
+            cookieManager.set(
+              cookieKeys.locationState,
+              ipParentDivStateName || ipParentDivTerStateName
+            );
+            cookieManager.set(cookieKeys.locationZipcode, `{{divisions.filter({$ipParentDivisionZUID}).zipcode}}`);
+
+            cookieManager.set(cookieKeys.organizationDivision, `{{divisions.filter({$ipParentDivisionZUID}).name}}`);
+            cookieManager.set(cookieKeys.organizationTerritory, `{{territories.filter({$ipParentDivTerritoryZUID}).name}}`);
+            cookieManager.set(cookieKeys.organizationLevel, levels.division);
+
+            cookieManager.delete(cookieKeys.organizationCorp);
+            cookieManager.delete(cookieKeys.locationPropertyType);
+
+            setLocationCookiesByTerritory(`{{$ipParentDivTerritoryZUID}}`);
+
+            const infoDivOnceURL = `{{divisions.filter({$ipParentDivisionZUID}).classy_url}}`.trim();
+            const infoDivMonthlyURL = `{{divisions.filter({$ipParentDivisionZUID}).classy_url_mobile}}`.trim();
+            if (infoDivOnceURL && infoDivMonthlyURL) {
+              setDonationUrlCookies(infoDivOnceURL, infoDivMonthlyURL);
+            }
+
+            await setCodeCookie(ipParentDivisionZUID, "6-acb19a94bd-4q8ftj");
+          } else if (ipParentTerritoryZUID) {
+            cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
+            cookieManager.set(cookieKeys.locationZUID, ipParentTerritoryZUID);
+            cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({$ipParentTerritoryZUID})}}`);
+            cookieManager.set(cookieKeys.locationName, `{{territories.filter({$ipParentTerritoryZUID}).name}}`);
+
+            cookieManager.set(cookieKeys.locationAddress, `{{territories.filter({$ipParentTerritoryZUID}).address}}`);
+            cookieManager.set(cookieKeys.locationCity, `{{cities.filter({$ipParentTerCityZUID}).title}}`);
+            cookieManager.set(cookieKeys.locationState, `{{states.filter({$ipParentTerStateZUID}).name}}`);
+            cookieManager.set(cookieKeys.locationZipcode, `{{territories.filter({$ipParentTerritoryZUID}).zipcode}}`);
+
+            const territoryImage = "{{territories.filter({$ipParentTerritoryZUID}).contact_us_image.getImage()}}";
+            if (territoryImage) {
+              cookieManager.set(cookieKeys.contactUsImage, territoryImage);
+              cookieManager.set(cookieKeys.contactUsTitle, `{{territories.filter({$ipParentTerritoryZUID}).contact_us_title}}`);
+              cookieManager.set(cookieKeys.contactUsHeader, `{{territories.filter({$ipParentTerritoryZUID}).contact_us_cta_header}}`);
+            } else {
+              cookieManager.set(cookieKeys.contactUsImage, `{{homepage.first().contact_us_image.getImage()}}`);
+              cookieManager.set(cookieKeys.contactUsTitle, `{{homepage.first().contact_us_title}}`);
+              cookieManager.set(cookieKeys.contactUsHeader, `{{homepage.first().contact_us_cta_header}}`);
+            }
+
+            cookieManager.set(cookieKeys.organizationTerritory, `{{territories.filter({$ipParentTerritoryZUID}).name}}`);
+            cookieManager.set(cookieKeys.organizationLevel, levels.territory);
+
+            cookieManager.delete(cookieKeys.organizationCorp);
+            cookieManager.delete(cookieKeys.organizationDivision);
+            cookieManager.delete(cookieKeys.locationPropertyType);
+
+            setLocationCookiesByTerritory(ipParentTerritoryZUID);
+
+            await setCodeCookie(ipParentTerritoryZUID, "6-deab97cfd9-wb5km4");
+          } else {
+            // Parent informational page has no location/division/territory
+            // chain either — fall back to national, same as the plain
+            // "else" branch below and get-informational-page.json's final
+            // fallback.
+            cookieManager.set(cookieKeys.locationModel, `6-a0898ca2c1-krnm0f`);
+            cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
+            cookieManager.set(cookieKeys.locationHomeURL, `/`);
+            cookieManager.set(cookieKeys.locationName, `NATIONAL`);
+            cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
+            cookieManager.set(cookieKeys.employmentUrl, `{{$nationalEmployment}}`);
+            cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
+            cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
+            cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
+            cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
+            cookieManager.delete(cookieKeys.territoryZUID);
+            cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
+            cookieManager.set(cookieKeys.contactUsImage, `{{homepage.first().contact_us_image.getImage()}}`);
+            cookieManager.set(cookieKeys.contactUsTitle, `{{homepage.first().contact_us_title}}`);
+            cookieManager.set(cookieKeys.contactUsHeader, `{{homepage.first().contact_us_cta_header}}`);
+            cookieManager.set(cookieKeys.organizationLevel, levels.national);
+            cookieManager.delete(cookieKeys.organizationCorp);
+            cookieManager.delete(cookieKeys.organizationDivision);
+            cookieManager.delete(cookieKeys.organizationTerritory);
+            cookieManager.delete(cookieKeys.locationPropertyType);
+            cookieManager.delete(cookieKeys.locationAddress);
+            cookieManager.delete(cookieKeys.locationCity);
+            cookieManager.delete(cookieKeys.locationState);
+            cookieManager.delete(cookieKeys.locationZipcode);
+
+            await setCodeCookie(`{{homepage.first().zuid}}`);
+          }
         } else {
           cookieManager.set(cookieKeys.locationModel, models.homepage);
           cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
@@ -2527,11 +2750,25 @@
     }
   }
 
+  // CODA-2541: no longer called from the "Informational Page" case in
+  // initCookies() — that switch case now resolves location/division/
+  // territory synchronously via Parsley ($ipParent* vars) instead of this
+  // async fetch, because the fetch was racing the footer's synchronous
+  // cookie read on page load. Left in place (unused) in case another caller
+  // is added later or get-informational-page.json is needed for another
+  // purpose; not removed to keep this change minimal/reviewable.
   async function handleInformationalPage(zuid) {
     const locationCookie = cookieManager.get(cookieKeys.locationZUID);
     console.log(locationCookie)
-    if (locationCookie) {
-      const model = await fetchInformation(`get-informational-page`, zuid);
+    // Previously gated on an existing location_zuid cookie, which meant a
+    // first-time visit (no prior cookie, e.g. a direct link/ad/search hit to a
+    // nested campaign page like angel-tree-donation) never looked up this page's
+    // location at all and silently fell back to the NHQ address in the footer.
+    // Always resolve via the API; guard against a missing/empty response (fetch
+    // failure, or an informational page with no location chain at all) instead
+    // of crashing on `model.content.meta.model_name`.
+    const model = await fetchInformation(`get-informational-page`, zuid);
+    if (model && model.content && model.content.meta && model.content.meta.model_name) {
       switch (model.content.meta.model_name) {
         case `locations`:
           cookieManager.set(cookieKeys.locationModel, `{{$locationModelZUID}}`);
