@@ -326,11 +326,15 @@
       if (plotted || !window.google?.maps?.Map || !(map instanceof google.maps.Map)) return;
       plotted = true;
 
+      // labelOrigin is the label's centre, relative to the icon's top-left:
+      // horizontally centred, just below the 40x40 pin. Both icons share it so
+      // the label stays put when the icon swaps on selection.
       const pinIcon = (url) => ({
         url,
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(15, 40),
-        scaledSize: new google.maps.Size(40, 40)
+        scaledSize: new google.maps.Size(40, 40),
+        labelOrigin: new google.maps.Point(20, 53)
       });
       const defaultIcon = pinIcon('https://8hxvw8tw.media.zestyio.com/location_filled50.png');
       const selectedIcon = pinIcon('https://8hxvw8tw.media.zestyio.com/location_filled.png');
@@ -338,11 +342,19 @@
 
       pins.forEach((pin) => {
         const position = { lat: pin.lat, lng: pin.lng };
+        const pinName = pin.name || 'Salvation Army Location';
         const marker = new google.maps.Marker({
           position,
           map,
           icon: defaultIcon,
-          title: pin.name || 'Salvation Army Location'
+          title: pinName,
+          // Always-visible name under the pin (rendered as plain text).
+          label: {
+            text: pinName,
+            fontSize: '12px',
+            fontWeight: '600',
+            className: 'bg-white text-body border rounded-2 px-2 py-1 lh-1 shadow-sm text-nowrap'
+          }
         });
 
         // Clicking a pin selects it (deselecting any other); clicking the
