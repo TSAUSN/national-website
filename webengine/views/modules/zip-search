@@ -233,7 +233,7 @@
   </div>
 </div>
 
-<!-- Pin data for this city's locations, read by map.js's city-locations__map handler -->
+<!-- Pin data for this city's locations, plotted by the inline script below. Names are entity-encoded here and decoded to plain text by the script. -->
 <script type="application/json" id="city-locations-map-data">
 [{{each locations as location sort by name ASC where find_in_set('{page.zuid}', city )}}{
   "zuid": "{{location.zuid.escapeForJs()}}",
@@ -255,8 +255,8 @@
     cityCardName.textContent = result;
   });
 
-  // Clicking a map pin (see map.js city-locations__map handling) expands or
-  // collapses the matching location's accordion card to match the pin's new
+  // Clicking a map pin (see the pin script below) expands or collapses the
+  // matching location's accordion card to match the pin's new
   // selected/deselected state, scrolling to it when it opens.
   document.addEventListener('cityLocationMarkerClicked', (event) => {
     const detail = event.detail || {};
@@ -283,4 +283,97 @@
       }
     }
   });
+
+  // Plots this city's locations from #city-locations-map-data on window.map.
+  // site.js creates the map (initAutocomplete) when it scrolls into view, then
+  // dispatches mapReady on window; pins are plotted once, after that.
+  (() => {
+    const dataScript = document.getElementById('city-locations-map-data');
+    const mapWrapper = document.getElementById('city-locations-map-wrapper');
+    if (!dataScript || !mapWrapper) return;
+
+    // Decodes HTML entities to plain text; DOMParser doesn't run scripts.
+    const decodeEntities = (str) =>
+      str ? new DOMParser().parseFromString(str, 'text/html').documentElement.textContent : '';
+
+    let pins = [];
+    try {
+      pins = JSON.parse(dataScript.textContent)
+        .map((location) => ({
+          zuid: location.zuid,
+          name: decodeEntities(location.name),
+          lat: parseFloat(location.lat),
+          lng: parseFloat(location.lng)
+        }))
+        // Skip locations without usable coordinates instead of plotting at 0,0.
+        .filter((pin) => Number.isFinite(pin.lat) && Number.isFinite(pin.lng));
+    } catch (error) {
+      console.error('Error parsing city locations map data:', error);
+    }
+
+    // No usable pins: hide the map rather than show an empty continental-US view.
+    // A hidden map never enters the viewport, so Google Maps isn't loaded for it.
+    if (!pins.length) {
+      mapWrapper.classList.add('d-none');
+      return;
+    }
+
+    let plotted = false;
+    let selectedMarker = null;
+
+    const plotPins = () => {
+      const map = window.map;
+      if (plotted || !window.google?.maps?.Map || !(map instanceof google.maps.Map)) return;
+      plotted = true;
+
+      const pinIcon = (url) => ({
+        url,
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(15, 40),
+        scaledSize: new google.maps.Size(40, 40)
+      });
+      const defaultIcon = pinIcon('https://8hxvw8tw.media.zestyio.com/location_filled50.png');
+      const selectedIcon = pinIcon('https://8hxvw8tw.media.zestyio.com/location_filled.png');
+      const bounds = new google.maps.LatLngBounds();
+
+      pins.forEach((pin) => {
+        const position = { lat: pin.lat, lng: pin.lng };
+        const marker = new google.maps.Marker({
+          position,
+          map,
+          icon: defaultIcon,
+          title: pin.name || 'Salvation Army Location'
+        });
+
+        // Clicking a pin selects it (deselecting any other); clicking the
+        // selected pin again deselects it.
+        marker.addListener('click', () => {
+          const isSelected = selectedMarker !== marker;
+          if (selectedMarker) selectedMarker.setIcon(defaultIcon);
+          marker.setIcon(isSelected ? selectedIcon : defaultIcon);
+          selectedMarker = isSelected ? marker : null;
+          if (isSelected) map.setCenter(position);
+
+          document.dispatchEvent(
+            new CustomEvent('cityLocationMarkerClicked', {
+              detail: { zuid: pin.zuid, selected: isSelected }
+            })
+          );
+        });
+
+        bounds.extend(position);
+      });
+
+      if (pins.length === 1) {
+        map.setCenter(bounds.getCenter());
+        map.setZoom(12);
+      } else {
+        map.fitBounds(bounds);
+      }
+    };
+
+    // Plot now if the map already exists, otherwise wait for site.js.
+    plotPins();
+    if (!plotted) window.addEventListener('mapReady', plotPins, { once: true });
+  })();
 </script>
