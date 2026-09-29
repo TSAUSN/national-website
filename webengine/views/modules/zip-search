@@ -39,6 +39,13 @@
 <div class="mt-16">
   <!-- <h1 class="fs-4 ms-8 mb-6">Searh Results for "Z5005":</h1> -->
   <div class="bg-light p-8 rounded-5 align-items-center gap-4">
+    <!-- Shared map of this city's own locations, plotted from the pin data below -->
+    <div class="position-relative mb-8" id="city-locations-map-wrapper">
+      <div class="rounded-5 city-locations__map goggle-map"></div>
+      <div class="map-loader d-none">
+        <div class="map-loader__spinner"></div>
+      </div>
+    </div>
     <div class="row g-3">
       {{each locations as location sort by name ASC where find_in_set('{page.zuid}', city )}}
       {{$cityName = ""}}
@@ -226,6 +233,16 @@
   </div>
 </div>
 
+<!-- Pin data for this city's locations, read by map.js's city-locations__map handler -->
+<script type="application/json" id="city-locations-map-data">
+[{{each locations as location sort by name ASC where find_in_set('{page.zuid}', city )}}{
+  "zuid": "{{location.zuid.escapeForJs()}}",
+  "name": "{{if {location.site_name} !== null && {location.site_name} !== ""}}{{location.site_name.htmlentities().escapeForJs()}}{{else}}{{location.name.htmlentities().escapeForJs()}}{{/if}}",
+  "lat": "{{location.latitude.escapeForJs()}}",
+  "lng": "{{location.longitude.escapeForJs()}}"
+}{{location._arraycomma}}{{/each}}]
+</script>
+
 <script>
   const cityCardNames = document.querySelectorAll('.city-card-name');
   const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9À-ſ]+(?:['-][A-Za-z0-9À-ſ]+)*)\b/gi;
@@ -236,5 +253,34 @@
     });
 
     cityCardName.textContent = result;
+  });
+
+  // Clicking a map pin (see map.js city-locations__map handling) expands or
+  // collapses the matching location's accordion card to match the pin's new
+  // selected/deselected state, scrolling to it when it opens.
+  document.addEventListener('cityLocationMarkerClicked', (event) => {
+    const detail = event.detail || {};
+    const zuid = detail.zuid;
+    if (!zuid) return;
+
+    const collapseEl = document.getElementById(`locationCollapse-${zuid}`);
+    if (!collapseEl) return;
+
+    const buttonEl = document.querySelector(`[data-bs-target="#locationCollapse-${zuid}"]`);
+
+    if (detail.selected) {
+      collapseEl.classList.add('show');
+      if (buttonEl) {
+        buttonEl.classList.remove('collapsed');
+        buttonEl.setAttribute('aria-expanded', 'true');
+      }
+      collapseEl.closest('.accordion').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      collapseEl.classList.remove('show');
+      if (buttonEl) {
+        buttonEl.classList.add('collapsed');
+        buttonEl.setAttribute('aria-expanded', 'false');
+      }
+    }
   });
 </script>

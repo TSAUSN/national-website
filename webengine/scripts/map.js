@@ -952,6 +952,103 @@ async function displayLocationMarkers(searchLocation) {
     }
   }
 }
+// Plots pins for a city page's own locations from the JSON blob it embeds
+// (#city-locations-map-data) - no site-wide fetch, geocoding, or distance
+// filtering. Clicking a pin dispatches cityLocationMarkerClicked so the
+// page's own script can expand/scroll to the matching card.
+function displayCityLocationMarkers() {
+  const dataScript = document.getElementById('city-locations-map-data');
+  if (!dataScript) return;
+
+  let locations = [];
+  try {
+    locations = JSON.parse(dataScript.textContent);
+  } catch (error) {
+    console.error('Error parsing city locations map data:', error);
+    return;
+  }
+
+  const customIcon = {
+    url: 'https://8hxvw8tw.media.zestyio.com/location_filled50.png',
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(15, 40),
+    scaledSize: new google.maps.Size(40, 40)
+  };
+  const selectedIcon = {
+    url: 'https://8hxvw8tw.media.zestyio.com/location_filled.png',
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(15, 40),
+    scaledSize: new google.maps.Size(40, 40)
+  };
+
+  const bounds = new google.maps.LatLngBounds();
+  let pinCount = 0;
+
+  locations.forEach((location) => {
+    const lat = parseFloat(location.lat);
+    const lng = parseFloat(location.lng);
+    // Skip locations without usable coordinates instead of plotting at 0,0.
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
+
+    const position = { lat, lng };
+    const marker = new google.maps.Marker({
+      position,
+      map: window.map,
+      icon: customIcon,
+      defaultIcon: customIcon,
+      selectedIcon: selectedIcon,
+      title: convertHtmlEntities(location.name) || 'Salvation Army Location'
+    });
+
+    marker.addListener('click', () => {
+      if (window.selectedCityMarker && window.selectedCityMarker !== marker) {
+        window.selectedCityMarker.setIcon(window.selectedCityMarker.defaultIcon);
+      }
+
+      let isSelected;
+      if (window.selectedCityMarker === marker) {
+        marker.setIcon(marker.defaultIcon);
+        window.selectedCityMarker = null;
+        isSelected = false;
+      } else {
+        marker.setIcon(marker.selectedIcon);
+        window.selectedCityMarker = marker;
+        isSelected = true;
+      }
+
+      if (isSelected) {
+        window.map.setCenter(marker.getPosition());
+      }
+
+      // Tell the page's listener whether this pin was just selected or
+      // deselected, so it can open or close the matching card to match.
+      document.dispatchEvent(
+        new CustomEvent('cityLocationMarkerClicked', {
+          detail: { zuid: location.zuid, selected: isSelected }
+        })
+      );
+    });
+
+    bounds.extend(position);
+    pinCount += 1;
+  });
+
+  if (pinCount === 0) {
+    // No usable pins for this city - hide the map instead of leaving it on
+    // its default continental-US view, which would look broken with no pins.
+    const mapWrapper = document.getElementById('city-locations-map-wrapper');
+    if (mapWrapper) mapWrapper.classList.add('d-none');
+    return;
+  }
+
+  if (pinCount === 1) {
+    window.map.setCenter(bounds.getCenter());
+    window.map.setZoom(12);
+  } else {
+    window.map.fitBounds(bounds);
+  }
+}
+
 async function getAddressFromCoordinates(latitude, longitude) {
   try {
     const response = await fetch(
@@ -995,6 +1092,9 @@ window.initAutocomplete = async function () {
     'contact-form__map',
     'map-with-info-contact__map'
   ];
+  // City pages plot only that city's own locations from data already embedded
+  // in the page, so this class is kept out of mapClass above (no site-wide fetch).
+  const isCityLocationsMap = googleMapContainer.classList.contains('city-locations__map');
 
   //This checks if there are maps that uses the location data present on the page.
   const hasAnyMapClass = mapClass.some((className) =>
@@ -1011,7 +1111,9 @@ window.initAutocomplete = async function () {
 
   const isMapWithInfo = document.querySelector('#map-with-info .goggle-map') !== null;
 
-  if (isMapWithInfo) {
+  if (isCityLocationsMap) {
+    displayCityLocationMarkers();
+  } else if (isMapWithInfo) {
     try {
       if (typeof window.getLocationAddress === 'function') {
         const address = await window.getLocationAddress();
