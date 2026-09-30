@@ -278,10 +278,10 @@
   // (initAutocomplete) when it scrolls into view, then dispatches mapReady on
   // window; pins are plotted once, after that.
   (() => {
-    // Shared by the card names and the map pins. Short connector words
-    // (a, of, the...) are left as they are, as are the known acronyms below
-    // (as entered, all caps) and mixed-case words (LaVillita, McDonald). Other
-    // words are title-cased per hyphenated part (STOP-IT -> Stop-It).
+    // Word-level title-casing. Short connector words (a, of, the...) are left
+    // as they are, as are the known acronyms below (as entered, all caps) and
+    // mixed-case words (LaVillita, McDonald). Other words are title-cased per
+    // hyphenated part (STOP-IT -> Stop-It).
     const titleCaseRegex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9À-ſ]+(?:['’-][A-Za-z0-9À-ſ]+)*)\b/gi;
     // Kept wherever they appear.
     const KEPT_ACRONYMS = new Set(['DC', 'PR', 'TSA', 'USA']);
@@ -305,7 +305,7 @@
         after.startsWith(' (')
       );
     };
-    const toTitleCase = (text) =>
+    const titleCaseWords = (text) =>
       text.replace(titleCaseRegex, (word, _match, offset, fullText) => {
         if (KEPT_ACRONYMS.has(word)) return word;
         if (STATE_CODES.has(word) && isStatePosition(fullText, offset, word.length)) return word;
@@ -316,8 +316,20 @@
           .join('-');
       });
 
+    // Location names (cards and pins): a mixed-case name is kept as entered;
+    // only ALL CAPS or all-lowercase names are title-cased.
+    const toTitleCase = (name) =>
+      /\p{Lu}/u.test(name) && /\p{Ll}/u.test(name) ? name : titleCaseWords(name);
+
+    // Card names inside the location accordions are location names. The
+    // hero's heading and intro (template text around the city name) keep
+    // word-level title-casing, so "Locations in CHICAGO" still reads
+    // "Locations in Chicago".
     document.querySelectorAll('.city-card-name').forEach((cityCardName) => {
-      cityCardName.textContent = toTitleCase(cityCardName.textContent);
+      const text = cityCardName.textContent;
+      cityCardName.textContent = cityCardName.closest('.accordion')
+        ? toTitleCase(text)
+        : titleCaseWords(text);
     });
 
     const dataScript = document.getElementById('city-locations-map-data');
@@ -534,6 +546,7 @@
         });
         // Label shown under the pin when there's room (rendered as plain text).
         const entry = {
+          zuid: pin.zuid,
           marker,
           shown: false,
           label: {
@@ -567,11 +580,13 @@
           if (isSelected) map.setCenter(position);
           if (!isSelected || alreadyCentered) updateLabels();
 
-          document.dispatchEvent(
-            new CustomEvent('cityLocationMarkerClicked', {
-              detail: { zuid: pin.zuid, selected: isSelected }
-            })
-          );
+          const notifyCard = (zuid, selected) =>
+            document.dispatchEvent(
+              new CustomEvent('cityLocationMarkerClicked', { detail: { zuid, selected } })
+            );
+          // Switching pins closes the previous pin's card before opening this one.
+          if (isSelected && previousEntry) notifyCard(previousEntry.zuid, false);
+          notifyCard(pin.zuid, isSelected);
         });
 
         // Hovering a pin shows its label on top; mouseout hands it back to
