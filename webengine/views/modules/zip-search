@@ -244,17 +244,6 @@
 </script>
 
 <script>
-  const cityCardNames = document.querySelectorAll('.city-card-name');
-  const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9À-ſ]+(?:['-][A-Za-z0-9À-ſ]+)*)\b/gi;
-
-  cityCardNames.forEach((cityCardName) => {
-    const result = cityCardName.textContent.replace(regex, (word) => {
-      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-    });
-
-    cityCardName.textContent = result;
-  });
-
   // Clicking a map pin (see the pin script below) expands or collapses the
   // matching location's accordion card to match the pin's new
   // selected/deselected state, scrolling to it when it opens.
@@ -284,10 +273,21 @@
     }
   });
 
-  // Plots this city's locations from #city-locations-map-data on window.map.
-  // site.js creates the map (initAutocomplete) when it scrolls into view, then
-  // dispatches mapReady on window; pins are plotted once, after that.
+  // Title-cases the location card names, then plots this city's locations
+  // from #city-locations-map-data on window.map. site.js creates the map
+  // (initAutocomplete) when it scrolls into view, then dispatches mapReady on
+  // window; pins are plotted once, after that.
   (() => {
+    // Shared by the card names and the map pins. Short connector words
+    // (a, of, the...) are left as they are.
+    const titleCaseRegex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9À-ſ]+(?:['-][A-Za-z0-9À-ſ]+)*)\b/gi;
+    const toTitleCase = (text) =>
+      text.replace(titleCaseRegex, (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+
+    document.querySelectorAll('.city-card-name').forEach((cityCardName) => {
+      cityCardName.textContent = toTitleCase(cityCardName.textContent);
+    });
+
     const dataScript = document.getElementById('city-locations-map-data');
     const mapWrapper = document.getElementById('city-locations-map-wrapper');
     if (!dataScript || !mapWrapper) return;
@@ -318,53 +318,184 @@
       return;
     }
 
+    // Pin icon geometry (px, relative to the icon's top-left). labelOrigin is
+    // the label's centre: horizontally centred, just below the 40x40 pin.
+    const ICON_ANCHOR = { x: 15, y: 40 };
+    const LABEL_ORIGIN = { x: 20, y: 53 };
+    // Label box, matching the label options/classes below: 12px/600 text, lh-1,
+    // px-2 py-1 (8px/4px) padding, a 1px border, plus 2px of width slack.
+    const LABEL_FONT_FAMILY = 'Roboto, Arial, sans-serif';
+    const LABEL_FONT = `600 12px ${LABEL_FONT_FAMILY}`;
+    const LABEL_EXTRA_WIDTH = 2 * 8 + 2 * 1 + 2;
+    const LABEL_HEIGHT = 12 + 2 * 4 + 2 * 1;
+    const LABEL_GAP = 4;
+    // Keeps labels clear of the Google logo/attribution along the map's bottom.
+    const LABEL_BOTTOM_RESERVE = 24;
+    const LABEL_MAX_CHARS = 30;
+
+    const truncate = (text) =>
+      text.length > LABEL_MAX_CHARS ? `${text.slice(0, LABEL_MAX_CHARS - 1).trimEnd()}…` : text;
+
     let plotted = false;
-    let selectedMarker = null;
 
     const plotPins = () => {
       const map = window.map;
       if (plotted || !window.google?.maps?.Map || !(map instanceof google.maps.Map)) return;
       plotted = true;
 
-      // labelOrigin is the label's centre, relative to the icon's top-left:
-      // horizontally centred, just below the 40x40 pin. Both icons share it so
-      // the label stays put when the icon swaps on selection.
+      // Both icons share labelOrigin so the label stays put when the icon swaps.
       const pinIcon = (url) => ({
         url,
         origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(15, 40),
+        anchor: new google.maps.Point(ICON_ANCHOR.x, ICON_ANCHOR.y),
         scaledSize: new google.maps.Size(40, 40),
-        labelOrigin: new google.maps.Point(20, 53)
+        labelOrigin: new google.maps.Point(LABEL_ORIGIN.x, LABEL_ORIGIN.y)
       });
       const defaultIcon = pinIcon('https://8hxvw8tw.media.zestyio.com/location_filled50.png');
       const selectedIcon = pinIcon('https://8hxvw8tw.media.zestyio.com/location_filled.png');
       const bounds = new google.maps.LatLngBounds();
 
-      pins.forEach((pin) => {
+      const Z_SELECTED = google.maps.Marker.MAX_ZINDEX + 1;
+      const Z_HOVERED = google.maps.Marker.MAX_ZINDEX + 2;
+      let entries = [];
+      let selectedEntry = null;
+      let hoveredEntry = null;
+
+      // A no-op overlay, used only for its projection (lat/lng to map pixels).
+      const overlay = new google.maps.OverlayView();
+      overlay.onAdd = () => {};
+      overlay.onRemove = () => {};
+
+      const measureContext = document.createElement('canvas').getContext('2d');
+      const labelWidth = (entry) => {
+        if (entry.width === undefined) {
+          measureContext.font = LABEL_FONT;
+          entry.width =
+            Math.ceil(measureContext.measureText(entry.label.text).width) + LABEL_EXTRA_WIDTH;
+        }
+        return entry.width;
+      };
+
+      // Only touch the marker when visibility changes, to avoid flicker.
+      const setLabelShown = (entry, show) => {
+        if (entry.shown === show) return;
+        entry.shown = show;
+        entry.marker.setLabel(show ? entry.label : null);
+      };
+
+      const restoreZIndex = (entry) => {
+        entry.marker.setZIndex(entry === selectedEntry ? Z_SELECTED : undefined);
+      };
+
+      const boxesOverlap = (a, b) =>
+        a.left < b.right + LABEL_GAP &&
+        b.left < a.right + LABEL_GAP &&
+        a.top < b.bottom + LABEL_GAP &&
+        b.top < a.bottom + LABEL_GAP;
+
+      // Greedy pass: the selected pin's label always shows; each other label
+      // shows only if it fits inside the map and doesn't overlap one already
+      // shown. A hovered label is left as it is until mouseout, but still
+      // reserves its space.
+      const updateLabels = () => {
+        const projection = overlay.getProjection();
+        if (!projection) return;
+
+        const mapDiv = map.getDiv();
+        const mapWidth = mapDiv.clientWidth;
+        const mapHeight = mapDiv.clientHeight;
+        const shownBoxes = [];
+        const ordered = selectedEntry
+          ? [selectedEntry, ...entries.filter((entry) => entry !== selectedEntry)]
+          : entries;
+
+        ordered.forEach((entry) => {
+          const isHovered = entry === hoveredEntry;
+          const point = projection.fromLatLngToContainerPixel(entry.marker.getPosition());
+          if (!point) {
+            if (!isHovered) setLabelShown(entry, entry === selectedEntry);
+            return;
+          }
+
+          const width = labelWidth(entry);
+          const centerX = point.x - ICON_ANCHOR.x + LABEL_ORIGIN.x;
+          const centerY = point.y - ICON_ANCHOR.y + LABEL_ORIGIN.y;
+          const box = {
+            left: centerX - width / 2,
+            right: centerX + width / 2,
+            top: centerY - LABEL_HEIGHT / 2,
+            bottom: centerY + LABEL_HEIGHT / 2
+          };
+          const fitsMap =
+            box.left >= 0 &&
+            box.top >= 0 &&
+            box.right <= mapWidth &&
+            box.bottom <= mapHeight - LABEL_BOTTOM_RESERVE;
+          const show = isHovered
+            ? entry.shown
+            : entry === selectedEntry ||
+              (fitsMap && !shownBoxes.some((shownBox) => boxesOverlap(box, shownBox)));
+
+          if (show) shownBoxes.push(box);
+          if (!isHovered) setLabelShown(entry, show);
+        });
+      };
+
+      // The first draw means the projection is ready; idle covers zoom/pan after.
+      let projectionReady = false;
+      overlay.draw = () => {
+        if (projectionReady) return;
+        projectionReady = true;
+        updateLabels();
+      };
+
+      // Only devices that really hover get hover labels; a tap can fire
+      // mouseover without a matching mouseout.
+      const canHover = window.matchMedia?.('(hover: hover)').matches;
+
+      entries = pins.map((pin) => {
         const position = { lat: pin.lat, lng: pin.lng };
-        const pinName = pin.name || 'Salvation Army Location';
+        const pinName = toTitleCase(pin.name || 'Salvation Army Location');
         const marker = new google.maps.Marker({
           position,
           map,
           icon: defaultIcon,
-          title: pinName,
-          // Always-visible name under the pin (rendered as plain text).
+          title: pinName
+        });
+        // Label shown under the pin when there's room (rendered as plain text).
+        const entry = {
+          marker,
+          shown: false,
           label: {
-            text: pinName,
+            text: truncate(pinName),
+            fontFamily: LABEL_FONT_FAMILY,
             fontSize: '12px',
             fontWeight: '600',
-            className: 'bg-white text-body border rounded-2 px-2 py-1 lh-1 shadow-sm text-nowrap'
+            // Maps sets the label colour inline, so it's set here (body text colour).
+            color: '#1c1b1f',
+            className: 'bg-white border rounded-2 px-2 py-1 lh-1 shadow-sm text-nowrap'
           }
-        });
+        };
 
         // Clicking a pin selects it (deselecting any other); clicking the
         // selected pin again deselects it.
         marker.addListener('click', () => {
-          const isSelected = selectedMarker !== marker;
-          if (selectedMarker) selectedMarker.setIcon(defaultIcon);
+          const previousEntry = selectedEntry;
+          const isSelected = previousEntry !== entry;
+          if (previousEntry) previousEntry.marker.setIcon(defaultIcon);
           marker.setIcon(isSelected ? selectedIcon : defaultIcon);
-          selectedMarker = isSelected ? marker : null;
+          selectedEntry = isSelected ? entry : null;
+          if (previousEntry && previousEntry !== hoveredEntry) restoreZIndex(previousEntry);
+          if (entry !== hoveredEntry) restoreZIndex(entry);
+
+          // Selecting re-centres the map and idle re-runs the label pass once the
+          // projection has caught up. Run it now on deselect, or if the map is
+          // already centred on this pin (no idle follows).
+          const center = map.getCenter();
+          const alreadyCentered =
+            center && center.equals(new google.maps.LatLng(position.lat, position.lng));
           if (isSelected) map.setCenter(position);
+          if (!isSelected || alreadyCentered) updateLabels();
 
           document.dispatchEvent(
             new CustomEvent('cityLocationMarkerClicked', {
@@ -373,14 +504,60 @@
           );
         });
 
+        // Hovering a pin shows its label on top; mouseout hands it back to
+        // the collision pass.
+        if (canHover) {
+          marker.addListener('mouseover', () => {
+            const previousHovered = hoveredEntry;
+            hoveredEntry = entry;
+            if (previousHovered && previousHovered !== entry) restoreZIndex(previousHovered);
+            marker.setZIndex(Z_HOVERED);
+            setLabelShown(entry, true);
+            if (previousHovered && previousHovered !== entry) updateLabels();
+          });
+          marker.addListener('mouseout', () => {
+            if (hoveredEntry === entry) hoveredEntry = null;
+            restoreZIndex(entry);
+            updateLabels();
+          });
+        }
+
         bounds.extend(position);
+        return entry;
       });
+
+      overlay.setMap(map);
+      map.addListener('idle', updateLabels);
+
+      // Widths measured before the label webfont loaded may be off; re-measure
+      // once it's available.
+      if (document.fonts?.load) {
+        document.fonts
+          .load(LABEL_FONT)
+          .then(() => {
+            entries.forEach((entry) => {
+              entry.width = undefined;
+            });
+            updateLabels();
+          })
+          .catch(() => {});
+      }
 
       if (pins.length === 1) {
         map.setCenter(bounds.getCenter());
         map.setZoom(12);
       } else {
-        map.fitBounds(bounds);
+        // Keep edge pins clear of the map edge: room for the 40px pin above,
+        // and below for the label plus the bottom reserve (4px slack). Sides
+        // get less on narrow (mobile) maps.
+        const edgePadding = map.getDiv().clientWidth < 400 ? 24 : 40;
+        const labelBelowPin = LABEL_ORIGIN.y - ICON_ANCHOR.y + LABEL_HEIGHT / 2;
+        map.fitBounds(bounds, {
+          top: 48,
+          right: edgePadding,
+          bottom: labelBelowPin + LABEL_BOTTOM_RESERVE + 4,
+          left: edgePadding
+        });
       }
     };
 
