@@ -25,15 +25,37 @@
         </div>
         <div class="row g-2" id="angel-tree-type-toggle">
           <div class="col-6" id="angel-tree-type-col-online">
-            <button type="button" class="angel-tree-type-btn btn w-100 h-100 text-start d-flex flex-column align-items-start gap-1 border rounded-3 p-3" data-registry-type="online">
-              <span class="fw-bold">Walmart’s Spark Good Online Registry</span>
-              <span class="text-muted display-3">Buy gifts online and ship them to a local unit</span>
+            <button type="button" class="angel-tree-type-btn btn w-100 h-100 text-start p-3 rounded-3 border-2 text-body bg-white border-danger-subtle" data-registry-type="online">
+              <div class="d-flex align-items-center gap-2 mb-1">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width:32px;height:32px;background-color:#FBE4E6;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc3545" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="8" width="18" height="4" rx="1"></rect>
+                    <path d="M12 8v13"></path>
+                    <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path>
+                    <path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8"></path>
+                    <path d="M16.5 8a2.5 2.5 0 0 0 0-5C13 3 12 8 12 8"></path>
+                  </svg>
+                </span>
+                <span class="fw-bold">Online registry</span>
+              </div>
+              <span class="small text-body-secondary">Buy gifts online and ship them to a local unit</span>
             </button>
           </div>
           <div class="col-6" id="angel-tree-type-col-store">
-            <button type="button" class="angel-tree-type-btn btn w-100 h-100 text-start d-flex flex-column align-items-start gap-1 border rounded-3 p-3" data-registry-type="store">
-              <span class="fw-bold">In store</span>
-              <span class="text-muted display-3">Pick up an Angel Tree tag at a Walmart or Sam's Club</span>
+            <button type="button" class="angel-tree-type-btn btn w-100 h-100 text-start p-3 rounded-3 border-2 text-body bg-white border-primary-subtle" data-registry-type="store">
+              <div class="d-flex align-items-center gap-2 mb-1">
+                <span class="d-inline-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width:32px;height:32px;background-color:#E2ECFD;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0d6efd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path>
+                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                    <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path>
+                    <path d="M2 7h20"></path>
+                    <path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"></path>
+                  </svg>
+                </span>
+                <span class="fw-bold">In store</span>
+              </div>
+              <span class="small text-body-secondary">Pick up an Angel Tree tag at a Walmart or Sam's Club</span>
             </button>
           </div>
         </div>
@@ -90,16 +112,13 @@
 
 <style>
   .angel-tree-type-btn {
-    background-color: #fff;
-    color: #495057;
-    font-weight: 500;
-    transition: border-color .15s ease, color .15s ease, background-color .15s ease;
+    transition: border-color .15s ease, background-color .15s ease;
   }
-  .angel-tree-type-btn.active {
-    border-color: var(--bs-danger, #dc3545) !important;
-    color: var(--bs-danger, #dc3545);
-    background-color: rgba(220, 53, 69, 0.06);
-    font-weight: 600;
+  .angel-tree-type-btn.border-danger-subtle:hover {
+    border-color: var(--bs-danger) !important;
+  }
+  .angel-tree-type-btn.border-primary-subtle:hover {
+    border-color: var(--bs-primary) !important;
   }
   .angel-tree-type-btn.locked {
     cursor: default;
@@ -135,6 +154,12 @@ let savedLocationInput = null;
 const RESET_LINK_LABEL = {
   [REGISTRY_TYPE_ONLINE]: 'Donate in store instead',
   [REGISTRY_TYPE_STORE]: 'Donate online instead'
+};
+
+// Bootstrap color used for each registry type's button border/background
+const REGISTRY_TYPE_BS_COLOR = {
+  [REGISTRY_TYPE_ONLINE]: 'danger',
+  [REGISTRY_TYPE_STORE]: 'primary'
 };
 
 const REGISTRY_TYPE_CONFIG = {
@@ -536,7 +561,9 @@ const applyRegistryTypeSelectionUI = (type) => {
     selectedCol.classList.add('col-12');
   }
   if (selectedBtn) {
-    selectedBtn.classList.add('active', 'locked');
+    const color = REGISTRY_TYPE_BS_COLOR[type];
+    selectedBtn.classList.remove('bg-white', `border-${color}-subtle`);
+    selectedBtn.classList.add('active', 'locked', `bg-${color}-subtle`, `border-${color}`);
     selectedBtn.setAttribute('aria-disabled', 'true');
     selectedBtn.tabIndex = -1;
   }
@@ -621,13 +648,15 @@ const resetAngelTreeFilter = () => {
   REGISTRY_TYPES.forEach(type => {
     const col = document.querySelector(`#angel-tree-type-col-${type}`);
     const btn = col?.querySelector('button');
+    const color = REGISTRY_TYPE_BS_COLOR[type];
 
     if (col) {
       col.classList.remove('d-none', 'col-12');
       col.classList.add('col-6');
     }
     if (btn) {
-      btn.classList.remove('active', 'locked');
+      btn.classList.remove('active', 'locked', `bg-${color}-subtle`, `border-${color}`);
+      btn.classList.add('bg-white', `border-${color}-subtle`);
       btn.removeAttribute('aria-disabled');
       btn.tabIndex = 0;
     }
