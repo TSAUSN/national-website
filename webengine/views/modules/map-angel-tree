@@ -13,7 +13,16 @@
       {{/if}}
 
       <div class="mb-6">
-        <span class="text-secondary fw-semibold d-block mb-2" id="angel-tree-type-label">How would you like to give?</span>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-secondary fw-semibold" id="angel-tree-type-label">How would you like to give?</span>
+          <button
+            type="button"
+            class="btn btn-link btn-sm text-danger text-decoration-none fw-semibold p-0 d-none"
+            id="angel-tree-reset-link"
+            aria-label="Change donation type"
+            onclick="resetAngelTreeFilter()"
+          ></button>
+        </div>
         <div class="row g-2" id="angel-tree-type-toggle">
           <div class="col-6" id="angel-tree-type-col-online">
             <button type="button" class="angel-tree-type-btn btn w-100 h-100 text-start d-flex flex-column align-items-start gap-1 border rounded-3 p-3" data-registry-type="online">
@@ -105,11 +114,28 @@ let items = [];
 const REGISTRY_TYPE_ONLINE = 'online';
 const REGISTRY_TYPE_STORE = 'store';
 
-// null until the user makes their one-time registry-type choice
+const REGISTRY_TYPES = [REGISTRY_TYPE_ONLINE, REGISTRY_TYPE_STORE];
+
+// null until the user makes a registry-type choice. A choice can be undone
+// via the "Donate ... instead" link, which sends it back to null.
 let activeRegistryType = null;
 let currentResults = { [REGISTRY_TYPE_ONLINE]: [], [REGISTRY_TYPE_STORE]: [] };
 let lastSearchCenter = null;
 let lastSearchTerm = '';
+let selectedId = null;
+
+// Per-type dataset cache so switching registry types mid-session never
+// re-fetches data that was already pulled from QuickBase.
+const registryDataCache = { [REGISTRY_TYPE_ONLINE]: null, [REGISTRY_TYPE_STORE]: null };
+
+// The location the donor entered or allowed, kept across a filter reset so
+// re-selecting a type can re-run the search without asking again.
+let savedLocationInput = null;
+
+const RESET_LINK_LABEL = {
+  [REGISTRY_TYPE_ONLINE]: 'Donate in store instead',
+  [REGISTRY_TYPE_STORE]: 'Donate online instead'
+};
 
 const REGISTRY_TYPE_CONFIG = {
   [REGISTRY_TYPE_ONLINE]: {
@@ -391,8 +417,17 @@ const generateCards = (locations, registryType, analyticsObject) => {
   }).join('');
 };
 
+// Fires a lightweight utag.link event, used for the filter select/reset
+// analytics that don't carry the richer dataset the other tracking helpers do.
+const fireAngelTreeAnalyticsEvent = (eventName, data) => {
+  if (typeof utag !== 'undefined' && utag?.link) {
+    utag.link({ event: eventName, ...data });
+  }
+};
+
 // Function to handle marker click and card interaction
 const handleMarkerClick = (markerId) => {
+  selectedId = markerId;
   const cardsContainer = document.querySelector('#angel-tree-result');
 
   // Remove active class from all cards
@@ -468,26 +503,23 @@ const renderActiveType = () => {
   }
 };
 
-// Wires up the "Online registry" / "In store" buttons. The choice is a
-// one-time lock: once picked, the other option disappears and there is no
-// way back short of reloading the page.
+// Wires up the "Online registry" / "In store" buttons. A choice can be
+// undone via the "Donate ... instead" link (resetAngelTreeFilter), which
+// sends activeRegistryType back to null and re-enables these buttons.
 const setupRegistryTypeToggle = () => {
   const buttons = document.querySelectorAll('#angel-tree-type-toggle button[data-registry-type]');
 
   buttons.forEach(btn => {
     btn.addEventListener('click', function () {
-      if (activeRegistryType) return; // already locked in
+      if (activeRegistryType) return; // a type is already selected
       selectRegistryType(this.dataset.registryType);
     });
   });
 };
 
-// Locks in the chosen registry type: updates the toggle UI, reveals the
-// search controls, and fetches only that type's dataset.
-const selectRegistryType = async (type) => {
-  if (activeRegistryType) return;
-  activeRegistryType = type;
-
+// Updates the toggle UI for the chosen registry type: collapses the other
+// option, locks in the selected button, and reveals the search controls.
+const applyRegistryTypeSelectionUI = (type) => {
   const otherType = type === REGISTRY_TYPE_ONLINE ? REGISTRY_TYPE_STORE : REGISTRY_TYPE_ONLINE;
   const heading = document.querySelector('#angel-tree-heading');
   const label = document.querySelector('#angel-tree-type-label');
@@ -496,6 +528,7 @@ const selectRegistryType = async (type) => {
   const otherCol = document.querySelector(`#angel-tree-type-col-${otherType}`);
   const selectedCol = document.querySelector(`#angel-tree-type-col-${type}`);
   const selectedBtn = selectedCol?.querySelector('button');
+  const resetLink = document.querySelector('#angel-tree-reset-link');
 
   if (otherCol) otherCol.classList.add('d-none');
   if (selectedCol) {
@@ -511,6 +544,33 @@ const selectRegistryType = async (type) => {
   if (label) label.textContent = 'Showing';
   if (searchControls) searchControls.classList.remove('d-none');
   if (emptyState) emptyState.classList.add('d-none');
+  if (resetLink) {
+    resetLink.textContent = RESET_LINK_LABEL[type];
+    resetLink.classList.remove('d-none');
+  }
+};
+
+// Returns the processed dataset for a registry type, reusing the cached
+// copy if it was already fetched earlier this session.
+const loadRegistryTypeData = async (type) => {
+  if (registryDataCache[type]) return registryDataCache[type];
+
+  const rawData = type === REGISTRY_TYPE_ONLINE
+    ? await getOnlineRegistryData()
+    : await getPhysicalStoreData();
+
+  const processedData = await preprocessLocationDataOptimized(rawData, type);
+  registryDataCache[type] = processedData;
+  return processedData;
+};
+
+// Selects the chosen registry type: updates the UI, fetches (or reuses)
+// that type's dataset, and re-runs the search if a location is already kept.
+const selectRegistryType = async (type) => {
+  if (activeRegistryType) return;
+  activeRegistryType = type;
+
+  applyRegistryTypeSelectionUI(type);
 
   const loader = document.querySelector('.map-loader');
   const submitBtn = document.querySelector('#angel-tree__search-btn');
@@ -518,20 +578,82 @@ const selectRegistryType = async (type) => {
   if (loader) loader.classList.remove('d-none');
 
   try {
-    const rawData = type === REGISTRY_TYPE_ONLINE
-      ? await getOnlineRegistryData()
-      : await getPhysicalStoreData();
-
-    const processedData = await preprocessLocationDataOptimized(rawData, type);
+    const processedData = await loadRegistryTypeData(type);
     items = { processedData };
 
     if (submitBtn) submitBtn.removeAttribute('disabled');
     console.log(`Ready! Processed ${processedData.length} ${type} locations.`);
+
+    fireAngelTreeAnalyticsEvent('angeltree_filter_select', { mode: type });
+
+    if (savedLocationInput) {
+      const input = document.querySelector('#angel-tree__input');
+      if (input) input.value = savedLocationInput;
+      await searchAngelTreeLocations();
+    }
   } catch (error) {
     console.error('Error loading registry data:', error);
   } finally {
     if (loader) loader.classList.add('d-none');
   }
+};
+
+// Undoes the registry-type choice and returns the module to its initial
+// two-button state. The location the donor entered/allowed is kept in
+// memory (savedLocationInput) but stays hidden until a filter is chosen
+// again, at which point selectRegistryType re-runs the search with it.
+const resetAngelTreeFilter = () => {
+  if (!activeRegistryType) return;
+  const previousMode = activeRegistryType;
+
+  fireAngelTreeAnalyticsEvent('angeltree_filter_reset', { previousMode });
+
+  const heading = document.querySelector('#angel-tree-heading');
+  const label = document.querySelector('#angel-tree-type-label');
+  const resetLink = document.querySelector('#angel-tree-reset-link');
+  const searchControls = document.querySelector('#angel-tree-search-controls');
+  const emptyState = document.querySelector('#angel-tree-map-empty-state');
+  const emptyStateText = emptyState?.querySelector('p');
+  const resultsHeader = document.querySelector('#angel-tree-results-header');
+  const resultsContainer = document.querySelector('#angel-tree-result');
+  const mapContentContainer = document.querySelector('#angel-tree-content');
+
+  REGISTRY_TYPES.forEach(type => {
+    const col = document.querySelector(`#angel-tree-type-col-${type}`);
+    const btn = col?.querySelector('button');
+
+    if (col) {
+      col.classList.remove('d-none', 'col-12');
+      col.classList.add('col-6');
+    }
+    if (btn) {
+      btn.classList.remove('active', 'locked');
+      btn.removeAttribute('aria-disabled');
+      btn.tabIndex = 0;
+    }
+  });
+
+  if (heading) heading.textContent = 'Find a way to give near you';
+  if (label) label.textContent = 'How would you like to give?';
+  if (resetLink) resetLink.classList.add('d-none');
+  if (searchControls) searchControls.classList.add('d-none');
+  if (emptyState) emptyState.classList.remove('d-none');
+  if (emptyStateText) emptyStateText.textContent = "Choose how you'd like to give to see locations.";
+  if (resultsHeader) resultsHeader.classList.add('d-none');
+  if (resultsContainer) {
+    resultsContainer.classList.add('d-none');
+    resultsContainer.innerHTML = '';
+  }
+  if (mapContentContainer) mapContentContainer.classList.remove('d-none');
+
+  markerPool.clearAllMarkers();
+  currentResults = { [REGISTRY_TYPE_ONLINE]: [], [REGISTRY_TYPE_STORE]: [] };
+  selectedId = null;
+  items = [];
+  activeRegistryType = null;
+
+  const firstButton = document.querySelector('#angel-tree-type-toggle button[data-registry-type]');
+  if (firstButton) firstButton.focus();
 };
 
 // Data fetching - online registries
@@ -692,6 +814,8 @@ const searchAngelTreeLocations = async () => {
   const inputValue = input.value;
 
   if (!inputValue) return;
+
+  savedLocationInput = inputValue;
 
   cardsContainer.setAttribute('style', 'height: 400px; max-height: 400px;');
   cardsContainer.classList.remove('d-none');
