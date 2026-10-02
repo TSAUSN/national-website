@@ -321,15 +321,15 @@
     const toTitleCase = (name) =>
       /\p{Lu}/u.test(name) && /\p{Ll}/u.test(name) ? name : titleCaseWords(name);
 
-    // Card names inside the location accordions are location names. The
-    // hero's heading and intro (template text around the city name) keep
-    // word-level title-casing, so "Locations in CHICAGO" still reads
-    // "Locations in Chicago".
-    document.querySelectorAll('.city-card-name').forEach((cityCardName) => {
-      const text = cityCardName.textContent;
-      cityCardName.textContent = cityCardName.closest('.accordion')
-        ? toTitleCase(text)
-        : titleCaseWords(text);
+    // Hero heading and intro (inside .featured-article) get word-level
+    // title-casing, so "Locations in CHICAGO" reads "Locations in Chicago".
+    // Location card names (inside .accordion) use the whole-name rule.
+    // No other .city-card-name is changed.
+    document.querySelectorAll('.featured-article .city-card-name').forEach((el) => {
+      el.textContent = titleCaseWords(el.textContent);
+    });
+    document.querySelectorAll('.accordion .city-card-name').forEach((el) => {
+      el.textContent = toTitleCase(el.textContent);
     });
 
     const dataScript = document.getElementById('city-locations-map-data');
