@@ -97,19 +97,11 @@ function isUpcomingEvent(dateTimeSummary) {
   return defaultImages[Math.floor(Math.random()*defaultImages.length)];
   }
 
-  // Model ZUIDs for the org level the current page/location cookie is scoped to — mirrors the
-  // three branches the old get-events.json used, and the constants defined in modules/hero.
-  // Declared here (before initEvents() is invoked below) rather than down by fetchEvents():
-  // fetchEvents() is a hoisted function declaration so its own position doesn't matter, but it
-  // runs synchronously up to its first `await` the moment initEvents() calls it, and these are
-  // `const` — referencing them before this line actually executes throws a temporal-dead-zone
-  // ReferenceError, which is exactly what happened when they lived next to fetchEvents() further
-  // down the file, after the initEvents(); call.
+  // Keep above the initEvents() call so fetchEvents() never reads these consts in their TDZ.
   const EVENTS_TERRITORY_MODEL_ZUID = '6-deab97cfd9-wb5km4';
   const EVENTS_DIVISION_MODEL_ZUID = '6-acb19a94bd-4q8ftj';
   const EVENTS_LOCATION_MODEL_ZUID = '6-b4c9aba69c-h2nqvm';
 
-  // Which raw `events` field to match the current page's ZUID against, per org level.
   const EVENTS_MATCH_FIELD_BY_MODEL = {
     [EVENTS_TERRITORY_MODEL_ZUID]: 'territories',
     [EVENTS_DIVISION_MODEL_ZUID]: 'divisions',
@@ -124,10 +116,6 @@ async function initEvents() {
     loader.classList.remove('d-none');
     const data = await fetchEvents();
 
-    // fetchEvents() returns `false` when every page request fails outright (see CODA-2533 —
-    // a hung/erroring get-events.json request left the spinner stuck forever). Treat anything
-    // that isn't an array as "couldn't load events" and bail out to the empty/error state
-    // instead of letting `.sort()` throw on a non-array value.
     if (!Array.isArray(data)) {
       document.querySelector('.events-section').innerHTML = `
         <div class="text-center w-100 py-5">
@@ -340,44 +328,7 @@ initEvents();
      swiper.update()
    }
 
-   // CODA-2533: get-events.json's Parsley each-loop query (an "each events as event LIMIT ..."
-   // block) plus per-row find_in_set()/.filter() calls hit WebEngine's "Maximum query limit of
-   // 3000 reached" cap on every LIMIT/pagination shape tried (unbounded WHERE, LIMIT 0,500 +
-   // SORT, and offset/per_page pagination down to a 25-row window) — see docs/custom-patterns.md
-   // §14 for the full investigation. The `events` model has ~1242 rows; the working theory is
-   // that Parsley's each-loop resolves each row's relationship fields against the FULL backing
-   // model before any LIMIT/WHERE narrows the result set, so no amount of LIMIT tuning fixes it.
-   //
-   // Fix: stop asking Parsley's each-loop templating to filter/resolve relationships on the
-   // `events` model at all. Instead mirror the pattern modules/hero already uses in production for
-   // `matrix_hero_sliders` (see that module's addHeroSliders()/generateBannerCarouselItems(), and
-   // docs/custom-patterns.md §3): fetch the whole model as a flat JSON array via Zesty's built-in
-   // `/-/gql/<model>.json` endpoint — a different code path from Parsley's each-loop/find_in_set()/
-   // .filter() template evaluation — and do the territory/division/location match plus city/state
-   // name resolution in JS.
-   //
-   // get-events.json is no longer called by this module (left in place, emptied out, in case
-   // anything else links to it directly — see the comment at the top of that file).
-   //
-   // NEEDS LIVE VERIFICATION (flagged, not proven — could not be tested against a live preview
-   // from this environment):
-   //   1. That `/-/gql/events.json` actually returns the full ~1242-row `events` model without
-   //      itself hitting a cap/timeout — `matrix_hero_sliders` (a smaller model) is confirmed
-   //      working via this exact mechanism, `events` at this row count is not yet confirmed.
-   //   2. The exact shape of each row — assumed to be a flat object with the model's raw field
-   //      names at the top level (`territories`, `divisions`, `property`, `city`, `state`,
-   //      `event_date_with_time`, `zuid`, etc.), matching how modules/hero reads
-   //      `matrix_hero_sliders` rows (`s.display_on_locations`, `s.title`, ...) with no `.content`
-   //      wrapper. Whether each row also includes a resolved `meta.web.url` (for the "View Event"
-   //      link) the way `.toJSON()` did is unconfirmed — code below falls back to `event.url` or
-   //      `#` if `meta.web.url` isn't present, see initEvents().
-   //   3. That `/-/gql/cities.json` and `/-/gql/states.json` return flat `{zuid, title}` /
-   //      `{zuid, name}` rows the same way.
-   // See docs/custom-patterns.md §14 for exactly what a human/qa-tester needs to check.
-   //
-   // EVENTS_TERRITORY_MODEL_ZUID / EVENTS_DIVISION_MODEL_ZUID / EVENTS_LOCATION_MODEL_ZUID /
-   // EVENTS_MATCH_FIELD_BY_MODEL are declared up near `loader`, before initEvents() is invoked —
-   // see the comment there for why (a temporal-dead-zone ReferenceError when they lived here).
+   // Events load from /-/gql JSON and filter in JS: a Parsley each-loop over events hits WebEngine's 3,000-query cap.
 
    async function fetchJSON(url, options) {
      const response = await fetch(url, options);
@@ -387,12 +338,7 @@ initEvents();
      return response.json();
    }
 
-   // Builds the same "September 22, 2026 1:00 PM" style string get-events.json used to produce
-   // server-side via Parsley's `.date(F j, Y g:i A)`, but client-side from a raw date value.
-   // Uses plain `Date`/`toLocaleString` (not the `luxon` global also loaded on this page) since
-   // `initEvents()` already assumes `event_date_with_time`/`event_end_date_with_time` are directly
-   // `new Date()`-parseable (see its isUpcoming logic below) — reusing that same assumption here
-   // rather than introducing an untested ISO-parsing dependency.
+   // Same output as Parsley's .date(F j, Y g:i A).
    function formatEventDate(rawDate) {
      const parsed = new Date(rawDate);
      if (isNaN(parsed)) return '';
@@ -406,12 +352,7 @@ initEvents();
      });
    }
 
-   // modules/client-global-navigation sets the location_zuid/location_model cookies from a
-   // `DOMContentLoaded` listener, and at least one of its org-level branches (Services) awaits a
-   // network call before writing them. upcoming-events' own <script> runs synchronously at parse
-   // time, well before that — reading the cookies immediately would see them still unset on a
-   // cold visit and fail-safe to "no events" for every visitor. Wait for the DOM to finish
-   // loading, then give the cookie a short window to actually land, before ever reading it.
+   // client-global-navigation sets the location cookies after DOMContentLoaded, sometimes after a fetch, so wait for them.
    async function waitForLocationCookie(timeoutMs = 3000, intervalMs = 100) {
      if (document.readyState === 'loading') {
        await new Promise((resolve) => document.addEventListener('DOMContentLoaded', resolve, { once: true }));
@@ -453,20 +394,12 @@ initEvents();
        );
 
        if (!matchField) {
-         // Unrecognized org level (e.g. national, or a cookie not yet set) — fail safe to "no
-         // events" rather than returning the unfiltered full model, matching the old
-         // get-events.json's behavior of emitting `[]` when $model matched none of its branches.
+         // Unknown org level (e.g. national): show no events rather than the unfiltered model.
          return [];
        }
 
-       // Territory/division/location match — a raw CSV-string "includes" check, same convention
-       // as modules/hero's addHeroSliders()/filterBy() and functionally equivalent to the old
-       // find_in_set('{$zuid}', territories) Parsley call, just evaluated in JS instead.
        const matched = rawEvents.filter((event) => (event?.[matchField] || '').includes(zuid));
 
-       // Re-shape into the same `{content, city, state, date}` array initEvents() already expects.
-       // `content` is now the flat raw event row (no `.content`/`.meta` wrapper the way
-       // Parsley's `.toJSON()` produced) — initEvents() reads `content.uri` for the event link.
        return matched.map((event) => {
          const cityName = event.city ? cityNameByZuid.get(event.city) || '' : '';
          const stateName = event.state ? stateNameByZuid.get(event.state) || '' : '';
@@ -486,8 +419,6 @@ initEvents();
        } else {
          console.error('Error in fetchEvents:', error);
        }
-       // `false` signals "couldn't load anything" — initEvents() checks Array.isArray() and shows
-       // the error state instead of letting `.sort()` throw on a non-array value.
        return false;
      } finally {
        clearTimeout(timeoutId);
