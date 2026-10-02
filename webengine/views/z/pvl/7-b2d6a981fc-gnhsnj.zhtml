@@ -1,21 +1,25 @@
 <div className={styles.pvlRoot}>
-	<div class="row" style="display:block !important;background-color:;padding-top:20px;padding-bottom:20px;">
+	<div class="row" style="display:block !important;background-color:;padding-top:0px;padding-bottom:20px;">
 		<div class="column">
-			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Untitled-design--18-.png" alt="placeholder" style="margin-top:0px;margin-left:0px;margin-right:0px;margin-bottom:0px;height:;">
-			<h5 style="margin-top:0px;padding-left:0px;padding-right:0px;text-align:center;font-weight:400;">Stories and ideas for an Army moving forward.</h5>
-			<p style="margin-bottom:50px;text-align:center;font-style:;">The New Frontier brings you stories, ideas and conversations from across The Salvation Army in the West—helping us see God’s love in action, learn from one another and understand where the mission is moving.</p>
+			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Website-Header-Image--1-.png" alt="placeholder" style="margin-top:0px;margin-left:0px;margin-right:0px;margin-bottom:0px;height:;">
 		</div>
 	</div>
-	<h5>Latest from The New Frontier</h5>
-	<div>{{block('/-/block/dynamic_stories_carousel.html?variant=7-e0dcc8ddda-gk1nm4')}}</div>
-	<div class="row" style="padding-bottom:10px;">
+	<div class="p-6 rounded-4 bg-light-subtle" style="display:block !important;background-color:white;padding-bottom:0px;margin-bottom:50px;">
 		<div class="column">
-			<div class="row my-3">
+			<h5 style="padding-top:0px;text-align:center;margin-top:20px;">Stories and ideas for an Army moving forward.</h5>
+			<p>The New Frontier brings you stories, ideas and conversations from across The Salvation Army in the West—helping us see God’s love in action, learn from one another and understand where the mission is moving.</p>
+		</div>
+	</div>
+	<h5>The Latest</h5>
+	<div>{{block('/-/block/dynamic_stories_carousel.html?variant=7-e0dcc8ddda-gk1nm4')}}</div>
+	<div class="p-6 mb-18 rounded-4 bg-light-subtle" style="padding-bottom:10px;display:block !important;background-color:#ebebeb;padding-top:10px;">
+		<div class="column">
+			<div class="row my-3" style="margin-left:10px;margin-top:10px;">
 				<div class="col-lg-4 col-md-6 col-sm-12">
-					<h5>In Print</h5>
-					<p style="font-weight:700;">Entrusted</p>
-					<p>What does it mean to faithfully steward what God has entrusted to us?</p>
-					<p>In the latest issue of The New Frontier, we look beyond money to explore the faithful care of the resources, opportunities, relationships and mission God has placed in our hands.</p>
+					<h5 style="margin-top:10px;margin-left:0px;">In Print</h5>
+					<p style="font-weight:700;margin-left:0px;">Entrusted</p>
+					<p style="margin-left:0px;">What does it mean to faithfully steward what God has entrusted to us?</p>
+					<p style="margin-left:0px;">In the latest issue of The New Frontier, we look beyond money to explore the faithful care of the resources, opportunities, relationships and mission God has placed in our hands.</p>
 					<div>{{block('/-/block/cta_button.html?variant=7-f2d7869385-t20m91')}}</div>
 				</div>
 				<div class="col-lg-8 col-md-6 col-sm-12">
@@ -24,13 +28,13 @@
 			</div>
 		</div>
 	</div>
-	<div class="row" style="display:block !important;padding-top:30px;">
+	<div class="row" style="display:block !important;padding-top:0px;">
 		<div class="column">
 			<div class="row my-3" style="display:flex;">
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<h5>At the Frontier</h5>
 					<p style="font-weight:700;">The best ideas often begin with a conversation.&nbsp;</p>
-					<p>At the Frontier brings you into conversations with people thinking, serving, building and asking what comes next for the mission of The Salvation Army.</p>
+					<p>At the Frontier is a podcast bringing you into conversations with people thinking, serving, building and asking what comes next for the mission of The Salvation Army.</p>
 					<div>{{block('/-/block/cta_button.html?variant=7-e4e9b6f881-sxdw9k')}}</div>
 				</div>
 				<div class="col-lg-8 col-md-6 col-sm-12">
@@ -42,7 +46,7 @@
 	<h5>Worth Your Attention</h5>
 	<p>Stories and ideas selected by our editors to deliver a deeper look.</p>
 	{{block('/-/block/stories_carousel.html?variant=7-808befa5d0-q5lgzj')}}
-	<div class="bg-light p-6 rounded-4" style="display:block !important;padding-top:0px;margin-top:-50px;">
+	<div class="bg-light p-6 rounded-4" style="display:block !important;padding-top:0px;margin-top:-100px;margin-bottom:0px;">
 		<div class="column">
 			<div class="row my-3" style="display:flex;">
 				<div class="col-lg-6 col-md-6 col-sm-12">
@@ -51,20 +55,22 @@
 				<div class="col-lg-6 col-md-6 col-sm-12">
 					<h5 style="margin-top:30px;margin-bottom:0px;padding-bottom:10px;">The New Frontier, in your inbox</h5>
 					<p style="margin-bottom:30px;padding-top:10px;padding-bottom:0px;">Get The New Frontier in your inbox each week with the latest stories and ideas from across The Salvation Army in the West.</p>
-					<script async="" data-uid="92e3382af4" src="https://caringmagazine.kit.com/92e3382af4/index.js" style="margin-bottom:0px;"></script>
+					<script async data-uid="68e4a711b5" src="https://caringmagazine.kit.com/68e4a711b5/index.js"></script>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="row" style="padding-top:100px;">
+	<div class="p-6 rounded-5 mb-18" style="display:block !important;background-color:#002056;padding-top:0px;margin-top:60px;">
 		<div class="column">
-			<div class="row" style="margin-top:0px;display:block !important;padding-left:50px;padding-right:50px;">
-				<div class="column">
-					<h5>About The New Frontier</h5>
-					<p style="font-style:;font-weight:700;">There’s always more to the story.&nbsp;</p>
-					<p>As the flagship publication of The Salvation Army in the West, The New Frontier is a shared home for the stories, ideas and conversations shaping the mission.</p>
-					<p>We look beyond what happened to explore what it means—helping us see God’s love in action, learn from one another and understand where the mission is headed.</p>
-					<p>See love in action.</p>
+			<div class="row my-3" style="padding-top:10px;padding-left:10px;padding-right:10px;">
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<h5 style="color:white;">About The New Frontier</h5>
+				</div>
+				<div class="col-lg-8 col-md-6 col-sm-12">
+					<p style="color:white;font-weight:600;padding-bottom:10px;">There’s always more to the story.&nbsp;</p>
+					<p style="color:white;padding-bottom:10px;">As the flagship publication of The Salvation Army in the West, The New Frontier is a shared home for the stories, ideas and conversations shaping the mission.</p>
+					<p style="color:white;padding-bottom:10px;">We look beyond what happened to explore what it means—helping us see God’s love in action, learn from one another and understand where the mission is headed.</p>
+					<p style="color:white;">See love in action.</p>
 				</div>
 			</div>
 		</div>

@@ -57,7 +57,7 @@
 </div>
 
 <script>
-  const cityCardNames = document.querySelectorAll('.city-card-name');
+  const cityCardNames = document.querySelectorAll('.featured-article .city-card-name');
   const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
 
   cityCardNames.forEach((cityCardName) => {
