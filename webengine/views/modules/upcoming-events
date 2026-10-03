@@ -12,7 +12,7 @@
       {{/if}}
     </h4>
   </div>
-  <div class="events-swiper overflow-hidden gap-4 events-section">
+  <div class="events-swiper overflow-hidden gap-4 events-section is-loading">
     <div class="swiper-wrapper events-swipper-wrapper flex-row">
       <div
       id="events-loader"
@@ -97,10 +97,12 @@ function isUpcomingEvent(dateTimeSummary) {
   return defaultImages[Math.floor(Math.random()*defaultImages.length)];
   }
 
-  // Keep above the initEvents() call: fetchEvents() reads these before its first await.
+  // Keep above the startEventsNearViewport() call: initEvents() can run synchronously from it.
   const EVENTS_INSTANT_URL = '/-/instant/6-a2dbc1a6e2-x4pzmx.json';
   const STATES_INSTANT_URL = '/-/instant/6-ce888daf92-fpzvz1.json';
   const EVENTS_FETCH_TIMEOUT_MS = 30000;
+  const EVENTS_CACHE_TTL_MS = 10 * 60 * 1000;
+  const EVENTS_VIEWPORT_MARGIN = '600px 0px';
   const ZUID_PATTERN = /^\d+-[0-9a-z]+-[0-9a-z]+$/;
   const MONTH_NAMES = [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -133,8 +135,10 @@ function showEventsLoadError() {
 }
 
 async function initEvents() {
+  const eventsSection = document.querySelector('.events-section');
   try {
     const eventsSwiperContainer = document.querySelector('.events-swipper-wrapper');
+    eventsSection.classList.add('is-loading');
     loader.classList.add('d-flex');
     loader.classList.remove('d-none');
     const data = await fetchEvents();
@@ -153,8 +157,7 @@ async function initEvents() {
 
     sortedData.forEach((event) => {
       const isDateTimeSummary = !event.content.event_date_with_time && Boolean(event.content.event_end_date_with_time);
-      const image = event.content.image;
-      const imageUrl = image?.data?.[0]?.url || (typeof image === 'string' && image) || resolveBrokenImages();
+      const imageUrl = event.content.image || resolveBrokenImages();
 
   const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
 
@@ -211,12 +214,29 @@ async function initEvents() {
     console.error('Error in initEvents:', error);
     showEventsLoadError();
   } finally {
+    eventsSection?.classList.remove('is-loading');
     loader.classList.remove('d-flex');
     loader.classList.add('d-none');
   }
 }
 
-initEvents();
+// Defers the ~1MB Instant download until the module is near the viewport.
+function startEventsNearViewport() {
+  const eventsModule = document.getElementById('events');
+  if (typeof IntersectionObserver === 'undefined' || !eventsModule) {
+    initEvents();
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+    observer.disconnect();
+    initEvents();
+  }, { rootMargin: EVENTS_VIEWPORT_MARGIN });
+  observer.observe(eventsModule);
+}
+
+startEventsNearViewport();
 
    const eventsCards = document.querySelectorAll('.events-swiper .card');
 
@@ -350,10 +370,11 @@ initEvents();
    async function fetchStateNames(signal) {
      try {
        const json = await fetchJSON(STATES_INSTANT_URL, { signal });
-       return new Map(json.data.map((state) => [state?.meta?.zuid, (state?.content?.name || '').trim()]));
+       const names = new Map(json.data.map((state) => [state?.meta?.zuid, (state?.content?.name || '').trim()]));
+       return { names, ok: true };
      } catch (error) {
        console.error('Error loading state names:', error);
-       return new Map();
+       return { names: new Map(), ok: false };
      }
    }
 
@@ -361,9 +382,29 @@ initEvents();
      const results = await Promise.allSettled(
        cityZuids.map((zuid) => fetchJSON(`/-/instant/${zuid}.json`, { signal }))
      );
-     return new Map(
+     const names = new Map(
        results.map((result, i) => [cityZuids[i], result.value?.data?.[0]?.content?.title || ''])
      );
+     return { names, ok: results.every((result) => result.status === 'fulfilled') };
+   }
+
+   // sessionStorage can throw (private mode, quota); any failure just falls back to fetching.
+   function readEventsCache(key) {
+     try {
+       const entry = JSON.parse(sessionStorage.getItem(key));
+       const age = Date.now() - entry?.savedAt;
+       const isValid = Array.isArray(entry?.events)
+         && entry.events.every((event) => typeof event?.content === 'object' && event.content !== null);
+       return isValid && age >= 0 && age < EVENTS_CACHE_TTL_MS ? entry.events : null;
+     } catch {
+       return null;
+     }
+   }
+
+   function writeEventsCache(key, events) {
+     try {
+       sessionStorage.setItem(key, JSON.stringify({ savedAt: Date.now(), events }));
+     } catch {}
    }
 
    function parseEventDate(rawDate) {
@@ -395,6 +436,13 @@ initEvents();
        return [];
      }
 
+     // Keyed by org, not page: detail pages drop their own event at render time.
+     const cacheKey = `events:v1:${org.fields.join('+')}:${[...org.zuids].sort().join(',')}`;
+     const cachedEvents = readEventsCache(cacheKey);
+     if (cachedEvents) {
+       return cachedEvents.filter((event) => isEventUpcoming(event.content));
+     }
+
      const controller = new AbortController();
      const timeoutId = setTimeout(() => controller.abort(), EVENTS_FETCH_TIMEOUT_MS);
      const { signal } = controller;
@@ -419,24 +467,37 @@ initEvents();
        });
        const cityZuids = [...new Set(matched.map((item) => relationZuids(item.content.city)[0]))]
          .filter((zuid) => zuid && ZUID_PATTERN.test(zuid));
-       const [stateNameByZuid, cityNameByZuid] = await Promise.all([
+       const [states, cities] = await Promise.all([
          stateNamesPromise,
          fetchCityNames(cityZuids, signal),
        ]);
 
-       return matched.map((item) => {
+       const events = matched.map((item) => {
          const { content } = item;
+         const { image } = content;
          const startDate = formatEventDate(content.event_date_with_time);
          const endDate = formatEventDate(content.event_end_date_with_time);
 
          return {
            zuid: item.meta?.zuid,
-           content,
-           city: cityNameByZuid.get(relationZuids(content.city)[0]) || '',
-           state: stateNameByZuid.get(relationZuids(content.state)[0]) || '',
+           city: cities.names.get(relationZuids(content.city)[0]) || '',
+           state: states.names.get(relationZuids(content.state)[0]) || '',
            date: endDate ? `${startDate} - ${endDate}` : startDate,
+           content: {
+             title: content.title,
+             path_full: content.path_full,
+             image: image?.data?.[0]?.url || (typeof image === 'string' && image) || '',
+             address: content.address,
+             date_time_summary: content.date_time_summary,
+             event_date_with_time: content.event_date_with_time,
+             event_end_date_with_time: content.event_end_date_with_time,
+           },
          };
        });
+       if (states.ok && cities.ok && !signal.aborted) {
+         writeEventsCache(cacheKey, events);
+       }
+       return events;
      } catch (error) {
        if (error.name === 'AbortError') {
          console.error(`Error in fetchEvents: request timed out after ${EVENTS_FETCH_TIMEOUT_MS}ms`);
