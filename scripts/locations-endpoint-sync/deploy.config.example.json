@@ -1,0 +1,22 @@
+{
+  "projectId": "PROJECT_ID",
+  "region": "us-central1",
+  "functionName": "locations-webhook",
+  "runtime": "nodejs20",
+  "entryPoint": "locationsWebhook",
+  "memory": "256Mi",
+  "timeoutSeconds": 60,
+  "maxInstances": 1,
+  "concurrency": 1,
+  "allowUnauthenticated": true,
+  "envVars": {
+    "INSTANCE_ZUID": "",
+    "LOCATIONS_ENDPOINT_URL": "",
+    "LOCATIONS_VIEW_ZUID": "",
+    "REBUILD_DEBOUNCE_MS": "45000",
+    "PUBLISH_PROPAGATION_DELAY_MS": "5000"
+  },
+  "secrets": {
+    "DEV_TOKEN": "locations-webhook-dev-token:latest"
+  }
+}
