@@ -98,7 +98,8 @@ function isUpcomingEvent(dateTimeSummary) {
   }
 
   // Keep above the startEventsNearViewport() call: initEvents() can run synchronously from it.
-  const EVENTS_INSTANT_URL = '/-/instant/6-a2dbc1a6e2-x4pzmx.json';
+  const EVENTS_ENDPOINT_URL = '/get-events.json';
+  const EVENTS_MAX_ORG_ZUIDS = 5;
   const STATES_INSTANT_URL = '/-/instant/6-ce888daf92-fpzvz1.json';
   const EVENTS_FETCH_TIMEOUT_MS = 30000;
   const EVENTS_CACHE_TTL_MS = 10 * 60 * 1000;
@@ -220,7 +221,6 @@ async function initEvents() {
   }
 }
 
-// Defers the ~1MB Instant download until the module is near the viewport.
 function startEventsNearViewport() {
   const eventsModule = document.getElementById('events');
   if (typeof IntersectionObserver === 'undefined' || !eventsModule) {
@@ -346,7 +346,7 @@ startEventsNearViewport();
      swiper.update()
    }
 
-   // Events load from Instant JSON and filter in JS: a Parsley each-loop over events hits WebEngine's 3,000-query cap.
+   // get-events.json filters by org and date and outputs scalar fields only: per-row lookups there hit WebEngine's 3,000-query cap.
    async function fetchJSON(url, options) {
      const response = await fetch(url, options);
      if (!response.ok) {
@@ -355,16 +355,25 @@ startEventsNearViewport();
      return response.json();
    }
 
-   function relationZuids(relation) {
-     return relation?.data?.map((item) => item?.zuid).filter(Boolean) ?? [];
-   }
-
    function getPageOrg() {
      for (const [fields, value] of EVENTS_PAGE_ORG_CANDIDATES) {
        const zuids = value.split(',').map((zuid) => zuid.trim()).filter((zuid) => ZUID_PATTERN.test(zuid));
-       if (zuids.length) return { fields, zuids };
+       if (zuids.length) return { fields, zuids: zuids.slice(0, EVENTS_MAX_ORG_ZUIDS) };
      }
      return null;
+   }
+
+   function buildEventsUrl(org) {
+     const params = new URLSearchParams({ field: org.fields.length > 1 ? 'any' : org.fields[0] });
+     org.zuids.forEach((zuid, i) => params.set(`z${i + 1}`, zuid));
+     return `${EVENTS_ENDPOINT_URL}?${params}`;
+   }
+
+   // The image field holds either an external URL or a media ZUID, which only getImage() resolves.
+   function eventImageUrl(row) {
+     const isUrl = (value) => /^https?:\/\//.test(value || '');
+     if (isUrl(row.image_raw)) return row.image_raw;
+     return row.image_raw && isUrl(row.image) ? row.image : '';
    }
 
    async function fetchStateNames(signal) {
@@ -437,7 +446,7 @@ startEventsNearViewport();
      }
 
      // Keyed by org, not page: detail pages drop their own event at render time.
-     const cacheKey = `events:v1:${org.fields.join('+')}:${[...org.zuids].sort().join(',')}`;
+     const cacheKey = `events:v2:${org.fields.join('+')}:${[...org.zuids].sort().join(',')}`;
      const cachedEvents = readEventsCache(cacheKey);
      if (cachedEvents) {
        return cachedEvents.filter((event) => isEventUpcoming(event.content));
@@ -449,49 +458,45 @@ startEventsNearViewport();
 
      try {
        const stateNamesPromise = fetchStateNames(signal);
-       const eventsJson = await fetchJSON(EVENTS_INSTANT_URL, { signal });
-       const items = eventsJson?.data;
+       const eventsJson = await fetchJSON(buildEventsUrl(org), { signal });
+       const rows = eventsJson?.events;
 
-       if (!Array.isArray(items)) {
-         console.error('Error in fetchEvents: events response has no data array');
+       if (!Array.isArray(rows)) {
+         console.error('Error in fetchEvents: events response has no events array');
          return false;
        }
 
-       const matched = items.filter((item) => {
-         const content = item?.content;
-         if (!content || ['0', 0, false].includes(content.listed)) return false;
-         const tagged = org.fields.some((field) =>
-           relationZuids(content[field]).some((zuid) => org.zuids.includes(zuid))
-         );
-         return tagged && isEventUpcoming(content);
-       });
-       const cityZuids = [...new Set(matched.map((item) => relationZuids(item.content.city)[0]))]
-         .filter((zuid) => zuid && ZUID_PATTERN.test(zuid));
+       const matched = rows
+         .filter((row) => row && typeof row === 'object')
+         .map((row) => ({
+           row,
+           content: {
+             title: row.title || '',
+             path_full: row.url || '',
+             image: eventImageUrl(row),
+             address: row.address || '',
+             date_time_summary: row.summary || '',
+             event_date_with_time: row.start || '',
+             event_end_date_with_time: row.end || '',
+           },
+         }))
+         .filter(({ content }) => isEventUpcoming(content));
+       const cityZuids = [...new Set(matched.map(({ row }) => row.city))].filter((zuid) => ZUID_PATTERN.test(zuid));
        const [states, cities] = await Promise.all([
          stateNamesPromise,
          fetchCityNames(cityZuids, signal),
        ]);
 
-       const events = matched.map((item) => {
-         const { content } = item;
-         const { image } = content;
+       const events = matched.map(({ row, content }) => {
          const startDate = formatEventDate(content.event_date_with_time);
          const endDate = formatEventDate(content.event_end_date_with_time);
 
          return {
-           zuid: item.meta?.zuid,
-           city: cities.names.get(relationZuids(content.city)[0]) || '',
-           state: states.names.get(relationZuids(content.state)[0]) || '',
+           zuid: row.zuid,
+           city: cities.names.get(row.city) || '',
+           state: states.names.get(row.state) || '',
            date: endDate ? `${startDate} - ${endDate}` : startDate,
-           content: {
-             title: content.title,
-             path_full: content.path_full,
-             image: image?.data?.[0]?.url || (typeof image === 'string' && image) || '',
-             address: content.address,
-             date_time_summary: content.date_time_summary,
-             event_date_with_time: content.event_date_with_time,
-             event_end_date_with_time: content.event_end_date_with_time,
-           },
+           content,
          };
        });
        if (states.ok && cities.ok && !signal.aborted) {
