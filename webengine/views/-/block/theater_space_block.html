@@ -301,6 +301,10 @@
       if(typeof cardData.primary_cta_name !== 'undefined' || cardData.primary_cta_name !== '') {
         linkText = cardData.primary_cta_name;
       }
+      const meta = cardData?.meta?.web || {};
+      const metaTitle = meta.title || meta.name || meta.seo_meta_title || '';
+      const metaDescription = meta.seo_meta_description || '';
+      const metaUri = meta.uri || '#';
 
       return `
         <div class="card-img-top bg-secondary bg-opacity-25 position-relative">
@@ -309,11 +313,11 @@
             </div>
         </div>
         <div class="card-body px-4 pt-4">
-          <h5 class="card-title display-1 mb-1">${cardData.meta.web.seo_meta_title}</h5>
-          <div class="card-text text-dark display-3 text-truncate-2">${cardData.meta.web.seo_meta_description}</div>
+          <h5 class="card-title display-1 mb-1">${metaTitle}</h5>
+          <div class="card-text text-dark display-3 text-truncate-2">${metaDescription}</div>
         </div>
         <div class="card-footer bg-transparent pb-4 border-0 d-flex align-items-center justify-content-between gap-2">
-          <a href="${cardData.meta.web.uri}"
+          <a href="${metaUri}"
               data-location-type="body:banner-section"
               data-function-type="navigation"
               data-format-type="button"
@@ -407,6 +411,11 @@
         linkText = cardData?.secondary_cta_name;
       }
 
+      const meta = cardData?.meta?.web || {};
+      const metaTitle = meta.title || meta.name || meta.seo_meta_title || '';
+      const metaDescription = meta.seo_meta_description || '';
+      const metaUri = meta.uri || '#';
+
       return `
         <div class="card-img-top bg-secondary bg-opacity-25 position-relative">
             <div class="ratio ratio-16x9 overflow-hidden" style="height: 100%">
@@ -414,11 +423,11 @@
             </div>
         </div>
         <div class="card-body px-4 pt-4">
-          <h5 class="card-title display-1 mb-1">${cardData.meta.web.seo_meta_title}</h5>
-          <div class="card-text text-dark display-3 text-truncate-2">${cardData.meta.web.seo_meta_description}</div>
+          <h5 class="card-title display-1 mb-1">${metaTitle}</h5>
+          <div class="card-text text-dark display-3 text-truncate-2">${metaDescription}</div>
         </div>
         <div class="card-footer bg-transparent pb-4 border-0 d-flex align-items-center justify-content-between gap-2">
-          <a href="${cardData.meta.web.uri}"
+          <a href="${metaUri}"
              data-location-type="body:banner-section"
               data-function-type="navigation"
               data-format-type="button"
