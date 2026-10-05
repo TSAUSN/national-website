@@ -303,7 +303,7 @@
       const cardImageDesktop = `${cardImageBase}?width=338&height=179&crop=16:9,smart`;
 
       const meta = cardData?.meta?.web || {};
-      const metaTitle = meta.seo_meta_title || meta.title || '';
+      const metaTitle = meta.title || meta.name || meta.seo_meta_title || '';
       const metaDescription = meta.seo_meta_description || '';
       const metaUri = meta.uri || '#';
 
@@ -427,7 +427,7 @@
       const cardImageDesktop = `${cardImageBase}?width=338&height=179&crop=16:9,smart`;
 
       const meta = cardData?.meta?.web || {};
-      const metaTitle = meta.seo_meta_title || meta.title || '';
+      const metaTitle = meta.title || meta.name || meta.seo_meta_title || '';
       const metaDescription = meta.seo_meta_description || '';
       const metaUri = meta.uri || '#';
 
