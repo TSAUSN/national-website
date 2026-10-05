@@ -1,5 +1,5 @@
 {{$hasOrg = 0}}
-{{$field = 0}}
+{{$field = none}}
 {{if {request.queryParam(field)} == "property"}}{{$field = property}}{{/if}}
 {{if {request.queryParam(field)} == "divisions"}}{{$field = divisions}}{{/if}}
 {{if {request.queryParam(field)} == "territories"}}{{$field = territories}}{{/if}}
@@ -9,7 +9,7 @@
 {{if {request.queryParam(z1)} }}
 {{$raw = {request.queryParam(z1)} }}
 {{$raw = {$raw.escapeForJs()} }}
-{{$found = }}
+{{$found = 0}}
 {{if {$field} == "property" || {$field} == "any"}}{{$found = {locations.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
 {{if {$found} }}{{else}}{{if {$field} == "divisions" || {$field} == "any"}}{{$found = {divisions.filter(z.zuid = '{$raw}').zuid} }}{{/if}}{{/if}}
 {{if {$found} }}{{else}}{{if {$field} == "territories" || {$field} == "any"}}{{$found = {territories.filter(z.zuid = '{$raw}').zuid} }}{{/if}}{{/if}}
@@ -20,7 +20,7 @@
 {{if {request.queryParam(z2)} }}
 {{$raw = {request.queryParam(z2)} }}
 {{$raw = {$raw.escapeForJs()} }}
-{{$found = }}
+{{$found = 0}}
 {{if {$field} == "property"}}{{$found = {locations.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
 {{if {$field} == "divisions"}}{{$found = {divisions.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
 {{if {$field} == "territories"}}{{$found = {territories.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
@@ -31,7 +31,7 @@
 {{if {request.queryParam(z3)} }}
 {{$raw = {request.queryParam(z3)} }}
 {{$raw = {$raw.escapeForJs()} }}
-{{$found = }}
+{{$found = 0}}
 {{if {$field} == "property"}}{{$found = {locations.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
 {{if {$field} == "divisions"}}{{$found = {divisions.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
 {{if {$field} == "territories"}}{{$found = {territories.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
@@ -42,7 +42,7 @@
 {{if {request.queryParam(z4)} }}
 {{$raw = {request.queryParam(z4)} }}
 {{$raw = {$raw.escapeForJs()} }}
-{{$found = }}
+{{$found = 0}}
 {{if {$field} == "property"}}{{$found = {locations.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
 {{if {$field} == "divisions"}}{{$found = {divisions.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
 {{if {$field} == "territories"}}{{$found = {territories.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
@@ -53,7 +53,7 @@
 {{if {request.queryParam(z5)} }}
 {{$raw = {request.queryParam(z5)} }}
 {{$raw = {$raw.escapeForJs()} }}
-{{$found = }}
+{{$found = 0}}
 {{if {$field} == "property"}}{{$found = {locations.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
 {{if {$field} == "divisions"}}{{$found = {divisions.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
 {{if {$field} == "territories"}}{{$found = {territories.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
