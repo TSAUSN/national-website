@@ -1,36 +1,87 @@
-{{$zuid = {request.queryParam(zuid)} }}
-{{$model = {request.queryParam(model)} }}
+{{$hasOrg = 0}}
+{{$field = none}}
+{{if {request.queryParam(field)} == "property"}}{{$field = property}}{{/if}}
+{{if {request.queryParam(field)} == "divisions"}}{{$field = divisions}}{{/if}}
+{{if {request.queryParam(field)} == "territories"}}{{$field = territories}}{{/if}}
+{{if {request.queryParam(field)} == "any"}}{{$field = any}}{{/if}}
 
-[
-{{if {$model} == "6-deab97cfd9-wb5km4" }}
-    {{each events as event WHERE find_in_set('{$zuid}', territories) }}
-        {
-            "content":{{event.toJSON()}},
-            "city": {{if {event.city} }} "{{cities.filter({event.city}).title }}" {{else}} "" {{/if}},
-            "state": {{if {event.state} }} "{{states.filter({event.state}).name }}" {{else}} "" {{/if}},
-            "date": "{{event.event_date_with_time.date(F j, Y g:i A)}} {{if {event.event_end_date_with_time} }} - {{event.event_end_date_with_time.date(F j, Y g:i A)}} {{/if}}"
-        }{{event._arraycomma}}
-    {{/each}}
-
-{{else if {$model} == "6-acb19a94bd-4q8ftj"}}
-    {{each events as event WHERE find_in_set('{$zuid}', divisions) }}
-        {
-            "content":{{event.toJSON()}},
-            "city": {{if {event.city} }} "{{cities.filter({event.city}).title }}" {{else}} "" {{/if}},
-            "state": {{if {event.state} }} "{{states.filter({event.state}).name }}" {{else}} "" {{/if}},
-
-                     "date": "{{event.event_date_with_time.date(F j, Y g:i A)}} {{if {event.event_end_date_with_time} }} - {{event.event_end_date_with_time.date(F j, Y g:i A)}} {{/if}}"
-        }{{event._arraycomma}}
-    {{/each}}
-{{else if {$model} == "6-b4c9aba69c-h2nqvm"}}
-    {{each events as event WHERE find_in_set('{$zuid}', property) }}
-        {
-            "content":{{event.toJSON()}},
-            "city": {{if {event.city} }} "{{cities.filter({event.city}).title }}" {{else}} "" {{/if}},
-            "state": {{if {event.state} }} "{{states.filter({event.state}).name }}" {{else}} "" {{/if}},
-
-                     "date": "{{event.event_date_with_time.date(F j, Y g:i A)}} {{if {event.event_end_date_with_time} }} - {{event.event_end_date_with_time.date(F j, Y g:i A)}} {{/if}}"
-        }{{event._arraycomma}}
-    {{/each}}
+{{$z1 = 0}}
+{{if {request.queryParam(z1)} }}
+{{$raw = {request.queryParam(z1)} }}
+{{$raw = {$raw.escapeForJs()} }}
+{{$found = 0}}
+{{if {$field} == "property" || {$field} == "any"}}{{$found = {locations.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
+{{if {$found} }}{{else}}{{if {$field} == "divisions" || {$field} == "any"}}{{$found = {divisions.filter(z.zuid = '{$raw}').zuid} }}{{/if}}{{/if}}
+{{if {$found} }}{{else}}{{if {$field} == "territories" || {$field} == "any"}}{{$found = {territories.filter(z.zuid = '{$raw}').zuid} }}{{/if}}{{/if}}
+{{if {$found} }}{{if {$found} == {$raw} }}{{$z1 = {$found} }}{{$hasOrg = 1}}{{/if}}{{/if}}
 {{/if}}
-]
+
+{{$z2 = 0}}
+{{if {request.queryParam(z2)} }}
+{{$raw = {request.queryParam(z2)} }}
+{{$raw = {$raw.escapeForJs()} }}
+{{$found = 0}}
+{{if {$field} == "property"}}{{$found = {locations.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
+{{if {$field} == "divisions"}}{{$found = {divisions.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
+{{if {$field} == "territories"}}{{$found = {territories.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
+{{if {$found} }}{{if {$found} == {$raw} }}{{$z2 = {$found} }}{{$hasOrg = 1}}{{/if}}{{/if}}
+{{/if}}
+
+{{$z3 = 0}}
+{{if {request.queryParam(z3)} }}
+{{$raw = {request.queryParam(z3)} }}
+{{$raw = {$raw.escapeForJs()} }}
+{{$found = 0}}
+{{if {$field} == "property"}}{{$found = {locations.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
+{{if {$field} == "divisions"}}{{$found = {divisions.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
+{{if {$field} == "territories"}}{{$found = {territories.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
+{{if {$found} }}{{if {$found} == {$raw} }}{{$z3 = {$found} }}{{$hasOrg = 1}}{{/if}}{{/if}}
+{{/if}}
+
+{{$z4 = 0}}
+{{if {request.queryParam(z4)} }}
+{{$raw = {request.queryParam(z4)} }}
+{{$raw = {$raw.escapeForJs()} }}
+{{$found = 0}}
+{{if {$field} == "property"}}{{$found = {locations.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
+{{if {$field} == "divisions"}}{{$found = {divisions.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
+{{if {$field} == "territories"}}{{$found = {territories.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
+{{if {$found} }}{{if {$found} == {$raw} }}{{$z4 = {$found} }}{{$hasOrg = 1}}{{/if}}{{/if}}
+{{/if}}
+
+{{$z5 = 0}}
+{{if {request.queryParam(z5)} }}
+{{$raw = {request.queryParam(z5)} }}
+{{$raw = {$raw.escapeForJs()} }}
+{{$found = 0}}
+{{if {$field} == "property"}}{{$found = {locations.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
+{{if {$field} == "divisions"}}{{$found = {divisions.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
+{{if {$field} == "territories"}}{{$found = {territories.filter(z.zuid = '{$raw}').zuid} }}{{/if}}
+{{if {$found} }}{{if {$found} == {$raw} }}{{$z5 = {$found} }}{{$hasOrg = 1}}{{/if}}{{/if}}
+{{/if}}
+
+(** NOW() is GMT; the 1-day margin keeps events that end later today in US time zones. **)
+{{$where = where find_in_set('0', property) sort by event_end_date_with_time asc, event_date_with_time asc }}
+{{if {$field} == "any"}}
+{{$where = where (find_in_set('{$z1}', property) OR find_in_set('{$z1}', divisions) OR find_in_set('{$z1}', territories)) AND (event_end_date_with_time >= DATE_ADD(NOW(), INTERVAL -1 DAY) OR event_date_with_time >= DATE_ADD(NOW(), INTERVAL -1 DAY)) sort by event_end_date_with_time asc, event_date_with_time asc }}
+{{else}}
+{{$where = where (find_in_set('{$z1}', {$field}) OR find_in_set('{$z2}', {$field}) OR find_in_set('{$z3}', {$field}) OR find_in_set('{$z4}', {$field}) OR find_in_set('{$z5}', {$field})) AND (event_end_date_with_time >= DATE_ADD(NOW(), INTERVAL -1 DAY) OR event_date_with_time >= DATE_ADD(NOW(), INTERVAL -1 DAY)) sort by event_end_date_with_time asc, event_date_with_time asc }}
+{{/if}}
+{
+  "cutoff": "NOW() - 1 DAY, requested {{instance.date(Y-m-d H:i:s)}} GMT",
+  "events": [{{if {$hasOrg} }}{{each events as event {$where} limit 0, 100}}
+    {
+      "zuid": "{{event.zuid}}",
+      "title": "{{event.title.escapeForJs()}}",
+      "url": "{{event.getUrl()}}",
+      "image": "{{event.image.getImage()}}",
+      "image_raw": "{{event.image.escapeForJs()}}",
+      "address": "{{event.address.escapeForJs()}}",
+      "start": "{{if {event.event_date_with_time} }}{{event.event_date_with_time.date(Y-m-d H:i:s)}}{{/if}}",
+      "end": "{{if {event.event_end_date_with_time} }}{{event.event_end_date_with_time.date(Y-m-d H:i:s)}}{{/if}}",
+      "summary": "{{event.date_time_summary.escapeForJs()}}",
+      "city": "{{event.city}}",
+      "state": "{{event.state}}"
+    }{{event._arraycomma}}{{/each}}{{/if}}
+  ]
+}
