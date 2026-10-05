@@ -427,7 +427,9 @@
       const cardImageDesktop = `${cardImageBase}?width=338&height=179&crop=16:9,smart`;
 
       const meta = cardData?.meta?.web || {};
+      console.log("Meta Data", meta);
       const metaTitle = meta.title || meta.name || meta.seo_meta_title || '';
+      console.log("Meta Title", metaTitle);
       const metaDescription = meta.seo_meta_description || '';
       const metaUri = meta.uri || '#';
 
