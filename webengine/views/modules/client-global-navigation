@@ -264,6 +264,8 @@
     corp: `corp`
   };
 
+  console.log("test")
+
   const national = `{{$nationalZUID}}`;
 
   const territories = {
