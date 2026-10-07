@@ -291,7 +291,7 @@
 
 <div>
   <div class="header-main-container align-items-center justify-content-center mx-auto">
-    {{if {instance.env} == 'dev' && {request.queryParam(navType)} == 'dynamic' }}
+    {{if {request.queryParam(navType)} == 'dynamic' }}
       {{include components/header-dynamic }}
     {{else}}
       {{include components/header }}

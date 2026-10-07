@@ -1,0 +1,429 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:97:0:33": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-f8e9a5b88a-b2djgc')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-f8e9a5b88a-b2djgc')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:97:0:33",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:22:25": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:22:25",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:textarea:1:93": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t<strong>Office Hours</strong> \n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Office Hours",
+								"position": 0,
+								"fullName": "content:textarea:1:93",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:1:93",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:69": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t9:00am-4:00pm (Monday-Thursday) \n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "9:00am-4:00pm (Monday-Thursday)",
+								"position": 1,
+								"fullName": "content:textarea:2:69",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:69",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:3:48": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tClosed for Lunch 12pm-1pm \n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Closed for Lunch 12pm-1pm",
+								"position": 2,
+								"fullName": "content:textarea:3:48",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:3:48",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:4:87": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t9:00am-12:00pm (Friday)\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "9:00am-12:00pm (Friday)",
+								"position": 3,
+								"fullName": "content:textarea:4:87",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:4:87",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:5:20": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\">\n\t <strong>Social Service Hours <em>by appointment only</em></strong> (call <a href=\"tel:9048246956;ext=2\">904-824-6956 Ext. 2</a>) \n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\">\n\t <strong>Social Service Hours <em>by appointment only</em></strong> (call <a href=\"tel:9048246956;ext=2\">904-824-6956 Ext. 2</a>) \n</p>",
+								"model": "6",
+								"manualContent": "<p style=\"text-align:center;\">\n\t <strong>Social Service Hours <em>by appointment only</em></strong> (call <a href=\"tel:9048246956;ext=2\">904-824-6956 Ext. 2</a>) \n</p>",
+								"position": 4,
+								"fullName": "content:wysiwyg_basic:5:20",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:5:20",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:6:7": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 5,
+								"fullName": "design:design:whitespace-sm:6:7",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:8:77": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t<strong>Weekly Programs</strong> \n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Weekly Programs",
+								"position": 6,
+								"fullName": "content:textarea:8:77",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:8:77",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:9:41": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t<strong><em>Sundays</em> </strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Sundays",
+								"position": 7,
+								"fullName": "content:textarea:9:41",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:9:41",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:10:14": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tSchool 9:45am; Worship Service 11:00 am (All Ages Welcome) \n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "School 9:45am; Worship Service 11:00 am (All Ages Welcome)",
+								"position": 8,
+								"fullName": "content:textarea:10:14",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:10:14",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:11:43": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t<strong><em>Tuesdays</em> </strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Tuesdays",
+								"position": 9,
+								"fullName": "content:textarea:11:43",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:11:43",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:12:63": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tWomen’s Ministry &amp; Men’s Fellowship Club 11:00 am (Men/Women Ages 16 &amp; up) \n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Women’s Ministry &amp; Men’s Fellowship Club 11:00 am (Men/Women Ages 16 &amp; up)",
+								"position": 10,
+								"fullName": "content:textarea:12:63",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:12:63",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:13:23": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t<strong><em>Thursdays</em> </strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Thursdays",
+								"position": 11,
+								"fullName": "content:textarea:13:23",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:13:23",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:14:11": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tAdult Bible Study 3:00 pm (Ages 16 &amp; up) \n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Adult Bible Study 3:00 pm (Ages 16 &amp; up)",
+								"position": 12,
+								"fullName": "content:textarea:14:11",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:14:11",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:15:8": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t<em><strong>Fridays</strong> </em>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Fridays",
+								"position": 13,
+								"fullName": "content:textarea:15:8",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:15:8",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:16:3": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\tBrunch Bunch 10:00 am (Meeting Location Varies)\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Brunch Bunch 10:00 am (Meeting Location Varies)",
+								"position": 14,
+								"fullName": "content:textarea:16:3",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:16:3",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:17:32": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\">\n\t<em>1425 Old Dixie Highway St. Augustine, FL 32084 | <a href=\"tel:9048246956\">904-824-6956</a></em>\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\">\n\t<em>1425 Old Dixie Highway St. Augustine, FL 32084 | <a href=\"tel:9048246956\">904-824-6956</a></em>\n</p>",
+								"model": "6",
+								"manualContent": "<p style=\"text-align:center;\">\n\t<em>1425 Old Dixie Highway St. Augustine, FL 32084 | <a href=\"tel:9048246956\">904-824-6956</a></em>\n</p>",
+								"position": 15,
+								"fullName": "content:wysiwyg_basic:17:32",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:17:32",
+								"styles": {
+									"textAlign": "center",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:18:94": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 16,
+								"fullName": "design:design:whitespace-sm:18:94",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:19:94": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.facebook.com/SalArmyStAugustine\" class=\"btn btn-secondary gap-1 mt-2\">Follow Us on Facebook</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.facebook.com/SalArmyStAugustine\" class=\"btn btn-secondary gap-1 mt-2\">Follow Us on Facebook</a></p>",
+								"model": "6",
+								"manualContent": "<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"https://www.facebook.com/SalArmyStAugustine\" class=\"btn btn-solid btn-red\">Follow Us on Facebook</a></p>",
+								"position": 17,
+								"fullName": "content:wysiwyg_basic:19:94",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:19:94",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:22:25-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

@@ -1,0 +1,111 @@
+<div className={styles.pvlRoot}>
+	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="pvlRichtext board-chair-quote text-white rounded my-4" style="position:relative;overflow:hidden;min-height:320px;background-image:url("><section style="position:relative;overflow:hidden;min-height:320px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/20734da0-fda0-48ee-9d3c-e605fd699c33_Untitled+design+%287%29.png');background-position:center center;background-repeat:no-repeat;background-size:cover;" class="board-chair-quote text-white rounded my-4">
+            <div class="bg-photo-overlay bg-opacity-60" style="position:absolute;inset:0;z-index:1;"></div>
+            <div style="position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:32px 40px;">
+                <div style="max-width:760px;width:100%;text-align:center;">
+                    <blockquote style="margin:0;padding:0;text-align:center;"><p style="margin:0;padding:0;text-align:center;color:#fff;">The Salvation Army does not just offer a handout but a hand-up to discourage comfortability in poverty. This organization is committed to making an effective, and lasting impact on those in need.</p><footer style="margin-top:16px;"><strong>Peter Darbee</strong></footer></blockquote>
+                </div>
+            </div>
+        </section>
+        <div class="py-5"></div></div>
+			<div class="my-2"></div>
+			<h5 style="text-align:center;">Our Advisory Board Members</h5>
+			<p style="text-align:center;max-width:768px;margin:auto;" class="u-textLg u-textGreyMedium no-margin-bottom padding-left-md padding-right-md">The Northeast Florida Advisory Board consists of a wide variety of hard-working men and women who share the vision to transform and restore lives in the city of Jacksonville.</p>
+			<hr>
+			<h5 style="text-align:center;">Officers / Executive Committee</h5>
+			<div style="display:flex" className={`${styles.pvlRow} row my-3`}>
+				<div class="col col-md-3 col-lg-3 col-sm-12 col-xs-12">
+					<p style="text-align:center;">Chairman: Peter Darbee</p>
+				</div>
+				<div class="col col-md-3 col-lg-3 col-sm-12 col-xs-12">
+					<p style="text-align:center;">Vice Chair: Jon Ernst</p>
+				</div>
+				<div class="col col-md-3 col-lg-3 col-sm-12 col-xs-12">
+					<p style="text-align:center;">Secretary: Clyde Brumfield</p>
+				</div>
+				<div class="col col-md-3 col-lg-3 col-sm-12 col-xs-12">
+					<p style="text-align:center;">Treasurer: Mark Hand</p>
+				</div>
+			</div>
+			<hr>
+			<h5 style="text-align:center;">Advisory Board Committees / Chairpersons</h5>
+			<div class="row my-3 g-4">
+				<div class="col col-md-6 col-lg-6 col-sm-12 col-xs-12">
+					<p style="text-align:center;">Christmas Committee | Debbie Veale</p>
+					<p style="text-align:center;">Marketing, Messaging & 
+Community Relations Cmte. | Peter Darbee</p>
+					<p style="text-align:center;">Echelon Chapter | Brogan Hill</p>
+					<p style="text-align:center;">Finance Committee | Mark Hand</p>
+					<p style="text-align:center;">Golf Tournament Committee | Pat Paolino</p>
+				</div>
+				<div class="col col-md-6 col-lg-6 col-sm-12 col-xs-12">
+					<p style="text-align:center;">Property Committee | Brogan Hill </p>
+					<p style="text-align:center;">Nominating Committee | Robert O'Quinn, Jr.</p>
+					<p style="text-align:center;">Programs/Disaster Services | Jackie Mccurdy </p>
+					<p style="text-align:center;">Red Shield Ball Committee | Dawn Alexander (Co-chair) Brogan Hill (Co-chair) </p>
+				</div>
+			</div>
+			<hr>
+			<h5 style="text-align:center;">Advisory Board Members</h5>
+			<div class="my-2"></div>
+			<div class="row my-3 g-4">
+				<div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
+					<div class="pvlRichtext"><ul>
+<li>Abbott, James</li>
+<li>Alexander, Dawn</li>
+<li>Bacalis, Steve&nbsp;</li>
+<li>Beckwith, Noble&nbsp;</li>
+<li>Biagini, Michael</li>
+<li>Buncome, Melina</li>
+<li>Chapman, Hugh</li>
+<li>Darbee, Peter&nbsp;</li>
+<li>Dixon, Stephanie&nbsp;</li>
+<li>Ernst, Jon&nbsp;</li>
+<li>Foster, Tori&nbsp;</li>
+<li>Hand, Mark&nbsp;</li>
+<li>Hill, Brogan</li>
+<li>Hudson, Hon. Dawn</li>
+<li>Johnson, Deidra</li>
+<li>Madden, Steven</li>
+<li>Massee, Karrie</li>
+</ul></div>
+				</div>
+				<div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
+					<div class="pvlRichtext"><ul>
+<li>Mccurdy, Jackie</li>
+<li>Morgan, Joyce</li>
+<li>Myers, Matt</li>
+<li>O'Neal, Deloris</li>
+<li>O'Quinn, Robert Jr.</li>
+<li>Paolino, Pat</li>
+<li>Phillips, Ted</li>
+<li>Ragsdale, Sally</li>
+<li>Rivera, Tish</li>
+<li>Scheible, Lauren</li>
+<li>Shad, Jennie</li>
+<li>Van Cleve, Robert</li>
+<li>Veale, Debbie</li>
+<li>Vickers, Heath</li>
+<li>Wolffe, Dan (111)</li>
+<li>Youngblood, Geoff&nbsp;</li>
+</ul></div>
+				</div>
+				<div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
+					<p style="font-weight: 700">Members Emeritus</p>
+					<div class="pvlRichtext"><ul>
+<li>Bryant, Cecilia</li>
+<li>Buresh, Mike</li>
+<li>Dickinson, Walter</li>
+<li>Lee, Thomas</li>
+<li>Lipsey, Richard</li>
+<li>Skinner, Chip (Ill)</li>
+<li>Turner, Henry</li>
+<li>Young, Wayne&nbsp;</li>
+</ul></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

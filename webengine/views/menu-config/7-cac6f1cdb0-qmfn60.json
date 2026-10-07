@@ -15,86 +15,6 @@
   },
   {
     "type": "menu",
-    "key": null,
-    "page_name": "Hunger",
-    "page-zuid": "7-ccf39fe2a1-4bfcpz",
-    "sort": 0,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Correctional Services",
-    "page-zuid": "7-9291b2e2a1-jn1tl8",
-    "sort": 1,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Utility Rent Assistance",
-    "page-zuid": "7-d086bfe2a1-cs9mw2",
-    "sort": 2,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Disaster Relief",
-    "page-zuid": "7-fe8ccee2a1-8hcgbn",
-    "sort": 3,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Domestic Violence",
-    "page-zuid": "7-b8b9dde2a1-5hcpwf",
-    "sort": 4,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Health Services",
-    "page-zuid": "7-fe8f94c5ef-1dqfh0",
-    "sort": 5,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Youth Services",
-    "page-zuid": "7-a69eaac5ef-p7p3gg",
-    "sort": 6,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Recovery",
-    "page-zuid": "7-8c9abac5ef-v71dvr",
-    "sort": 7,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Senior Services",
-    "page-zuid": "7-98f6dcc5ef-gdwx03",
-    "sort": 8,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Family Counseling",
-    "page-zuid": "7-bc9bf1c5ef-4vtwk0",
-    "sort": 9,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
     "key": "about_us",
     "page_name": "About Us",
     "page-zuid": null,
@@ -151,15 +71,15 @@
   {
     "type": "menu",
     "key": "events",
-    "page_name": "Massachusetts",
-    "page-zuid": "7-ee87c8b5f8-39wvnn",
+    "page_name": "Events",
+    "page-zuid": null,
     "parent": null
   },
   {
     "type": "menu",
     "key": "newsroom",
-    "page_name": "Massachusetts",
-    "page-zuid": "7-b496bda997-xm8fqn",
+    "page_name": "Newsroom",
+    "page-zuid": null,
     "parent": null
   },
   {
@@ -229,7 +149,14 @@
     "type": "menu",
     "key": "contact_us",
     "page_name": "Contact Us",
-    "page-zuid": "7-9cc6dadebb-h5zbg1",
+    "page-zuid": null,
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "Menu Item",
+    "page-zuid": null,
     "parent": null
   }
 ]

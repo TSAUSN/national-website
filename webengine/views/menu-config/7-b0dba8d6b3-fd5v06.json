@@ -14,27 +14,9 @@
     "parent": null
   },
   {
-    "type": "menu",
-    "key": null,
-    "page_name": "Pathway of Hope",
-    "page-zuid": "7-e492afeada-xcvn4n",
-    "sort": 0,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Holiday Giving",
-    "page-zuid": "7-d8d2bebfd5-hsc2f3",
-    "sort": 1,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Spiritual Healing",
-    "page-zuid": "7-f89fcce4a9-hjhzzs",
-    "sort": 2,
+    "type": "view-all",
+    "page_name": "",
+    "page-zuid": null,
     "parent": "services"
   },
   {
@@ -42,31 +24,7 @@
     "key": null,
     "page_name": "Social Services",
     "page-zuid": "7-b8e9ac90b1-nlk7s8",
-    "sort": 3,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Senior Action Center",
-    "page-zuid": "7-ccc6b694a2-snz9k6",
-    "sort": 4,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Food Pantries",
-    "page-zuid": "7-e69dc6df9a-gns66v",
-    "sort": 5,
-    "parent": "services"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Family Counseling",
-    "page-zuid": "7-dce99197b8-1b350w",
-    "sort": 6,
+    "sort": 0,
     "parent": "services"
   },
   {
@@ -74,7 +32,7 @@
     "key": null,
     "page_name": "Youth Services",
     "page-zuid": "7-d28882aabf-mrj3bp",
-    "sort": 7,
+    "sort": 1,
     "parent": "services"
   },
   {
@@ -82,6 +40,54 @@
     "key": null,
     "page_name": "Homelessness",
     "page-zuid": "7-bac1aef393-s4g07l",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Holiday Giving",
+    "page-zuid": "7-d8d2bebfd5-hsc2f3",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Worship Services",
+    "page-zuid": "7-f89fcce4a9-hjhzzs",
+    "sort": 4,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Pathway of Hope",
+    "page-zuid": "7-e492afeada-xcvn4n",
+    "sort": 5,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Senior Action Center",
+    "page-zuid": "7-ccc6b694a2-snz9k6",
+    "sort": 6,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Food Insecurity",
+    "page-zuid": "7-e69dc6df9a-gns66v",
+    "sort": 7,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Counseling",
+    "page-zuid": "7-dce99197b8-1b350w",
     "sort": 8,
     "parent": "services"
   },
@@ -222,6 +228,13 @@
     "key": "contact_us",
     "page_name": "Contact Us",
     "page-zuid": "7-cef48ccfcb-rm5pd5",
+    "parent": null
+  },
+  {
+    "type": "menu",
+    "key": "custom_menu",
+    "page_name": "Menu Item with Dropdown",
+    "page-zuid": null,
     "parent": null
   }
 ]

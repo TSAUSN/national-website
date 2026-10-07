@@ -1,0 +1,243 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:64:0:95": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-eadff6a8e7-n366dh')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-eadff6a8e7-n366dh')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:64:0:95",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:16:15": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:16:15",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:16:15-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:1:8": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Neighbors helping neighbors</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Neighbors helping neighbors",
+								"position": 0,
+								"fullName": "content:text:1:8",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:1:8",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:16:15-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:9": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThe Salvation Army Created the Project share program in 1985 to serve those in need in Georgia; today it is our primary resource for emergency family assistance throughout the state. Qualified families who have experienced a sudden financial crisis – disasters that threaten the stability of the home – are able to get relief, often preventing utility cut-off or eviction. Share is one of the most successful privately funded utility assistance programs in the United States, providing more than $2 million in aid to more than 40,000 Georgians each year.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army Created the Project share program in 1985 to serve those in need in Georgia; today it is our primary resource for emergency family assistance throughout the state. Qualified families who have experienced a sudden financial crisis – disasters that threaten the stability of the home – are able to get relief, often preventing utility cut-off or eviction. Share is one of the most successful privately funded utility assistance programs in the United States, providing more than $2 million in aid to more than 40,000 Georgians each year.",
+								"position": 1,
+								"fullName": "content:textarea:2:9",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:9",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:16:15-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:horizontalrule:3:57": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:horizontalrule:3:57",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:16:15-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:4:62": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:whitespace-xl:4:62",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:16:15-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:5:9": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:420px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/bdd93c39-cc46-487c-b89e-1930e495bb53_project+share+2+hand+holding.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"testimonialbox-section text-white rounded\">\n  <div class=\"bg-photo-overlay bg-opacity-60\" style=\"position:absolute;inset:0;z-index:1;\"></div>\n  <div style=\"position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:420px;padding:48px 40px;\">\n    <div style=\"max-width:720px;text-align:center;\">\n      <h6 style=\"text-align:center;\">Give hope in your community</h6>\n      <p style=\"text-align:center;color:#fff;\">Emergencies and challenging economic times often make it difficult for people to acquire food, shelter, clothing and medical supplies or even pay their utility bills. But programs like Project share provide a way for you to help those truly in need.</p>\n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div style=\"position:relative;overflow:hidden;min-height:420px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/bdd93c39-cc46-487c-b89e-1930e495bb53_project+share+2+hand+holding.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"testimonialbox-section text-white rounded\">\n  <div class=\"bg-photo-overlay bg-opacity-60\" style=\"position:absolute;inset:0;z-index:1;\"></div>\n  <div style=\"position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:420px;padding:48px 40px;\">\n    <div style=\"max-width:720px;text-align:center;\">\n      <h6 style=\"text-align:center;\">Give hope in your community</h6>\n      <p style=\"text-align:center;color:#fff;\">Emergencies and challenging economic times often make it difficult for people to acquire food, shelter, clothing and medical supplies or even pay their utility bills. But programs like Project share provide a way for you to help those truly in need.</p>\n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"model": "6",
+								"manualContent": "<div style=\"position:relative;overflow:hidden;min-height:420px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/bdd93c39-cc46-487c-b89e-1930e495bb53_project+share+2+hand+holding.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"testimonialbox-section text-white rounded\">\n  <div class=\"bg-photo-overlay bg-opacity-60\" style=\"position:absolute;inset:0;z-index:1;\"></div>\n  <div style=\"position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:420px;padding:48px 40px;\">\n    <div style=\"max-width:720px;text-align:center;\">\n      <h6 style=\"text-align:center;\">Give hope in your community</h6>\n      <p style=\"text-align:center;color:#fff;\">Emergencies and challenging economic times often make it difficult for people to acquire food, shelter, clothing and medical supplies or even pay their utility bills. But programs like Project share provide a way for you to help those truly in need.</p>\n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"position": 4,
+								"fullName": "content:wysiwyg_basic:5:9",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:5:9",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "420px",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/bdd93c39-cc46-487c-b89e-1930e495bb53_project+share+2+hand+holding.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover"
+								},
+								"classes": "testimonialbox-section text-white rounded",
+								"newLoc": "design:columns:1 column - 1 row my-3:16:15-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:6:58": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 5,
+								"fullName": "design:design:whitespace-sm:6:58",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:16:15-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:7:52": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 6,
+								"fullName": "design:design:whitespace-xl:7:52",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:16:15-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:8:0": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5>How we help those in a crisis</h5>\n\n<p style=\"text-align:center;\">\n\tEach year, thousands of hardworking individuals and families find themselves in an unexpected financial crisis. Whether facing illness, vulnerable to losing a home, or simply just unable make ends meet, The Salvation Army is here for those in need of shelter, transportation, or emergency financial assistance.\n</p>\n\n<p>\n\tEmergency Financial Assistance resources vary with local needs. For information on specific programs and locations, <a href=\"https://salvationarmygeorgia.org/locations/\" target=\"\">contact your local Salvation Army Center</a>.\n</p>\n\n<hr>\n<p>\n\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/fdd38107-f8cb-450d-b622-d0e52d1f9248_PROJECT+SHARE.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n</p>\n\n<hr>\n<p>\n\tProject share provides Financial Emergency Assistance to individuals and families facing a temporary crisis that threatens their home. Project share attempts to target the most urgent need, whether it is a utility bill, a part of a rent payment, or an emergency prescription.\n</p>\n\n<h5>How Do I Apply for Aid?</h5>\n\n<p>\n\tTo apply for aid, make an appointment at the share Partner Agency in your county of residence. Each eligibility decision is based on the change in circumstances that caused the crisis as determined by a local case manager. The level of assistance is based on need, available funds, and what it will take to resolve the crisis.\n</p>\n\n<p>\n\tAll applications for assistance are done locally by appointment. To book an appointment with your local case manager, please phone the SHARE Partner Agency office in your county.\n</p>\n\n<p>\n\tFor questions about appointments, what to bring to your appointment, available funds or the status of your case, you must contact your local SHARE Partner Agency.\n</p>\n\n<p>\n\tWhen you apply for aid, you will be asked to provide proof of identity and proof of residence. Each office has its own appointment policy, but most operate on a first-come, first-serve basis and will see clients as long as funds are available. You must provide proof of eligibility when applying for assistance.\n</p>\n\n<h5>Who QUALIFIES? </h5>\n\n<p>\n\t<strong>General Eligibility</strong>\n</p>\n\n<p>\n\tEach share client eligibility decision is based on comprehensive assessment of individual circumstances and need. Share assistance should improve or stabilize households in financial crisis by addressing immediate threats to utility service, housing or other covered necessities. Among other results, share assistance helps clients avoid more serious or catastrophic consequences and provide time to reestablish normal means of support.\n</p>\n\n<p>\n\tAll four of these statements must be true to be eligible:\n</p>\n\n<ul>\n\t<li>Applicant is experiencing a crisis that threatens the utility service, housing, employment, health, safety, or stability of the household or its individual members.</li>\n\t<li>Applicant rarely experiences a serious financial crisis requiring outside assistance.</li>\n\t<li>Applicant will, as a result of this assistance, receive meaningful and long-term relief from the threat/crisis.</li>\n\t<li>Applicant is, under the circumstances, making a reasonable financial contribution toward the expenses in question.</li>\n</ul>\n\n<p>\n\t<strong>Restrictions</strong>\n</p>\n\n<ul>\n\t<li>A household may not receive more than $500 in share assistance in a 12-month period.</li>\n\t<li>Share funds may not be used to pay any deposit (i.e. electricity, rent, water).</li>\n\t<li>Phone bills, credit card bills, auto expenses (including gasoline), loans (other than qualified mortgages), and debts covered by insurance do not qualify.</li>\n\t<li>Legal fees and insurance premiums do not qualify.</li>\n\t<li>Share funds may not be distributed directly to the client; all assistance checks are made payable to the vendor, and sent directly to the vendor.</li>\n\t<li>Any client who commits fraud in the application process, who has fraudulently received assistance in the past, or who has fraudulently received utility service is considered ineligible.</li>\n\t<li>Share funds are available exclusively to aid residents of the county in which those funds were raised. Local share offices are not able to provide case-management for residents of communities outside their own service area.</li>\n</ul>\n\n<h5>Where is project share AVAILABLE? </h5>\n\n<p>\n\tThe Project share partnership includes most Georgia Electric Membership Corporations, Georgia Power, and several natural gas and municipal utilities. This partnership enables us to offer assistance in every county in Georgia and several counties in North Carolina and Florida served by Georgia utilities.\n</p>\n\n<h5>How can i donate to project share?</h5>\n\n<p>\n\tMost Georgians can enroll in monthly gift-giving through their power bill. \n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://www.georgiapower.com/community/community-and-civic/project-share.html\" class=\"btn btn-secondary gap-1 mt-2\">Enroll Now</a></p>\n\n<p>\n\tSend a one-time gift by check to:\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Project share<br>\n\tThe Salvation Army<br>\n\tP.O. Box 930188<br>\n\tNorcross, GA 30003-0188</strong></span>\n</p>\n\n<p>\n\tInclude your power company name and account number in the memo field of your check. Many Project share utility partner companies, including Georgia Power, will <span style=\"color:#111111;\">match your donation.</span>\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5>How we help those in a crisis</h5>\n\n<p style=\"text-align:center;\">\n\tEach year, thousands of hardworking individuals and families find themselves in an unexpected financial crisis. Whether facing illness, vulnerable to losing a home, or simply just unable make ends meet, The Salvation Army is here for those in need of shelter, transportation, or emergency financial assistance.\n</p>\n\n<p>\n\tEmergency Financial Assistance resources vary with local needs. For information on specific programs and locations, <a href=\"https://salvationarmygeorgia.org/locations/\" target=\"\">contact your local Salvation Army Center</a>.\n</p>\n\n<hr>\n<p>\n\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/fdd38107-f8cb-450d-b622-d0e52d1f9248_PROJECT+SHARE.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n</p>\n\n<hr>\n<p>\n\tProject share provides Financial Emergency Assistance to individuals and families facing a temporary crisis that threatens their home. Project share attempts to target the most urgent need, whether it is a utility bill, a part of a rent payment, or an emergency prescription.\n</p>\n\n<h5>How Do I Apply for Aid?</h5>\n\n<p>\n\tTo apply for aid, make an appointment at the share Partner Agency in your county of residence. Each eligibility decision is based on the change in circumstances that caused the crisis as determined by a local case manager. The level of assistance is based on need, available funds, and what it will take to resolve the crisis.\n</p>\n\n<p>\n\tAll applications for assistance are done locally by appointment. To book an appointment with your local case manager, please phone the SHARE Partner Agency office in your county.\n</p>\n\n<p>\n\tFor questions about appointments, what to bring to your appointment, available funds or the status of your case, you must contact your local SHARE Partner Agency.\n</p>\n\n<p>\n\tWhen you apply for aid, you will be asked to provide proof of identity and proof of residence. Each office has its own appointment policy, but most operate on a first-come, first-serve basis and will see clients as long as funds are available. You must provide proof of eligibility when applying for assistance.\n</p>\n\n<h5>Who QUALIFIES? </h5>\n\n<p>\n\t<strong>General Eligibility</strong>\n</p>\n\n<p>\n\tEach share client eligibility decision is based on comprehensive assessment of individual circumstances and need. Share assistance should improve or stabilize households in financial crisis by addressing immediate threats to utility service, housing or other covered necessities. Among other results, share assistance helps clients avoid more serious or catastrophic consequences and provide time to reestablish normal means of support.\n</p>\n\n<p>\n\tAll four of these statements must be true to be eligible:\n</p>\n\n<ul>\n\t<li>Applicant is experiencing a crisis that threatens the utility service, housing, employment, health, safety, or stability of the household or its individual members.</li>\n\t<li>Applicant rarely experiences a serious financial crisis requiring outside assistance.</li>\n\t<li>Applicant will, as a result of this assistance, receive meaningful and long-term relief from the threat/crisis.</li>\n\t<li>Applicant is, under the circumstances, making a reasonable financial contribution toward the expenses in question.</li>\n</ul>\n\n<p>\n\t<strong>Restrictions</strong>\n</p>\n\n<ul>\n\t<li>A household may not receive more than $500 in share assistance in a 12-month period.</li>\n\t<li>Share funds may not be used to pay any deposit (i.e. electricity, rent, water).</li>\n\t<li>Phone bills, credit card bills, auto expenses (including gasoline), loans (other than qualified mortgages), and debts covered by insurance do not qualify.</li>\n\t<li>Legal fees and insurance premiums do not qualify.</li>\n\t<li>Share funds may not be distributed directly to the client; all assistance checks are made payable to the vendor, and sent directly to the vendor.</li>\n\t<li>Any client who commits fraud in the application process, who has fraudulently received assistance in the past, or who has fraudulently received utility service is considered ineligible.</li>\n\t<li>Share funds are available exclusively to aid residents of the county in which those funds were raised. Local share offices are not able to provide case-management for residents of communities outside their own service area.</li>\n</ul>\n\n<h5>Where is project share AVAILABLE? </h5>\n\n<p>\n\tThe Project share partnership includes most Georgia Electric Membership Corporations, Georgia Power, and several natural gas and municipal utilities. This partnership enables us to offer assistance in every county in Georgia and several counties in North Carolina and Florida served by Georgia utilities.\n</p>\n\n<h5>How can i donate to project share?</h5>\n\n<p>\n\tMost Georgians can enroll in monthly gift-giving through their power bill. \n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://www.georgiapower.com/community/community-and-civic/project-share.html\" class=\"btn btn-secondary gap-1 mt-2\">Enroll Now</a></p>\n\n<p>\n\tSend a one-time gift by check to:\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Project share<br>\n\tThe Salvation Army<br>\n\tP.O. Box 930188<br>\n\tNorcross, GA 30003-0188</strong></span>\n</p>\n\n<p>\n\tInclude your power company name and account number in the memo field of your check. Many Project share utility partner companies, including Georgia Power, will <span style=\"color:#111111;\">match your donation.</span>\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 7,
+								"fullName": "content:wysiwyg_basic:8:0",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:8:0",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:16:15-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5>How we help those in a crisis</h5>\n\n<p style=\"text-align:center;\">\n\tEach year, thousands of hardworking individuals and families find themselves in an unexpected financial crisis. Whether facing illness, vulnerable to losing a home, or simply just unable make ends meet, The Salvation Army is here for those in need of shelter, transportation, or emergency financial assistance.\n</p>\n\n<p>\n\tEmergency Financial Assistance resources vary with local needs. For information on specific programs and locations, <a href=\"https://salvationarmygeorgia.org/locations/\" target=\"\">contact your local Salvation Army Center</a>.\n</p>\n\n<hr>\n<p>\n\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/fdd38107-f8cb-450d-b622-d0e52d1f9248_PROJECT+SHARE.jpeg\" style=\"display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n</p>\n\n<hr>\n<p>\n\tProject share provides Financial Emergency Assistance to individuals and families facing a temporary crisis that threatens their home. Project share attempts to target the most urgent need, whether it is a utility bill, a part of a rent payment, or an emergency prescription.\n</p>\n\n<h5>How Do I Apply for Aid?</h5>\n\n<p>\n\tTo apply for aid, make an appointment at the share Partner Agency in your county of residence. Each eligibility decision is based on the change in circumstances that caused the crisis as determined by a local case manager. The level of assistance is based on need, available funds, and what it will take to resolve the crisis.\n</p>\n\n<p>\n\tAll applications for assistance are done locally by appointment. To book an appointment with your local case manager, please phone the SHARE Partner Agency office in your county.\n</p>\n\n<p>\n\tFor questions about appointments, what to bring to your appointment, available funds or the status of your case, you must contact your local SHARE Partner Agency.\n</p>\n\n<p>\n\tWhen you apply for aid, you will be asked to provide proof of identity and proof of residence. Each office has its own appointment policy, but most operate on a first-come, first-serve basis and will see clients as long as funds are available. You must provide proof of eligibility when applying for assistance.\n</p>\n\n<h5>Who QUALIFIES? </h5>\n\n<p>\n\t<strong>General Eligibility</strong>\n</p>\n\n<p>\n\tEach share client eligibility decision is based on comprehensive assessment of individual circumstances and need. Share assistance should improve or stabilize households in financial crisis by addressing immediate threats to utility service, housing or other covered necessities. Among other results, share assistance helps clients avoid more serious or catastrophic consequences and provide time to reestablish normal means of support.\n</p>\n\n<p>\n\tAll four of these statements must be true to be eligible:\n</p>\n\n<ul>\n\t<li>Applicant is experiencing a crisis that threatens the utility service, housing, employment, health, safety, or stability of the household or its individual members.</li>\n\t<li>Applicant rarely experiences a serious financial crisis requiring outside assistance.</li>\n\t<li>Applicant will, as a result of this assistance, receive meaningful and long-term relief from the threat/crisis.</li>\n\t<li>Applicant is, under the circumstances, making a reasonable financial contribution toward the expenses in question.</li>\n</ul>\n\n<p>\n\t<strong>Restrictions</strong>\n</p>\n\n<ul>\n\t<li>A household may not receive more than $500 in share assistance in a 12-month period.</li>\n\t<li>Share funds may not be used to pay any deposit (i.e. electricity, rent, water).</li>\n\t<li>Phone bills, credit card bills, auto expenses (including gasoline), loans (other than qualified mortgages), and debts covered by insurance do not qualify.</li>\n\t<li>Legal fees and insurance premiums do not qualify.</li>\n\t<li>Share funds may not be distributed directly to the client; all assistance checks are made payable to the vendor, and sent directly to the vendor.</li>\n\t<li>Any client who commits fraud in the application process, who has fraudulently received assistance in the past, or who has fraudulently received utility service is considered ineligible.</li>\n\t<li>Share funds are available exclusively to aid residents of the county in which those funds were raised. Local share offices are not able to provide case-management for residents of communities outside their own service area.</li>\n</ul>\n\n<h5>Where is project share AVAILABLE? </h5>\n\n<p>\n\tThe Project share partnership includes most Georgia Electric Membership Corporations, Georgia Power, and several natural gas and municipal utilities. This partnership enables us to offer assistance in every county in Georgia and several counties in North Carolina and Florida served by Georgia utilities.\n</p>\n\n<h5>How can i donate to project share?</h5>\n\n<p>\n\tMost Georgians can enroll in monthly gift-giving through their power bill. \n</p>\n\n<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://www.georgiapower.com/community/community-and-civic/project-share.html\" class=\"btn btn-light\">Enroll Now</a></p>\n\n<p>\n\tSend a one-time gift by check to:\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>Project share<br>\n\tThe Salvation Army<br>\n\tP.O. Box 930188<br>\n\tNorcross, GA 30003-0188</strong></span>\n</p>\n\n<p>\n\tInclude your power company name and account number in the memo field of your check. Many Project share utility partner companies, including Georgia Power, will <span style=\"color:#111111;\">match your donation.</span>\n</p></div>"
+							},
+							"design:design:whitespace-xl:9:24": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 8,
+								"fullName": "design:design:whitespace-xl:9:24",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:16:15-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:10:48": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"margin-top:3rem;\"></div><h6>Eligibility Guidelines</h6><p>Experiencing a crisis that threatens the utility service, housing, employment, health, safety, or stability of the household or its individual members</p><p>Applicant rarely experiences a serious financial crisis requiring outside assistance</p><p>Applicant will, as a result of this assistance, receive meaningful and long-term relief from the threat/crisis</p><p>Applicant is, under the circumstances, making a reasonable financial contribution toward the expenses in question</p><div style=\"margin-bottom:3rem;\"></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div style=\"margin-top:3rem;\"></div><h6>Eligibility Guidelines</h6><p>Experiencing a crisis that threatens the utility service, housing, employment, health, safety, or stability of the household or its individual members</p><p>Applicant rarely experiences a serious financial crisis requiring outside assistance</p><p>Applicant will, as a result of this assistance, receive meaningful and long-term relief from the threat/crisis</p><p>Applicant is, under the circumstances, making a reasonable financial contribution toward the expenses in question</p><div style=\"margin-bottom:3rem;\"></div>",
+								"model": "6",
+								"manualContent": "<div style=\"margin-top:3rem;\"></div><h6>Eligibility Guidelines</h6><p>Experiencing a crisis that threatens the utility service, housing, employment, health, safety, or stability of the household or its individual members</p><p>Applicant rarely experiences a serious financial crisis requiring outside assistance</p><p>Applicant will, as a result of this assistance, receive meaningful and long-term relief from the threat/crisis</p><p>Applicant is, under the circumstances, making a reasonable financial contribution toward the expenses in question</p><div style=\"margin-bottom:3rem;\"></div>",
+								"position": 9,
+								"fullName": "content:wysiwyg_basic:10:48",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:10:48",
+								"styles": {
+									"marginTop": "3rem"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:16:15-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

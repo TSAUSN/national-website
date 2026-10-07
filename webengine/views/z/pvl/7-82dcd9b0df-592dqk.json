@@ -1,0 +1,145 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:60:0:37": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-9cc0a9cfe4-4196d8')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-9cc0a9cfe4-4196d8')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:60:0:37",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:12:42": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:12:42",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:12:42-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:2:34": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Dedicated to Helping Individuals and Families in Crisis</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Dedicated to Helping Individuals and Families in Crisis",
+								"position": 0,
+								"fullName": "content:text:2:34",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:2:34",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:42-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:3:72": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 1,
+								"fullName": "design:design:whitespace-xl:3:72",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:42-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:4:79": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d66aa8be-9105-4e58-b95b-3484d0e03f67_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"text-white rounded p-6 gap-3 my-5\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <h6 style=\"text-align:center;\">Baton Rouge:</h6>\n\n<ul>\n\t<li><strong>Clothes voucher </strong>– emergency basis only (fire, flood, hurricane, tornado, homeless, etc); need proof of emergency and current LA ID/license; by appointment only. Vouchers can only be claimed at the Coursey Family Store in Baton Rouge.</li>\n\t<li><strong>Furniture/appliance Voucher </strong>– unable to do at this time</li>\n\t<li><strong>Energy Assistance </strong>– through Entergy’s Power to Care Program, must be elderly (60 and above) or receive disability, or have a child receiving disability; person applying for assistance must have their name on the bill and live at the address; must present emergency reason for needing assistance, income-based; by appointment only</li>\n</ul>\n                </div>\n            </div>\n        </div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div class=\"text-white rounded p-6 gap-3 my-5\" style=\"position:relative;overflow:hidden;min-height:300px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d66aa8be-9105-4e58-b95b-3484d0e03f67_Blue+BG.png');background-position:center center;background-repeat:no-repeat;background-size:cover;\">\n            <div style=\"position:absolute;inset:0;z-index:2;\"></div>\n            <div style=\"position:relative;z-index:3;display:flex;align-items:center;justify-content:flex-start;min-height:300px;\">\n                <div style=\"width:100%;padding:40px;color:#FFFFFF;\">\n                    <h6 style=\"text-align:center;\">Baton Rouge:</h6>\n\n<ul>\n\t<li><strong>Clothes voucher </strong>– emergency basis only (fire, flood, hurricane, tornado, homeless, etc); need proof of emergency and current LA ID/license; by appointment only. Vouchers can only be claimed at the Coursey Family Store in Baton Rouge.</li>\n\t<li><strong>Furniture/appliance Voucher </strong>– unable to do at this time</li>\n\t<li><strong>Energy Assistance </strong>– through Entergy’s Power to Care Program, must be elderly (60 and above) or receive disability, or have a child receiving disability; person applying for assistance must have their name on the bill and live at the address; must present emergency reason for needing assistance, income-based; by appointment only</li>\n</ul>\n                </div>\n            </div>\n        </div>",
+								"model": "6",
+								"position": 2,
+								"fullName": "content:wysiwyg_basic:4:79",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:4:79",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "300px",
+									"background": "#000000 url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d66aa8be-9105-4e58-b95b-3484d0e03f67_Blue+BG.png') center center / cover no-repeat",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/d66aa8be-9105-4e58-b95b-3484d0e03f67_Blue+BG.png')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover",
+									"fontWeight": "700"
+								},
+								"classes": "text-white rounded p-6 gap-3 my-5",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:42-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:7:12": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\"><h5 style=\"text-align:center;\">&nbsp;</h5>\n\n<h5 style=\"text-align:center;\">For More Information Contact<br>\n<span style=\"font-size:20px;\">Helen Duncan</span></h5>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"mailto:Helen.Duncan@uss.salvationarmy.org\" class=\"btn btn-secondary gap-1 mt-2\">Helen.Duncan@uss.salvationarmy.org</a></p></div>",
+								"content": "<div class=\"rounded p-6 gap-3 mt-3 bg-light text-dark\" style=\"color:#111111;\"><h5 style=\"text-align:center;\">&nbsp;</h5>\n\n<h5 style=\"text-align:center;\">For More Information Contact<br>\n<span style=\"font-size:20px;\">Helen Duncan</span></h5>\n\n<p style=\"text-align:center;\" class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center\"><a href=\"mailto:Helen.Duncan@uss.salvationarmy.org\" class=\"btn btn-secondary gap-1 mt-2\">Helen.Duncan@uss.salvationarmy.org</a></p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:7:12",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:7:12",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:42-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

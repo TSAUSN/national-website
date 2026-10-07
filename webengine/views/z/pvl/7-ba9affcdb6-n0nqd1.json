@@ -1,0 +1,190 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:59:0:35": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-c6eacae8cf-gsctbn')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-c6eacae8cf-gsctbn')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:59:0:35",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:13:48": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:13:48",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:13:48-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:51": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:51",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:13:48-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:48": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><p>\n\tThe Salvation Army Of Northwest Arkansas provides food to more than 2,000 families each year through our food box initiatives. Additionally, we serve meals every night of the year at both our shelter locations. In 2023 we served nearly 75,000 meals and distributed 2,500 food boxes. A majority of this food comes from donation drives hosted by local schools, churches, and companies. We would not be able to operate our programs without the charitable donations of our community. Download our Food Drive guide <strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/62221b2f-a5f1-4644-ab37-eb9756dc4541_the+toolkit.pdf\">HERE</a></strong> to learn more about how to get started. Once you have a date selected, let us know! We’d love to help support your food drive efforts.\n</p>\n\n<p>\n\tContact us at <a href=\"mailto:salarmynwapr@gmail.com\">salarmynwapr@gmail.com</a> or call <a href=\"tel:4795212151\">479-521-2151</a> to speak with our Public Relations Department\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><p>\n\tThe Salvation Army Of Northwest Arkansas provides food to more than 2,000 families each year through our food box initiatives. Additionally, we serve meals every night of the year at both our shelter locations. In 2023 we served nearly 75,000 meals and distributed 2,500 food boxes. A majority of this food comes from donation drives hosted by local schools, churches, and companies. We would not be able to operate our programs without the charitable donations of our community. Download our Food Drive guide <strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/62221b2f-a5f1-4644-ab37-eb9756dc4541_the+toolkit.pdf\">HERE</a></strong> to learn more about how to get started. Once you have a date selected, let us know! We’d love to help support your food drive efforts.\n</p>\n\n<p>\n\tContact us at <a href=\"mailto:salarmynwapr@gmail.com\">salarmynwapr@gmail.com</a> or call <a href=\"tel:4795212151\">479-521-2151</a> to speak with our Public Relations Department\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:48",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:48",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:13:48-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><p>\n\tThe Salvation Army Of Northwest Arkansas provides food to more than 2,000 families each year through our food box initiatives. Additionally, we serve meals every night of the year at both our shelter locations. In 2023 we served nearly 75,000 meals and distributed 2,500 food boxes. A majority of this food comes from donation drives hosted by local schools, churches, and companies. We would not be able to operate our programs without the charitable donations of our community. Download our Food Drive guide <strong><a href=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/62221b2f-a5f1-4644-ab37-eb9756dc4541_the+toolkit.pdf\">HERE</a></strong> to learn more about how to get started. Once you have a date selected, let us know! We’d love to help support your food drive efforts.\n</p>\n\n<p>\n\tContact us at <a href=\"mailto:salarmynwapr@gmail.com\">salarmynwapr@gmail.com</a> or call <a href=\"tel:4795212151\">479-521-2151</a> to speak with our Public Relations Department\n</p></div>"
+							},
+							"design:design:whitespace-xl:3:93": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:93",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:13:48-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"design:design:whitespace-md:4:68": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:whitespace-md:4:68",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:13:48-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:4:95": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/18d52b18-baac-49cb-9465-23a669e5f039_kid_canned_food_1280x837.jpg\" alt=\"placeholder\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" class=\"img-fluid d-block my-4 rounded\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/18d52b18-baac-49cb-9465-23a669e5f039_kid_canned_food_1280x837.jpg",
+								"position": 4,
+								"fullName": "content:images:4:95",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:13:48-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:6:99": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 5,
+								"fullName": "design:design:whitespace-sm:6:99",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:13:48-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:7:2": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 6,
+								"fullName": "design:design:whitespace-xl:7:2",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:13:48-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:8:10": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><p>\n\t<strong>Items We Need Often</strong><br>\n\tFeel free to drop off food donations of these items at our office or shelter locations anytime. \n</p>\n\n<p>\n\tCanned Meat<br>\n\tCanned Vegetables<br>\n\tCanned Soup<br>\n\tCrackers<br>\n\tSpaghetti<br>\n\tSpaghetti Sauce<br>\n\tMac &amp; Cheese<br>\n\tCamping Meals (Just Add Water)<br>\n\tIndividually Wrapped Snacks<br>\n\tPeanut Butter<br>\n\tJelly<br>\n\tShelf Stable Milk<br>\n\tPancake Mix<br>\n\tPancake Syrup<br>\n\tCereal<br>\n\tDry Beans<br>\n\tRice<br>\n\tCoffee\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><p>\n\t<strong>Items We Need Often</strong><br>\n\tFeel free to drop off food donations of these items at our office or shelter locations anytime. \n</p>\n\n<p>\n\tCanned Meat<br>\n\tCanned Vegetables<br>\n\tCanned Soup<br>\n\tCrackers<br>\n\tSpaghetti<br>\n\tSpaghetti Sauce<br>\n\tMac &amp; Cheese<br>\n\tCamping Meals (Just Add Water)<br>\n\tIndividually Wrapped Snacks<br>\n\tPeanut Butter<br>\n\tJelly<br>\n\tShelf Stable Milk<br>\n\tPancake Mix<br>\n\tPancake Syrup<br>\n\tCereal<br>\n\tDry Beans<br>\n\tRice<br>\n\tCoffee\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 7,
+								"fullName": "content:wysiwyg_basic:8:10",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:8:10",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:13:48-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><p>\n\t<strong>Items We Need Often</strong><br>\n\tFeel free to drop off food donations of these items at our office or shelter locations anytime. \n</p>\n\n<p>\n\tCanned Meat<br>\n\tCanned Vegetables<br>\n\tCanned Soup<br>\n\tCrackers<br>\n\tSpaghetti<br>\n\tSpaghetti Sauce<br>\n\tMac &amp; Cheese<br>\n\tCamping Meals (Just Add Water)<br>\n\tIndividually Wrapped Snacks<br>\n\tPeanut Butter<br>\n\tJelly<br>\n\tShelf Stable Milk<br>\n\tPancake Mix<br>\n\tPancake Syrup<br>\n\tCereal<br>\n\tDry Beans<br>\n\tRice<br>\n\tCoffee\n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

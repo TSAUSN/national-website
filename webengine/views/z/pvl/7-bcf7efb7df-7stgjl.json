@@ -1,0 +1,721 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:86:0:19": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-d4c6d7e5f5-x12ftn')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-d4c6d7e5f5-x12ftn')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:86:0:19",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:51:2": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:51:2",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:1:12": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6><span style=\"color:#ed1c2b;\">Woodyard Fund History &amp; impact</span></h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Woodyard Fund History &amp; impact",
+								"position": 0,
+								"fullName": "content:text:1:12",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:1:12",
+								"styles": {
+									"color": "#ed1c2b"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:81": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\t<em>Providing warmth, light, and hope since 1816</em>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Providing warmth, light, and hope since 1816",
+								"position": 1,
+								"fullName": "content:textarea:2:81",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:81",
+								"styles": {
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:horizontalrule:3:5": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:horizontalrule:3:5",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:4:56": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThe Woodyard Fund began in <strong>1816</strong>, when the Ladies Benevolent Society provided firewood—and later coal—to struggling families. Around the turn of the 20th century, The Salvation Army took on management of the fund. In 1930, The State newspaper began promoting the effort each winter, a tradition that continued until 2020.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Woodyard Fund began in 1816, when the Ladies Benevolent Society provided firewood—and later coal—to struggling families. Around the turn of the 20th century, The Salvation Army took on management of the fund. In 1930, The State newspaper began promoting the effort each winter, a tradition that continued until 2020.",
+								"position": 3,
+								"fullName": "content:textarea:4:56",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:4:56",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:5:43": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tFor more than 200 years, the Woodyard Fund has <strong>helped Midlands families </strong>stay warm and secure during the coldest months. In the last year of support via The State Paper, community donations provided <strong>$93,446 in utility assistance, helping 221 families in crisis</strong>.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "For more than 200 years, the Woodyard Fund has helped Midlands families stay warm and secure during the coldest months. In the last year of support via The State Paper, community donations provided $93,446 in utility assistance, helping 221 families in crisis.",
+								"position": 4,
+								"fullName": "content:textarea:5:43",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:5:43",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:horizontalrule:6:96": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 5,
+								"fullName": "design:design:horizontalrule:6:96",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:7:45": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\t<strong>Among those helped were:&nbsp;</strong>\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Among those helped were:&nbsp;",
+								"position": 6,
+								"fullName": "content:textarea:7:45",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:7:45",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:8:50": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p>\n\t&nbsp; &nbsp; &nbsp;<img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/3a7b51cf-9882-4ebb-bd24-0d008a58abf9_Mother+and+Child.png\" style=\"width:33.5938px;height:40px;\">A grandmother raising twin grandsons who fell behind after her work hours were cut.\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p>\n\t&nbsp; &nbsp; &nbsp;<img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/3a7b51cf-9882-4ebb-bd24-0d008a58abf9_Mother+and+Child.png\" style=\"width:33.5938px;height:40px;\">A grandmother raising twin grandsons who fell behind after her work hours were cut.\n</p>",
+								"model": "6",
+								"position": 7,
+								"fullName": "content:wysiwyg_basic:8:50",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:8:50",
+								"styles": {
+									"width": "33.5938px",
+									"height": "40px"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:9:16": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 8,
+								"fullName": "design:design:whitespace-sm:9:16",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:11:55": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p>\n\t&nbsp; &nbsp;&nbsp;&nbsp;<img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/8cf42f03-a703-43ed-92cb-d7882cf58d87_Iightbulb.png\" style=\"width:33.5938px;height:40px;\">A single mother of three was facing eviction when her power was shut off.\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p>\n\t&nbsp; &nbsp;&nbsp;&nbsp;<img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/8cf42f03-a703-43ed-92cb-d7882cf58d87_Iightbulb.png\" style=\"width:33.5938px;height:40px;\">A single mother of three was facing eviction when her power was shut off.\n</p>",
+								"model": "6",
+								"position": 9,
+								"fullName": "content:wysiwyg_basic:11:55",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:11:55",
+								"styles": {
+									"width": "33.5938px",
+									"height": "40px"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:12:46": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 10,
+								"fullName": "design:design:whitespace-sm:12:46",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:13:46": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p>\n\t&nbsp; &nbsp;&nbsp;<img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/501628fd-0624-4a85-9d3f-fe8173621633_Home.png\" style=\"width:33.5938px;height:40px;\">A family at risk of losing their home because their bill exceeded their monthly income.\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p>\n\t&nbsp; &nbsp;&nbsp;<img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/501628fd-0624-4a85-9d3f-fe8173621633_Home.png\" style=\"width:33.5938px;height:40px;\">A family at risk of losing their home because their bill exceeded their monthly income.\n</p>",
+								"model": "6",
+								"position": 11,
+								"fullName": "content:wysiwyg_basic:13:46",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:13:46",
+								"styles": {
+									"width": "33.5938px",
+									"height": "40px"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:14:74": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 12,
+								"fullName": "design:design:whitespace-sm:14:74",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:horizontalrule:15:24": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 13,
+								"fullName": "design:design:horizontalrule:15:24",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:16:58": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tToday, The Salvation Army is revitalizing this historic fund with the community’s support, expanding from <strong>utility assistance to a holistic approach </strong>that provides family&nbsp;stability.&nbsp; Each household is carefully screened, and eligible families receive vouchers for housing services, ensuring immediate, practical help when it’s needed most.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Today, The Salvation Army is revitalizing this historic fund with the community’s support, expanding from utility assistance to a holistic approach that provides family&nbsp;stability.&nbsp; Each household is carefully screened, and eligible families receive vouchers for housing services, ensuring immediate, practical help when it’s needed most.",
+								"position": 14,
+								"fullName": "content:textarea:16:58",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:16:58",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:17:74": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tYour generosity <strong>keeps the Woodyard legacy alive </strong>and gives vulnerable families across <strong>Richland</strong>, <strong>Lexington, Fairfield, Kershaw,</strong> and <strong>Newberry counties</strong> the stability they&nbsp;need to move forward.&nbsp; &nbsp;\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Your generosity keeps the Woodyard legacy alive and gives vulnerable families across Richland, Lexington, Fairfield, Kershaw, and Newberry counties the stability they&nbsp;need to move forward.&nbsp; &nbsp;",
+								"position": 15,
+								"fullName": "content:textarea:17:74",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:17:74",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-md:18:1": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 16,
+								"fullName": "design:design:whitespace-md:18:1",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columnswideright:27:68": {
+								"uid": "14",
+								"name": "2 Columns - Left Small",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:2\"></div><div style=\"flex:4\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "2",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "4",
+										"html": "<div class=\"col-lg-8 col-md-8 col-sm-12\">*</div>",
+										"classes": "col-lg-8 col-md-8 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 17,
+								"fullName": "design:columns:2columnswideright:27:68",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columnswideright:27:68-2:2 Columns - Left Small:0": {
+										"width": "2",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:19:92": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img width=\"84\" height=\"84\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/34702c92-c020-419a-b8ac-af1e3f717ade_Heart.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/34702c92-c020-419a-b8ac-af1e3f717ade_Heart.png",
+												"position": 0,
+												"fullName": "content:images:19:92",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:2columnswideright:27:68-2:2 Columns - Left Small:0",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columnswideright:27:68-4:2 Columns - Left Small:1": {
+										"width": "4",
+										"html": "<div class=\"col-lg-8 col-md-8 col-sm-12\">*</div>",
+										"classes": "col-lg-8 col-md-8 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:26:53": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>\n\t<strong>Secure Online Donations:</strong>\n</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Secure Online Donations:",
+												"position": 0,
+												"fullName": "content:textarea:26:53",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:26:53",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columnswideright:27:68-4:2 Columns - Left Small:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:whitespace-sm:31:27": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 18,
+								"fullName": "design:design:whitespace-sm:31:27",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columnswideright:34:83": {
+								"uid": "14",
+								"name": "2 Columns - Left Small",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:2\"></div><div style=\"flex:4\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "2",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "4",
+										"html": "<div class=\"col-lg-8 col-md-8 col-sm-12\">*</div>",
+										"classes": "col-lg-8 col-md-8 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 19,
+								"fullName": "design:columns:2columnswideright:34:83",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columnswideright:34:83-2:2 Columns - Left Small:0": {
+										"width": "2",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:images:28:39": {
+												"icon": "images",
+												"name": "Image",
+												"type": "images",
+												"description": "Reference to image ZUIDs in Zesty.io",
+												"html": "<img width=\"53\" height=\"63\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/6e3d5dbc-f8ce-48cc-8473-fe42a1a7ec67_Finger+pointing.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+												"draggable": true,
+												"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/6e3d5dbc-f8ce-48cc-8473-fe42a1a7ec67_Finger+pointing.png",
+												"position": 0,
+												"fullName": "content:images:28:39",
+												"htmlElement": "img",
+												"primarytype": "content",
+												"newLoc": "design:columns:2columnswideright:34:83-2:2 Columns - Left Small:0",
+												"oldLoc": "bank"
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columnswideright:34:83-4:2 Columns - Left Small:1": {
+										"width": "4",
+										"html": "<div class=\"col-lg-8 col-md-8 col-sm-12\">*</div>",
+										"classes": "col-lg-8 col-md-8 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:30:68": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p><strong>&nbsp; &nbsp;</strong><a href=\"https://give.salvationarmycarolinas.org/campaign/730444/donate\" class=\"btn btn-primary gap-1 mt-2\">DONATE TODAY</a></p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p><strong>&nbsp; &nbsp;</strong><a href=\"https://give.salvationarmycarolinas.org/campaign/730444/donate\" class=\"btn btn-primary gap-1 mt-2\">DONATE TODAY</a></p>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:30:68",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:30:68",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columnswideright:34:83-4:2 Columns - Left Small:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:32:93": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p><strong><em>Your generosity ensures The Salvation Army&nbsp;can</em></strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Your generosity ensures The Salvation Army&nbsp;can",
+												"position": 1,
+												"fullName": "content:textarea:32:93",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:32:93",
+												"styles": {
+													"fontWeight": "700",
+													"fontStyle": "italic"
+												},
+												"newLoc": "design:columns:2columnswideright:34:83-4:2 Columns - Left Small:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:33:77": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p>Continue this 200- year tradition of local compassion</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Continue this 200- year tradition of local compassion",
+												"position": 2,
+												"fullName": "content:textarea:33:77",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:33:77",
+												"styles": {},
+												"newLoc": "design:columns:2columnswideright:34:83-4:2 Columns - Left Small:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:design:horizontalrule:35:14": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 20,
+								"fullName": "design:design:horizontalrule:35:14",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:36:27": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p><strong>Donations Via Mail:</strong></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Donations Via Mail:",
+								"position": 21,
+								"fullName": "content:textarea:36:27",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:36:27",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:37:70": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>The Salvation Army of the Midlands</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army of the Midlands",
+								"position": 22,
+								"fullName": "content:textarea:37:70",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:37:70",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:38:77": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>P.O. Box 2786</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "P.O. Box 2786",
+								"position": 23,
+								"fullName": "content:textarea:38:77",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:38:77",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:39:15": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>Columbia, SC 29202</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Columbia, SC 29202",
+								"position": 24,
+								"fullName": "content:textarea:39:15",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:39:15",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:40:82": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\t<em><strong>** Please make checks payable to the Woodyard Fund. Donations may be tax-deductible</strong></em>.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "** Please make checks payable to the Woodyard Fund. Donations may be tax-deductible.",
+								"position": 25,
+								"fullName": "content:textarea:40:82",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:40:82",
+								"styles": {
+									"fontWeight": "700",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:41:36": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThe Woodyard Fund\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Woodyard Fund",
+								"position": 26,
+								"fullName": "content:textarea:41:36",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:41:36",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:51:2-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

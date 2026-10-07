@@ -1,0 +1,128 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"design:design:whitespace-sm:1:8343": {
+				"uid": "351",
+				"name": "Whitespace - Small",
+				"type": "design",
+				"classes": "my-2",
+				"html": "<div class=\"my-2\"></div>",
+				"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+				"droppable": true,
+				"position": 0,
+				"fullName": "design:design:whitespace-sm:1:8343",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank"
+			},
+			"design:columns:1 column - 1 row my-3:8:75": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:8:75",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:8:75-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:images:0:6433": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/37d9c6f6-677d-47bb-8a66-83155c26e4bc_Christmas+Partners+Theater+Space+1024x400.svg\" alt=\"placeholder\" class=\"img-fluid w-100 d-block mx-auto mb-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/37d9c6f6-677d-47bb-8a66-83155c26e4bc_Christmas+Partners+Theater+Space+1024x400.svg",
+								"position": 0,
+								"fullName": "content:images:0:6433",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:8:75-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:2:61": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><div><h4>Enjoy a Christmas rewind from 2025</h4>\n\n<p>\n\t<span style=\"font-size:20px;\">Watch the magic of donor generosity delivered to more than 5,000</span><span style=\"font-size:20px;\"> children and seniors in Central Virginia.</span>\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col-md-6 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<div class=\"ratio ratio-16x9\"><iframe src=\"https://www.youtube.com/embed/q0a-5eumvGM?si=tG9ZoCYgMhIDUMu-\" title=\"YouTube video player\" allowfullscreen=\"\" loading=\"lazy\"></iframe></div>\n\n\t\t\t\t<p>\n\t\t\t\t\tFollowing a final internal reconciliation, the confirmed total served through Angel Tree this season is <strong>5,035—about an 8% increase over last year.</strong>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col-md-6 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img class=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5131a085-ade8-4e52-b6db-5b52ba1e6f1f_2025+Angel+Tree+Highlights+FINAL.png\" style=\"width:431px;height:332.75px;display:block;margin-left:auto;margin-right:auto;\">\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<hr>\n<p>\n\t<img class=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/151f883e-336c-4fae-9599-faf5c8ae1d72_FINAL+RTD+2025+TY+AD.png\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</p>\n\n<p>\n\t \n</p></div></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><div><h4>Enjoy a Christmas rewind from 2025</h4>\n\n<p>\n\t<span style=\"font-size:20px;\">Watch the magic of donor generosity delivered to more than 5,000</span><span style=\"font-size:20px;\"> children and seniors in Central Virginia.</span>\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col-md-6 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<div class=\"ratio ratio-16x9\"><iframe src=\"https://www.youtube.com/embed/q0a-5eumvGM?si=tG9ZoCYgMhIDUMu-\" title=\"YouTube video player\" allowfullscreen=\"\" loading=\"lazy\"></iframe></div>\n\n\t\t\t\t<p>\n\t\t\t\t\tFollowing a final internal reconciliation, the confirmed total served through Angel Tree this season is <strong>5,035—about an 8% increase over last year.</strong>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col-md-6 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img class=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5131a085-ade8-4e52-b6db-5b52ba1e6f1f_2025+Angel+Tree+Highlights+FINAL.png\" style=\"width:431px;height:332.75px;display:block;margin-left:auto;margin-right:auto;\">\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<hr>\n<p>\n\t<img class=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/151f883e-336c-4fae-9599-faf5c8ae1d72_FINAL+RTD+2025+TY+AD.png\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</p>\n\n<p>\n\t \n</p></div></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:61",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:61",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:8:75-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><div><h4>Enjoy a Christmas rewind from 2025</h4>\n\n<p>\n\t<span style=\"font-size:20px;\">Watch the magic of donor generosity delivered to more than 5,000</span><span style=\"font-size:20px;\"> children and seniors in Central Virginia.</span>\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col-md-6 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<div class=\"ratio ratio-16x9\"><iframe src=\"https://www.youtube.com/embed/q0a-5eumvGM?si=tG9ZoCYgMhIDUMu-\" title=\"YouTube video player\" allowfullscreen loading=\"lazy\"></iframe></div>\n\n\t\t\t\t<p>\n\t\t\t\t\tFollowing a final internal reconciliation, the confirmed total served through Angel Tree this season is <strong>5,035—about an 8% increase over last year.</strong>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col-md-6 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img class=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/5131a085-ade8-4e52-b6db-5b52ba1e6f1f_2025+Angel+Tree+Highlights+FINAL.png\" style=\"width:431px;height:332.75px;display:block;margin-left:auto;margin-right:auto;\">\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<hr>\n<p>\n\t<img class=\"img-fluid rounded d-block mx-auto\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/151f883e-336c-4fae-9599-faf5c8ae1d72_FINAL+RTD+2025+TY+AD.png\" style=\"display:block;margin-left:auto;margin-right:auto;\">\n</p>\n\n<p>\n\t \n</p></div></div>"
+							},
+							"design:design:whitespace-xl:3:79": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:79",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:8:75-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"design:design:horizontalrule:4:59": {
+								"uid": "13",
+								"name": "Horizontal Rule",
+								"type": "design",
+								"html": "<hr>",
+								"preview": "<hr>",
+								"classes": "",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:horizontalrule:4:59",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:8:75-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

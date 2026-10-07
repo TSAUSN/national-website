@@ -1,0 +1,754 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:26:0:95": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-ecdbaade85-hqkm7x')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-ecdbaade85-hqkm7x')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:26:0:95",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:design:whitespace-sm:1:6251": {
+				"uid": "351",
+				"name": "Whitespace - Small",
+				"type": "design",
+				"classes": "my-2",
+				"html": "<div class=\"my-2\"></div>",
+				"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+				"droppable": true,
+				"position": 1,
+				"fullName": "design:design:whitespace-sm:1:6251",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank"
+			},
+			"design:columns:1 column - 1 row my-3:46:44": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 2,
+				"fullName": "design:columns:1 column - 1 row my-3:46:44",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:images:0:8504": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/471f8727-e328-4d89-a79c-eb86d783d98c_GFM-Hero+Image+w+date.png\" alt=\"placeholder\" class=\"img-fluid w-100 d-block mx-auto mb-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/471f8727-e328-4d89-a79c-eb86d783d98c_GFM-Hero+Image+w+date.png",
+								"position": 0,
+								"fullName": "content:images:0:8504",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:2:56": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"rounded p-6 gap-3 mt-3 bg-secondary-200 text-light\" style=\"color:#FFFFFF;\"><p style=\"text-align:center;\">\n\t&nbsp;\n</p>\n\n<h2><a href=\"https://give.salvationarmycarolinas.org/event/gameday-cafe-2026/e759258/register/new/select-tickets\" class=\"btn btn-light gap-1 mt-2\">Sponsor Event</a></h2>\n\n<h2><a href=\"https://give.salvationarmycarolinas.org/event/gameday-cafe-2026/e759258/register/new/select-tickets\" class=\"btn btn-light gap-1 mt-2\">Purchase Tickets</a></h2>\n\n<h2>The Story Behind the Songbird Cafe' &amp; GameDay Cafe'</h2>\n\n<p>\n\t<span style=\"font-size:20px;\">The <strong>Songbird Café </strong>began with a simple but powerful vision shared by <strong>Jimmy Stevenson</strong> of Southern Way Catering and <strong>Ricky Wright</strong>, formerly with Hootie &amp; the Blowfish. Together, they imagined an intimate evening of music — a space where stories, songwriting, and soulful performances could take center stage.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">Their inspiration came from the iconic <strong>Bluebird Café</strong>, the world-renowned 90-seat listening room tucked inside a modest Nashville strip mall. Over the years, its stage has launched and hosted legendary artists including <strong>Garth Brooks, Keith Urban, Mary Chapin Carpenter, Kris Kristofferson, Carole King, Faith Hill, Vince Gill, and Taylor Swift</strong>, among many others.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">After months of planning, collaboration, and determination, that vision became a reality. In <strong>October 2002</strong>, the very first Songbird Café took place, featuring unforgettable performances by <strong>Mark Bryan, Patrick Davis, Phillip Lammonds, and Edwin McCain</strong>. What began as a single evening of music quickly became a beloved annual tradition.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">More than two decades later, Songbird Café continues to thrive. <strong>October 2026 will&nbsp;mark&nbsp;the 24th&nbsp;annual Songbird Café,</strong> a milestone that reflects its lasting impact on both the Midlands music scene and the charitable community it serves.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">Building on that legacy, <strong>GameDay Café</strong> debuted in May 2024 as the high-energy, springtime sister event to Songbird Café. Hosted at <strong>Williams-Brice Stadium</strong>, GameDay Café captures the electric atmosphere, shared pride, and sense of community that fans feel inside the stadium on game day — even outside football season. Live music and storytelling take center stage in a setting that is both iconic and uniquely energizing. <strong>May 14, 2026 will mark the 3rd annual GameDay Café,</strong> solidifying its place as a signature event.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">Over the years, Songbird Café and GameDay Café stages have been graced by an extraordinary lineup of artists, including <strong>Darius Rucker, Kevin Kinney, Ed Roland, Hobart Trotter, Glen Phillips, Tift Merritt, Radney Foster, Don Dixon, Ken Block &amp; Andrew Copeland, Emerson Hart, Angie Aparo</strong>, and many more — each bringing their unique voice and story to our community.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">Beyond the music,<strong> Songbird Café and GameDay Café were created with purpose</strong>. For more than 20 years, these events have raised over <strong>$2 million</strong> in support of local charities throughout the Midlands, directly strengthening organizations that serve our neighbors in meaningful ways.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">This impact would not be possible without the unwavering generosity of our sponsors, partners, and volunteers. Their support — combined with the extraordinary talent on our&nbsp;</span><span style=\"font-size:20px;\">stages — has allowed these events to become both cultural touchstones and powerful engines of charitable giving.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">We invite you to continue this legacy with us. By joining the Songbird Café and GameDay Café family, you become part of a tradition that celebrates music, community, and compassion — creating moments that resonate far beyond the stage and into the heart of our Midlands community.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\"></span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">Below is a list of The Songbird Cafes’ and&nbsp;the GameDay Cafe’s, many singers, songwriters, producers, and everything else in between!</span>\n</p></div>",
+								"content": "<div class=\"rounded p-6 gap-3 mt-3 bg-secondary-200 text-light\" style=\"color:#FFFFFF;\"><p style=\"text-align:center;\">\n\t&nbsp;\n</p>\n\n<h2><a href=\"https://give.salvationarmycarolinas.org/event/gameday-cafe-2026/e759258/register/new/select-tickets\" class=\"btn btn-light gap-1 mt-2\">Sponsor Event</a></h2>\n\n<h2><a href=\"https://give.salvationarmycarolinas.org/event/gameday-cafe-2026/e759258/register/new/select-tickets\" class=\"btn btn-light gap-1 mt-2\">Purchase Tickets</a></h2>\n\n<h2>The Story Behind the Songbird Cafe' &amp; GameDay Cafe'</h2>\n\n<p>\n\t<span style=\"font-size:20px;\">The <strong>Songbird Café </strong>began with a simple but powerful vision shared by <strong>Jimmy Stevenson</strong> of Southern Way Catering and <strong>Ricky Wright</strong>, formerly with Hootie &amp; the Blowfish. Together, they imagined an intimate evening of music — a space where stories, songwriting, and soulful performances could take center stage.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">Their inspiration came from the iconic <strong>Bluebird Café</strong>, the world-renowned 90-seat listening room tucked inside a modest Nashville strip mall. Over the years, its stage has launched and hosted legendary artists including <strong>Garth Brooks, Keith Urban, Mary Chapin Carpenter, Kris Kristofferson, Carole King, Faith Hill, Vince Gill, and Taylor Swift</strong>, among many others.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">After months of planning, collaboration, and determination, that vision became a reality. In <strong>October 2002</strong>, the very first Songbird Café took place, featuring unforgettable performances by <strong>Mark Bryan, Patrick Davis, Phillip Lammonds, and Edwin McCain</strong>. What began as a single evening of music quickly became a beloved annual tradition.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">More than two decades later, Songbird Café continues to thrive. <strong>October 2026 will&nbsp;mark&nbsp;the 24th&nbsp;annual Songbird Café,</strong> a milestone that reflects its lasting impact on both the Midlands music scene and the charitable community it serves.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">Building on that legacy, <strong>GameDay Café</strong> debuted in May 2024 as the high-energy, springtime sister event to Songbird Café. Hosted at <strong>Williams-Brice Stadium</strong>, GameDay Café captures the electric atmosphere, shared pride, and sense of community that fans feel inside the stadium on game day — even outside football season. Live music and storytelling take center stage in a setting that is both iconic and uniquely energizing. <strong>May 14, 2026 will mark the 3rd annual GameDay Café,</strong> solidifying its place as a signature event.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">Over the years, Songbird Café and GameDay Café stages have been graced by an extraordinary lineup of artists, including <strong>Darius Rucker, Kevin Kinney, Ed Roland, Hobart Trotter, Glen Phillips, Tift Merritt, Radney Foster, Don Dixon, Ken Block &amp; Andrew Copeland, Emerson Hart, Angie Aparo</strong>, and many more — each bringing their unique voice and story to our community.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">Beyond the music,<strong> Songbird Café and GameDay Café were created with purpose</strong>. For more than 20 years, these events have raised over <strong>$2 million</strong> in support of local charities throughout the Midlands, directly strengthening organizations that serve our neighbors in meaningful ways.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">This impact would not be possible without the unwavering generosity of our sponsors, partners, and volunteers. Their support — combined with the extraordinary talent on our&nbsp;</span><span style=\"font-size:20px;\">stages — has allowed these events to become both cultural touchstones and powerful engines of charitable giving.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">We invite you to continue this legacy with us. By joining the Songbird Café and GameDay Café family, you become part of a tradition that celebrates music, community, and compassion — creating moments that resonate far beyond the stage and into the heart of our Midlands community.</span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\"></span>\n</p>\n\n<p>\n\t<span style=\"font-size:20px;\">Below is a list of The Songbird Cafes’ and&nbsp;the GameDay Cafe’s, many singers, songwriters, producers, and everything else in between!</span>\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:56",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:56",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:3:35": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:35",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"design:design:whitespace-xl:4:1": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:whitespace-xl:4:1",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:5:1": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div class=\"rounded p-6 gap-3 mt-3 bg-secondary-200 text-light\" style=\"color:#FFFFFF;\"><h2><img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/6df95739-f700-4314-8771-b6c12acddf38_Darius+Rucker.jpg\"></h2>\n\n<h2>Past Artists</h2>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tDarius Rucker<br>\n\t\t\t\t\tMarc Broussard<br>\n\t\t\t\t\tJason Michael Carroll<br>\n\t\t\t\t\tRadney Foster<br>\n\t\t\t\t\tKevn Kinny - Drivin N Cryin<br>\n\t\t\t\t\tJavier Colon<br>\n\t\t\t\t\tKristan Bush&nbsp; Sugarland<br>\n\t\t\t\t\tChase Rice<br>\n\t\t\t\t\tChanning Wison<br>\n\t\t\t\t\tTift Merritt<br>\n\t\t\t\t\tJames Otto<br>\n\t\t\t\t\tPaul Sanchez - Cowboy Mouth<br>\n\t\t\t\t\tFrances Dunnery<br>\n\t\t\t\t\tMichael Ferren<br>\n\t\t\t\t\tPhillip Lammonds\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tEdwin McCain<br>\n\t\t\t\t\tAshley Campbell<br>\n\t\t\t\t\tWyatt Durrette<br>\n\t\t\t\t\t&nbsp;Emerson Hart - Tonic<br>\n\t\t\t\t\tMark Bryan - Hootie &amp; The Blowfish<br>\n\t\t\t\t\tPeter Holsapple<br>\n\t\t\t\t\tPatrick Davis<br>\n\t\t\t\t\tCody Webb<br>\n\t\t\t\t\tLevi Lowery<br>\n\t\t\t\t\tSarah Ross<br>\n\t\t\t\t\tLarry Stewart - Restless Heart<br>\n\t\t\t\t\tKen Block &amp; Andrew Copeland - Sister Hazel<br>\n\t\t\t\t\tGabe Dixon<br>\n\t\t\t\t\tJeff Trott\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tAngie Aparo<br>\n\t\t\t\t\tCoffey Anderson<br>\n\t\t\t\t\tDon Dixon &amp; Marti Jones<br>\n\t\t\t\t\tDoug Jones - Craven Melon<br>\n\t\t\t\t\tDavid Ryan Harris<br>\n\t\t\t\t\tEd Roland - Collective Soul<br>\n\t\t\t\t\tGlenn Phillips - Toad the Wet Sprocket<br>\n\t\t\t\t\tJim Lauderdale<br>\n\t\t\t\t\tBrian \"GB\" Leighton<br>\n\t\t\t\t\tDonnie Reis<br>\n\t\t\t\t\tTyler Mechem - Crowfield<br>\n\t\t\t\t\tTim Nichols<br>\n\t\t\t\t\tLauren Jenkins<br>\n\t\t\t\t\tShawn Mullins\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p>\n\t<span style=\"font-size:24px;\"><em>Together, this caliber of talent and community impact is made possible through the support of our sponsors, whose partnerships brings the GameDay Cafe' to life!</em></span>\n</p></div>",
+								"content": "<div class=\"rounded p-6 gap-3 mt-3 bg-secondary-200 text-light\" style=\"color:#FFFFFF;\"><h2><img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/6df95739-f700-4314-8771-b6c12acddf38_Darius+Rucker.jpg\"></h2>\n\n<h2>Past Artists</h2>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tDarius Rucker<br>\n\t\t\t\t\tMarc Broussard<br>\n\t\t\t\t\tJason Michael Carroll<br>\n\t\t\t\t\tRadney Foster<br>\n\t\t\t\t\tKevn Kinny - Drivin N Cryin<br>\n\t\t\t\t\tJavier Colon<br>\n\t\t\t\t\tKristan Bush&nbsp; Sugarland<br>\n\t\t\t\t\tChase Rice<br>\n\t\t\t\t\tChanning Wison<br>\n\t\t\t\t\tTift Merritt<br>\n\t\t\t\t\tJames Otto<br>\n\t\t\t\t\tPaul Sanchez - Cowboy Mouth<br>\n\t\t\t\t\tFrances Dunnery<br>\n\t\t\t\t\tMichael Ferren<br>\n\t\t\t\t\tPhillip Lammonds\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tEdwin McCain<br>\n\t\t\t\t\tAshley Campbell<br>\n\t\t\t\t\tWyatt Durrette<br>\n\t\t\t\t\t&nbsp;Emerson Hart - Tonic<br>\n\t\t\t\t\tMark Bryan - Hootie &amp; The Blowfish<br>\n\t\t\t\t\tPeter Holsapple<br>\n\t\t\t\t\tPatrick Davis<br>\n\t\t\t\t\tCody Webb<br>\n\t\t\t\t\tLevi Lowery<br>\n\t\t\t\t\tSarah Ross<br>\n\t\t\t\t\tLarry Stewart - Restless Heart<br>\n\t\t\t\t\tKen Block &amp; Andrew Copeland - Sister Hazel<br>\n\t\t\t\t\tGabe Dixon<br>\n\t\t\t\t\tJeff Trott\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\tAngie Aparo<br>\n\t\t\t\t\tCoffey Anderson<br>\n\t\t\t\t\tDon Dixon &amp; Marti Jones<br>\n\t\t\t\t\tDoug Jones - Craven Melon<br>\n\t\t\t\t\tDavid Ryan Harris<br>\n\t\t\t\t\tEd Roland - Collective Soul<br>\n\t\t\t\t\tGlenn Phillips - Toad the Wet Sprocket<br>\n\t\t\t\t\tJim Lauderdale<br>\n\t\t\t\t\tBrian \"GB\" Leighton<br>\n\t\t\t\t\tDonnie Reis<br>\n\t\t\t\t\tTyler Mechem - Crowfield<br>\n\t\t\t\t\tTim Nichols<br>\n\t\t\t\t\tLauren Jenkins<br>\n\t\t\t\t\tShawn Mullins\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p>\n\t<span style=\"font-size:24px;\"><em>Together, this caliber of talent and community impact is made possible through the support of our sponsors, whose partnerships brings the GameDay Cafe' to life!</em></span>\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 4,
+								"fullName": "content:wysiwyg_basic:5:1",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:5:1",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:6:93": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 5,
+								"fullName": "design:design:whitespace-xl:6:93",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:text:7:22": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\"><strong>The GameDay Cafe - 2026</strong></h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "The GameDay Cafe - 2026",
+								"position": 6,
+								"fullName": "content:text:7:22",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:7:22",
+								"styles": {
+									"textAlign": "center",
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:text:8:59": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Featured Artists</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Featured Artists",
+								"position": 7,
+								"fullName": "content:text:8:59",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:8:59",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:10:78": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 8,
+								"fullName": "design:design:whitespace-sm:10:78",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:4 Columns:17:70": {
+								"uid": "358",
+								"name": "4 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 4,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 9,
+								"fullName": "design:columns:4 Columns:17:70",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:4 Columns:17:70-1:4 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:9:95": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><p>\n\t<a href=\"https://www.songwritersinconcert.com/ken-block-and-drew-copeland\" target=\"\"><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/d8d8300a-399f-4f73-884f-39c4eb5f11d7_Ken-Block-Drew-Copeland-Sister-Hazel.jpg\"></a>\n</p>\n\n\n\n<p style=\"text-align:center;\">\n\t<strong>Ken Block &amp; Drew Copeland</strong><br>\n\t<strong>Of Sister Hazel</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tClick on image to learn more\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><p>\n\t<a href=\"https://www.songwritersinconcert.com/ken-block-and-drew-copeland\" target=\"\"><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/d8d8300a-399f-4f73-884f-39c4eb5f11d7_Ken-Block-Drew-Copeland-Sister-Hazel.jpg\"></a>\n</p>\n\n\n\n<p style=\"text-align:center;\">\n\t<strong>Ken Block &amp; Drew Copeland</strong><br>\n\t<strong>Of Sister Hazel</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tClick on image to learn more\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:9:95",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:9:95",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:17:70-1:4 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:4 Columns:17:70-1:4 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:11:52": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><p>\n\t<a href=\"https://jamesotto.net/\" target=\"\"><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/f188e162-1463-4250-9da0-b5c5ba5fe2a8_james-otto_MI0002751210-MN0000143216.jpg\"></a>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>James Otto</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tClick on image to learn more<br>\n\t&nbsp;\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><p>\n\t<a href=\"https://jamesotto.net/\" target=\"\"><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/f188e162-1463-4250-9da0-b5c5ba5fe2a8_james-otto_MI0002751210-MN0000143216.jpg\"></a>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>James Otto</strong>\n</p>\n\n<p style=\"text-align:center;\">\n\tClick on image to learn more<br>\n\t&nbsp;\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:11:52",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:11:52",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:17:70-1:4 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:4 Columns:17:70-1:4 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:13:96": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><p>\n\t<a href=\"https://www.billydean.com/\" target=\"\"><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/e9e5f257-aeea-40b1-986c-33a472d8b1b5_Billy+Dean.jpg\"></a>\n</p>\n\n<p style=\"text-align:center;\">\n\t<b>Billy Dean</b>\n</p>\n\n<p style=\"text-align:center;\">\n\tClick on image to learn more\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><p>\n\t<a href=\"https://www.billydean.com/\" target=\"\"><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/e9e5f257-aeea-40b1-986c-33a472d8b1b5_Billy+Dean.jpg\"></a>\n</p>\n\n<p style=\"text-align:center;\">\n\t<b>Billy Dean</b>\n</p>\n\n<p style=\"text-align:center;\">\n\tClick on image to learn more\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:13:96",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:13:96",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:17:70-1:4 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									},
+									"design:columns:4 Columns:17:70-1:4 Columns:3": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:15:35": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><p>\n\t<a href=\"https://www.laurenjenkins.com\" target=\"\"><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/316b5a69-e8e7-48bf-a913-54bc91ca6c66_Lauren+Jenkins4.jpg\"></a>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Lauren Jenkins</strong><br>\n\tClick on Image to find out more\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-light text-dark card-outline border border-secondary-subtle\" style=\"text-align:center;\"><p>\n\t<a href=\"https://www.laurenjenkins.com\" target=\"\"><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/316b5a69-e8e7-48bf-a913-54bc91ca6c66_Lauren+Jenkins4.jpg\"></a>\n</p>\n\n<p style=\"text-align:center;\">\n\t<strong>Lauren Jenkins</strong><br>\n\tClick on Image to find out more\n</p></div>",
+												"model": "6",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:15:35",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:15:35",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:4 Columns:17:70-1:4 Columns:3",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 3
+									}
+								}
+							},
+							"design:columns:1 Column:19:86": {
+								"uid": "NaN",
+								"name": "1 Column",
+								"type": "columns",
+								"html": "<div style=\"display:flex\" class=\"row d-flex\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"classes": "row d-flex",
+								"droppable": "true",
+								"numberOfColumns": 1,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": 1,
+										"html": "<div class=\"col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 10,
+								"fullName": "design:columns:1 Column:19:86",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:1 Column:19:86-1:1 Column:0": {
+										"width": 1,
+										"html": "<div class=\"column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true,
+										"children": {
+											"content:embed:18:58": {
+												"icon": "embed",
+												"name": "Embed",
+												"type": "embed",
+												"html": "<iframe src=\"https://player.vimeo.com/video/1153027237?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479\" title=\"Video\" allowfullscreen=\"\" loading=\"lazy\" class=\"w-100 h-100\"></iframe>",
+												"description": "Embedded content (iframe)",
+												"draggable": true,
+												"content": "<iframe class=\"w-100 h-100\" src=\"https://player.vimeo.com/video/1153027237?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479\" title=\"Video\" allowfullscreen=\"\" loading=\"lazy\"></iframe>",
+												"position": 0,
+												"fullName": "content:embed:18:58",
+												"htmlElement": "iframe",
+												"classes": "w-100 h-100",
+												"primarytype": "content",
+												"id": "content:embed:18:58",
+												"styles": {},
+												"newLoc": "design:columns:1 Column:19:86-1:1 Column:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									}
+								},
+								"id": "design:columns:1 Column:19:86",
+								"styles": {},
+								"htmlElement": "div",
+								"content": "<div style=\"display:flex\" class=\"row d-flex\">*</div>",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:20:26": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 11,
+								"fullName": "design:design:whitespace-xl:20:26",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:1 Column:22:16": {
+								"uid": "NaN",
+								"name": "1 Column",
+								"type": "columns",
+								"html": "<div style=\"display:flex\" class=\"row d-flex\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"classes": "row d-flex",
+								"droppable": "true",
+								"numberOfColumns": 1,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": 1,
+										"html": "<div class=\"col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 12,
+								"fullName": "design:columns:1 Column:22:16",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:1 Column:22:16-1:1 Column:0": {
+										"width": 1,
+										"html": "<div class=\"column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true,
+										"children": {
+											"content:embed:21:88": {
+												"icon": "embed",
+												"name": "Embed",
+												"type": "embed",
+												"html": "<iframe src=\"https://player.vimeo.com/video/951607806?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479\" title=\"Video\" allowfullscreen=\"\" loading=\"lazy\" class=\"w-100 h-100\"></iframe>",
+												"description": "Embedded content (iframe)",
+												"draggable": true,
+												"content": "<iframe class=\"w-100 h-100\" src=\"https://player.vimeo.com/video/951607806?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479\" title=\"Video\" allowfullscreen=\"\" loading=\"lazy\"></iframe>",
+												"position": 0,
+												"fullName": "content:embed:21:88",
+												"htmlElement": "iframe",
+												"classes": "w-100 h-100",
+												"primarytype": "content",
+												"id": "content:embed:21:88",
+												"styles": {},
+												"newLoc": "design:columns:1 Column:22:16-1:1 Column:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									}
+								},
+								"id": "design:columns:1 Column:22:16",
+								"styles": {},
+								"htmlElement": "div",
+								"content": "<div style=\"display:flex\" class=\"row d-flex\">*</div>",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:23:70": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 13,
+								"fullName": "design:design:whitespace-xl:23:70",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:24:25": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/f853e143-112d-4393-b01e-4237ebc27b17_GDC+-+Sponsor+Logo+Page-FINAL+%282%29.png\" alt=\"placeholder\" class=\"img-fluid d-block my-3 rounded\" style=\"max-width:100%;height:auto;\" loading=\"lazy\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/f853e143-112d-4393-b01e-4237ebc27b17_GDC+-+Sponsor+Logo+Page-FINAL+%282%29.png",
+								"position": 14,
+								"fullName": "content:images:24:25",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:26:8": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 15,
+								"fullName": "design:design:whitespace-sm:26:8",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:27:56": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5><strong>GameDay Cafe 2026</strong></h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "GameDay Cafe 2026",
+								"position": 16,
+								"fullName": "content:text:27:56",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:27:56",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:28:42": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tIs your organization interested in supporting a vibrant night of music and community engagement? As a sponsor, this event&nbsp;not only promises great exposure but also contributes to a meaningful cause!\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Is your organization interested in supporting a vibrant night of music and community engagement? As a sponsor, this event&nbsp;not only promises great exposure but also contributes to a meaningful cause!",
+								"position": 17,
+								"fullName": "content:textarea:28:42",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:28:42",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:29:12": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://give.salvationarmycarolinas.org/event/gameday-cafe-2026/e759258/register/new/select-tickets\" class=\"btn btn-primary gap-1 mt-2\">Sponsor Event</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p class=\"cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start\"><a href=\"https://give.salvationarmycarolinas.org/event/gameday-cafe-2026/e759258/register/new/select-tickets\" class=\"btn btn-primary gap-1 mt-2\">Sponsor Event</a></p>",
+								"model": "6",
+								"position": 18,
+								"fullName": "content:wysiwyg_basic:29:12",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:29:12",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:30:12": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 19,
+								"fullName": "design:design:whitespace-sm:30:12",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:31:99": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p><b>For additional information please contact:</b></p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "For additional information please contact:",
+								"position": 20,
+								"fullName": "content:textarea:31:99",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:31:99",
+								"styles": {
+									"fontWeight": "700"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:32:18": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p><a href=\"mailto:Anne.wright@uss.salvationarmy.org\">Anne.wright@uss.salvationarmy.org</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p><a href=\"mailto:Anne.wright@uss.salvationarmy.org\">Anne.wright@uss.salvationarmy.org</a></p>",
+								"model": "6",
+								"position": 21,
+								"fullName": "content:wysiwyg_basic:32:18",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:32:18",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:33:97": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 22,
+								"fullName": "design:design:whitespace-sm:33:97",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:34:11": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p>Office - <a href=\"tel:8032239969\">803-223-9969</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p>Office - <a href=\"tel:8032239969\">803-223-9969</a></p>",
+								"model": "6",
+								"position": 23,
+								"fullName": "content:wysiwyg_basic:34:11",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:34:11",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:35:50": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 24,
+								"fullName": "design:design:whitespace-sm:35:50",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:36:45": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p>Cell - <a href=\"tel:8033154417\">803-315-4417</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p>Cell - <a href=\"tel:8033154417\">803-315-4417</a></p>",
+								"model": "6",
+								"position": 25,
+								"fullName": "content:wysiwyg_basic:36:45",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:36:45",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:46:44-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

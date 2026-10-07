@@ -1,0 +1,183 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:60:0:35": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-c8fac591cc-57jnmz')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-c8fac591cc-57jnmz')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:60:0:35",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:12:4": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:12:4",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:12:4-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:21": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:21",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:13": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">The Salvation Army in Georgia</h5>\n\n<p style=\"text-align:center;\">On October 19, 1890, The Salvation Army began its work in Georgia – by proclaiming the Gospel on Atlanta’s city streets. Its “grand opening” was a small but significant affair, beginning with the open-air evangelistic service on the street corner and proceeding to a meeting in their newly rented assembly room.\n</p>\n\n<p>\n\tThe Salvation Army In Atlanta grew slowly, and by the end of January 1891, the Army had enlisted 30 soldiers. On April 12, 1891, the second official Corps opened in Georgia – in Augusta.\n</p>\n\n<p>\n\tBy 1895, the mission was again gaining ground. Columbus opened in 1895, Rome in 1897, Macon in 1899 and Brunswick and Savannah in 1900. Other cities followed. In the years to come, many Corps would flourish. Atlanta’s Central location and economic strength made it a perfect place for Territorial Headquarters.\n</p>\n\n</div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">The Salvation Army in Georgia</h5>\n\n<p style=\"text-align:center;\">On October 19, 1890, The Salvation Army began its work in Georgia – by proclaiming the Gospel on Atlanta’s city streets. Its “grand opening” was a small but significant affair, beginning with the open-air evangelistic service on the street corner and proceeding to a meeting in their newly rented assembly room.\n</p>\n\n<p>\n\tThe Salvation Army In Atlanta grew slowly, and by the end of January 1891, the Army had enlisted 30 soldiers. On April 12, 1891, the second official Corps opened in Georgia – in Augusta.\n</p>\n\n<p>\n\tBy 1895, the mission was again gaining ground. Columbus opened in 1895, Rome in 1897, Macon in 1899 and Brunswick and Savannah in 1900. Other cities followed. In the years to come, many Corps would flourish. Atlanta’s Central location and economic strength made it a perfect place for Territorial Headquarters.\n</p>\n\n</div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:13",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:13",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">The Salvation Army in Georgia</h5>\n\n<p style=\"text-align:center;\">On October 19, 1890, The Salvation Army began its work in Georgia – by proclaiming the Gospel on Atlanta’s city streets. Its “grand opening” was a small but significant affair, beginning with the open-air evangelistic service on the street corner and proceeding to a meeting in their newly rented assembly room.\n</p>\n\n<p>\n\tThe Salvation Army In Atlanta grew slowly, and by the end of January 1891, the Army had enlisted 30 soldiers. On April 12, 1891, the second official Corps opened in Georgia – in Augusta.\n</p>\n\n<p>\n\tBy 1895, the mission was again gaining ground. Columbus opened in 1895, Rome in 1897, Macon in 1899 and Brunswick and Savannah in 1900. Other cities followed. In the years to come, many Corps would flourish. Atlanta’s Central location and economic strength made it a perfect place for Territorial Headquarters.\n</p>\n\n</div>"
+							},
+							"design:design:whitespace-xl:3:41": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:41",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:4:52": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"text-align:center;\" class=\"testimonialbox-section rounded overflow-hidden position-relative text-white bg-black\">\n  <img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/2c42a5ca-05b3-4dd6-9977-bcf44bec3902_tsa+red+aprons.png\" alt=\"\" class=\"position-absolute top-0 start-0 w-100 h-100 rounded object-fit-cover opacity-50 d-block mx-auto mb-2\">\n  <div class=\"position-relative d-flex align-items-center justify-content-center px-5 py-19\">\n    <div class=\"py-12\">\n      <h6>The Salvation Army of Bainbridge Was Established in 1993</h6>\n      \n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div style=\"text-align:center;\" class=\"testimonialbox-section rounded overflow-hidden position-relative text-white bg-black\">\n  <img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/2c42a5ca-05b3-4dd6-9977-bcf44bec3902_tsa+red+aprons.png\" alt=\"\" class=\"position-absolute top-0 start-0 w-100 h-100 rounded object-fit-cover opacity-50 d-block mx-auto mb-2\">\n  <div class=\"position-relative d-flex align-items-center justify-content-center px-5 py-19\">\n    <div class=\"py-12\">\n      <h6>The Salvation Army of Bainbridge Was Established in 1993</h6>\n      \n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"model": "6",
+								"manualContent": "<div style=\"text-align:center;\" class=\"testimonialbox-section rounded overflow-hidden position-relative text-white bg-black\">\n  <img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/2c42a5ca-05b3-4dd6-9977-bcf44bec3902_tsa+red+aprons.png\" alt=\"\" class=\"position-absolute top-0 start-0 w-100 h-100 rounded object-fit-cover opacity-50 d-block mx-auto mb-2\">\n  <div class=\"position-relative d-flex align-items-center justify-content-center px-5 py-19\">\n    <div class=\"py-12\">\n      <h6>The Salvation Army of Bainbridge Was Established in 1993</h6>\n      \n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:4:52",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:4:52",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:5:24": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:5:24",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:4-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:6:6": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 5,
+								"fullName": "design:design:whitespace-xl:6:6",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:12:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:7:67": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><p style=\"text-align:center;\">While The Salvation Army today is a respected and vital part of communities all over the state of Georgia, times were a little different in 1890. Some of the rougher elements of Atlanta society in those early days often greeted Salvation Army officers with salutations of over-ripe eggs, broken windows, and threats of violence. Getting to meetings in the early days often proved a battle in and of itself. Those who ran the local saloons and brothels constantly harassed and assaulted the Salvationists. In 1892, Captain Davis and Sergeant Brown, then in charge of the Atlanta Corps, were arrested for selling the War Cry, the Army’s official publication.\n</p>\n\n<p>\n\tVictory was hard won, but Captain Anna Glosser eventually stopped the harassment by winning the hearts of the local community. She soon had a large and dedicated core of the newly saved that marched with her through the streets of Atlanta, beating drums and playing horns to attract attention. The scandalous novelty of hearing a woman preach brought hundreds of men, women, and children into the streets to hear the Good News. Many followed the Salvationists as they went to their meeting place at Marietta and Spring Streets, packing it out to standing room only, the floor covered with sawdust.\n</p>\n\n<p>\n\tAs the 20th century dawned, Atlanta was a thriving city, having been promoted to potential investors by Henry Grady, editor of the Atlanta Constitution, as the “New South” that would be based upon a modern economy and less reliant on agriculture. However, the rest of the state was heavily rural with an economy still based on cotton. The need for The Salvation Army was great and it expanded to meet the needs of people throughout the state by recruiting cadets, visiting those in jail, and gathering food for the needy.<br><img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/b364aad5-0412-4810-8bd9-0524d4ac260e_history+pic+1.jpeg\" style=\"max-width:100%;height:auto;\" class=\"img-fluid d-block mx-auto my-4 rounded\"></p>\n\n<p style=\"text-align:center;\">As The Salvation Army won the respect of Georgia’s citizenry, it quickly spread. From the first Marietta and Spring Street location in Atlanta, The Salvation Army expanded to Augusta (1891), Columbus (1895), Rome (1897), Macon (1899), Savannah (1900), Brunswick (1910), and Athens (1916). but it did not stop there.\n</p>\n\n<p>\n\tOver the years, The Salvation Army provided a strong, steady, and capable witness in the state of Georgia with a continuingly expanding program. Now there are camping programs for underprivileged children and youth, emergency food, shelter, and assistance programs, Christmas toys and food for tens of thousands of our neediest neighbors, shelter for the homeless and battered, youth sports teams, gang prevention and intervention, infirmary care for the homeless, veterans services and ministry to military families, senior services and visitations, shelter and services for pregnant and at-risk girls and new opportunities for service keep arising.\n</p>\n\n<p><br><img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/22dfe894-6532-489c-95a0-4135fa033109_history+3.png\" style=\"max-width:100%;height:auto;\" class=\"img-fluid d-block mx-auto my-4 rounded\"></p>\n\n<p>\n\tToday in Georgia there are 26 Salvation Army Corps Community Centers, 25 Service Units and 15 Service Centers that provide services in areas throughout the state, 35 Thrift Stores, 2 Ray and Joan Kroc Corps Community Centers, 3 Corps Salvage and Rehabilitation Centers, 3 Youth Ministries, 19 emergency shelters, a state-wide disaster response program, and numerous other programs and services.\n</p>\n\n<p>\n\tEvery year the services and programs provided by The Salvation Army are in great demand. Continued financial support from the community is crucial through donations from individuals and corporations, and funding from foundations and grants. The organization graciously accepts these gifts and responsibly shepherds them to the neighbors who need them most. Fiscal responsibility is steadfast; for every dollar donated, more than 83% goes directly to programs and services.\n</p>\n\n<p>\n\tSince 1890, The Salvation Army has been there to help Georgians in times of personal trouble and strife. Today, The Salvation Army looks ahead, ready to respond to new challenges and opportunities.\n</p>\n\n<p>\n\tIf the past is an indication of the future, then the outlook for The Salvation Army in Georgia is bright. Locations, buildings, and methods may change, but the challenge to meet human needs without discrimination in Christ’s name remains the same.\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><p style=\"text-align:center;\">While The Salvation Army today is a respected and vital part of communities all over the state of Georgia, times were a little different in 1890. Some of the rougher elements of Atlanta society in those early days often greeted Salvation Army officers with salutations of over-ripe eggs, broken windows, and threats of violence. Getting to meetings in the early days often proved a battle in and of itself. Those who ran the local saloons and brothels constantly harassed and assaulted the Salvationists. In 1892, Captain Davis and Sergeant Brown, then in charge of the Atlanta Corps, were arrested for selling the War Cry, the Army’s official publication.\n</p>\n\n<p>\n\tVictory was hard won, but Captain Anna Glosser eventually stopped the harassment by winning the hearts of the local community. She soon had a large and dedicated core of the newly saved that marched with her through the streets of Atlanta, beating drums and playing horns to attract attention. The scandalous novelty of hearing a woman preach brought hundreds of men, women, and children into the streets to hear the Good News. Many followed the Salvationists as they went to their meeting place at Marietta and Spring Streets, packing it out to standing room only, the floor covered with sawdust.\n</p>\n\n<p>\n\tAs the 20th century dawned, Atlanta was a thriving city, having been promoted to potential investors by Henry Grady, editor of the Atlanta Constitution, as the “New South” that would be based upon a modern economy and less reliant on agriculture. However, the rest of the state was heavily rural with an economy still based on cotton. The need for The Salvation Army was great and it expanded to meet the needs of people throughout the state by recruiting cadets, visiting those in jail, and gathering food for the needy.<br><img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/b364aad5-0412-4810-8bd9-0524d4ac260e_history+pic+1.jpeg\" style=\"max-width:100%;height:auto;\" class=\"img-fluid d-block mx-auto my-4 rounded\"></p>\n\n<p style=\"text-align:center;\">As The Salvation Army won the respect of Georgia’s citizenry, it quickly spread. From the first Marietta and Spring Street location in Atlanta, The Salvation Army expanded to Augusta (1891), Columbus (1895), Rome (1897), Macon (1899), Savannah (1900), Brunswick (1910), and Athens (1916). but it did not stop there.\n</p>\n\n<p>\n\tOver the years, The Salvation Army provided a strong, steady, and capable witness in the state of Georgia with a continuingly expanding program. Now there are camping programs for underprivileged children and youth, emergency food, shelter, and assistance programs, Christmas toys and food for tens of thousands of our neediest neighbors, shelter for the homeless and battered, youth sports teams, gang prevention and intervention, infirmary care for the homeless, veterans services and ministry to military families, senior services and visitations, shelter and services for pregnant and at-risk girls and new opportunities for service keep arising.\n</p>\n\n<p><br><img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/22dfe894-6532-489c-95a0-4135fa033109_history+3.png\" style=\"max-width:100%;height:auto;\" class=\"img-fluid d-block mx-auto my-4 rounded\"></p>\n\n<p>\n\tToday in Georgia there are 26 Salvation Army Corps Community Centers, 25 Service Units and 15 Service Centers that provide services in areas throughout the state, 35 Thrift Stores, 2 Ray and Joan Kroc Corps Community Centers, 3 Corps Salvage and Rehabilitation Centers, 3 Youth Ministries, 19 emergency shelters, a state-wide disaster response program, and numerous other programs and services.\n</p>\n\n<p>\n\tEvery year the services and programs provided by The Salvation Army are in great demand. Continued financial support from the community is crucial through donations from individuals and corporations, and funding from foundations and grants. The organization graciously accepts these gifts and responsibly shepherds them to the neighbors who need them most. Fiscal responsibility is steadfast; for every dollar donated, more than 83% goes directly to programs and services.\n</p>\n\n<p>\n\tSince 1890, The Salvation Army has been there to help Georgians in times of personal trouble and strife. Today, The Salvation Army looks ahead, ready to respond to new challenges and opportunities.\n</p>\n\n<p>\n\tIf the past is an indication of the future, then the outlook for The Salvation Army in Georgia is bright. Locations, buildings, and methods may change, but the challenge to meet human needs without discrimination in Christ’s name remains the same.\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 6,
+								"fullName": "content:wysiwyg_basic:7:67",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:7:67",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:12:4-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><p style=\"text-align:center;\">While The Salvation Army today is a respected and vital part of communities all over the state of Georgia, times were a little different in 1890. Some of the rougher elements of Atlanta society in those early days often greeted Salvation Army officers with salutations of over-ripe eggs, broken windows, and threats of violence. Getting to meetings in the early days often proved a battle in and of itself. Those who ran the local saloons and brothels constantly harassed and assaulted the Salvationists. In 1892, Captain Davis and Sergeant Brown, then in charge of the Atlanta Corps, were arrested for selling the War Cry, the Army’s official publication.\n</p>\n\n<p>\n\tVictory was hard won, but Captain Anna Glosser eventually stopped the harassment by winning the hearts of the local community. She soon had a large and dedicated core of the newly saved that marched with her through the streets of Atlanta, beating drums and playing horns to attract attention. The scandalous novelty of hearing a woman preach brought hundreds of men, women, and children into the streets to hear the Good News. Many followed the Salvationists as they went to their meeting place at Marietta and Spring Streets, packing it out to standing room only, the floor covered with sawdust.\n</p>\n\n<p>\n\tAs the 20th century dawned, Atlanta was a thriving city, having been promoted to potential investors by Henry Grady, editor of the Atlanta Constitution, as the “New South” that would be based upon a modern economy and less reliant on agriculture. However, the rest of the state was heavily rural with an economy still based on cotton. The need for The Salvation Army was great and it expanded to meet the needs of people throughout the state by recruiting cadets, visiting those in jail, and gathering food for the needy.<br><img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/b364aad5-0412-4810-8bd9-0524d4ac260e_history+pic+1.jpeg\" style=\"max-width:100%;height:auto;\" class=\"img-fluid d-block mx-auto my-4 rounded\"></p>\n\n<p style=\"text-align:center;\">As The Salvation Army won the respect of Georgia’s citizenry, it quickly spread. From the first Marietta and Spring Street location in Atlanta, The Salvation Army expanded to Augusta (1891), Columbus (1895), Rome (1897), Macon (1899), Savannah (1900), Brunswick (1910), and Athens (1916). but it did not stop there.\n</p>\n\n<p>\n\tOver the years, The Salvation Army provided a strong, steady, and capable witness in the state of Georgia with a continuingly expanding program. Now there are camping programs for underprivileged children and youth, emergency food, shelter, and assistance programs, Christmas toys and food for tens of thousands of our neediest neighbors, shelter for the homeless and battered, youth sports teams, gang prevention and intervention, infirmary care for the homeless, veterans services and ministry to military families, senior services and visitations, shelter and services for pregnant and at-risk girls and new opportunities for service keep arising.\n</p>\n\n<p><br><img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/22dfe894-6532-489c-95a0-4135fa033109_history+3.png\" style=\"max-width:100%;height:auto;\" class=\"img-fluid d-block mx-auto my-4 rounded\"></p>\n\n<p>\n\tToday in Georgia there are 26 Salvation Army Corps Community Centers, 25 Service Units and 15 Service Centers that provide services in areas throughout the state, 35 Thrift Stores, 2 Ray and Joan Kroc Corps Community Centers, 3 Corps Salvage and Rehabilitation Centers, 3 Youth Ministries, 19 emergency shelters, a state-wide disaster response program, and numerous other programs and services.\n</p>\n\n<p>\n\tEvery year the services and programs provided by The Salvation Army are in great demand. Continued financial support from the community is crucial through donations from individuals and corporations, and funding from foundations and grants. The organization graciously accepts these gifts and responsibly shepherds them to the neighbors who need them most. Fiscal responsibility is steadfast; for every dollar donated, more than 83% goes directly to programs and services.\n</p>\n\n<p>\n\tSince 1890, The Salvation Army has been there to help Georgians in times of personal trouble and strife. Today, The Salvation Army looks ahead, ready to respond to new challenges and opportunities.\n</p>\n\n<p>\n\tIf the past is an indication of the future, then the outlook for The Salvation Army in Georgia is bright. Locations, buildings, and methods may change, but the challenge to meet human needs without discrimination in Christ’s name remains the same.\n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

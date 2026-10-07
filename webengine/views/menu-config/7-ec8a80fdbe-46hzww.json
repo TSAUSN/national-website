@@ -15,6 +15,86 @@
   },
   {
     "type": "menu",
+    "key": null,
+    "page_name": "Serving Veterans",
+    "page-zuid": "7-dcfdace7bd-143l74",
+    "sort": 0,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Hunger",
+    "page-zuid": "7-96f895a7a7-qdcd78",
+    "sort": 1,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Correctional Services",
+    "page-zuid": "7-ace8a7a7a7-gg6s11",
+    "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Utility Rent Assistance",
+    "page-zuid": "7-f8a6b5a7a7-xl7qlp",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Disaster Relief",
+    "page-zuid": "7-d4ebc6a7a7-7p7vpv",
+    "sort": 4,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Domestic Violence",
+    "page-zuid": "7-86ffd9a7a7-68t8qr",
+    "sort": 5,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Health Services",
+    "page-zuid": "7-92de87dbf0-px5rw7",
+    "sort": 6,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Youth Services",
+    "page-zuid": "7-daf19adbf0-5vzcr1",
+    "sort": 7,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Recovery",
+    "page-zuid": "7-8ee1abdbf0-8v085w",
+    "sort": 8,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Senior Services",
+    "page-zuid": "7-d095cadbf0-qvwl3x",
+    "sort": 9,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
     "key": "about_us",
     "page_name": "About Us",
     "page-zuid": null,
@@ -39,16 +119,16 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "History",
-    "page-zuid": "7-b8c09b84c2-fp57hm",
+    "page_name": "Leadership",
+    "page-zuid": "7-aabdfbf2e5-2tnr3p",
     "sort": 2,
     "parent": "about_us"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Leadership",
-    "page-zuid": "7-aabdfbf2e5-2tnr3p",
+    "page_name": "History",
+    "page-zuid": "7-b8c09b84c2-fp57hm",
     "sort": 3,
     "parent": "about_us"
   },
@@ -103,15 +183,15 @@
   {
     "type": "menu",
     "key": "events",
-    "page_name": "Events",
-    "page-zuid": null,
+    "page_name": "USA Central Territory",
+    "page-zuid": "7-d0f0fff0f7-65zsg4",
     "parent": null
   },
   {
     "type": "menu",
     "key": "newsroom",
-    "page_name": "Newsroom",
-    "page-zuid": null,
+    "page_name": "USA Central Territory",
+    "page-zuid": "7-b282a5dabf-t4vkw8",
     "parent": null
   },
   {
@@ -187,9 +267,25 @@
   },
   {
     "type": "menu",
+    "key": null,
+    "page_name": "Volunteer Grants",
+    "page-zuid": "7-809888b5e4-6nw2t2",
+    "sort": 8,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Payroll Giving",
+    "page-zuid": "7-d4e0bef6d6-95w95z",
+    "sort": 9,
+    "parent": "ways_to_give"
+  },
+  {
+    "type": "menu",
     "key": "contact_us",
-    "page_name": "Contact Us",
-    "page-zuid": null,
+    "page_name": "Contact The Salvation Army Central Territory",
+    "page-zuid": "7-daf98ac7c0-gdl2fx",
     "parent": null
   }
 ]

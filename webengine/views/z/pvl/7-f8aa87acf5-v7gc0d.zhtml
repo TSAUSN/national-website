@@ -1,27 +1,24 @@
 <div className={styles.pvlRoot}>
 	{{block('/-/block/hero_full.html?variant=7-aaa5a8bc8b-nzgq56')}}
-	<div class="row my-3">
+	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
 		<div class="col-lg-12 col-md-12 col-sm-12">
-			<h5 style="text-align:center;">Help Us Raise $2.5&nbsp;million in 2026!</h5>
+			<h5 style="text-align:center;">Help Us Raise $2 million by Oct. 1, 2026!</h5>
 			<div class="my-2"></div>
-			<p style="text-align: left;">We have successfully raised $14.5 million towards our Rebuilding Hope Restoring Lives shelter renovation project. However, we cannot break ground until we reach our goal of raising the remaining $2.5 million. Help us provide a place for Greenville families to get back on their feet. Make a pledge today!</p>
-<p class="cta-button-group d-flex flex-wrap gap-2 my-3" style="text-align: left;"><a class="btn btn-secondary gap-1 mt-2" href="https://fundraise.givesmart.com/form/SlufyQ?vid=1kddst" target="_blank" rel="noopener">Donate Now</a></p>
-			<div class="py-5"></div>
-			<div style="display:flex" className={styles.pvlRow}>
-				<div class="col-lg-10 col-md-12 col-sm-12 m-auto mt-3 ratio ratio-16x9 column">
-					<iframe src="https://www.youtube.com/embed/oWW32ShJn3g" style="border:0" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" class="w-100 h-100"></iframe>
-				</div>
-			</div>
+			<div class="pvlRichtext" style="text-align:left"><p style="text-align: center;">We have successfully raised more than $15 million towards our Rebuilding Hope Restoring Lives shelter renovation project. However, we cannot break ground until we reach our goal of raising the remaining $2 million by Oct. 1, 2026. Help us provide a place for Greenville families to get back on their feet. Make a pledge today!</p>
+<p class="cta-button-group d-flex flex-wrap gap-2 my-3" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2 m-auto" href="https://fundraise.givesmart.com/form/SlufyQ?vid=1scmjt" target="_blank" rel="noopener">Donate Now</a></p>
+<p class="cta-button-group d-flex flex-wrap gap-2 my-3" style="text-align: center;">Dorothy and Steve Dowe have offered a $250,000 matching gift challenge to help us reach the finish line! Watch the video below to hear why they support Rebuilding Hope Restoring Lives in Greenville.</p></div>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/Z3MiyLlYBdc?si=gu7fse8KdBEwuRLN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="video-container"></iframe>
+			<p><iframe title="YouTube video player" src="https://www.youtube.com/embed/mfgm1fV8DxM?si=eHEGPrK5kGJ6rTrz" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe></p>
 			<div class="py-5"></div>
 			<div class="row my-3">
 				<div class="col-lg-4 col-md-12 col-sm-12">
-					<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align:center"><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/greenvillesc/tsa-greenville-shelter-campus-project#Free-Text-Area-3">Campaign Breakdown</a></p>
+					<div class="pvlRichtext cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align:center"><p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/greenvillesc/tsa-greenville-shelter-campus-project#Free-Text-Area-3">Campaign Breakdown</a></p></div>
 				</div>
 				<div class="col-lg-4 col-md-12 col-sm-12">
-					<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align:center"><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/greenvillesc/tsa-greenville-shelter-campus-project#Free-Text-Area-5">How You Can Help</a></p>
+					<div class="pvlRichtext cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align:center"><p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/greenvillesc/tsa-greenville-shelter-campus-project#Free-Text-Area-5">How You Can Help</a></p></div>
 				</div>
 				<div class="col-lg-4 col-md-12 col-sm-12">
-					<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align:center"><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/greenvillesc/tsa-greenville-shelter-campus-project#Free-Text-Area-4">Courage of Second Chances</a></p>
+					<div class="pvlRichtext cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align:center"><p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/greenvillesc/tsa-greenville-shelter-campus-project#Free-Text-Area-4">Courage of Second Chances</a></p></div>
 				</div>
 			</div>
 			<h5 style="text-align:center;">Alone. Unseen.</h5>
@@ -33,12 +30,12 @@
 			<p>In Greenville County, homelessness has a face that may surprise you. It’s often who you least expect. It could be a child in your son’s classroom, a woman you pass in the grocery store, or a veteran who once served our country. For some, all it takes is a lost job, an unexpected illness, or a past mistake to end up on the streets.</p>
 			<p style="font-weight: 700">Last year alone,&nbsp;4,100 people experienced homelessness in Greenville (a 19.9 percent increase over three years).</p>
 			<p>Of them:</p>
-			<ul>
+			<div class="pvlRichtext"><ul>
 <li>1 in 3 was a woman</li>
 <li>1 in 2 had a disability</li>
 <li>1 in 8 was a child</li>
 <li>1 in 17 was a veteran</li>
-</ul>
+</ul></div>
 			<div class="my-2"></div>
 			<p>These statistics are a clear signal that our neighbors are in trouble.</p>
 			<p>At The Salvation Army of Greenville County, our shelters are always at full capacity. Every week, we face the painful reality of turning people away—each one a person in desperate need of safety, stability, and hope. And the pressures are only growing. Rapid inflation is forcing many families to choose between food, medicine, and housing.</p>
@@ -63,7 +60,7 @@
 					<p>“You don’t know what an individual can become if they have the right resources,” she said.</p>
 					<p>Through her leadership in the&nbsp;Rebuilding Hope Restoring Lives Campaign, she is helping ensure that others have the same opportunity her father did.</p>
 					<p>“Your gift to this campaign is not just for the here and now,” she said. “You will help individuals and entire families. Your generosity will touch generations.”</p>
-					<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start"><a class="btn btn-secondary gap-1 mt-2" href="https://fundraise.givesmart.com/form/SlufyQ?vid=1lk10l">Donate Now</a></p>
+					<div class="pvlRichtext cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start"><p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start"><a class="btn btn-secondary gap-1 mt-2" href="https://fundraise.givesmart.com/form/SlufyQ?vid=1lk10l">Donate Now</a></p></div>
 				</div>
 			</div>
 			<div class="py-5"></div>
@@ -94,15 +91,15 @@
 				<div class="col-md-6 col-sm-12">
 					<h5>“Ultimately, if your heart is to help people, it’s what we do. This building—and the countless lives it represents—is an amazing opportunity. You can help change eternities for countless people for many years to come.”</h5>
 					<h5>Major Mike Harris</h5>
-					<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start"><a class="btn btn-secondary gap-1 mt-2" href="https://fundraise.givesmart.com/form/SlufyQ?vid=1lk10l">Donate Now</a></p>
+					<div class="pvlRichtext cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start"><p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-start"><a class="btn btn-secondary gap-1 mt-2" href="https://fundraise.givesmart.com/form/SlufyQ?vid=1scmjt">Donate Now</a></p></div>
 				</div>
 			</div>
 			<div class="py-5"></div>
 			<h5 style="color:#ed1c2b;">At The Salvation Army Greenville County, we believe that rebuilding hope isn’t merely a mission— it’s a calling.</h5>
 			<p>For over a century, we have had the privilege of serving our region’s most vulnerable residents, helping thousands regain their footing and find their way forward.</p>
 			<p>However, our aging facilities are currently stretched beyond their capacity. Too often we are forced to turn people away—among them children, women, and veterans. Without options, many are left to seek refuge on the streets.</p>
-			<p style="color:#ed1c2b;">Today, we want to change the narrative.&nbsp;Through the&nbsp;Rebuilding Hope Restoring Lives&nbsp;Campaign, a $16 million initiative, we want to replace our five aging buildings with a new 45,000 square foot “Center of Hope”—a sanctuary where 143 people can experience the power of God’s love and support. It will be the only shelter in Greenville that can offer emergency shelter to entire families together. It will also improve security and help those struggling with physical disabilities.</p>
-			<p>Thanks to the generosity of supporters like you, we’ve already raised over&nbsp;$14&nbsp;million&nbsp;toward this goal.&nbsp;With just&nbsp;$2.5&nbsp;million&nbsp;left to go, we’re closer than ever to bringing this vision to life.</p>
+			<p style="color:#ed1c2b;">Today, we want to change the narrative.&nbsp;Through the&nbsp;Rebuilding Hope Restoring Lives&nbsp;Campaign, a $17 million initiative, we want to replace our five aging buildings with a new 45,000 square foot “Center of Hope”—a sanctuary where 143 people can experience the power of God’s love and support. It will be the only shelter in Greenville that can offer emergency shelter to entire families together. It will also improve security and help those struggling with physical disabilities.</p>
+			<p>Thanks to the generosity of supporters like you, we’ve already raised over&nbsp;$15&nbsp;million&nbsp;toward this goal.&nbsp;With just&nbsp;$2 &nbsp;million&nbsp;left to go, we’re closer than ever to bringing this vision to life.</p>
 			<div class="my-4"></div>
 			<h6 style="text-align:center;">Who We Serve: By the Numbers</h6>
 			<div class="my-2"></div>
@@ -131,14 +128,12 @@
 			<p>The increase in the bed capacity will provide&nbsp;individuals and families a safe place to sleep where the environment restores dignity. The updated, purposeful design will also provide much-needed new family and transitional housing.&nbsp;This is vital to empowering independent living.</p>
 			<p>Overall, the revitalized Social Service Shelter Campus will provide more space strategically configured to stabilize vulnerable individuals. Besides providing greater missional effectiveness, the “Center of Hope” will be a place where families and individuals can rebuild their lives in a place that inspires and encourages.</p>
 			<div class="my-4"></div>
-			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/TSA-GVL-2026-Shelter-Rendering-4.jpg" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3">
-			<div class="my-2"></div>
 			<h5 style="text-align:center;">From Hope to Reality</h5>
 			<p style="color:#ed1c2b;">Our&nbsp;Rebuilding Hope Restoring Lives&nbsp;Campaign&nbsp;reflects our commitment to the vulnerable neighbors we serve.</p>
 			<p>The revitalized 45,000 square foot “Center of Hope” will provide greater security and cohesiveness. The new space will increase efficiency in daily operation, create greater security and accessibility, and allow for better engagement with our clients.</p>
 			<div class="my-4"></div>
 			<h5 style="color:#ed1c2b;">The New Social Services Campus Will Include:</h5>
-			<ul>
+			<div class="pvlRichtext"><ul>
 <li>Family Shelters to keep households together (men with children, couples with children)</li>
 <li>Transitional Housing for those needing support for more time to become stable</li>
 <li>Single occupancy rooms for those who have experienced trauma</li>
@@ -148,7 +143,7 @@
 <li>Medical Respite for individuals facing homelessness in need of a space to convalesce</li>
 <li>Day Shelter with showers and laundry facilities</li>
 <li>Double the number of those served annually</li>
-</ul>
+</ul></div>
 			<div class="my-2"></div>
 			<h5>Campaign Breakdown</h5>
 			<p>Financial support from private donors, businesses, and foundations will enable The Salvation Army of Greenville County to adapt to the increasing demands.</p>
@@ -156,53 +151,24 @@
 			<p>In addition, a $2 million endowment will be established to sustain future operations for the Social Services campus.</p>
 			<hr>
 			<h5>Budget Overview</h5>
-			<p>**Updated as of FEBRUARY 2026</p>
-			<div class="btgrid" style="color:#ed1c2b;">
+			<p>**Updated as of SEPT. 2026</p>
+			<div class="pvlRichtext btgrid" style="color:#ed1c2b"><div class="btgrid">
 <div class="row row-1">
 <div class="col col-md-6 col-sm-12">
 <div class="content">
-<p><span style="color: #ed1c2b;"><strong>Budget -- Construction/Sustainability</strong></span></p>
+<p><span style="color: #ed1c2b;"><strong>&nbsp;Budget -- Construction/Sustainability</strong></span></p>
 </div>
 </div>
 <div class="col col-md-6 col-sm-12">
 <div class="content">
-<p><strong><span style="color: #ed1c2b;">$16M Goal</span></strong></p>
+<p><strong><span style="color: #ed1c2b;">$17.5M Goal</span></strong></p>
 </div>
 </div>
 </div>
 <div class="row row-2">
 <div class="col col-md-6 col-sm-12">
 <div class="content">
-<p>Social Services Campus Construction - full</p>
-</div>
-</div>
-<div class="col col-md-6 col-sm-12">
-<div class="content">
-<p>$14,000,000</p>
-</div>
-</div>
-</div>
-<div class="row row-3">
-<div class="col col-md-6 col-sm-12">
-<div class="content">
-<p>Endowment</p>
-</div>
-</div>
-<div class="col col-md-6 col-sm-12">
-<div class="content">
-<p>$2,000,000</p>
-</div>
-</div>
-</div>
-<div class="row row-4">
-<div class="col col-md-6 col-sm-12">
-<div class="content">
-<p>TOTAL RAISED</p>
-</div>
-</div>
-<div class="col col-md-6 col-sm-12">
-<div class="content">
-<p>$14,000,000</p>
+<p>$14.5 Million – Construction &amp; Equipment<br>$1.5 Million – Contingency Fund<br>$1.5 Million – Operating Endowment</p>
 </div>
 </div>
 </div>
@@ -214,7 +180,7 @@
 </div>
 <div class="col col-md-6 col-sm-12">
 <div class="content">
-<p><strong><span style="color: #ed1c2b;">$2,000,000</span></strong></p>
+<p><strong><span style="color: #ed1c2b;">$2 million</span></strong></p>
 </div>
 </div>
 </div>
@@ -230,7 +196,7 @@
 </div>
 </div>
 </div>
-</div>
+</div></div>
 			<div class="my-2"></div>
 			<hr>
 			<img width="100%" src="https://8hxvw8tw.media.zestyio.com/TSA-GVL-2026-Shelter-Rendering-3.jpg" alt="placeholder">
@@ -245,20 +211,20 @@
 			<p>Bea Walters Smith</p>
 			<p>Director of Community Relations and Development</p>
 			<p>The Salvation Army of Greenville County</p>
-			<p>PO Box 1237 Greenville, SC 29602</p>
-			<p><a href="tel:8642354803">(864)235-4803</a> x66134</p>
+			<p>501 Rutherford Street, Greenville, SC 29609</p>
+			<div class="pvlRichtext"><p><a href="tel:8642354803">(864)235-4803</a> x66134</p></div>
 			<div class="my-2"></div>
-			<p><a href="mailto://bea.walters-smith@uss.salvationarmy.org" target="">bea.walters-smith@uss.salvationarmy.org</a></p>
+			<div class="pvlRichtext"><p><a href="mailto://bea.walters-smith@uss.salvationarmy.org" target="">bea.walters-smith@uss.salvationarmy.org</a></p></div>
 			<div class="my-2"></div>
 			<h5 style="text-align:center;">Thank You...</h5>
 			<p>Your investment will help us meet the needs of those we serve in building better lives for their future.</p>
-			<p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align:center"><a class="btn btn-secondary gap-1 mt-2" href="https://fundraise.givesmart.com/form/SlufyQ?vid=1lk0mg">Donate Now</a></p>
+			<div class="pvlRichtext cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align:center"><p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://fundraise.givesmart.com/form/SlufyQ?vid=1lk0mg">Donate Now</a></p></div>
 			<div class="my-2"></div>
 			<div class="row my-3">
 				<div class="col-lg-6 col-md-6 col-sm-12">
 					<h5>Courage for a Second Chance</h5>
 					<p>Read Shawn's story about his search for shelter and hope, and what he found through The Salvation Army of Greenville.</p>
-					<p style="text-align:center"><strong><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/greenvillesc/news/courage-for-a-second-chance">Read more</a></strong></p>
+					<div class="pvlRichtext" style="text-align:center"><p style="text-align: center;"><strong><a class="btn btn-secondary gap-1 mt-2" href="https://southernusa.salvationarmy.org/greenvillesc/news/courage-for-a-second-chance">Read more</a></strong></p></div>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12">
 					<img width="100%" src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/616e4a41-5010-45e0-8a02-f7dbe7f0b4db_Courage+for+a+Second+Chance+Shawn+Messer.png" alt="placeholder" style="max-width:100%;height:auto;" class="img-fluid d-block my-3">

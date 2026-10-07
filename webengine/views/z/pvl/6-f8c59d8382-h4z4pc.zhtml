@@ -1,0 +1,5 @@
+<div className={styles.pvlRoot}>
+	{{block('/-/block/general_accordion.html?variant=7-a2eef8d0ba-d3tvln')}}
+	{{block('/-/block/generic_image_text_button_block.html?variant=7-a0cbe2e1b6-8j9h2c')}}
+	{{block('/-/block/mobile_desktop_videos.html?variant=7-f28dcbcafa-826zs3')}}
+</div>
