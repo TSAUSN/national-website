@@ -302,6 +302,7 @@
       const cardImageMobile = `${cardImageBase}?width=396&height=222&crop=16:9,smart`;
       const cardImageDesktop = `${cardImageBase}?width=338&height=179&crop=16:9,smart`;
 
+      const meta = cardData?.meta?.web || {};
       const content = cardData?.data[0]?.content || {};
       const metaTitle = content.title || content.name || meta.seo_meta_title || '';
       const metaDescription = meta.seo_meta_description || '';
