@@ -92,7 +92,8 @@ theme's scale — known debt, not a pattern to follow.
 
 ## MCP server (`zesty`)
 
-`.mcp.json` (gitignored) configures a local MCP server exposing read-only Zesty Instance API tools. Its source lives outside this repo. On this dev machine it only runs inside WSL (Node isn't on the Windows PATH here), so the command is `wsl.exe -e node /home/.../mcp-local-server/build/index.js`, not a bare `node` call — check `.mcp.json` for the actual path before assuming it. `docs/api-tools.md` documents the tools as implemented in code, plus a list of behaviors that still need confirming against a live API call.
+- `zesty` — read-only Zesty Instance API tools. Source lives outside this repo. On this dev machine it only runs inside WSL (Node isn't on the Windows PATH here), so the command is `wsl.exe -e node /home/.../mcp-local-server/build/index.js`, not a bare `node` call — check `.mcp.json` for the actual path before assuming it. `docs/api-tools.md` documents the tools as implemented in code, plus a list of behaviors that still need confirming against a live API call.
+- `playwright` — the official `@playwright/mcp` package (run via `npx -y @playwright/mcp@latest`), giving `mcp__playwright__*` tools for real browser testing. `qa-tester` uses this to drive branch-preview/dev/stage URLs instead of guessing from raw HTTP responses. Requires a Claude Code session restart/reconnect after being added to `.mcp.json` before the tools show up.
 
 ## Agent workflow
 
