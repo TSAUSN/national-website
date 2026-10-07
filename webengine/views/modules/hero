@@ -289,10 +289,11 @@
 
       if (cardData?.data[0]?.content?.og_image) {
         cardImage = cardData?.data[0]?.content?.og_image?.data ? cardData?.data[0]?.content?.og_image?.data[0]?.url : cardData?.data[0]?.content?.og_image;
+      } else if (cardData?.data[0]?.content?.hero_image) {
+        cardImage = cardData?.data[0]?.content?.hero_image?.data ? cardData?.data[0]?.content?.hero_image?.data[0]?.url : cardData?.data[0]?.content?.hero_image;
       } else {
         cardImage = cardData?.data[0]?.content?.image?.data ? cardData?.data[0]?.content?.image?.data[0]?.url : cardData?.data[0]?.content?.image;
       }
-      // let cardImage = cardData?.data[0]?.content?.hero_image?.data? cardData?.data[0]?.content?.hero_image?.data[0]?.url : cardData?.data[0]?.content?.hero_image;
 
       if(!cardImage){
         cardImage = defaultHeroImage || resolveImages();
@@ -413,11 +414,11 @@
 
       if (cardData?.data[0]?.content?.og_image) {
         cardImage = cardData?.data[0]?.content?.og_image?.data ? cardData?.data[0]?.content?.og_image?.data[0]?.url : cardData?.data[0]?.content?.og_image;
+      } else if (cardData?.data[0]?.content?.hero_image) {
+        cardImage = cardData?.data[0]?.content?.hero_image?.data ? cardData?.data[0]?.content?.hero_image?.data[0]?.url : cardData?.data[0]?.content?.hero_image;
       } else {
         cardImage = cardData?.data[0]?.content?.image?.data ? cardData?.data[0]?.content?.image?.data[0]?.url : cardData?.data[0]?.content?.image;
       }
-      
-
 
       if(!cardImage){
         cardImage = defaultHeroImage || resolveImages();
