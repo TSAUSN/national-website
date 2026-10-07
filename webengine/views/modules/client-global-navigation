@@ -265,8 +265,7 @@
 
   const national = `{{$nationalZUID}}`;
 
-  // Placeholder — no real Tags content model exists yet; replace with the actual model ZUID once it's created in the CMS admin.
-  const TAGS_MODEL_ZUID = `__TAGS_MODEL_ZUID_PLACEHOLDER__`;
+  const TAGS_MODEL_ZUID = `6-aef7cebfd9-q7q7lh`;
 
   const territories = {
     west: `{{$westTerritoryZUID}}`,
