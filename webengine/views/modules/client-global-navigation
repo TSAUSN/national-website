@@ -53,6 +53,7 @@
 {{$allStoriesModelZUID = 6-8cdcc4c1bf-r8jnvc}}
 {{$statesModelZUID = 6-ce888daf92-fpzvz1}}
 {{$citiesModelZUID = 6-dcd5c9b192-tgsnht}}
+{{$tagsModelZUID = 6-aef7cebfd9-q7q7lh}}
 
 {{$adultRehabilitationCenterZUID = 7-b29cb08fe5-379fqs}}
 {{$krocCenterZUID = 7-a0f48bbaad-gzx0rj}}
@@ -265,8 +266,6 @@
 
   const national = `{{$nationalZUID}}`;
 
-  const TAGS_MODEL_ZUID = `6-aef7cebfd9-q7q7lh`;
-
   const territories = {
     west: `{{$westTerritoryZUID}}`,
     east: `{{$eastTerritoryZUID}}`,
@@ -291,7 +290,8 @@
     locationFinder: `{{$locationFinderModelZUID}}`,
     allStories: `{{$allStoriesModelZUID}}`,
     states: `{{$statesModelZUID}}`,
-    cities: `{{$citiesModelZUID}}`
+    cities: `{{$citiesModelZUID}}`,
+    tags: `{{$tagsModelZUID}}`
   };
 
   const tealiumProfile = {
@@ -2456,9 +2456,9 @@
         await setCodeCookie(citiesTerritoryZUID, models.territories);
         break;
 
-      case TAGS_MODEL_ZUID: // Tags — reads the persisted location, never sets it
-        // Tags pages aren't themselves a location, so only default to National when
-        // nothing is persisted yet; otherwise leave the existing location cookies alone.
+      case models.tags: // Tags
+      // Pages that aren't a location keep the persisted location; first-time visitors get National.
+      default:
         if (!cookieManager.get(cookieKeys.locationZUID)) {
           await setNationalLocationCookies();
         }
