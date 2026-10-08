@@ -40,7 +40,9 @@ function resetMap() {
       }
     }
     const resetButton = document.getElementById('map__reset');
-    resetButton.classList.add('d-none');
+    if (resetButton) {
+      resetButton.classList.add('d-none');
+    }
   }
 }
 
@@ -291,7 +293,9 @@ function handleMarkerContent(markerData) {
   const contentWrapper = document.querySelector('.map-content-wrapper');
   const searchData = window.searchInfoData;
   const resetButton = document.getElementById('map__reset');
-  resetButton.classList.remove('d-none');
+  if (resetButton) {
+    resetButton.classList.remove('d-none');
+  }
   if (!contentWrapper) return;
 
   // Remove existing location-detail div if it exists

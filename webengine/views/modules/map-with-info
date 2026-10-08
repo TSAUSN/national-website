@@ -99,6 +99,9 @@
         </form>
       </div>
       <div class="col-sm-12 col-md-12 p-0 order-sm-1 order-md-2 position-relative">
+      <button id="map__reset" class="map__reset position-absolute end-4 top-4 bg-primary-200 text-white border-0 rounded-2 px-4 py-2 d-flex align-items-center d-none" onclick="resetMap()"><span class="material-symbols-outlined me-2">
+        reply
+        </span>Return</button>
       <div class="rounded-5 map-info__map goggle-map"></div>
       <div class="map-loader d-none">
         <div class="map-loader__spinner"></div>
