@@ -12,7 +12,7 @@
       {{/if}}
     </h4>
   </div>
-  <div class="events-swiper overflow-hidden gap-4 events-section">
+  <div class="events-swiper overflow-hidden gap-4 events-section is-loading">
     <div class="swiper-wrapper events-swipper-wrapper flex-row">
       <div
       id="events-loader"
@@ -97,50 +97,69 @@ function isUpcomingEvent(dateTimeSummary) {
   return defaultImages[Math.floor(Math.random()*defaultImages.length)];
   }
 
+  // Keep above the startEventsNearViewport() call: initEvents() can run synchronously from it.
+  const EVENTS_ENDPOINT_URL = '/get-events.json';
+  const EVENTS_MAX_ORG_ZUIDS = 5;
+  const STATES_INSTANT_URL = '/-/instant/6-ce888daf92-fpzvz1.json';
+  const EVENTS_FETCH_TIMEOUT_MS = 30000;
+  const EVENTS_CACHE_TTL_MS = 10 * 60 * 1000;
+  const EVENTS_VIEWPORT_MARGIN = '600px 0px';
+  const ZUID_PATTERN = /^\d+-[0-9a-z]+-[0-9a-z]+$/;
+  const MONTH_NAMES = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December',
+  ];
+  const EVENTS_PAGE_ZUID = '{{this.zuid.escapeForJs()}}';
+  {{ if {$page_type_detail} == "events_landing_pages" }}
+  // Same order client-global-navigation uses for this page's org: location, division, territory, then parent.
+  const EVENTS_PAGE_ORG_CANDIDATES = [
+    [['property'], '{{!this.location.escapeForJs()}}'],
+    [['divisions'], '{{!this.division.escapeForJs()}}'],
+    [['territories'], '{{!this.territory.escapeForJs()}}'],
+    [['property', 'divisions', 'territories'], '{{this.parent_zuid.escapeForJs()}}'],
+  ];
+  {{ else }}
+  const EVENTS_PAGE_ORG_CANDIDATES = [
+    [['property'], '{{!this.property.escapeForJs()}}'],
+    [['divisions'], '{{!this.divisions.escapeForJs()}}'],
+    [['territories'], '{{!this.territories.escapeForJs()}}'],
+  ];
+  {{ /if }}
+
   const loader = document.getElementById("events-loader")
+function showEventsLoadError() {
+  document.querySelector('.events-section').innerHTML = `
+    <div class="text-center w-100 py-5">
+      <p class="text-secondary mb-0">We're unable to load events right now. Please try again later.</p>
+    </div>
+  `;
+}
+
 async function initEvents() {
+  const eventsSection = document.querySelector('.events-section');
   try {
     const eventsSwiperContainer = document.querySelector('.events-swipper-wrapper');
+    eventsSection.classList.add('is-loading');
     loader.classList.add('d-flex');
     loader.classList.remove('d-none');
     const data = await fetchEvents();
 
+    if (!Array.isArray(data)) {
+      showEventsLoadError();
+      return;
+    }
+
     // Sort events by start date ascending
     const sortedData = data.sort((a, b) => {
       const getEventDate = (event) =>
-        new Date(
-          event.content.event_date_with_time ||
-          event.content.event_end_date_with_time ||
-          0
-        );
+        parseEventDate(event.content.event_date_with_time || event.content.event_end_date_with_time) || new Date(0);
       return getEventDate(a) - getEventDate(b);
     });
 
     sortedData.forEach((event) => {
-      let isDateTimeSummary = false;
-      let isUpcoming = false;
+      const isDateTimeSummary = !event.content.event_date_with_time && Boolean(event.content.event_end_date_with_time);
+      const imageUrl = event.content.image || resolveBrokenImages();
 
-
-       if (event.content.event_end_date_with_time) {
-        isUpcoming = new Date(event.content.event_end_date_with_time) > new Date();
-      } else if (!event.content.event_end_date_with_time && event.content.event_date_with_time){
-        isUpcoming = new Date(event.content.event_date_with_time) > new Date();
-      }
-
-      if (!event.content.event_date_with_time && event.content.event_end_date_with_time) {
-        isUpcoming = isUpcomingEvent(event.content.date_time_summary);
-        isDateTimeSummary = true;
-      }
-
-      if (!isUpcoming) return;
-
-      const imageUrl = event.content.image
-        ? event.content.image?.data
-          ? event.content.image.data[0].url
-          : event.content.image
-        : resolveBrokenImages();
-
-      console.log(event)
   const regex = /\b(?!\b(?:a|an|the|and|but|or|nor|for|so|yet|as|at|by|in|of|off|on|per|to|up|from|into|onto|over|with)\b)([A-Za-z0-9\u00C0-\u017F]+(?:['-][A-Za-z0-9\u00C0-\u017F]+)*)\b/gi;
 
       const newEvent = `
@@ -161,7 +180,7 @@ async function initEvents() {
           </div>
           <div class="card-footer w-100 bg-transparent border-0 px-6 pb-6">
             <a
-              href="${event.content.meta.web.url}"
+              href="${event.content.path_full || '#'}"
               class="btn btn-secondary text-white w-100"
               data-location-type="body:news-section"
               data-function-type="navigation"
@@ -176,7 +195,7 @@ async function initEvents() {
       `;
 
       {{ if {$page_type_detail} != "events_landing_pages" }}
-        if (event.content.meta.zuid !== "{{this.zuid}}") {
+        if (event.zuid !== EVENTS_PAGE_ZUID) {
           eventsSwiperContainer.insertAdjacentHTML('beforeend', newEvent);
         }
       {{ else }}
@@ -192,13 +211,32 @@ async function initEvents() {
         </div>
       `;
     }
+  } catch (error) {
+    console.error('Error in initEvents:', error);
+    showEventsLoadError();
   } finally {
+    eventsSection?.classList.remove('is-loading');
     loader.classList.remove('d-flex');
     loader.classList.add('d-none');
   }
 }
 
-initEvents();
+function startEventsNearViewport() {
+  const eventsModule = document.getElementById('events');
+  if (typeof IntersectionObserver === 'undefined' || !eventsModule) {
+    initEvents();
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+    observer.disconnect();
+    initEvents();
+  }, { rootMargin: EVENTS_VIEWPORT_MARGIN });
+  observer.observe(eventsModule);
+}
+
+startEventsNearViewport();
 
    const eventsCards = document.querySelectorAll('.events-swiper .card');
 
@@ -308,19 +346,172 @@ initEvents();
      swiper.update()
    }
 
-   async function fetchEvents() {
-     try {
-       const model = await fetch(
-         `https://{{instance.domain}}/get-events.json?zuid=${cookieManager.get(
-           cookieKeys.locationZUID
-         )}&model=${cookieManager.get(cookieKeys.locationModel)}`
-       );
+   // get-events.json filters by org and date and outputs scalar fields only: per-row lookups there hit WebEngine's 3,000-query cap.
+   async function fetchJSON(url, options) {
+     const response = await fetch(url, options);
+     if (!response.ok) {
+       throw new Error(`${url} responded with status ${response.status}`);
+     }
+     return response.json();
+   }
 
-       const data = await model.json();
-       return data;
+   function getPageOrg() {
+     for (const [fields, value] of EVENTS_PAGE_ORG_CANDIDATES) {
+       const zuids = value.split(',').map((zuid) => zuid.trim()).filter((zuid) => ZUID_PATTERN.test(zuid));
+       if (zuids.length) return { fields, zuids: zuids.slice(0, EVENTS_MAX_ORG_ZUIDS) };
+     }
+     return null;
+   }
+
+   function buildEventsUrl(org) {
+     const params = new URLSearchParams({ field: org.fields.length > 1 ? 'any' : org.fields[0] });
+     org.zuids.forEach((zuid, i) => params.set(`z${i + 1}`, zuid));
+     return `${EVENTS_ENDPOINT_URL}?${params}`;
+   }
+
+   // The image field holds either an external URL or a media ZUID, which only getImage() resolves.
+   function eventImageUrl(row) {
+     const isUrl = (value) => /^https?:\/\//.test(value || '');
+     if (isUrl(row.image_raw)) return row.image_raw;
+     return row.image_raw && isUrl(row.image) ? row.image : '';
+   }
+
+   async function fetchStateNames(signal) {
+     try {
+       const json = await fetchJSON(STATES_INSTANT_URL, { signal });
+       const names = new Map(json.data.map((state) => [state?.meta?.zuid, (state?.content?.name || '').trim()]));
+       return { names, ok: true };
      } catch (error) {
-       console.error('Error in fetchPageData:', error);
+       console.error('Error loading state names:', error);
+       return { names: new Map(), ok: false };
+     }
+   }
+
+   async function fetchCityNames(cityZuids, signal) {
+     const results = await Promise.allSettled(
+       cityZuids.map((zuid) => fetchJSON(`/-/instant/${zuid}.json`, { signal }))
+     );
+     const names = new Map(
+       results.map((result, i) => [cityZuids[i], result.value?.data?.[0]?.content?.title || ''])
+     );
+     return { names, ok: results.every((result) => result.status === 'fulfilled') };
+   }
+
+   // sessionStorage can throw (private mode, quota); any failure just falls back to fetching.
+   function readEventsCache(key) {
+     try {
+       const entry = JSON.parse(sessionStorage.getItem(key));
+       const age = Date.now() - entry?.savedAt;
+       const isValid = Array.isArray(entry?.events)
+         && entry.events.every((event) => typeof event?.content === 'object' && event.content !== null);
+       return isValid && age >= 0 && age < EVENTS_CACHE_TTL_MS ? entry.events : null;
+     } catch {
+       return null;
+     }
+   }
+
+   function writeEventsCache(key, events) {
+     try {
+       sessionStorage.setItem(key, JSON.stringify({ savedAt: Date.now(), events }));
+     } catch {}
+   }
+
+   function parseEventDate(rawDate) {
+     const match = /^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})/.exec(rawDate || '');
+     return match ? new Date(match[1], match[2] - 1, match[3], match[4], match[5]) : null;
+   }
+
+   function isEventUpcoming(content) {
+     if (!content.event_date_with_time && content.event_end_date_with_time) {
+       return isUpcomingEvent(content.date_time_summary);
+     }
+     const date = parseEventDate(content.event_end_date_with_time || content.event_date_with_time);
+     return Boolean(date) && date > new Date();
+   }
+
+   // Same output as Parsley's .date(F j, Y g:i A).
+   function formatEventDate(rawDate) {
+     const date = parseEventDate(rawDate);
+     if (!date) return '';
+     const hours = date.getHours();
+     const minutes = String(date.getMinutes()).padStart(2, '0');
+     return `${MONTH_NAMES[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} ${hours % 12 || 12}:${minutes} ${hours < 12 ? 'AM' : 'PM'}`;
+   }
+
+   async function fetchEvents() {
+     const org = getPageOrg();
+     if (!org) {
+       // Unknown org level (e.g. national): show no events rather than the unfiltered model.
+       return [];
+     }
+
+     // Keyed by org, not page: detail pages drop their own event at render time.
+     const cacheKey = `events:v2:${org.fields.join('+')}:${[...org.zuids].sort().join(',')}`;
+     const cachedEvents = readEventsCache(cacheKey);
+     if (cachedEvents) {
+       return cachedEvents.filter((event) => isEventUpcoming(event.content));
+     }
+
+     const controller = new AbortController();
+     const timeoutId = setTimeout(() => controller.abort(), EVENTS_FETCH_TIMEOUT_MS);
+     const { signal } = controller;
+
+     try {
+       const stateNamesPromise = fetchStateNames(signal);
+       const eventsJson = await fetchJSON(buildEventsUrl(org), { signal });
+       const rows = eventsJson?.events;
+
+       if (!Array.isArray(rows)) {
+         console.error('Error in fetchEvents: events response has no events array');
+         return false;
+       }
+
+       const matched = rows
+         .filter((row) => row && typeof row === 'object')
+         .map((row) => ({
+           row,
+           content: {
+             title: row.title || '',
+             path_full: row.url || '',
+             image: eventImageUrl(row),
+             address: row.address || '',
+             date_time_summary: row.summary || '',
+             event_date_with_time: row.start || '',
+             event_end_date_with_time: row.end || '',
+           },
+         }))
+         .filter(({ content }) => isEventUpcoming(content));
+       const cityZuids = [...new Set(matched.map(({ row }) => row.city))].filter((zuid) => ZUID_PATTERN.test(zuid));
+       const [states, cities] = await Promise.all([
+         stateNamesPromise,
+         fetchCityNames(cityZuids, signal),
+       ]);
+
+       const events = matched.map(({ row, content }) => {
+         const startDate = formatEventDate(content.event_date_with_time);
+         const endDate = formatEventDate(content.event_end_date_with_time);
+
+         return {
+           zuid: row.zuid,
+           city: cities.names.get(row.city) || '',
+           state: states.names.get(row.state) || '',
+           date: endDate ? `${startDate} - ${endDate}` : startDate,
+           content,
+         };
+       });
+       if (states.ok && cities.ok && !signal.aborted) {
+         writeEventsCache(cacheKey, events);
+       }
+       return events;
+     } catch (error) {
+       if (error.name === 'AbortError') {
+         console.error(`Error in fetchEvents: request timed out after ${EVENTS_FETCH_TIMEOUT_MS}ms`);
+       } else {
+         console.error('Error in fetchEvents:', error);
+       }
        return false;
+     } finally {
+       clearTimeout(timeoutId);
      }
    }
 
