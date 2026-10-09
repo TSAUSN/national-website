@@ -11,8 +11,11 @@
   "allowUnauthenticated": true,
   "envVars": {
     "INSTANCE_ZUID": "",
-    "LOCATIONS_ENDPOINT_URL": "",
+    "LOCATIONS_ENDPOINT_PATH": "",
+    "LOCATIONS_LIVE_DOMAIN": "",
+    "LOCATIONS_PREVIEW_DOMAIN": "",
     "LOCATIONS_VIEW_ZUID": "",
+    "LOCATIONS_VIEW_DEV_ZUID": "",
     "REBUILD_DEBOUNCE_MS": "45000",
     "PUBLISH_PROPAGATION_DELAY_MS": "5000"
   },

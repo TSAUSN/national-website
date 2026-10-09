@@ -24,7 +24,7 @@ async function handleZestyWebhook(req, res) {
   const action = classifyAction(body);
   logToFile({ raw: body, action }, 'received', 'handleZestyWebhook');
 
-  await triggerRebuild(action !== 'update');
+  await triggerRebuild(action !== 'update', action);
 }
 
 module.exports = { handleZestyWebhook };

@@ -30,7 +30,8 @@ Runs two ways from the same handler (`src/webhook-handler.js`):
 1. Copy `deploy.config.example.json` to `deploy.config.json` (gitignored) and fill in:
    - `projectId`, `region`
    - `envVars` - the non-secret values from your `.env` (`INSTANCE_ZUID`,
-     `LOCATIONS_ENDPOINT_URL`, `LOCATIONS_VIEW_ZUID`, etc.)
+     `LOCATIONS_ENDPOINT_PATH`, `LOCATIONS_LIVE_DOMAIN`, `LOCATIONS_PREVIEW_DOMAIN`,
+     `LOCATIONS_VIEW_ZUID`, `LOCATIONS_VIEW_DEV_ZUID`, etc.)
    - `secrets` - left as-is unless you named the Secret Manager secrets differently
 2. `npm install`
 3. `npm run deploy`

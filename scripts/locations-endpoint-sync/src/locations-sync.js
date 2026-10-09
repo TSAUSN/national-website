@@ -5,26 +5,25 @@ const axios = require('axios');
 const { logToFile, errorLogToFile } = require('./logger');
 const { updateLocationsView } = require('./zesty-view-commit');
 
-// Same code as the old locations endpoint, exposed as a Parsley endpoint (may become the
-// REST API later, per Gisele's suggestion) - it returns the full locations output in one shot.
-const LOCATIONS_ENDPOINT_URL = process.env.LOCATIONS_ENDPOINT_URL;
+// Source endpoint config: shared path/query, plus the two domains it gets fetched against.
+const LOCATIONS_ENDPOINT_PATH = process.env.LOCATIONS_ENDPOINT_PATH;
+const LOCATIONS_LIVE_DOMAIN = process.env.LOCATIONS_LIVE_DOMAIN;
+const LOCATIONS_PREVIEW_DOMAIN = process.env.LOCATIONS_PREVIEW_DOMAIN;
 const DEBOUNCE_MS = Number(process.env.REBUILD_DEBOUNCE_MS) || 45000;
 
-// The Parsley endpoint sits behind Zesty's CDN (Fastly/Varnish), cached and purged by
-// content tag rather than TTL. The purge fires off the same publish event as our webhook,
-// so a fetch started the instant the webhook arrives can race the purge and read the
-// still-cached pre-publish response (commit lands with no actual diff). This delay gives
-// the purge time to land before we fetch.
+// Delay before fetching, to avoid racing the CDN cache purge on publish events.
 const PUBLISH_PROPAGATION_DELAY_MS = Number(process.env.PUBLISH_PROPAGATION_DELAY_MS) || 5000;
 
-// In-memory state works because this runs inside a long-lived server process. A stateless
-// cloud function would need to persist lastRunAt somewhere durable to debounce across
-// invocations - that's part of the deployment work we're holding off on for now.
+// In-memory debounce state for the current process.
 let lastRunAt = 0;
 let inFlight = null;
 
-async function fetchLocations() {
-  const { data } = await axios.get(LOCATIONS_ENDPOINT_URL, {
+// Fetches the full locations JSON, from the live domain for publish/delete, preview otherwise.
+async function fetchLocations(action) {
+  const domain = action === 'update' ? LOCATIONS_PREVIEW_DOMAIN : LOCATIONS_LIVE_DOMAIN;
+  const url = `${domain}${LOCATIONS_ENDPOINT_PATH}`;
+  console.log(`[locationsSync] fetching (action=${action}): ${url}`);
+  const { data } = await axios.get(url, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${process.env.DEV_TOKEN}`,
@@ -33,26 +32,22 @@ async function fetchLocations() {
   return data;
 }
 
-async function runRebuild(publish) {
+// Waits out the propagation delay, fetches the source data, and writes it to the Zesty view.
+async function runRebuild(publish, action) {
   if (PUBLISH_PROPAGATION_DELAY_MS > 0) {
     await new Promise((resolve) => setTimeout(resolve, PUBLISH_PROPAGATION_DELAY_MS));
   }
-  const locations = await fetchLocations();
+  const locations = await fetchLocations(action);
   await updateLocationsView(locations, { publish });
   logToFile(
-    { viewZuid: process.env.LOCATIONS_VIEW_ZUID, count: Array.isArray(locations) ? locations.length : undefined, publish },
+    { viewZuid: process.env.LOCATIONS_VIEW_ZUID, count: Array.isArray(locations) ? locations.length : undefined, publish, action },
     'rebuilt',
     'locationsSync',
   );
 }
 
-// Call this on webhook deliveries. It ignores the payload content - it's only a "something
-// changed" trigger - and always regenerates the full file from source so it never needs to
-// know which item changed. `publish` controls whether the rebuilt view is also published/cache
-// -purged: true for delete/publish events, false for update/save events (draft only). Bursts
-// (e.g. a sync publishing hundreds of items) collapse into a single rebuild: skip if the last
-// run started within DEBOUNCE_MS.
-function triggerRebuild(publish = true) {
+// Entry point called on webhook deliveries. Debounces bursts, then kicks off runRebuild.
+function triggerRebuild(publish = true, action = 'update') {
   if (inFlight) return inFlight;
 
   const now = Date.now();
@@ -63,7 +58,7 @@ function triggerRebuild(publish = true) {
   }
 
   lastRunAt = now;
-  inFlight = runRebuild(publish)
+  inFlight = runRebuild(publish, action)
     .catch((err) => errorLogToFile(err, 'rebuild failed', 'locationsSync'))
     .finally(() => { inFlight = null; });
   return inFlight;
