@@ -2568,10 +2568,15 @@
     }
 
     try {
-      const response = await fetchInformation(`get-volunteer-page`, currentZUID, currentModel);
-      
+      let response = await fetchInformation(`get-volunteer-page`, currentZUID, currentModel);
+
+      if (!(response && response.has_match) && currentModel !== models.territories) {
+        // No location/division-specific volunteer page — fall back to the
+        // volunteer page of the territory this property belongs to.
+        response = await fetchInformation(`get-volunteer-page`, territories.central, models.territories);
+      }
+
       if (response && response.volunteer_url) {
-        console.log(response, "RESPONSE")
         cookieManager.set(cookieKeys.volunteerUrl, response.volunteer_url);
       }
     } catch (err) {
@@ -2913,7 +2918,6 @@
     } else if (zuid === territories.central) {
       setDonationUrlCookies(`{{$centralCampaignURL}}`, `{{$centralClassyDonation}}`);
 
-      cookieManager.set(cookieKeys.volunteerUrl, `{{$centralVolunteer}}`);
       syncCentralVolunteerUrlFromCurrentProperty();
 
       cookieManager.set(cookieKeys.employmentUrl, `{{$centralEmployment}}`);
