@@ -1,0 +1,137 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:45:0:70": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-86ca9fffd1-q4lvnc')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-86ca9fffd1-q4lvnc')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:45:0:70",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:8:41": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:8:41",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:8:41-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:1:79": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h4 style=\"text-align:center;\">Employer Deductions</h4>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Employer Deductions",
+								"position": 0,
+								"fullName": "content:text:1:79",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:1:79",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:8:41-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:91": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p style=\"text-align:center;\">\n\t\tMany employers offer the opportunity for employees to deduct charitable contributions out of their paycheck and will facilitate the donation process. The Salvation Army Hampton Roads Area Command would be honored to have your support through one of these options:\n\t</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Many employers offer the opportunity for employees to deduct charitable contributions out of their paycheck and will facilitate the donation process. The Salvation Army Hampton Roads Area Command would be honored to have your support through one of these options:",
+								"position": 1,
+								"fullName": "content:textarea:2:91",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:91",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:8:41-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:3:74": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:3:74",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:8:41-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:4:6": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5>Combined Federal Campaign (cfc)</h5>\n\n<p>\n\tAccording to OPM.gov, “the mission of the cfc is to promote and support philanthropy through a program that is employee-focused, cost-efficient, and effective in providing all federal employees the opportunity to improve the quality of life for all. Pledges made by Federal civilian, postal and military donors during the campaign season will support eligible non-profit organizations that provide health and human service benefits throughout the world.”  – OPM.gov\n</p>\n\n<p>\n\t<strong>The Salvation Army Hampton Road Area Command’s CFC#: 99748 </strong>\n</p>\n\n<h5>Commonwealth of Virginia Campaign (CVC) </h5>\n\n<p>\n\tThe cvc is the annual charity drive of the employees of the Commonwealth of Virginia. Through payroll deductions, Commonwealth employees can choose to support the nonprofit organization that they are most passionate about in Virginia.\n</p>\n\n<p>\n\t<strong>The Salvation Army Hampton Road Area Command’s CVC Code:  00-504</strong>\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5>Combined Federal Campaign (cfc)</h5>\n\n<p>\n\tAccording to OPM.gov, “the mission of the cfc is to promote and support philanthropy through a program that is employee-focused, cost-efficient, and effective in providing all federal employees the opportunity to improve the quality of life for all. Pledges made by Federal civilian, postal and military donors during the campaign season will support eligible non-profit organizations that provide health and human service benefits throughout the world.”  – OPM.gov\n</p>\n\n<p>\n\t<strong>The Salvation Army Hampton Road Area Command’s CFC#: 99748 </strong>\n</p>\n\n<h5>Commonwealth of Virginia Campaign (CVC) </h5>\n\n<p>\n\tThe cvc is the annual charity drive of the employees of the Commonwealth of Virginia. Through payroll deductions, Commonwealth employees can choose to support the nonprofit organization that they are most passionate about in Virginia.\n</p>\n\n<p>\n\t<strong>The Salvation Army Hampton Road Area Command’s CVC Code:  00-504</strong>\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:4:6",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:4:6",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:8:41-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5>Combined Federal Campaign (cfc)</h5>\n\n<p>\n\tAccording to OPM.gov, “the mission of the cfc is to promote and support philanthropy through a program that is employee-focused, cost-efficient, and effective in providing all federal employees the opportunity to improve the quality of life for all. Pledges made by Federal civilian, postal and military donors during the campaign season will support eligible non-profit organizations that provide health and human service benefits throughout the world.”  – OPM.gov\n</p>\n\n<p>\n\t<strong>The Salvation Army Hampton Road Area Command’s CFC#: 99748 </strong>\n</p>\n\n<h5>Commonwealth of Virginia Campaign (CVC) </h5>\n\n<p>\n\tThe cvc is the annual charity drive of the employees of the Commonwealth of Virginia. Through payroll deductions, Commonwealth employees can choose to support the nonprofit organization that they are most passionate about in Virginia.\n</p>\n\n<p>\n\t<strong>The Salvation Army Hampton Road Area Command’s CVC Code:  00-504</strong>\n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+<div classname="{styles.pvlRoot}">
+	{{block('/-/block/hero_full.html?variant=7-dca2dcb9da-gj8fzg')}}
+	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="py-5"></div>
+			<div style="color:#111111;" class="rounded p-6 gap-3"><p style="text-align:center;">
+	<em><span style="font-size:20px;"></span></em>The Salvation Army Women's Auxiliary of Tulsa is a vibrant community of extraordinary women who are dedicated to making a positive impact on the lives of those in need throughout the Tulsa area. As a vital part of the Tulsa community, this group has played a crucial role in raising funds and supporting Salvation Army programs that span the city, providing essential services to individuals and families in crisis. In addition to their meaningful philanthropic work, the Women's Auxiliary offers a fun and engaging environment, with social events held throughout the year that foster connection and camaraderie among members. Whether you're passionate about giving back or looking for a way to get involved, the Women's Auxiliary welcomes new members to join in their mission and make a lasting difference in the lives of those they serve.<em><span style="font-size:20px;"></span></em>
+</p></div>
+			<p style="text-align: center;">Contact us: <a href="mailto:TulsaOK@uss.salvationarmy.org" target="_blank" rel="noopener">TulsaOK@uss.salvationarmy.org</a></p>
+		</div>
+	</div>
+</div>

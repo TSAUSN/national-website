@@ -48,6 +48,7 @@ function resetMap() {
 function requestGoogleMapsAPI() {
   if (window.__mapsRequested) return;
 
+  let warned = false;
   const tryLoad = (attempt = 0) => {
     if (window.__mapsRequested) return;
     if (typeof loadGoogleMapsAPI === 'function') {
@@ -55,9 +56,18 @@ function requestGoogleMapsAPI() {
       loadGoogleMapsAPI();
       return;
     }
-    if (attempt < 30) {
-      setTimeout(() => tryLoad(attempt + 1), 100);
+    // main.js (which defines loadGoogleMapsAPI) hasn't finished loading yet.
+    // Keep retrying instead of silently giving up - fast for the first 3s,
+    // then back off so we don't spam timers if the page/tab is throttled
+    // (e.g. a backgrounded Edge tab), but never abandon the load entirely.
+    if (attempt >= 30 && !warned) {
+      warned = true;
+      console.warn(
+        'Google Maps: loadGoogleMapsAPI (main.js) is not available yet after 3s. Still retrying...'
+      );
     }
+    const delay = attempt < 30 ? 100 : 1000;
+    setTimeout(() => tryLoad(attempt + 1), delay);
   };
 
   tryLoad();
@@ -501,53 +511,7 @@ function handleMarkerContent(markerData) {
         </div>
         </div>
     `;
-  // Make fetchServicesForMapLocation available globally
-  window.fetchServicesForMapLocation = async function (zuid) {
-    try {
-      const response = await fetch(`${window.location.origin}/services.json?location=${zuid}`);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const rawData = await response.text();
-      const data = JSON.parse(rawData);
-      return Array.isArray(data) ? data : [];
-    } catch (error) {
-      console.error('Error checking location:', error);
-      return [];
-    }
-  };
-
-  // Load services asynchronously
-  window
-    .fetchServicesForMapLocation(markerData.zuid)
-    .then((services) => {
-      const servicesContainer = document.getElementById(`services-container`);
-      if (servicesContainer && services && Array.isArray(services)) {
-        servicesContainer.innerHTML = services
-          .map(
-            (service) => `
-            <div class="col">
-              <div class="d-flex align-items-start">
-                <span class="material-symbols-outlined text-primary-200 display-6">${service.service_page_icon}</span>
-                <a href="${service.meta.web.url}" class="display-4 text-dark-100 display-md-1 ms-2">${service.title}</a>
-              </div>
-            </div>
-          `
-          )
-          .join('');
-      } else if (servicesContainer) {
-        servicesContainer.innerHTML = 'No services available';
-      }
-    })
-    .catch((error) => {
-      console.error('Error loading services:', error);
-      const servicesContainer = document.getElementById(`services-container-${index}`);
-      if (servicesContainer) {
-        servicesContainer.innerHTML = 'Error loading services';
-      }
-    });
-
-  // Find existing location info and remove it
+  // Remove existing location info and inject HTML into DOM first
   let locationInfo = contentWrapper.querySelector('.location-info');
   if (locationInfo) {
     locationInfo.remove();
@@ -556,8 +520,95 @@ function handleMarkerContent(markerData) {
   if (initialContent) {
     initialContent.classList.add('d-none');
   }
-  // Prepend the new content before the existing content
   contentWrapper.insertAdjacentHTML('afterbegin', html);
+
+  // Load services after HTML is in the DOM so getElementById finds the container
+  (async function () {
+    const servicesContainer = document.getElementById('services-container');
+    if (!servicesContainer) return;
+
+    const serviceTypeZuids = (markerData.services_offered || '')
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
+
+    if (serviceTypeZuids.length === 0) {
+      servicesContainer.innerHTML = '<div class="col">No services available</div>';
+      return;
+    }
+
+    const fetchServicesForLocation = async function (zuidArg) {
+      try {
+        const response = await fetch(`${window.location.origin}/services.json?location=${zuidArg}`);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+        return Array.isArray(data) ? data : [];
+      } catch (error) {
+        console.error('Error fetching services:', error);
+        return [];
+      }
+    };
+
+    const fetchServiceType = async function (serviceTypeZuid) {
+      try {
+        const response = await fetch(`${window.location.origin}/service-types.json?zuid=${serviceTypeZuid}`);
+        if (!response.ok) throw new Error('Network response was not ok');
+        return await response.json();
+      } catch (error) {
+        console.error('Error fetching service type:', error);
+        return false;
+      }
+    };
+
+    try {
+      const services = await fetchServicesForLocation(markerData.zuid);
+      const servicesInnerHTML = [];
+
+      for (const serviceTypeZuid of serviceTypeZuids) {
+        const serviceTypeData = await fetchServiceType(serviceTypeZuid);
+        if (!serviceTypeData || !serviceTypeData[0]) continue;
+
+        const rawIconName = serviceTypeData[0]?.icon_name;
+        const iconName = (rawIconName && rawIconName !== 'NULL') ? rawIconName : '';
+
+        const matchingService = Array.isArray(services)
+          ? services.find((s) => s.service_type?.data?.[0]?.meta?.zuid === serviceTypeZuid)
+          : null;
+
+        if (matchingService) {
+          const title = matchingService.title || '';
+          if (!title) continue;
+          servicesInnerHTML.push(`
+            <div class="col">
+              <div class="d-flex align-items-start">
+                <span class="material-symbols-outlined text-primary-200 display-6">${iconName}</span>
+                <a href="${matchingService.meta?.web?.url || '#'}" class="display-5 text-dark-100 display-md-1 ms-2">${title}</a>
+              </div>
+            </div>
+          `);
+        } else {
+          const label = serviceTypeData[0]?.meta?.web_title || serviceTypeData[0]?.title || '';
+          if (!label) continue;
+          servicesInnerHTML.push(`
+            <div class="col">
+              <div class="d-flex align-items-start">
+                <span class="material-symbols-outlined text-primary-200 display-6">${iconName}</span>
+                <span class="display-5 text-dark-100 display-md-1 ms-2">${label}</span>
+              </div>
+            </div>
+          `);
+        }
+      }
+
+      servicesContainer.innerHTML = servicesInnerHTML.length > 0
+        ? servicesInnerHTML.join('')
+        : '<div class="col">No services available</div>';
+    } catch (error) {
+      console.error('Error loading services:', error);
+      const sc = document.getElementById('services-container');
+      if (sc) sc.innerHTML = '<div class="col">Error loading services</div>';
+    }
+  })();
 }
 
 // Add event listener for marker clicks
@@ -565,41 +616,64 @@ document.addEventListener('markerClicked', (event) => {
   handleMarkerContent(event.detail);
 });
 
+async function fetchAllLocations(retriesLeft = 2) {
+  const response = await fetch(`${window.location.origin}/locations.json?_bypassError=true`);
+
+  if (!response.ok) {
+    if (retriesLeft > 0) {
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      return fetchAllLocations(retriesLeft - 1);
+    }
+    throw new Error(`Failed to fetch locations (status=${response.status})`);
+  }
+
+  const rawData = await response.text();
+  const data = JSON.parse(rawData);
+
+  if (!Array.isArray(data)) {
+    throw new Error('Location data is not in the expected format');
+  }
+
+  return data;
+}
+
+// Multiple call sites (initAutocomplete, initLocationFinder, displayLocationMarkers)
+// all want the same location data - without this guard each one triggers its own
+// full paginated fetch of the entire dataset, multiplying load on /locations.json.
+window.__locationDataPromise = null;
+
 async function fetchLocationData() {
-  try {
-    // Show loader
+  if (window.locationDatas && window.locationDatas.length > 0) {
+    return window.locationDatas;
+  }
+
+  if (window.__locationDataPromise) {
+    return window.__locationDataPromise;
+  }
+
+  window.__locationDataPromise = (async () => {
     const loader = document.querySelector('.map-loader');
     if (loader) {
       loader.classList.remove('d-none');
     }
-    // const response = await fetch(`${window.location.origin}/-/gql/locations.json`);
-    const response = await fetch(`${window.location.origin}/locations.json?_bypassError=true`);
-    const rawData = await response.text();
 
-    let data;
     try {
-      data = JSON.parse(rawData);
-      window.locationDatas = data;
-    } catch (parseError) {
-      console.error('JSON Parse Error:', parseError);
-      throw new Error('Failed to parse location data');
+      const allLocations = await fetchAllLocations();
+      window.locationDatas = allLocations;
+      return allLocations;
+    } catch (error) {
+      console.error('Error fetching location data:', error);
+      window.locationDatas = [];
+      return [];
+    } finally {
+      if (loader) {
+        loader.classList.add('d-none');
+      }
+      window.__locationDataPromise = null;
     }
+  })();
 
-    if (!Array.isArray(data)) {
-      throw new Error('Location data is not in the expected format');
-    }
-
-    return data;
-  } catch (error) {
-    console.error('Error fetching location data:', error);
-    return [];
-  } finally {
-    // Hide loader
-    const loader = document.querySelector('.map-loader');
-    if (loader) {
-      loader.classList.add('d-none');
-    }
-  }
+  return window.__locationDataPromise;
 }
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
@@ -609,8 +683,10 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   return google.maps.geometry.spherical.computeDistanceBetween(p1, p2) * 0.000621371;
 }
 
-// Helper function to geocode an address
-function geocodeAddress(address) {
+// Helper function to geocode an address. Retries with backoff when Google
+// throttles us (OVER_QUERY_LIMIT), which becomes more likely the more
+// addresses we geocode concurrently (see GEOCODE_BATCH_SIZE below).
+function geocodeAddress(address, retriesLeft = 3, retryDelay = 500) {
   return new Promise((resolve, reject) => {
     if (!window.geocoder) {
       reject(new Error('Geocoder not initialized'));
@@ -629,8 +705,14 @@ function geocodeAddress(address) {
             lat: location.lat(),
             lng: location.lng()
           });
+        } else if (status === 'OVER_QUERY_LIMIT' && retriesLeft > 0) {
+          setTimeout(() => {
+            geocodeAddress(address, retriesLeft - 1, retryDelay * 2)
+              .then(resolve)
+              .catch(reject);
+          }, retryDelay + Math.random() * retryDelay);
         } else {
-          reject(new Error(`Geocoding failed for address: ${address}`));
+          reject(new Error(`Geocoding failed for address: ${address} (status: ${status})`));
         }
       }
     );
@@ -701,16 +783,25 @@ async function displayLocationMarkers(searchLocation) {
       return distance <= 50; // 50 miles radius
     });
 
-    // Process locations needing geocoding
-    for (const location of locationsNeedingGeocoding) {
-      try {
-        const coords = await geocodeAddress(location.address);
-        const distance = calculateDistance(
-          searchLocation.lat(),
-          searchLocation.lng(),
-          coords.lat,
-          coords.lng
-        );
+    // Process locations needing geocoding in parallel batches instead of one at a
+    // time, since sequential awaits here could add up to a long delay when many
+    // locations are missing coordinates.
+    const GEOCODE_BATCH_SIZE = 100;
+    for (let i = 0; i < locationsNeedingGeocoding.length; i += GEOCODE_BATCH_SIZE) {
+      const batch = locationsNeedingGeocoding.slice(i, i + GEOCODE_BATCH_SIZE);
+      const results = await Promise.allSettled(
+        batch.map((location) => geocodeAddress(location.address))
+      );
+
+      results.forEach((result, index) => {
+        const location = batch[index];
+        if (result.status !== 'fulfilled') {
+          console.warn(`Failed to geocode address for location: ${location.name}`, result.reason);
+          return;
+        }
+
+        const coords = result.value;
+        const distance = calculateDistance(searchLat, searchLng, coords.lat, coords.lng);
 
         if (distance <= 50) {
           // Add geocoded coordinates to the location object
@@ -718,9 +809,7 @@ async function displayLocationMarkers(searchLocation) {
           location.longitude = coords.lng;
           filteredLocations.push(location);
         }
-      } catch (error) {
-        console.warn(`Failed to geocode address for location: ${location.name}`, error);
-      }
+      });
     }
 
     // Get current search information
@@ -804,6 +893,7 @@ async function displayLocationMarkers(searchLocation) {
           location.corps || ''
         }`,
         services: location.services ? location.services.map((s) => s.title).join(',') : '',
+        services_offered: location.service_types || '',
         address:
           addressBuilder(location.address, location.city, location.state, location.zipcode) || '',
         contact_number: location.contact_number || '',

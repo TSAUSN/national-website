@@ -1,0 +1,111 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:88:0:55": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-eecca0fdb0-11lpms')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-eecca0fdb0-11lpms')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:88:0:55",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:design:whitespace-sm:1:5834": {
+				"uid": "351",
+				"name": "Whitespace - Small",
+				"type": "design",
+				"classes": "my-2",
+				"html": "<div class=\"my-2\"></div>",
+				"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+				"droppable": true,
+				"position": 1,
+				"fullName": "design:design:whitespace-sm:1:5834",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank"
+			},
+			"design:columns:1 column - 1 row my-3:5:35": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 2,
+				"fullName": "design:columns:1 column - 1 row my-3:5:35",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:5:35-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:images:0:2121": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<div class=\"position-relative d-block w-100\" style=\"overflow:hidden;\"><img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/742ca90b-0f04-4bc8-838c-cbf71b464985_christmas+bell+ringer+1.png\" alt=\"placeholder\" class=\"slide-thumbnail img-fluid w-100 d-block mx-auto mb-3 rounded\" style=\"width:100%; height:100%; object-fit:cover;\" loading=\"lazy\"></div>",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/742ca90b-0f04-4bc8-838c-cbf71b464985_christmas+bell+ringer+1.png",
+								"position": 0,
+								"fullName": "content:images:0:2121",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:5:35-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:2:56": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><p>\n\tTo register to volunteer, click <a href=\"https://app.betterimpact.com/Application?OrganizationGuid=c685f813-c6bb-4218-abc7-e132339d4d6e&amp;ApplicationFormNumber=1\" target=\"\">here.</a>\n</p>\n\n<h5>Angel tree</h5>\n\n<p>\n\tThousands of families in the Greater Augusta Area struggle to provide Christmas gifts and toys to their children. The Salvation Army, Working collaboratively with our community, provides these families with a wonderful Christmas. During the holiday season, trees at several locations are decorated with paper angel tags representing individuals in need, and donors can choose tags to fulfill their holiday wishes or needs of those individuals. We invite You to join us in continuing this tradition.\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>How to Adopt an Angel:</strong></span>\n</p>\n\n<p>\n\t1. Adopt an angel at the following locations:\n</p>\n\n<ul>\n\t<li>The Kroc Center</li>\n\t<li>All local Walmarts</li>\n\t<li>Augusta Mall: 3450 Wrightsboro Rd, Augusta, GA 30909</li>\n</ul>\n\n<p>\n\t2. Shop for your angel in stores or by visiting <a href=\"https://www.walmart.com/registry/registryforgood/5B7107E1-8252-4D1A-B354-F7AF56B06807/view\" target=\"\">our Walmart Registry</a>.\n</p>\n\n<p>\n\t3. Return your new, unwrapped gifts along with your Angel Tag or Angel Code to the Kroc Center.\n</p>\n\n<h5>Be a bell ringer</h5>\n\n<p>\n\tThe Salvation Army Is widely known for its outreach during the Christmas season. Since 1891, our iconic red kettles have been a familiar Salvation Army tradition. Money raised through these kettles provides much-needed funding for The Salvation Army’s free programs throughout the year, and we depend on local volunteers to ring bells at various kettle locations to encourage these donations.\n</p>\n\n<p>\n\tKettle Season begins with the Christmas Kick-Off Event in early November and ends on Christmas Eve. Volunteers are needed Monday through Saturday in a variety of locations throughout the Greater Augusta Area. Individuals, churches, schools, businesses, and other organizations can sign up to ring for shifts, whole days, or for an entire season.\n</p>\n\n<p>\n\tThere are many ways to make this an exciting event for your team: bring posters, decorate Christmas hats or sweaters, sing carols, or bring your instruments to get holiday shoppers in the Christmas Spirit.\n</p>\n\n<p>\n\tFor more information call Derek Dugan, Salvation Army Development Director, at <a href=\"tel:7069228369\">(706)-922-8369</a> or email <a href=\"mailto:derek.dugan@uss.salvationarmy.org\" target=\"\">derek.dugan@uss.salvationarmy.org</a>.\n</p>\n\n<h5>Christmas warehouse</h5>\n\n<p>\n\tAs Christmas nears, food, toys, and stockings fill The Salvation Army Christmas Warehouse to be distributed to thousands of local families in need. Volunteers play an integral part in sorting, organizing, bagging, and distributing these gifts.\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><p>\n\tTo register to volunteer, click <a href=\"https://app.betterimpact.com/Application?OrganizationGuid=c685f813-c6bb-4218-abc7-e132339d4d6e&amp;ApplicationFormNumber=1\" target=\"\">here.</a>\n</p>\n\n<h5>Angel tree</h5>\n\n<p>\n\tThousands of families in the Greater Augusta Area struggle to provide Christmas gifts and toys to their children. The Salvation Army, Working collaboratively with our community, provides these families with a wonderful Christmas. During the holiday season, trees at several locations are decorated with paper angel tags representing individuals in need, and donors can choose tags to fulfill their holiday wishes or needs of those individuals. We invite You to join us in continuing this tradition.\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>How to Adopt an Angel:</strong></span>\n</p>\n\n<p>\n\t1. Adopt an angel at the following locations:\n</p>\n\n<ul>\n\t<li>The Kroc Center</li>\n\t<li>All local Walmarts</li>\n\t<li>Augusta Mall: 3450 Wrightsboro Rd, Augusta, GA 30909</li>\n</ul>\n\n<p>\n\t2. Shop for your angel in stores or by visiting <a href=\"https://www.walmart.com/registry/registryforgood/5B7107E1-8252-4D1A-B354-F7AF56B06807/view\" target=\"\">our Walmart Registry</a>.\n</p>\n\n<p>\n\t3. Return your new, unwrapped gifts along with your Angel Tag or Angel Code to the Kroc Center.\n</p>\n\n<h5>Be a bell ringer</h5>\n\n<p>\n\tThe Salvation Army Is widely known for its outreach during the Christmas season. Since 1891, our iconic red kettles have been a familiar Salvation Army tradition. Money raised through these kettles provides much-needed funding for The Salvation Army’s free programs throughout the year, and we depend on local volunteers to ring bells at various kettle locations to encourage these donations.\n</p>\n\n<p>\n\tKettle Season begins with the Christmas Kick-Off Event in early November and ends on Christmas Eve. Volunteers are needed Monday through Saturday in a variety of locations throughout the Greater Augusta Area. Individuals, churches, schools, businesses, and other organizations can sign up to ring for shifts, whole days, or for an entire season.\n</p>\n\n<p>\n\tThere are many ways to make this an exciting event for your team: bring posters, decorate Christmas hats or sweaters, sing carols, or bring your instruments to get holiday shoppers in the Christmas Spirit.\n</p>\n\n<p>\n\tFor more information call Derek Dugan, Salvation Army Development Director, at <a href=\"tel:7069228369\">(706)-922-8369</a> or email <a href=\"mailto:derek.dugan@uss.salvationarmy.org\" target=\"\">derek.dugan@uss.salvationarmy.org</a>.\n</p>\n\n<h5>Christmas warehouse</h5>\n\n<p>\n\tAs Christmas nears, food, toys, and stockings fill The Salvation Army Christmas Warehouse to be distributed to thousands of local families in need. Volunteers play an integral part in sorting, organizing, bagging, and distributing these gifts.\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:56",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:56",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:5:35-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><p>\n\tTo register to volunteer, click <a href=\"https://app.betterimpact.com/Application?OrganizationGuid=c685f813-c6bb-4218-abc7-e132339d4d6e&amp;ApplicationFormNumber=1\" target=\"\">here.</a>\n</p>\n\n<h5>Angel tree</h5>\n\n<p>\n\tThousands of families in the Greater Augusta Area struggle to provide Christmas gifts and toys to their children. The Salvation Army, Working collaboratively with our community, provides these families with a wonderful Christmas. During the holiday season, trees at several locations are decorated with paper angel tags representing individuals in need, and donors can choose tags to fulfill their holiday wishes or needs of those individuals. We invite You to join us in continuing this tradition.\n</p>\n\n<p>\n\t<span style=\"color:#ed1c2b;\"><strong>How to Adopt an Angel:</strong></span>\n</p>\n\n<p>\n\t1. Adopt an angel at the following locations:\n</p>\n\n<ul>\n\t<li>The Kroc Center</li>\n\t<li>All local Walmarts</li>\n\t<li>Augusta Mall: 3450 Wrightsboro Rd, Augusta, GA 30909</li>\n</ul>\n\n<p>\n\t2. Shop for your angel in stores or by visiting <a href=\"https://www.walmart.com/registry/registryforgood/5B7107E1-8252-4D1A-B354-F7AF56B06807/view\" target=\"\">our Walmart Registry</a>.\n</p>\n\n<p>\n\t3. Return your new, unwrapped gifts along with your Angel Tag or Angel Code to the Kroc Center.\n</p>\n\n<h5>Be a bell ringer</h5>\n\n<p>\n\tThe Salvation Army Is widely known for its outreach during the Christmas season. Since 1891, our iconic red kettles have been a familiar Salvation Army tradition. Money raised through these kettles provides much-needed funding for The Salvation Army’s free programs throughout the year, and we depend on local volunteers to ring bells at various kettle locations to encourage these donations.\n</p>\n\n<p>\n\tKettle Season begins with the Christmas Kick-Off Event in early November and ends on Christmas Eve. Volunteers are needed Monday through Saturday in a variety of locations throughout the Greater Augusta Area. Individuals, churches, schools, businesses, and other organizations can sign up to ring for shifts, whole days, or for an entire season.\n</p>\n\n<p>\n\tThere are many ways to make this an exciting event for your team: bring posters, decorate Christmas hats or sweaters, sing carols, or bring your instruments to get holiday shoppers in the Christmas Spirit.\n</p>\n\n<p>\n\tFor more information call Derek Dugan, Salvation Army Development Director, at <a href=\"tel:7069228369\">(706)-922-8369</a> or email <a href=\"mailto:derek.dugan@uss.salvationarmy.org\" target=\"\">derek.dugan@uss.salvationarmy.org</a>.\n</p>\n\n<h5>Christmas warehouse</h5>\n\n<p>\n\tAs Christmas nears, food, toys, and stockings fill The Salvation Army Christmas Warehouse to be distributed to thousands of local families in need. Volunteers play an integral part in sorting, organizing, bagging, and distributing these gifts.\n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

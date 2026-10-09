@@ -3,12 +3,17 @@
 {{$locationZUID = {locations.filter({this.parent_zuid}).zuid} }}
 {{$territoryZUID = {territories.filter({this.parent_zuid}).zuid} }}
 {{$divisionZUID = {divisions.filter({this.parent_zuid}).zuid} }}
+{{$nationalServiceContent = {service_types.filter({this.service_type}).national_service_body_content} }}
 
-{{if {this.parent_zuid} != 0 }}
-{{ include modules/service-wy }}
-{{else}}
-{{include modules/benefits-perks}}
+
+{{if {this.page_intro} != '' && {this.page_intro} != null}}
+<div class="position-relative bg-light services-body rounded-5 mb-16 p-md-8 p-sm-4 row mx-0">
+  {{this.page_intro}}
+</div>
 {{/if}}
+
+{{include modules/benefits-perks}}
+{{ include modules/service-wy }}
 
 {{include modules/programs-schedule}}
 {{include modules/donate}}

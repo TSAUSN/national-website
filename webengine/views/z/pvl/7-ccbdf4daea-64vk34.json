@@ -1,0 +1,493 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:86:0:29": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-88e7fadefe-w345zf')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-88e7fadefe-w345zf')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:86:0:29",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:29:62": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:29:62",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:29:62-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:27:99": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:27:99",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:62-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:1:56": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 1,
+								"fullName": "design:design:whitespace-xl:1:56",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:62-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:91": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5>Hampton Roads Area Command Vision</h5>\n\n<p>\n\tTo have the Hampton Roads area be a place where people of all ages live in safe and sustainable communities in which differences are respected and people are empowered to learn, work and worship in freedom.\n</p>\n\n<h5>About the Hampton Roads Area Command</h5>\n\n<p>\n\tThe Salvation Army Hampton Roads Area Command serves south side Hampton Roads and its surrounding communities with programs and locations that serve families in need with emergency assistance, housing, substance abuse treatment, youth enrichment opportunities, spiritual care and emergency disaster services.\n</p>\n\n<p>\n\tThe Salvation Army began its work in the Hampton Roads area 110 years ago, after arriving in America from its official base in London. From the beginning, the Army created programs in Hampton Roads to feed the hungry, shelter the homeless and provide counseling and support to those most in need of help. As these needs grew, so did the number of locations and variety of services available to the community\n</p>\n\n<p>\n\tSince then the Army has grown with many programs including the Adult Rehabilitation Center, Residential Housing for Young Mothers and their Children, Christmas Assistance programs, Emergency Shelters, Family Services, Disaster Assistance, Volunteer Outreach and more.\n</p>\n\n<p>\n\tThe Salvation Army is a nonprofit, tax-exempt charitable organization under Section 501(c)(3) of the Internal Revenue Code. Donations are tax-deductible as allowed by law.\n</p>\n\n<h5>Hampton Roads Area Command Principles</h5></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5>Hampton Roads Area Command Vision</h5>\n\n<p>\n\tTo have the Hampton Roads area be a place where people of all ages live in safe and sustainable communities in which differences are respected and people are empowered to learn, work and worship in freedom.\n</p>\n\n<h5>About the Hampton Roads Area Command</h5>\n\n<p>\n\tThe Salvation Army Hampton Roads Area Command serves south side Hampton Roads and its surrounding communities with programs and locations that serve families in need with emergency assistance, housing, substance abuse treatment, youth enrichment opportunities, spiritual care and emergency disaster services.\n</p>\n\n<p>\n\tThe Salvation Army began its work in the Hampton Roads area 110 years ago, after arriving in America from its official base in London. From the beginning, the Army created programs in Hampton Roads to feed the hungry, shelter the homeless and provide counseling and support to those most in need of help. As these needs grew, so did the number of locations and variety of services available to the community\n</p>\n\n<p>\n\tSince then the Army has grown with many programs including the Adult Rehabilitation Center, Residential Housing for Young Mothers and their Children, Christmas Assistance programs, Emergency Shelters, Family Services, Disaster Assistance, Volunteer Outreach and more.\n</p>\n\n<p>\n\tThe Salvation Army is a nonprofit, tax-exempt charitable organization under Section 501(c)(3) of the Internal Revenue Code. Donations are tax-deductible as allowed by law.\n</p>\n\n<h5>Hampton Roads Area Command Principles</h5></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 2,
+								"fullName": "content:wysiwyg_basic:2:91",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:91",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:29:62-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5>Hampton Roads Area Command Vision</h5>\n\n<p>\n\tTo have the Hampton Roads area be a place where people of all ages live in safe and sustainable communities in which differences are respected and people are empowered to learn, work and worship in freedom.\n</p>\n\n<h5>About the Hampton Roads Area Command</h5>\n\n<p>\n\tThe Salvation Army Hampton Roads Area Command serves south side Hampton Roads and its surrounding communities with programs and locations that serve families in need with emergency assistance, housing, substance abuse treatment, youth enrichment opportunities, spiritual care and emergency disaster services.\n</p>\n\n<p>\n\tThe Salvation Army began its work in the Hampton Roads area 110 years ago, after arriving in America from its official base in London. From the beginning, the Army created programs in Hampton Roads to feed the hungry, shelter the homeless and provide counseling and support to those most in need of help. As these needs grew, so did the number of locations and variety of services available to the community\n</p>\n\n<p>\n\tSince then the Army has grown with many programs including the Adult Rehabilitation Center, Residential Housing for Young Mothers and their Children, Christmas Assistance programs, Emergency Shelters, Family Services, Disaster Assistance, Volunteer Outreach and more.\n</p>\n\n<p>\n\tThe Salvation Army is a nonprofit, tax-exempt charitable organization under Section 501(c)(3) of the Internal Revenue Code. Donations are tax-deductible as allowed by law.\n</p>\n\n<h5>Hampton Roads Area Command Principles</h5></div>"
+							},
+							"design:design:whitespace-xl:3:35": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 3,
+								"fullName": "design:design:whitespace-xl:3:35",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:62-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"design:design:whitespace-sm:5:33": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:5:33",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:62-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:10:10": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 5,
+								"fullName": "design:columns:3 Columns:10:10",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:62-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:10:10-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:4:45": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Passionate</strong>\n</p>\n\n<p>\n\tThe Salvation Army’s mission is to preach the gospel of Jesus Christ and to meet human needs in his name without discrimination. We believe Christ changes lives. This faith gives us a motivation that goes beyond simply doing good. We have a passion for doing the most good for body, soul and spirit.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Passionate</strong>\n</p>\n\n<p>\n\tThe Salvation Army’s mission is to preach the gospel of Jesus Christ and to meet human needs in his name without discrimination. We believe Christ changes lives. This faith gives us a motivation that goes beyond simply doing good. We have a passion for doing the most good for body, soul and spirit.\n</p></div>",
+												"model": "6",
+												"manualContent": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Passionate</strong>\n</p>\n\n<p>\n\tThe Salvation Army’s mission is to preach the gospel of Jesus Christ and to meet human needs in his name without discrimination. We believe Christ changes lives. This faith gives us a motivation that goes beyond simply doing good. We have a passion for doing the most good for body, soul and spirit.\n</p></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:4:45",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:4:45",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:10:10-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:10:10-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:6:11": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Compassionate</strong><br>\n\tCaring for the poor. Feeding the hungry. Sheltering the homeless. Clothing the naked. Loving the unlovable. Befriending the friendless\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Compassionate</strong><br>\n\tCaring for the poor. Feeding the hungry. Sheltering the homeless. Clothing the naked. Loving the unlovable. Befriending the friendless\n</p></div>",
+												"model": "6",
+												"manualContent": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Compassionate</strong><br>\n\tCaring for the poor. Feeding the hungry. Sheltering the homeless. Clothing the naked. Loving the unlovable. Befriending the friendless\n</p></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:6:11",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:6:11",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:10:10-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:10:10-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:8:27": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Uplifting</strong><br>\n\tWilliam Booth once said, “The Salvation Army is a place of hope. When every other light is extinguished, and every other star has gone down, this one gleam shines steadily and clearly out in the darkened sky: ‘If I could only get to The Salvation Army, they will do something for me.’ ”\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Uplifting</strong><br>\n\tWilliam Booth once said, “The Salvation Army is a place of hope. When every other light is extinguished, and every other star has gone down, this one gleam shines steadily and clearly out in the darkened sky: ‘If I could only get to The Salvation Army, they will do something for me.’ ”\n</p></div>",
+												"model": "6",
+												"manualContent": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Uplifting</strong><br>\n\tWilliam Booth once said, “The Salvation Army is a place of hope. When every other light is extinguished, and every other star has gone down, this one gleam shines steadily and clearly out in the darkened sky: ‘If I could only get to The Salvation Army, they will do something for me.’ ”\n</p></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:8:27",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:8:27",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:10:10-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:design:whitespace-sm:12:18": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 6,
+								"fullName": "design:design:whitespace-sm:12:18",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:62-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columns:15:17": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 7,
+								"fullName": "design:columns:2columns:15:17",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:62-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:15:17-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:11:5": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Brave</strong><br>\n\tPeople who serve in The Salvation Army routinely go into places others prefer to avoid: Impoverished neighborhoods, jails and prisons, hospital rooms and nursing homes, gatherings of alcoholics and drug addicts, and the immediate scene of natural disasters.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Brave</strong><br>\n\tPeople who serve in The Salvation Army routinely go into places others prefer to avoid: Impoverished neighborhoods, jails and prisons, hospital rooms and nursing homes, gatherings of alcoholics and drug addicts, and the immediate scene of natural disasters.\n</p></div>",
+												"model": "6",
+												"manualContent": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Brave</strong><br>\n\tPeople who serve in The Salvation Army routinely go into places others prefer to avoid: Impoverished neighborhoods, jails and prisons, hospital rooms and nursing homes, gatherings of alcoholics and drug addicts, and the immediate scene of natural disasters.\n</p></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:11:5",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:11:5",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:15:17-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:15:17-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-12 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-6 col-md-12 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:13:69": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Trustworthy</strong><br>\n\tTo those who want to positively affect their world, The Salvation Army is the charity that maximizes their contributions by using 87 cents of every dollar donated to provide direct services to the less.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Trustworthy</strong><br>\n\tTo those who want to positively affect their world, The Salvation Army is the charity that maximizes their contributions by using 87 cents of every dollar donated to provide direct services to the less.\n</p></div>",
+												"model": "6",
+												"manualContent": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><p>\n\t<strong>Trustworthy</strong><br>\n\tTo those who want to positively affect their world, The Salvation Army is the charity that maximizes their contributions by using 87 cents of every dollar donated to provide direct services to the less.\n</p></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:13:69",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:13:69",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:15:17-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"design:columns:1 Column:17:30": {
+								"uid": "NaN",
+								"name": "1 Column",
+								"type": "columns",
+								"html": "<div style=\"display:flex;flex-wrap:wrap\" class=\"row d-flex\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"classes": "row d-flex",
+								"droppable": "true",
+								"numberOfColumns": 1,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": 1,
+										"html": "<div class=\"col-lg-9 col-md-11 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-9 col-md-11 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 8,
+								"fullName": "design:columns:1 Column:17:30",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:62-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:1 Column:17:30-1:1 Column:0": {
+										"width": 1,
+										"html": "<div class=\"column col-lg-9 col-md-11 col-sm-12 m-auto mt-3 ratio ratio-16x9\">*</div>",
+										"classes": "column col-lg-9 col-md-11 col-sm-12 m-auto mt-3 ratio ratio-16x9",
+										"droppable": true,
+										"children": {
+											"content:embed:16:49": {
+												"icon": "embed",
+												"name": "Embed",
+												"type": "embed",
+												"html": "<iframe src=\"https://www.youtube.com/embed/A0eci_v5av0\" style=\"border:0;\" loading=\"lazy\" allowfullscreen=\"\" referrerpolicy=\"no-referrer-when-downgrade\" class=\"w-100 h-100\"></iframe>",
+												"description": "Embedded content (iframe)",
+												"draggable": true,
+												"content": "<iframe src=\"https://www.youtube.com/embed/A0eci_v5av0\" style=\"border:0;\" loading=\"lazy\" allowfullscreen=\"\" referrerpolicy=\"no-referrer-when-downgrade\" class=\"w-100 h-100\"></iframe>",
+												"position": 0,
+												"fullName": "content:embed:16:49",
+												"htmlElement": "iframe",
+												"classes": "w-100 h-100",
+												"primarytype": "content",
+												"id": "content:embed:16:49",
+												"styles": {},
+												"newLoc": "design:columns:1 Column:17:30-1:1 Column:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									}
+								},
+								"id": "design:columns:1 Column:17:30",
+								"styles": {},
+								"htmlElement": "div",
+								"content": "<div style=\"display:flex;flex-wrap:wrap\" class=\"row d-flex\">*</div>",
+								"contentOverride": false
+							},
+							"design:design:whitespace-xl:18:64": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 9,
+								"fullName": "design:design:whitespace-xl:18:64",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:62-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:20:33": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 10,
+								"fullName": "design:design:whitespace-xl:20:33",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:29:62-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:21:70": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5>Our Leaders</h5>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension>\n<div class=\"content\" spellcheck=\"false\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/929a59a5-6a23-4490-97ce-017d591dbfac_Chris+%26+Sandy+Flanagan+HRAC.jpg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-8 col-lg-8 col-sm-12 col-xs-12\">\n\t\t\t<grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension>\n<div autocomplete=\"off\" class=\"content\" spellcheck=\"false\">\n\t\t\t\t<p>\n\t\t\t\t\tThe Salvation Army is led by officers – ordained ministers – who supervise the many programs and services provided in your area. They also serve as administrators, counselors, and youth leaders.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tMajor Chris and Sandy Flanagan have been appointed as Area Commanders respectively for The Salvation Army of Hampton Roads.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tTheir calling and passion for serving others come from their love and passion for serving Christ. \n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tThey are supported by numerous officers, dedicated staff, and board members.\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p>\n\t \n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><h5>Our Leaders</h5>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension>\n<div class=\"content\" spellcheck=\"false\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/929a59a5-6a23-4490-97ce-017d591dbfac_Chris+%26+Sandy+Flanagan+HRAC.jpg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-8 col-lg-8 col-sm-12 col-xs-12\">\n\t\t\t<grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension>\n<div autocomplete=\"off\" class=\"content\" spellcheck=\"false\">\n\t\t\t\t<p>\n\t\t\t\t\tThe Salvation Army is led by officers – ordained ministers – who supervise the many programs and services provided in your area. They also serve as administrators, counselors, and youth leaders.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tMajor Chris and Sandy Flanagan have been appointed as Area Commanders respectively for The Salvation Army of Hampton Roads.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tTheir calling and passion for serving others come from their love and passion for serving Christ. \n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tThey are supported by numerous officers, dedicated staff, and board members.\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p>\n\t \n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 11,
+								"fullName": "content:wysiwyg_basic:21:70",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:21:70",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:29:62-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5>Our Leaders</h5>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension>\n<div class=\"content\" spellcheck=\"false\">\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/929a59a5-6a23-4490-97ce-017d591dbfac_Chris+%26+Sandy+Flanagan+HRAC.jpg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-8 col-lg-8 col-sm-12 col-xs-12\">\n\t\t\t<grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension><grammarly-extension class=\"dnXmp\" data-grammarly-shadow-root=\"true\" style=\"position:absolute;top:0px;left:0px;pointer-events:none;\"></grammarly-extension>\n<div autocomplete=\"off\" class=\"content\" spellcheck=\"false\">\n\t\t\t\t<p>\n\t\t\t\t\tThe Salvation Army is led by officers – ordained ministers – who supervise the many programs and services provided in your area. They also serve as administrators, counselors, and youth leaders.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tMajor Chris and Sandy Flanagan have been appointed as Area Commanders respectively for The Salvation Army of Hampton Roads.\n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tTheir calling and passion for serving others come from their love and passion for serving Christ. \n\t\t\t\t</p>\n\n\t\t\t\t<p>\n\t\t\t\t\tThey are supported by numerous officers, dedicated staff, and board members.\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p>\n\t \n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

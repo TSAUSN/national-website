@@ -1,0 +1,70 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"design:columns:1 column - 1 row my-3:5:86": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 0,
+				"fullName": "design:columns:1 column - 1 row my-3:5:86",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:5:86-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:wysiwyg_basic:2:67": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">Rentals</h5>\n\n<p style=\"text-align:center;\">\n\t<span style=\"color:#111111;\"><strong><span style=\"font-size:18px;\">All rooms are available for rent with a minimum of 3 hours rental usage. For more information, please call <a href=\"tel:7065619026\">(706) 561-9026</a>.</span></strong></span>\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/db1655a9-0da7-43b5-bfe2-df3676030bcf_Columbus-Athletic-Field.jpeg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tAthletic Field\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/1df595ba-54bc-4d3a-a0c9-15f74e0ecd3f_Columbus-Chapel-1024x768.jpeg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tChapel\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a9b2db8c-b68f-4c85-a7d0-e59e0895948c_Columbus-Fellowship-Hall-1024x768.jpeg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tFellowship Hall\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/323b2b2e-7d8a-4db5-9234-4f55a9c44a4a_Columbus-Game-Room-1024x768.jpeg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tGame Room\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/af566c1f-7662-4565-a5e1-ca56c32d6390_Columbus-Gymnasium-e1612903050491-450x600.jpeg\" style=\"max-width:100%;height:auto;display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tGymnasium\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/19212a43-6080-4d76-af38-91a2b9bce36c_Columbus+Kitchen.jpg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tKitchen\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p>\n\t \n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">Rentals</h5>\n\n<p style=\"text-align:center;\">\n\t<span style=\"color:#111111;\"><strong><span style=\"font-size:18px;\">All rooms are available for rent with a minimum of 3 hours rental usage. For more information, please call <a href=\"tel:7065619026\">(706) 561-9026</a>.</span></strong></span>\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/db1655a9-0da7-43b5-bfe2-df3676030bcf_Columbus-Athletic-Field.jpeg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tAthletic Field\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/1df595ba-54bc-4d3a-a0c9-15f74e0ecd3f_Columbus-Chapel-1024x768.jpeg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tChapel\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a9b2db8c-b68f-4c85-a7d0-e59e0895948c_Columbus-Fellowship-Hall-1024x768.jpeg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tFellowship Hall\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/323b2b2e-7d8a-4db5-9234-4f55a9c44a4a_Columbus-Game-Room-1024x768.jpeg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tGame Room\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/af566c1f-7662-4565-a5e1-ca56c32d6390_Columbus-Gymnasium-e1612903050491-450x600.jpeg\" style=\"max-width:100%;height:auto;display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tGymnasium\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/19212a43-6080-4d76-af38-91a2b9bce36c_Columbus+Kitchen.jpg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tKitchen\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p>\n\t \n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 0,
+								"fullName": "content:wysiwyg_basic:2:67",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:67",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:5:86-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><h5 style=\"text-align:center;\">Rentals</h5>\n\n<p style=\"text-align:center;\">\n\t<span style=\"color:#111111;\"><strong><span style=\"font-size:18px;\">All rooms are available for rent with a minimum of 3 hours rental usage. For more information, please call <a href=\"tel:7065619026\">(706) 561-9026</a>.</span></strong></span>\n</p>\n\n<div class=\"btgrid\">\n\t<div class=\"row row-1\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/db1655a9-0da7-43b5-bfe2-df3676030bcf_Columbus-Athletic-Field.jpeg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tAthletic Field\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/1df595ba-54bc-4d3a-a0c9-15f74e0ecd3f_Columbus-Chapel-1024x768.jpeg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tChapel\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/a9b2db8c-b68f-4c85-a7d0-e59e0895948c_Columbus-Fellowship-Hall-1024x768.jpeg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tFellowship Hall\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"row row-2\">\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/323b2b2e-7d8a-4db5-9234-4f55a9c44a4a_Columbus-Game-Room-1024x768.jpeg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tGame Room\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/af566c1f-7662-4565-a5e1-ca56c32d6390_Columbus-Gymnasium-e1612903050491-450x600.jpeg\" style=\"max-width:100%;height:auto;display:block;margin-left:auto;margin-right:auto;\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tGymnasium\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"col col-md-4 col-lg-4 col-sm-12 col-xs-12\">\n\t\t\t<div class=\"content\">\n\t\t\t\t<p>\n\t\t\t\t\t<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/19212a43-6080-4d76-af38-91a2b9bce36c_Columbus+Kitchen.jpg\" class=\"d-block mx-auto img-fluid rounded\">\n\t\t\t\t</p>\n\n\t\t\t\t<p style=\"text-align:center;\">\n\t\t\t\t\tKitchen\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<p>\n\t \n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

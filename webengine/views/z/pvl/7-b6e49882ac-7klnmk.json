@@ -1,0 +1,515 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:65:0:98": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-ec80aae9c9-9kxx11')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-ec80aae9c9-9kxx11')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:65:0:98",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:30:61": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:30:61",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:30:61-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:29:22": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:29:22",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:30:61-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:3 Columns:7:2": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row g-3 my-3 align-items-stretch",
+								"html": "<div class=\"row g-3 my-3 align-items-stretch\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 1,
+								"fullName": "design:columns:3 Columns:7:2",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:30:61-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:7:2-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:1:85": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h6>One-Time Opportunities</h6>\n\n<p>\n\tOur one-time opportunities are perfect for those who want a quick and easy way to make a difference. These include activities like serving a meal any day of the year or ringing a bell during the holidays.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h6>One-Time Opportunities</h6>\n\n<p>\n\tOur one-time opportunities are perfect for those who want a quick and easy way to make a difference. These include activities like serving a meal any day of the year or ringing a bell during the holidays.\n</p></div>",
+												"model": "6",
+												"manualContent": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h6>One-Time Opportunities</h6>\n\n<p>\n\tOur one-time opportunities are perfect for those who want a quick and easy way to make a difference. These include activities like serving a meal any day of the year or ringing a bell during the holidays.\n</p></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:1:85",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:1:85",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:7:2-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:7:2-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:3:0": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h6>Group Opportunities</h6>\n\n<p>\n\tWe can accommodate your group’s desire to do something good together – whether family, friends,coworkers, civic or church groups. Group volunteer activities are typically project-based or part of a larger event.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h6>Group Opportunities</h6>\n\n<p>\n\tWe can accommodate your group’s desire to do something good together – whether family, friends,coworkers, civic or church groups. Group volunteer activities are typically project-based or part of a larger event.\n</p></div>",
+												"model": "6",
+												"manualContent": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h6>Group Opportunities</h6>\n\n<p>\n\tWe can accommodate your group’s desire to do something good together – whether family, friends,coworkers, civic or church groups. Group volunteer activities are typically project-based or part of a larger event.\n</p></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:3:0",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:3:0",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:7:2-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:7:2-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:5:86": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h6>Ongoing Opportunities</h6>\n\n<p>\n\tOngoing opportunities are designed for those who want to get involved on a regular basis. We’ll Know you by your first name, and you’ll get to know the people in our programs. These include activities like working with youth, using your professional skills or serving after a disaster strikes.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h6>Ongoing Opportunities</h6>\n\n<p>\n\tOngoing opportunities are designed for those who want to get involved on a regular basis. We’ll Know you by your first name, and you’ll get to know the people in our programs. These include activities like working with youth, using your professional skills or serving after a disaster strikes.\n</p></div>",
+												"model": "6",
+												"manualContent": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h6>Ongoing Opportunities</h6>\n\n<p>\n\tOngoing opportunities are designed for those who want to get involved on a regular basis. We’ll Know you by your first name, and you’ll get to know the people in our programs. These include activities like working with youth, using your professional skills or serving after a disaster strikes.\n</p></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:5:86",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:5:86",
+												"styles": {},
+												"newLoc": "design:columns:3 Columns:7:2-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:design:whitespace-sm:9:58": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 2,
+								"fullName": "design:design:whitespace-sm:9:58",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:30:61-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:4 Columns:16:19": {
+								"uid": "358",
+								"name": "4 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 4,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 3,
+								"fullName": "design:columns:4 Columns:16:19",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:30:61-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:4 Columns:16:19-1:4 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:8:41": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h4><a href=\"https://southernusa.salvationarmy.org/tulsa-area-command/red-shield-youth-centers-of-tulsa\" target=\"\"><span style=\"color:#ed1c2b;\">Red Shield Youth Centers</span></a></h4>\n\n<p>\n\tThere are five Red Shield Youth Centers throughout Green Country offering a variety of volunteer opportunities to serve area youth. We are looking for individuals or groups to help with tutoring, coaching or teaching a special talent, such as music, photography or art.\n</p></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h4><a href=\"https://southernusa.salvationarmy.org/tulsa-area-command/red-shield-youth-centers-of-tulsa\" target=\"\"><span style=\"color:#ed1c2b;\">Red Shield Youth Centers</span></a></h4>\n\n<p>\n\tThere are five Red Shield Youth Centers throughout Green Country offering a variety of volunteer opportunities to serve area youth. We are looking for individuals or groups to help with tutoring, coaching or teaching a special talent, such as music, photography or art.\n</p></div>",
+												"model": "6",
+												"manualContent": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h4><a href=\"https://southernusa.salvationarmy.org/tulsa-area-command/red-shield-youth-centers-of-tulsa\" target=\"\"><span style=\"color:#ed1c2b;\">Red Shield Youth Centers</span></a></h4>\n\n<p>\n\tThere are five Red Shield Youth Centers throughout Green Country offering a variety of volunteer opportunities to serve area youth. We are looking for individuals or groups to help with tutoring, coaching or teaching a special talent, such as music, photography or art.\n</p></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:8:41",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:8:41",
+												"styles": {
+													"color": "#ed1c2b"
+												},
+												"newLoc": "design:columns:4 Columns:16:19-1:4 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:4 Columns:16:19-1:4 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:10:47": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h4><a href=\"https://southernusa.salvationarmy.org/tulsa-area-command/center-of-hope\" target=\"\">Center of Hope</a></h4>\n\n<ul>\n\t<li>Special Events</li>\n\t<li>Seasonal Parties </li>\n\t<li>Seasonal Opportunities </li>\n\t<li>Food Service/Serving</li>\n</ul></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h4><a href=\"https://southernusa.salvationarmy.org/tulsa-area-command/center-of-hope\" target=\"\">Center of Hope</a></h4>\n\n<ul>\n\t<li>Special Events</li>\n\t<li>Seasonal Parties </li>\n\t<li>Seasonal Opportunities </li>\n\t<li>Food Service/Serving</li>\n</ul></div>",
+												"model": "6",
+												"manualContent": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h4><a href=\"https://southernusa.salvationarmy.org/tulsa-area-command/center-of-hope\" target=\"\">Center of Hope</a></h4>\n\n<ul>\n\t<li>Special Events</li>\n\t<li>Seasonal Parties </li>\n\t<li>Seasonal Opportunities </li>\n\t<li>Food Service/Serving</li>\n</ul></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:10:47",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:10:47",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:16:19-1:4 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:4 Columns:16:19-1:4 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:12:26": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h4><a href=\"https://southernusa.salvationarmy.org/tulsa-area-command/emergency-disaster-services\" target=\"\"><span><span>Emergency Disaster Services</span></span></a></h4>\n\n<p>\n\tThe Salvation Army Is often called upon to serve during times of disaster. Volunteers play a vital role in coming alongside us to care for those who have been displaced by fires, tornadoes and other natural disasters.\n</p>\n\n<ul>\n\t<li>Canteen Driver</li>\n\t<li>Food Service Specialist</li>\n\t<li>Cleaning Canteen</li>\n\t<li>Spiritual Care</li>\n</ul></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h4><a href=\"https://southernusa.salvationarmy.org/tulsa-area-command/emergency-disaster-services\" target=\"\"><span><span>Emergency Disaster Services</span></span></a></h4>\n\n<p>\n\tThe Salvation Army Is often called upon to serve during times of disaster. Volunteers play a vital role in coming alongside us to care for those who have been displaced by fires, tornadoes and other natural disasters.\n</p>\n\n<ul>\n\t<li>Canteen Driver</li>\n\t<li>Food Service Specialist</li>\n\t<li>Cleaning Canteen</li>\n\t<li>Spiritual Care</li>\n</ul></div>",
+												"model": "6",
+												"manualContent": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h4><a href=\"https://southernusa.salvationarmy.org/tulsa-area-command/emergency-disaster-services\" target=\"\"><span><span>Emergency Disaster Services</span></span></a></h4>\n\n<p>\n\tThe Salvation Army Is often called upon to serve during times of disaster. Volunteers play a vital role in coming alongside us to care for those who have been displaced by fires, tornadoes and other natural disasters.\n</p>\n\n<ul>\n\t<li>Canteen Driver</li>\n\t<li>Food Service Specialist</li>\n\t<li>Cleaning Canteen</li>\n\t<li>Spiritual Care</li>\n</ul></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:12:26",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:12:26",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:16:19-1:4 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									},
+									"design:columns:4 Columns:16:19-1:4 Columns:3": {
+										"width": "1",
+										"html": "<div class=\"col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column\">*</div>",
+										"classes": "col-lg-3 col-md-6 col-sm-12 col-xs-12 d-flex flex-column",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:14:22": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h4>Seasonal</h4>\n\n<ul>\n\t<li>Volunteer at the Angel Tree booth</li>\n\t<li>Help with data entry during Angel Tree registration</li>\n\t<li>Sort and/or distribute Angel Tree gifts</li>\n\t<li>Bell Ringing, individuals and groups</li>\n</ul></div>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h4>Seasonal</h4>\n\n<ul>\n\t<li>Volunteer at the Angel Tree booth</li>\n\t<li>Help with data entry during Angel Tree registration</li>\n\t<li>Sort and/or distribute Angel Tree gifts</li>\n\t<li>Bell Ringing, individuals and groups</li>\n</ul></div>",
+												"model": "6",
+												"manualContent": "<div class=\"card-wysiwyg-body d-flex flex-column h-100 w-100 flex-fill rounded p-6 gap-3 bg-area text-dark\"><h4>Seasonal</h4>\n\n<ul>\n\t<li>Volunteer at the Angel Tree booth</li>\n\t<li>Help with data entry during Angel Tree registration</li>\n\t<li>Sort and/or distribute Angel Tree gifts</li>\n\t<li>Bell Ringing, individuals and groups</li>\n</ul></div>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:14:22",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:14:22",
+												"styles": {},
+												"newLoc": "design:columns:4 Columns:16:19-1:4 Columns:3",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 3
+									}
+								}
+							},
+							"design:design:whitespace-md:17:58": {
+								"uid": "352",
+								"name": "Whitespace - Medium",
+								"type": "design",
+								"classes": "my-4",
+								"html": "<div class=\"my-4\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:20px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 4,
+								"fullName": "design:design:whitespace-md:17:58",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:30:61-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:images:17:71": {
+								"icon": "images",
+								"name": "Image",
+								"type": "images",
+								"description": "Reference to image ZUIDs in Zesty.io",
+								"html": "<img src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/1ac09261-0487-4168-9894-0cf888479f96_waydewebsite.jpg\" alt=\"placeholder\" style=\"max-width:100%;height:auto;\" loading=\"lazy\" class=\"img-fluid d-block my-4 rounded mx-auto\">",
+								"draggable": true,
+								"content": "https://s3.amazonaws.com/uss-cache.salvationarmy.org/1ac09261-0487-4168-9894-0cf888479f96_waydewebsite.jpg",
+								"position": 5,
+								"fullName": "content:images:17:71",
+								"htmlElement": "img",
+								"primarytype": "content",
+								"newLoc": "design:columns:1 column - 1 row my-3:30:61-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-sm:19:10": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 6,
+								"fullName": "design:design:whitespace-sm:19:10",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:30:61-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:20:18": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Wayde Normandin</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Wayde Normandin",
+								"position": 7,
+								"fullName": "content:text:20:18",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:20:18",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:61-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:21:49": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p style=\"text-align:center;\">Volunteer &amp; Disaster Services Manager | Tulsa | <a href=\"tel:9188772546\">918-877-2546</a></p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p style=\"text-align:center;\">Volunteer &amp; Disaster Services Manager | Tulsa | <a href=\"tel:9188772546\">918-877-2546</a></p>",
+								"model": "6",
+								"manualContent": "<p style=\"text-align:center;\">Volunteer &amp; Disaster Services Manager | Tulsa | <a href=\"tel:9188772546\">918-877-2546</a></p>",
+								"position": 8,
+								"fullName": "content:wysiwyg_basic:21:49",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:21:49",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:61-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:22:45": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 9,
+								"fullName": "design:design:whitespace-sm:22:45",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:30:61-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:23:27": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 10,
+								"fullName": "design:design:whitespace-xl:23:27",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:30:61-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:24:72": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><div><p>\n\t \n</p>\n\n<center><div class=\"ratio ratio-16x9 my-4\"><iframe src=\"https://uss.formstack.com/forms/salarmytulsavolunteer\" title=\"Video\" allowfullscreen=\"\" loading=\"lazy\"></iframe></div></center>\n\n<p>\n\t \n</p></div></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3\"><div><p>\n\t \n</p>\n\n<center><div class=\"ratio ratio-16x9 my-4\"><iframe src=\"https://uss.formstack.com/forms/salarmytulsavolunteer\" title=\"Video\" allowfullscreen=\"\" loading=\"lazy\"></iframe></div></center>\n\n<p>\n\t \n</p></div></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 11,
+								"fullName": "content:wysiwyg_basic:24:72",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:24:72",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:30:61-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><div><p>\n\t \n</p>\n\n<center><div class=\"ratio ratio-16x9 my-4\"><iframe src=\"https://uss.formstack.com/forms/salarmytulsavolunteer\" title=\"Video\" allowfullscreen loading=\"lazy\"></iframe></div></center>\n\n<p>\n\t \n</p></div></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

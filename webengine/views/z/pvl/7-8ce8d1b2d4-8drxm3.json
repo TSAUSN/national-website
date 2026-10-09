@@ -1,0 +1,328 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"design:columns:1 column - 1 row my-3:19:72": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 0,
+				"fullName": "design:columns:1 column - 1 row my-3:19:72",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:19:72-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:1:87": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h6 style=\"text-align:center;\">Thank you for Doing the Most Good</h6>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Thank you for Doing the Most Good",
+								"position": 0,
+								"fullName": "content:text:1:87",
+								"htmlElement": "h4",
+								"primarytype": "content",
+								"id": "content:text:1:87",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:2:97": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThanks to generous community support, The Salvation Army Central Virginia Area Command is able to make a powerful impact on our community by serving those in need. The Army believes in treating each person who comes to us as an individual, not a statistic. And each person or family that the Army touches represents a miracle, whether it’s in the form of shelter, a hot meal, a listening ear, or any of our other services.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Thanks to generous community support, The Salvation Army Central Virginia Area Command is able to make a powerful impact on our community by serving those in need. The Army believes in treating each person who comes to us as an individual, not a statistic. And each person or family that the Army touches represents a miracle, whether it’s in the form of shelter, a hot meal, a listening ear, or any of our other services.",
+								"position": 1,
+								"fullName": "content:textarea:2:97",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:2:97",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:wysiwyg_basic:3:64": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p>\n\tView our current list of volunteer opportunities below or <a href=\"https://www.cervistech.com/acts/login.php?org_id=0243\" target=\"\">log in to your volunteer profile</a>.\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p>\n\tView our current list of volunteer opportunities below or <a href=\"https://www.cervistech.com/acts/login.php?org_id=0243\" target=\"\">log in to your volunteer profile</a>.\n</p>",
+								"model": "6",
+								"manualContent": "<p>\n\tView our current list of volunteer opportunities below or <a href=\"https://www.cervistech.com/acts/login.php?org_id=0243\" target=\"\">log in to your volunteer profile</a>.\n</p>",
+								"position": 2,
+								"fullName": "content:wysiwyg_basic:3:64",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:3:64",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:4:50": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 3,
+								"fullName": "design:design:whitespace-sm:4:50",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:72-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:5:75": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<p>\n\tFor <strong>group volunteer opportunities,</strong> please contact our <em>Volunteer &amp; Special Events Coordinator,</em> <a href=\"mailto:kathy.cundiff@uss.salvationarmy.org\" target=\"\">Kathy Cundiff</a>.\n</p>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<p>\n\tFor <strong>group volunteer opportunities,</strong> please contact our <em>Volunteer &amp; Special Events Coordinator,</em> <a href=\"mailto:kathy.cundiff@uss.salvationarmy.org\" target=\"\">Kathy Cundiff</a>.\n</p>",
+								"model": "6",
+								"manualContent": "<p>\n\tFor <strong>group volunteer opportunities,</strong> please contact our <em>Volunteer &amp; Special Events Coordinator,</em> <a href=\"mailto:kathy.cundiff@uss.salvationarmy.org\" target=\"\">Kathy Cundiff</a>.\n</p>",
+								"position": 4,
+								"fullName": "content:wysiwyg_basic:5:75",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:5:75",
+								"styles": {
+									"fontWeight": "700",
+									"fontStyle": "italic"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:6:30": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 5,
+								"fullName": "design:design:whitespace-sm:6:30",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:72-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:textarea:7:23": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThank you for serving your time to serve our community.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Thank you for serving your time to serve our community.",
+								"position": 6,
+								"fullName": "content:textarea:7:23",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:7:23",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:19:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:8:56": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 7,
+								"fullName": "design:design:whitespace-sm:8:56",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:72-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:columns:2columnswideleft:16:65": {
+								"uid": "19",
+								"name": "2 Columns - Left Big",
+								"type": "columns",
+								"classes": "row my-3 gap-3",
+								"html": "<div class=\"row my-3 gap-3\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:4\"></div><div style=\"flex:2\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "4",
+										"html": "<div class=\"col-md-8 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-md-8 col-sm-12 col-xs-12",
+										"droppable": true
+									},
+									{
+										"width": "2",
+										"html": "<div class=\"col-sm-4 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-sm-4 col-sm-12 col-xs-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 8,
+								"fullName": "design:columns:2columnswideleft:16:65",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:19:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columnswideleft:16:65-4:2 Columns - Left Big:0": {
+										"width": "4",
+										"html": "<div class=\"col-md-8 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-md-8 col-sm-12 col-xs-12",
+										"droppable": true,
+										"children": {
+											"content:embed:9:1": {
+												"icon": "embed",
+												"name": "Embed",
+												"type": "embed",
+												"html": "<iframe frameborder=\"0\" height=\"550\" id=\"myFrame\" name=\"myFrame\" src=\"https://volunteer.cvac.salvationarmypotomac.org/acts/webreg/eventwebreglist.php?org_id=0243\" title=\"CERVIS Opportunity Registration\" width=\"1050\" style=\"width:100%;min-height:600px;border:0\" class=\"w-100 my-4\"></iframe>",
+												"description": "Embedded content (iframe)",
+												"draggable": true,
+												"content": "<iframe class=\"w-100 my-4\" frameborder=\"0\" height=\"550\" id=\"myFrame\" name=\"myFrame\" src=\"https://volunteer.cvac.salvationarmypotomac.org/acts/webreg/eventwebreglist.php?org_id=0243\" title=\"CERVIS Opportunity Registration\" width=\"1050\" style=\"width:100%;min-height:600px;border:0\"></iframe>",
+												"position": 0,
+												"fullName": "content:embed:9:1",
+												"htmlElement": "iframe",
+												"classes": "w-100 my-4",
+												"primarytype": "content",
+												"id": "content:embed:9:1",
+												"styles": {},
+												"newLoc": "design:columns:2columnswideleft:16:65-4:2 Columns - Left Big:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columnswideleft:16:65-2:2 Columns - Left Big:1": {
+										"width": "2",
+										"html": "<div class=\"col-sm-4 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-sm-4 col-sm-12 col-xs-12",
+										"droppable": true,
+										"children": {
+											"content:wysiwyg_basic:10:0": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p>\n\t\t\t\t\t<strong><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/810f59c1-446f-47b6-a4a8-e2f8d701bb1e_IMG_4963.jpeg\"><br>\n\t\t\t\t\tVolunteers prepping the dining room meal service for our shelter residents.</strong>\n\t\t\t\t</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p>\n\t\t\t\t\t<strong><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/810f59c1-446f-47b6-a4a8-e2f8d701bb1e_IMG_4963.jpeg\"><br>\n\t\t\t\t\tVolunteers prepping the dining room meal service for our shelter residents.</strong>\n\t\t\t\t</p>",
+												"model": "6",
+												"manualContent": "<p>\n\t\t\t\t\t<strong><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/810f59c1-446f-47b6-a4a8-e2f8d701bb1e_IMG_4963.jpeg\"><br>\n\t\t\t\t\tVolunteers prepping the dining room meal service for our shelter residents.</strong>\n\t\t\t\t</p>",
+												"position": 0,
+												"fullName": "content:wysiwyg_basic:10:0",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:10:0",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columnswideleft:16:65-2:2 Columns - Left Big:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:wysiwyg_basic:12:78": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p>\n\t\t\t\t\t<strong><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/970714f5-feb3-4ee7-93ee-78d589927bcb_Senior+Connection+Scrapbooking.jpeg\"><br>\n\t\t\t\t\tA Senior Connections volunteer teaching a scrapbooking activity to the youth.</strong>\n\t\t\t\t</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p>\n\t\t\t\t\t<strong><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/970714f5-feb3-4ee7-93ee-78d589927bcb_Senior+Connection+Scrapbooking.jpeg\"><br>\n\t\t\t\t\tA Senior Connections volunteer teaching a scrapbooking activity to the youth.</strong>\n\t\t\t\t</p>",
+												"model": "6",
+												"manualContent": "<p>\n\t\t\t\t\t<strong><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/970714f5-feb3-4ee7-93ee-78d589927bcb_Senior+Connection+Scrapbooking.jpeg\"><br>\n\t\t\t\t\tA Senior Connections volunteer teaching a scrapbooking activity to the youth.</strong>\n\t\t\t\t</p>",
+												"position": 1,
+												"fullName": "content:wysiwyg_basic:12:78",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:12:78",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columnswideleft:16:65-2:2 Columns - Left Big:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:wysiwyg_basic:14:97": {
+												"icon": "outdent",
+												"name": "WYSIWYG",
+												"type": "wysiwyg_basic",
+												"html": "<p>\n\t\t\t\t\t<strong><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/733b0621-1b60-4355-9ae1-b1b8cfb9f4dc_David%2C+Sammie%2C+James+food+organizing.jpeg\"><br>\n\t\t\t\t\tOrganizing Feed More and Food Lion weekly deliveries.</strong>\n\t\t\t\t</p>",
+												"description": "Text with HTML references.",
+												"draggable": true,
+												"content": "<p>\n\t\t\t\t\t<strong><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/733b0621-1b60-4355-9ae1-b1b8cfb9f4dc_David%2C+Sammie%2C+James+food+organizing.jpeg\"><br>\n\t\t\t\t\tOrganizing Feed More and Food Lion weekly deliveries.</strong>\n\t\t\t\t</p>",
+												"model": "6",
+												"manualContent": "<p>\n\t\t\t\t\t<strong><img class=\"img-fluid rounded\" src=\"https://s3.amazonaws.com/uss-cache.salvationarmy.org/733b0621-1b60-4355-9ae1-b1b8cfb9f4dc_David%2C+Sammie%2C+James+food+organizing.jpeg\"><br>\n\t\t\t\t\tOrganizing Feed More and Food Lion weekly deliveries.</strong>\n\t\t\t\t</p>",
+												"position": 2,
+												"fullName": "content:wysiwyg_basic:14:97",
+												"htmlElement": "html",
+												"primarytype": "content",
+												"id": "content:wysiwyg_basic:14:97",
+												"styles": {
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columnswideleft:16:65-2:2 Columns - Left Big:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

@@ -28,7 +28,10 @@
       </h4>
     </div>
     <div class="col-lg-8 col-sm-12 services-body">{{ this.service_body }}</div>
-  {{/if}}
-  
+  {{else}}
+    <div class="services-body">
+    {{this.service_body}}
+    </div>
+  {{/if}}  
 </div>
 {{/if}}

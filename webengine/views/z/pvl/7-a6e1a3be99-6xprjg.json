@@ -1,0 +1,414 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:87:0:3": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-94b780edaf-l03gxf')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-94b780edaf-l03gxf')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:87:0:3",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:21:72": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:21:72",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:21:72-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"content:text:2:82": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5 style=\"text-align:center;\">Come Worship with Us</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "Come Worship with Us",
+								"position": 0,
+								"fullName": "content:text:2:82",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:2:82",
+								"styles": {
+									"textAlign": "center"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:21:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:columns:3 Columns:10:59": {
+								"uid": "300",
+								"name": "3 Columns",
+								"type": "columns",
+								"classes": "row my-3",
+								"html": "<div class=\"row my-3\">*</div>",
+								"preview": "<div style=\"display:flex;flex-direction:row;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+								"droppable": false,
+								"numberOfColumns": 3,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 1,
+								"fullName": "design:columns:3 Columns:10:59",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:21:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:3 Columns:10:59-1:3 Columns:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:3:65": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\">\n\t<strong>Praise, Worship, Grow in the Lord</strong>\n</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Praise, Worship, Grow in the Lord",
+												"position": 0,
+												"fullName": "content:textarea:3:65",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:3:65",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:10:59-1:3 Columns:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:3 Columns:10:59-1:3 Columns:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:4:28": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p data-ft-member-idx=\"1\" style=\"text-align:center;\">Each week The Salvation Army Corps offers worship services and regular programs where participants can praise the Lord and grow closer to His Son, Jesus Christ. Services are open to all people, welcoming the rich and poor, saved and lost.</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Each week The Salvation Army Corps offers worship services and regular programs where participants can praise the Lord and grow closer to His Son, Jesus Christ. Services are open to all people, welcoming the rich and poor, saved and lost.",
+												"position": 0,
+												"fullName": "content:textarea:4:28",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:4:28",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:10:59-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:5:72": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p data-ft-part-idx=\"1-1\" style=\"text-align:center;\">For God so loved the world that he gave his one and only Son, that whoever believes in Him shall not perish but have eternal life. For God did not send his Son into the world to condemn the world, but to save the world through Him. Whoever believes in him is not condemned...&nbsp;~&nbsp;<strong>John 3:16-18</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "For God so loved the world that he gave his one and only Son, that whoever believes in Him shall not perish but have eternal life. For God did not send his Son into the world to condemn the world, but to save the world through Him. Whoever believes in him is not condemned...&nbsp;~&nbsp;John 3:16-18",
+												"position": 1,
+												"fullName": "content:textarea:5:72",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:5:72",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:10:59-1:3 Columns:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									},
+									"design:columns:3 Columns:10:59-1:3 Columns:2": {
+										"width": "1",
+										"html": "<div class=\"col-lg-4 col-md-12 col-sm-12\">*</div>",
+										"classes": "col-lg-4 col-md-12 col-sm-12",
+										"droppable": true,
+										"children": {
+											"content:textarea:6:71": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p data-ft-member-idx=\"2\" style=\"text-align:center;\"><strong>Service Times:</strong></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Service Times:",
+												"position": 0,
+												"fullName": "content:textarea:6:71",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:6:71",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:3 Columns:10:59-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:7:46": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p data-ft-part-idx=\"2-1\" style=\"text-align:center;\">Sunday</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Sunday",
+												"position": 1,
+												"fullName": "content:textarea:7:46",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:7:46",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:10:59-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:8:71": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p data-ft-part-idx=\"2-2\" style=\"text-align:center;\">Sunday School: 9:00 am</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Sunday School: 9:00 am",
+												"position": 2,
+												"fullName": "content:textarea:8:71",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:8:71",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:10:59-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:9:47": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p data-ft-part-idx=\"2-3\" style=\"text-align:center;\">Worship:&nbsp; 10:00 Am</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Worship:&nbsp; 10:00 Am",
+												"position": 3,
+												"fullName": "content:textarea:9:47",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:9:47",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:3 Columns:10:59-1:3 Columns:2",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 2
+									}
+								}
+							},
+							"design:design:whitespace-xl:11:74": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 2,
+								"fullName": "design:design:whitespace-xl:11:74",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:21:72-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:text:12:64": {
+								"icon": "text-height",
+								"name": "Heading",
+								"type": "text",
+								"html": "<h5>How we help share God's love</h5>",
+								"description": "Plain Text",
+								"draggable": true,
+								"content": "How we help share God's love",
+								"position": 3,
+								"fullName": "content:text:12:64",
+								"htmlElement": "h5",
+								"primarytype": "content",
+								"id": "content:text:12:64",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:21:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:13:29": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThe Salvation Army, an international movement, is an evangelical part of the universal Christian Church. Its message is based on the Bible. Its ministry is motivated by the love of God. Its mission is to preach the gospel of Jesus Christ and to meet human needs in His name without discrimination.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army, an international movement, is an evangelical part of the universal Christian Church. Its message is based on the Bible. Its ministry is motivated by the love of God. Its mission is to preach the gospel of Jesus Christ and to meet human needs in His name without discrimination.",
+								"position": 4,
+								"fullName": "content:textarea:13:29",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:13:29",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:21:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:14:70": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThroughout the Carolinas, Salvation Army Officers serve primarily as clergy at our&nbsp;Worship Centers. These churches are at the center of our Ministry. In fact, when The Salvation Army begins ministry in a new city, one of the first steps is to begin to form a congregation.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Throughout the Carolinas, Salvation Army Officers serve primarily as clergy at our&nbsp;Worship Centers. These churches are at the center of our Ministry. In fact, when The Salvation Army begins ministry in a new city, one of the first steps is to begin to form a congregation.",
+								"position": 5,
+								"fullName": "content:textarea:14:70",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:14:70",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:21:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:15:45": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tSalvation Army Churches, known as corps, are made up of congregations of soldiers (church members) and adherents. These congregations meet regularly on Sunday mornings, typically at 11:00am and many have other meeting times throughout the week.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Salvation Army Churches, known as corps, are made up of congregations of soldiers (church members) and adherents. These congregations meet regularly on Sunday mornings, typically at 11:00am and many have other meeting times throughout the week.",
+								"position": 6,
+								"fullName": "content:textarea:15:45",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:15:45",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:21:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:16:41": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tThe Salvation Army is considered a protestant denomination of the Christian Church with beliefs that are in line with the mainstream of Christian belief. Salvation Army Officers are ordained ministers that can perform marriages and dedicate children and who regularly provide ministerial duties for their congregations.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "The Salvation Army is considered a protestant denomination of the Christian Church with beliefs that are in line with the mainstream of Christian belief. Salvation Army Officers are ordained ministers that can perform marriages and dedicate children and who regularly provide ministerial duties for their congregations.",
+								"position": 7,
+								"fullName": "content:textarea:16:41",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:16:41",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:21:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"content:textarea:17:30": {
+								"icon": "align-justify",
+								"name": "Paragraph",
+								"type": "textarea",
+								"html": "<p>\n\tEach congregation is unique while maintaining the basic facets of Salvation Army service. In all cases, these congregations are welcoming loving places. For more information about worship centers in your community, please check with the locations menu above.\n</p>",
+								"description": "Mixed Plain and Rich Text",
+								"draggable": true,
+								"content": "Each congregation is unique while maintaining the basic facets of Salvation Army service. In all cases, these congregations are welcoming loving places. For more information about worship centers in your community, please check with the locations menu above.",
+								"position": 8,
+								"fullName": "content:textarea:17:30",
+								"htmlElement": "p",
+								"primarytype": "content",
+								"id": "content:textarea:17:30",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:21:72-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

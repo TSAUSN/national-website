@@ -1,0 +1,97 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:8:0:55": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-a2d3cd8cd3-n97wxb')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-a2d3cd8cd3-n97wxb')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:8:0:55",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:5:93": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:5:93",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:5:93-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:design:whitespace-xl:1:19": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 0,
+								"fullName": "design:design:whitespace-xl:1:19",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:5:93-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:2:82": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p>\n\tThe Salvation Army Hampton Roads Area Command thanks the following Corporate &amp; Community Partners for their ongoing support.\n</p>\n\n<ul>\n\t<li>13NewsNow</li>\n\t<li>Agi</li>\n\t<li>Aldi, Inc.</li>\n\t<li>Alpha Phi Alpha Lambda Chapter</li>\n\t<li>Altrusa International of Tidewater, Inc.</li>\n\t<li>Anna Paduhovich Team</li>\n\t<li>Anna Straylor<br>\n\tAnnunciation Greek Orthodox Cathedral</li>\n\t<li>Anytime Fitness Haygood &amp; Landstown</li>\n\t<li>AT&amp;T</li>\n\t<li>Atlantic Union Bank</li>\n\t<li>Avalon Bay Communities, Inc.</li>\n\t<li>Bennett Creek Sertoma Club</li>\n\t<li>Black Angus Restaurant</li>\n\t<li>Blocker Foundation</li>\n\t<li>Bojangles/Tands, Inc.</li>\n\t<li>Bradley Family Fund of the Hampton Roads Community Foundation C&amp;F</li>\n\t<li>Cbn</li>\n\t<li>CMA-CGM American, llc</li>\n\t<li>Chanello’s Pizza</li>\n\t<li>Checkered Flag Automotive</li>\n\t<li>Cheryl Hickok</li>\n\t<li>Chick-fil A</li>\n\t<li>Colonna’s Shipyard, Inc.</li>\n\t<li>Commonwealth of Virginia, Department of Social Services</li>\n\t<li>Cova Brewing</li>\n\t<li>Cristina Suave</li>\n\t<li>Cutter Creek Golf Course</li>\n\t<li>D’Addario Foundation</li>\n\t<li>DesRoches &amp; Company, CPAs</li>\n\t<li>Dixon-Settle Fund for Women of the Hampton Roads Community Foundation</li>\n\t<li>Dominion Energy</li>\n\t<li>Dr. Rebecca Adams</li>\n\t<li>Dwight &amp; Jane Schaubach Donor Advised Fund of the Suffolk Foundation</li>\n\t<li>Ecpi University</li>\n\t<li>Edc Homes</li>\n\t<li>East Coast Mechanical</li>\n\t<li>Eastern Truck &amp; Accessories</li>\n\t<li>Ebenezer Baptist Church</li>\n\t<li>Entercom Communications</li>\n\t<li>Food Lion Feeds COVID-19 Hunger Relief Fund</li>\n\t<li>Foodbank of Southeastern Virginia</li>\n\t<li>Freedom Shooting Center</li>\n\t<li>George H. Marin Fund of the Hampton Roads Community Foundation</li>\n\t<li>Gerloff Painting, Inc</li>\n\t<li>Gethsemane Community Fellowship</li>\n\t<li>Gilco Trucking Company</li>\n\t<li>Givens Group</li>\n\t<li>H2O – Help 2 Others</li>\n\t<li>Hackworth</li>\n\t<li>Hampton Roads Community Foundation</li>\n\t<li>Hampton Roads Sanitation District (hrsd)</li>\n\t<li>Harvey Lindsay Commercial Real Estate</li>\n\t<li>Hobbs &amp; Associates</li>\n\t<li>Hungry for Music</li>\n\t<li>Impera Commercial &amp; Land Company</li>\n\t<li>James M. Willcox Memorial Fund of the Hampton Roads Community Foundation Jimmy John’s</li>\n\t<li>Johns Brothers Security</li>\n\t<li>Kpm Llc</li>\n\t<li>Kitchen Emporium</li>\n\t<li>Kiwanis Club of Chesapeake, Inc.</li>\n\t<li>Krispy Kreme</li>\n\t<li>Langley for Families Foundation</li>\n\t<li>Lily Hawk Foundation</li>\n\t<li>Lowery Construction</li>\n\t<li>Lynnhaven Mall</li>\n\t<li>MacArthur Center</li>\n\t<li>Mancon</li>\n\t<li>Martha &amp; Tom Ambler</li>\n\t<li>Mercy Chefs</li>\n\t<li>Monarch Charities</li>\n\t<li>Mister Jim’s Subs</li>\n\t<li>National Endowment for the Arts</li>\n\t<li>Naval Medical Center Portsmouth</li>\n\t<li>Norfolk Banana &amp; Produce Company</li>\n\t<li>Norfolk Commission on the Arts &amp; Humanities</li>\n\t<li>Norfolk Redevelopment and Housing Authority</li>\n\t<li>Operation Blessing</li>\n\t<li>Papa John’s</li>\n\t<li>Patricia &amp; Douglas Perry Foundation</li>\n\t<li>Paxton Companies</li>\n\t<li>Perry &amp; Bunny Morgan Fund of the Hampton Roads Community Foundation</li>\n\t<li>Primero Staffing</li>\n\t<li>Rebekah L. Huber Family Charitable Fund 1 of the Hampton Roads Community Foundation</li>\n\t<li>Regent University</li>\n\t<li>St. Nicholas Greek Orthodox Church</li>\n\t<li>Sinclair Communications</li>\n\t<li>Southeastern Equipment Corp</li>\n\t<li>Southeastern Mechanical, Inc.</li>\n\t<li>Special Fund #5 of the Hampton Roads Community Foundation</li>\n\t<li>Stanley Blaxton Foundation, Inc.</li>\n\t<li>Stihl</li>\n\t<li>Subway</li>\n\t<li>Summit Marketing</li>\n\t<li>Sysco</li>\n\t<li>Tci Radio</li>\n\t<li>Tegna Foundation</li>\n\t<li>Tascera Building</li>\n\t<li>The Joy Fund Foundation</li>\n\t<li>Tony Thiel</li>\n\t<li>TowneBank</li>\n\t<li>Towne Wealth Management</li>\n\t<li>Tymoff + Moss Architects</li>\n\t<li>U.S. Marine Corps Reserve Toys for Tots</li>\n\t<li>United Healthcare</li>\n\t<li>United Restoration</li>\n\t<li>United Way of South Hampton Roads</li>\n\t<li>Vets Tribute of the Community Foundation for Loudoun and Northern Fauquier Counties</li>\n\t<li>Virginia &amp; John L. Sinclair Foundation</li>\n\t<li>Virginia Beach Town Center – Blind Lions Club</li>\n\t<li>Virginia Commission for the Arts</li>\n\t<li>Virginia Natural Gas</li>\n\t<li>Walmart</li>\n\t<li>Wards Corner Lions Club</li>\n\t<li>Wavy Tv</li>\n\t<li>Wawa Foundation</li>\n\t<li>Wegmans</li>\n\t<li>Whiting-Turner Contracting Company</li>\n\t<li>William a. &amp; Jane M. Charters Fund of the Hampton Roads Community Foundation Windward Foundation</li>\n\t<li>Wtkr News 3</li>\n\t<li>YNot Italian</li>\n</ul></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p>\n\tThe Salvation Army Hampton Roads Area Command thanks the following Corporate &amp; Community Partners for their ongoing support.\n</p>\n\n<ul>\n\t<li>13NewsNow</li>\n\t<li>Agi</li>\n\t<li>Aldi, Inc.</li>\n\t<li>Alpha Phi Alpha Lambda Chapter</li>\n\t<li>Altrusa International of Tidewater, Inc.</li>\n\t<li>Anna Paduhovich Team</li>\n\t<li>Anna Straylor<br>\n\tAnnunciation Greek Orthodox Cathedral</li>\n\t<li>Anytime Fitness Haygood &amp; Landstown</li>\n\t<li>AT&amp;T</li>\n\t<li>Atlantic Union Bank</li>\n\t<li>Avalon Bay Communities, Inc.</li>\n\t<li>Bennett Creek Sertoma Club</li>\n\t<li>Black Angus Restaurant</li>\n\t<li>Blocker Foundation</li>\n\t<li>Bojangles/Tands, Inc.</li>\n\t<li>Bradley Family Fund of the Hampton Roads Community Foundation C&amp;F</li>\n\t<li>Cbn</li>\n\t<li>CMA-CGM American, llc</li>\n\t<li>Chanello’s Pizza</li>\n\t<li>Checkered Flag Automotive</li>\n\t<li>Cheryl Hickok</li>\n\t<li>Chick-fil A</li>\n\t<li>Colonna’s Shipyard, Inc.</li>\n\t<li>Commonwealth of Virginia, Department of Social Services</li>\n\t<li>Cova Brewing</li>\n\t<li>Cristina Suave</li>\n\t<li>Cutter Creek Golf Course</li>\n\t<li>D’Addario Foundation</li>\n\t<li>DesRoches &amp; Company, CPAs</li>\n\t<li>Dixon-Settle Fund for Women of the Hampton Roads Community Foundation</li>\n\t<li>Dominion Energy</li>\n\t<li>Dr. Rebecca Adams</li>\n\t<li>Dwight &amp; Jane Schaubach Donor Advised Fund of the Suffolk Foundation</li>\n\t<li>Ecpi University</li>\n\t<li>Edc Homes</li>\n\t<li>East Coast Mechanical</li>\n\t<li>Eastern Truck &amp; Accessories</li>\n\t<li>Ebenezer Baptist Church</li>\n\t<li>Entercom Communications</li>\n\t<li>Food Lion Feeds COVID-19 Hunger Relief Fund</li>\n\t<li>Foodbank of Southeastern Virginia</li>\n\t<li>Freedom Shooting Center</li>\n\t<li>George H. Marin Fund of the Hampton Roads Community Foundation</li>\n\t<li>Gerloff Painting, Inc</li>\n\t<li>Gethsemane Community Fellowship</li>\n\t<li>Gilco Trucking Company</li>\n\t<li>Givens Group</li>\n\t<li>H2O – Help 2 Others</li>\n\t<li>Hackworth</li>\n\t<li>Hampton Roads Community Foundation</li>\n\t<li>Hampton Roads Sanitation District (hrsd)</li>\n\t<li>Harvey Lindsay Commercial Real Estate</li>\n\t<li>Hobbs &amp; Associates</li>\n\t<li>Hungry for Music</li>\n\t<li>Impera Commercial &amp; Land Company</li>\n\t<li>James M. Willcox Memorial Fund of the Hampton Roads Community Foundation Jimmy John’s</li>\n\t<li>Johns Brothers Security</li>\n\t<li>Kpm Llc</li>\n\t<li>Kitchen Emporium</li>\n\t<li>Kiwanis Club of Chesapeake, Inc.</li>\n\t<li>Krispy Kreme</li>\n\t<li>Langley for Families Foundation</li>\n\t<li>Lily Hawk Foundation</li>\n\t<li>Lowery Construction</li>\n\t<li>Lynnhaven Mall</li>\n\t<li>MacArthur Center</li>\n\t<li>Mancon</li>\n\t<li>Martha &amp; Tom Ambler</li>\n\t<li>Mercy Chefs</li>\n\t<li>Monarch Charities</li>\n\t<li>Mister Jim’s Subs</li>\n\t<li>National Endowment for the Arts</li>\n\t<li>Naval Medical Center Portsmouth</li>\n\t<li>Norfolk Banana &amp; Produce Company</li>\n\t<li>Norfolk Commission on the Arts &amp; Humanities</li>\n\t<li>Norfolk Redevelopment and Housing Authority</li>\n\t<li>Operation Blessing</li>\n\t<li>Papa John’s</li>\n\t<li>Patricia &amp; Douglas Perry Foundation</li>\n\t<li>Paxton Companies</li>\n\t<li>Perry &amp; Bunny Morgan Fund of the Hampton Roads Community Foundation</li>\n\t<li>Primero Staffing</li>\n\t<li>Rebekah L. Huber Family Charitable Fund 1 of the Hampton Roads Community Foundation</li>\n\t<li>Regent University</li>\n\t<li>St. Nicholas Greek Orthodox Church</li>\n\t<li>Sinclair Communications</li>\n\t<li>Southeastern Equipment Corp</li>\n\t<li>Southeastern Mechanical, Inc.</li>\n\t<li>Special Fund #5 of the Hampton Roads Community Foundation</li>\n\t<li>Stanley Blaxton Foundation, Inc.</li>\n\t<li>Stihl</li>\n\t<li>Subway</li>\n\t<li>Summit Marketing</li>\n\t<li>Sysco</li>\n\t<li>Tci Radio</li>\n\t<li>Tegna Foundation</li>\n\t<li>Tascera Building</li>\n\t<li>The Joy Fund Foundation</li>\n\t<li>Tony Thiel</li>\n\t<li>TowneBank</li>\n\t<li>Towne Wealth Management</li>\n\t<li>Tymoff + Moss Architects</li>\n\t<li>U.S. Marine Corps Reserve Toys for Tots</li>\n\t<li>United Healthcare</li>\n\t<li>United Restoration</li>\n\t<li>United Way of South Hampton Roads</li>\n\t<li>Vets Tribute of the Community Foundation for Loudoun and Northern Fauquier Counties</li>\n\t<li>Virginia &amp; John L. Sinclair Foundation</li>\n\t<li>Virginia Beach Town Center – Blind Lions Club</li>\n\t<li>Virginia Commission for the Arts</li>\n\t<li>Virginia Natural Gas</li>\n\t<li>Walmart</li>\n\t<li>Wards Corner Lions Club</li>\n\t<li>Wavy Tv</li>\n\t<li>Wawa Foundation</li>\n\t<li>Wegmans</li>\n\t<li>Whiting-Turner Contracting Company</li>\n\t<li>William a. &amp; Jane M. Charters Fund of the Hampton Roads Community Foundation Windward Foundation</li>\n\t<li>Wtkr News 3</li>\n\t<li>YNot Italian</li>\n</ul></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:2:82",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:2:82",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:5:93-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><p>\n\tThe Salvation Army Hampton Roads Area Command thanks the following Corporate &amp; Community Partners for their ongoing support.\n</p>\n\n<ul>\n\t<li>13NewsNow</li>\n\t<li>Agi</li>\n\t<li>Aldi, Inc.</li>\n\t<li>Alpha Phi Alpha Lambda Chapter</li>\n\t<li>Altrusa International of Tidewater, Inc.</li>\n\t<li>Anna Paduhovich Team</li>\n\t<li>Anna Straylor<br>\n\tAnnunciation Greek Orthodox Cathedral</li>\n\t<li>Anytime Fitness Haygood &amp; Landstown</li>\n\t<li>AT&amp;T</li>\n\t<li>Atlantic Union Bank</li>\n\t<li>Avalon Bay Communities, Inc.</li>\n\t<li>Bennett Creek Sertoma Club</li>\n\t<li>Black Angus Restaurant</li>\n\t<li>Blocker Foundation</li>\n\t<li>Bojangles/Tands, Inc.</li>\n\t<li>Bradley Family Fund of the Hampton Roads Community Foundation C&amp;F</li>\n\t<li>Cbn</li>\n\t<li>CMA-CGM American, llc</li>\n\t<li>Chanello’s Pizza</li>\n\t<li>Checkered Flag Automotive</li>\n\t<li>Cheryl Hickok</li>\n\t<li>Chick-fil A</li>\n\t<li>Colonna’s Shipyard, Inc.</li>\n\t<li>Commonwealth of Virginia, Department of Social Services</li>\n\t<li>Cova Brewing</li>\n\t<li>Cristina Suave</li>\n\t<li>Cutter Creek Golf Course</li>\n\t<li>D’Addario Foundation</li>\n\t<li>DesRoches &amp; Company, CPAs</li>\n\t<li>Dixon-Settle Fund for Women of the Hampton Roads Community Foundation</li>\n\t<li>Dominion Energy</li>\n\t<li>Dr. Rebecca Adams</li>\n\t<li>Dwight &amp; Jane Schaubach Donor Advised Fund of the Suffolk Foundation</li>\n\t<li>Ecpi University</li>\n\t<li>Edc Homes</li>\n\t<li>East Coast Mechanical</li>\n\t<li>Eastern Truck &amp; Accessories</li>\n\t<li>Ebenezer Baptist Church</li>\n\t<li>Entercom Communications</li>\n\t<li>Food Lion Feeds COVID-19 Hunger Relief Fund</li>\n\t<li>Foodbank of Southeastern Virginia</li>\n\t<li>Freedom Shooting Center</li>\n\t<li>George H. Marin Fund of the Hampton Roads Community Foundation</li>\n\t<li>Gerloff Painting, Inc</li>\n\t<li>Gethsemane Community Fellowship</li>\n\t<li>Gilco Trucking Company</li>\n\t<li>Givens Group</li>\n\t<li>H2O – Help 2 Others</li>\n\t<li>Hackworth</li>\n\t<li>Hampton Roads Community Foundation</li>\n\t<li>Hampton Roads Sanitation District (hrsd)</li>\n\t<li>Harvey Lindsay Commercial Real Estate</li>\n\t<li>Hobbs &amp; Associates</li>\n\t<li>Hungry for Music</li>\n\t<li>Impera Commercial &amp; Land Company</li>\n\t<li>James M. Willcox Memorial Fund of the Hampton Roads Community Foundation Jimmy John’s</li>\n\t<li>Johns Brothers Security</li>\n\t<li>Kpm Llc</li>\n\t<li>Kitchen Emporium</li>\n\t<li>Kiwanis Club of Chesapeake, Inc.</li>\n\t<li>Krispy Kreme</li>\n\t<li>Langley for Families Foundation</li>\n\t<li>Lily Hawk Foundation</li>\n\t<li>Lowery Construction</li>\n\t<li>Lynnhaven Mall</li>\n\t<li>MacArthur Center</li>\n\t<li>Mancon</li>\n\t<li>Martha &amp; Tom Ambler</li>\n\t<li>Mercy Chefs</li>\n\t<li>Monarch Charities</li>\n\t<li>Mister Jim’s Subs</li>\n\t<li>National Endowment for the Arts</li>\n\t<li>Naval Medical Center Portsmouth</li>\n\t<li>Norfolk Banana &amp; Produce Company</li>\n\t<li>Norfolk Commission on the Arts &amp; Humanities</li>\n\t<li>Norfolk Redevelopment and Housing Authority</li>\n\t<li>Operation Blessing</li>\n\t<li>Papa John’s</li>\n\t<li>Patricia &amp; Douglas Perry Foundation</li>\n\t<li>Paxton Companies</li>\n\t<li>Perry &amp; Bunny Morgan Fund of the Hampton Roads Community Foundation</li>\n\t<li>Primero Staffing</li>\n\t<li>Rebekah L. Huber Family Charitable Fund 1 of the Hampton Roads Community Foundation</li>\n\t<li>Regent University</li>\n\t<li>St. Nicholas Greek Orthodox Church</li>\n\t<li>Sinclair Communications</li>\n\t<li>Southeastern Equipment Corp</li>\n\t<li>Southeastern Mechanical, Inc.</li>\n\t<li>Special Fund #5 of the Hampton Roads Community Foundation</li>\n\t<li>Stanley Blaxton Foundation, Inc.</li>\n\t<li>Stihl</li>\n\t<li>Subway</li>\n\t<li>Summit Marketing</li>\n\t<li>Sysco</li>\n\t<li>Tci Radio</li>\n\t<li>Tegna Foundation</li>\n\t<li>Tascera Building</li>\n\t<li>The Joy Fund Foundation</li>\n\t<li>Tony Thiel</li>\n\t<li>TowneBank</li>\n\t<li>Towne Wealth Management</li>\n\t<li>Tymoff + Moss Architects</li>\n\t<li>U.S. Marine Corps Reserve Toys for Tots</li>\n\t<li>United Healthcare</li>\n\t<li>United Restoration</li>\n\t<li>United Way of South Hampton Roads</li>\n\t<li>Vets Tribute of the Community Foundation for Loudoun and Northern Fauquier Counties</li>\n\t<li>Virginia &amp; John L. Sinclair Foundation</li>\n\t<li>Virginia Beach Town Center – Blind Lions Club</li>\n\t<li>Virginia Commission for the Arts</li>\n\t<li>Virginia Natural Gas</li>\n\t<li>Walmart</li>\n\t<li>Wards Corner Lions Club</li>\n\t<li>Wavy Tv</li>\n\t<li>Wawa Foundation</li>\n\t<li>Wegmans</li>\n\t<li>Whiting-Turner Contracting Company</li>\n\t<li>William a. &amp; Jane M. Charters Fund of the Hampton Roads Community Foundation Windward Foundation</li>\n\t<li>Wtkr News 3</li>\n\t<li>YNot Italian</li>\n</ul></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}

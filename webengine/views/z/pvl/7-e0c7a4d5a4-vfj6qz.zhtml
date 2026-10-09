@@ -1,0 +1,23 @@
+<div classname="{styles.pvlRoot}">
+	{{block('/-/block/hero_full.html?variant=7-a091d8f8b6-lm3pgc')}}
+	<div class="row my-3 p-6 rounded-5 bg-light mb-18">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<h4 style="text-align:center;"><span><span style="color:#ed1c2b;">Dedicated to Doing the Most Good in Creek County </span></span></h4>
+			<p>
+	Welcome to The Salvation Army Sapulpa Women's Auxiliary! We are a group of compassionate women united in our commitment to serve the Creek County community. Through fundraising and volunteer efforts, we support The Salvation Army's mission to address local social issues and uplift those in need. Join us in this fulfilling journey as we form lasting friendships, make a positive impact, and create a stronger, more compassionate community.
+</p>
+			<p>
+	Our auxiliary is a vibrant fundraising and volunteer service group that works tirelessly to support The Salvation Army's initiatives. By organizing charity events, coordinating donation drives, and generating essential resources, we contribute to the financial support needed to expand outreach programs and extend services to individuals and families in need. Together, we make a difference in the lives of others and build a better future for our community.
+</p>
+			<p>
+	Beyond our collective efforts, The Salvation Army Sapulpa Women's Auxiliary is a place where believers come together to form a close-knit community. It is a nurturing environment where lasting friendships are forged, and shared faith and a passion for service bring us closer. By joining our auxiliary, you not only contribute to meaningful causes but also gain personal growth, new perspectives, and the joy of making a positive impact. Explore our website to learn more about our ongoing projects, upcoming events, and how you can get involved. Together, let's create a brighter and more compassionate Creek County.
+</p>
+			<div class="my-2"></div>
+			<p>Contact us: <a href="mailto:SapulpaOK@uss.salvationarmyorg" target="_blank" rel="noopener">SapulpaOK@uss.salvationarmyorg</a></p>
+			<div class="my-4"></div>
+			<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/e4a9cfae-7ca1-47f5-998c-427f8e244123_DSC09683.jpg" alt="placeholder" style="max-width:100%;height:auto;" loading="lazy" class="img-fluid d-block my-4 rounded mx-auto">
+			<div class="my-5"></div>
+			<img src="https://s3.amazonaws.com/uss-cache.salvationarmy.org/13fa10e4-ee9f-416c-bebe-9c36451b731b_DSC09888.jpg" alt="placeholder" style="max-width:100%;height:auto;" loading="lazy" class="img-fluid d-block my-4 rounded">
+		</div>
+	</div>
+</div>

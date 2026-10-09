@@ -1,0 +1,451 @@
+{
+	"layout:root:column:0": {
+		"name": "layout:root:column:0",
+		"html": "<div classname=\"{styles.pvlRoot}\">*</div>",
+		"children": {
+			"content:block:6-bcfbdaa6d3-vjj3qs:27:37:0:75": {
+				"html": "{{block('/-/block/hero_full.html?variant=7-e4f5dfd38a-rj1l6k')}}",
+				"content": "{{block('/-/block/hero_full.html?variant=7-e4f5dfd38a-rj1l6k')}}",
+				"model": "6-bcfbdaa6d3-vjj3qs",
+				"name": "27",
+				"position": 0,
+				"fullName": "content:block:6-bcfbdaa6d3-vjj3qs:27:37:0:75",
+				"type": "block",
+				"primarytype": "content",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "layout:root:column:0"
+			},
+			"design:columns:1 column - 1 row my-3:24:49": {
+				"uid": "301",
+				"name": "1 column - 1 row",
+				"type": "columns",
+				"classes": "p-6 rounded-5 bg-light mb-18",
+				"html": "<div class=\"row my-3 p-6 rounded-5 bg-light mb-18\">*</div>",
+				"preview": "<div style=\"display:flex;flex-direction:row my-3;min-height:20px;\"><div style=\"flex:1\" className={styles.pvlColumn}></div></div>",
+				"droppable": false,
+				"numberOfColumns": 1,
+				"widthPerColumns": "1",
+				"columns": [
+					{
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true
+					}
+				],
+				"groupCategory": "isNew",
+				"group": "",
+				"position": 1,
+				"fullName": "design:columns:1 column - 1 row my-3:24:49",
+				"primarytype": "design",
+				"newLoc": "layout:root:column:0",
+				"oldLoc": "bank",
+				"children": {
+					"design:columns:1 column - 1 row my-3:24:49-1:1 column - 1 row:0": {
+						"width": 1,
+						"html": "<div class=\"col-lg-12 col-md-12 col-sm-12\">*</div>",
+						"classes": "col-lg-12 col-md-12 col-sm-12",
+						"droppable": true,
+						"children": {
+							"design:columns:2columns:12:20": {
+								"uid": "11",
+								"name": "2 Columns - Equal",
+								"type": "columns",
+								"classes": "row my-3 g-4",
+								"html": "<div class=\"row my-3 g-4\">*</div>",
+								"preview": "<div style=\"display:flex\"><div style=\"flex:1\"></div><div style=\"flex:1\"></div></div>",
+								"droppable": false,
+								"numberOfColumns": 2,
+								"widthPerColumns": "1",
+								"columns": [
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12 col-xs-12",
+										"droppable": true
+									},
+									{
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12 col-xs-12",
+										"droppable": true
+									}
+								],
+								"groupCategory": "isNew",
+								"group": "",
+								"position": 0,
+								"fullName": "design:columns:2columns:12:20",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:24:49-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"children": {
+									"design:columns:2columns:12:20-1:2 Columns - Equal:0": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12 col-xs-12",
+										"droppable": true,
+										"children": {
+											"content:embed:1:63": {
+												"icon": "embed",
+												"name": "Embed",
+												"type": "embed",
+												"html": "<iframe src=\"https://www.google.com/maps?q=203%20West%2019th%20Street%2C%20Norfolk%2C%20VA%2C%2023517&amp;output=embed\" style=\"border:0;height:100%;min-height:420px;\" loading=\"lazy\" allowfullscreen=\"\" referrerpolicy=\"no-referrer-when-downgrade\" class=\"w-100 h-100 rounded\"></iframe>",
+												"description": "Embedded content (iframe)",
+												"draggable": true,
+												"content": "<iframe src=\"https://www.google.com/maps?q=203%20West%2019th%20Street%2C%20Norfolk%2C%20VA%2C%2023517&amp;output=embed\" style=\"border:0;height:100%;min-height:420px;\" loading=\"lazy\" allowfullscreen=\"\" referrerpolicy=\"no-referrer-when-downgrade\" class=\"w-100 h-100 rounded\"></iframe>",
+												"position": 0,
+												"fullName": "content:embed:1:63",
+												"htmlElement": "iframe",
+												"classes": "w-100 h-100 rounded",
+												"primarytype": "content",
+												"id": "content:embed:1:63",
+												"styles": {},
+												"newLoc": "design:columns:2columns:12:20-1:2 Columns - Equal:0",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 0
+									},
+									"design:columns:2columns:12:20-1:2 Columns - Equal:1": {
+										"width": "1",
+										"html": "<div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">*</div>",
+										"classes": "col-lg-6 col-md-6 col-sm-12 col-xs-12",
+										"droppable": true,
+										"children": {
+											"content:text:2:93": {
+												"icon": "text-height",
+												"name": "Heading",
+												"type": "text",
+												"html": "<h5 style=\"text-align:center;\">The Men’s Hope Center</h5>",
+												"description": "Plain Text",
+												"draggable": true,
+												"content": "The Men’s Hope Center",
+												"position": 0,
+												"fullName": "content:text:2:93",
+												"htmlElement": "h5",
+												"primarytype": "content",
+												"id": "content:text:2:93",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:12:20-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:3:6": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p align=\"center\" style=\"text-align:center;\">\n\t<span><span><span><span>Location - 203 West 19th Street, Norfolk, VA</span></span></span></span>\n</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Location - 203 West 19th Street, Norfolk, VA",
+												"position": 1,
+												"fullName": "content:textarea:3:6",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:3:6",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:12:20-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:4:85": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\">Our Emergency Shelter and Soup Kitchen provides food, shelter, resources, and prayer for hundreds of struggling men in the Hampton Roads area. The shelter is open 365 nights a year and offers 14 weekly soup kitchens. Shelter beds are available for men only; however, our Day Services Program is open to both men and women. Our Day Services program runs Monday-Friday (not including holidays) from 9:00 am-2:00 pm. During Day Services, clients have access to a range of supportive resources, including showers, laundry facilities, and case management services. Clients may also meet with on-site external service providers and receive referrals to additional community agencies for further assistance. We are proud to maintain collaborative partnerships with organizations such as the Community Service Board (csb), Legal Aid, the Urban Renewal Center, and the Department of Veterans Affairs (VA). Clients are encouraged to inquire about accessing services from these partners during their participation in Day Services.</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Our Emergency Shelter and Soup Kitchen provides food, shelter, resources, and prayer for hundreds of struggling men in the Hampton Roads area. The shelter is open 365 nights a year and offers 14 weekly soup kitchens. Shelter beds are available for men only; however, our Day Services Program is open to both men and women. Our Day Services program runs Monday-Friday (not including holidays) from 9:00 am-2:00 pm. During Day Services, clients have access to a range of supportive resources, including showers, laundry facilities, and case management services. Clients may also meet with on-site external service providers and receive referrals to additional community agencies for further assistance. We are proud to maintain collaborative partnerships with organizations such as the Community Service Board (csb), Legal Aid, the Urban Renewal Center, and the Department of Veterans Affairs (VA). Clients are encouraged to inquire about accessing services from these partners during their participation in Day Services.",
+												"position": 2,
+												"fullName": "content:textarea:4:85",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:4:85",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:12:20-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:5:57": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p style=\"text-align:center;\"><b><u><span><span><span style=\"line-height:107%;\"><span><span>Meal Times</span></span></span></span></span></u></b></p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Meal Times",
+												"position": 3,
+												"fullName": "content:textarea:5:57",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:5:57",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:12:20-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:6:10": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p align=\"center\" style=\"text-align:center;\">\n\t<i><span><span><span style=\"line-height:107%;\"><span><span>Breakfast </span></span></span></span></span></i>\n</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Breakfast",
+												"position": 4,
+												"fullName": "content:textarea:6:10",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:6:10",
+												"styles": {
+													"textAlign": "center",
+													"fontStyle": "italic"
+												},
+												"newLoc": "design:columns:2columns:12:20-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:7:43": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p align=\"center\" style=\"text-align:center;\">\n\t<span><span><span style=\"line-height:107%;\"><span><span>Monday through Friday 8 am – 8:30 am</span></span></span></span></span>\n</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Monday through Friday 8 am – 8:30 am",
+												"position": 5,
+												"fullName": "content:textarea:7:43",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:7:43",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:12:20-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:8:91": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p align=\"center\" style=\"text-align:center;\">\n\t<span><span><span style=\"line-height:107%;\"><span><span>Saturday and Sunday 9 am – 9:30 am</span></span></span></span></span>\n</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Saturday and Sunday 9 am – 9:30 am",
+												"position": 6,
+												"fullName": "content:textarea:8:91",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:8:91",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:12:20-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:9:29": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p align=\"center\" style=\"text-align:center;\">\n\t<strong>Lunch (Tuesdays Only) from 12:00 pm - 12:30 pm</strong>\n</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Lunch (Tuesdays Only) from 12:00 pm - 12:30 pm",
+												"position": 7,
+												"fullName": "content:textarea:9:29",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:9:29",
+												"styles": {
+													"textAlign": "center",
+													"fontWeight": "700"
+												},
+												"newLoc": "design:columns:2columns:12:20-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:10:81": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p align=\"center\" style=\"text-align:center;\">\n\t<i><span><span><span style=\"line-height:107%;\"><span><span>Dinner </span></span></span></span></span></i>\n</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "Dinner",
+												"position": 8,
+												"fullName": "content:textarea:10:81",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:10:81",
+												"styles": {
+													"textAlign": "center",
+													"fontStyle": "italic"
+												},
+												"newLoc": "design:columns:2columns:12:20-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											},
+											"content:textarea:11:28": {
+												"icon": "align-justify",
+												"name": "Paragraph",
+												"type": "textarea",
+												"html": "<p align=\"center\" style=\"text-align:center;\">\n\t<span><span><span style=\"line-height:107%;\"><span><span>7 Days a week 4:45 pm - 5:15 pm</span></span></span></span></span>\n</p>",
+												"description": "Mixed Plain and Rich Text",
+												"draggable": true,
+												"content": "7 Days a week 4:45 pm - 5:15 pm",
+												"position": 9,
+												"fullName": "content:textarea:11:28",
+												"htmlElement": "p",
+												"primarytype": "content",
+												"id": "content:textarea:11:28",
+												"styles": {
+													"textAlign": "center"
+												},
+												"newLoc": "design:columns:2columns:12:20-1:2 Columns - Equal:1",
+												"oldLoc": "bank",
+												"contentOverride": false
+											}
+										},
+										"position": 1
+									}
+								}
+							},
+							"content:wysiwyg_basic:13:6": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"margin-top:3rem;\"></div><h6>Eligibility Guidelines</h6><p>Must have a photo ID</p><p>Must be sober and drug-free</p><p>Must declare homelessness in order to receive services.</p><p>Overnight shelter is subject to availability</p><div style=\"margin-bottom:3rem;\"></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div style=\"margin-top:3rem;\"></div><h6>Eligibility Guidelines</h6><p>Must have a photo ID</p><p>Must be sober and drug-free</p><p>Must declare homelessness in order to receive services.</p><p>Overnight shelter is subject to availability</p><div style=\"margin-bottom:3rem;\"></div>",
+								"model": "6",
+								"manualContent": "<div style=\"margin-top:3rem;\"></div><h6>Eligibility Guidelines</h6><p>Must have a photo ID</p><p>Must be sober and drug-free</p><p>Must declare homelessness in order to receive services.</p><p>Overnight shelter is subject to availability</p><div style=\"margin-bottom:3rem;\"></div>",
+								"position": 1,
+								"fullName": "content:wysiwyg_basic:13:6",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:13:6",
+								"styles": {
+									"marginTop": "3rem"
+								},
+								"newLoc": "design:columns:1 column - 1 row my-3:24:49-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:14:9": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 2,
+								"fullName": "design:design:whitespace-sm:14:9",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:24:49-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"content:wysiwyg_basic:15:83": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"position:relative;overflow:hidden;min-height:420px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/1d57c574-8f51-4e2b-91b1-234913b266fe_testimonial-4.jpg');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"testimonialbox-section text-white rounded\">\n  <div class=\"bg-photo-overlay bg-opacity-60\" style=\"position:absolute;inset:0;z-index:1;\"></div>\n  <div style=\"position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:420px;padding:48px 40px;\">\n    <div style=\"max-width:720px;text-align:center;\">\n      <h6 style=\"text-align:center;\">How to Help</h6>\n      <p style=\"text-align:center;color:#fff;\">Monetary donations as small as even $25 can make a huge difference! A gift of $25 can feed a warm meal to 10 people.</p>\n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"content": "<div style=\"position:relative;overflow:hidden;min-height:420px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/1d57c574-8f51-4e2b-91b1-234913b266fe_testimonial-4.jpg');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"testimonialbox-section text-white rounded\">\n  <div class=\"bg-photo-overlay bg-opacity-60\" style=\"position:absolute;inset:0;z-index:1;\"></div>\n  <div style=\"position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:420px;padding:48px 40px;\">\n    <div style=\"max-width:720px;text-align:center;\">\n      <h6 style=\"text-align:center;\">How to Help</h6>\n      <p style=\"text-align:center;color:#fff;\">Monetary donations as small as even $25 can make a huge difference! A gift of $25 can feed a warm meal to 10 people.</p>\n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"model": "6",
+								"manualContent": "<div style=\"position:relative;overflow:hidden;min-height:420px;background-image:url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/1d57c574-8f51-4e2b-91b1-234913b266fe_testimonial-4.jpg');background-position:center center;background-repeat:no-repeat;background-size:cover;\" class=\"testimonialbox-section text-white rounded\">\n  <div class=\"bg-photo-overlay bg-opacity-60\" style=\"position:absolute;inset:0;z-index:1;\"></div>\n  <div style=\"position:relative;z-index:2;display:flex;align-items:center;justify-content:center;min-height:420px;padding:48px 40px;\">\n    <div style=\"max-width:720px;text-align:center;\">\n      <h6 style=\"text-align:center;\">How to Help</h6>\n      <p style=\"text-align:center;color:#fff;\">Monetary donations as small as even $25 can make a huge difference! A gift of $25 can feed a warm meal to 10 people.</p>\n    </div>\n  </div>\n</div>\n<div class=\"py-5\"></div>",
+								"position": 3,
+								"fullName": "content:wysiwyg_basic:15:83",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:15:83",
+								"styles": {
+									"position": "relative",
+									"overflow": "hidden",
+									"minHeight": "420px",
+									"backgroundImage": "url('https://s3.amazonaws.com/uss-cache.salvationarmy.org/1d57c574-8f51-4e2b-91b1-234913b266fe_testimonial-4.jpg')",
+									"backgroundPosition": "center center",
+									"backgroundRepeat": "no-repeat",
+									"backgroundSize": "cover"
+								},
+								"classes": "testimonialbox-section text-white rounded",
+								"newLoc": "design:columns:1 column - 1 row my-3:24:49-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false
+							},
+							"design:design:whitespace-sm:16:34": {
+								"uid": "351",
+								"name": "Whitespace - Small",
+								"type": "design",
+								"classes": "my-2",
+								"html": "<div class=\"my-2\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:10px; width:100%;\"></div>",
+								"droppable": true,
+								"position": 4,
+								"fullName": "design:design:whitespace-sm:16:34",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:24:49-1:1 column - 1 row:0",
+								"oldLoc": "bank"
+							},
+							"design:design:whitespace-xl:17:74": {
+								"uid": "354",
+								"name": "Whitespace - Extra Large",
+								"type": "design",
+								"classes": "py-5",
+								"html": "<div class=\"py-5\"></div>",
+								"preview": "<div style=\"border-style:dashed; height:50px; width:100%;\"></div>",
+								"droppable": false,
+								"position": 5,
+								"fullName": "design:design:whitespace-xl:17:74",
+								"primarytype": "design",
+								"newLoc": "design:columns:1 column - 1 row my-3:24:49-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"preserveRequired": true
+							},
+							"content:wysiwyg_basic:18:28": {
+								"icon": "outdent",
+								"name": "WYSIWYG",
+								"type": "wysiwyg_basic",
+								"html": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p>\n\tOur shelter can always use the following items:\n</p>\n\n<ul>\n\t<li>Towels &amp; Washcloths</li>\n\t<li>Twin Sheets (must be new in package)</li>\n\t<li>Blankets</li>\n\t<li>Pillows</li>\n\t<li>Underwear (Mens - Medium-3XL; Womens - M-XL) (must be new in package)</li>\n\t<li>Socks</li>\n\t<li>T-Shirts (Large-3XL)</li>\n\t<li>Toiletry items such as razors, shaving cream, soap, lotion, shampoo and conditioner, toothpaste, and toothbrushes</li>\n</ul>\n\n<p>\n\tIn-kind Donations can be dropped off at our Area Command location at 5525 Raby Rd, Norfolk, VA 23502 (Monday to Friday, 8 am to 4:30 pm)\n</p></div>",
+								"content": "<div style=\"color:#111111;\" class=\"rounded p-6 gap-3 bg-light text-dark\"><p>\n\tOur shelter can always use the following items:\n</p>\n\n<ul>\n\t<li>Towels &amp; Washcloths</li>\n\t<li>Twin Sheets (must be new in package)</li>\n\t<li>Blankets</li>\n\t<li>Pillows</li>\n\t<li>Underwear (Mens - Medium-3XL; Womens - M-XL) (must be new in package)</li>\n\t<li>Socks</li>\n\t<li>T-Shirts (Large-3XL)</li>\n\t<li>Toiletry items such as razors, shaving cream, soap, lotion, shampoo and conditioner, toothpaste, and toothbrushes</li>\n</ul>\n\n<p>\n\tIn-kind Donations can be dropped off at our Area Command location at 5525 Raby Rd, Norfolk, VA 23502 (Monday to Friday, 8 am to 4:30 pm)\n</p></div>",
+								"description": "Text with HTML references.",
+								"draggable": true,
+								"model": "6",
+								"position": 6,
+								"fullName": "content:wysiwyg_basic:18:28",
+								"htmlElement": "html",
+								"primarytype": "content",
+								"id": "content:wysiwyg_basic:18:28",
+								"styles": {},
+								"newLoc": "design:columns:1 column - 1 row my-3:24:49-1:1 column - 1 row:0",
+								"oldLoc": "bank",
+								"contentOverride": false,
+								"manualContent": "<div style=\"background-color:#FFFFFF;color:#111111;\" class=\"rounded p-6 gap-3\"><p>\n\tOur shelter can always use the following items:\n</p>\n\n<ul>\n\t<li>Towels &amp; Washcloths</li>\n\t<li>Twin Sheets (must be new in package)</li>\n\t<li>Blankets</li>\n\t<li>Pillows</li>\n\t<li>Underwear (Mens - Medium-3XL; Womens - M-XL) (must be new in package)</li>\n\t<li>Socks</li>\n\t<li>T-Shirts (Large-3XL)</li>\n\t<li>Toiletry items such as razors, shaving cream, soap, lotion, shampoo and conditioner, toothpaste, and toothbrushes</li>\n</ul>\n\n<p>\n\tIn-kind Donations can be dropped off at our Area Command location at 5525 Raby Rd, Norfolk, VA 23502 (Monday to Friday, 8 am to 4:30 pm)\n</p></div>"
+							}
+						},
+						"preserveClassName": false,
+						"skipClassSync": true,
+						"position": 0
+					}
+				},
+				"styles": {},
+				"preserveClassName": false,
+				"skipClassSync": true
+			}
+		}
+	}
+}
