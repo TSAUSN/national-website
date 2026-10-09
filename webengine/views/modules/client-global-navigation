@@ -2912,7 +2912,8 @@
       cookieManager.set(cookieKeys.classyOrganizationID, `{{$southOrgId}}`);
     } else if (zuid === territories.central) {
       setDonationUrlCookies(`{{$centralCampaignURL}}`, `{{$centralClassyDonation}}`);
-   
+
+      cookieManager.set(cookieKeys.volunteerUrl, `{{$centralVolunteer}}`);
       syncCentralVolunteerUrlFromCurrentProperty();
 
       cookieManager.set(cookieKeys.employmentUrl, `{{$centralEmployment}}`);
