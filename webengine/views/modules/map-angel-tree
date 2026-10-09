@@ -62,7 +62,7 @@
         </div>
       </div>
 
-      <div class="mb-6 d-none" id="angel-tree-search-controls">
+      <div class="mb-6" id="angel-tree-search-controls">
         <div class="d-flex gap-2 mb-2">
           <input
             type="text"
@@ -105,7 +105,7 @@
         <div class="map-loader__spinner"></div>
       </div>
       <div id="angel-tree-map-empty-state" class="position-absolute top-50 start-50 translate-middle text-center px-4" style="pointer-events:none;">
-        <p class="text-muted fw-semibold mb-0 bg-light bg-opacity-75 rounded-3 p-3">Choose how you'd like to give to see locations.</p>
+        <p class="text-muted fw-semibold mb-0 bg-light bg-opacity-75 rounded-3 p-3">Enter your city or Zip Code to see locations near you.</p>
       </div>
     </div>
   </div>
@@ -629,6 +629,33 @@ const selectRegistryType = async (type) => {
   }
 };
 
+// Loads the online registry dataset and enables search directly, skipping
+// the registry-type choice flow above (selectRegistryType/applyRegistryTypeSelectionUI)
+// since that toggle is hidden for now. Those functions are left in place for
+// when the in-store choice is re-enabled.
+const initOnlineRegistry = async () => {
+  activeRegistryType = REGISTRY_TYPE_ONLINE;
+
+  const heading = document.querySelector('#angel-tree-heading');
+  const loader = document.querySelector('.map-loader');
+  const submitBtn = document.querySelector('#angel-tree__search-btn');
+
+  if (heading) heading.textContent = REGISTRY_TYPE_CONFIG[REGISTRY_TYPE_ONLINE].headingText;
+  if (loader) loader.classList.remove('d-none');
+
+  try {
+    const processedData = await loadRegistryTypeData(REGISTRY_TYPE_ONLINE);
+    items = { processedData };
+
+    if (submitBtn) submitBtn.removeAttribute('disabled');
+    console.log(`Ready! Processed ${processedData.length} online locations.`);
+  } catch (error) {
+    console.error('Error loading registry data:', error);
+  } finally {
+    if (loader) loader.classList.add('d-none');
+  }
+};
+
 // Undoes the registry-type choice and returns the module to its initial
 // two-button state. The location the donor entered/allowed is kept in
 // memory (savedLocationInput) but stays hidden until a filter is chosen
@@ -845,6 +872,7 @@ const searchAngelTreeLocations = async () => {
   const loader = document.querySelector('.map-loader');
   const cardsContainer = document.querySelector('#angel-tree-result');
   const mapContentContainer = document.querySelector('#angel-tree-content');
+  const emptyState = document.querySelector('#angel-tree-map-empty-state');
   const input = document.querySelector("#angel-tree__input");
   const inputValue = input.value;
 
@@ -855,6 +883,7 @@ const searchAngelTreeLocations = async () => {
   cardsContainer.setAttribute('style', 'height: 400px; max-height: 400px;');
   cardsContainer.classList.remove('d-none');
   if (mapContentContainer) mapContentContainer.classList.add('d-none');
+  if (emptyState) emptyState.classList.add('d-none');
 
   if (loader) loader.classList.remove('d-none');
 
@@ -1043,11 +1072,11 @@ window.addEventListener('mapReady', (event) => {
       }
 
       angelTreeInputAddressSuggestion();
-      setupRegistryTypeToggle();
 
-      // Registry type filter is hidden for now — default straight to the
-      // online registry instead of waiting for a toggle click.
-      selectRegistryType(REGISTRY_TYPE_ONLINE);
+      // Registry type filter is hidden for now, so skip the choice flow
+      // (setupRegistryTypeToggle/selectRegistryType) and go straight to the
+      // online registry — the search interface is available immediately.
+      initOnlineRegistry();
     } catch (error) {
       console.error('Initialization error:', error);
     }
