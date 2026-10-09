@@ -265,6 +265,8 @@
 
   const national = `{{$nationalZUID}}`;
 
+  const TAGS_MODEL_ZUID = `6-aef7cebfd9-q7q7lh`;
+
   const territories = {
     west: `{{$westTerritoryZUID}}`,
     east: `{{$eastTerritoryZUID}}`,
@@ -2452,6 +2454,14 @@
 
         setLocationCookiesByTerritory(citiesTerritoryZUID);
         await setCodeCookie(citiesTerritoryZUID, models.territories);
+        break;
+
+      case TAGS_MODEL_ZUID: // Tags — reads the persisted location, never sets it
+        // Tags pages aren't themselves a location, so only default to National when
+        // nothing is persisted yet; otherwise leave the existing location cookies alone.
+        if (!cookieManager.get(cookieKeys.locationZUID)) {
+          await setNationalLocationCookies();
+        }
         break;
     }
     logCurrentDataLayerValues(`init-complete`, { source });
