@@ -1,15 +1,15 @@
-{{if {this.hero_image} && {this.title} }}
 <div
   class="featured-article bg-opacity-25 mb-4 position-relative rounded-5 position-relative overflow-hidden mb-15"
 >
   <img
     id="hero-full-image"
     class="w-100 rounded-5 object-fit-cover"
-    src="{{ this.hero_image.getImage() }}?width=1400&crop=3:1,smart"
-    srcset="{{ this.hero_image.getImage() }}?width=396&height=264&crop=3:2,smart 396w,
-            {{ this.hero_image.getImage() }}?width=1400&crop=3:1,smart 1400w"
+    src="{{if {this.hero_image} }}{{ this.hero_image.getImage() }}{{else}}{{ globals.default_og_image.getImage() }}{{/if}}?width=1400&crop=3:1,smart"
+    srcset="{{if {this.hero_image} }}{{ this.hero_image.getImage() }}{{else}}{{ globals.default_og_image.getImage() }}{{/if}}?width=396&height=264&crop=3:2,smart 396w,
+            {{if {this.hero_image} }}{{ this.hero_image.getImage() }}{{else}}{{ globals.default_og_image.getImage() }}{{/if}}?width=1400&crop=3:1,smart 1400w"
     sizes="(max-width: 768px) 396px, 1400px"
     alt="Featured Article"
+    onerror="this.onerror=null;this.srcset='';this.src='{{ globals.default_og_image.getImage() }}?width=1400&crop=3:1,smart';"
     fetchpriority="high"
     decoding="async"
     loading="eager"
@@ -30,4 +30,3 @@
     </div>
   </div>
 </div>
-{{/if}}

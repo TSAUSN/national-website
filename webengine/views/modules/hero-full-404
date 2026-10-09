@@ -6,6 +6,7 @@
     class="w-100 rounded-5 object-fit-cover"
     src="{{clippings.hero_fallback_image.getImage()}}"
     alt="Featured Article"
+    onerror="this.onerror=null;this.src='{{ globals.default_og_image.getImage() }}';"
     fetchpriority="high"
     decoding="async"
     loading="eager"

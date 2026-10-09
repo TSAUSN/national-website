@@ -6,6 +6,7 @@
     class="w-100 rounded-5 object-fit-cover states__banner"
     src="{{ this.image.getImage() }}"
     alt="Featured Article"
+    onerror="this.onerror=null;this.src='{{ globals.default_og_image.getImage() }}';"
     fetchpriority="high"
     decoding="async"
     loading="eager"
@@ -41,7 +42,7 @@
     resolveImages();
   {{else}}
     const imageDOM = document.querySelector('.states__banner');
-    imageDOM.setAttribute('src', {{this.image.getImage()})
+    imageDOM.setAttribute('src', '{{ this.image.getImage() }}')
   {{/if}}
   
 </script>
