@@ -2570,9 +2570,9 @@
     try {
       let response = await fetchInformation(`get-volunteer-page`, currentZUID, currentModel);
 
-      if (!(response && response.has_match) && currentModel !== models.territories) {
-        // No location/division-specific volunteer page — fall back to the
-        // volunteer page of the territory this property belongs to.
+      if (!(response && response.has_match && response.volunteer_url) && currentModel !== models.territories) {
+        // No usable location/division-specific volunteer page — fall back to
+        // the volunteer page of the territory this property belongs to.
         response = await fetchInformation(`get-volunteer-page`, territories.central, models.territories);
       }
 
