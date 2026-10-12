@@ -5,8 +5,9 @@
   <img
     id="hero-full-image"
     class="w-100 rounded-5 object-fit-cover"
-    src="{{ this.image.getImage() }}"
+    src="{{if {this.image} }}{{ this.image.getImage() }}{{else}}{{ globals.default_og_image.getImage() }}{{/if}}"
     alt="Featured Article"
+    onerror="this.onerror=null;this.src='{{ globals.default_og_image.getImage() }}' + (window.innerWidth <= 768 ? '?width=396&height=658&crop=3:2,smart' : '?width=1046&crop=3:1,smart');"
   />
   <div
     class="image-overlay position-absolute bg-opacity-50 bg-dark top-0 start-0 w-100 h-100"
@@ -51,13 +52,25 @@
 </div>
 <script>
   function setBannerImage() {
-    let bannerImage = '{{ this.image.getImage() }}';
+    // Fall back to the site-wide default hero image (globals.default_og_image)
+    // when the hero image field is empty, matching the pattern used in
+    // webengine/views/modules/hero and webengine/views/custom_head.
+    let bannerImage = '{{if {this.image} }}{{ this.image.getImage() }}{{else}}{{ globals.default_og_image.getImage() }}{{/if}}';
     let bannerImg = document.querySelector('#hero-full-image');
+    let fallbackImage = '{{ globals.default_og_image.getImage() }}';
     if (window.innerWidth <= 768) {
       bannerImage += '?width=396&height=658&crop=3:2,smart';
+      fallbackImage += '?width=396&height=658&crop=3:2,smart';
     } else {
       bannerImage += '?width=1046&crop=3:1,smart';
+      fallbackImage += '?width=1046&crop=3:1,smart';
     }
+    // If the resolved image (existing or freshly swapped) 404s/fails to load,
+    // swap to the fallback so the crop params don't clobber the empty-state image.
+    bannerImg.onerror = function () {
+      this.onerror = null;
+      this.src = fallbackImage;
+    };
     bannerImg.setAttribute('src', bannerImage);
   }
 
