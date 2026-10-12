@@ -39,7 +39,6 @@
           "divisions": "{{stat.divisions}}",
           "locations": "{{stat.locations}}",
           "image": "{{stat.image.getImage()}}",
-          "source_url": "{{stat.source_url.escapeForJs()}}",
           "relatedUrl": "{{ truepath({stat.related_service}) }}"
         }{{stat._arraycomma}}
       {{/each}}
@@ -57,7 +56,6 @@
           "divisions": "{{stat.divisions}}",
           "locations": "{{stat.locations}}",
           "image": "{{stat.image.getImage()}}",
-          "source_url": "{{stat.source_url.escapeForJs()}}",
           "relatedUrl": "{{ truepath({stat.related_service}) }}"
         }{{stat._arraycomma}}
       {{/each}}
@@ -75,7 +73,6 @@
           "divisions": "{{stat.divisions}}",
           "locations": "{{stat.locations}}",
           "image": "{{stat.image.getImage()}}",
-          "source_url": "{{stat.source_url.escapeForJs()}}",
           "relatedUrl": "{{ truepath({stat.related_service}) }}"
         }{{stat._arraycomma}}
       {{/each}}
@@ -93,7 +90,6 @@
           "divisions": "{{stat.divisions}}",
           "locations": "{{stat.locations}}",
           "image": "{{stat.image.getImage()}}",
-          "source_url": "{{stat.source_url.escapeForJs()}}",
           "relatedUrl": "{{ truepath({stat.related_service}) }}"
         }{{stat._arraycomma}}
       {{/each}}
@@ -126,7 +122,6 @@
           "divisions": "{{stat.divisions}}",
           "locations": "{{stat.locations}}",
           "image": "{{stat.image.getImage()}}",
-          "source_url": "{{stat.source_url.escapeForJs()}}",
           "relatedUrl": "{{ truepath({stat.related_service}) }}"
         }{{stat._arraycomma}}
       {{/each}}
@@ -144,7 +139,6 @@
           "divisions": "{{stat.divisions}}",
           "locations": "{{stat.locations}}",
           "image": "{{stat.image.getImage()}}",
-          "source_url": "{{stat.source_url.escapeForJs()}}",
           "relatedUrl": "{{ truepath({stat.related_service}) }}"
         }{{stat._arraycomma}}
       {{/each}}
@@ -162,7 +156,6 @@
           "divisions": "{{stat.divisions}}",
           "locations": "{{stat.locations}}",
           "image": "{{stat.image.getImage()}}",
-          "source_url": "{{stat.source_url.escapeForJs()}}",
           "relatedUrl": "{{ truepath({stat.related_service}) }}"
         }{{stat._arraycomma}}
       {{/each}}
@@ -190,7 +183,6 @@
           "divisions": "{{stat.divisions}}",
           "locations": "{{stat.locations}}",
           "image": "{{stat.image.getImage()}}",
-          "source_url": "{{stat.source_url.escapeForJs()}}",
           "relatedUrl": "{{ truepath({stat.related_service}) }}"
         }{{stat._arraycomma}}
       {{/each}}
@@ -208,7 +200,6 @@
           "divisions": "{{stat.divisions}}",
           "locations": "{{stat.locations}}",
           "image": "{{stat.image.getImage()}}",
-          "source_url": "{{stat.source_url.escapeForJs()}}",
           "relatedUrl": "{{ truepath({stat.related_service}) }}"
         }{{stat._arraycomma}}
       {{/each}}
@@ -230,7 +221,6 @@
           "divisions": "{{stat.divisions}}",
           "locations": "{{stat.locations}}",
           "image": "{{stat.image.getImage()}}",
-          "source_url": "{{stat.source_url.escapeForJs()}}",
           "relatedUrl": "{{ truepath({stat.related_service}) }}"
         }{{stat._arraycomma}}
     {{/each}}
