@@ -64,20 +64,22 @@
 
       <div class="mb-6" id="angel-tree-search-controls">
         <div class="d-flex gap-2 mb-2">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Enter your city or Zip Code"
-            aria-label="Enter your city or Zip Code"
-            id="angel-tree__input"
-            data-search-term-type=""
-            data-search-results-type=""
-            data-search-type="location search - body"
-            data-search-method-type="user-entered"
-            data-search-filter-type="Services"
-            data-search-filter-value-type=""
-            onkeydown="if(event.key === 'Enter') { searchAngelTreeLocations(); event.preventDefault(); }"
-          >
+          <div class="position-relative flex-grow-1">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter your city or Zip Code"
+              aria-label="Enter your city or Zip Code"
+              id="angel-tree__input"
+              data-search-term-type=""
+              data-search-results-type=""
+              data-search-type="location search - body"
+              data-search-method-type="user-entered"
+              data-search-filter-type="Services"
+              data-search-filter-value-type=""
+              onkeydown="if(event.key === 'Enter') { searchAngelTreeLocations(); event.preventDefault(); }"
+            >
+          </div>
           <button id="angel-tree__search-btn" class="btn btn-primary text-nowrap" onclick="searchAngelTreeLocations()" disabled>
             Search
           </button>
@@ -426,15 +428,15 @@ const generateCards = (locations, registryType, analyticsObject) => {
     return `<div class="angel-tree__items card mb-2 mt-2" data-id="${index}" data-type="${registryType}">
       <div class="card-body">
         <span class="badge mb-2" style="background-color:${config.color}">${config.badgeLabel}</span>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="col-7 justify-content-center">
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
+          <div class="col-12 col-sm-7 justify-content-center">
             <h5 class="card-title fw-bold text-secondary-200 mb-1 display-2">
               ${location.displayName}
             </h5>
             <p class="text-muted mb-0 display-3">${location.fullAddress}</p>
             <p class="text-muted mb-0 display-3">${location.distanceFromCenter} mi away</p>
           </div>
-          <div class="col-5 text-end justify-content-center">
+          <div class="col-12 col-sm-5 text-sm-end justify-content-center">
             ${cta}
           </div>
         </div>
@@ -858,7 +860,7 @@ const handleUseMyLocation = async () => {
       button.innerHTML = `
         <span class="material-symbols-outlined me-2">
           my_location
-        </span> Use My Location
+        </span> Use my location
       `;
     }
 
@@ -939,6 +941,8 @@ function angelTreeInputAddressSuggestion() {
     autocompleteContainer.className = 'autocomplete-dropdown-container-angel-tree';
     autocompleteContainer.style.cssText = `
       position: absolute;
+      top: 100%;
+      left: 0;
       z-index: 1050;
       background: white;
       border: 1px solid #d1d5db;
@@ -1054,6 +1058,14 @@ function angelTreeInputAddressSuggestion() {
 
     document.addEventListener('click', function (e) {
       if (e.target !== input && !autocompleteContainer.contains(e.target)) {
+        autocompleteContainer.style.display = 'none';
+      }
+    });
+
+    // Hide the dropdown so it doesn't stay open covering the results after
+    // the Enter-triggered search in the input's onkeydown attribute fires.
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
         autocompleteContainer.style.display = 'none';
       }
     });
