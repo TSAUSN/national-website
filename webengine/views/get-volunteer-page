@@ -1,6 +1,6 @@
 {{$zuid = {request.queryParam(zuid)} }}
 {{$model = {request.queryParam(model)} }}
-{{$volunteerPageZUID = "" }}
+{{$volunteerPageZUID = null }}
 {{$fallbackPageZUID = "" }}
 {{$matchedOn = "" }}
 {{$fallbackMatchedOn = "" }}
