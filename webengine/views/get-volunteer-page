@@ -2,34 +2,53 @@
 {{$model = {request.queryParam(model)} }}
 {{$volunteerPageZUID = "" }}
 {{$matchedOn = "" }}
-{{$centralFallbackURL = {truepath(7-b0e2afd6f9-t0dckq)} }}
+{{$locationZUID = "" }}
+{{$divisionZUID = "" }}
+{{$territoryZUID = "" }}
+{{$nationalVolunteerURL = {truepath(7-d8b3f99bc0-707gmt)} }}
 
 {{if {$zuid} && {$model} }}
+
   {{if {$model} == "6-b4c9aba69c-h2nqvm" || {$model} == "locations" }}
-    {{each volunteer_pages as volunteerPage WHERE location = '{$zuid}' LIMIT 1 }}
+    {{$locationZUID = {$zuid} }}
+    {{$divisionZUID = {locations.filter({$zuid}).division} }}
+    {{$territoryZUID = {locations.filter({$zuid}).territory} }}
+  {{else-if {$model} == "6-acb19a94bd-4q8ftj" || {$model} == "divisions" }}
+    {{$divisionZUID = {$zuid} }}
+    {{$territoryZUID = {divisions.filter({$zuid}).territory} }}
+  {{else-if {$model} == "6-deab97cfd9-wb5km4" || {$model} == "territories" }}
+    {{$territoryZUID = {$zuid} }}
+  {{/if}}
+
+  {{if {$locationZUID} }}
+    {{each volunteer_pages as volunteerPage WHERE location = '{$locationZUID}' LIMIT 1 }}
       {{$volunteerPageZUID = {volunteerPage.zuid} }}
       {{$matchedOn = "location" }}
     {{/each}}
+  {{/if}}
 
-  {{else-if {$model} == "6-acb19a94bd-4q8ftj" || {$model} == "divisions" }}
-    {{each volunteer_pages as volunteerPage WHERE division = '{$zuid}' AND location is null LIMIT 1 }}
+  {{if {$volunteerPageZUID} == "" && {$divisionZUID} }}
+    {{each volunteer_pages as volunteerPage WHERE division = '{$divisionZUID}' AND location is null LIMIT 1 }}
       {{$volunteerPageZUID = {volunteerPage.zuid} }}
       {{$matchedOn = "division" }}
     {{/each}}
+  {{/if}}
 
-  {{else-if {$model} == "6-deab97cfd9-wb5km4" || {$model} == "territories" }}
-    {{each volunteer_pages as volunteerPage WHERE territory = '{$zuid}' AND division is null AND location is null LIMIT 1 }}
+  {{if {$volunteerPageZUID} == "" && {$territoryZUID} }}
+    {{each volunteer_pages as volunteerPage WHERE territory = '{$territoryZUID}' AND division is null AND location is null LIMIT 1 }}
       {{$volunteerPageZUID = {volunteerPage.zuid} }}
       {{$matchedOn = "territory" }}
     {{/each}}
-{{/if}}
+  {{/if}}
+
 {{/if}}
 
 {
   "requested_zuid": "{{$zuid}}",
   "requested_model": "{{$model}}",
   "has_match": {{if {$volunteerPageZUID} != "" }}true{{else}}false{{/if}},
+  "matched_on": "{{$matchedOn}}",
   "volunteer_page_zuid": "{{$volunteerPageZUID}}",
-  "volunteer_url": "{{if {$volunteerPageZUID} }}{{truepath({$volunteerPageZUID})}}{{else}}{{$centralFallbackURL}}{{/if}}",
-  "fallback_url": "{{$centralFallbackURL}}"
+  "volunteer_url": "{{if {$volunteerPageZUID} }}{{truepath({$volunteerPageZUID})}}{{else}}{{$nationalVolunteerURL}}{{/if}}",
+  "fallback_url": "{{$nationalVolunteerURL}}"
 }

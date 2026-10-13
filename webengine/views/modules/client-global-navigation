@@ -2564,23 +2564,22 @@
     const currentModel = cookieManager.get(cookieKeys.locationModel);
 
     if (!currentZUID || !currentModel) {
+      cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
       return;
     }
 
     try {
-      let response = await fetchInformation(`get-volunteer-page`, currentZUID, currentModel);
+      // get-volunteer-page.json walks location -> division -> territory and
+      // falls back to the national volunteer page itself, so a single call
+      // here is enough; volunteer_url is never empty.
+      const response = await fetchInformation(`get-volunteer-page`, currentZUID, currentModel);
 
-      if (!(response && response.has_match && response.volunteer_url) && currentModel !== models.territories) {
-        // No usable location/division-specific volunteer page — fall back to
-        // the volunteer page of the territory this property belongs to.
-        response = await fetchInformation(`get-volunteer-page`, territories.central, models.territories);
-      }
-
-      if (response && response.volunteer_url) {
-        cookieManager.set(cookieKeys.volunteerUrl, response.volunteer_url);
-      }
+      cookieManager.set(
+        cookieKeys.volunteerUrl,
+        (response && response.volunteer_url) || `{{$nationalVolunteer}}`
+      );
     } catch (err) {
-      // Keep previously set central fallback when endpoint lookup fails.
+      cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
     }
   }
 
