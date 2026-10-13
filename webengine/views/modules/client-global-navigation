@@ -2579,7 +2579,7 @@
         : response.volunteer_page_zuid
         ? response.volunteer_url
         : response.fallback_url;
-      console.log("Volunteer URL:", resolvedVolunteerUrl);
+      console.log("Volunteer URL:", resolvedVolunteerUrl, response);
       cookieManager.set(cookieKeys.volunteerUrl, resolvedVolunteerUrl || `{{$nationalVolunteer}}`);
     } catch (err) {
       cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
