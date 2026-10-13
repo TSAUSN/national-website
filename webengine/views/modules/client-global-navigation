@@ -2569,15 +2569,18 @@
     }
 
     try {
-      // get-volunteer-page.json walks location -> division -> territory and
-      // falls back to the national volunteer page itself, so a single call
-      // here is enough; volunteer_url is never empty.
+      // get-volunteer-page.json returns volunteer_page_zuid (the location's
+      // own page, if any) and fallback_url (the division/territory/national
+      // walk). If the location has no page of its own, use the fallback.
       const response = await fetchInformation(`get-volunteer-page`, currentZUID, currentModel);
 
-      cookieManager.set(
-        cookieKeys.volunteerUrl,
-        (response && response.volunteer_url) || `{{$nationalVolunteer}}`
-      );
+      const resolvedVolunteerUrl = !response
+        ? null
+        : response.volunteer_page_zuid
+        ? response.volunteer_url
+        : response.fallback_url;
+
+      cookieManager.set(cookieKeys.volunteerUrl, resolvedVolunteerUrl || `{{$nationalVolunteer}}`);
     } catch (err) {
       cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
     }
