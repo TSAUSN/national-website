@@ -58,7 +58,7 @@
   "requested_model": "{{$model}}",
   "has_match": {{if {$volunteerPageZUID} }}true{{else}}false{{/if}},
   "matched_on": "{{$matchedOn}}",
-  "volunteer_page_zuid": "{{if {$volunteerPageZUID} }}{{$volunteerPageZUID}}{{/if}}",
+  "volunteer_page_zuid": {{if {$volunteerPageZUID} }}{{$volunteerPageZUID}}{{/if}},
   "volunteer_url": "{{if {$volunteerPageZUID} }}{{truepath({$volunteerPageZUID})}}{{else}}{{$nationalVolunteerURL}}{{/if}}",
   "fallback_url": "{{if {$fallbackPageZUID} }}{{truepath({$fallbackPageZUID})}}{{else}}{{$nationalVolunteerURL}}{{/if}}"
 }
