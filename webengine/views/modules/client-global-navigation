@@ -2562,7 +2562,7 @@
   async function syncCentralVolunteerUrlFromCurrentProperty() {
     const currentZUID = cookieManager.get(cookieKeys.locationZUID);
     const currentModel = cookieManager.get(cookieKeys.locationModel);
-
+    console.log("PARAMS:",currentZUID, currentModel );
     if (!currentZUID || !currentModel) {
       cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
       return;
@@ -2579,7 +2579,7 @@
         : response.volunteer_page_zuid
         ? response.volunteer_url
         : response.fallback_url;
-
+      console.log("Volunteer URL:", resolvedVolunteerUrl);
       cookieManager.set(cookieKeys.volunteerUrl, resolvedVolunteerUrl || `{{$nationalVolunteer}}`);
     } catch (err) {
       cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
