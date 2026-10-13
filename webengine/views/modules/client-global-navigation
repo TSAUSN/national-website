@@ -2058,7 +2058,7 @@
           }
           await setCodeCookie(`{{!this.division}}`, models.divisions);
         } else if (territoryRelational) {
-          cookieManager.set(cookieKeys.locationModel, models.territories);
+          cookieManager.set(cookieKeys.locationModel, `6-deab97cfd9-wb5km4`);
           cookieManager.set(cookieKeys.locationZUID, `{{!this.territory}}`);
           cookieManager.set(cookieKeys.locationHomeURL, `{{truepath({!this.territory})}}`);
           cookieManager.set(

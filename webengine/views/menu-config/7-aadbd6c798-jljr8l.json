@@ -14,27 +14,73 @@
     "parent": null
   },
   {
+    "type": "view-all",
+    "page_name": "Worship Services",
+    "page-zuid": "7-9ce4b98f89-nln4zs",
+    "parent": "services"
+  },
+  {
     "type": "menu",
     "key": null,
-    "page_name": "Food Pantries",
-    "page-zuid": "7-84a2e5e382-lgq0zx",
+    "page_name": "Youth Programs",
+    "page-zuid": "7-8cf4ccb88f-fzp5p9",
     "sort": 0,
     "parent": "services"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Youth Services",
-    "page-zuid": "7-8cf4ccb88f-fzp5p9",
+    "page_name": "Worship Services",
+    "page-zuid": "7-9ce4b98f89-nln4zs",
     "sort": 1,
     "parent": "services"
   },
   {
     "type": "menu",
     "key": null,
-    "page_name": "Spiritual and Worship Services",
-    "page-zuid": "7-9ce4b98f89-nln4zs",
+    "page_name": "Holiday Giving",
+    "page-zuid": "7-a2cfbfd0f7-rqxznq",
     "sort": 2,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Men's Ministry",
+    "page-zuid": "7-e29d8bb4c8-xr83b8",
+    "sort": 3,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Food Pantries and Hunger Relief",
+    "page-zuid": "7-bcce968aec-q32nk0",
+    "sort": 4,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Adult Program Services",
+    "page-zuid": "7-86d0f2cdd9-htdqxq",
+    "sort": 5,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Giving Back",
+    "page-zuid": "7-b695b4cae8-7k7lvt",
+    "sort": 6,
+    "parent": "services"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Family Services",
+    "page-zuid": "7-92a0d9ce86-9gkshq",
+    "sort": 7,
     "parent": "services"
   },
   {
@@ -55,8 +101,8 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "Commitment to all",
-    "page-zuid": "7-90eff9e999-tpj14d",
+    "page_name": "History",
+    "page-zuid": "7-b8c09b84c2-fp57hm",
     "sort": 1,
     "parent": "about_us"
   },
@@ -71,17 +117,9 @@
   {
     "type": "menu",
     "key": null,
-    "page_name": "History",
-    "page-zuid": "7-b8c09b84c2-fp57hm",
+    "page_name": "Commitment to all",
+    "page-zuid": "7-90eff9e999-tpj14d",
     "sort": 3,
-    "parent": "about_us"
-  },
-  {
-    "type": "menu",
-    "key": null,
-    "page_name": "Employment Opportunities",
-    "page-zuid": "7-f8a8bcdbd3-2vljtw",
-    "sort": 4,
     "parent": "about_us"
   },
   {
@@ -89,21 +127,29 @@
     "key": null,
     "page_name": "Give With Joy",
     "page-zuid": "give_with_joy",
+    "sort": 4,
+    "parent": "about_us"
+  },
+  {
+    "type": "menu",
+    "key": null,
+    "page_name": "Employment Opportunities",
+    "page-zuid": "7-f8a8bcdbd3-2vljtw",
     "sort": 5,
     "parent": "about_us"
   },
   {
     "type": "menu",
     "key": "events",
-    "page_name": "TUSTIN RANCH, CA: Corps Community Center",
-    "page-zuid": "7-ea98b6e5c8-b9t3m2",
+    "page_name": "Events",
+    "page-zuid": null,
     "parent": null
   },
   {
     "type": "menu",
     "key": "newsroom",
-    "page_name": "TUSTIN RANCH, CA: Corps Community Center",
-    "page-zuid": "7-9cf799e7a3-mjh045",
+    "page_name": "Newsroom",
+    "page-zuid": null,
     "parent": null
   },
   {
@@ -173,7 +219,7 @@
     "type": "menu",
     "key": "contact_us",
     "page_name": "Contact Us",
-    "page-zuid": "7-f697c0f7dd-hp97c9",
+    "page-zuid": null,
     "parent": null
   }
 ]

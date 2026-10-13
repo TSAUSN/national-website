@@ -13,76 +13,34 @@
 <p style="text-align: center;">Inclusion in a post-event thank-you email to attendees</p>
 <p class="cta-button-group d-flex flex-wrap gap-2 my-3 justify-content-center" style="text-align: center;"><a class="btn btn-secondary gap-1 mt-2" href="https://forms.cloud.microsoft/r/qB6jPsfB0J" target="_blank" rel="noopener">Silent Auction Donation Form</a><span style="font-size: 20px;"></span></p>
 </div></div>
+			<h3 style="text-align:center">Thank You To Our 2026 Sponsors</h3>
 			<div class="py-5"></div>
-			<div class="py-5"></div>
-			<div class="pvlRichtext rounded p-6 gap-3 bg-light text-dark" style="color:#111111"><div class="rounded p-6 gap-3 bg-light text-dark" style="color: #111111;">
-<h5 style="text-align: center;">Thank You to Our 2026 Sponsors</h5>
-<div class="btgrid">
-<div class="row row-2">
-<div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content">
-<p></p>
-</div>
-</div>
-</div>
-<div class="row row-3">
-<div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content">
-<p></p>
-</div>
-</div>
-<div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content">
-<p></p>
-</div>
-</div>
-<div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content">
-<p></p>
-</div>
-</div>
-</div>
-</div>
-<div class="btgrid">
-<div class="row row-1">
-<div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content">
-<p></p>
-</div>
-</div>
-<div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content">
-<p></p>
-</div>
-</div>
-<div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content">
-<p></p>
-</div>
-</div>
-</div>
-<div class="row row-2">
-<div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content">
-<p></p>
-</div>
-</div>
-<div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content">
-<p></p>
-<p></p>
-</div>
-</div>
-<div class="col col-md-4 col-lg-4 col-sm-12 col-xs-12">
-<div class="content">
-<p></p>
-<p></p>
-</div>
-</div>
-</div>
-</div>
-<p style="text-align: center;"><span style="font-size: 20px;"></span></p>
-</div></div>
+			<div class="row my-3">
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<img width="100%" src="https://8hxvw8tw.media.zestyio.com/townebank-blue-logo.jpeg" alt="placeholder" style="display:block;margin-left:auto;margin-right:auto;object-fit:fill">
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Johns-Brothers-green-logo-.jpeg" alt="placeholder">
+				</div>
+			</div>
+			<div style="display:flex" className={`${styles.pvlRow} row`}>
+				<div style="flex:1" className={`${styles.pvlColumn} column`}>
+					<img width="100%" src="https://8hxvw8tw.media.zestyio.com/AGI-logo.png" alt="placeholder">
+				</div>
+				<div style="flex:1" className={`${styles.pvlColumn} column`}>
+					<img width="100%" src="https://8hxvw8tw.media.zestyio.com/Towne_Wealth_Management_Centered_Raymond_James_Blue.png" alt="placeholder">
+				</div>
+				<div style="flex:1" className={`${styles.pvlColumn} column`}>
+					<img width="100%" src="/images/images-placeholder.jpg" alt="placeholder">
+					<img width="100%" src="/images/images-placeholder.jpg" alt="placeholder">
+					<img width="100%" src="/images/images-placeholder.jpg" alt="placeholder">
+				</div>
+				<div style="flex:1" className={`${styles.pvlColumn} column`}>
+					<img width="100%" src="/images/images-placeholder.jpg" alt="placeholder">
+					<img width="100%" src="/images/images-placeholder.jpg" alt="placeholder">
+					<img width="100%" src="/images/images-placeholder.jpg" alt="placeholder">
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
