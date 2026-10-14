@@ -1,0 +1,68 @@
+{{$tagID = {request.queryParam(tag)} }}
+{{$property = {request.queryParam(property)} }}
+{{$propertyModel = {request.queryParam(model)} }}
+{{$name = {request.queryParam(name)} }}
+{{$divisioModelZUID = 6-acb19a94bd-4q8ftj}}
+{{$territoryModelZUID = 6-deab97cfd9-wb5km4}}
+{{$locationModelZUID = 6-b4c9aba69c-h2nqvm}}
+{{$totalItems = 0}}
+{{$whereProperty = }}
+{{$nameQuery = }}
+
+{{if {request.queryParam(skip)} }}
+  {{$skip = {request.queryParam(skip)} }}
+{{else}}
+  {{$skip = 0}}
+{{end-if}}
+
+{{if {request.queryParam(limit)} }}
+  {{$limit = {request.queryParam(limit)} }}
+{{else}}
+  {{$limit = 10}}
+{{end-if}}
+
+{{if {$name} }}
+  {{$nameQuery = AND title LIKE "%{$name}%" }}
+{{end-if}}
+
+{{if {$propertyModel} == {$locationModelZUID} }}
+  {{$whereProperty = AND find_in_set('{$property}', property) }}
+{{else if {$propertyModel} == {$divisioModelZUID} }}
+  {{$whereProperty = AND find_in_set('{$property}', divisions) }}
+{{else if {$propertyModel} == {$territoryModelZUID} }}
+  {{$whereProperty = AND find_in_set('{$property}', territory) }}
+{{else}}
+  {{$whereProperty = }}
+{{end-if}}
+
+{{each stories as storiescounter WHERE find_in_set('{$tagID}', article_tags) {$whereProperty} {$nameQuery} }}
+  {{$totalItems = {storiescounter._num} }}
+{{/each}}
+
+{
+  "data":
+  [
+    {{ each stories as story WHERE find_in_set('{$tagID}', article_tags) {$whereProperty} {$nameQuery} LIMIT {$skip}, {$limit} }}
+      {
+        "title": "{{story.title.htmlentities()}}",
+        "date": "{{story.story_date_picker.date(Y-m-d)}}",
+        "image": "{{story.image.getImage()}}",
+        "body": "{{story.body.escapeForJs() }}",
+        "url": "https://{{instance.domain}}{{story.getUrl()}}",
+        "external_url": "{{story.external_url}}",
+        "seo_meta_description": "{{story.seo_meta_description.htmlentities().escapeForJs()}}",
+        "author": "{{story.author}}",
+        "property": "{{story.property}}",
+        "divisions": "{{story.divisions}}",
+        "territory": "{{story.territory}}"
+      }{{story._arraycomma}}
+    {{/each}}
+  ],
+  "totalItems": {{$totalItems}},
+  "initialReturn": 1,
+  "modelJumpedName": "",
+  "modelJumped": "",
+  "modelJumpedZuid": "",
+  "modelJumpedNewsroomUrl": ""
+}
+ 
