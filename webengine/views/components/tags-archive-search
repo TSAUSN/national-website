@@ -1,0 +1,129 @@
+<div class="container mt-4 tags-archive-search">
+    <h2 class="mb-4 fs-4">{{this.name}}</h2>
+    <div class="row">
+        <div class="col-12">
+            <form id="tagsSearchForm">
+                <div class="row g-3">
+                    <div class="row g-3 d-flex align-items-center justify-content-between bg-light p-6 rounded-5">
+                        <h2 class="fs-7 text-dark-100 mb-4">Search {{this.name}}</h2>
+                        <!-- Search Input -->
+                        <div class="col-md-10 mt-0 mb-sm-4">
+                            <label for="searchTags" class="form-label text-dark-100">Search Tags</label>
+                            <div class="input-group">
+                                <div class="input-group-text ps-4 pe-0 rounded-start-2">
+                                    <span class="material-symbols-outlined">
+                                        search
+                                        </span>
+                                </div>
+                                <input type="text" class="form-control p-4 rounded-end-2" id="searchTags" placeholder="&quot;Disaster Relief&quot;">
+                            </div>
+                        </div>
+
+                        <!-- Content Type Filter -->
+                        <div class="d-none col-md-5 mt-0 mb-sm-4">
+                            <label class="form-label">Filter by Content Type</label>
+                            <div class="custom-select-wrapper">
+                                <input type="hidden" id="tagsContentType" name="tagsContentType" value="" placeholder="">
+                                <input type="hidden" id="tagsSelectedDate" name="tagsSelectedDate" value="">
+                                <div class="custom-select-trigger bg-area p-4 rounded-2" tabindex="0" role="combobox" aria-haspopup="listbox" aria-expanded="false">
+                                    <span class="selected-text">Select Content Type</span>
+                                    <i class="bi bi-chevron-right arrow"></i>
+                                </div>
+                                <div class="custom-options bg-area rounded-5 p-1" role="listbox">
+                                    <div class="option parent-option rounded-18 d-flex align-items-center" role="option" tabindex="0" data-value="most-recent">
+                                        <span class="material-symbols-outlined text-primary-200 me-3">
+                                        alarm
+                                        </span>
+                                        <span class="option__text">Most Recent</span>
+                                    </div>
+
+                                    <div class="option parent-option rounded-18 d-flex align-items-center" role="option" tabindex="0">
+                                        <span class="material-symbols-outlined text-primary-200 me-3">
+                                        category
+                                        </span>
+                                        <span class="option__text">Categories</span>
+                                    </div>
+                                    <div class="child-options" id="tagsCategoryOptions">
+                                        <!-- Categories will be dynamically populated here -->
+                                    </div>
+
+                                    <!-- <div class="option parent-option rounded-18 d-flex align-items-center" role="option" tabindex="0">
+                                        <span class="material-symbols-outlined text-primary-200 me-3">
+                                        location_on
+                                        </span>
+                                        <span class="option__text">Location</span>
+                                    </div> -->
+
+                                    <div class="option parent-option rounded-18 d-flex align-items-center" role="option" tabindex="0" data-value="date">
+                                        <span class="material-symbols-outlined text-primary-200 me-3">
+                                        calendar_month
+                                        </span>
+                                        <span class="option__text">Date</span>
+                                    </div>
+                                    <div class="child-options" id="tagsDatePickerOptions">
+                                        <div id="tagsDatepicker" class="datepicker-inline py-4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Search Button -->
+                        <div class="col-lg-2 col-md-12 mt-2">
+                            <button id="search-tags-button" type="submit"
+                            class="btn btn-primary px-4 py-4 display-2 w-100" style="background-color: #002A5C; border-color: #002A5C;">Search</button>
+                        </div>
+
+                        <!-- Show All Locations Toggle -->
+                        <div class="col-12 mt-2 form-check">
+                            <input class="form-check-input" type="checkbox" id="showAllLocationsTags">
+                            <label class="form-check-label text-dark-100" for="showAllLocationsTags">
+                                Show stories from all locations
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Results Container -->
+            <div id="tagsSearchResults" class="mt-8">
+                <!-- Results will be dynamically inserted here -->
+                {{ include /components/tags-archive-list }}
+            </div>
+        </div>
+        <div id="parent-tags" class="col-12 mt-15 d-none">
+            <div class="d-inline-flex align-items-center justify-content-between w-100">
+                <h4 class="parent-tags__heading"></h4>
+                <a id="parent-tags__link" href="" class="d-flex align-items-center text-dark-50 text-decoration-none"><span>View More</span>
+                    <span class="material-symbols-outlined ms-2 fs-7 text-dark-50"> arrow_outward </span>
+                </a>
+            </div>
+
+            <div class="tags-cards-swiper">
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.datepicker-inline {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+</style>
+
+
+<script>
+    const searchTagsButton = document.getElementById("search-tags-button");
+    const tagsSearchInput = document.getElementById("searchTags");
+
+    // searchTagsButton.addEventListener("click", () =>{
+    //     console.log(tagsSearchInput.value)
+    //     utag.link({
+    //         event: 'tags_search',
+    //         tags_search_term: tagsSearchInput.value,
+    //         tags_search_filter_type: null,
+    //         tags_search_filter_value: null,
+    //     })
+    // })
+</script>
