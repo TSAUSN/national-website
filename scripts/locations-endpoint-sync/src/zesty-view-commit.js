@@ -25,15 +25,18 @@ async function putViewCode(viewZuid, code, publish) {
   );
 }
 
-// Writes the rebuilt locations JSON to both the live view (LOCATIONS_VIEW_ZUID, publishing
-// unless `publish: false`) and the dev view (LOCATIONS_VIEW_DEV_ZUID, always draft-only -
-// the dev domain serves draft content, so it never needs publishing).
+// Writes the rebuilt locations JSON to the dev view (LOCATIONS_VIEW_DEV_ZUID, always
+// draft-only - the dev domain serves draft content, so it never needs publishing) and,
+// only when `publish` is true, to the live view (LOCATIONS_VIEW_ZUID). The live view is
+// skipped entirely on non-publishing triggers so it doesn't accumulate unpublished draft
+// versions from updates that aren't meant to go live yet.
 async function updateLocationsView(data, { publish = true } = {}) {
   const code = JSON.stringify(data, null, 2);
-  await Promise.all([
-    putViewCode(LOCATIONS_VIEW_ZUID, code, publish),
-    putViewCode(LOCATIONS_VIEW_DEV_ZUID, code, false),
-  ]);
+  const writes = [putViewCode(LOCATIONS_VIEW_DEV_ZUID, code, false)];
+  if (publish) {
+    writes.push(putViewCode(LOCATIONS_VIEW_ZUID, code, publish));
+  }
+  await Promise.all(writes);
 }
 
 module.exports = { updateLocationsView };
