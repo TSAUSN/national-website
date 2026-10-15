@@ -1,5 +1,6 @@
-// Writes the rebuilt locations JSON straight into a Zesty.io view file via the Instances API
-// (PUT the view's code, publishing it immediately), replacing the old GitHub Contents API commit.
+// Writes the rebuilt locations JSON straight into Zesty.io view files via the Instances API
+// (PUT the view's code): always the dev view as a draft, plus the live view - published with a
+// cache purge - only for live-affecting triggers. Replaces the old GitHub Contents API commit.
 const axios = require('axios');
 
 const INSTANCE_ZUID = process.env.INSTANCE_ZUID;
@@ -29,14 +30,17 @@ async function putViewCode(viewZuid, code, publish) {
 // draft-only - the dev domain serves draft content, so it never needs publishing) and,
 // only when `publish` is true, to the live view (LOCATIONS_VIEW_ZUID). The live view is
 // skipped entirely on non-publishing triggers so it doesn't accumulate unpublished draft
-// versions from updates that aren't meant to go live yet.
+// versions from updates that aren't meant to go live yet. Resolves to the view zuids written.
 async function updateLocationsView(data, { publish = true } = {}) {
   const code = JSON.stringify(data, null, 2);
+  const viewZuids = [LOCATIONS_VIEW_DEV_ZUID];
   const writes = [putViewCode(LOCATIONS_VIEW_DEV_ZUID, code, false)];
   if (publish) {
+    viewZuids.push(LOCATIONS_VIEW_ZUID);
     writes.push(putViewCode(LOCATIONS_VIEW_ZUID, code, publish));
   }
   await Promise.all(writes);
+  return viewZuids;
 }
 
 module.exports = { updateLocationsView };
