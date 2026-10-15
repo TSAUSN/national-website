@@ -34,6 +34,10 @@
   align-items: stretch;
 }
 
+ .featured-article img {
+  max-height: 640px;
+}
+
 @media (min-width: 1200px) {
   #hero .hero-section {
     grid-template-columns: 3fr 1fr;

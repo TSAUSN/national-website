@@ -369,15 +369,16 @@
   const generateDirectionsLinks = (address, analyticsData) => {
     const encoded = encodeURIComponent(address);
     const analyticsAttrs = analyticsData ? `
-      data-link-location-type="body:map"
-      data-link-function-type="other"
-      data-link-format-type="button"
+      data-link-location="body:map"
+      data-link-function="other"
+      data-link-format="text"
       data-link-type="external"
+      data-location-id="${analyticsData.location_id || ''}"
       data-location-name="${analyticsData.name}"
       data-location-search-term="${analyticsData.search_term}"
       data-location-search-results="${analyticsData.total_results}"
       data-location-search-type="location search - body"
-      data-location-search-method-type="user-entered"
+      data-location-search-method="${analyticsData.search_method || 'user-entered'}"
       data-location-search-result-index="${analyticsData.result_index}"
       onclick="LocationTrackingResultsClickEvent(this, 'stuff_the_bus_result_click')"` : '';
     return `<div class="text-muted mb-0 display-3 mt-2">
@@ -421,8 +422,11 @@
       const dates = extractCardDates(store);
       const fullAddress = [store.address, store.city, store.state].filter(Boolean).join(', ');
       const expired = isCardExpired(dates);
-      const safeName = (store.storeType || 'Walmart Store').replace(/'/g, "\\'");
+      const displayName = store.storeType || store.storeName || 'Walmart Store';
+      const safeName = displayName.replace(/'/g, "\\'");
       const safeAddr = fullAddress.replace(/'/g, "\\'");
+      const safeAttrName = displayName.replace(/"/g, '&quot;');
+      const locationId = (store.locationID || `${displayName} - ${fullAddress}`).replace(/"/g, '&quot;');
       return `<div class="stuff-the-bus__item card mb-2 mt-2 border rounded${expired ? ' opacity-50' : ''}" data-id="store-${i}" data-type="store"${dates ? ` data-dates="${dates}"` : ''}>
         <div class="card-body">
           <div class="d-flex align-items-center gap-2 mb-1">
@@ -436,10 +440,24 @@
             ${formatDropOffTimes(store)}
           </div>
           <div class="mt-8 border-top pt-4">
-            ${generateDirectionsLinks(fullAddress, { name: store.storeName || store.storeType || 'Walmart Store', search_term: analyticsObject.search_term, total_results: analyticsObject.total_results, result_index: i })}
+            ${generateDirectionsLinks(fullAddress, { location_id: locationId, name: displayName, search_term: analyticsObject.search_term, total_results: analyticsObject.total_results, result_index: i, search_method: analyticsObject.search_method })}
           </div>
           <div class="mt-2">
-            ${dates && !expired ? `<button class="btn btn-sm btn-secondary d-flex align-items-center gap-1 mt-2" onclick="downloadStbICS('${safeName}', '${safeAddr}', '${dates}')"><span class="material-symbols-outlined display-2">calendar_add_on</span> Add to Calendar</button>` : ''}  
+            ${dates && !expired ? `<button
+            class="btn btn-sm btn-secondary d-flex align-items-center gap-1 mt-2"
+            data-link-location="body:map"
+            data-link-function="download"
+            data-link-format="button"
+            data-link-type="internal"
+            data-location-id="${locationId}"
+            data-location-name="${safeAttrName}"
+            data-location-search-term="${analyticsObject.search_term}"
+            data-location-search-results="${analyticsObject.total_results}"
+            data-location-search-type="location search - body"
+            data-location-search-method="${analyticsObject.search_method}"
+            data-location-search-result-index="${i}"
+            onclick="downloadStbICS('${safeName}', '${safeAddr}', '${dates}'); LocationTrackingResultsClickEvent(this, 'stuff_the_bus_result_click')"
+          ><span class="material-symbols-outlined display-2">calendar_add_on</span> Add to Calendar</button>` : ''}
           </div>
         </div>
       </div>`;
@@ -465,15 +483,16 @@
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-sm mt-2 bg-success text-white"
-            data-link-location-type="body:map"
-            data-link-function-type="other"
-            data-link-format-type="button"
+            data-link-location="body:map"
+            data-link-function="cta"
+            data-link-format="button"
             data-link-type="external"
+            data-location-id="${loc.unitID || ''}"
             data-location-name="${loc.displayName || loc.unitName || 'Location'}"
             data-location-search-term="${analyticsObject.search_term}"
             data-location-search-results="${analyticsObject.total_results}"
             data-location-search-type="location search - body"
-            data-location-search-method-type="user-entered"
+            data-location-search-method="${analyticsObject.search_method}"
             data-location-search-result-index="${i}"
             onclick="LocationTrackingResultsClickEvent(this, 'stuff_the_bus_result_click')"
           >Register Online</a>` : ''}
@@ -648,9 +667,11 @@
       const locationRegistryIcon = createPinIcon('#12825F');
 
       const total = filteredStores.length + filteredLocationsRegistry.length;
+      const searchMethod = input.getAttribute('data-autofilled') === 'true' ? 'autofilled location' : 'user-entered';
       const analyticsObject = {
         search_term: inputValue,
-        total_results: total
+        total_results: total,
+        search_method: searchMethod
       };
 
       filteredStores.forEach((store, i) => {
@@ -711,7 +732,7 @@
         input.setAttribute('data-search-term-type', inputValue);
         input.setAttribute('data-search-filter-type', 'stuff_the_bus');
         input.setAttribute('data-search-results-type', total);
-        input.setAttribute('data-search-method-type', 'user-entered');
+        input.setAttribute('data-search-method-type', searchMethod);
         input.setAttribute('data-search-type-type', 'location search - body');
         LocationTrackingSearchEvent(input, 'stuff_the_bus_search');
       }
@@ -757,6 +778,7 @@
     input.parentNode.appendChild(autocompleteContainer);
 
     input.addEventListener('input', function () {
+      input.removeAttribute('data-autofilled');
       const value = this.value;
       clearTimeout(debounceTimer);
       if (value.length < 3) { autocompleteContainer.style.display = 'none'; return; }
@@ -780,6 +802,7 @@
                 `;
                 item.addEventListener('click', function () {
                   input.value = prediction.description;
+                  input.setAttribute('data-autofilled', 'true');
                   autocompleteContainer.style.display = 'none';
                   sessionToken = new google.maps.places.AutocompleteSessionToken();
                 });
