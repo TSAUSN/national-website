@@ -1,0 +1,228 @@
+{{$tagName = {request.pathpart(2)} }}
+{{$tagZUID = }}
+{{each tags as tag where name = '{$tagName}' limit 1}}
+  {{$tagZUID = {tag.ZUID}}}
+{{/each}}
+
+{{$set_zuid = }}
+{{$model_name = }}
+{{$page_type_detail = }}
+{{each models as model}}
+{{if {model.name} == 'tags'}}
+  {{$set_zuid = {model.Zuid}}}
+  {{$model_name = {model.name}}}
+  {{$page_type_detail = {model.name}}}
+{{/if}}
+{{/each}}
+
+<title>{{request.pathpart(2)}}</title>
+<meta
+  name="description"
+  content="{{request.pathpart(2)}}"
+/>
+<meta
+  property="og:title"
+  content="{{request.pathpart(2)}}"
+/>
+<meta
+  property="og:description"
+  content="{{request.pathpart(2)}}"
+/>
+<meta
+  property="og:url"
+  content="https://www.{{ instance.domain }}{{ request.path() }}"
+/>
+<meta
+  property="og:type"
+  content="website"
+/>
+<meta
+  property="og:site_name"
+  content="{{ globals.site_name }}"
+/>
+
+<meta
+  name="twitter:card"
+  content="summary"
+/>
+<meta
+  name="twitter:title"
+  content="{{request.pathpart(2)}}"
+/>
+<meta
+  name="twitter:site"
+  content="{{ globals.site_name }}"
+/>
+<meta
+  name="twitter:description"
+  content="{{request.pathpart(2)}}"
+/>
+
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="8Noaq6rsw1h1rjtFr7xmK2ECEEDOLzXbMoqya-rCsps" custom="true" name="google-site-verification" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+{{$mediaLibraryURL = https://8hxvw8tw.media.zestyio.com/}}
+<link rel="apple-touch-icon" href="{{ $mediaLibraryURL }}The-Salvation-Army-Favicon.png">
+<link rel="apple-touch-icon-precomposed" href="{{ instance.domain }}The-Salvation-Army-Favicon.png">
+<link
+  rel="icon"
+  type="image/png"
+  href="{{ $mediaLibraryURL }}The-Salvation-Army-Favicon.png"
+/>
+<script>
+  (function () {
+    function getCookie(name) {
+      const cookies = document.cookie.split(';');
+      for (let cookie of cookies) {
+        cookie = cookie.trim();
+        if (cookie.startsWith(name + '=')) {
+          return decodeURIComponent(cookie.substring(name.length + 1));
+        }
+      }
+      return null;
+    }
+
+    const propType = getCookie('location_property_type');
+    if (propType === 'simplified') {
+      document.documentElement.classList.add('prop-type-simplified');
+    }
+  })();
+</script>
+<link rel="preconnect" href="https://8hxvw8tw.media.zestyio.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/materialsymbolsoutlined/v315/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOej.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/materialicons/v145/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2" />
+
+<link href="https://cdn.jsdelivr.net/gh/zesty-io/salvation-army-theme@0a7eb96805c71c026f6ef321a3bdeb009362f9e5/styles/bootstrap.css" rel="stylesheet" />
+<link as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.1/dist/css/datepicker.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
+<script crossorigin="anonymous" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" type="text/javascript"></script>
+<script crossorigin="anonymous" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.1/dist/js/datepicker-full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+
+{{$baseUrl = https://tags.tiqcdn.com/utag/salvationarmy}}
+{{ $page_Zuid = {$tagZUID} }}
+{{ $page_path = {request.path()} }}
+{{ $page_title = {request.pathpart(2)} }}
+
+{{include modules/tags/client-global-navigation}}
+(** {{include modules/indexdb}} **)
+(** {{include modules/external-links}} **)
+
+<script type="text/javascript">
+  window.ServicesObserver = new ServicesSubject();
+  window.utagError = function (error) {
+    console.error('Tealium loading error:', error);
+  };
+  window.cookiesReady = window.cookiesReady || initCookies().catch((err) => {
+    console.error('initCookies failed:', err);
+  });
+  function createTealiumScript(account, profile, environment) {
+    const script = document.createElement('script');
+    let tealiumProfile = cookieManager.get(cookieKeys.tealiumprofile);
+    if (tealiumProfile === null || typeof tealiumProfile === 'undefined') {
+      tealiumProfile = 'national';
+    }
+    const siteDomain = '{{instance.domain}}';
+    const instanceEnv = '{{instance.env}}';
+    window.instanceEnv = instanceEnv;
+    let profile_env = '';
+    if (instanceEnv == 'live') {
+      if (siteDomain == 'thesalvationarmy-h4zw8zcg.zesty.dev') {
+        profile_env = 'qa';
+      } else {
+        profile_env = 'prod';
+      }
+    } else {
+      profile_env = 'dev';
+    }
+    script.src = `{{ $baseUrl }}/${tealiumProfile}/${profile_env}/utag.sync.js`;
+    script.type = 'text/javascript';
+    document.getElementsByTagName('head')[0].appendChild(script);
+    return script;
+  }
+
+  function createDGIOHScript(account, profile, environment) {
+    const script = document.createElement('script');
+    let dgiohID = cookieManager.get(cookieKeys.dgiohID);
+    if (dgiohID === null || typeof dgiohID === 'undefined') {
+      dgiohID = '1ba4571c-6e05-4431-8d28-9374c32606e5';
+    }
+    script.src = `https://www.lightboxcdn.com/vendor/${dgiohID}/lightbox_inline.js`;
+    script.type = 'text/javascript';
+    document.getElementsByTagName('head')[0].appendChild(script);
+    return script;
+  }
+
+  async function initSiteScripts(params) {
+    await window.cookiesReady;
+    const locationZUID = cookieManager.get(cookieKeys.locationZUID);
+    const modelZUID = cookieManager.get(cookieKeys.locationModel);
+    const db = new ServicesDB();
+    await db.initServices(locationZUID, modelZUID);
+    createTealiumScript();
+    createDGIOHScript();
+    window.siteInitialized = true;
+    document.dispatchEvent(new Event('site-initialized'));
+  }
+  function scheduleInitSiteScripts() {
+    const runInit = () => initSiteScripts();
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(runInit, { timeout: 3000 });
+    } else {
+      setTimeout(runInit, 0);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', scheduleInitSiteScripts, { once: true });
+  } else {
+    scheduleInitSiteScripts();
+  }
+</script>
+
+<script type="text/javascript">
+  window.addEventListener('load', function () {
+    if (typeof utag === 'undefined') {
+      console.error('Tealium failed to load properly');
+    }
+  });
+</script>
+
+{{include modules/tags/schema}}
+
+<div>
+  <div class="placeholder-glow header-content-loader">
+    <div class="placeholder rounded-bottom-sm-2 rounded-bottom-lg-5 top-lg-5 start-sm-0 end-sm-0 end-lg-2 start-lg-2 top-sm-0 rounded-top-sm-0 rounded-top-lg-5 rounded-top-sm-0 position-sm-fixed py-5 my-lg-5 mt-sm-0 mx-md-8 mx-sm-0" style="height: 6rem; z-index: 100;"></div>
+  </div>
+  <div class="d-none header-main-container align-items-center justify-content-center mx-auto">
+    {{include components/header }}
+  </div>
+
+  <main class="px-4 px-md-8 px-lg-0 container-lg container-fluid main-container">
+    <div class="main-content">
+      {{$locationZUID = @location_Zuid}}
+      {{$locationModel = @location_model}}
+
+      {{each stories as story WHERE find_in_set('tags', {$tagZUID})}}
+        {{story.title}}
+      {{/each}}
+    </div>
+  </main>
+</div>
+
+<div class="px-4 px-md-8 px-lg-0 container-lg container-fluid main-container mt-15">
+  {{include components/footer}}
+</div>

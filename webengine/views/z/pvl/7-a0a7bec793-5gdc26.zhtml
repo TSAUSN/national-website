@@ -1,0 +1,154 @@
+<div className={styles.pvlRoot}>
+	<div class="pvlRichtext"><p></p>
+<div class="wayout" style="display: flex; flex-direction: column; font-family: 'Inter', Helvetica, Arial, sans-serif; gap: 2.25rem;"><!-- PROMISE -->
+<section id="top" class="text-white" style="background-color: #002056; border-radius: 20px; overflow: hidden;">
+<div class="row g-4 align-items-stretch" style="margin: 0; padding: clamp(1.5rem,4vw,2.75rem);">
+<div class="col-lg-7 d-flex flex-column justify-content-start" style="gap: 1.25rem; margin-top: 0;">
+<div style="display: flex; flex-direction: column; gap: 1.25rem; margin: 0; max-width: 100%; padding: 0; width: fit-content;"><img style="display: block; height: auto; margin: 0; max-width: none; min-width: 62%; width: 0;" src="https://8hxvw8tw.media.zestyio.com/theWayOut-White.BJr01H0Dfx.png" alt="The Way Out — Live. Work. Love.">
+<h1 style="color: #fff; font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: min(60px, 10.5cqi); font-weight: 600; line-height: 1.05; margin: 0; padding: 0;">Off the streets.<br>Off drugs.<br>Back to life.</h1>
+<span style="display: block; font-size: min(48px, 7cqi); font-weight: 600; height: 0; margin-top: -1.25rem; overflow: hidden;" aria-hidden="true">Off the streets. Off drugs.</span></div>
+<p class="mb-0" style="font-size: 1.05rem; line-height: 1.55; max-width: 56ch;"><em>The Way Out</em> is a recovery-focused homelessness initiative of The Salvation Army San Francisco designed to get people off the streets, get people off drugs, and give them back their lives.</p>
+<p class="mb-0" style="font-size: 1.05rem; line-height: 1.55; max-width: 56ch;">Services are delivered through a Recovery System of Care and include detox, shelter, and stabilization; residential drug treatment; recovery housing and independent living; workforce development and life skills; and an alumni support network.</p>
+<div class="d-flex flex-wrap align-items-center" style="gap: min(.75rem, 2cqi); margin-top: .35rem;"><a class="btn btn-primary" style="font-size: max(min(15px, 2.8cqi), 13px); font-weight: 600; padding: .95em .8em;" href="https://give-gs.salvationarmy.org/give/336361?wayout=true&amp;_ga=2.135698103.729685781.1706639656-212087624.1705156517#!/donation/checkout" target="_blank" rel="noopener">Support The Way Out</a> <a class="btn btn-light" style="background-color: #fff; border-color: #fff; color: #002056; font-size: max(min(15px, 2.8cqi), 13px); font-weight: 600; padding: .95em .8em;" href="https://thewayoutsf.wixsite.com/referrals/hl-referral" target="_blank" rel="noopener">Submit a referral</a> <!-- TODO: add the impact report URL --><a class="btn btn-outline-light" style="font-size: max(min(15px, 2.8cqi), 13px); font-weight: 600; padding: .95em .8em;" href="#" target="_blank" rel="noopener">View Impact Report</a></div>
+</div>
+<div class="col-lg-5 d-flex" style="margin-top: 0;"><!-- keep your current hero photo URL in the src below -->
+<div style="border-radius: 12px; flex: 1 1 auto; min-height: 260px; overflow: hidden; position: relative; width: 100%;"><img style="height: 100%; left: 0; margin: 0; object-fit: cover; object-position: center 45%; position: absolute; top: 0; width: 100%;" src="https://8hxvw8tw.media.zestyio.com/REPLACE-the-way-out-hero.jpg" alt="Participants gathered around a barbecue on the beach at sunset"></div>
+</div>
+</div>
+</section>
+<!-- RESULTS -->
+<section id="results" style="background-color: #eef1f5; border-radius: 20px; padding: clamp(1.25rem,3vw,2rem);">
+<h2 class="text-center mb-2" style="color: #002056; font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: clamp(1.5rem,2.6vw,2rem); font-weight: 600;">FY 25/26 OUTCOMES</h2>
+<div style="background-color: #ef3e42; height: 3px; margin: 0 auto 1.75rem; width: 58px;"></div>
+<div class="row row-cols-1 row-cols-md-3 g-3">
+<div class="col">
+<div class="card h-100 border-0 text-center" style="border-radius: 14px;">
+<div class="card-body" style="padding: 1.75rem 1.4rem;">
+<div class="text-uppercase fw-bold" style="color: #002056; font-size: 1.2rem; letter-spacing: .06em;">Success Rate</div>
+<span class="material-icons" style="color: #ef3e42; font-size: 1.7rem; margin-top: .75rem;">trending_up</span>
+<div style="color: #002056; font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: 2.4rem; font-weight: 600; margin: .3rem 0;">83%</div>
+<div class="text-muted" style="font-size: .9rem;">Success rate</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card h-100 border-0 text-center" style="border-radius: 14px;">
+<div class="card-body" style="padding: 1.75rem 1.4rem;">
+<div class="text-uppercase fw-bold" style="color: #002056; font-size: 1.2rem; letter-spacing: .06em;">Participants</div>
+<span class="material-icons" style="color: #ef3e42; font-size: 1.7rem; margin-top: .75rem;">groups</span>
+<div style="color: #002056; font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: 2.4rem; font-weight: 600; margin: .3rem 0;">1,488</div>
+<div class="text-muted" style="font-size: .9rem;">Number of participants served</div>
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card h-100 border-0 text-center" style="border-radius: 14px;">
+<div class="card-body" style="padding: 1.75rem 1.4rem;">
+<div class="text-uppercase fw-bold" style="color: #002056; font-size: 1.2rem; letter-spacing: .06em;">Drug-Free Living</div>
+<span class="material-icons" style="color: #ef3e42; font-size: 1.7rem; margin-top: .75rem;">bedtime</span>
+<div style="color: #002056; font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: 2.4rem; font-weight: 600; margin: .3rem 0;">123,161</div>
+<div class="text-muted" style="font-size: .9rem;">Nights of drug-free living</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PARTICIPANT STORY -->
+<section id="story" class="text-white text-center" style="background-color: #002056; border-radius: 20px; padding: clamp(1.75rem,5vw,3.25rem) clamp(1.25rem,7vw,5.5rem);">
+<div style="background-color: #ef3e42; height: 3px; margin: 0 auto 1.75rem; width: 52px;"></div>
+<p class="fst-italic mb-0" style="font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: clamp(1.05rem,2vw,1.35rem); font-weight: 600; line-height: 1.75;">"I came to Harbor Light to put back together the shattered pieces of my life. I'm grateful for this opportunity to start over and heal the broken parts of me - mind, body, and soul. It's helped me save my life in more ways than one. I've reunited with my children, my mother, and my brother, and I've found myself and my voice again through this program. Life isn't perfect, but since coming to Harbor Light, I can smile, laugh, and love myself again."</p>
+<div class="text-uppercase mt-4" style="font-size: .75rem; letter-spacing: .14em;">— Harbor Light Participant</div>
+<a class="btn btn-outline-light mt-4 d-inline-flex align-items-center" style="gap: .5rem;" href="https://youtube.com/playlist?list=PLU6LmcJJ2_bnctDukkFd4sjqDUiV2aYsw&amp;si=wCTQzoqXxRXYSUpQ" target="_blank" rel="noopener"><span class="material-icons" style="font-size: 1.25rem;">play_circle</span>Watch participant stories</a></section>
+<!-- RECOVERY JOURNEY — compact timeline -->
+<section id="journey">
+<h2 class="text-center mb-4" style="color: #ef3e42; font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: clamp(1.5rem,2.6vw,2rem); font-weight: 600; line-height: 1.2;">From the streets to self-sufficiency. Step by step.</h2>
+<ol class="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-4 list-unstyled mb-0" style="background-color: #eef1f5; border-radius: 20px; margin-left: 0; margin-right: 0; padding: clamp(1.25rem,3vw,1.9rem);">
+<li class="col d-flex flex-column align-items-start" style="gap: .6rem; min-width: 0;"><span class="fw-bold d-inline-flex align-items-center justify-content-center flex-shrink-0" style="background-color: #ef3e42; border-radius: 50%; color: #fff; font-size: .9rem; height: 36px; width: 36px;">1</span>
+<div style="min-width: 0;">
+<h3 class="text-uppercase fw-bold" style="color: #002056; font-size: .95rem; letter-spacing: .04em; margin: 0 0 .5rem;">Stabilization</h3>
+<p class="mb-0 text-muted" style="font-size: .9rem; line-height: 1.6;">Harbor Light Detox<br>Hope House<br>Eleanora Fagan Center</p>
+</div>
+</li>
+<li class="col d-flex flex-column align-items-start" style="gap: .6rem; min-width: 0;"><span class="fw-bold d-inline-flex align-items-center justify-content-center flex-shrink-0" style="background-color: #002056; border-radius: 50%; color: #fff; font-size: .9rem; height: 36px; width: 36px;">2</span>
+<div style="min-width: 0;">
+<h3 class="text-uppercase fw-bold" style="color: #002056; font-size: .95rem; letter-spacing: .04em; margin: 0 0 .5rem;">Treatment</h3>
+<p class="mb-0 text-muted" style="font-size: .9rem; line-height: 1.6;">Harbor Light Residential<br>Pinehurst Women's Program</p>
+</div>
+</li>
+<li class="col d-flex flex-column align-items-start" style="gap: .6rem; min-width: 0;"><span class="fw-bold d-inline-flex align-items-center justify-content-center flex-shrink-0" style="background-color: #002056; border-radius: 50%; color: #fff; font-size: .9rem; height: 36px; width: 36px;">3</span>
+<div style="min-width: 0;">
+<h3 class="text-uppercase fw-bold" style="color: #002056; font-size: .95rem; letter-spacing: .04em; margin: 0 0 .5rem;">Recovery Housing</h3>
+<p class="mb-0 text-muted" style="font-size: .9rem; line-height: 1.6;">Joseph McFee Center<br>Wells Place<br>Culinary Training Academy</p>
+</div>
+</li>
+<li class="col d-flex flex-column align-items-start" style="gap: .6rem; min-width: 0;"><span class="fw-bold d-inline-flex align-items-center justify-content-center flex-shrink-0" style="background-color: #002056; border-radius: 50%; color: #fff; font-size: .9rem; height: 36px; width: 36px;">4</span>
+<div style="min-width: 0;">
+<h3 class="text-uppercase fw-bold" style="color: #002056; font-size: .95rem; letter-spacing: .04em; margin: 0 0 .5rem;">Independent Living</h3>
+<p class="mb-0 text-muted" style="font-size: .9rem; line-height: 1.6;">Railton Place<br>James Baldwin Place</p>
+</div>
+</li>
+<li class="col d-flex flex-column align-items-start" style="gap: .6rem; min-width: 0;"><span class="fw-bold d-inline-flex align-items-center justify-content-center flex-shrink-0" style="background-color: #002056; border-radius: 50%; color: #fff; font-size: .9rem; height: 36px; width: 36px;">5</span>
+<div style="min-width: 0;">
+<h3 class="text-uppercase fw-bold" style="color: #002056; font-size: .95rem; letter-spacing: .04em; margin: 0 0 .5rem;">Independence</h3>
+<p class="mb-0 text-muted" style="font-size: .9rem; line-height: 1.6;">Alumni Support Network</p>
+</div>
+</li>
+</ol>
+</section>
+<!-- CREDIBILITY -->
+<section id="why">
+<div class="d-flex align-items-center" style="gap: .9rem; margin-bottom: .5rem;"><img style="height: 44px; width: auto;" src="https://8hxvw8tw.media.zestyio.com/shield-1.svg" alt="The Salvation Army shield">
+<h2 class="mb-0" style="color: #ef3e42; font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: clamp(1.5rem,2.6vw,2rem); font-weight: 600;">Why The Salvation Army</h2>
+</div>
+<div style="background-color: #ef3e42; height: 3px; margin: 0 0 1.5rem; width: 60px;"></div>
+<div class="card" style="border: 1px solid #e2e5ea; border-radius: 14px;">
+<div class="card-body row g-4" style="margin: 0; padding: clamp(1.25rem,3vw,2rem);">
+<div class="col-lg-6 d-flex flex-column" style="gap: 1rem;">
+<div class="text-uppercase fw-bold" style="color: #002056; font-size: .95rem; letter-spacing: .04em; margin-bottom: -.25rem;">Our History</div>
+<p class="mb-0">For the past 140 years, The Salvation Army San Francisco has served our city’s poor and unhoused. Through The Way Out, we offer a continuum of integrated services to address the needs of individuals struggling with drug addiction and homelessness, connecting every stage of recovery so our participants can reclaim their place in the community, reunite with family, and achieve their dreams. In 2023, we launched California’s first Recovery System of Care, offering a proven path from the streets to independence.</p>
+</div>
+<div class="col-lg-6">
+<div class="text-uppercase fw-bold" style="color: #002056; font-size: .95rem; letter-spacing: .04em; margin-bottom: .75rem;">What We Offer</div>
+<ul class="mb-0 d-flex flex-column" style="color: #002056; gap: .6rem; padding-left: 1.2rem;">
+<li>Treatment on Demand with real-time access to detox, stabilization, and shelter</li>
+<li>Two to four years of post-treatment recovery housing paired with life skills and workforce development</li>
+<li>Workforce development and culinary training with job readiness, placement, and retention services</li>
+<li>Alumni Support Network because recovery is a journey, not a destination</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- DONATION -->
+<section id="give" class="text-white text-center" style="background-color: #002056; border-radius: 20px; padding: clamp(1.75rem,5vw,3.25rem) clamp(1.25rem,6vw,5rem);">
+<div class="mx-auto" style="max-width: 760px;">
+<div style="background-color: #ef3e42; height: 3px; margin: 0 auto 1.5rem; width: 52px;"></div>
+<h2 style="color: #fff; font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: min(clamp(1.5rem,2.6vw,2rem), calc((76vw - 5rem) / 18)); font-weight: 600; line-height: 1.2;"><span>Your investment doesn't buy a bed.</span><br>It buys a life back.</h2>
+<p class="mb-4">Every gift, of any size, helps someone take the next step from the streets to a life of their own.</p>
+<a class="btn btn-primary btn-lg" href="https://give-gs.salvationarmy.org/give/336361?wayout=true&amp;_ga=2.135698103.729685781.1706639656-212087624.1705156517#!/donation/checkout" target="_blank" rel="noopener">Support The Way Out</a>
+<p class="mt-4 mb-0" style="font-size: .9rem;">Or give via stock or DAF: <a style="color: #fff;" href="https://salarmy.us/StockDAF" target="_blank" rel="noopener">salarmy.us/StockDAF</a></p>
+</div>
+</section>
+<!-- STAY INFORMED -->
+<section id="stay-informed" style="background-color: #f8f9fa; border-radius: 20px; padding: clamp(1.25rem,3vw,2.5rem);">
+<div class="row align-items-start g-4">
+<div class="col-lg-5">
+<h3 style="color: #002056; font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: 1.375rem; font-weight: 600; margin-bottom: .5rem;">Not ready to give yet? Stay informed.</h3>
+<p class="text-muted mb-0">Get monthly updates on The Way Out – real stories, outcomes data, and how your community is responding to the crisis.</p>
+</div>
+<div class="col-lg-7"><form class="row g-2" action="https://sanfrancisco.salvationarmy.org/san_francisco/the-way-out---get-involved" method="get" target="_blank">
+<div class="col-12 col-md-8"><input class="form-control form-control-lg" name="email" required="" type="email" placeholder="Your email address" aria-label="Email address"></div>
+<div class="col-12 col-md-4"><button class="btn btn-outline-primary btn-lg w-100" type="submit">Keep Me Updated</button></div>
+</form>
+<p class="text-muted mb-0 mt-2" style="font-size: .8rem;">No spam. Unsubscribe anytime. Your information stays with The Salvation Army.</p>
+</div>
+</div>
+</section>
+<!-- TAGLINE (links folded in; bottom link row removed) -->
+<section class="text-white text-center" style="background-color: #1c1b1f; border-radius: 20px; padding: 2rem;">
+<p class="mb-1 fw-semibold">The Salvation Army Western Territory | San Francisco</p>
+<p class="mb-3 fst-italic fw-semibold">Live. Work. Love.</p>
+<p class="mb-0" style="font-size: .9rem;"><a style="color: #e6e6e6;" href="https://thewayoutsf.wixsite.com/referrals/hl-referral" target="_blank" rel="noopener">Refer someone</a> <span class="mx-2">·</span> <a style="color: #e6e6e6;" href="https://x.com/thewayoutsf" target="_blank" rel="noopener">@thewayoutsf</a></p>
+</section>
+</div></div>
+</div>

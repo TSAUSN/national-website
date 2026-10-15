@@ -1,12 +1,12 @@
 {{$zuid = {request.queryParam(zuid)} }}
 {{$model = {request.queryParam(model)} }}
-{{$volunteerPageZUID = "" }}
-{{$fallbackPageZUID = "" }}
-{{$matchedOn = "" }}
-{{$fallbackMatchedOn = "" }}
-{{$locationZUID = "" }}
-{{$divisionZUID = "" }}
-{{$territoryZUID = "" }}
+{{$volunteerPageZUID = }}
+{{$fallbackPageZUID = }}
+{{$matchedOn = }}
+{{$fallbackMatchedOn = }}
+{{$locationZUID = }}
+{{$divisionZUID = }}
+{{$territoryZUID = }}
 {{$nationalVolunteerURL = {truepath(7-d8b3f99bc0-707gmt)} }}
 
 {{if {$zuid} && {$model} }}
@@ -34,22 +34,23 @@
     {{each volunteer_pages as volunteerPage WHERE division = '{$divisionZUID}' AND location is null LIMIT 1 }}
       {{if {volunteerPage.zuid} }}
         {{$fallbackPageZUID = {volunteerPage.zuid} }}
-        {{$fallbackMatchedOn = "division" }}
+        {{$fallbackMatchedOn = division }}
       {{/if}}
     {{/each}}
   {{/if}}
 
-  {{if {$fallbackPageZUID} == "" && {$territoryZUID} }}
+  {{if {$fallbackPageZUID} }}
+  {{else-if {$territoryZUID} }}
     {{each volunteer_pages as volunteerPage WHERE territory = '{$territoryZUID}' AND division is null AND location is null LIMIT 1 }}
       {{if {volunteerPage.zuid} }}
         {{$fallbackPageZUID = {volunteerPage.zuid} }}
-        {{$fallbackMatchedOn = "territory" }}
+        {{$fallbackMatchedOn = territory }}
       {{/if}}
     {{/each}}
   {{/if}}
 
   {{if {$volunteerPageZUID} }}
-    {{$matchedOn = "location" }}
+    {{$matchedOn = location }}
   {{else}}
     {{$volunteerPageZUID = {$fallbackPageZUID} }}
     {{$matchedOn = {$fallbackMatchedOn} }}

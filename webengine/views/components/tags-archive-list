@@ -1,0 +1,35 @@
+<div class="mb-4">
+  <p class="text-dark-50 fs-7">
+    <span id="tagResultCount"></span> of <span id="totalTagCount"></span> articles
+  </p>
+</div>
+<div class="row g-3 tags-archive-list"></div>
+<div
+  class="tags-cards-swiper__nav d-inline-flex w-100 justify-content-center align-items-center mt-5"
+>
+  <div
+    class="swiper-button-prev prev-tags-button position-relative bg-opacity-60 bg-light me-4"
+    data-location-type="body:related-tags"
+    data-function-type="other"
+    data-format-type="icon-block"
+    data-page-componentType-type="related-tags component"
+  >
+    <i class="material-symbols-outlined text-dark-100">arrow_back</i>
+  </div>
+  <div
+    class="swiper-pagination position-relative px-4 rounded-14 swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"
+    data-location-type="body:related-tags"
+    data-function-type="other"
+    data-format-type="icon-block"
+    data-page-componentType-type="related-tags component"
+  ></div>
+  <div
+    class="swiper-button-next next-tags-button position-relative bg-opacity-60 bg-light ms-4"
+    data-location-type="body:related-tags"
+    data-function-type="other"
+    data-format-type="icon-block"
+    data-page-componentType-type="related-tags component"
+  >
+    <i class="material-symbols-outlined text-dark-100">arrow_forward</i>
+  </div>
+</div>
