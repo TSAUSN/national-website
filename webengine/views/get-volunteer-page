@@ -1,6 +1,6 @@
 {{$zuid = {request.queryParam(zuid)} }}
 {{$model = {request.queryParam(model)} }}
-{{$volunteerPageZUID = null }}
+{{$volunteerPageZUID = "" }}
 {{$fallbackPageZUID = "" }}
 {{$matchedOn = "" }}
 {{$fallbackMatchedOn = "" }}
@@ -61,7 +61,7 @@
   "requested_model": "{{$model}}",
   "has_match": {{if {$volunteerPageZUID} }}true{{else}}false{{/if}},
   "matched_on": "{{$matchedOn}}",
-  "volunteer_page_zuid": {{if {$volunteerPageZUID} }}{{$volunteerPageZUID}}{{/if}},
+  "volunteer_page_zuid": "{{$volunteerPageZUID}}",
   "volunteer_url": "{{if {$volunteerPageZUID} }}{{truepath({$volunteerPageZUID})}}{{else}}{{$nationalVolunteerURL}}{{/if}}",
   "fallback_url": "{{if {$fallbackPageZUID} }}{{truepath({$fallbackPageZUID})}}{{else}}{{$nationalVolunteerURL}}{{/if}}"
 }
