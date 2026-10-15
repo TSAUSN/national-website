@@ -2503,6 +2503,8 @@
       cookieManager.delete(cookieKeys.locationAddress);
       cookieManager.delete(cookieKeys.locationCity);
       cookieManager.delete(cookieKeys.locationState);
+
+      await applyPageOwnershipCookies();
     }
   }
 
@@ -2539,6 +2541,8 @@
       cookieManager.delete(cookieKeys.locationAddress);
       cookieManager.delete(cookieKeys.locationCity);
       cookieManager.delete(cookieKeys.locationState);
+
+      await applyPageOwnershipCookies();
     }
   }
 
@@ -2644,68 +2648,65 @@
     };
   }
 
-  function setupCookiesWithInformation(eventInformation, zuid) {
-    cookieManager.set(cookieKeys.locationZUID, zuid);
-    cookieManager.set(cookieKeys.locationHomeURL, eventInformation.path);
-    cookieManager.set(cookieKeys.locationName, eventInformation.name);
-    cookieManager.set(cookieKeys.analyticsCode, eventInformation.code);
-    setLocationCookiesByTerritory(eventInformation.territoryZUID);
+  // Story/event pages without a cookie: take the header context from the page's locations.
+  async function applyPageOwnershipCookies() {
+    const ownership = await fetchInformation(`get-page-ownership`, `{{this.zuid}}`, currentModel);
+
+    if (!ownership || !ownership.event_found_at || !hasValidZUIDShape(ownership.zuid)) {
+      return;
+    }
+
+    await setupCookiesWithInformation(ownership, ownership.zuid);
+
+    // The footer renders its address before this lookup resolves.
+    if (typeof footerAddress === `function`) {
+      footerAddress();
+    }
+  }
+
+  async function setupCookiesWithInformation(eventInformation, zuid) {
+    const ownerModels = {
+      locations: `{{$locationModelZUID}}`,
+      divisions: models.divisions,
+      territories: models.territories
+    };
+    const ownerModel = ownerModels[eventInformation.event_found_at];
+
+    if (ownerModel) {
+      cookieManager.set(cookieKeys.locationModel, ownerModel);
+      cookieManager.set(cookieKeys.locationZUID, zuid);
+      cookieManager.set(cookieKeys.locationHomeURL, eventInformation.path);
+      cookieManager.set(cookieKeys.locationName, eventInformation.name);
+      cookieManager.set(cookieKeys.locationAddress, eventInformation.address);
+      cookieManager.set(cookieKeys.locationCity, eventInformation.city);
+      cookieManager.set(cookieKeys.locationState, eventInformation.state);
+      cookieManager.set(cookieKeys.locationZipcode, eventInformation.zipcode);
+      cookieManager.set(cookieKeys.organizationTerritory, eventInformation.territoryName);
+
+      // Contact Us: first level with an image (location → division → territory), else national.
+      const contactUs = (eventInformation.contact_us || []).find((level) => hasContactUsValue(level.image)) || {};
+      setContactUsCookiesWithNationalFallback(contactUs);
+    }
 
     switch (eventInformation.event_found_at) {
       case `locations`:
-        if (eventInformation.redirect_url) {
-          window.location.replace(eventInformation.redirect_url);
-          return;
-        }
-
-        cookieManager.set(cookieKeys.locationModel, `{{$locationModelZUID}}`);
-        cookieManager.set(cookieKeys.contactUsImage, eventInformation.contact_us_image);
-        cookieManager.set(cookieKeys.contactUsTitle, eventInformation.contact_us_title);
-        cookieManager.set(cookieKeys.contactUsHeader, eventInformation.contact_us_header);
         cookieManager.set(cookieKeys.locationPropertyType, eventInformation.property_type);
         cookieManager.set(cookieKeys.organizationCorp, eventInformation.name);
         cookieManager.set(cookieKeys.organizationDivision, eventInformation.divisionName);
-        cookieManager.set(cookieKeys.organizationTerritory, eventInformation.territoryName);
         cookieManager.set(cookieKeys.organizationLevel, levels.corp);
-        cookieManager.set(cookieKeys.locationAddress, eventInformation.address);
-        cookieManager.set(cookieKeys.locationCity, eventInformation.city);
-        cookieManager.set(cookieKeys.locationState, eventInformation.state);
-        cookieManager.set(cookieKeys.locationZipcode, eventInformation.zipcode);
         cookieManager.set(cookieKeys.divisionZUID, eventInformation.divisionZUID);
-        cookieManager.set(cookieKeys.territoryZUID, eventInformation.territoryZUID);
-
         break;
       case `divisions`:
-        cookieManager.set(cookieKeys.locationModel, models.divisions);
         cookieManager.set(cookieKeys.organizationDivision, eventInformation.name);
-        cookieManager.set(cookieKeys.organizationTerritory, eventInformation.territoryName);
         cookieManager.set(cookieKeys.organizationLevel, levels.division);
-        cookieManager.set(cookieKeys.contactUsImage, eventInformation.contact_us_image);
-        cookieManager.set(cookieKeys.contactUsTitle, eventInformation.contact_us_title);
-        cookieManager.set(cookieKeys.contactUsHeader, eventInformation.contact_us_header);
-        cookieManager.set(cookieKeys.locationAddress, eventInformation.address);
         cookieManager.delete(cookieKeys.organizationCorp);
         cookieManager.delete(cookieKeys.locationPropertyType);
-        cookieManager.set(cookieKeys.locationAddress, eventInformation.address);
-        cookieManager.set(cookieKeys.locationCity, eventInformation.city);
-        cookieManager.set(cookieKeys.locationState, eventInformation.state);
-        cookieManager.set(cookieKeys.locationZipcode, eventInformation.zipcode);
         break;
       case `territories`:
-        cookieManager.set(cookieKeys.locationModel, models.territories);
-
-        cookieManager.set(cookieKeys.organizationTerritory, eventInformation.Name);
         cookieManager.set(cookieKeys.organizationLevel, levels.territory);
-        cookieManager.set(cookieKeys.contactUsImage, eventInformation.contact_us_image);
-        cookieManager.set(cookieKeys.contactUsTitle, eventInformation.contact_us_title);
-        cookieManager.set(cookieKeys.contactUsHeader, eventInformation.contact_us_header);
-        cookieManager.set(cookieKeys.locationAddress, eventInformation.address);
         cookieManager.delete(cookieKeys.organizationCorp);
+        cookieManager.delete(cookieKeys.organizationDivision);
         cookieManager.delete(cookieKeys.locationPropertyType);
-        cookieManager.set(cookieKeys.locationAddress, eventInformation.address);
-        cookieManager.set(cookieKeys.locationCity, eventInformation.city);
-        cookieManager.set(cookieKeys.locationState, eventInformation.state);
-        cookieManager.set(cookieKeys.locationZipcode, eventInformation.zipcode);
         break;
       default:
         cookieManager.set(cookieKeys.locationModel, models.homepage);
@@ -2730,6 +2731,21 @@
 
         cookieManager.delete(cookieKeys.divisionZUID);
         break;
+    }
+
+    if (ownerModel) {
+      setLocationCookiesByTerritory(eventInformation.territoryZUID);
+
+      // Division then location Classy URLs override the territory's, as on informational pages.
+      (eventInformation.donation || []).forEach(({ once, monthly }) => {
+        const onceURL = String(once || ``).trim();
+        const monthlyURL = String(monthly || ``).trim();
+        if (onceURL && monthlyURL) {
+          setDonationUrlCookies(onceURL, monthlyURL);
+        }
+      });
+
+      await setCodeCookie(zuid, ownerModel);
     }
   }
 

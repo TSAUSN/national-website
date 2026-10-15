@@ -1,0 +1,154 @@
+{{$zuid = {request.queryParam(zuid)} }}
+{{$modelZuid = {request.queryParam(model)} }}
+
+{{$locationZUIDs = "" }}
+{{if {$modelZuid} == '6-80c7e29486-k0pq6s' }}
+    {{$locationZUIDs = {stories.filter({$zuid}).property} }}
+{{else-if {$modelZuid} == '6-a2dbc1a6e2-x4pzmx' }}
+    {{$locationZUIDs = {events.filter({$zuid}).property} }}
+{{/if}}
+
+{{$locZUID = "" }}
+{{$divZUID = "" }}
+{{$terZUID = "" }}
+{{$multiLoc = 0 }}
+{{$multiDiv = 0 }}
+{{$multiTer = 0 }}
+{{if {$locationZUIDs} }}
+    {{each locations as loc where find_in_set(z.zuid, '{$locationZUIDs}') }}
+        {{if {$locZUID} }}
+            {{$multiLoc = 1 }}
+            {{if {$multiDiv} == 0 }}
+                {{$sameDiv = 0 }}
+                {{if {loc.division} == {$divZUID} }}{{$sameDiv = 1 }}{{/if}}
+                {{if {$sameDiv} == 0 }}{{$multiDiv = 1 }}{{/if}}
+            {{/if}}
+            {{if {$multiTer} == 0 }}
+                {{$sameTer = 0 }}
+                {{if {loc.territory} == {$terZUID} }}{{$sameTer = 1 }}{{/if}}
+                {{if {$sameTer} == 0 }}{{$multiTer = 1 }}{{/if}}
+            {{/if}}
+        {{else}}
+            {{$locZUID = {loc.zuid} }}
+            {{$divZUID = {loc.division} }}
+            {{$terZUID = {loc.territory} }}
+            {{if !{$divZUID} }}{{$multiDiv = 1 }}{{/if}}
+            {{if !{$terZUID} }}{{$multiTer = 1 }}{{/if}}
+        {{/if}}
+    {{/each}}
+{{/if}}
+
+{{if !{$locZUID} }}
+    {
+        "event_found_at": ""
+    }
+{{else-if {$multiLoc} == 0 }}
+    {{$cityZUID = {locations.filter({$locZUID}).city} }}
+    {{$stateZUID = {locations.filter({$locZUID}).state} }}
+    {{if !{$stateZUID} }}{{$stateZUID = {divisions.filter({$divZUID}).state} }}{{/if}}
+    {{if !{$stateZUID} }}{{$stateZUID = {territories.filter({$terZUID}).state} }}{{/if}}
+    {
+        "event_found_at": "locations",
+        "zuid": "{{$locZUID}}",
+        "path": "{{truepath({$locZUID})}}",
+        "name": "{{locations.filter({$locZUID}).name.escapeForJs()}}",
+        "property_type": "{{locations.filter({$locZUID}).page_layout.escapeForJs()}}",
+        "divisionZUID": "{{$divZUID}}",
+        "divisionName": "{{divisions.filter({$divZUID}).name.escapeForJs()}}",
+        "territoryZUID": "{{$terZUID}}",
+        "territoryName": "{{territories.filter({$terZUID}).name.escapeForJs()}}",
+        "address": "{{locations.filter({$locZUID}).address.escapeForJs()}}",
+        "city": "{{cities.filter({$cityZUID}).title.escapeForJs()}}",
+        "state": "{{states.filter({$stateZUID}).name.escapeForJs()}}",
+        "zipcode": "{{locations.filter({$locZUID}).zipcode.escapeForJs()}}",
+        "contact_us": [
+            {
+                "image": "{{locations.filter({$locZUID}).contact_us_image.getImage()}}",
+                "title": "{{locations.filter({$locZUID}).contact_us_title.escapeForJs()}}",
+                "header": "{{locations.filter({$locZUID}).contact_us_cta_header.escapeForJs()}}"
+            },
+            {
+                "image": "{{divisions.filter({$divZUID}).contact_us_image.getImage()}}",
+                "title": "{{divisions.filter({$divZUID}).contact_us_title.escapeForJs()}}",
+                "header": "{{divisions.filter({$divZUID}).contact_us_cta_header.escapeForJs()}}"
+            },
+            {
+                "image": "{{territories.filter({$terZUID}).contact_us_image.getImage()}}",
+                "title": "{{territories.filter({$terZUID}).contact_us_title.escapeForJs()}}",
+                "header": "{{territories.filter({$terZUID}).contact_us_cta_header.escapeForJs()}}"
+            }
+        ],
+        "donation": [
+            {
+                "once": "{{divisions.filter({$divZUID}).classy_url.escapeForJs()}}",
+                "monthly": "{{divisions.filter({$divZUID}).classy_url_mobile.escapeForJs()}}"
+            },
+            {
+                "once": "{{locations.filter({$locZUID}).classy_url.escapeForJs()}}",
+                "monthly": "{{locations.filter({$locZUID}).classy_url_mobile.escapeForJs()}}"
+            }
+        ]
+    }
+{{else-if {$multiDiv} == 0 }}
+    {{$divTerZUID = {divisions.filter({$divZUID}).territory} }}
+    {{$cityZUID = {divisions.filter({$divZUID}).city} }}
+    {{$stateZUID = {divisions.filter({$divZUID}).state} }}
+    {{if !{$stateZUID} }}{{$stateZUID = {territories.filter({$divTerZUID}).state} }}{{/if}}
+    {
+        "event_found_at": "divisions",
+        "zuid": "{{$divZUID}}",
+        "path": "{{truepath({$divZUID})}}",
+        "name": "{{divisions.filter({$divZUID}).name.escapeForJs()}}",
+        "territoryZUID": "{{$divTerZUID}}",
+        "territoryName": "{{territories.filter({$divTerZUID}).name.escapeForJs()}}",
+        "address": "{{divisions.filter({$divZUID}).address.escapeForJs()}}",
+        "city": "{{cities.filter({$cityZUID}).title.escapeForJs()}}",
+        "state": "{{states.filter({$stateZUID}).name.escapeForJs()}}",
+        "zipcode": "{{divisions.filter({$divZUID}).zipcode.escapeForJs()}}",
+        "contact_us": [
+            {
+                "image": "{{divisions.filter({$divZUID}).contact_us_image.getImage()}}",
+                "title": "{{divisions.filter({$divZUID}).contact_us_title.escapeForJs()}}",
+                "header": "{{divisions.filter({$divZUID}).contact_us_cta_header.escapeForJs()}}"
+            },
+            {
+                "image": "{{territories.filter({$divTerZUID}).contact_us_image.getImage()}}",
+                "title": "{{territories.filter({$divTerZUID}).contact_us_title.escapeForJs()}}",
+                "header": "{{territories.filter({$divTerZUID}).contact_us_cta_header.escapeForJs()}}"
+            }
+        ],
+        "donation": [
+            {
+                "once": "{{divisions.filter({$divZUID}).classy_url.escapeForJs()}}",
+                "monthly": "{{divisions.filter({$divZUID}).classy_url_mobile.escapeForJs()}}"
+            }
+        ]
+    }
+{{else-if {$multiTer} == 0 }}
+    {{$cityZUID = {territories.filter({$terZUID}).city} }}
+    {{$stateZUID = {territories.filter({$terZUID}).state} }}
+    {
+        "event_found_at": "territories",
+        "zuid": "{{$terZUID}}",
+        "path": "{{truepath({$terZUID})}}",
+        "name": "{{territories.filter({$terZUID}).name.escapeForJs()}}",
+        "territoryZUID": "{{$terZUID}}",
+        "territoryName": "{{territories.filter({$terZUID}).name.escapeForJs()}}",
+        "address": "{{territories.filter({$terZUID}).address.escapeForJs()}}",
+        "city": "{{cities.filter({$cityZUID}).title.escapeForJs()}}",
+        "state": "{{states.filter({$stateZUID}).name.escapeForJs()}}",
+        "zipcode": "{{territories.filter({$terZUID}).zipcode.escapeForJs()}}",
+        "contact_us": [
+            {
+                "image": "{{territories.filter({$terZUID}).contact_us_image.getImage()}}",
+                "title": "{{territories.filter({$terZUID}).contact_us_title.escapeForJs()}}",
+                "header": "{{territories.filter({$terZUID}).contact_us_cta_header.escapeForJs()}}"
+            }
+        ],
+        "donation": []
+    }
+{{else}}
+    {
+        "event_found_at": ""
+    }
+{{/if}}
