@@ -35,6 +35,11 @@ const SECTIONS = {
   scripts: { dir: 'scripts', endpoint: 'scripts' }
 };
 
+// Managed in the Zesty manager, not git (layouts, menus). Never saved, created,
+// or published from here, even if they appear in a diff or on disk.
+const EXCLUDED_DIRS = ['views/z', 'views/menu-config'].map((d) => path.join(WEBENGINE_DIR, d));
+const isExcluded = (p) => EXCLUDED_DIRS.some((d) => p === d || p.startsWith(d + path.sep));
+
 function loadConfig() {
   try {
     return JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
@@ -66,12 +71,14 @@ function buildManifest(config) {
         console.warn(`⚠️  Skipping ${section}/${key}: missing zuid`);
         continue;
       }
+      const localPath = resolveLocalPath(meta.dir, key);
+      if (isExcluded(localPath)) continue;
       items.push({
         section,
         key,
         zuid: info.zuid,
         endpoint: meta.endpoint,
-        localPath: resolveLocalPath(meta.dir, key)
+        localPath
       });
     }
   }
@@ -171,7 +178,7 @@ function findNewFiles(mappedPaths) {
   for (const [section, meta] of Object.entries(SECTIONS)) {
     const base = path.join(WEBENGINE_DIR, meta.dir);
     for (const full of walkFiles(base)) {
-      if (mappedPaths.has(full)) continue;
+      if (mappedPaths.has(full) || isExcluded(full)) continue;
       news.push({
         section,
         endpoint: meta.endpoint,
