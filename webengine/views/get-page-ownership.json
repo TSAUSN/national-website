@@ -45,32 +45,26 @@
 
 {{$emitted = 0 }}
 {
-    "debug_temp": {
-        "has_list": "{{$hasList}}",
-        "location_zuids": "{{if {$hasList} == 1 }}{{$locationZUIDs}}{{/if}}",
-        "first_location": "{{if {$hasLoc} == 1 }}{{$locZUID}}{{/if}}",
-        "flags": "{{$hasLoc}}{{$multiLoc}}{{$multiDiv}}{{$multiTer}}"
-    },
 {{if {$hasLoc} == 1 }}
     {{if {$multiLoc} == 0 }}
         {{each locations as o WHERE z.zuid = '{$locZUID}' LIMIT 1 }}
             {{$emitted = 1 }}
             {{$cityZUID = {o.city} }}
             {{$stateZUID = {o.state} }}
-            {{if !{$stateZUID} }}{{if {$divZUID} }}{{$stateZUID = {divisions.filter({$divZUID}).state} }}{{/if}}{{/if}}
-            {{if !{$stateZUID} }}{{if {$terZUID} }}{{$stateZUID = {territories.filter({$terZUID}).state} }}{{/if}}{{/if}}
+            {{if !{$stateZUID} }}{{if {$divZUID} }}{{$stateZUID = {divisions.filter(z.zuid = '{$divZUID}').state} }}{{/if}}{{/if}}
+            {{if !{$stateZUID} }}{{if {$terZUID} }}{{$stateZUID = {territories.filter(z.zuid = '{$terZUID}').state} }}{{/if}}{{/if}}
     "event_found_at": "locations",
     "zuid": "{{o.zuid}}",
     "path": "{{truepath({o.zuid})}}",
     "name": "{{o.name.escapeForJs()}}",
     "property_type": "{{o.page_layout.escapeForJs()}}",
     "divisionZUID": "{{if {$divZUID} }}{{$divZUID}}{{/if}}",
-    "divisionName": "{{if {$divZUID} }}{{divisions.filter({$divZUID}).name.escapeForJs()}}{{/if}}",
+    "divisionName": "{{if {$divZUID} }}{{divisions.filter(z.zuid = '{$divZUID}').name.escapeForJs()}}{{/if}}",
     "territoryZUID": "{{if {$terZUID} }}{{$terZUID}}{{/if}}",
-    "territoryName": "{{if {$terZUID} }}{{territories.filter({$terZUID}).name.escapeForJs()}}{{/if}}",
+    "territoryName": "{{if {$terZUID} }}{{territories.filter(z.zuid = '{$terZUID}').name.escapeForJs()}}{{/if}}",
     "address": "{{o.address.escapeForJs()}}",
-    "city": "{{if {$cityZUID} }}{{cities.filter({$cityZUID}).title.escapeForJs()}}{{/if}}",
-    "state": "{{if {$stateZUID} }}{{states.filter({$stateZUID}).name.escapeForJs()}}{{/if}}",
+    "city": "{{if {$cityZUID} }}{{cities.filter(z.zuid = '{$cityZUID}').title.escapeForJs()}}{{/if}}",
+    "state": "{{if {$stateZUID} }}{{states.filter(z.zuid = '{$stateZUID}').name.escapeForJs()}}{{/if}}",
     "zipcode": "{{o.zipcode.escapeForJs()}}",
     "contact_us": [
         {
@@ -79,20 +73,20 @@
             "header": "{{o.contact_us_cta_header.escapeForJs()}}"
         },
         {
-            "image": "{{if {$divZUID} }}{{divisions.filter({$divZUID}).contact_us_image.getImage()}}{{/if}}",
-            "title": "{{if {$divZUID} }}{{divisions.filter({$divZUID}).contact_us_title.escapeForJs()}}{{/if}}",
-            "header": "{{if {$divZUID} }}{{divisions.filter({$divZUID}).contact_us_cta_header.escapeForJs()}}{{/if}}"
+            "image": "{{if {$divZUID} }}{{divisions.filter(z.zuid = '{$divZUID}').contact_us_image.getImage()}}{{/if}}",
+            "title": "{{if {$divZUID} }}{{divisions.filter(z.zuid = '{$divZUID}').contact_us_title.escapeForJs()}}{{/if}}",
+            "header": "{{if {$divZUID} }}{{divisions.filter(z.zuid = '{$divZUID}').contact_us_cta_header.escapeForJs()}}{{/if}}"
         },
         {
-            "image": "{{if {$terZUID} }}{{territories.filter({$terZUID}).contact_us_image.getImage()}}{{/if}}",
-            "title": "{{if {$terZUID} }}{{territories.filter({$terZUID}).contact_us_title.escapeForJs()}}{{/if}}",
-            "header": "{{if {$terZUID} }}{{territories.filter({$terZUID}).contact_us_cta_header.escapeForJs()}}{{/if}}"
+            "image": "{{if {$terZUID} }}{{territories.filter(z.zuid = '{$terZUID}').contact_us_image.getImage()}}{{/if}}",
+            "title": "{{if {$terZUID} }}{{territories.filter(z.zuid = '{$terZUID}').contact_us_title.escapeForJs()}}{{/if}}",
+            "header": "{{if {$terZUID} }}{{territories.filter(z.zuid = '{$terZUID}').contact_us_cta_header.escapeForJs()}}{{/if}}"
         }
     ],
     "donation": [
         {
-            "once": "{{if {$divZUID} }}{{divisions.filter({$divZUID}).classy_url.escapeForJs()}}{{/if}}",
-            "monthly": "{{if {$divZUID} }}{{divisions.filter({$divZUID}).classy_url_mobile.escapeForJs()}}{{/if}}"
+            "once": "{{if {$divZUID} }}{{divisions.filter(z.zuid = '{$divZUID}').classy_url.escapeForJs()}}{{/if}}",
+            "monthly": "{{if {$divZUID} }}{{divisions.filter(z.zuid = '{$divZUID}').classy_url_mobile.escapeForJs()}}{{/if}}"
         },
         {
             "once": "{{o.classy_url.escapeForJs()}}",
@@ -106,16 +100,16 @@
             {{$divTerZUID = {o.territory} }}
             {{$cityZUID = {o.city} }}
             {{$stateZUID = {o.state} }}
-            {{if !{$stateZUID} }}{{if {$divTerZUID} }}{{$stateZUID = {territories.filter({$divTerZUID}).state} }}{{/if}}{{/if}}
+            {{if !{$stateZUID} }}{{if {$divTerZUID} }}{{$stateZUID = {territories.filter(z.zuid = '{$divTerZUID}').state} }}{{/if}}{{/if}}
     "event_found_at": "divisions",
     "zuid": "{{o.zuid}}",
     "path": "{{truepath({o.zuid})}}",
     "name": "{{o.name.escapeForJs()}}",
     "territoryZUID": "{{if {$divTerZUID} }}{{$divTerZUID}}{{/if}}",
-    "territoryName": "{{if {$divTerZUID} }}{{territories.filter({$divTerZUID}).name.escapeForJs()}}{{/if}}",
+    "territoryName": "{{if {$divTerZUID} }}{{territories.filter(z.zuid = '{$divTerZUID}').name.escapeForJs()}}{{/if}}",
     "address": "{{o.address.escapeForJs()}}",
-    "city": "{{if {$cityZUID} }}{{cities.filter({$cityZUID}).title.escapeForJs()}}{{/if}}",
-    "state": "{{if {$stateZUID} }}{{states.filter({$stateZUID}).name.escapeForJs()}}{{/if}}",
+    "city": "{{if {$cityZUID} }}{{cities.filter(z.zuid = '{$cityZUID}').title.escapeForJs()}}{{/if}}",
+    "state": "{{if {$stateZUID} }}{{states.filter(z.zuid = '{$stateZUID}').name.escapeForJs()}}{{/if}}",
     "zipcode": "{{o.zipcode.escapeForJs()}}",
     "contact_us": [
         {
@@ -124,9 +118,9 @@
             "header": "{{o.contact_us_cta_header.escapeForJs()}}"
         },
         {
-            "image": "{{if {$divTerZUID} }}{{territories.filter({$divTerZUID}).contact_us_image.getImage()}}{{/if}}",
-            "title": "{{if {$divTerZUID} }}{{territories.filter({$divTerZUID}).contact_us_title.escapeForJs()}}{{/if}}",
-            "header": "{{if {$divTerZUID} }}{{territories.filter({$divTerZUID}).contact_us_cta_header.escapeForJs()}}{{/if}}"
+            "image": "{{if {$divTerZUID} }}{{territories.filter(z.zuid = '{$divTerZUID}').contact_us_image.getImage()}}{{/if}}",
+            "title": "{{if {$divTerZUID} }}{{territories.filter(z.zuid = '{$divTerZUID}').contact_us_title.escapeForJs()}}{{/if}}",
+            "header": "{{if {$divTerZUID} }}{{territories.filter(z.zuid = '{$divTerZUID}').contact_us_cta_header.escapeForJs()}}{{/if}}"
         }
     ],
     "donation": [
@@ -148,8 +142,8 @@
     "territoryZUID": "{{o.zuid}}",
     "territoryName": "{{o.name.escapeForJs()}}",
     "address": "{{o.address.escapeForJs()}}",
-    "city": "{{if {$cityZUID} }}{{cities.filter({$cityZUID}).title.escapeForJs()}}{{/if}}",
-    "state": "{{if {$stateZUID} }}{{states.filter({$stateZUID}).name.escapeForJs()}}{{/if}}",
+    "city": "{{if {$cityZUID} }}{{cities.filter(z.zuid = '{$cityZUID}').title.escapeForJs()}}{{/if}}",
+    "state": "{{if {$stateZUID} }}{{states.filter(z.zuid = '{$stateZUID}').name.escapeForJs()}}{{/if}}",
     "zipcode": "{{o.zipcode.escapeForJs()}}",
     "contact_us": [
         {
