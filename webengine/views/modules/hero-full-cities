@@ -5,6 +5,7 @@
   <img id="hero-full-image"  class="w-100 rounded-5 object-fit-cover states__banner"
   src="{{ this.hero_image.getImage() }}"
   alt="Featured Article"
+  onerror="this.onerror=null;this.src='{{ globals.default_og_image.getImage() }}';"
   fetchpriority="high"
   decoding="async"
   loading="eager" />
@@ -21,16 +22,6 @@
       <p class="mb-3 text-white display-1 w-lg-75 w-sm-100 city-card-name">
         This page lists all of The Salvation Army locations in the city of {{this.seo_meta_title}}. Click below to visit a location's official website.
       </p>
-       <a
-        href="/location-finder"
-        class="btn btn-primary hero-full-cta-button"
-        data-location-type="body:hero-section"
-        data-function-type="navigation"
-        data-format-type="button"
-        data-link-type="internal"
-        onclick="LinkTrackingClickEvent(this,'cta_click')"
-        >Location Finder</a
-      >
     </div>
   </div>
   {{/if}}
@@ -49,7 +40,7 @@
     resolveImages();
   {{else}}
     const imageDOM = document.querySelector('.states__banner');
-    imageDOM.setAttribute('src', {{this.hero_image.getImage()}})
+    imageDOM.setAttribute('src', '{{ this.hero_image.getImage() }}')
   {{/if}}
   </script>
 <style>

@@ -1,0 +1,7 @@
+{{$locationZUID = {request.queryParam(locationZUID)} }}
+{{$propertyTypeZUID = {locations.filter({$locationZUID}).property_type} }}
+{
+  "locationZUID": "{{$locationZUID}}",
+  "propertyTypeZUID": "{{$propertyTypeZUID}}",
+  "property_type": "{{properties_types.filter({$propertyTypeZUID}).name.htmlentities()}}"
+}

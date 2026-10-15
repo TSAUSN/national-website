@@ -4,6 +4,15 @@
 }
 
 .events-section {
+    // Reserve one card row while loading so the swap to cards doesn't shift the layout.
+    &.is-loading {
+        min-height: 452px;
+
+        @media (min-width: 768px) {
+            min-height: 488px;
+        }
+    }
+
     @media (min-width: 1024px) {
         .card {
             max-width: 456px;

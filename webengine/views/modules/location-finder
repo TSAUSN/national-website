@@ -54,8 +54,7 @@
         <button id="location-finder__search-btn" class="btn btn-primary w-100" onclick="debouncedSearchServices()">
           Search Services
         </button>
-        <div id="no-service-area-container" class="text-primary-200 mt-5"></div>
-        <div id="no-results-container" class="text-primary-200 mt-2"></div>
+        <div id="no-results-container" class="text-primary-200 mt-5"></div>
       </div>
     </div>
     <div class="position-relative">

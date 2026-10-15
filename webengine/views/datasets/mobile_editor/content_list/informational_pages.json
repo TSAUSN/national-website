@@ -7,7 +7,10 @@
 {{$property = "" }}
 {{$division = "" }}
 {{$territory = "" }}
-{{$queryFilter = informational_page.title LIKE {$search} AND informational_page.location IS NULL AND informational_page.division IS NULL AND informational_page.territory IS NULL AND national = 1}}
+{{$querfield1 = informational_page.location IS NULL OR informational_page.location=""}}
+{{$querfield2 = informational_page.division IS NULL OR informational_page.division=""}}
+{{$querfield3 = informational_page.territory IS NULL OR informational_page.territory=""}}
+{{$queryFilter = informational_page.title LIKE {$search} AND ({$querfield1}) AND ({$querfield2}) AND ({$querfield3}) AND national = 1}}
 
 
 {{if {request.queryParam(skip)} }}
