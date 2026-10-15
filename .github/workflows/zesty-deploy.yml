@@ -5,25 +5,34 @@ on:
     branches: [stage, production]
   workflow_dispatch:
     inputs:
-      publish:
-        description: 'Also publish to production (overrides branch logic)'
-        required: false
-        default: false
-        type: boolean
       full_sync:
-        description: 'Sync every mapped file instead of only changed files'
+        description: 'Sync every mapped file instead of only changed files (not allowed on production)'
         required: false
         default: false
         type: boolean
 
+# One deploy per branch at a time; a newer push waits instead of racing or
+# cancelling a deploy that's halfway through.
+concurrency:
+  group: zesty-deploy-${{ github.ref_name }}
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     # Needed so the job can commit new-resource ZUID mappings back to the branch.
     permissions:
       contents: write
 
     steps:
+      # A full sync on production would publish every mapped resource dev→live.
+      - name: Block full sync on production
+        if: github.ref_name == 'production' && inputs.full_sync
+        run: |
+          echo "::error::Full sync is not allowed on production. Promote changes through a PR instead."
+          exit 1
+
       - name: Checkout code
         uses: actions/checkout@v4
         with:
@@ -34,17 +43,21 @@ jobs:
         with:
           node-version: 20
 
+      # Fails (after deploying everything it can) when a changed file couldn't be
+      # created or published, and lists every saved/published file in the job summary.
       - name: Run Zesty Sync & Deploy
         env:
           ZESTY_INSTANCE_ZUID: ${{ secrets.ZESTY_INSTANCE_ZUID }}
           ZESTY_DEVELOPER_TOKEN: ${{ secrets.ZESTY_DEVELOPER_TOKEN }}
           BRANCH: ${{ github.ref_name }}
-          MANUAL_PUBLISH: ${{ inputs.publish }}
           FULL_SYNC: ${{ inputs.full_sync }}
           DIFF_BASE: ${{ github.event.before }}
         run: node scripts/sync-to-zesty.js
 
+      # Runs even if the deploy step failed, so ZUIDs of resources it did create
+      # are never lost (losing them would create duplicates on the next deploy).
       - name: Commit new-resource ZUID mappings
+        if: ${{ !cancelled() && github.ref_name != 'production' }}
         run: |
           if ! git diff --quiet -- zesty.config.json; then
             git config user.name "github-actions[bot]"

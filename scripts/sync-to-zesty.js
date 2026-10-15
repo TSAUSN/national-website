@@ -379,9 +379,20 @@ function reportMarkdown({ created, written, skipped, publish, total, newCount = 
   ].join('\n');
 }
 
+// Files the run couldn't handle. A real deploy fails on these after doing
+// everything else, so a "Success" always means every changed file landed.
+const problems = [];
+
 function emitReport(args) {
+  let md = reportMarkdown(args);
+  if (problems.length) {
+    md = md.replace(
+      '<sub>',
+      `**❌ Not deployed (${problems.length}) — fix before merging:**\n${problems.map((p) => `- ${p}`).join('\n')}\n\n<sub>`
+    );
+  }
+  if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
   if (!REPORT) return;
-  const md = reportMarkdown(args);
   fs.writeFileSync(path.join(process.cwd(), 'zesty-report.md'), md + '\n');
   console.log('\n' + md);
 }
@@ -395,6 +406,10 @@ async function runStage(items, newFiles, manifest, config, indent) {
     if (result) {
       created.push(result);
       createdRels.push(path.relative(process.cwd(), nf.localPath));
+    } else {
+      problems.push(
+        `\`${path.relative(process.cwd(), nf.localPath)}\` — create it in the Zesty admin and add its ZUID to zesty.config.json`
+      );
     }
   }
   if (created.length && !DRY_RUN) {
@@ -422,7 +437,11 @@ async function runProduction(items, newFiles, manifest) {
     console.warn(
       `⚠️  ${newFiles.length} new file(s) in scope won't be created on production (publish-only) — promote via stage first:`
     );
-    for (const nf of newFiles) console.warn(`   - ${path.relative(process.cwd(), nf.localPath)}`);
+    for (const nf of newFiles) {
+      const rel = path.relative(process.cwd(), nf.localPath);
+      console.warn(`   - ${rel}`);
+      problems.push(`\`${rel}\` — not in zesty.config.json, so it can't be published; map its ZUID via stage`);
+    }
   }
   const devMap = CAN_CHECK ? await fetchInstanceCode('dev') : null;
   const liveMap = CAN_CHECK ? await fetchInstanceCode('live') : null;
@@ -481,6 +500,13 @@ async function main() {
   // stage = create + save (repo→dev); production = publish only (dev→live).
   if (shouldPublish) await runProduction(items, newFiles, manifest);
   else await runStage(items, newFiles, manifest, config, indent);
+
+  // The PR preview reports problems in its comment; a real deploy fails on them.
+  if (problems.length && !REPORT) {
+    console.error(`\n❌ ${problems.length} file(s) were not deployed:`);
+    for (const p of problems) console.error(`   - ${p.replace(/`/g, '')}`);
+    process.exitCode = 1;
+  }
 }
 
 main().catch((err) => {
