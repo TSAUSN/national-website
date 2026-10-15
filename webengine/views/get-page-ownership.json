@@ -43,98 +43,126 @@
     {{/each}}
 {{/if}}
 
-{{$emitted = 0 }}
-{
+{{$ownerLevel = 0 }}
 {{if {$hasLoc} == 1 }}
     {{if {$multiLoc} == 0 }}
         {{each locations as o WHERE z.zuid = '{$locZUID}' LIMIT 1 }}
-            {{$emitted = 1 }}
+            {{$ownerLevel = 1 }}
             {{$cityZUID = {o.city} }}
             {{$stateZUID = {o.state} }}
-            {{if !{$stateZUID} }}{{if {$divZUID} }}{{$stateZUID = {divisions.filter(z.zuid = '{$divZUID}').state} }}{{/if}}{{/if}}
-            {{if !{$stateZUID} }}{{if {$terZUID} }}{{$stateZUID = {territories.filter(z.zuid = '{$terZUID}').state} }}{{/if}}{{/if}}
+        {{/each}}
+        {{if {$ownerLevel} == 1 }}
+            {{if !{$stateZUID} }}{{if {$divZUID} }}
+                {{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{$stateZUID = {d.state} }}{{/each}}
+            {{/if}}{{/if}}
+            {{if !{$stateZUID} }}{{if {$terZUID} }}
+                {{each territories as t WHERE z.zuid = '{$terZUID}' LIMIT 1 }}{{$stateZUID = {t.state} }}{{/each}}
+            {{/if}}{{/if}}
+        {{/if}}
+    {{else-if {$multiDiv} == 0 }}
+        {{each divisions as o WHERE z.zuid = '{$divZUID}' LIMIT 1 }}
+            {{$ownerLevel = 2 }}
+            {{$divTerZUID = {o.territory} }}
+            {{$cityZUID = {o.city} }}
+            {{$stateZUID = {o.state} }}
+        {{/each}}
+        {{if {$ownerLevel} == 2 }}
+            {{if !{$stateZUID} }}{{if {$divTerZUID} }}
+                {{each territories as t WHERE z.zuid = '{$divTerZUID}' LIMIT 1 }}{{$stateZUID = {t.state} }}{{/each}}
+            {{/if}}{{/if}}
+        {{/if}}
+    {{else-if {$multiTer} == 0 }}
+        {{each territories as o WHERE z.zuid = '{$terZUID}' LIMIT 1 }}
+            {{$ownerLevel = 3 }}
+            {{$cityZUID = {o.city} }}
+            {{$stateZUID = {o.state} }}
+        {{/each}}
+    {{/if}}
+{{/if}}
+
+{
+{{if {$ownerLevel} == 1 }}
+    {{each locations as o WHERE z.zuid = '{$locZUID}' LIMIT 1 }}
     "event_found_at": "locations",
     "zuid": "{{o.zuid}}",
     "path": "{{truepath({o.zuid})}}",
     "name": "{{o.name.escapeForJs()}}",
     "property_type": "{{o.page_layout.escapeForJs()}}",
-    "divisionZUID": "{{if {$divZUID} }}{{$divZUID}}{{/if}}",
-    "divisionName": "{{if {$divZUID} }}{{divisions.filter(z.zuid = '{$divZUID}').name.escapeForJs()}}{{/if}}",
-    "territoryZUID": "{{if {$terZUID} }}{{$terZUID}}{{/if}}",
-    "territoryName": "{{if {$terZUID} }}{{territories.filter(z.zuid = '{$terZUID}').name.escapeForJs()}}{{/if}}",
     "address": "{{o.address.escapeForJs()}}",
-    "city": "{{if {$cityZUID} }}{{cities.filter(z.zuid = '{$cityZUID}').title.escapeForJs()}}{{/if}}",
-    "state": "{{if {$stateZUID} }}{{states.filter(z.zuid = '{$stateZUID}').name.escapeForJs()}}{{/if}}",
     "zipcode": "{{o.zipcode.escapeForJs()}}",
+    {{/each}}
+    "divisionZUID": "{{if {$divZUID} }}{{$divZUID}}{{/if}}",
+    "divisionName": "{{if {$divZUID} }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.name.escapeForJs()}}{{/each}}{{/if}}",
+    "territoryZUID": "{{if {$terZUID} }}{{$terZUID}}{{/if}}",
+    "territoryName": "{{if {$terZUID} }}{{each territories as t WHERE z.zuid = '{$terZUID}' LIMIT 1 }}{{t.name.escapeForJs()}}{{/each}}{{/if}}",
+    "city": "{{if {$cityZUID} }}{{each cities as c WHERE z.zuid = '{$cityZUID}' LIMIT 1 }}{{c.title.escapeForJs()}}{{/each}}{{/if}}",
+    "state": "{{if {$stateZUID} }}{{each states as s WHERE z.zuid = '{$stateZUID}' LIMIT 1 }}{{s.name.escapeForJs()}}{{/each}}{{/if}}",
     "contact_us": [
+        {{each locations as o WHERE z.zuid = '{$locZUID}' LIMIT 1 }}
         {
             "image": "{{o.contact_us_image.getImage()}}",
             "title": "{{o.contact_us_title.escapeForJs()}}",
             "header": "{{o.contact_us_cta_header.escapeForJs()}}"
         },
+        {{/each}}
         {
-            "image": "{{if {$divZUID} }}{{divisions.filter(z.zuid = '{$divZUID}').contact_us_image.getImage()}}{{/if}}",
-            "title": "{{if {$divZUID} }}{{divisions.filter(z.zuid = '{$divZUID}').contact_us_title.escapeForJs()}}{{/if}}",
-            "header": "{{if {$divZUID} }}{{divisions.filter(z.zuid = '{$divZUID}').contact_us_cta_header.escapeForJs()}}{{/if}}"
+            "image": "{{if {$divZUID} }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.contact_us_image.getImage()}}{{/each}}{{/if}}",
+            "title": "{{if {$divZUID} }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.contact_us_title.escapeForJs()}}{{/each}}{{/if}}",
+            "header": "{{if {$divZUID} }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.contact_us_cta_header.escapeForJs()}}{{/each}}{{/if}}"
         },
         {
-            "image": "{{if {$terZUID} }}{{territories.filter(z.zuid = '{$terZUID}').contact_us_image.getImage()}}{{/if}}",
-            "title": "{{if {$terZUID} }}{{territories.filter(z.zuid = '{$terZUID}').contact_us_title.escapeForJs()}}{{/if}}",
-            "header": "{{if {$terZUID} }}{{territories.filter(z.zuid = '{$terZUID}').contact_us_cta_header.escapeForJs()}}{{/if}}"
+            "image": "{{if {$terZUID} }}{{each territories as t WHERE z.zuid = '{$terZUID}' LIMIT 1 }}{{t.contact_us_image.getImage()}}{{/each}}{{/if}}",
+            "title": "{{if {$terZUID} }}{{each territories as t WHERE z.zuid = '{$terZUID}' LIMIT 1 }}{{t.contact_us_title.escapeForJs()}}{{/each}}{{/if}}",
+            "header": "{{if {$terZUID} }}{{each territories as t WHERE z.zuid = '{$terZUID}' LIMIT 1 }}{{t.contact_us_cta_header.escapeForJs()}}{{/each}}{{/if}}"
         }
     ],
     "donation": [
         {
-            "once": "{{if {$divZUID} }}{{divisions.filter(z.zuid = '{$divZUID}').classy_url.escapeForJs()}}{{/if}}",
-            "monthly": "{{if {$divZUID} }}{{divisions.filter(z.zuid = '{$divZUID}').classy_url_mobile.escapeForJs()}}{{/if}}"
+            "once": "{{if {$divZUID} }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.classy_url.escapeForJs()}}{{/each}}{{/if}}",
+            "monthly": "{{if {$divZUID} }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.classy_url_mobile.escapeForJs()}}{{/each}}{{/if}}"
         },
+        {{each locations as o WHERE z.zuid = '{$locZUID}' LIMIT 1 }}
         {
             "once": "{{o.classy_url.escapeForJs()}}",
             "monthly": "{{o.classy_url_mobile.escapeForJs()}}"
         }
-    ]
         {{/each}}
-    {{else-if {$multiDiv} == 0 }}
-        {{each divisions as o WHERE z.zuid = '{$divZUID}' LIMIT 1 }}
-            {{$emitted = 1 }}
-            {{$divTerZUID = {o.territory} }}
-            {{$cityZUID = {o.city} }}
-            {{$stateZUID = {o.state} }}
-            {{if !{$stateZUID} }}{{if {$divTerZUID} }}{{$stateZUID = {territories.filter(z.zuid = '{$divTerZUID}').state} }}{{/if}}{{/if}}
+    ]
+{{else-if {$ownerLevel} == 2 }}
+    {{each divisions as o WHERE z.zuid = '{$divZUID}' LIMIT 1 }}
     "event_found_at": "divisions",
     "zuid": "{{o.zuid}}",
     "path": "{{truepath({o.zuid})}}",
     "name": "{{o.name.escapeForJs()}}",
-    "territoryZUID": "{{if {$divTerZUID} }}{{$divTerZUID}}{{/if}}",
-    "territoryName": "{{if {$divTerZUID} }}{{territories.filter(z.zuid = '{$divTerZUID}').name.escapeForJs()}}{{/if}}",
     "address": "{{o.address.escapeForJs()}}",
-    "city": "{{if {$cityZUID} }}{{cities.filter(z.zuid = '{$cityZUID}').title.escapeForJs()}}{{/if}}",
-    "state": "{{if {$stateZUID} }}{{states.filter(z.zuid = '{$stateZUID}').name.escapeForJs()}}{{/if}}",
     "zipcode": "{{o.zipcode.escapeForJs()}}",
-    "contact_us": [
-        {
-            "image": "{{o.contact_us_image.getImage()}}",
-            "title": "{{o.contact_us_title.escapeForJs()}}",
-            "header": "{{o.contact_us_cta_header.escapeForJs()}}"
-        },
-        {
-            "image": "{{if {$divTerZUID} }}{{territories.filter(z.zuid = '{$divTerZUID}').contact_us_image.getImage()}}{{/if}}",
-            "title": "{{if {$divTerZUID} }}{{territories.filter(z.zuid = '{$divTerZUID}').contact_us_title.escapeForJs()}}{{/if}}",
-            "header": "{{if {$divTerZUID} }}{{territories.filter(z.zuid = '{$divTerZUID}').contact_us_cta_header.escapeForJs()}}{{/if}}"
-        }
-    ],
     "donation": [
         {
             "once": "{{o.classy_url.escapeForJs()}}",
             "monthly": "{{o.classy_url_mobile.escapeForJs()}}"
         }
-    ]
+    ],
+    {{/each}}
+    "territoryZUID": "{{if {$divTerZUID} }}{{$divTerZUID}}{{/if}}",
+    "territoryName": "{{if {$divTerZUID} }}{{each territories as t WHERE z.zuid = '{$divTerZUID}' LIMIT 1 }}{{t.name.escapeForJs()}}{{/each}}{{/if}}",
+    "city": "{{if {$cityZUID} }}{{each cities as c WHERE z.zuid = '{$cityZUID}' LIMIT 1 }}{{c.title.escapeForJs()}}{{/each}}{{/if}}",
+    "state": "{{if {$stateZUID} }}{{each states as s WHERE z.zuid = '{$stateZUID}' LIMIT 1 }}{{s.name.escapeForJs()}}{{/each}}{{/if}}",
+    "contact_us": [
+        {{each divisions as o WHERE z.zuid = '{$divZUID}' LIMIT 1 }}
+        {
+            "image": "{{o.contact_us_image.getImage()}}",
+            "title": "{{o.contact_us_title.escapeForJs()}}",
+            "header": "{{o.contact_us_cta_header.escapeForJs()}}"
+        },
         {{/each}}
-    {{else-if {$multiTer} == 0 }}
-        {{each territories as o WHERE z.zuid = '{$terZUID}' LIMIT 1 }}
-            {{$emitted = 1 }}
-            {{$cityZUID = {o.city} }}
-            {{$stateZUID = {o.state} }}
+        {
+            "image": "{{if {$divTerZUID} }}{{each territories as t WHERE z.zuid = '{$divTerZUID}' LIMIT 1 }}{{t.contact_us_image.getImage()}}{{/each}}{{/if}}",
+            "title": "{{if {$divTerZUID} }}{{each territories as t WHERE z.zuid = '{$divTerZUID}' LIMIT 1 }}{{t.contact_us_title.escapeForJs()}}{{/each}}{{/if}}",
+            "header": "{{if {$divTerZUID} }}{{each territories as t WHERE z.zuid = '{$divTerZUID}' LIMIT 1 }}{{t.contact_us_cta_header.escapeForJs()}}{{/each}}{{/if}}"
+        }
+    ]
+{{else-if {$ownerLevel} == 3 }}
+    {{each territories as o WHERE z.zuid = '{$terZUID}' LIMIT 1 }}
     "event_found_at": "territories",
     "zuid": "{{o.zuid}}",
     "path": "{{truepath({o.zuid})}}",
@@ -142,8 +170,6 @@
     "territoryZUID": "{{o.zuid}}",
     "territoryName": "{{o.name.escapeForJs()}}",
     "address": "{{o.address.escapeForJs()}}",
-    "city": "{{if {$cityZUID} }}{{cities.filter(z.zuid = '{$cityZUID}').title.escapeForJs()}}{{/if}}",
-    "state": "{{if {$stateZUID} }}{{states.filter(z.zuid = '{$stateZUID}').name.escapeForJs()}}{{/if}}",
     "zipcode": "{{o.zipcode.escapeForJs()}}",
     "contact_us": [
         {
@@ -152,11 +178,11 @@
             "header": "{{o.contact_us_cta_header.escapeForJs()}}"
         }
     ],
-    "donation": []
-        {{/each}}
-    {{/if}}
-{{/if}}
-{{if {$emitted} == 0 }}
+    "donation": [],
+    {{/each}}
+    "city": "{{if {$cityZUID} }}{{each cities as c WHERE z.zuid = '{$cityZUID}' LIMIT 1 }}{{c.title.escapeForJs()}}{{/each}}{{/if}}",
+    "state": "{{if {$stateZUID} }}{{each states as s WHERE z.zuid = '{$stateZUID}' LIMIT 1 }}{{s.name.escapeForJs()}}{{/each}}{{/if}}"
+{{else}}
     "event_found_at": ""
 {{/if}}
 }
