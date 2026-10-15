@@ -2548,6 +2548,9 @@
 
   async function setCodeCookie(zuid, modelZuid) {
     const res = await fetchInformation(`data_code`, zuid, modelZuid);
+    if (!res) {
+      return;
+    }
     cookieManager.set(cookieKeys.analyticsCode, res.code);
     cookieManager.set(cookieKeys.analyticsPageType, res.page_type);
     cookieManager.set(cookieKeys.territoryCode, res?.territory_code || "");
@@ -2652,15 +2655,18 @@
   async function applyPageOwnershipCookies() {
     const ownership = await fetchInformation(`get-page-ownership`, `{{this.zuid}}`, currentModel);
 
-    if (!ownership || !ownership.event_found_at || !hasValidZUIDShape(ownership.zuid)) {
+    if (!ownership || !ownership.event_found_at || !/^\d+-[0-9a-z]+-[0-9a-z]+$/.test(`${ownership.zuid || ``}`)) {
       return;
     }
 
     await setupCookiesWithInformation(ownership, ownership.zuid);
 
-    // The footer renders its address before this lookup resolves.
+    // The footer renders its address and links before this lookup resolves.
     if (typeof footerAddress === `function`) {
       footerAddress();
+    }
+    if (typeof updateSocialLinkURL === `function`) {
+      updateSocialLinkURL();
     }
   }
 
