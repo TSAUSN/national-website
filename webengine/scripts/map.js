@@ -617,7 +617,9 @@ document.addEventListener('markerClicked', (event) => {
 });
 
 async function fetchAllLocations(retriesLeft = 2) {
-  const response = await fetch(`${window.location.origin}/locations.json?_bypassError=true`);
+  const locationsPath =
+    window.instanceEnv === 'dev' ? '/locations-dev.json' : '/locations.json';
+  const response = await fetch(`${locationsPath}?_bypassError=true`);
 
   if (!response.ok) {
     if (retriesLeft > 0) {
@@ -656,13 +658,6 @@ async function fetchLocationData() {
     if (loader) {
       loader.classList.remove('d-none');
     }
-    // const response = await fetch(`${window.location.origin}/-/gql/locations.json`);
-    const locationsUrl =
-      window.location.origin === 'https://8hxvw8tw-dev.webengine.zesty.io'
-        ? `https://8hxvw8tw-dev.webengine.zesty.io/locations-dev.json?zpw=tsasecret123&_bypassError=true`
-        : `https://www.salvationarmyusa.org/locations.json?_bypassError=true`;
-    const response = await fetch(locationsUrl);
-    const rawData = await response.text();
 
     try {
       const allLocations = await fetchAllLocations();
