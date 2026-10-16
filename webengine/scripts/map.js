@@ -656,6 +656,13 @@ async function fetchLocationData() {
     if (loader) {
       loader.classList.remove('d-none');
     }
+    // const response = await fetch(`${window.location.origin}/-/gql/locations.json`);
+    const locationsUrl =
+      window.location.origin === 'https://8hxvw8tw-dev.webengine.zesty.io'
+        ? `${window.location.origin}/locations-dev.json?zpw=tsasecret123&_bypassError=true`
+        : `${window.location.origin}/locations.json?_bypassError=true`;
+    const response = await fetch(locationsUrl);
+    const rawData = await response.text();
 
     try {
       const allLocations = await fetchAllLocations();

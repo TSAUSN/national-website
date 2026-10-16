@@ -6,7 +6,7 @@
     "start": "node src/webhook-server.js",
     "start:function": "functions-framework --target=locationsWebhook --port=3000",
     "deploy": "node scripts/deploy.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test test/locations-sync.test.js"
   },
   "keywords": [],
   "author": "",
