@@ -2473,10 +2473,18 @@
       cookieManager.set(cookieKeys.lastVisitedZUID, cookieManager.get(cookieKeys.locationZUID));
     }
 
+    if (cookieManager.get(cookieKeys.locationZUID)) {
+      return;
+    }
+
     await applyPageOwnershipCookies();
   }
 
   async function handleStoryCookies() {
+    if (cookieManager.get(cookieKeys.locationZUID)) {
+      return;
+    }
+
     await applyPageOwnershipCookies();
   }
 
@@ -2636,13 +2644,9 @@
     return pageOwnershipRequest;
   }
 
-  // Story/event pages take the header context from the page's locations, overriding any persisted location.
+  // Story/event pages without a saved location: take the header context from the page's locations.
   async function applyPageOwnershipCookies() {
-    const hasPersistedLocation = Boolean(cookieManager.get(cookieKeys.locationZUID));
-
-    if (!hasPersistedLocation) {
-      setPageOwnershipBaseCookies();
-    }
+    setPageOwnershipBaseCookies();
 
     const ownership = await fetchPageOwnership();
 
@@ -2651,9 +2655,6 @@
     }
 
     if (ownership.event_found_at) {
-      if (hasPersistedLocation) {
-        setPageOwnershipBaseCookies();
-      }
       await setupCookiesWithInformation(ownership, ownership.zuid);
     } else {
       await setNationalLocationCookies();
