@@ -478,6 +478,19 @@ const CLASSIFICATION = [
   ['A location has been created!', 'update', false],
   ['A location has not been published yet', 'update', false],
   ['A location has been unpublished', 'unpublish', true],
+  ['Another location has been published', 'publish', true],
+  ['notification: A location has been published', 'publish', true],
+  ['Not published. Now published!', 'publish', true],
+  ['A LOCATION HAS BEEN PUBLISHED', 'publish', true],
+  ['A notification was sent. Location has been published', 'publish', true],
+  ['NOT PUBLISHED yet', 'update', false],
+  ['Item has been unpublished', 'unpublish', true],
+  ['Item UNPUBLISHED', 'unpublish', true],
+  ['Deleted and republished', 'delete', true],
+  ['DELETED', 'delete', true],
+  ['Location saved', 'update', false],
+  ['', 'update', false],
+  [undefined, 'update', false],
 ];
 for (const [text, action, live] of CLASSIFICATION) {
   test(`handler classifies "${text}" as ${action}`, async () => {
