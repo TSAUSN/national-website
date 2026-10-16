@@ -2473,77 +2473,39 @@
       cookieManager.set(cookieKeys.lastVisitedZUID, cookieManager.get(cookieKeys.locationZUID));
     }
 
-    const zuid = cookieManager.get(cookieKeys.locationZUID);
-
-    if (zuid) {
-      // const eventInformation = await fetchInformation(`find-event`, zuid);
-      // setupCookiesWithInformation(eventInformation, zuid);
-    } else {
-      cookieManager.set(cookieKeys.locationModel, models.homepage);
-      cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
-      cookieManager.set(cookieKeys.locationHomeURL, `/`);
-      cookieManager.set(cookieKeys.locationName, `NATIONAL`);
-      cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
-      cookieManager.set(cookieKeys.employmentUrl, `{{$nationalEmployment}}`);
-      cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
-      cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
-      cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
-      cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
-      cookieManager.set(cookieKeys.analyticsCode, `SAL^USN`);
-      cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
-      cookieManager.set(
-        cookieKeys.contactUsImage,
-        `{{homepage.first().contact_us_image.getImage()}}`
-      );
-      cookieManager.set(cookieKeys.contactUsTitle, `{{homepage.first().contact_us_title}}`);
-      cookieManager.set(cookieKeys.contactUsHeader, `{{homepage.first().contact_us_cta_header}}`);
-      cookieManager.delete(cookieKeys.divisionZUID);
-      cookieManager.delete(cookieKeys.territoryZUID);
-      cookieManager.delete(cookieKeys.locationPropertyType);
-      cookieManager.delete(cookieKeys.locationAddress);
-      cookieManager.delete(cookieKeys.locationCity);
-      cookieManager.delete(cookieKeys.locationState);
-
-      await applyPageOwnershipCookies();
-    }
+    await applyPageOwnershipCookies();
   }
 
   async function handleStoryCookies() {
-    // PERSISTED COOKIE
-    const zuid = cookieManager.get(cookieKeys.locationZUID);
+    await applyPageOwnershipCookies();
+  }
 
-    if (zuid) {
-      // RESET COOKIES
-      // const eventInformation = await fetchInformation(`find-story`, zuid);
-      // setupCookiesWithInformation(eventInformation, zuid);
-    } else {
-      // NATIONAL
-      cookieManager.set(cookieKeys.locationModel, models.homepage);
-      cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
-      cookieManager.set(cookieKeys.locationHomeURL, `/`);
-      cookieManager.set(cookieKeys.locationName, `NATIONAL`);
-      cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
-      cookieManager.set(cookieKeys.employmentUrl, `{{$nationalEmployment}}`);
-      cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
-      cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
-      cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
-      cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
-      cookieManager.set(cookieKeys.analyticsCode, `SAL^USN`);
-      cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
-      cookieManager.set(
-        cookieKeys.contactUsImage,
-        `{{homepage.first().contact_us_image.getImage()}}`
-      );
-      cookieManager.set(cookieKeys.contactUsTitle, `{{homepage.first().contact_us_title}}`);
-      cookieManager.set(cookieKeys.contactUsHeader, `{{homepage.first().contact_us_cta_header}}`);
-      cookieManager.delete(cookieKeys.territoryZUID);
-      cookieManager.delete(cookieKeys.divisionZUID);
-      cookieManager.delete(cookieKeys.locationAddress);
-      cookieManager.delete(cookieKeys.locationCity);
-      cookieManager.delete(cookieKeys.locationState);
-
-      await applyPageOwnershipCookies();
-    }
+  // Base National state that page ownership is applied on top of.
+  function setPageOwnershipBaseCookies() {
+    cookieManager.set(cookieKeys.locationModel, models.homepage);
+    cookieManager.set(cookieKeys.locationZUID, `{{homepage.first().zuid}}`);
+    cookieManager.set(cookieKeys.locationHomeURL, `/`);
+    cookieManager.set(cookieKeys.locationName, `NATIONAL`);
+    cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
+    cookieManager.set(cookieKeys.employmentUrl, `{{$nationalEmployment}}`);
+    cookieManager.set(cookieKeys.waysToGiveUrl, `{{$nationalWaysToGive}}`);
+    cookieManager.set(cookieKeys.plannedGivingUrl, `{{$nationalPlannedGiving}}`);
+    cookieManager.set(cookieKeys.mutualFundsUrl, `{{$nationalMutualFunds}}`);
+    cookieManager.set(cookieKeys.donateMonthlyURL, `{{homepage.first().classy_url_mobile}}`);
+    cookieManager.set(cookieKeys.analyticsCode, `SAL^USN`);
+    cookieManager.set(cookieKeys.tealiumprofile, tealiumProfile.national);
+    cookieManager.set(
+      cookieKeys.contactUsImage,
+      `{{homepage.first().contact_us_image.getImage()}}`
+    );
+    cookieManager.set(cookieKeys.contactUsTitle, `{{homepage.first().contact_us_title}}`);
+    cookieManager.set(cookieKeys.contactUsHeader, `{{homepage.first().contact_us_cta_header}}`);
+    cookieManager.delete(cookieKeys.divisionZUID);
+    cookieManager.delete(cookieKeys.territoryZUID);
+    cookieManager.delete(cookieKeys.locationPropertyType);
+    cookieManager.delete(cookieKeys.locationAddress);
+    cookieManager.delete(cookieKeys.locationCity);
+    cookieManager.delete(cookieKeys.locationState);
   }
 
   async function setCodeCookie(zuid, modelZuid) {
@@ -2651,15 +2613,51 @@
     };
   }
 
-  // Story/event pages without a cookie: take the header context from the page's locations.
-  async function applyPageOwnershipCookies() {
-    const ownership = await fetchInformation(`get-page-ownership`, `{{this.zuid}}`, currentModel);
+  let pageOwnershipRequest = null;
 
-    if (!ownership || !ownership.event_found_at || !/^\d+-[0-9a-z]+-[0-9a-z]+$/.test(`${ownership.zuid || ``}`)) {
+  // Resolves to null when the lookup fails, so callers can keep the current cookies.
+  function fetchPageOwnership() {
+    if (!pageOwnershipRequest) {
+      pageOwnershipRequest = fetchInformation(`get-page-ownership`, `{{this.zuid}}`, currentModel)
+        .then((ownership) => {
+          const isValid = Boolean(
+            ownership &&
+            typeof ownership.event_found_at === `string` &&
+            (!ownership.event_found_at || /^\d+-[0-9a-z]+-[0-9a-z]+$/.test(`${ownership.zuid || ``}`))
+          );
+
+          if (!isValid) {
+            pageOwnershipRequest = null;
+            return null;
+          }
+          return ownership;
+        });
+    }
+    return pageOwnershipRequest;
+  }
+
+  // Story/event pages take the header context from the page's locations, overriding any persisted location.
+  async function applyPageOwnershipCookies() {
+    const hasPersistedLocation = Boolean(cookieManager.get(cookieKeys.locationZUID));
+
+    if (!hasPersistedLocation) {
+      setPageOwnershipBaseCookies();
+    }
+
+    const ownership = await fetchPageOwnership();
+
+    if (!ownership) {
       return;
     }
 
-    await setupCookiesWithInformation(ownership, ownership.zuid);
+    if (ownership.event_found_at) {
+      if (hasPersistedLocation) {
+        setPageOwnershipBaseCookies();
+      }
+      await setupCookiesWithInformation(ownership, ownership.zuid);
+    } else {
+      await setNationalLocationCookies();
+    }
 
     // The footer renders its address and links before this lookup resolves.
     if (typeof footerAddress === `function`) {
