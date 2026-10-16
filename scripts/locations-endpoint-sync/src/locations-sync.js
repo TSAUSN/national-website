@@ -22,9 +22,13 @@ const RETRYABLE_STATUS_CODES = [502, 503, 504];
 // Delay before fetching, to avoid racing the CDN cache purge on publish events.
 const PUBLISH_PROPAGATION_DELAY_MS = Number(process.env.PUBLISH_PROPAGATION_DELAY_MS) || 5000;
 
-// In-memory debounce state for the current process.
+// In-memory run state for the current process (deploy is single-instance, concurrency 1).
+// `inFlight` is the run currently executing (at most one at a time). `queued` is the single
+// coalesced publish follow-up waiting for it to settle - every publish/delete/unpublish that
+// arrives mid-run shares it, so a burst collapses into one extra run instead of being dropped.
 let lastRunAt = 0;
 let inFlight = null;
+let queued = null;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -73,16 +77,55 @@ async function runRebuild(publish, action) {
     await new Promise((resolve) => setTimeout(resolve, PUBLISH_PROPAGATION_DELAY_MS));
   }
   const locations = await fetchLocations(action);
-  await updateLocationsView(locations, { publish });
+  const viewZuids = await updateLocationsView(locations, { publish });
   logToFile(
-    { viewZuid: process.env.LOCATIONS_VIEW_ZUID, count: Array.isArray(locations) ? locations.length : undefined, publish, action },
+    { viewZuids, count: Array.isArray(locations) ? locations.length : undefined, publish, action },
     'rebuilt',
     'locationsSync',
   );
 }
 
-// Entry point called on webhook deliveries. Debounces bursts, then kicks off runRebuild.
+// Starts a run and, once it settles (success or failure), starts the queued publish follow-up
+// if one was requested meanwhile. The returned promise never rejects.
+function startRun(publish, action) {
+  lastRunAt = Date.now();
+  const run = runRebuild(publish, action)
+    .catch((err) => {
+      try {
+        errorLogToFile(err, 'rebuild failed', 'locationsSync');
+      } catch (logErr) {
+        console.error('[locationsSync] rebuild failed (and could not be logged):', err, logErr);
+      }
+    })
+    .then(() => {
+      inFlight = null;
+      if (queued) {
+        const next = queued;
+        queued = null;
+        startRun(true, 'publish').then(next.resolve);
+      }
+    });
+  inFlight = run;
+  return run;
+}
+
+// Entry point called on webhook deliveries. Live-affecting triggers (publish/delete/unpublish,
+// i.e. `publish` = true) are never debounced: they run now, or - if a run is in flight - are
+// coalesced into one publish follow-up that starts after it settles. Updates are debounced and
+// skipped while a run is in flight, since only the draft is affected.
 function triggerRebuild(publish = true, action = 'update') {
+  if (publish) {
+    if (!inFlight) return startRun(true, action);
+    if (!queued) {
+      let resolve;
+      const promise = new Promise((r) => { resolve = r; });
+      queued = { promise, resolve, actions: [] };
+    }
+    queued.actions.push(action);
+    logToFile({ action, coalesced: queued.actions.length }, 'queued behind in-flight run', 'locationsSync');
+    return queued.promise;
+  }
+
   if (inFlight) return inFlight;
 
   const now = Date.now();
@@ -92,11 +135,7 @@ function triggerRebuild(publish = true, action = 'update') {
     return Promise.resolve({ skipped: true });
   }
 
-  lastRunAt = now;
-  inFlight = runRebuild(publish, action)
-    .catch((err) => errorLogToFile(err, 'rebuild failed', 'locationsSync'))
-    .finally(() => { inFlight = null; });
-  return inFlight;
+  return startRun(false, action);
 }
 
 module.exports = { triggerRebuild };
