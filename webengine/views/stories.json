@@ -171,6 +171,7 @@
       {{$locationReturn = 0}}
       
       {
+        "zuid": "{{story.zuid}}",
         "title": "{{story.title.htmlentities()}}",
         "date": "{{story.story_date_picker.date(Y-m-d)}}",
         "image": "{{story.image.getImage()}}",
