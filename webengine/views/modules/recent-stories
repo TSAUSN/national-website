@@ -60,13 +60,18 @@
         const locationZuid = getCookieByName('location_zuid');
 
         async function getStories(params) {
+          const currentStoryZuid = '{{this.zuid}}';
+          const maxStories = 15;
           try {
+            // Fetch one extra so the list stays full after excluding the current story.
             const response = await fetch(
-              `https://{{instance.domain}}/stories.json?limit=0&show=15&most-recent=1`
+              `https://{{instance.domain}}/stories.json?limit=0&show=${maxStories + 1}&most-recent=1`
             );
             const stories = await response.json();
 
-            return stories.data;
+            return stories.data
+              .filter((story) => story.zuid !== currentStoryZuid)
+              .slice(0, maxStories);
           } catch (error) {
             console.error('Error in getStories:', error);
           }
