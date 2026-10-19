@@ -165,7 +165,7 @@ All 83 top-level files in `webengine/views/modules/`. "Included by" is from `{{i
 | `programs` | Static shelter-programs mockup | (none) | not `programs-schedule` |
 | `programs-schedule` | Program schedule accordion | `services` | |
 | `programs-schedule-landing` | Landing variant | `locations` | |
-| `recent-stories` | Recent stories list | `stories:430` | |
+| `recent-stories` | Recent stories list; fetches `stories.json?show=16`, drops the current story by ZUID, shows up to 15 | `stories:430` | |
 | `schema` | JSON-LD (214 lines) | `custom_head:217` | |
 | `service-area-body-details` | Contact + body for service areas | `service_area` | includes `components/service-area-contact-detail`, `service-area-body` |
 | `service-area-form` | Renders `this.form_embed` | (none) | orphaned |
