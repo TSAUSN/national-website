@@ -113,10 +113,7 @@
     {{/if}}
 
     {{if {$informational} }}
-        {{each informational_pages as ip WHERE territory = '{$zuid}' LIMIT {$offset}, {$perPage} }}
-            {{$territory = {territories.filter({ip.territory}).name.escapeForJs() } }}
-            {{$division = {divisions.filter({ip.division}).name.escapeForJs() } }}
-            {{$location = {locations.filter({ip.location}).name.escapeForJs() } }}
+        {{each informational_pages as ip WHERE find_in_set('{$zuid}', territory) LIMIT {$offset}, {$perPage} }}
             {{if {$isFirst} == 0}},{{/if}}
             {{$isFirst = 0}}
             {
@@ -125,9 +122,9 @@
                 "zuid": "{{ip.zuid}}",
                 "title": "{{ip.title.escapeForJs() }}",
                 "page_type": "{{ information_page_types.filter({ip.page_type}).name.escapeForJs() }}",
-                "territory": {{if {ip.territory} }} "{{$territory}}" {{else}} null {{/if}},
-                "division":  {{if {ip.division} }} "{{$division}}" {{else}} null {{/if}},
-                "location":  {{if {ip.location} }} "{{$location}}" {{else}} null {{/if}},
+                "territory": {{if {ip.territory} }} "{{$ipNameSep = 0 }}{{each territories as ipTerName WHERE find_in_set(z.zuid, '{ip.territory}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipTerName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
+                "division":  {{if {ip.division} }} "{{$ipNameSep = 0 }}{{each divisions as ipDivName WHERE find_in_set(z.zuid, '{ip.division}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipDivName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
+                "location":  {{if {ip.location} }} "{{$ipNameSep = 0 }}{{each locations as ipLocName WHERE find_in_set(z.zuid, '{ip.location}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipLocName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
                 "path_part": "{{truepath({ip.zuid})}}",
 
                 "publish_status": "{{if {isPublished({ip.zuid})} }}publish{{else}}unpublish{{/if}}",
@@ -356,10 +353,7 @@
     {{/if}}
 
     {{if {$informational} }}
-        {{each informational_pages as ip WHERE division = '{$zuidD}' LIMIT {$offset}, {$perPage} }}
-            {{$territory = {territories.filter({ip.territory}).name.escapeForJs() } }}
-            {{$division = {divisions.filter({ip.division}).name.escapeForJs() } }}
-            {{$location = {locations.filter({ip.location}).name.escapeForJs() } }}
+        {{each informational_pages as ip WHERE find_in_set('{$zuidD}', division) LIMIT {$offset}, {$perPage} }}
             {{if {$isFirst} == 0}},{{/if}}
             {{$isFirst = 0}}
             {
@@ -368,9 +362,9 @@
                 "zuid": "{{ip.zuid}}",
                 "title": "{{ip.title.escapeForJs() }}",
                 "page_type": "{{ information_page_types.filter({ip.page_type}).name.escapeForJs() }}",
-                "territory": {{if {ip.territory} }} "{{$territory}}" {{else}} null {{/if}},
-                "division":  {{if {ip.division} }} "{{$division}}" {{else}} null {{/if}},
-                "location":  {{if {ip.location} }} "{{$location}}" {{else}} null {{/if}},
+                "territory": {{if {ip.territory} }} "{{$ipNameSep = 0 }}{{each territories as ipTerName WHERE find_in_set(z.zuid, '{ip.territory}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipTerName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
+                "division":  {{if {ip.division} }} "{{$ipNameSep = 0 }}{{each divisions as ipDivName WHERE find_in_set(z.zuid, '{ip.division}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipDivName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
+                "location":  {{if {ip.location} }} "{{$ipNameSep = 0 }}{{each locations as ipLocName WHERE find_in_set(z.zuid, '{ip.location}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipLocName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
                 "path_part": "{{truepath({ip.zuid})}}",
 
                 "publish_status": "{{if {isPublished({ip.zuid})} }}publish{{else}}unpublish{{/if}}",
@@ -599,10 +593,7 @@
     {{/if}}
 
     {{if {$informational} }}
-        {{each informational_pages as ip WHERE location = '{$zuidL}' LIMIT {$offset}, {$perPage} }}
-            {{$territory = {territories.filter({ip.territory}).name.escapeForJs() } }}
-            {{$division = {divisions.filter({ip.division}).name.escapeForJs() } }}
-            {{$location = {locations.filter({ip.location}).name.escapeForJs() } }}
+        {{each informational_pages as ip WHERE find_in_set('{$zuidL}', location) LIMIT {$offset}, {$perPage} }}
             {{if {$isFirst} == 0}},{{/if}}
             {{$isFirst = 0}}
             {
@@ -611,9 +602,9 @@
                 "zuid": "{{ip.zuid}}",
                 "title": "{{ip.title.escapeForJs() }}",
                 "page_type": "{{ information_page_types.filter({ip.page_type}).name.escapeForJs() }}",
-                "territory": {{if {ip.territory} }} "{{$territory}}" {{else}} null {{/if}},
-                "division":  {{if {ip.division} }} "{{$division}}" {{else}} null {{/if}},
-                "location":  {{if {ip.location} }} "{{$location}}" {{else}} null {{/if}},
+                "territory": {{if {ip.territory} }} "{{$ipNameSep = 0 }}{{each territories as ipTerName WHERE find_in_set(z.zuid, '{ip.territory}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipTerName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
+                "division":  {{if {ip.division} }} "{{$ipNameSep = 0 }}{{each divisions as ipDivName WHERE find_in_set(z.zuid, '{ip.division}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipDivName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
+                "location":  {{if {ip.location} }} "{{$ipNameSep = 0 }}{{each locations as ipLocName WHERE find_in_set(z.zuid, '{ip.location}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipLocName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
                 "path_part": "{{truepath({ip.zuid})}}",
 
                 "publish_status": "{{if {isPublished({ip.zuid})} }}publish{{else}}unpublish{{/if}}",
