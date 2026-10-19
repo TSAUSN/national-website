@@ -212,12 +212,6 @@
 {{$ipHasOwnerTerritory = 0 }}
 {{$ipUseDivision = 0 }}
 {{$ipUseTerritory = 0 }}
-{{$ipHasLocCity = 0 }}
-{{$ipHasLocState = 0 }}
-{{$ipHasDivCity = 0 }}
-{{$ipHasDivState = 0 }}
-{{$ipHasTerCity = 0 }}
-{{$ipHasTerState = 0 }}
 {{if {this.set_zuid} == {$informationalPageModelZUID} }}
     {{$ipHasLocationList = 0 }}
     {{$ipHasDivisionList = 0 }}
@@ -360,25 +354,6 @@
         {{/each}}
     {{/if}}{{/if}}{{/if}}
     {{if {$ipOwnerLevel} != 0 }}{{$ipUseTerritory = {$ipHasOwnerTerritory} }}{{/if}}
-
-    {{if {$ipOwnerLevel} == 1 }}
-        {{each locations as ipOwnerLoc WHERE z.zuid = '{$ipOwnerLocationZUID}' LIMIT 1 }}
-            {{if {ipOwnerLoc.city} }}{{$ipOwnerLocCityZUID = {ipOwnerLoc.city} }}{{$ipHasLocCity = 1 }}{{/if}}
-            {{if {ipOwnerLoc.state} }}{{$ipOwnerLocStateZUID = {ipOwnerLoc.state} }}{{$ipHasLocState = 1 }}{{/if}}
-        {{/each}}
-    {{/if}}
-    {{if {$ipUseDivision} == 1 }}
-        {{each divisions as ipOwnerDiv WHERE z.zuid = '{$ipOwnerDivisionZUID}' LIMIT 1 }}
-            {{if {ipOwnerDiv.city} }}{{$ipOwnerDivCityZUID = {ipOwnerDiv.city} }}{{$ipHasDivCity = 1 }}{{/if}}
-            {{if {ipOwnerDiv.state} }}{{$ipOwnerDivStateZUID = {ipOwnerDiv.state} }}{{$ipHasDivState = 1 }}{{/if}}
-        {{/each}}
-    {{/if}}
-    {{if {$ipUseTerritory} == 1 }}
-        {{each territories as ipOwnerTer WHERE z.zuid = '{$ipOwnerTerritoryZUID}' LIMIT 1 }}
-            {{if {ipOwnerTer.city} }}{{$ipOwnerTerCityZUID = {ipOwnerTer.city} }}{{$ipHasTerCity = 1 }}{{/if}}
-            {{if {ipOwnerTer.state} }}{{$ipOwnerTerStateZUID = {ipOwnerTer.state} }}{{$ipHasTerState = 1 }}{{/if}}
-        {{/each}}
-    {{/if}}
 {{/if}}
 
 
@@ -1982,57 +1957,74 @@
         const ipOwnerLocationZUID = `{{if {$ipOwnerLevel} == 1 }}{{$ipOwnerLocationZUID}}{{/if}}`.trim();
         const ipOwnerDivisionZUID = `{{if {$ipUseDivision} == 1 }}{{$ipOwnerDivisionZUID}}{{/if}}`.trim();
         const ipOwnerTerritoryZUID = `{{if {$ipUseTerritory} == 1 }}{{$ipOwnerTerritoryZUID}}{{/if}}`.trim();
-        const ipOwnerDivision = {
-          name: `{{if {$ipUseDivision} == 1 }}{{divisions.filter({$ipOwnerDivisionZUID}).name}}{{/if}}`,
-          address: `{{if {$ipUseDivision} == 1 }}{{divisions.filter({$ipOwnerDivisionZUID}).address}}{{/if}}`,
-          zipcode: `{{if {$ipUseDivision} == 1 }}{{divisions.filter({$ipOwnerDivisionZUID}).zipcode}}{{/if}}`,
-          homeURL: `{{if {$ipUseDivision} == 1 }}{{truepath({$ipOwnerDivisionZUID})}}{{/if}}`,
-          classyOnce: `{{if {$ipUseDivision} == 1 }}{{divisions.filter({$ipOwnerDivisionZUID}).classy_url}}{{/if}}`.trim(),
-          classyMonthly: `{{if {$ipUseDivision} == 1 }}{{divisions.filter({$ipOwnerDivisionZUID}).classy_url_mobile}}{{/if}}`.trim(),
+        const ipEmptyOwner = () => ({
+          name: ``,
+          address: ``,
+          city: ``,
+          state: ``,
+          zipcode: ``,
+          homeURL: ``,
+          pageLayout: ``,
+          classyOnce: ``,
+          classyMonthly: ``,
+          contactUs: { image: ``, title: ``, header: `` }
+        });
+        const ipOwnerLocation = ipEmptyOwner();
+        const ipOwnerDivision = ipEmptyOwner();
+        const ipOwnerTerritory = ipEmptyOwner();
+
+        {{if {$ipOwnerLevel} == 1 }}{{each locations as ipOwnerLocItem WHERE z.zuid = '{$ipOwnerLocationZUID}' LIMIT 1 }}
+        Object.assign(ipOwnerLocation, {
+          name: `{{ipOwnerLocItem.name}}`,
+          address: `{{ipOwnerLocItem.address}}`,
+          city: `{{if {ipOwnerLocItem.city} }}{{each cities as ipOwnerCity WHERE z.zuid = '{ipOwnerLocItem.city}' LIMIT 1 }}{{ipOwnerCity.title}}{{/each}}{{/if}}`,
+          state: `{{if {ipOwnerLocItem.state} }}{{each states as ipOwnerState WHERE z.zuid = '{ipOwnerLocItem.state}' LIMIT 1 }}{{ipOwnerState.name}}{{/each}}{{/if}}`,
+          zipcode: `{{ipOwnerLocItem.zipcode}}`,
+          homeURL: `{{truepath({ipOwnerLocItem.zuid})}}`,
+          pageLayout: `{{ipOwnerLocItem.page_layout}}`,
+          classyOnce: `{{ipOwnerLocItem.classy_url}}`,
+          classyMonthly: `{{ipOwnerLocItem.classy_url_mobile}}`,
           contactUs: {
-            image: `{{if {$ipUseDivision} == 1 }}{{divisions.filter({$ipOwnerDivisionZUID}).contact_us_image.getImage()}}{{/if}}`,
-            title: `{{if {$ipUseDivision} == 1 }}{{divisions.filter({$ipOwnerDivisionZUID}).contact_us_title}}{{/if}}`,
-            header: `{{if {$ipUseDivision} == 1 }}{{divisions.filter({$ipOwnerDivisionZUID}).contact_us_cta_header}}{{/if}}`
+            image: `{{ipOwnerLocItem.contact_us_image.getImage()}}`,
+            title: `{{ipOwnerLocItem.contact_us_title}}`,
+            header: `{{ipOwnerLocItem.contact_us_cta_header}}`
           }
-        };
-        const ipOwnerTerritory = {
-          name: `{{if {$ipUseTerritory} == 1 }}{{territories.filter({$ipOwnerTerritoryZUID}).name}}{{/if}}`,
-          address: `{{if {$ipUseTerritory} == 1 }}{{territories.filter({$ipOwnerTerritoryZUID}).address}}{{/if}}`,
-          zipcode: `{{if {$ipUseTerritory} == 1 }}{{territories.filter({$ipOwnerTerritoryZUID}).zipcode}}{{/if}}`,
-          homeURL: `{{if {$ipUseTerritory} == 1 }}{{truepath({$ipOwnerTerritoryZUID})}}{{/if}}`,
+        });
+        {{/each}}{{/if}}
+        {{if {$ipUseDivision} == 1 }}{{each divisions as ipOwnerDivItem WHERE z.zuid = '{$ipOwnerDivisionZUID}' LIMIT 1 }}
+        Object.assign(ipOwnerDivision, {
+          name: `{{ipOwnerDivItem.name}}`,
+          address: `{{ipOwnerDivItem.address}}`,
+          city: `{{if {ipOwnerDivItem.city} }}{{each cities as ipOwnerCity WHERE z.zuid = '{ipOwnerDivItem.city}' LIMIT 1 }}{{ipOwnerCity.title}}{{/each}}{{/if}}`,
+          state: `{{if {ipOwnerDivItem.state} }}{{each states as ipOwnerState WHERE z.zuid = '{ipOwnerDivItem.state}' LIMIT 1 }}{{ipOwnerState.name}}{{/each}}{{/if}}`,
+          zipcode: `{{ipOwnerDivItem.zipcode}}`,
+          homeURL: `{{truepath({ipOwnerDivItem.zuid})}}`,
+          classyOnce: `{{ipOwnerDivItem.classy_url}}`,
+          classyMonthly: `{{ipOwnerDivItem.classy_url_mobile}}`,
           contactUs: {
-            image: `{{if {$ipUseTerritory} == 1 }}{{territories.filter({$ipOwnerTerritoryZUID}).contact_us_image.getImage()}}{{/if}}`,
-            title: `{{if {$ipUseTerritory} == 1 }}{{territories.filter({$ipOwnerTerritoryZUID}).contact_us_title}}{{/if}}`,
-            header: `{{if {$ipUseTerritory} == 1 }}{{territories.filter({$ipOwnerTerritoryZUID}).contact_us_cta_header}}{{/if}}`
+            image: `{{ipOwnerDivItem.contact_us_image.getImage()}}`,
+            title: `{{ipOwnerDivItem.contact_us_title}}`,
+            header: `{{ipOwnerDivItem.contact_us_cta_header}}`
           }
-        };
-        const ipOwnerCity = {
-          location: `{{if {$ipHasLocCity} == 1 }}{{cities.filter({$ipOwnerLocCityZUID}).title}}{{/if}}`,
-          division: `{{if {$ipHasDivCity} == 1 }}{{cities.filter({$ipOwnerDivCityZUID}).title}}{{/if}}`,
-          territory: `{{if {$ipHasTerCity} == 1 }}{{cities.filter({$ipOwnerTerCityZUID}).title}}{{/if}}`
-        };
-        const ipOwnerState = {
-          location: `{{if {$ipHasLocState} == 1 }}{{states.filter({$ipOwnerLocStateZUID}).name}}{{/if}}`.trim(),
-          division: `{{if {$ipHasDivState} == 1 }}{{states.filter({$ipOwnerDivStateZUID}).name}}{{/if}}`.trim(),
-          territory: `{{if {$ipHasTerState} == 1 }}{{states.filter({$ipOwnerTerStateZUID}).name}}{{/if}}`.trim()
-        };
+        });
+        {{/each}}{{/if}}
+        {{if {$ipUseTerritory} == 1 }}{{each territories as ipOwnerTerItem WHERE z.zuid = '{$ipOwnerTerritoryZUID}' LIMIT 1 }}
+        Object.assign(ipOwnerTerritory, {
+          name: `{{ipOwnerTerItem.name}}`,
+          address: `{{ipOwnerTerItem.address}}`,
+          city: `{{if {ipOwnerTerItem.city} }}{{each cities as ipOwnerCity WHERE z.zuid = '{ipOwnerTerItem.city}' LIMIT 1 }}{{ipOwnerCity.title}}{{/each}}{{/if}}`,
+          state: `{{if {ipOwnerTerItem.state} }}{{each states as ipOwnerState WHERE z.zuid = '{ipOwnerTerItem.state}' LIMIT 1 }}{{ipOwnerState.name}}{{/each}}{{/if}}`,
+          zipcode: `{{ipOwnerTerItem.zipcode}}`,
+          homeURL: `{{truepath({ipOwnerTerItem.zuid})}}`,
+          contactUs: {
+            image: `{{ipOwnerTerItem.contact_us_image.getImage()}}`,
+            title: `{{ipOwnerTerItem.contact_us_title}}`,
+            header: `{{ipOwnerTerItem.contact_us_cta_header}}`
+          }
+        });
+        {{/each}}{{/if}}
 
         if (ipOwnerLevel === `1` && hasValidZUIDShape(ipOwnerLocationZUID)) {
-          const ipOwnerLocation = {
-            name: `{{if {$ipOwnerLevel} == 1 }}{{locations.filter({$ipOwnerLocationZUID}).name}}{{/if}}`,
-            address: `{{if {$ipOwnerLevel} == 1 }}{{locations.filter({$ipOwnerLocationZUID}).address}}{{/if}}`,
-            zipcode: `{{if {$ipOwnerLevel} == 1 }}{{locations.filter({$ipOwnerLocationZUID}).zipcode}}{{/if}}`,
-            pageLayout: `{{if {$ipOwnerLevel} == 1 }}{{locations.filter({$ipOwnerLocationZUID}).page_layout}}{{/if}}`,
-            homeURL: `{{if {$ipOwnerLevel} == 1 }}{{truepath({$ipOwnerLocationZUID})}}{{/if}}`,
-            classyOnce: `{{if {$ipOwnerLevel} == 1 }}{{locations.filter({$ipOwnerLocationZUID}).classy_url}}{{/if}}`.trim(),
-            classyMonthly: `{{if {$ipOwnerLevel} == 1 }}{{locations.filter({$ipOwnerLocationZUID}).classy_url_mobile}}{{/if}}`.trim(),
-            contactUs: {
-              image: `{{if {$ipOwnerLevel} == 1 }}{{locations.filter({$ipOwnerLocationZUID}).contact_us_image.getImage()}}{{/if}}`,
-              title: `{{if {$ipOwnerLevel} == 1 }}{{locations.filter({$ipOwnerLocationZUID}).contact_us_title}}{{/if}}`,
-              header: `{{if {$ipOwnerLevel} == 1 }}{{locations.filter({$ipOwnerLocationZUID}).contact_us_cta_header}}{{/if}}`
-            }
-          };
-
           cookieManager.set(cookieKeys.locationModel, `{{$locationModelZUID}}`);
           cookieManager.set(cookieKeys.locationPropertyType, ipOwnerLocation.pageLayout);
           cookieManager.set(cookieKeys.locationZUID, ipOwnerLocationZUID);
@@ -2047,10 +2039,10 @@
           );
 
           cookieManager.set(cookieKeys.locationAddress, ipOwnerLocation.address);
-          cookieManager.set(cookieKeys.locationCity, ipOwnerCity.location);
+          cookieManager.set(cookieKeys.locationCity, ipOwnerLocation.city);
           cookieManager.set(
             cookieKeys.locationState,
-            ipOwnerState.location || ipOwnerState.division || ipOwnerState.territory
+            ipOwnerLocation.state.trim() || ipOwnerDivision.state.trim() || ipOwnerTerritory.state.trim()
           );
           cookieManager.set(cookieKeys.locationZipcode, ipOwnerLocation.zipcode);
 
@@ -2062,11 +2054,11 @@
           setLocationCookiesByTerritory(ipOwnerTerritoryZUID);
 
           // Division then location Classy URLs override the territory's.
-          if (ipOwnerDivision.classyOnce && ipOwnerDivision.classyMonthly) {
-            setDonationUrlCookies(ipOwnerDivision.classyOnce, ipOwnerDivision.classyMonthly);
+          if (ipOwnerDivision.classyOnce.trim() && ipOwnerDivision.classyMonthly.trim()) {
+            setDonationUrlCookies(ipOwnerDivision.classyOnce.trim(), ipOwnerDivision.classyMonthly.trim());
           }
-          if (ipOwnerLocation.classyOnce && ipOwnerLocation.classyMonthly) {
-            setDonationUrlCookies(ipOwnerLocation.classyOnce, ipOwnerLocation.classyMonthly);
+          if (ipOwnerLocation.classyOnce.trim() && ipOwnerLocation.classyMonthly.trim()) {
+            setDonationUrlCookies(ipOwnerLocation.classyOnce.trim(), ipOwnerLocation.classyMonthly.trim());
           }
 
           await setCodeCookie(ipOwnerLocationZUID, `{{$locationModelZUID}}`);
@@ -2082,8 +2074,8 @@
           );
 
           cookieManager.set(cookieKeys.locationAddress, ipOwnerDivision.address);
-          cookieManager.set(cookieKeys.locationCity, ipOwnerCity.division);
-          cookieManager.set(cookieKeys.locationState, ipOwnerState.division || ipOwnerState.territory);
+          cookieManager.set(cookieKeys.locationCity, ipOwnerDivision.city);
+          cookieManager.set(cookieKeys.locationState, ipOwnerDivision.state.trim() || ipOwnerTerritory.state.trim());
           cookieManager.set(cookieKeys.locationZipcode, ipOwnerDivision.zipcode);
 
           cookieManager.set(cookieKeys.organizationDivision, ipOwnerDivision.name);
@@ -2095,8 +2087,8 @@
 
           setLocationCookiesByTerritory(ipOwnerTerritoryZUID);
 
-          if (ipOwnerDivision.classyOnce && ipOwnerDivision.classyMonthly) {
-            setDonationUrlCookies(ipOwnerDivision.classyOnce, ipOwnerDivision.classyMonthly);
+          if (ipOwnerDivision.classyOnce.trim() && ipOwnerDivision.classyMonthly.trim()) {
+            setDonationUrlCookies(ipOwnerDivision.classyOnce.trim(), ipOwnerDivision.classyMonthly.trim());
           }
 
           await setCodeCookie(ipOwnerDivisionZUID, models.divisions);
@@ -2107,8 +2099,8 @@
           cookieManager.set(cookieKeys.locationName, ipOwnerTerritory.name);
 
           cookieManager.set(cookieKeys.locationAddress, ipOwnerTerritory.address);
-          cookieManager.set(cookieKeys.locationCity, ipOwnerCity.territory);
-          cookieManager.set(cookieKeys.locationState, ipOwnerState.territory);
+          cookieManager.set(cookieKeys.locationCity, ipOwnerTerritory.city);
+          cookieManager.set(cookieKeys.locationState, ipOwnerTerritory.state.trim());
           cookieManager.set(cookieKeys.locationZipcode, ipOwnerTerritory.zipcode);
 
           setContactUsCookiesWithNationalFallback(ipOwnerTerritory.contactUs);

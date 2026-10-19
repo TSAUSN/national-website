@@ -38,6 +38,7 @@ Cross-cutting conventions to **reuse** when building, and known debt **not to co
   - The `states` branch (`:2360-2406`) reads `{{$statesTerritoryZUID}}` and has **no** `hasValidZUIDShape()` guard. Verified: if a State has no territory, cookies are set from an empty ZUID instead of falling back to national. This is a possible code gap, not a documented behaviour (see Open Questions).
   - Debug: `?debugDataLayer=1` enables `logCurrentDataLayerValues` output (function referenced at `:598`; the query-param handling was not re-read in this pass).
   - A second copy exists at `views/modules/tags/client-global-navigation` (see D-04).
+  - The informational-page owner lookups read records with `{{each <model> as x WHERE z.zuid = '{$var}' LIMIT 1}}` (as `get-page-ownership.json` does), because `<model>.filter({$var})` returned the first record there on a branch preview. `filter()` with an empty ZUID also returns the first record. The other `.filter` usages in this file are unchanged and have not been verified.
 
 ### P-03: Org-level fallback cascade (implemented independently three times)
 
