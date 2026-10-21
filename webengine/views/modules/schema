@@ -1,214 +1,334 @@
-{{$cityZUID = {cities.filter({this.parent_zuid}).zuid} }}
-{{$locationZUID = {locations.filter({this.parent_zuid}).zuid} }}
-{{$divisionZUID = {divisions.filter({this.zuid}).zuid} }}
-{{$divisionAsParentZUID = {divisions.filter({this.parent_zuid}).zuid} }}
-{{$territoryZUID = {territories.filter({this.zuid}).zuid} }}
-{{$territoryAsParentZUID = {territories.filter({this.parent_zuid}).zuid} }}
-<script>
+{{$schemaOwnerLevel = 0}}
+{{$schemaOwnerZUID = }}
+{{if {this.set_zuid} == '6-b4c9aba69c-h2nqvm' }}
+  {{$schemaOwnerLevel = 1}}
+  {{$schemaOwnerZUID = {this.zuid} }}
+{{else-if {this.set_zuid} == '6-acb19a94bd-4q8ftj' }}
+  {{$schemaOwnerLevel = 2}}
+  {{$schemaOwnerZUID = {this.zuid} }}
+{{else-if {this.set_zuid} == '6-deab97cfd9-wb5km4' }}
+  {{$schemaOwnerLevel = 3}}
+  {{$schemaOwnerZUID = {this.zuid} }}
+{{else-if {this.set_zuid} == '6-aa8c819c86-953qkz' }}
+  {{if {this.location} }}
+    {{$schemaOwnerZUID = {locations.filter({this.location}).zuid} }}
+    {{if {$schemaOwnerZUID} }}{{$schemaOwnerLevel = 1}}{{/if}}
+  {{/if}}
+  {{if {$schemaOwnerLevel} == 0 && {this.division} }}
+    {{$schemaOwnerZUID = {divisions.filter({this.division}).zuid} }}
+    {{if {$schemaOwnerZUID} }}{{$schemaOwnerLevel = 2}}{{/if}}
+  {{/if}}
+  {{if {$schemaOwnerLevel} == 0 && {this.territory} }}
+    {{$schemaOwnerZUID = {territories.filter({this.territory}).zuid} }}
+    {{if {$schemaOwnerZUID} }}{{$schemaOwnerLevel = 3}}{{/if}}
+  {{/if}}
+  {{if {$schemaOwnerLevel} == 0 && {this.parent_zuid} != 0 }}
+    {{$schemaOwnerZUID = {locations.filter({this.parent_zuid}).zuid} }}
+    {{if {$schemaOwnerZUID} }}{{$schemaOwnerLevel = 1}}{{/if}}
+    {{if {$schemaOwnerLevel} == 0 }}
+      {{$schemaOwnerZUID = {divisions.filter({this.parent_zuid}).zuid} }}
+      {{if {$schemaOwnerZUID} }}{{$schemaOwnerLevel = 2}}{{/if}}
+    {{/if}}
+    {{if {$schemaOwnerLevel} == 0 }}
+      {{$schemaOwnerZUID = {territories.filter({this.parent_zuid}).zuid} }}
+      {{if {$schemaOwnerZUID} }}{{$schemaOwnerLevel = 3}}{{/if}}
+    {{/if}}
+  {{/if}}
+{{/if}}
 
-   let jsonLd = {
-     '@context': 'https://schema.org',
-     '@graph': [
-      {
-         "@type": "Organization",
-         "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization",
-         "name": "{{this._meta_title}}",
-         "url": "https://{{instance.domain}}{{truepath({this.zuid})}}"
-       },
-       {
-         "@type": "WebSite",
-         "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#website",
-         "url": "https://{{instance.domain}}{{truepath({this.zuid})}}",
-         "name": "{{this._meta_title}}",
-         "publisher": {
-           "@id": "https://{{instance.domain}}{{ truepath({this.zuid}) }}#organization"
-         }
-       },
-       {
-         "@type": "WebPage",
-         "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#webpage",
-         "url": "https://{{instance.domain}}{{truepath({this.zuid})}}",
-         "name": "{{this._meta_title}}",
-         "isPartOf": {
-           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#website"
-         },
-         "about": {
-           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
-         }
-       },
-       {
-         "@type": "DonateAction",
-         "target": {
-           "@type": "EntryPoint",
-           "urlTemplate": "{{@location_donate_form}}",
-           "inLanguage": "en",
-           "actionPlatform": [
-             "http://schema.org/DesktopWebPlatform",
-             "http://schema.org/MobileWebPlatform"
-           ]
-         },
-         "recipient": {
-           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
-         },
-         "name": "Donate to " + cookieManager.get(cookieKeys.locationName)
-       },
-       {{if {$model_name} == '6-c2b7f2a9ad-k4frxv'}}
-       {
-         "@type": "DonateAction",
-         "target": {
-           "@type": "EntryPoint",
-           "urlTemplate": "{{@location_donate_form}}",
-           "inLanguage": "en",
-           "actionPlatform": [
-             "http://schema.org/DesktopWebPlatform",
-             "http://schema.org/MobileWebPlatform"
-           ]
-         },
-         "recipient": {
-           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
-         },
-         "name": "Donate to " + cookieManager.get(cookieKeys.locationName)
-       },
-       {
-         "@type": "DonateAction",
-         "name": "One-Time Donation",
-         "target": {
-           "@type": "EntryPoint",
-           "urlTemplate": "{{@location_donate_form}}"
-         },
-         "recipient": {
-           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
-         }
-       },
-       {
-         "@type": "DonateAction",
-         "name": "Monthly Giving",
-         "target": {
-           "@type": "EntryPoint",
-           "urlTemplate": "{{@location_donate_form}}"
-         },
-         "recipient": {
-           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
-         }
-       },
-       {
-         "@type": "DonateAction",
-         "name": "Corporate Sponsorships",
-         "target": {
-           "@type": "EntryPoint",
-           "urlTemplate": "https://{{instance.domain}}{{truepath({7-e4ee949cae-vm5klq})}}"
-         },
-         "recipient": {
-           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
-         }
-       },
-       {
-         "@type": "DonateAction",
-         "name": "Planned Giving",
-         "target": {
-           "@type": "EntryPoint",
-           "urlTemplate": "https://{{instance.domain}}{{truepath({7-82ce8e98ae-tvqz03})}}"
-         },
-         "recipient": {
-           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
-         }
-       },
-       {
-         "@type": "DonateAction",
-         "name": "Stock or Cryptocurrency Donations",
-         "target": {
-           "@type": "EntryPoint",
-           "urlTemplate": "https://{{instance.domain}}{{truepath(7-908ef4edec-70r71l)}}"
-         },
-         "recipient": {
-           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
-         }
-       },
+{{$schemaOrgPath = /}}
+{{if {$schemaOwnerLevel} != 0 }}
+  {{$schemaOrgPath = {truepath({$schemaOwnerZUID})} }}
+  {{if !{$schemaOrgPath} }}
+    {{$schemaOwnerLevel = 0}}
+    {{$schemaOrgPath = /}}
+  {{/if}}
+{{/if}}
 
-         {
-           "@type": "AboutPage",
-           "name": "About Us",
-           "url": "https://{{instance.domain}}{{truepath(7-90eff9e999-tpj14d)}}",
-           "isPartOf": {
-             "@id": "https://{{instance.domain}}#website"
-           },
-           "mainEntity": {
-             "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
-           }
-         },
-         {
-           "@type": "FAQPage",
-           "name": "Frequently Asked Questions",
-           "url": "https://{{instance.domain}}{{truepath(7-a2e6fdb4d7-03cvlv)/#faq}}",
-           "isPartOf": {
-             "@id": "https://{{instance.domain}}#website"
-           },
-         },
-       {{/if}}
-       {{if {$model_name} == '6-b4c9aba69c-h2nqvm'}}
-         {
-           "@type": "LocalBusiness",
-           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#localbusiness",
-           "name": "{{this._meta_title}}",
-           "url": "https://{{instance.domain}}{{truepath({this.zuid})}}",
-           "address": {
-             "@type": "PostalAddress",
-             "streetAddress": "{{this.address}}",
-             "addressLocality": "{{cities.filter({this.city}).name }}",
-             "addressRegion": "{states.filter({this.state}).name }}",
-             "postalCode": "{{this.zipcode}}",
-             "addressCountry": "US"
-           },
-           "telephone": "{{this.contact_number}}",
-           "parentOrganization": {
-             "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
-           }
-         },
-       {{/if}}
-
-       {{if {$model_name} == '6-80c7e29486-k0pq6s'}}
-          {
-           "@type": "NewsArticle",
-           "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#news",
-           "headline": "{{!this._meta_title}}",
-           "description": "{{!this.meta_description}}",
-           "datePublished": "{{!this.story_date_picker}}",
-           "author": {
-             "@type": "Person",
-             "name": "{{!this.author}}"
-           },
-           "publisher": {
-             "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
-           },
-           "mainEntityOfPage": {
-             "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#webpage"
-           },
-           "image": {
-             "@type": "ImageObject",
-             "url": "{{this.image.getImage()}}"
-           }
-           },
-       {{/if}}
-
-     ]
-   };
-
-  //   ServicesObserver.subscribe((services) => {
-  //     const mappedServices = services?.map((service, index) =>({
-  //       "@type": "Service",
-  //       "@id": "https://{{instance.domain}}{{ truepath({service.zuid}) }}",
-  //       "name": service.meta_title,
-  //       "provider": {
-  //         "@id": "https://{{instance.domain}}{{truepath({this.zuid})}}#organization"
-  //       },
-  //       "serviceType": service.service_type_name
-  //     }))
-
-  //    jsonLd["@graph"] = [...jsonLd["@graph"], ...mappedServices]
-
-  //     const script = document.createElement("script");
-  //     script.type = "application/ld+json";
-  //     script.text = JSON.stringify(jsonLd, null, 2);
-  //     document.body?.appendChild(script);
-  //  });
+{{$schemaOrgFragment = organization}}
+{{$schemaParentPath = /}}
+{{$schemaDonateURL = }}
+{{$orgName = }}
+{{$orgAddSuffix = 0}}
+{{$orgAddress = }}
+{{$orgCityZUID = }}
+{{$orgStateZUID = }}
+{{$orgZipcode = }}
+{{$orgPhone = }}
+{{$orgFax = }}
+{{$orgParentZUID = }}
+{{$orgFacebook = }}
+{{$orgTwitter = }}
+{{$orgYoutube = }}
+{{$orgLinkedin = }}
+{{$orgInstagram = }}
+{{if {$schemaOwnerLevel} == 1 }}
+  {{$schemaOrgFragment = localbusiness}}
+  {{each locations as l where z.zuid = '{$schemaOwnerZUID}' LIMIT 1 }}
+    {{$orgName = {l.name.escapeForJs()} }}
+    {{$orgAddress = {l.address.escapeForJs()} }}
+    {{$orgCityZUID = {l.city} }}
+    {{$orgStateZUID = {l.state} }}
+    {{$orgZipcode = {l.zipcode.escapeForJs()} }}
+    {{$orgPhone = {l.contact_number.escapeForJs()} }}
+    {{$orgParentZUID = {l.division} }}
+  {{/each}}
+{{else-if {$schemaOwnerLevel} == 2 }}
+  {{each divisions as d where z.zuid = '{$schemaOwnerZUID}' LIMIT 1 }}
+    {{$orgName = {d.name.escapeForJs()} }}
+    {{$orgAddress = {d.address.escapeForJs()} }}
+    {{$orgCityZUID = {d.city} }}
+    {{$orgStateZUID = {d.state} }}
+    {{$orgZipcode = {d.zipcode.escapeForJs()} }}
+    {{$orgPhone = {d.contact_number.escapeForJs()} }}
+    {{$orgFax = {d.fax_number.escapeForJs()} }}
+    {{$orgParentZUID = {d.territory} }}
+    {{$orgAddSuffix = 1}}
+  {{/each}}
+  {{each divisions as d where z.zuid = '{$schemaOwnerZUID}' AND (name LIKE '%Division%' OR name LIKE '%Command%') LIMIT 1 }}
+    {{$orgAddSuffix = 0}}
+  {{/each}}
+  {{each divisions as d where z.zuid = '{$schemaOwnerZUID}' AND classy_url LIKE 'https%' LIMIT 1 }}
+    {{$schemaDonateURL = {d.classy_url.escapeForJs()} }}
+  {{/each}}
+{{else-if {$schemaOwnerLevel} == 3 }}
+  {{each territories as t where z.zuid = '{$schemaOwnerZUID}' LIMIT 1 }}
+    {{$orgName = {t.name.escapeForJs()} }}
+    {{$orgAddress = {t.address.escapeForJs()} }}
+    {{$orgCityZUID = {t.city} }}
+    {{$orgStateZUID = {t.state} }}
+    {{$orgZipcode = {t.zipcode.escapeForJs()} }}
+    {{$orgFacebook = {t.facebook_url_link.escapeForJs()} }}
+    {{$orgTwitter = {t.twitter_url_link.escapeForJs()} }}
+    {{$orgYoutube = {t.youtube_url_link.escapeForJs()} }}
+    {{$orgLinkedin = {t.linkedin_url_link.escapeForJs()} }}
+    {{$orgInstagram = {t.instagram_url_link.escapeForJs()} }}
+  {{/each}}
+  {{each territories as t where z.zuid = '{$schemaOwnerZUID}' AND classy_url LIKE 'https%' LIMIT 1 }}
+    {{$schemaDonateURL = {t.classy_url.escapeForJs()} }}
+  {{/each}}
+{{else-if {this.set_zuid} == '6-a0898ca2c1-krnm0f' }}
+  {{each homepage as h where classy_url LIKE 'https%' LIMIT 1 }}
+    {{$schemaDonateURL = {h.classy_url.escapeForJs()} }}
+  {{/each}}
+{{/if}}
+{{if {$orgParentZUID} }}
+  {{$orgParentPath = {truepath({$orgParentZUID})} }}
+  {{if {$orgParentPath} }}
+    {{$schemaParentPath = {$orgParentPath} }}
+  {{/if}}
+{{/if}}
+{{$orgCity = }}
+{{if {$orgCityZUID} }}
+  {{$orgCity = {cities.filter({$orgCityZUID}).title.escapeForJs()} }}
+{{/if}}
+{{$orgState = }}
+{{if {$orgStateZUID} }}
+  {{$orgState = {states.filter({$orgStateZUID}).state_code.escapeForJs()} }}
+{{/if}}
+{{$orgHasSameAs = 0}}
+{{if {$orgFacebook} }}{{$orgHasSameAs = 1}}{{/if}}
+{{if {$orgTwitter} }}{{$orgHasSameAs = 1}}{{/if}}
+{{if {$orgYoutube} }}{{$orgHasSameAs = 1}}{{/if}}
+{{if {$orgLinkedin} }}{{$orgHasSameAs = 1}}{{/if}}
+{{if {$orgInstagram} }}{{$orgHasSameAs = 1}}{{/if}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {{if {$schemaOwnerLevel} == 0 }}
+    {
+      "@type": "Organization",
+      "@id": "https://www.{{instance.domain}}/#organization",
+      "name": "{{globals.site_name.escapeForJs()}}",
+      "url": "https://www.{{instance.domain}}/"
+      {{if {globals.default_og_image} }}
+      ,"logo": "{{globals.default_og_image.getImage()}}"
+      {{/if}}
+    },
+    {{else}}
+    {
+      "@type": "{{if {$schemaOwnerLevel} == 1 }}LocalBusiness{{else}}NGO{{/if}}",
+      "@id": "https://www.{{instance.domain}}{{$schemaOrgPath}}#{{$schemaOrgFragment}}",
+      "name": "{{if {$orgName} }}{{if {$schemaOwnerLevel} == 1 }}{{$orgName}}{{else}}The Salvation Army {{$orgName}}{{if {$orgAddSuffix} == 1 }} Division{{/if}}{{/if}}{{else}}The Salvation Army{{/if}}",
+      "url": "https://www.{{instance.domain}}{{$schemaOrgPath}}"
+      {{if {$schemaOwnerLevel} != 1 }}
+      {{if {globals.default_og_image} }}
+      ,"logo": "{{globals.default_og_image.getImage()}}"
+      {{/if}}
+      {{/if}}
+      {{if {$orgAddress} }}
+      ,"address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{$orgAddress}}"
+        {{if {$orgCity} }},"addressLocality": "{{$orgCity}}"{{/if}}
+        {{if {$orgState} }},"addressRegion": "{{$orgState}}"{{/if}}
+        {{if {$orgZipcode} }},"postalCode": "{{$orgZipcode}}"{{/if}}
+        ,"addressCountry": "US"
+      }
+      {{/if}}
+      {{if {$orgPhone} }}
+      ,"telephone": "{{$orgPhone}}"
+      {{/if}}
+      {{if {$orgFax} }}
+      ,"faxNumber": "{{$orgFax}}"
+      {{/if}}
+      {{if {$schemaOwnerLevel} == 2 }}
+      {{if {$orgPhone} }}
+      ,"contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "{{$orgPhone}}"
+        {{if {$orgFax} }},"faxNumber": "{{$orgFax}}"{{/if}}
+        ,"areaServed": "US"
+        ,"availableLanguage": "en"
+      }
+      {{/if}}
+      {{/if}}
+      {{if {$orgHasSameAs} == 1 }}
+      ,"sameAs": [
+        {{$sameAsSep = 0}}
+        {{if {$orgFacebook} }}"{{$orgFacebook}}"{{$sameAsSep = 1}}{{/if}}
+        {{if {$orgTwitter} }}{{if {$sameAsSep} == 1 }},{{/if}}"{{$orgTwitter}}"{{$sameAsSep = 1}}{{/if}}
+        {{if {$orgYoutube} }}{{if {$sameAsSep} == 1 }},{{/if}}"{{$orgYoutube}}"{{$sameAsSep = 1}}{{/if}}
+        {{if {$orgLinkedin} }}{{if {$sameAsSep} == 1 }},{{/if}}"{{$orgLinkedin}}"{{$sameAsSep = 1}}{{/if}}
+        {{if {$orgInstagram} }}{{if {$sameAsSep} == 1 }},{{/if}}"{{$orgInstagram}}"{{$sameAsSep = 1}}{{/if}}
+      ]
+      {{/if}}
+      ,"parentOrganization": {
+        "@id": "https://www.{{instance.domain}}{{$schemaParentPath}}#organization"
+      }
+    },
+    {{/if}}
+    {
+      "@type": "WebSite",
+      "@id": "https://www.{{instance.domain}}/#website",
+      "url": "https://www.{{instance.domain}}/",
+      "name": "{{globals.site_name.escapeForJs()}}"
+    },
+    {
+      "@type": "{{if {this.set_zuid} == '6-aa8c819c86-953qkz' }}ContactPage{{else}}WebPage{{/if}}",
+      "@id": "https://www.{{instance.domain}}{{truepath({this.zuid})}}#webpage",
+      "url": "https://www.{{instance.domain}}{{truepath({this.zuid})}}",
+      "name": "{{this._meta_title.escapeForJs()}}",
+      "isPartOf": {
+        "@id": "https://www.{{instance.domain}}/#website"
+      },
+      "about": {
+        "@id": "https://www.{{instance.domain}}{{$schemaOrgPath}}#{{$schemaOrgFragment}}"
+      }
+    }
+    {{if {$schemaDonateURL} }}
+    ,{
+      "@type": "DonateAction",
+      "name": "Donate to {{if {$schemaOwnerLevel} == 0 }}{{globals.site_name.escapeForJs()}}{{else-if {$orgName} }}The Salvation Army {{$orgName}}{{if {$orgAddSuffix} == 1 }} Division{{/if}}{{else}}The Salvation Army{{/if}}",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "{{$schemaDonateURL}}",
+        "inLanguage": "en",
+        "actionPlatform": [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform"
+        ]
+      },
+      "recipient": {
+        "@id": "https://www.{{instance.domain}}{{$schemaOrgPath}}#{{$schemaOrgFragment}}"
+      }
+    }
+    {{/if}}
+    {{if {this.set_zuid} == '6-a0898ca2c1-krnm0f' }}
+    {{$corporatePath = {truepath(7-e4ee949cae-vm5klq)} }}
+    {{$plannedGivingPath = {truepath(7-82ce8e98ae-tvqz03)} }}
+    {{$stockPath = {truepath(7-908ef4edec-70r71l)} }}
+    {{$aboutPath = {truepath(7-90eff9e999-tpj14d)} }}
+    {{if {$corporatePath} }}
+    ,{
+      "@type": "DonateAction",
+      "name": "Corporate Sponsorships",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.{{instance.domain}}{{$corporatePath}}"
+      },
+      "recipient": {
+        "@id": "https://www.{{instance.domain}}/#organization"
+      }
+    }
+    {{/if}}
+    {{if {$plannedGivingPath} }}
+    ,{
+      "@type": "DonateAction",
+      "name": "Planned Giving",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.{{instance.domain}}{{$plannedGivingPath}}"
+      },
+      "recipient": {
+        "@id": "https://www.{{instance.domain}}/#organization"
+      }
+    }
+    {{/if}}
+    {{if {$stockPath} }}
+    ,{
+      "@type": "DonateAction",
+      "name": "Stock or Cryptocurrency Donations",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.{{instance.domain}}{{$stockPath}}"
+      },
+      "recipient": {
+        "@id": "https://www.{{instance.domain}}/#organization"
+      }
+    }
+    {{/if}}
+    {{if {$aboutPath} }}
+    ,{
+      "@type": "AboutPage",
+      "name": "About Us",
+      "url": "https://www.{{instance.domain}}{{$aboutPath}}",
+      "isPartOf": {
+        "@id": "https://www.{{instance.domain}}/#website"
+      },
+      "mainEntity": {
+        "@id": "https://www.{{instance.domain}}/#organization"
+      }
+    }
+    {{/if}}
+    {{else-if {this.set_zuid} == '6-80c7e29486-k0pq6s' }}
+    ,{
+      "@type": "NewsArticle",
+      "@id": "https://www.{{instance.domain}}{{truepath({this.zuid})}}#news",
+      "headline": "{{this._meta_title.escapeForJs()}}"
+      {{if {this.seo_meta_description} }}
+      ,"description": "{{this.seo_meta_description.escapeForJs()}}"
+      {{/if}}
+      {{if {this.story_date_picker} }}
+      ,"datePublished": "{{this.story_date_picker.date(Y-m-d)}}"
+      {{/if}}
+      {{if {this.author} }}
+      ,"author": {
+        "@type": "Person",
+        "name": "{{this.author.escapeForJs()}}"
+      }
+      {{/if}}
+      ,"publisher": {
+        "@id": "https://www.{{instance.domain}}/#organization"
+      }
+      ,"mainEntityOfPage": {
+        "@id": "https://www.{{instance.domain}}{{truepath({this.zuid})}}#webpage"
+      }
+      {{if {this.image} }}
+      ,"image": {
+        "@type": "ImageObject",
+        "url": "{{this.image.getImage()}}"
+      }
+      {{else-if {globals.default_og_image} }}
+      ,"image": {
+        "@type": "ImageObject",
+        "url": "{{globals.default_og_image.getImage()}}"
+      }
+      {{/if}}
+    }
+    {{/if}}
+  ]
+}
 </script>
