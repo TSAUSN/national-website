@@ -617,7 +617,9 @@ document.addEventListener('markerClicked', (event) => {
 });
 
 async function fetchAllLocations(retriesLeft = 2) {
-  const response = await fetch(`${window.location.origin}/locations.json?_bypassError=true`);
+  const locationsPath =
+    window.instanceEnv === 'dev' ? '/locations-dev.json' : '/locations.json';
+  const response = await fetch(`${locationsPath}?_bypassError=true`);
 
   if (!response.ok) {
     if (retriesLeft > 0) {

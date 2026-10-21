@@ -8,5 +8,8 @@
     "deploy:dry": "DRY_RUN=true node scripts/sync-to-zesty.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/test": "^1.64.1"
+  }
 }

@@ -7,7 +7,16 @@
         {
             "gdos_category": "{{gdos.gdos_category}}",
             "gdos_subcategory": "{{gdos.gdos_subcategory}}",
-            "service_type": "{{gdos.service_types}}"
+            "service_type":  
+                {{each service_types as service WHERE service.zuid = '{gdos.service_type}' }}
+                {
+                    "zuid": "{{service.zuid}}",
+                    "title": "{{service.title}}",
+                    "description": "{{service.description.escapeForJs()}}",
+                    "image": "{{service.image.getMediaURL()}}"
+                }
+                {{service._arraycomma}}
+                {{/each}}
         }
         {{gdos._arraycomma}}
         {{$totalItems = {gdos._num} }}
