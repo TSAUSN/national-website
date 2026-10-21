@@ -246,7 +246,8 @@ Consumers are `fetch` sites found in `webengine/views/**` and `webengine/scripts
 | `model-info.json` | `/model-info.json` | `hero`, `map`, `map-contact`, `stats`, `events`, `header`, `header-dynamic`, `footer`, one block | param `zuid` |
 | `get-events.json` | `/get-events.json` | `modules/upcoming-events:101` | params `field` (`property`/`divisions`/`territories`/`any`), `z1`..`z5`; returns future events, up to 100 (`get-events.json:72`) |
 | `get-services-territories`, `-divisions`, `-locations`, `-national` | `/get-services-*.json` | `modules/indexdb` | param `zuid` (and `model_zuid` for `api_test`) |
-| `get-informational-page-links` | `/get-informational-page-links.json` | `header`, `header-dynamic` | params `zuid`, `navParent` |
+| `get-informational-page-links` | `/get-informational-page-links.json` | `header`, `header-dynamic` | params `zuid`, `navParent`. Location nav: every page listing the location (`find_in_set`). Division or territory nav: pages set directly on it without locations (as before), plus pages with several locations that resolve to it (one division, else one territory). Cost: about 4 queries, plus one per multi-location nav page with that `navParent` (and one per such location without a territory) |
+| `get-page-ownership.json` | same | `client-global-navigation` (`applyPageOwnershipCookies`, stories and events without a cookie) | params `zuid`, `model` (stories, events). A location without a territory takes its division's. Returns the resolved owner (`event_found_at` = `locations` / `divisions` / `territories`, or empty for National) with names, address, contact-us and donation fallbacks |
 | `get-informational-page.json` | same | `client-global-navigation:2741` | param `zuid` |
 | `get-volunteer-page` | `/get-volunteer-page.json` | `client-global-navigation:2581` | params `zuid`, `model`; hardcoded fallback page ZUID |
 | `data_code` | `/data_code.json` | `client-global-navigation:2546,2601` | params `zuid`, `model` |
