@@ -277,7 +277,7 @@ Shared shape: `title` plus the org trio (`territory`, `division`, `location`), m
 | --- | --- | --- |
 | About Us | `hero_image`, `title`, `subtitle`, CTAs (via `modules/hero-full`); `image_button_text_full_*` (via `modules/image-button-text-full`); `local_need_*` (via `modules/local-needs`, see section 7) | `webengine/views/about_us`. Also includes `modules/stats`, `modules/leadership-list`. |
 | Contact Us | `hero_image` (`modules/contact-us:8`), `contact_us_form` (`modules/contact-form:1`), `location` | If `location` is set it renders `map-with-info-contact` + `contact-us-officers`, else `map-contact` (`contact_us`). `services-info.json` reads the org trio and `truepath`. |
-| Informational Pages | `template_layout`, `external_link`, `page_type`, `navigation_parent`, `display_on_header_navigation`, `national` | `template_layout == 1` uses `autolayout`; else `modules/generic`, or 301 to `external_link`. `get-informational-page-links:30,66` filters on `display_on_header_navigation`, `navigation_parent` (default `more`), location/division/territory, `national`. `page_type` -> Information Page Types (`generate-csv:127`). |
+| Informational Pages | `template_layout`, `external_link`, `page_type`, `navigation_parent`, `display_on_header_navigation`, `national` | `template_layout == 1` uses `autolayout`; else `modules/generic`, or 301 to `external_link`. `get-informational-page-links:30,66` filters on `display_on_header_navigation`, `navigation_parent` (default `more`), location/division/territory (`find_in_set`, so a page listed under several locations shows in each location's nav, and in the nav of the division or territory those locations resolve to), `national`. `page_type` -> Information Page Types (`generate-csv:127`). `location`, `division`, `territory` are `one_to_one` (Instance API read, 2026-10-19); code accepts one ZUID or a comma-separated list so they can become `one_to_many` without code changes. Owner resolution: see `custom-patterns.md` P-02. |
 | Volunteer Pages | `template_layout`, `external_link` | Same view logic as Informational Pages. `get-volunteer-page` finds a page by `location`, `division`, `territory`, with a central fallback. |
 | Leadership Landing Page | org trio, `title`, `body`, `image` (`modules/hero-full-leadership`) | `leadership_landing_page` includes `modules/leadership-list`. |
 | Stories Landing Page | org trio | View includes `modules/news-archive`. |
@@ -390,7 +390,7 @@ Reusable blocks editors drop into WYSIWYG content, each with its own field shape
 
 | Models | Field names | Notes |
 | --- | --- | --- |
-| Services, Informational Pages, Volunteer Pages, Contact Us, About Us, landing pages | `territory`, `division`, `location` (singular) | `get-informational-page-links`, `get-volunteer-page`, `generate-csv`. |
+| Services, Informational Pages, Volunteer Pages, Contact Us, About Us, landing pages | `territory`, `division`, `location` (singular) | `get-informational-page-links`, `get-volunteer-page`, `generate-csv`. For Informational Pages, code treats each as one ZUID or a comma-separated list. |
 | Stories | `property`, `divisions`, `territory` | Multi-value. |
 | Events | `property`, `divisions`, `territories` | Multi-value. |
 | Staff | `member_locations`, `member_divisions`, `member_territories` | `staff.json`. |

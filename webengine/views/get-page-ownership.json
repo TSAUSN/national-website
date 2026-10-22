@@ -4,41 +4,51 @@
 {{$hasList = 0 }}
 {{if {$modelZuid} == '6-80c7e29486-k0pq6s' }}
     {{each stories as item WHERE z.zuid = '{$zuid}' LIMIT 1 }}
-        {{$locationZUIDs = {item.property} }}
-        {{$hasList = 1 }}
+        {{if {item.property} }}{{$locationZUIDs = {item.property} }}{{$hasList = 1 }}{{/if}}
     {{/each}}
 {{else-if {$modelZuid} == '6-a2dbc1a6e2-x4pzmx' }}
     {{each events as item WHERE z.zuid = '{$zuid}' LIMIT 1 }}
-        {{$locationZUIDs = {item.property} }}
-        {{$hasList = 1 }}
+        {{if {item.property} }}{{$locationZUIDs = {item.property} }}{{$hasList = 1 }}{{/if}}
     {{/each}}
 {{/if}}
 
+(** ZUID variables are only assigned non-empty values; the has* flags record whether they are set. **)
 {{$hasLoc = 0 }}
 {{$multiLoc = 0 }}
 {{$multiDiv = 0 }}
 {{$multiTer = 0 }}
+{{$hasDivZUID = 0 }}
+{{$hasTerZUID = 0 }}
+{{$hasDivTerZUID = 0 }}
 {{if {$hasList} == 1 }}
     {{each locations as loc WHERE find_in_set(z.zuid, '{$locationZUIDs}') }}
+        {{$locHasDiv = 0 }}
+        {{$locHasTer = 0 }}
+        {{if {loc.division} }}{{$locDiv = {loc.division} }}{{$locHasDiv = 1 }}{{/if}}
+        {{if {loc.territory} }}{{$locTer = {loc.territory} }}{{$locHasTer = 1 }}{{/if}}
+        (** A location without a territory takes its division's. **)
+        {{if {$locHasTer} == 0 }}{{if {$locHasDiv} == 1 }}
+            {{each divisions as locDivision WHERE z.zuid = '{$locDiv}' LIMIT 1 }}
+                {{if {locDivision.territory} }}{{$locTer = {locDivision.territory} }}{{$locHasTer = 1 }}{{/if}}
+            {{/each}}
+        {{/if}}{{/if}}
         {{if {$hasLoc} == 1 }}
             {{$multiLoc = 1 }}
             {{if {$multiDiv} == 0 }}
                 {{$sameDiv = 0 }}
-                {{if {loc.division} == {$divZUID} }}{{$sameDiv = 1 }}{{/if}}
+                {{if {$locHasDiv} == 1 }}{{if {$locDiv} == {$divZUID} }}{{$sameDiv = 1 }}{{/if}}{{/if}}
                 {{if {$sameDiv} == 0 }}{{$multiDiv = 1 }}{{/if}}
             {{/if}}
             {{if {$multiTer} == 0 }}
                 {{$sameTer = 0 }}
-                {{if {loc.territory} == {$terZUID} }}{{$sameTer = 1 }}{{/if}}
+                {{if {$locHasTer} == 1 }}{{if {$locTer} == {$terZUID} }}{{$sameTer = 1 }}{{/if}}{{/if}}
                 {{if {$sameTer} == 0 }}{{$multiTer = 1 }}{{/if}}
             {{/if}}
         {{else}}
             {{$hasLoc = 1 }}
             {{$locZUID = {loc.zuid} }}
-            {{$divZUID = {loc.division} }}
-            {{$terZUID = {loc.territory} }}
-            {{if !{$divZUID} }}{{$multiDiv = 1 }}{{/if}}
-            {{if !{$terZUID} }}{{$multiTer = 1 }}{{/if}}
+            {{if {$locHasDiv} == 1 }}{{$divZUID = {$locDiv} }}{{$hasDivZUID = 1 }}{{else}}{{$multiDiv = 1 }}{{/if}}
+            {{if {$locHasTer} == 1 }}{{$terZUID = {$locTer} }}{{$hasTerZUID = 1 }}{{else}}{{$multiTer = 1 }}{{/if}}
         {{/if}}
     {{/each}}
 {{/if}}
@@ -52,22 +62,25 @@
             {{$stateZUID = {o.state} }}
         {{/each}}
         {{if {$ownerLevel} == 1 }}
-            {{if !{$stateZUID} }}{{if {$divZUID} }}
+            {{if !{$stateZUID} }}{{if {$hasDivZUID} == 1 }}
                 {{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{$stateZUID = {d.state} }}{{/each}}
             {{/if}}{{/if}}
-            {{if !{$stateZUID} }}{{if {$terZUID} }}
+            {{if !{$stateZUID} }}{{if {$hasTerZUID} == 1 }}
                 {{each territories as t WHERE z.zuid = '{$terZUID}' LIMIT 1 }}{{$stateZUID = {t.state} }}{{/each}}
             {{/if}}{{/if}}
         {{/if}}
     {{else-if {$multiDiv} == 0 }}
         {{each divisions as o WHERE z.zuid = '{$divZUID}' LIMIT 1 }}
             {{$ownerLevel = 2 }}
-            {{$divTerZUID = {o.territory} }}
+            {{if {o.territory} }}{{$divTerZUID = {o.territory} }}{{$hasDivTerZUID = 1 }}{{/if}}
             {{$cityZUID = {o.city} }}
             {{$stateZUID = {o.state} }}
         {{/each}}
         {{if {$ownerLevel} == 2 }}
-            {{if !{$stateZUID} }}{{if {$divTerZUID} }}
+            {{if {$hasDivTerZUID} == 0 }}{{if {$hasTerZUID} == 1 }}
+                {{$divTerZUID = {$terZUID} }}{{$hasDivTerZUID = 1 }}
+            {{/if}}{{/if}}
+            {{if !{$stateZUID} }}{{if {$hasDivTerZUID} == 1 }}
                 {{each territories as t WHERE z.zuid = '{$divTerZUID}' LIMIT 1 }}{{$stateZUID = {t.state} }}{{/each}}
             {{/if}}{{/if}}
         {{/if}}
@@ -91,10 +104,10 @@
     "address": "{{o.address.escapeForJs()}}",
     "zipcode": "{{o.zipcode.escapeForJs()}}",
     {{/each}}
-    "divisionZUID": "{{if {$divZUID} }}{{$divZUID}}{{/if}}",
-    "divisionName": "{{if {$divZUID} }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.name.escapeForJs()}}{{/each}}{{/if}}",
-    "territoryZUID": "{{if {$terZUID} }}{{$terZUID}}{{/if}}",
-    "territoryName": "{{if {$terZUID} }}{{each territories as t WHERE z.zuid = '{$terZUID}' LIMIT 1 }}{{t.name.escapeForJs()}}{{/each}}{{/if}}",
+    "divisionZUID": "{{if {$hasDivZUID} == 1 }}{{$divZUID}}{{/if}}",
+    "divisionName": "{{if {$hasDivZUID} == 1 }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.name.escapeForJs()}}{{/each}}{{/if}}",
+    "territoryZUID": "{{if {$hasTerZUID} == 1 }}{{$terZUID}}{{/if}}",
+    "territoryName": "{{if {$hasTerZUID} == 1 }}{{each territories as t WHERE z.zuid = '{$terZUID}' LIMIT 1 }}{{t.name.escapeForJs()}}{{/each}}{{/if}}",
     "city": "{{if {$cityZUID} }}{{each cities as c WHERE z.zuid = '{$cityZUID}' LIMIT 1 }}{{c.title.escapeForJs()}}{{/each}}{{/if}}",
     "state": "{{if {$stateZUID} }}{{each states as s WHERE z.zuid = '{$stateZUID}' LIMIT 1 }}{{s.name.escapeForJs()}}{{/each}}{{/if}}",
     "contact_us": [
@@ -106,20 +119,20 @@
         },
         {{/each}}
         {
-            "image": "{{if {$divZUID} }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.contact_us_image.getImage()}}{{/each}}{{/if}}",
-            "title": "{{if {$divZUID} }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.contact_us_title.escapeForJs()}}{{/each}}{{/if}}",
-            "header": "{{if {$divZUID} }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.contact_us_cta_header.escapeForJs()}}{{/each}}{{/if}}"
+            "image": "{{if {$hasDivZUID} == 1 }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.contact_us_image.getImage()}}{{/each}}{{/if}}",
+            "title": "{{if {$hasDivZUID} == 1 }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.contact_us_title.escapeForJs()}}{{/each}}{{/if}}",
+            "header": "{{if {$hasDivZUID} == 1 }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.contact_us_cta_header.escapeForJs()}}{{/each}}{{/if}}"
         },
         {
-            "image": "{{if {$terZUID} }}{{each territories as t WHERE z.zuid = '{$terZUID}' LIMIT 1 }}{{t.contact_us_image.getImage()}}{{/each}}{{/if}}",
-            "title": "{{if {$terZUID} }}{{each territories as t WHERE z.zuid = '{$terZUID}' LIMIT 1 }}{{t.contact_us_title.escapeForJs()}}{{/each}}{{/if}}",
-            "header": "{{if {$terZUID} }}{{each territories as t WHERE z.zuid = '{$terZUID}' LIMIT 1 }}{{t.contact_us_cta_header.escapeForJs()}}{{/each}}{{/if}}"
+            "image": "{{if {$hasTerZUID} == 1 }}{{each territories as t WHERE z.zuid = '{$terZUID}' LIMIT 1 }}{{t.contact_us_image.getImage()}}{{/each}}{{/if}}",
+            "title": "{{if {$hasTerZUID} == 1 }}{{each territories as t WHERE z.zuid = '{$terZUID}' LIMIT 1 }}{{t.contact_us_title.escapeForJs()}}{{/each}}{{/if}}",
+            "header": "{{if {$hasTerZUID} == 1 }}{{each territories as t WHERE z.zuid = '{$terZUID}' LIMIT 1 }}{{t.contact_us_cta_header.escapeForJs()}}{{/each}}{{/if}}"
         }
     ],
     "donation": [
         {
-            "once": "{{if {$divZUID} }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.classy_url.escapeForJs()}}{{/each}}{{/if}}",
-            "monthly": "{{if {$divZUID} }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.classy_url_mobile.escapeForJs()}}{{/each}}{{/if}}"
+            "once": "{{if {$hasDivZUID} == 1 }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.classy_url.escapeForJs()}}{{/each}}{{/if}}",
+            "monthly": "{{if {$hasDivZUID} == 1 }}{{each divisions as d WHERE z.zuid = '{$divZUID}' LIMIT 1 }}{{d.classy_url_mobile.escapeForJs()}}{{/each}}{{/if}}"
         },
         {{each locations as o WHERE z.zuid = '{$locZUID}' LIMIT 1 }}
         {
@@ -143,8 +156,8 @@
         }
     ],
     {{/each}}
-    "territoryZUID": "{{if {$divTerZUID} }}{{$divTerZUID}}{{/if}}",
-    "territoryName": "{{if {$divTerZUID} }}{{each territories as t WHERE z.zuid = '{$divTerZUID}' LIMIT 1 }}{{t.name.escapeForJs()}}{{/each}}{{/if}}",
+    "territoryZUID": "{{if {$hasDivTerZUID} == 1 }}{{$divTerZUID}}{{/if}}",
+    "territoryName": "{{if {$hasDivTerZUID} == 1 }}{{each territories as t WHERE z.zuid = '{$divTerZUID}' LIMIT 1 }}{{t.name.escapeForJs()}}{{/each}}{{/if}}",
     "city": "{{if {$cityZUID} }}{{each cities as c WHERE z.zuid = '{$cityZUID}' LIMIT 1 }}{{c.title.escapeForJs()}}{{/each}}{{/if}}",
     "state": "{{if {$stateZUID} }}{{each states as s WHERE z.zuid = '{$stateZUID}' LIMIT 1 }}{{s.name.escapeForJs()}}{{/each}}{{/if}}",
     "contact_us": [
@@ -156,9 +169,9 @@
         },
         {{/each}}
         {
-            "image": "{{if {$divTerZUID} }}{{each territories as t WHERE z.zuid = '{$divTerZUID}' LIMIT 1 }}{{t.contact_us_image.getImage()}}{{/each}}{{/if}}",
-            "title": "{{if {$divTerZUID} }}{{each territories as t WHERE z.zuid = '{$divTerZUID}' LIMIT 1 }}{{t.contact_us_title.escapeForJs()}}{{/each}}{{/if}}",
-            "header": "{{if {$divTerZUID} }}{{each territories as t WHERE z.zuid = '{$divTerZUID}' LIMIT 1 }}{{t.contact_us_cta_header.escapeForJs()}}{{/each}}{{/if}}"
+            "image": "{{if {$hasDivTerZUID} == 1 }}{{each territories as t WHERE z.zuid = '{$divTerZUID}' LIMIT 1 }}{{t.contact_us_image.getImage()}}{{/each}}{{/if}}",
+            "title": "{{if {$hasDivTerZUID} == 1 }}{{each territories as t WHERE z.zuid = '{$divTerZUID}' LIMIT 1 }}{{t.contact_us_title.escapeForJs()}}{{/each}}{{/if}}",
+            "header": "{{if {$hasDivTerZUID} == 1 }}{{each territories as t WHERE z.zuid = '{$divTerZUID}' LIMIT 1 }}{{t.contact_us_cta_header.escapeForJs()}}{{/each}}{{/if}}"
         }
     ]
 {{else-if {$ownerLevel} == 3 }}
