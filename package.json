@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "deploy": "node scripts/sync-to-zesty.js",
-    "deploy:dry": "DRY_RUN=true node scripts/sync-to-zesty.js"
+    "deploy:dry": "DRY_RUN=true node scripts/sync-to-zesty.js",
+    "deploy:check": "node scripts/sync-to-zesty.js --check",
+    "deploy:verify": "node scripts/sync-to-zesty.js --verify"
   },
   "author": "",
   "license": "ISC",
