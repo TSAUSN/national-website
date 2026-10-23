@@ -2385,18 +2385,21 @@
     const currentModel = cookieManager.get(cookieKeys.locationModel);
 
     if (!currentZUID || !currentModel) {
+      cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
       return;
     }
 
     try {
       const response = await fetchInformation(`get-volunteer-page`, currentZUID, currentModel);
-      
-      if (response && response.volunteer_url) {
-        console.log(response, "RESPONSE")
-        cookieManager.set(cookieKeys.volunteerUrl, response.volunteer_url);
-      }
+
+      const resolvedVolunteerUrl = !response
+        ? null
+        : response.volunteer_page_zuid
+        ? response.volunteer_url
+        : response.fallback_url;
+      cookieManager.set(cookieKeys.volunteerUrl, resolvedVolunteerUrl || `{{$nationalVolunteer}}`);
     } catch (err) {
-      // Keep previously set central fallback when endpoint lookup fails.
+      cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
     }
   }
 
