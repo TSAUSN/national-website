@@ -22,9 +22,10 @@ const DRY_RUN =
   VERIFY ||
   process.env.DRY_RUN === 'true' ||
   process.argv.includes('--dry-run');
-// Branch model: merges into `stage` save files; merges into `production`
-// save+publish them. By default only files changed by the push are touched
-// (DIFF_BASE = the pre-push SHA); FULL_SYNC=true processes every mapped file.
+// Branch model: merges into `stage` save files to dev; merges into `production`
+// publish dev→live, only where dev holds the branch's file. By default only files
+// changed since DIFF_BASE (or whose mapping changed) are touched; FULL_SYNC=true
+// processes every mapped file.
 const FULL_SYNC = process.env.FULL_SYNC === 'true' || process.argv.includes('--full');
 // Hybrid verification: git diff picks candidates, then (when a token is present)
 // the instance's current content is fetched and compared so no-op saves are
@@ -507,9 +508,10 @@ async function saveDevItem(item, devMap) {
   return rel;
 }
 
-// PRODUCTION: publish only — promote the resource's dev version to live where
-// they differ. Never writes repo content, never creates. A resource not yet on
-// dev is skipped (it must be saved via stage first).
+// PRODUCTION: publish only — promote the resource's dev version to live, and
+// only when that version is this branch's file, so live always ends up equal to
+// git. Never writes repo content, never creates. Anything that can't be
+// published as git has it throws, so the run fails and the next one retries it.
 async function publishItem(item, devMap, liveMap) {
   const rel = relPath(item.localPath);
   const dry = DRY_RUN ? '[dry-run] ' : '';
@@ -517,19 +519,29 @@ async function publishItem(item, devMap, liveMap) {
     console.warn(`⚠️  ${dry}No dev/live data (token?), skip ${rel}`);
     return null;
   }
-  const dev = devMap.get(item.zuid);
-  if (!dev) {
-    console.warn(`⚠️  ${dry}Not on dev yet — promote via stage, skip ${rel} → ${item.zuid}`);
+  if (!fs.existsSync(item.localPath)) {
+    console.warn(`⚠️  ${dry}Missing local file, skipping: ${rel}`);
     return null;
   }
+  const code = fs.readFileSync(item.localPath, 'utf8');
   const live = liveMap.get(item.zuid);
-  if (live && norm(live.code) === norm(dev.code)) {
+  if (live && norm(live.code) === norm(code)) {
     console.log(`✓ ${dry}Already live, skip ${rel} → ${item.endpoint}/${item.zuid}`);
     return null;
   }
+  const dev = devMap.get(item.zuid);
+  if (!dev) {
+    throw new Error('not on dev yet; merge it through stage first so the stage sync saves it');
+  }
+  // Publishing dev as-is would ship whatever dev holds: a newer stage change, a
+  // manager edit, or a branch preview's leak.
+  if (norm(dev.code) !== norm(code)) {
+    throw new Error(
+      "dev holds different code than this branch (a newer stage change, a manager edit, or a failed stage sync); get this version onto dev through stage, then re-run"
+    );
+  }
   if (dev.version === undefined || dev.version === null) {
-    console.warn(`⚠️  ${dry}No dev version number, skip ${rel} → ${item.zuid}`);
-    return null;
+    throw new Error('dev has no version number to publish');
   }
   console.log(`🚀 ${dry}Publish v${dev.version} (dev→live) ${rel} → ${item.endpoint}/${item.zuid}`);
   if (!DRY_RUN) {
@@ -719,12 +731,15 @@ async function runStage(items, newFiles, manifest, config, indent) {
 }
 
 // PRODUCTION: publish only — promote dev→live for changed resources. No creates, no content writes.
+// An unmapped file in scope is a failure: production can't create it, and once
+// its mapping arrives through stage the config-key scope brings it back.
 async function runProduction(items, newFiles, manifest) {
-  if (newFiles.length) {
-    console.warn(
-      `⚠️  ${newFiles.length} new file(s) in scope won't be created on production (publish-only) — promote via stage first:`
+  for (const nf of newFiles) {
+    recordFailure(
+      relPath(nf.localPath),
+      'publish',
+      "not mapped in zesty.config.json; production can't create resources, so merge it through stage first"
     );
-    for (const nf of newFiles) console.warn(`   - ${relPath(nf.localPath)}`);
   }
   const dev = CAN_CHECK ? await fetchInstanceCode('dev') : null;
   const live = CAN_CHECK ? await fetchInstanceCode('live') : null;
@@ -1156,8 +1171,18 @@ async function main() {
     } else if (CHECK) {
       scope = `PR (${changed.size} changed files; ${manifest.length} mapped + ${newFiles.length} new checked)`;
     } else {
+      // A mapped file is also in scope when its config key was added or
+      // re-pointed, e.g. a mapping that reached this branch after the file did.
+      let keys = new Set();
+      if (changed.has('zesty.config.json')) {
+        keys = changedConfigKeys(config, process.env.DIFF_BASE);
+        if (keys === null) {
+          console.warn('⚠️  Could not read zesty.config.json at DIFF_BASE; scoping by changed files only.');
+          keys = new Set();
+        }
+      }
       const inScope = (p) => changed.has(relPath(p));
-      items = manifest.filter((it) => inScope(it.localPath));
+      items = manifest.filter((it) => inScope(it.localPath) || keys.has(`${it.section}: ${it.key}`));
       newFiles = newFiles.filter((nf) => inScope(nf.localPath));
       scope = `changed (${items.length} update + ${newFiles.length} new, of ${manifest.length} mapped)`;
     }
