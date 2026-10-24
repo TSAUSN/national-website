@@ -6,8 +6,9 @@ WebEngine source for The Salvation Army's Zesty.io instance (`8-da979ebeab-d59gn
 "national-website"). National and all four territories (Central, East, South, West) share
 this one instance, so a change for one territory can affect every site. Project type: `website`.
 
-This is a Zesty.io templating project. No database, no build step, no bundler, no test
-runner, no lint config, no custom backend. Don't add any of them or assume Node-app tooling.
+This is a Zesty.io templating project. No database, no build step, no bundler, no lint
+config, no custom backend. Don't add any of them or assume Node-app tooling. The only test
+tooling is Node's built-in test runner and Playwright (see "Running and testing").
 Content lives in Zesty and is reached only through Parsley and the Instance API.
 
 Machine-readable configuration (commands, quality gates, environments, integrations):
@@ -75,8 +76,19 @@ permission.
 
 ## Running and testing
 
-There are no install, lint, test or build commands. To verify a change:
+There are no lint or build commands. To verify a change:
 
+- `npm test`: static tests for every view (`tests/static/`): `if`/`each` nesting, tag braces,
+  `include` targets, inline `<script>` syntax. No install or network needed.
+- `npm run test:render`: Playwright opens real pages and checks each mapped module renders
+  (`tests/render/module-pages.js`), with no unrendered Parsley and no new site JS errors.
+  Defaults to production. Set `BASE_URL` (and `QA_ACCESS_QUERY`) for a preview or staging.
+  Needs `npm ci` and `npx playwright install chromium` once.
+- Existing problems are listed as known issues (`KNOWN_ISSUES` in the static test,
+  `KNOWN_JS_ERRORS` in the render test). They show as TODO/annotations. Remove an entry once
+  the view is fixed.
+- `npm run validate`: PR checks against `origin/development` (forbidden paths, JSON, ZUIDs,
+  unmappable new views, debug code).
 - `npm run deploy:dry`: lists what a stage sync would change. It writes nothing.
 - `REPORT=true node scripts/sync-to-zesty.js`: writes `zesty-report.md` (dry run). CI posts
   this on PRs into `stage` and `production`.
