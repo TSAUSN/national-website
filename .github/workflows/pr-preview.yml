@@ -36,7 +36,9 @@ jobs:
           DIFF_HEAD: ${{ github.event.pull_request.head.sha }}
         run: node scripts/sync-to-zesty.js
 
+      # The analysis exits 1 when the report lists failures; still post it.
       - name: Post / update PR comment
+        if: ${{ always() }}
         uses: actions/github-script@v7
         with:
           script: |
