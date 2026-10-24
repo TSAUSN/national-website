@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "deploy": "node scripts/sync-to-zesty.js",
-    "deploy:dry": "DRY_RUN=true node scripts/sync-to-zesty.js"
+    "deploy:dry": "DRY_RUN=true node scripts/sync-to-zesty.js",
+    "validate": "node scripts/validate-pr.js",
+    "test": "node --test --test-reporter=spec tests/static/views.test.js",
+    "test:render": "playwright test"
   },
   "author": "",
   "license": "ISC",
