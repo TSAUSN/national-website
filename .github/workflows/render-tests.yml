@@ -1,0 +1,87 @@
+name: Module Render Tests
+
+# Loads real pages and checks each mapped module renders (tests/render/).
+# Read-only: it only browses the site.
+#   PR into development or stage  -> branch preview of the PR's head branch
+#   PR into production            -> staging (what the merge would publish)
+#   push to stage / production    -> waits for "Deploy to Zesty.io", then staging / production
+on:
+  pull_request:
+    branches: [development, stage, production]
+    types: [opened, synchronize, reopened]
+  push:
+    branches: [stage, production]
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      actions: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Pick target
+        id: target
+        env:
+          EVENT: ${{ github.event_name }}
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          if [ "$EVENT" = "push" ] && [ "$REF_NAME" = "production" ]; then
+            url="https://www.salvationarmyusa.org"
+          elif [ "$EVENT" = "push" ] || [ "$BASE_REF" = "production" ]; then
+            url="https://8hxvw8tw-dev.webengine.zesty.io"
+          elif echo "$HEAD_REF" | grep -Eq '^[a-z0-9-]+$'; then
+            url="https://8hxvw8tw-${HEAD_REF}.webengine.zesty.io"
+          else
+            echo "::notice::Branch '$HEAD_REF' can't be a preview hostname; skipping render tests."
+            exit 0
+          fi
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "Render tests target: $url"
+
+      - name: Wait for deploy
+        if: steps.target.outputs.url && github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in $(seq 1 30); do
+            id=$(gh run list --workflow zesty-deploy.yml --commit "$GITHUB_SHA" --json databaseId -q '.[0].databaseId // empty')
+            [ -n "$id" ] && break
+            sleep 10
+          done
+          if [ -z "$id" ]; then
+            echo "::error::No 'Deploy to Zesty.io' run found for $GITHUB_SHA."
+            exit 1
+          fi
+          gh run watch "$id" --exit-status > /dev/null
+
+      - name: Setup Node.js
+        if: steps.target.outputs.url
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Playwright
+        if: steps.target.outputs.url
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Render tests
+        if: steps.target.outputs.url
+        env:
+          BASE_URL: ${{ steps.target.outputs.url }}
+          QA_ACCESS_QUERY: ${{ secrets.QA_ACCESS_QUERY }}
+        run: |
+          if [ -z "$QA_ACCESS_QUERY" ] && [ "$BASE_URL" != "https://www.salvationarmyusa.org" ]; then
+            echo "::warning::QA_ACCESS_QUERY secret is not set, so the password-protected $BASE_URL can't be tested."
+            exit 0
+          fi
+          npx playwright test
