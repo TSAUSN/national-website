@@ -1,0 +1,51 @@
+name: PR Validation
+
+# Static checks on the PR's own changes: platform-owned paths, docs in release
+# PRs, JSON validity, zesty.config.json ZUIDs, unmappable new views and leftover
+# debug code. Read-only, no secrets.
+on:
+  pull_request:
+    branches: [development, stage, production]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout (merge result)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate changes
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          DIFF_BASE: ${{ github.event.pull_request.base.sha }}
+          DIFF_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/validate-pr.js
+
+  view-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout (merge result)
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Parsley structure, include targets and inline JS syntax for every view.
+      - name: Static view tests
+        run: node --test --test-reporter=spec tests/static/views.test.js
