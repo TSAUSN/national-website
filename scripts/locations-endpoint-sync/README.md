@@ -108,6 +108,9 @@ and the run fails with `invalid payload` without writing anything.
 - Missing required env vars (`INSTANCE_ZUID`, `DEV_TOKEN`, `LOCATIONS_ENDPOINT_PATH`,
   `LOCATIONS_LIVE_DOMAIN`, `LOCATIONS_PREVIEW_DOMAIN`, `LOCATIONS_VIEW_ZUID`,
   `LOCATIONS_VIEW_DEV_ZUID`) fail the run with a `missing env vars` error.
+- `ZESTY_API_BASE` (optional) overrides the Instances API base used for view writes
+  (default `https://<INSTANCE_ZUID>.api.zesty.io/v1`; a trailing slash is fine). The tests
+  point it at a placeholder `.test` host.
 
 ## Logs
 

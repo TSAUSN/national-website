@@ -9,7 +9,9 @@ const { safeLog } = require('./log-utils');
 // makes an invalid Authorization header.
 function getConfig() {
   return {
-    apiBase: `https://${process.env.INSTANCE_ZUID}.api.zesty.io/v1`,
+    apiBase: String(process.env.ZESTY_API_BASE || `https://${process.env.INSTANCE_ZUID}.api.zesty.io/v1`)
+      .trim()
+      .replace(/\/+$/, ''),
     token: String(process.env.DEV_TOKEN || '').trim(),
     liveViewZuid: process.env.LOCATIONS_VIEW_ZUID,
     devViewZuid: process.env.LOCATIONS_VIEW_DEV_ZUID,

@@ -14,6 +14,7 @@ const OPTIONAL_ENV = ['LOCATIONS_MIN_COUNT', 'LOG_TO_FILE', 'LOG_DIR'];
 const ENV = {
   INSTANCE_ZUID: 'inst',
   DEV_TOKEN: 'tok',
+  ZESTY_API_BASE: 'https://api.example.test/v1/',
   LOCATIONS_VIEW_ZUID: 'LIVE',
   LOCATIONS_VIEW_DEV_ZUID: 'DEV',
   LOCATIONS_LIVE_DOMAIN: 'https://live.test',
@@ -26,8 +27,8 @@ const ENV = {
 
 const LIVE_URL = 'https://live.test/loc.json';
 const PREVIEW_URL = 'https://preview.test/loc.json';
-const DEV_PUT_URL = 'https://inst.api.zesty.io/v1/web/views/DEV';
-const LIVE_PUT_URL = 'https://inst.api.zesty.io/v1/web/views/LIVE';
+const DEV_PUT_URL = 'https://api.example.test/v1/web/views/DEV';
+const LIVE_PUT_URL = 'https://api.example.test/v1/web/views/LIVE';
 const PUBLISH_PARAMS = { action: 'publish', purge_cache: true };
 const DATA = [{ id: 1, name: 'A' }, { id: 2, name: 'B' }];
 const CACHE_BUSTER_RE = /[?&]_cb=\d+$/;
