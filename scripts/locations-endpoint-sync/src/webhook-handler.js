@@ -1,4 +1,5 @@
-const { logToFile } = require('./logger');
+const { logToFile, errorLogToFile } = require('./logger');
+const { safeLog } = require('./log-utils');
 const { triggerRebuild } = require('./locations-sync');
 
 // The webhook is registered on the locations model for all actions (create, save, delete,
@@ -27,10 +28,30 @@ async function handleZestyWebhook(req, res) {
   // Ack right away so Zesty doesn't time out / retry while the rebuild runs.
   res.status(202).json({ received: true });
 
-  const action = classifyAction(body);
-  logToFile({ raw: body, action }, 'received', 'handleZestyWebhook');
+  // Nothing below may stop the rebuild from being triggered, so classification falls back to
+  // 'update' and every log call is guarded.
+  let action = 'update';
+  try {
+    action = classifyAction(body);
+  } catch (err) {
+    safeLog(errorLogToFile, err, 'classify failed', 'handleZestyWebhook');
+  }
+  safeLog(
+    logToFile,
+    {
+      action,
+      contentType: req.headers && req.headers['content-type'],
+      hasText: Boolean(body && body.text),
+    },
+    'received',
+    'handleZestyWebhook',
+  );
 
-  await triggerRebuild(action !== 'update', action);
+  try {
+    await triggerRebuild(action !== 'update', action);
+  } catch (err) {
+    safeLog(errorLogToFile, err, 'trigger failed', 'handleZestyWebhook');
+  }
 }
 
 module.exports = { handleZestyWebhook };

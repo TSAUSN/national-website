@@ -1,7 +1,7 @@
 {
   "projectId": "PROJECT_ID",
   "region": "us-central1",
-  "functionName": "locations-webhook",
+  "functionName": "locations-endpoint-sync",
   "runtime": "nodejs20",
   "entryPoint": "locationsWebhook",
   "memory": "256Mi",
@@ -17,7 +17,11 @@
     "LOCATIONS_VIEW_ZUID": "",
     "LOCATIONS_VIEW_DEV_ZUID": "",
     "REBUILD_DEBOUNCE_MS": "45000",
-    "PUBLISH_PROPAGATION_DELAY_MS": "5000"
+    "PUBLISH_PROPAGATION_DELAY_MS": "5000",
+    "LOCATIONS_FETCH_TIMEOUT_MS": "120000",
+    "LOCATIONS_FETCH_MAX_RETRIES": "3",
+    "LOCATIONS_FETCH_RETRY_DELAY_MS": "15000",
+    "LOG_TO_FILE": "false"
   },
   "secrets": {
     "DEV_TOKEN": "locations-webhook-dev-token:latest"
