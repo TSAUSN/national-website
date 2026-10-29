@@ -1,122 +1,100 @@
-# The Salvation Army National Website
+# CLAUDE.md
 
-## About
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-WebEngine source for The Salvation Army's Zesty.io instance (`8-da979ebeab-d59gnx`,
-"national-website"). National and all four territories (Central, East, South, West) share
-this one instance, so a change for one territory can affect every site. Project type: `website`.
+## Project scope
 
-This is a Zesty.io templating project. No database, no build step, no bundler, no test
-runner, no lint config, no custom backend. Don't add any of them or assume Node-app tooling.
-Content lives in Zesty and is reached only through Parsley and the Instance API.
+This is a Zesty.io CMS templating project — nothing more. Treat it as such
+before reaching for generic web-app assumptions.
 
-Machine-readable configuration (commands, quality gates, environments, integrations):
-`.claude/project.yaml`.
+In scope:
 
-## Standards
+- Parsley templates, stylesheets, and scripts under `webengine/` (block
+  library, modules, components — see Content models and templates).
+- Content model usage as inferred from template code (there's no schema
+  file to check instead).
+- `scripts/sync-to-zesty.js` and its config (`zesty.config.json`) — the
+  only mechanism that moves local files to the live instance.
+- The local read-only MCP server (`zesty`) for Instance API access.
+- Docs under `/docs` describing models, templates, and cross-cutting
+  patterns.
 
-This project follows the zesty-ai shared standards (load the
-`zesty-ai:engineering-standards` skill). Project rules below add to them.
+Out of scope — don't introduce these or assume they apply:
 
-## Architecture
+- Any database. This project must not connect to one directly; content
+  lives in Zesty and is reached only through the Parsley API / Instance
+  API.
+- A build step, bundler, test runner, or lint config. There isn't one —
+  don't add one or assume standard Node-app tooling applies.
+- A custom backend/API beyond what Zesty itself provides. There's no
+  server in this repo other than the sync script and the read-only MCP
+  server.
+- Deploying, publishing, or triggering `zesty-deploy.yml` on an agent's
+  own initiative — see Deployment model below; that's a human decision.
+- Treating a feature/ticket branch, or any unmerged PR, as "live."
 
-- `webengine/views/`: Parsley views, synced 1:1 to Zesty resources by ZUID.
-  - `-/block/`: Block Library, inserted via `{{block('/-/block/name.html?variant=...')}}`.
-  - `modules/`: page and section modules.
-  - `components/`: small UI pieces. Some render only placeholder markup, and the real
-    rendering happens in inline JS template strings in the module that owns them.
-  - `*.json` views: headless JSON endpoints (e.g. `get-events.json`, `find-story.json`).
-- `webengine/styles/`: stylesheets (`common/`, `components/`, `modules/` SCSS partials).
-- `webengine/scripts/`: site scripts.
-- `scripts/sync-to-zesty.js`: the only thing that moves local files to the instance.
-- `scripts/locations-endpoint-sync/`: separate Node service that writes the preview and live
-  `locations.json` endpoints. It has its own `package.json` and README.
-- `zesty.config.json` (1.5 MB+): local path ↔ ZUID mapping. Partly generated. The deploy
-  workflow commits new mappings back (`chore: map new Zesty resource ZUIDs [skip ci]`).
-  Treat it as generated state.
-- Platform-owned, never committed: `webengine/views/z/` (layouts) and
-  `webengine/views/menu-config/` (menus). They're anchored in `.gitignore` and excluded in
-  `sync-to-zesty.js` (`EXCLUDED_DIRS`).
+## What this repo is
 
-## Conventions
+This is the WebEngine source for a Zesty.io CMS instance (instance ZUID `8-da979ebeab-d59gnx`, "the-salvation-army" / national-website). There is no application build — `webengine/{views,styles,scripts}` are Parsley template files, stylesheets, and scripts that get synced 1:1 to Zesty resources by ZUID. There's no bundler, no test runner, and no lint config in this repo; don't go looking for one.
 
-- **Content models:** there's no schema file. Infer field shapes from the specific template
-  (`this.fieldname`, `.getImage()`, `model.filter()`). Similar components don't share a schema.
-  For example, the "Hero Full" variants (`modules/hero-full*`, `-/block/hero_full.html`) use at
-  least four different field shapes.
-- **Fallback images:** reuse `globals.default_og_image` (as in `views/custom_head`,
-  `views/modules/hero`, `-/block/hero_full.html`). Don't invent a new mechanism.
-- **Styling:** the design system is a custom Bootstrap 5 theme
-  (https://github.com/zesty-io/salvation-army-theme), injected globally through
-  `webengine/views/z/layouts/settings.json` via jsDelivr, pinned to a commit. Bumping the theme
-  means changing that pin in the Zesty manager, not a webengine file. Prefer theme classes
-  over new CSS. Check `webengine/styles/{common,components,modules}/` for an existing partial
-  first. `webengine/styles/temporary-usn.css` redefines spacing utilities. That's known debt, not
-  a pattern to follow.
-- **Comments:** keep them minimal, only where they matter. Ticket numbers, debugging notes
-  and agent notes belong in commits and PRs, not code.
-- **Branches:** one branch per Coda ticket, named `coda-<ID>` (e.g. `coda-2541`).
-  Use lowercase and hyphens with no `/`, because the branch name becomes the preview hostname.
-  Suffixes are OK for follow-ups (`coda-2541-fix`). Production hotfix branches use `-prod`
-  (`coda-2541-prod`, `coda-2529-2520-2500-prod`). Cut ticket branches from `development` with
-  `--no-track` so they don't upstream to a shared branch.
-- **Commits:** a type prefix in brackets: `[Feat]`, `[Fix]`, `[Chore]`, followed by a short
-  imperative summary.
-- **PRs:** ticket branch → `development` → `stage` → `production`. Keep `.md` and docs files
-  out of PRs into `stage` and `production`.
+## Commands
 
-## Tasks (Coda)
+- `npm run deploy` — runs `scripts/sync-to-zesty.js` to sync local files to the Zesty instance (requires `ZESTY_INSTANCE_ZUID` and `ZESTY_DEVELOPER_TOKEN` env vars).
+- `npm run deploy:dry` — same, but `DRY_RUN=true`: logs what would change, writes nothing.
+- Useful env vars for `sync-to-zesty.js` (combine as needed, e.g. `FULL_SYNC=true DRY_RUN=true node scripts/sync-to-zesty.js`):
+  - `BRANCH` — `stage` (default, saves to the instance's dev/draft version) or `production` (publish-only: promotes dev→live, never writes content).
+  - `FULL_SYNC=true` — process every mapped resource instead of just files changed since `DIFF_BASE`.
+  - `REPORT=true` — emit `zesty-report.md` (implies dry-run); this is what the CI job uses to post PR previews.
+  - `NO_API_CHECK=true` — skip the live-content comparison step (normally used to skip no-op saves).
+- There's no `test`/`lint` script. Verifying a change means either running `deploy:dry`/`REPORT=true` to preview the sync diff, or asking `quinn` to check it against a live preview branch.
 
-Tickets live in the Coda doc "Salvation Army National/Corps Website Project", in the `Tasks`
-table. The branch number is the `ID` column: `coda-2541` → `ID = 2541`. The `Notes` column holds
-the requirement. Other useful columns are `Progress Status`, `Owner`, `QA Assignee` and
-`Solution/Action Taken`. Read the task; never change its status or fields without explicit
-permission.
+## Deployment model — read before assuming a branch is "live"
 
-## Running and testing
+`.github/workflows/zesty-deploy.yml` only triggers automatically on push to `stage` or `production`. **Feature/ticket branches (e.g. `coda-2529`) are never auto-synced by CI** — pushing to one does not itself update any Zesty preview environment. To get a feature branch's changes onto a live preview, someone has to run the workflow manually via `workflow_dispatch`, or the changes need to land on `stage` first.
 
-There are no install, lint, test or build commands. To verify a change:
+In practice, the user's own habit is to run that manual `workflow_dispatch` promptly after pushing to a feature branch, so a branch preview is often available shortly after a push even though nothing in CI makes that automatic. Don't assume this has happened for a given push — confirm with the user whether the branch has been deployed yet before dispatching `quinn` — but once the user confirms it's deployed, treat that as sufficient without re-litigating the auto-vs-manual distinction each time. Never trigger the manual deploy yourself; that's the user's action to take, since it touches shared CI/infrastructure.
 
-- `npm run deploy:dry`: lists what a stage sync would change. It writes nothing.
-- `REPORT=true node scripts/sync-to-zesty.js`: writes `zesty-report.md` (dry run). CI posts
-  this on PRs into `stage` and `production`.
-- Visual QA on the ticket's branch preview (see below), in a real browser.
+`sync-to-zesty.js` treats `stage` as "save to dev" and `production` as "publish dev→live" — production pushes never write new content, only promote what's already on dev. New on-disk files under `webengine/{views,styles,scripts}` that aren't yet in `zesty.config.json` get auto-created as new resources during a stage sync; extensionless view files can't have their resource type (templateset vs. pageset) inferred automatically and are skipped with a warning until created manually in the Zesty admin and mapped by hand.
 
-Env var names: `ZESTY_INSTANCE_ZUID`, `ZESTY_DEVELOPER_TOKEN` (sync script), `ZESTY_TOKEN`,
-`QA_ACCESS_QUERY`, `CODA_API_TOKEN` (zesty-ai helpers). Values go in the gitignored `.env`.
-Previews and stage are password-protected (`zpw`). If a preview or stage URL returns 403 in
-the browser, clear cache and cookies (fresh context) and retry once before reporting it.
+`zesty.config.json` (1.5MB+) is the local-path ↔ ZUID mapping and is partially generated: the deploy workflow commits new-resource ZUID mappings back to the branch itself (commits tagged `chore: map new Zesty resource ZUIDs [skip ci]`). Treat it as generated state, not hand-authored config.
 
-## Environments and release
+## Content models and templates
 
-| Environment | URL | How it updates |
-| --- | --- | --- |
-| Branch preview | `https://8hxvw8tw-<branch>.webengine.zesty.io/` | Zesty GitHub integration, from the pushed branch's view files |
-| development | `https://8hxvw8tw-development.webengine.zesty.io/` | GitHub integration preview of `development` |
-| staging (instance dev version) | `https://8hxvw8tw-dev.webengine.zesty.io/` | push to `stage` → `zesty-deploy.yml` saves changed files to dev |
-| production | `https://www.salvationarmyusa.org/` | push to `production` → `zesty-deploy.yml` publishes dev → live |
+There is no content-model schema file in this repo — field shapes have to be inferred from actual usage in templates (`this.fieldname`, `.getImage()`, `model.filter()`, etc.). This inconsistency is real, not just undocumented: e.g. the various "Hero Full" implementations across `webengine/views/modules/hero-full-*`, `webengine/views/modules/hero-full`, and `webengine/views/-/block/hero_full.html` use at least four different field shapes for what looks like the same concept (`hero_image`/`title`/`subtitle` vs. `image`/`title`/`body` vs. `image`/`name`/`body` vs. `image`/`title`/`description`). Don't assume two similarly-named components share a schema — check the specific template.
 
-- Production pushes never write content. They only publish what's already on dev, so new
-  files have to reach production through `stage` first.
-- New files under `webengine/{views,styles,scripts}` are created as resources during a stage
-  sync. Extensionless view files (type can't be inferred) are skipped until someone creates and
-  maps them in the Zesty manager.
-- `main` is **not** in the release flow, and it has deleted `.github/workflows/`. Never use
-  `main` or a branch cut from it as a promotion source.
-- Production releases need human approval.
-- Production smoke checks (read-only): the homepage loads, plus one territory page, one
-  location page (e.g. `/tx/houston/`) and the footer address on a location page.
+- `webengine/views/-/block/` is a Block Library of reusable blocks (inserted via `{{block('/-/block/name.html?variant=...')}}`).
+- `webengine/views/modules/` (~84 entries) holds page/section-specific modules.
+- `webengine/views/components/` holds smaller UI components — some of these render only static placeholder markup, with the actual rendering happening via inline JS template strings inside the module that owns them, so a component file isn't always where the real logic lives.
+- A shared fallback pattern exists for missing hero/OG images: `globals.default_og_image`, used in `webengine/views/custom_head`, `webengine/views/modules/hero`, and (as of the empty-state fix) `webengine/views/-/block/hero_full.html`. Reuse this pattern rather than inventing a new fallback image mechanism.
+- `docs/content-models.md`, `docs/templates.md`, and `docs/custom-patterns.md` contain a fuller (code-derived, still Draft) inventory of models, templates, and cross-cutting patterns, including known duplicate/dead-code candidates (e.g. `stories_landing_page` vs. `stories_new`, empty stub views, a top-level `backup/` folder that duplicates live view names).
 
-## Project-specific restrictions
+## Styling
 
-- Never trigger `zesty-deploy.yml` (`gh workflow run` or `workflow_dispatch`) yourself, and
-  never deploy or publish. That's a human decision. A manual dispatch on a `coda-*` branch
-  isn't a preview: it runs the stage path and writes that branch's files to the shared dev
-  version (the staging URL).
-- Don't treat a ticket branch or an unmerged PR as live. Before QA on a preview, confirm with
-  the user that the branch is pushed.
-- Never connect to a database.
-- Never commit `webengine/views/z/` or `webengine/views/menu-config/`. Don't edit
-  `.github/workflows/`; only a human changes those.
-- Don't hand-edit `zesty.config.json` mappings unless the task is specifically about them.
-- Zesty Instance API access is read-only unless a write is explicitly authorized.
+The design system is a custom Bootstrap 5 theme maintained separately at
+https://github.com/zesty-io/salvation-army-theme (custom color scale,
+type scale, shadows, rounded scale, buttons, carousel — see that repo's
+README for the full class list). It is **not** linked per-template:
+`webengine/views/z/layouts/settings.json` injects it globally into every
+page's `<head>` via jsDelivr, pinned to a specific commit
+(`salvation-army-theme@<commit>/styles/bootstrap.css`, plus
+`bootstrap-icons`), alongside the existing Bootstrap grid/utility classes
+already used throughout `webengine/views/z/layouts/layouts.json`'s column
+definitions. Bumping the theme means updating that pinned commit in
+`settings.json`, not editing a webengine file. The one template that
+links it directly is `webengine/views/csvgenerator.html`, an internal
+tool page outside the normal layout.
+
+Prefer the theme's Bootstrap classes/components over new custom CSS.
+Check `webengine/styles/{common,components,modules}/*.scss` for an
+existing partial before adding one. `webengine/styles/common/temporary-usn.css`
+already redefines utilities like `.mb-5`/`.mt-5` instead of using the
+theme's scale — known debt, not a pattern to follow.
+
+## MCP server (`zesty`)
+
+- `zesty` — read-only Zesty Instance API tools. Source lives outside this repo. On this dev machine it only runs inside WSL (Node isn't on the Windows PATH here), so the command is `wsl.exe -e node /home/.../mcp-local-server/build/index.js`, not a bare `node` call — check `.mcp.json` for the actual path before assuming it. `docs/api-tools.md` documents the tools as implemented in code, plus a list of behaviors that still need confirming against a live API call.
+- `playwright` — the official `@playwright/mcp` package (run via `npx -y @playwright/mcp@latest`), giving `mcp__playwright__*` tools for real browser testing. `qa-tester` uses this to drive branch-preview/dev/stage URLs instead of guessing from raw HTTP responses. Requires a Claude Code session restart/reconnect after being added to `.mcp.json` before the tools show up.
+
+## Agent workflow
+
+This project is operated by a set of specialized subagents defined in `.claude/agents/` (gitignored): `tasha` (coordinates and tracks only, never implements — note it has no ability to invoke other agents itself, despite its description), `wendell` (templates/content models/Parsley — never deploys/publishes), `jenny` (independent, read-only verification that a wendell diff actually matches the original spec and this file's conventions — runs after wendell; checks source only, never renders the site, never fixes anything itself), then the user reviews the diff themselves (a fixed gate — jenny's pass doesn't substitute for it), then `quinn` (tests only a feature branch's own live preview — goes straight to the browser and reports what it finds, rather than pre-checking GitHub Actions/zesty-deploy.yml run history to decide whether to test; does not test dev rollup or stage — see Deployment model above), then `karen` (runs as a fixed step immediately after quinn reports a pass, not on-demand — reality-checks that result by reading wendell's actual changed file(s) and directly viewing the feature branch's live preview and the stage website in a real browser, rather than trusting quinn's summary; runs no scripts — no `deploy:dry`, no `git`/`gh` — and doesn't check dev rollup or production; hands off to `jenny` for a full spec/CLAUDE.md audit or `quinn` for a full feature-branch test pass when the question needs one). `ira` (maintains the MCP server, read-only tools only), `dot` (writes `/docs`, marks new/changed docs "Draft — pending review" until the user signs off), and `reggie` (customer-facing changelog entries) round out the roster.
