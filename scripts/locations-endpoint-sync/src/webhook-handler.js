@@ -3,15 +3,21 @@ const { triggerRebuild } = require('./locations-sync');
 
 // The webhook is registered on the locations model for all actions (create, save, delete,
 // publish, etc.), but Zesty's payload has no structured action field - just a human-readable
-// message configured per trigger in the Zesty admin. Delete and publish triggers should
-// rebuild AND publish the view so it goes live immediately. Update/save triggers (e.g.
+// message configured per trigger in the Zesty admin. Delete, publish and unpublish triggers
+// change what's live, so they rebuild AND publish the view so it goes live immediately
+// ("unpublished" is checked before "published", which it contains). Update/save triggers (e.g.
 // "A location has been created!" or "A location has not been published yet" - note that
-// text contains the word "published" despite being an update, not a publish) should only
+// text contains the word "published" despite being an update, not a publish; a sentence counts
+// as a publish only if "published" isn't preceded by "not" in that sentence) should only
 // rebuild the draft, since the data isn't live yet and shouldn't be pushed out.
 function classifyAction(body) {
   const text = (body && body.text) || '';
   if (/delet/i.test(text)) return 'delete';
-  if (/published/i.test(text) && !/not[^.!]*published/i.test(text)) return 'publish';
+  if (/unpublished/i.test(text)) return 'unpublish';
+  const published = text
+    .split(/[.!?]/)
+    .some((clause) => /\bpublished\b/i.test(clause) && !/\bnot\b.*\bpublished\b/i.test(clause));
+  if (published) return 'publish';
   return 'update';
 }
 

@@ -108,6 +108,7 @@
 {{include modules/external-links}}
 <!-- Add this before your Tealium script -->
 <script type="text/javascript">
+  window.instanceEnv = '{{instance.env}}';
   window.ServicesObserver = new ServicesSubject();
   // Create a global error handler for utag
   window.utagError = function (error) {
@@ -127,7 +128,6 @@
 
     const siteDomain = '{{instance.domain}}';
     const instanceEnv = '{{instance.env}}';
-    window.instanceEnv = instanceEnv;
     let profile_env = '';
 
     if (instanceEnv == 'live') {
