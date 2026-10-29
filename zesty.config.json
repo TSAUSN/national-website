@@ -33685,6 +33685,30 @@
                 "updatedAt": "2026-10-12T21:59:23Z",
                 "createdAt": "2026-10-12T21:59:23Z",
                 "lastSyncedAt": "2026-10-12T21:59:23Z"
+            },
+            "/get-page-ownership.json": {
+                "zuid": "11-acbd88fdff-gmfctn",
+                "type": "ajax-json",
+                "updatedAt": "2026-10-21T16:13:13Z",
+                "createdAt": "2026-10-21T16:13:13Z"
+            },
+            "/locations-dev.json": {
+                "zuid": "11-e2c8dca397-03czss",
+                "type": "ajax-json",
+                "updatedAt": "2026-10-15T18:33:26Z",
+                "createdAt": "2026-10-09T21:44:28Z"
+            },
+            "/datasets/mobile_editor/content_list/tags_stories.json": {
+                "zuid": "11-a2f99798aa-gtc1d9",
+                "type": "ajax-json",
+                "updatedAt": "2026-10-06T21:08:25Z",
+                "createdAt": "2026-10-06T21:01:07Z"
+            },
+            "/legacy-styles.scss": {
+                "zuid": "11-fa8bd2c0b9-r0knk4",
+                "type": "ajax-json",
+                "updatedAt": "2025-06-13T22:21:09Z",
+                "createdAt": "2025-06-13T22:21:04Z"
             }
         },
         "styles": {
@@ -33925,6 +33949,18 @@
                 "updatedAt": "2026-06-18T15:41:58Z",
                 "createdAt": "2026-06-16T20:22:57Z",
                 "lastSyncedAt": "2026-06-18T15:41:58Z"
+            },
+            "components/tags-archive-search.scss": {
+                "zuid": "10-b4a482c6e7-j37xtv",
+                "type": "text/scss",
+                "updatedAt": "2026-10-06T22:14:30Z",
+                "createdAt": "2026-10-06T22:13:59Z"
+            },
+            "modules/tags-archive.scss": {
+                "zuid": "10-dedabeaa8a-2ngddd",
+                "type": "text/scss",
+                "updatedAt": "2026-10-06T22:12:57Z",
+                "createdAt": "2026-10-06T22:12:40Z"
             }
         },
         "scripts": {

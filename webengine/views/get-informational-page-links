@@ -25,9 +25,9 @@
 {{/if}}
 
 [
-    (** Location **)
+    (** Location: every page that lists this location. **)
     {{if {$zuidFoundIn} == 1 }}
-        {{each informational_pages AS ip WHERE display_on_header_navigation AND navigation_parent = '{$navParent}' AND location = '{$zuid}' SORT by z.sort }}
+        {{each informational_pages AS ip WHERE display_on_header_navigation AND navigation_parent = '{$navParent}' AND find_in_set('{$zuid}', location) SORT by z.sort }}
             {
                 "title": "{{ip.title.escapeForJs()}}",
                 "url": "{{truepath({ip.zuid})}}",
@@ -37,28 +37,70 @@
             }{{ip._arraycomma}}
         {{/each}}
 
-    (** Division **)
-    {{else-if {$zuidFoundIn} == 2 }}
-        {{each informational_pages AS ip WHERE display_on_header_navigation = 1 AND navigation_parent = '{$navParent}' AND (location = "" OR location IS NULL) AND division = '{$zuid}' SORT by z.sort }}
-            {
-                "title": "{{ip.title.escapeForJs()}}",
-                "url": "{{truepath({ip.zuid})}}",
-                "external_link": "{{ip.external_link}}",
-                "page_type": "{{ip.page_type}}",
-                "zuid": "{{ip.zuid}}"
-            }{{ip._arraycomma}}
-        {{/each}}
-
-    (** Territory **)
-    {{else-if {$zuidFoundIn} == 3 }}
-        {{each informational_pages AS ip WHERE display_on_header_navigation AND navigation_parent = '{$navParent}' AND (division = "" OR division IS NULL) AND territory = '{$zuid}' SORT by z.sort }}
-            {
-                "title": "{{ip.title.escapeForJs()}}",
-                "url": "{{truepath({ip.zuid})}}",
-                "external_link": "{{ip.external_link}}",
-                "page_type": "{{ip.page_type}}",
-                "zuid": "{{ip.zuid}}"
-            }{{ip._arraycomma}}
+    (** Division or territory: pages set directly on it without locations, plus pages whose locations resolve to it. **)
+    (** Division and territory ZUIDs never collide, so each find_in_set clause only matches its own level. **)
+    {{else-if {$zuidFoundIn} > 1 }}
+        {{$isFirst = 1 }}
+        {{each informational_pages AS ip WHERE display_on_header_navigation = 1 AND navigation_parent = '{$navParent}' AND (((location = "" OR location IS NULL) AND find_in_set('{$zuid}', division)) OR ((division = "" OR division IS NULL) AND find_in_set('{$zuid}', territory)) OR location LIKE '%,%') SORT by z.sort }}
+            {{$showLink = 1 }}
+            {{if {ip.location} }}
+                {{$showLink = 0 }}
+                {{$navLocCount = 0 }}
+                {{$navMultiDiv = 0 }}
+                {{$navMultiTer = 0 }}
+                {{each locations as navLoc WHERE find_in_set(z.zuid, '{ip.location}') }}
+                    {{$navLocHasDiv = 0 }}
+                    {{$navLocHasTer = 0 }}
+                    {{if {navLoc.division} }}{{$navLocDiv = {navLoc.division} }}{{$navLocHasDiv = 1 }}{{/if}}
+                    {{if {navLoc.territory} }}{{$navLocTer = {navLoc.territory} }}{{$navLocHasTer = 1 }}{{/if}}
+                    {{if {$navLocHasTer} == 0 }}{{if {$navLocHasDiv} == 1 }}
+                        {{each divisions as navLocDivision WHERE z.zuid = '{$navLocDiv}' LIMIT 1 }}
+                            {{if {navLocDivision.territory} }}{{$navLocTer = {navLocDivision.territory} }}{{$navLocHasTer = 1 }}{{/if}}
+                        {{/each}}
+                    {{/if}}{{/if}}
+                    {{if {$navLocCount} == 0 }}
+                        {{$navLocCount = 1 }}
+                        {{if {$navLocHasDiv} == 1 }}{{$navDiv = {$navLocDiv} }}{{else}}{{$navMultiDiv = 1 }}{{/if}}
+                        {{if {$navLocHasTer} == 1 }}{{$navTer = {$navLocTer} }}{{else}}{{$navMultiTer = 1 }}{{/if}}
+                    {{else}}
+                        {{$navLocCount = 2 }}
+                        {{if {$navMultiDiv} == 0 }}
+                            {{$navSame = 0 }}
+                            {{if {$navLocHasDiv} == 1 }}{{if {$navLocDiv} == {$navDiv} }}{{$navSame = 1 }}{{/if}}{{/if}}
+                            {{if {$navSame} == 0 }}{{$navMultiDiv = 1 }}{{/if}}
+                        {{/if}}
+                        {{if {$navMultiTer} == 0 }}
+                            {{$navSame = 0 }}
+                            {{if {$navLocHasTer} == 1 }}{{if {$navLocTer} == {$navTer} }}{{$navSame = 1 }}{{/if}}{{/if}}
+                            {{if {$navSame} == 0 }}{{$navMultiTer = 1 }}{{/if}}
+                        {{/if}}
+                    {{/if}}
+                {{/each}}
+                {{if {$navLocCount} == 2 }}
+                    (** Several locations: same rules as the page context (one division, else one territory). **)
+                    {{if {$zuidFoundIn} == 2 }}{{if {$navMultiDiv} == 0 }}{{if {$navDiv} == {$zuid} }}
+                        {{$showLink = 1 }}
+                    {{/if}}{{/if}}{{/if}}
+                    {{if {$zuidFoundIn} == 3 }}{{if {$navMultiDiv} == 1 }}{{if {$navMultiTer} == 0 }}{{if {$navTer} == {$zuid} }}
+                        {{$showLink = 1 }}
+                    {{/if}}{{/if}}{{/if}}{{/if}}
+                {{else}}
+                    (** One location: listed on a territory only by its own division and territory fields, as before. **)
+                    {{if {$zuidFoundIn} == 3 }}{{if {ip.division} }}{{else}}
+                        {{each territories as navTer WHERE z.zuid = '{$zuid}' AND find_in_set(z.zuid, '{ip.territory}') LIMIT 1 }}{{$showLink = 1 }}{{/each}}
+                    {{/if}}{{/if}}
+                {{/if}}
+            {{/if}}
+            {{if {$showLink} == 1 }}
+                {{if {$isFirst} == 0 }},{{/if}}{{$isFirst = 0 }}
+                {
+                    "title": "{{ip.title.escapeForJs()}}",
+                    "url": "{{truepath({ip.zuid})}}",
+                    "external_link": "{{ip.external_link}}",
+                    "page_type": "{{ip.page_type}}",
+                    "zuid": "{{ip.zuid}}"
+                }
+            {{/if}}
         {{/each}}
 
     (** National **)
