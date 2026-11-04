@@ -1,11 +1,5 @@
 <div class="d-flex flex-column gap-4 justify-content-between h-100">
-  <h4 class="fw-normal">
-    {{if {this.site_name} !== null && {this.site_name} !== "" }}
-      {{this.site_name}}
-    {{else}}
-      {{this.name}}
-    {{/if}}
-  </h4>
+  <h4 class="fw-normal">{{if {this.site_name} !== null && {this.site_name} !== "" }}{{this.site_name}}{{else}}{{this.name}}{{/if}}</h4>
 
   <div class="mb-auto">
 
@@ -13,11 +7,9 @@
     <div
       class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-3"
     >
-      <span class="fs-lg-7 display-4 fw-normal"> General Hours </span>
+      <span class="fs-lg-7 display-4 fw-normal">General Hours</span>
       <div class="text-dark-50 ms-auto me-2 fs-lg-7 display-4 fw-normal text-end w-75">
-        <div class="form-control w-100 border-0 custom-textarea text-dark-50 bg-transparent fs-lg-7 display-4 fw-normal ">
-          {{this.hours_of_operation.htmlentities()}}
-        </div>
+        <div class="form-control w-100 border-0 custom-textarea text-dark-50 bg-transparent fs-lg-7 display-4 fw-normal">{{this.hours_of_operation.htmlentities()}}</div>
       </div>
       <!-- <button class="btn p-0 d-flex align-items-center justify-content-center">
         <span class="material-symbols-outlined text-dark-50"> add </span>
@@ -27,7 +19,7 @@
     <div
       class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-3"
     >
-      <span class="fs-lg-7 display-4 fw-normal"> Phone </span>
+      <span class="fs-lg-7 display-4 fw-normal">Phone</span>
       <div class="text-dark-50 fs-lg-7 display-4 fw-normal">
         <a href="tel:{{this.contact_number}}" 
           onclick="LocationTrackingResultsClickEvent(this)"
@@ -42,8 +34,8 @@
     <div
       class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-3"
     >
-      <span class="fs-lg-7 display-4 fw-normal"> Address </span>
-      <div  class="text-dark-50 fs-lg-7 display-4 fw-normal w-75 text-end">
+      <span class="fs-lg-7 display-4 fw-normal">Address</span>
+      <div class="text-dark-50 fs-lg-7 display-4 fw-normal w-75 text-end">
         <a 
           id="map__address"
           href="" target="_blank" rel="noopener noreferrer"
@@ -61,7 +53,7 @@
     <div
       class="border-top border-2 border-dark-50 d-flex align-items-center justify-content-between py-3"
     >
-      <span class="fs-lg-7 display-4 fw-normal"> Directions </span>
+      <span class="fs-lg-7 display-4 fw-normal">Directions</span>
       <div class="text-dark-50 fs-lg-7 display-4 fw-normal">
         <a id="map__walking" href="https://www.google.com/maps?dirflg=w&q={{!this.address}}" target="_blank" rel="noopener noreferrer" class="text-dark-50 me-2"
           onclick="LocationTrackingResultsClickEvent(this)"
