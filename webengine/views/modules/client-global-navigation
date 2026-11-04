@@ -2268,6 +2268,7 @@
         }
         break;
     }
+    await volunteerUrlSync;
     logCurrentDataLayerValues(`init-complete`, { source });
   }
 
@@ -2380,24 +2381,40 @@
     }
   }
 
-  async function syncCentralVolunteerUrlFromCurrentProperty() {
+  let volunteerUrlRequest = null;
+  let volunteerUrlSync = Promise.resolve();
+
+  function syncCentralVolunteerUrlFromCurrentProperty() {
     const currentZUID = cookieManager.get(cookieKeys.locationZUID);
     const currentModel = cookieManager.get(cookieKeys.locationModel);
 
     if (!currentZUID || !currentModel) {
-      return;
+      cookieManager.set(cookieKeys.volunteerUrl, `{{$nationalVolunteer}}`);
+      return Promise.resolve();
     }
 
-    try {
-      const response = await fetchInformation(`get-volunteer-page`, currentZUID, currentModel);
-      
-      if (response && response.volunteer_url) {
-        console.log(response, "RESPONSE")
-        cookieManager.set(cookieKeys.volunteerUrl, response.volunteer_url);
-      }
-    } catch (err) {
-      // Keep previously set central fallback when endpoint lookup fails.
+    // initCookies runs more than once per page; reuse the lookup for the same location.
+    const requestKey = `${currentModel}:${currentZUID}`;
+    if (!volunteerUrlRequest || volunteerUrlRequest.key !== requestKey) {
+      cookieManager.set(cookieKeys.volunteerUrl, `{{$centralVolunteer}}`);
+      volunteerUrlRequest = {
+        key: requestKey,
+        url: fetchInformation(`get-volunteer-page`, currentZUID, currentModel)
+          .then((response) =>
+            !response
+              ? null
+              : response.volunteer_page_zuid
+              ? response.volunteer_url
+              : response.fallback_url
+          )
+          .catch(() => null)
+      };
     }
+
+    return volunteerUrlRequest.url.then((resolvedVolunteerUrl) => {
+      if (volunteerUrlRequest.key !== requestKey) return;
+      cookieManager.set(cookieKeys.volunteerUrl, resolvedVolunteerUrl || `{{$nationalVolunteer}}`);
+    });
   }
 
   function hasValidZUIDShape(zuid) {
@@ -2748,8 +2765,7 @@
       cookieManager.set(cookieKeys.classyOrganizationID, `{{$southOrgId}}`);
     } else if (zuid === territories.central) {
       setDonationUrlCookies(`{{$centralCampaignURL}}`, `{{$centralClassyDonation}}`);
-   
-      syncCentralVolunteerUrlFromCurrentProperty();
+      volunteerUrlSync = syncCentralVolunteerUrlFromCurrentProperty();
 
       cookieManager.set(cookieKeys.employmentUrl, `{{$centralEmployment}}`);
       cookieManager.set(cookieKeys.waysToGiveUrl, `{{$centralWaysToGive}}`);

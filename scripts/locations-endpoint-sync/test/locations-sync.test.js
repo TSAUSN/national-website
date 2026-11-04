@@ -9,9 +9,12 @@ const path = require('path');
 const SRC = path.join(__dirname, '..', 'src');
 const AXIOS_STUB_ID = path.join(__dirname, '__axios_stub__.js');
 const LOGGER_ID = path.join(SRC, 'logger.js');
+const OPTIONAL_ENV = ['LOCATIONS_MIN_COUNT', 'LOG_TO_FILE', 'LOG_DIR'];
 
 const ENV = {
   INSTANCE_ZUID: 'inst',
+  DEV_TOKEN: 'tok',
+  ZESTY_API_BASE: 'https://api.example.test/v1/',
   LOCATIONS_VIEW_ZUID: 'LIVE',
   LOCATIONS_VIEW_DEV_ZUID: 'DEV',
   LOCATIONS_LIVE_DOMAIN: 'https://live.test',
@@ -24,10 +27,11 @@ const ENV = {
 
 const LIVE_URL = 'https://live.test/loc.json';
 const PREVIEW_URL = 'https://preview.test/loc.json';
-const DEV_PUT_URL = 'https://inst.api.zesty.io/v1/web/views/DEV';
-const LIVE_PUT_URL = 'https://inst.api.zesty.io/v1/web/views/LIVE';
+const DEV_PUT_URL = 'https://api.example.test/v1/web/views/DEV';
+const LIVE_PUT_URL = 'https://api.example.test/v1/web/views/LIVE';
 const PUBLISH_PARAMS = { action: 'publish', purge_cache: true };
 const DATA = [{ id: 1, name: 'A' }, { id: 2, name: 'B' }];
+const CACHE_BUSTER_RE = /[?&]_cb=\d+$/;
 
 // Route require('axios') to a stub, whether or not axios is installed.
 const originalResolve = Module._resolveFilename;
@@ -71,16 +75,19 @@ let h; // per-test harness
 const realDateNow = Date.now;
 
 beforeEach(() => {
+  for (const key of OPTIONAL_ENV) delete process.env[key];
   Object.assign(process.env, ENV);
 
   h = {
     now: 1000000,
-    gets: [], // { url, config }
-    puts: [], // { url, body, params }
+    gets: [], // { url (cache-buster stripped), rawUrl, config }
+    puts: [], // { url, body, params, headers }
     events: [], // ordered I/O events
     logs: [], // { label, data }
     errorLogs: [], // { label, error }
     unexpected: [],
+    allowedGetUrls: [LIVE_URL, PREVIEW_URL],
+    logThrows: false, // simulate a logger that throws (e.g. read-only filesystem)
     overlap: [],
     activeGets: 0,
     activePuts: 0,
@@ -92,15 +99,16 @@ beforeEach(() => {
   Date.now = () => h.now;
 
   cacheModule(AXIOS_STUB_ID, {
-    async get(url, config) {
-      if (url !== LIVE_URL && url !== PREVIEW_URL) {
-        h.unexpected.push(`GET ${url}`);
-        throw new Error(`un-stubbed axios.get ${url}`);
+    async get(rawUrl, config) {
+      const url = rawUrl.replace(CACHE_BUSTER_RE, '');
+      if (!h.allowedGetUrls.includes(url) || url === rawUrl) {
+        h.unexpected.push(`GET ${rawUrl}`);
+        throw new Error(`un-stubbed axios.get ${rawUrl}`);
       }
       // A GET starting while anything else is outstanding means two runs overlap.
       if (h.activeGets > 0 || h.activePuts > 0) h.overlap.push(`GET ${url}`);
       const index = h.gets.length;
-      h.gets.push({ url, config });
+      h.gets.push({ url, rawUrl, config });
       h.events.push(`get:${url}`);
       h.activeGets += 1;
       try {
@@ -118,7 +126,13 @@ beforeEach(() => {
       if (h.activeGets > 0) h.overlap.push(`PUT ${url}`);
       const index = h.puts.length;
       const lastGet = h.gets[h.gets.length - 1];
-      h.puts.push({ url, body, params: config && config.params, afterGet: lastGet && lastGet.url });
+      h.puts.push({
+        url,
+        body,
+        params: config && config.params,
+        headers: config && config.headers,
+        afterGet: lastGet && lastGet.url,
+      });
       h.activePuts += 1;
       try {
         if (h.putImpl) await h.putImpl(url, body, config, index);
@@ -134,8 +148,14 @@ beforeEach(() => {
     },
   });
   cacheModule(LOGGER_ID, {
-    logToFile(data, label) { h.logs.push({ label, data }); },
-    errorLogToFile(error, label) { h.errorLogs.push({ label, error }); },
+    logToFile(data, label) {
+      h.logs.push({ label, data });
+      if (h.logThrows) throw new Error('EROFS: read-only file system');
+    },
+    errorLogToFile(error, label) {
+      h.errorLogs.push({ label, error });
+      if (h.logThrows) throw new Error('EROFS: read-only file system');
+    },
   });
 
   for (const f of ['locations-sync.js', 'zesty-view-commit.js', 'webhook-handler.js']) {
@@ -503,3 +523,214 @@ for (const [text, action, live] of CLASSIFICATION) {
     assert.deepEqual(logsLabelled('rebuilt')[0].data.viewZuids, live ? ['DEV', 'LIVE'] : ['DEV']);
   });
 }
+
+test('handler still triggers the rebuild when logging throws', async () => {
+  h.logThrows = true;
+  const res = mockRes();
+  await h.handler.handleZestyWebhook({ body: { text: 'A location has been published' } }, res);
+  assert.deepEqual(res.calls, [{ status: 202, getsAtAck: 0 }, { json: { received: true } }]);
+  assert.equal(logsLabelled('received').length, 1);
+  assert.deepEqual(h.gets.map((g) => g.url), [LIVE_URL]);
+  assert.equal(livePuts().length, 1);
+  assert.equal(devPuts().length, 1);
+});
+
+test('handler logs action, content-type and whether text was present', async () => {
+  const req = { headers: { 'content-type': 'application/json' }, body: { text: 'Location saved' } };
+  await h.handler.handleZestyWebhook(req, mockRes());
+  assert.deepEqual(logsLabelled('received')[0].data, {
+    action: 'update',
+    contentType: 'application/json',
+    hasText: true,
+  });
+});
+
+test('fetch still retries a 503 when the retry log throws', async () => {
+  h.logThrows = true;
+  h.getImpl = (url, i) => { if (i === 0) throw httpError(503); return DATA; };
+  await trigger(true, 'publish');
+  assert.equal(h.gets.length, 2);
+  assert.equal(logsLabelled('fetch retry').length, 1);
+  assert.equal(livePuts().length, 1);
+});
+
+test('fetch still retries a timeout when logging throws', async () => {
+  h.logThrows = true;
+  h.getImpl = (url, i) => {
+    if (i === 0) throw Object.assign(new Error('timeout of 120000ms exceeded'), { code: 'ECONNABORTED' });
+    return DATA;
+  };
+  await trigger(true, 'publish');
+  assert.equal(h.gets.length, 2);
+  assert.equal(livePuts().length, 1);
+});
+
+for (const [name, payload] of [
+  ['HTML string', '<!DOCTYPE html><html><body>Error</body></html>'],
+  ['object', { error: 'nope' }],
+  ['empty array', []],
+  ['null', null],
+]) {
+  test(`invalid payload (${name}) writes nothing`, async () => {
+    h.getImpl = () => payload;
+    await trigger(true, 'publish');
+    assert.equal(h.gets.length, 1);
+    assert.equal(h.puts.length, 0);
+    assert.deepEqual(h.errorLogs.map((e) => e.label), ['rebuild failed']);
+    assert.match(h.errorLogs[0].error.message, /^invalid payload/);
+  });
+}
+
+test('payload below LOCATIONS_MIN_COUNT writes nothing', async () => {
+  process.env.LOCATIONS_MIN_COUNT = '3';
+  await trigger(true, 'publish');
+  assert.equal(h.puts.length, 0);
+  assert.match(h.errorLogs[0].error.message, /^invalid payload/);
+});
+
+test('GET URL gets a cache-buster with a single "?"', async () => {
+  await trigger(true, 'publish');
+  assert.equal(h.gets[0].rawUrl, `${LIVE_URL}?_cb=${h.now}`);
+});
+
+test('GET URL cache-buster is appended with "&" when the path has a query', async () => {
+  process.env.LOCATIONS_ENDPOINT_PATH = '/loc.json?zpw=secret';
+  h.allowedGetUrls.push('https://preview.test/loc.json?zpw=secret');
+  await trigger(false, 'update');
+  const { rawUrl } = h.gets[0];
+  assert.equal(rawUrl, `https://preview.test/loc.json?zpw=secret&_cb=${h.now}`);
+  assert.equal(rawUrl.split('?').length, 2);
+  const attempt = logsLabelled('fetch attempt')[0].data;
+  assert.equal(attempt.url, `https://preview.test/loc.json?zpw=[REDACTED]&_cb=${h.now}`);
+  assert.equal(attempt.attempt, 1);
+  assert.equal(typeof attempt.durationMs, 'number');
+});
+
+test('each retry attempt gets a fresh cache-buster', async () => {
+  h.getImpl = (url, i) => {
+    h.now += 1;
+    if (i === 0) throw httpError(504);
+    return DATA;
+  };
+  await trigger(true, 'publish');
+  assert.equal(h.gets.length, 2);
+  assert.notEqual(h.gets[0].rawUrl, h.gets[1].rawUrl);
+  for (const g of h.gets) assert.match(g.rawUrl, /^https:\/\/live\.test\/loc\.json\?_cb=\d+$/);
+  assert.deepEqual(logsLabelled('fetch attempt').map((l) => l.data.status), [504, undefined]);
+});
+
+test('GET sends no Authorization header', async () => {
+  await trigger(true, 'publish');
+  h.now += 100000;
+  await trigger(false, 'update');
+  assert.equal(h.gets.length, 2);
+  for (const g of h.gets) {
+    const headers = (g.config && g.config.headers) || {};
+    assert.ok(!Object.keys(headers).some((k) => k.toLowerCase() === 'authorization'));
+  }
+});
+
+test('DEV_TOKEN whitespace is trimmed in the PUT Authorization header', async () => {
+  process.env.DEV_TOKEN = '  tok\n';
+  await trigger(true, 'publish');
+  assert.equal(h.puts.length, 2);
+  for (const p of h.puts) assert.equal(p.headers.Authorization, 'Bearer tok');
+});
+
+test('missing required env vars fail the run without fetching', async () => {
+  delete process.env.DEV_TOKEN;
+  delete process.env.LOCATIONS_VIEW_DEV_ZUID;
+  await trigger(true, 'publish');
+  assert.equal(h.gets.length, 0);
+  assert.equal(h.puts.length, 0);
+  assert.deepEqual(h.errorLogs.map((e) => e.label), ['missing env vars', 'rebuild failed']);
+  assert.match(h.errorLogs[0].error.message, /DEV_TOKEN, LOCATIONS_VIEW_DEV_ZUID/);
+});
+
+test('one PUT failing still logs the other and rejects', async () => {
+  h.putImpl = (url) => { if (url === LIVE_PUT_URL) throw httpError(500); };
+  await trigger(true, 'publish');
+  assert.equal(h.puts.length, 2);
+  const writes = logsLabelled('view write').map(({ data }) => ({ viewZuid: data.viewZuid, ok: data.ok, status: data.status }));
+  assert.deepEqual(writes, [
+    { viewZuid: 'DEV', ok: true, status: undefined },
+    { viewZuid: 'LIVE', ok: false, status: 500 },
+  ]);
+  assert.deepEqual(h.errorLogs.map((e) => e.label), ['rebuild failed']);
+  assert.equal(h.errorLogs[0].error.response.status, 500);
+  assert.equal(logsLabelled('rebuilt').length, 0);
+});
+
+test('DEV PUT failing still writes and logs LIVE, and the run fails', async () => {
+  h.putImpl = (url) => { if (url === DEV_PUT_URL) throw httpError(401); };
+  await trigger(true, 'publish');
+  assert.equal(livePuts().length, 1);
+  assert.deepEqual(logsLabelled('view write').map((l) => l.data.ok), [false, true]);
+  assert.match(h.errorLogs[0].error.message, /status code 401/);
+  assert.equal(logsLabelled('rebuilt').length, 0);
+});
+
+test('updateLocationsView rejects when its only PUT fails', async () => {
+  h.putImpl = () => { throw httpError(401); };
+  const { updateLocationsView } = require(path.join(SRC, 'zesty-view-commit.js'));
+  await assert.rejects(updateLocationsView(DATA, { publish: false }), /status code 401/);
+  assert.deepEqual(logsLabelled('view write').map((l) => [l.data.viewZuid, l.data.status]), [['DEV', 401]]);
+});
+
+// The real logger rather than the stub: stdout JSON lines, redaction, and never throwing.
+function loadRealLogger() {
+  const stub = require.cache[LOGGER_ID];
+  delete require.cache[LOGGER_ID];
+  try {
+    return require(LOGGER_ID);
+  } finally {
+    require.cache[LOGGER_ID] = stub;
+  }
+}
+
+function captureConsole(fn) {
+  const out = { log: [], error: [] };
+  const { log, error } = console;
+  console.log = (line) => out.log.push(line);
+  console.error = (line) => out.error.push(line);
+  try {
+    fn();
+  } finally {
+    console.log = log;
+    console.error = error;
+  }
+  return out;
+}
+
+test('logger writes one redacted JSON line per call and never throws', () => {
+  const logger = loadRealLogger();
+  process.env.LOG_TO_FILE = 'true';
+  process.env.LOG_DIR = __filename; // a file, so creating the log dir fails
+  const circular = {};
+  circular.self = circular;
+  const err = Object.assign(new Error('Request failed with status code 504'), {
+    response: { status: 504, data: '<html>Gateway Timeout</html>' },
+    config: { url: 'https://preview.test/loc.json?zpw=secret&_cb=1', headers: { Authorization: 'Bearer tok' } },
+  });
+  const out = captureConsole(() => {
+    logger.logToFile({ url: 'https://preview.test/loc.json?zpw=secret' }, 'fetch attempt', 'locationsSync');
+    logger.logToFile(circular, 'circular', 'locationsSync');
+    logger.errorLogToFile(err, 'rebuild failed', 'locationsSync');
+    logger.errorLogToFile(undefined, 'odd', 'locationsSync');
+  });
+  assert.equal(out.log.length, 2);
+  assert.equal(out.error.length, 2);
+  assert.deepEqual(JSON.parse(out.log[0]), {
+    severity: 'INFO',
+    label: 'fetch attempt',
+    fn: 'locationsSync',
+    data: { url: 'https://preview.test/loc.json?zpw=[REDACTED]' },
+  });
+  const error = JSON.parse(out.error[0]);
+  assert.equal(error.severity, 'ERROR');
+  assert.equal(error.data.status, 504);
+  assert.equal(error.data.message, 'Request failed with status code 504');
+  assert.equal(error.data.url, 'https://preview.test/loc.json?zpw=[REDACTED]&_cb=1');
+  assert.ok(!out.error.join('\n').includes('secret'));
+  assert.ok(!out.error.join('\n').includes('Bearer tok'));
+});
