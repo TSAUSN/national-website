@@ -731,10 +731,9 @@ const getPhysicalStoreData = async () => {
     });
 
     const { data, fields } = await response.json();
-    console.log('Returned Physical Store Data', fields, data);
     return Array.isArray(data) ? data : [];
   } catch (error) {
-    console.log("ERROR Angel Tree Physical Store", error.message);
+    console.error("ERROR Angel Tree Physical Store", error.message);
     return [];
   }
 };
