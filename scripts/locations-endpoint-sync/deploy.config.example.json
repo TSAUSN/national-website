@@ -20,8 +20,7 @@
     "PUBLISH_PROPAGATION_DELAY_MS": "5000",
     "LOCATIONS_FETCH_TIMEOUT_MS": "120000",
     "LOCATIONS_FETCH_MAX_RETRIES": "3",
-    "LOCATIONS_FETCH_RETRY_DELAY_MS": "15000",
-    "LOG_TO_FILE": "false"
+    "LOCATIONS_FETCH_RETRY_DELAY_MS": "15000"
   },
   "secrets": {
     "DEV_TOKEN": "locations-webhook-dev-token:latest"
