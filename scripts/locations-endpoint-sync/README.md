@@ -1,7 +1,4 @@
-# locations-endpoint-sync
-
-Deployed as the Cloud Run service / Cloud Functions (2nd gen) function
-`locations-endpoint-sync` (project `salvation-army-usa-prod`, region `us-central1`).
+# locations-webhook
 
 Receives a Zesty.io locations-model webhook and rebuilds the full locations JSON from a
 Parsley endpoint, writing it straight into a Zesty view file. Delete, publish and unpublish
@@ -19,18 +16,10 @@ Runs two ways from the same handler (`src/webhook-handler.js`):
    ```
    gcloud services enable cloudfunctions.googleapis.com cloudbuild.googleapis.com run.googleapis.com artifactregistry.googleapis.com secretmanager.googleapis.com --project=PROJECT_ID
    ```
-2. Create the secret the function needs (value comes from the existing `.env`). Don't use
-   `<<<` - it appends a newline to the secret, which makes an invalid `Authorization` header.
-   Bash:
+2. Create the secret the function needs (value comes from the existing `.env`):
    ```
-   printf '%s' "YOUR_DEV_TOKEN" | gcloud secrets create locations-webhook-dev-token --project=PROJECT_ID --data-file=-
+   gcloud secrets create locations-webhook-dev-token --project=PROJECT_ID --data-file=- <<< "YOUR_DEV_TOKEN"
    ```
-   PowerShell (writes the value to a temp file with no trailing newline or BOM):
-   ```
-   $f = [IO.Path]::GetTempFileName(); [IO.File]::WriteAllText($f, "YOUR_DEV_TOKEN"); gcloud secrets create locations-webhook-dev-token --project=PROJECT_ID --data-file="$f"; Remove-Item $f
-   ```
-   To replace the value of an existing secret, use `gcloud secrets versions add` with the same
-   `--data-file` input. (The service also trims the token, but keep the secret clean.)
 3. Grant the Cloud Functions runtime service account access to that secret (the default
    compute service account unless you've set a custom one):
    ```
@@ -40,14 +29,11 @@ Runs two ways from the same handler (`src/webhook-handler.js`):
 ## Deploying
 
 1. Copy `deploy.config.example.json` to `deploy.config.json` (gitignored) and fill in:
-   - `projectId`, `region` (`functionName` is already `locations-endpoint-sync`, the deployed
-     service name - keep it, or the deploy creates a second service)
+   - `projectId`, `region`
    - `envVars` - the non-secret values from your `.env` (`INSTANCE_ZUID`,
      `LOCATIONS_ENDPOINT_PATH`, `LOCATIONS_LIVE_DOMAIN`, `LOCATIONS_PREVIEW_DOMAIN`,
      `LOCATIONS_VIEW_ZUID`, `LOCATIONS_VIEW_DEV_ZUID`, etc.)
    - `secrets` - left as-is unless you named the Secret Manager secrets differently
-   - Never put a real `zpw` value in `deploy.config.example.json`; it only belongs in your
-     gitignored `deploy.config.json` / `.env`.
 2. `npm install`
 3. `npm run deploy`
 
@@ -58,11 +44,6 @@ Runs two ways from the same handler (`src/webhook-handler.js`):
   immediately (`res.status(202)`) and keeps working afterwards (`triggerRebuild`). Cloud Run
   freezes a container's CPU the instant a response is sent unless CPU is always-allocated -
   without `--no-cpu-throttling`, the rebuild can be silently killed mid-flight.
-- Then runs `gcloud run services describe` and fails if `cpu-throttling` isn't `false`.
-
-Deploy only with `npm run deploy`. A plain `gcloud functions deploy` on its own can reset the
-Cloud Run flags (CPU throttling back on, concurrency back to the default), which brings back the
-"webhook fires but nothing updates" failure.
 
 The deploy also pins `max-instances=1` / `concurrency=1` by default. `locations-sync.js`
 keeps its run state in memory (`lastRunAt`/`inFlight`/`queued`), which only works correctly
