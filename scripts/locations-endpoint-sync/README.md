@@ -62,56 +62,6 @@ queued publish rebuild that hadn't started yet.
 After the first deploy, point the Zesty webhook at the printed Cloud Run URL instead of the
 old server's address.
 
-## Post-deploy checks
-
-```
-gcloud run services describe locations-endpoint-sync --project=salvation-army-usa-prod --region=us-central1
-```
-
-Confirm:
-- CPU is always allocated: `run.googleapis.com/cpu-throttling: 'false'` (shown as
-  "CPU Allocation: CPU is always allocated" in the summary view).
-- Max instances is 1 (`autoscaling.knative.dev/maxScale: '1'`).
-- Concurrency is 1 (`containerConcurrency: 1`).
-
-Also make sure the source endpoint (`generate-locations.json`, from `LOCATIONS_ENDPOINT_PATH`)
-is **published** on live. Publish/delete/unpublish rebuilds fetch it from
-`LOCATIONS_LIVE_DOMAIN`; if it's unpublished there, the response won't be the locations array
-and the run fails with `invalid payload` without writing anything.
-
-## Configuration notes
-
-- Every fetch URL gets a `_cb=<timestamp>` cache-buster so the CDN can't serve a stale copy.
-- The GET to the website sends no `Authorization` header; preview access comes from the
-  `zpw` query in `LOCATIONS_ENDPOINT_PATH`.
-- A fetched payload must be an array with at least `LOCATIONS_MIN_COUNT` items (default 1),
-  otherwise nothing is written.
-- Missing required env vars (`INSTANCE_ZUID`, `DEV_TOKEN`, `LOCATIONS_ENDPOINT_PATH`,
-  `LOCATIONS_LIVE_DOMAIN`, `LOCATIONS_PREVIEW_DOMAIN`, `LOCATIONS_VIEW_ZUID`,
-  `LOCATIONS_VIEW_DEV_ZUID`) fail the run with a `missing env vars` error.
-- `ZESTY_API_BASE` (optional) overrides the Instances API base used for view writes
-  (default `https://<INSTANCE_ZUID>.api.zesty.io/v1`; a trailing slash is fine). The tests
-  point it at a placeholder `.test` host.
-
-## Errors
-
-The function writes no files and logs nothing on success. Failures go to `console.error`
-(stderr, which Cloud Logging records as errors) as `<function>: <what failed>: <error message>`,
-for example `locationsSync: rebuild failed: Request failed with status code 503`. Only the
-error message is printed, never the request config, so tokens and `zpw` values stay out.
-
-Lines you can see:
-- `locationsSync: rebuild failed: ...`: the run failed (missing env vars, fetch error after
-  retries, invalid payload, or a view write failure).
-- `updateLocationsView: view write failed for <view zuid>: ...`: one view PUT failed.
-- `handleZestyWebhook: classify failed: ...` / `trigger failed: ...`: the handler hit an
-  unexpected error.
-
-Read recent errors:
-```
-gcloud logging read 'resource.type="cloud_run_revision" AND resource.labels.service_name="locations-endpoint-sync" AND severity>=ERROR' --project=salvation-army-usa-prod --limit=50
-```
-
 ## Local testing against the Cloud Functions runtime
 
 ```
