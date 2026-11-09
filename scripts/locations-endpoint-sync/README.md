@@ -112,25 +112,24 @@ and the run fails with `invalid payload` without writing anything.
   (default `https://<INSTANCE_ZUID>.api.zesty.io/v1`; a trailing slash is fine). The tests
   point it at a placeholder `.test` host.
 
-## Logs
+## Errors
 
-Every log call writes one JSON line (`{severity, label, fn, data}`) to stdout/stderr, which
-Cloud Logging picks up with the right severity. `zpw` values and tokens are redacted. File
-logging is off unless `LOG_TO_FILE=true` (files go under `LOG_DIR`, default the OS temp dir);
-logging failures never stop a rebuild.
+The function writes no files and logs nothing on success. Failures go to `console.error`
+(stderr, which Cloud Logging records as errors) as `<function>: <what failed>: <error message>`,
+for example `locationsSync: rebuild failed: Request failed with status code 503`. Only the
+error message is printed, never the request config, so tokens and `zpw` values stay out.
 
-Read recent logs:
-```
-gcloud run services logs read locations-endpoint-sync --project=salvation-army-usa-prod --region=us-central1 --limit=100
-```
-Errors only:
+Lines you can see:
+- `locationsSync: rebuild failed: ...`: the run failed (missing env vars, fetch error after
+  retries, invalid payload, or a view write failure).
+- `updateLocationsView: view write failed for <view zuid>: ...`: one view PUT failed.
+- `handleZestyWebhook: classify failed: ...` / `trigger failed: ...`: the handler hit an
+  unexpected error.
+
+Read recent errors:
 ```
 gcloud logging read 'resource.type="cloud_run_revision" AND resource.labels.service_name="locations-endpoint-sync" AND severity>=ERROR' --project=salvation-army-usa-prod --limit=50
 ```
-
-A healthy run logs `received` -> `fetch attempt` (status 200) -> `view write` per view ->
-`rebuilt`. Useful labels when it doesn't: `debounced`, `queued behind in-flight run`,
-`fetch retry`, `missing env vars`, `rebuild failed`.
 
 ## Local testing against the Cloud Functions runtime
 

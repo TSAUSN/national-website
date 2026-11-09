@@ -2,8 +2,6 @@
 // which item changed. This is the logic that eventually moves into the GCP cloud function
 // (cloud-functions/location-sync) - kept as a standalone module so it can be lifted as-is.
 const axios = require('axios');
-const { logToFile, errorLogToFile } = require('./logger');
-const { redact, safeLog } = require('./log-utils');
 const { updateLocationsView } = require('./zesty-view-commit');
 
 const REQUIRED_ENV = [
@@ -56,9 +54,7 @@ function isRetryableError(err) {
 function assertRequiredEnv() {
   const missing = REQUIRED_ENV.filter((key) => !String(process.env[key] || '').trim());
   if (!missing.length) return;
-  const err = new Error(`missing required env vars: ${missing.join(', ')}`);
-  safeLog(errorLogToFile, err, 'missing env vars', 'locationsSync');
-  throw err;
+  throw new Error(`missing required env vars: ${missing.join(', ')}`);
 }
 
 // Unique query param per request so the CDN can't answer with a stale cached copy.
@@ -89,32 +85,15 @@ async function fetchLocations(action, config) {
   const maxRetries = config.fetchMaxRetries;
 
   for (let attempt = 1; attempt <= maxRetries; attempt += 1) {
-    const url = withCacheBuster(baseUrl);
-    const startedAt = performance.now();
     try {
-      const { data, status } = await axios.get(url, {
+      const { data } = await axios.get(withCacheBuster(baseUrl), {
         timeout: config.fetchTimeoutMs,
         headers: { 'Content-Type': 'application/json' },
       });
-      safeLog(
-        logToFile,
-        { action, url: redact(url), attempt, maxRetries, durationMs: Math.round(performance.now() - startedAt), status },
-        'fetch attempt',
-        'locationsSync',
-      );
       return data;
     } catch (err) {
-      const status = err.response && err.response.status;
-      safeLog(
-        logToFile,
-        { action, url: redact(url), attempt, maxRetries, durationMs: Math.round(performance.now() - startedAt), status, code: err.code },
-        'fetch attempt',
-        'locationsSync',
-      );
       if (!isRetryableError(err) || attempt === maxRetries) throw err;
-      const delay = config.fetchRetryDelayMs * attempt;
-      safeLog(logToFile, { attempt, maxRetries, delayMs: delay, status, code: err.code }, 'fetch retry', 'locationsSync');
-      await sleep(delay);
+      await sleep(config.fetchRetryDelayMs * attempt);
     }
   }
   throw new Error('fetch failed: no attempts made');
@@ -129,17 +108,17 @@ async function runRebuild(publish, action) {
   }
   const locations = await fetchLocations(action, config);
   assertValidPayload(locations, config.minCount);
-  const viewZuids = await updateLocationsView(locations, { publish });
-  safeLog(logToFile, { viewZuids, count: locations.length, publish, action }, 'rebuilt', 'locationsSync');
+  await updateLocationsView(locations, { publish });
 }
 
 // Starts a run and, once it settles (success or failure), starts the queued publish follow-up
-// if one was requested meanwhile. The returned promise never rejects.
+// if one was requested meanwhile. The returned promise never rejects. Only the error message is
+// printed: axios errors carry the request config (Authorization header, zpw in the URL).
 function startRun(publish, action) {
   lastRunAt = Date.now();
   const run = runRebuild(publish, action)
     .catch((err) => {
-      safeLog(errorLogToFile, err, 'rebuild failed', 'locationsSync');
+      console.error('locationsSync: rebuild failed:', err && err.message);
     })
     .then(() => {
       inFlight = null;
@@ -166,7 +145,6 @@ function triggerRebuild(publish = true, action = 'update') {
       queued = { promise, resolve, actions: [] };
     }
     queued.actions.push(action);
-    safeLog(logToFile, { action, coalesced: queued.actions.length }, 'queued behind in-flight run', 'locationsSync');
     return queued.promise;
   }
 
@@ -175,7 +153,6 @@ function triggerRebuild(publish = true, action = 'update') {
   const { debounceMs } = getConfig();
   const msSinceLastRun = Date.now() - lastRunAt;
   if (msSinceLastRun < debounceMs) {
-    safeLog(logToFile, { msSinceLastRun, debounceMs }, 'debounced', 'locationsSync');
     return Promise.resolve({ skipped: true });
   }
 
