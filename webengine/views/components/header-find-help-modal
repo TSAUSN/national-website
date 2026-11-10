@@ -201,6 +201,16 @@
       queryParams.append('zuid', '{{this.zuid}}');
     }
 
+    // Pass the picked suggestion's place_id so the location finder resolves the exact place
+    const addressInput = document.getElementById('address-search');
+    if (
+      addressInput &&
+      addressInput.dataset.placeId &&
+      String(address || '').trim() === addressInput.dataset.placeDescription
+    ) {
+      queryParams.append('place_id', addressInput.dataset.placeId);
+    }
+
     window.location.href = `${baseUrl}?${queryParams.toString()}`;
   }
 
@@ -332,6 +342,9 @@
 
       input.addEventListener('input', function() {
         const value = this.value;
+        if (typeof window.clearPlaceSelection === 'function') {
+          window.clearPlaceSelection(this);
+        }
 
         clearTimeout(debounceTimer);
 
@@ -366,6 +379,10 @@
                 item.addEventListener('click', function() {
                   input.value = prediction.description;
                   autocompleteContainer.style.display = 'none';
+                  // Keep the picked place_id so the location finder resolves this exact place
+                  if (typeof window.rememberPlaceSelection === 'function') {
+                    window.rememberPlaceSelection(input, prediction);
+                  }
 
                   // Create new session token for next search
                   sessionToken = new google.maps.places.AutocompleteSessionToken();

@@ -606,6 +606,25 @@ function initLocationCardInstances() {
         return;
       }
 
+      // Prefer the shared resolver (map.js), which uses the picked suggestion's place_id
+      if (typeof window.resolveSearchLatLng === 'function') {
+        const inputEl =
+          document.getElementById('location-finder__input') ||
+          document.getElementById('pac-input-mobile') ||
+          document.getElementById('pac-input');
+        window
+          .resolveSearchLatLng(inputEl, query)
+          .then((loc) => {
+            const coords = { lat: loc.lat(), lng: loc.lng() };
+            window.currentSearchLocation = coords;
+            resolve(coords);
+          })
+          .catch((error) => {
+            reject(new Error(`Geocoding failed: ${(error && error.status) || error}`));
+          });
+        return;
+      }
+
       const geocoder = new window.google.maps.Geocoder();
       geocoder.geocode({ address: query }, (results, status) => {
         if (status === 'OK' && results && results.length > 0) {

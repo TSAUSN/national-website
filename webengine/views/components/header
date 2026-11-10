@@ -878,7 +878,14 @@
       const services = '{{request.queryParam(services)}}';
 
       if (address || services) {
-        const servicesList = decodeURIComponent(services).split(',').map(s => s.trim().toLowerCase());
+        // A malformed % sequence must not abort init: fall back to the raw value
+        let decodedServices = services;
+        try {
+          decodedServices = decodeURIComponent(services);
+        } catch (error) {
+          decodedServices = services;
+        }
+        const servicesList = decodedServices.split(',').map(s => s.trim().toLowerCase());
           const checkboxes = document.querySelectorAll('input[type="checkbox"]');
           let servicesApplied = false;
           

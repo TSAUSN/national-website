@@ -313,8 +313,22 @@ const filterLocationsByRadius = async (processedLocations, inputLocation, radius
     throw new Error('No processed locations available');
   }
 
-  // Get center coordinates (this is the only geocoding call during search)
-  const centerCoordinates = await batchGeocoder.geocodeWithRateLimit(inputLocation);
+  // Get center coordinates (this is the only geocoding call during search).
+  // Prefer the shared resolver, which uses the picked suggestion's place_id.
+  let centerCoordinates = null;
+  if (typeof window.resolveSearchLatLng === 'function') {
+    try {
+      const latLng = await window.resolveSearchLatLng(
+        document.querySelector('#angel-tree__input'),
+        inputLocation
+      );
+      centerCoordinates = { lat: latLng.lat(), lng: latLng.lng() };
+    } catch (error) {
+      console.error('Geocoding failed:', error);
+    }
+  } else {
+    centerCoordinates = await batchGeocoder.geocodeWithRateLimit(inputLocation);
+  }
   if (!centerCoordinates) {
     throw new Error('Could not geocode input location');
   }
@@ -1021,6 +1035,9 @@ function angelTreeInputAddressSuggestion() {
 
     input.addEventListener('input', function () {
       const value = this.value;
+      if (typeof window.clearPlaceSelection === 'function') {
+        window.clearPlaceSelection(this);
+      }
 
       clearTimeout(debounceTimer);
 
@@ -1039,6 +1056,9 @@ function angelTreeInputAddressSuggestion() {
         }, (predictions, status) => {
           if (requestToken !== suggestionToken) return;
           if (status === google.maps.places.PlacesServiceStatus.OK && predictions) {
+            if (typeof window.cachePredictions === 'function') {
+              window.cachePredictions(input, predictions);
+            }
             autocompleteContainer.innerHTML = '';
             autocompleteContainer.style.display = 'block';
 
@@ -1056,6 +1076,10 @@ function angelTreeInputAddressSuggestion() {
               item.addEventListener('click', function () {
                 input.value = prediction.description;
                 autocompleteContainer.style.display = 'none';
+                // Keep the picked place_id so the search resolves to this exact place
+                if (typeof window.rememberPlaceSelection === 'function') {
+                  window.rememberPlaceSelection(input, prediction);
+                }
                 sessionToken = new google.maps.places.AutocompleteSessionToken();
               });
               autocompleteContainer.appendChild(item);
