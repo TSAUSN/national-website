@@ -617,7 +617,29 @@ async function displayLocations(locations, selectedServices) {
 }
 
 // Function to update map position without loading pins
-async function updateMapPosition(address) {
+async function updateMapPosition(address, inputEl) {
+  // Prefer the shared resolver (uses the picked suggestion's place_id) when an input is given
+  if (inputEl && typeof window.resolveSearchLatLng === 'function') {
+    let location;
+    try {
+      location = await window.resolveSearchLatLng(inputEl, address);
+    } catch (error) {
+      throw new Error("Geocoding failed");
+    }
+
+    // Clear any existing markers
+    if (window.markers) {
+      window.markers.forEach(marker => marker.setMap(null));
+      window.markers = [];
+    }
+
+    // Center the map on the searched location and zoom in
+    window.map.setCenter(location);
+    window.map.setZoom(10);
+
+    return location;
+  }
+
   return new Promise((resolve, reject) => {
     const geocoder = new google.maps.Geocoder();
     let geocodeRequest;
@@ -674,17 +696,26 @@ async function searchServices() {
   // window.mapClusters.cleanupClusters();
 
   try {
-    // Get the location coordinates
-    const geocoder = new google.maps.Geocoder();
-    const geocodeResult = await new Promise((resolve, reject) => {
-      geocoder.geocode({ address: location, componentRestrictions: { country: 'US' } }, (results, status) => {
-        if (status === "OK" && results.length > 0) {
-          resolve(results[0].geometry.location);
-        } else {
-          reject(new Error("Geocoding failed"));
-        }
+    // Get the location coordinates (prefers the picked suggestion's place_id)
+    let geocodeResult;
+    if (typeof window.resolveSearchLatLng === 'function') {
+      try {
+        geocodeResult = await window.resolveSearchLatLng(searchInput, location);
+      } catch (error) {
+        throw new Error("Geocoding failed");
+      }
+    } else {
+      const geocoder = new google.maps.Geocoder();
+      geocodeResult = await new Promise((resolve, reject) => {
+        geocoder.geocode({ address: location, componentRestrictions: { country: 'US' } }, (results, status) => {
+          if (status === "OK" && results.length > 0) {
+            resolve(results[0].geometry.location);
+          } else {
+            reject(new Error("Geocoding failed"));
+          }
+        });
       });
-    });
+    }
     
     // Store current search location for distance calculations
     window.currentSearchLocation = {
@@ -1258,6 +1289,9 @@ async function initLocationFinder() {
 
           input.addEventListener('input', function() {
             const value = this.value;
+            if (typeof window.clearPlaceSelection === 'function') {
+              window.clearPlaceSelection(this);
+            }
 
             clearTimeout(debounceTimer);
 
@@ -1275,6 +1309,9 @@ async function initLocationFinder() {
                 sessionToken: sessionToken
               }, (predictions, status) => {
                 if (status === google.maps.places.PlacesServiceStatus.OK && predictions) {
+                  if (typeof window.cachePredictions === 'function') {
+                    window.cachePredictions(input, predictions);
+                  }
                   autocompleteContainer.innerHTML = '';
                   autocompleteContainer.style.display = 'block';
 
@@ -1292,6 +1329,10 @@ async function initLocationFinder() {
                     item.addEventListener('click', function() {
                       input.value = prediction.description;
                       autocompleteContainer.style.display = 'none';
+                      // Keep the picked place_id so the search resolves to this exact place
+                      if (typeof window.rememberPlaceSelection === 'function') {
+                        window.rememberPlaceSelection(input, prediction);
+                      }
                       debouncedSearchServices();
 
                       // Create new session token for next search
@@ -1397,6 +1438,9 @@ async function initLocationFinder() {
 
           inputMobile.addEventListener('input', function() {
             const value = this.value;
+            if (typeof window.clearPlaceSelection === 'function') {
+              window.clearPlaceSelection(this);
+            }
 
             clearTimeout(debounceTimerMobile);
 
@@ -1414,6 +1458,9 @@ async function initLocationFinder() {
                 sessionToken: sessionTokenMobile
               }, (predictions, status) => {
                 if (status === google.maps.places.PlacesServiceStatus.OK && predictions) {
+                  if (typeof window.cachePredictions === 'function') {
+                    window.cachePredictions(inputMobile, predictions);
+                  }
                   autocompleteContainerMobile.innerHTML = '';
                   autocompleteContainerMobile.style.display = 'block';
 
@@ -1431,7 +1478,11 @@ async function initLocationFinder() {
                     item.addEventListener('click', async function() {
                       inputMobile.value = prediction.description;
                       autocompleteContainerMobile.style.display = 'none';
-                      await updateMapPosition(prediction.description);
+                      // Keep the picked place_id so the map centers on this exact place
+                      if (typeof window.rememberPlaceSelection === 'function') {
+                        window.rememberPlaceSelection(inputMobile, prediction);
+                      }
+                      await updateMapPosition(prediction.description, inputMobile);
 
                       // Create new session token for next search
                       sessionTokenMobile = new google.maps.places.AutocompleteSessionToken();
@@ -1491,22 +1542,36 @@ async function initLocationFinder() {
       // Handle URL parameters
       const address = '{{request.queryParam(address)}}';
       const services = '{{request.queryParam(services)}}';
-      
+      const placeId = '{{request.queryParam(place_id)}}';
+      // A malformed % sequence must not abort init: fall back to the raw value
+      const safeDecode = (value) => {
+        try {
+          return decodeURIComponent(value);
+        } catch (error) {
+          return value;
+        }
+      };
+
       
       if (address || services) {
         let hasParams = false;
         
         // Apply address parameter
         if (address && addressInput) {
-          const decodedAddress = decodeURIComponent(address);
+          const decodedAddress = safeDecode(address);
           addressInput.value = decodedAddress;
+          // Suggestion picked in the header modal: resolve by its place_id
+          if (placeId) {
+            addressInput.dataset.placeId = safeDecode(placeId);
+            addressInput.dataset.placeDescription = decodedAddress;
+          }
           hasParams = true;
         }
 
         // Apply services parameter
         if (services) {
           const addressInput = document.querySelector('#location-finder__input');
-          const servicesList = decodeURIComponent(services).split(',').map(s => s.trim().toLowerCase());
+          const servicesList = safeDecode(services).split(',').map(s => s.trim().toLowerCase());
           const checkboxes = document.querySelectorAll('input[type="checkbox"]');
           let servicesApplied = false;
           
@@ -1554,8 +1619,13 @@ async function initLocationFinder() {
         }
 
         // If we have an address parameter, update the map position
+        // (a failure here must not block re-enabling the search button or initLoad)
         if (address && addressInput) {
-          await updateMapPosition(addressInput.value);
+          try {
+            await updateMapPosition(addressInput.value, addressInput);
+          } catch (error) {
+            console.error('Error updating map position:', error);
+          }
         }
 
         // searchServices();
