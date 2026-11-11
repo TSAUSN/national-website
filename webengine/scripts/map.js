@@ -1,3 +1,4 @@
+// Place autocomplete: place_id resolution, county suggestions, comma = county rule
 // Function to reset the map to original state
 function resetMap() {
   // Reset the map to original zoom and center
