@@ -1146,6 +1146,9 @@ async function initLocationFinder() {
               
               if (desktopInput) desktopInput.value = address;
               if (mobileInput) mobileInput.value = address;
+              // Mark as autofilled so a "City, State" result isn't read as a typed county search
+              if (desktopInput) desktopInput.dataset.autofilledText = address;
+              if (mobileInput) mobileInput.dataset.autofilledText = address;
 
               const searchInput = document.getElementById('location-finder__input') || document.getElementById('pac-input-mobile');
               if (searchInput) {
@@ -1211,6 +1214,20 @@ async function initLocationFinder() {
           let sessionToken = new google.maps.places.AutocompleteSessionToken();
           const autocompleteService = new google.maps.places.AutocompleteService();
 
+          // Fetch suggestions via the shared helper (adds the same-name county, skips stale
+          // responses); falls back to the direct call when map.js helpers aren't loaded
+          const requestPredictions = (request, callback) => {
+            if (typeof window.fetchPlacePredictions === 'function') {
+              window.fetchPlacePredictions(autocompleteService, request, input)
+                .then((result) => {
+                  if (!result.stale) callback(result.predictions, result.status);
+                })
+                .catch((error) => console.warn('Autocomplete predictions failed:', error));
+            } else {
+              autocompleteService.getPlacePredictions(request, callback);
+            }
+          };
+
           let debounceTimer;
           const debounceDelay = 300; // Wait 300ms after user stops typing
 
@@ -1227,7 +1244,9 @@ async function initLocationFinder() {
             max-height: 280px;
             overflow-y: auto;
             display: none;
-            width: 100%;
+            top: 100%;
+            left: 0;
+            right: 0;
             margin-top: 4px;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
           `;
@@ -1302,7 +1321,7 @@ async function initLocationFinder() {
 
             // Debounce API call - only fire after user stops typing
             debounceTimer = setTimeout(() => {
-              autocompleteService.getPlacePredictions({
+              requestPredictions({
                 input: value,
                 types: ['(regions)'],  // Regions type for city/ZIP searches (cheaper than geocode)
                 componentRestrictions: { country: 'US' },
@@ -1325,6 +1344,13 @@ async function initLocationFinder() {
                       </svg>
                       <span class="autocomplete-text-location">${prediction.description}</span>
                     `;
+                    const typeLabel = typeof window.getPredictionTypeLabel === 'function' ? window.getPredictionTypeLabel(prediction) : '';
+                    if (typeLabel) {
+                      const typeBadge = document.createElement('span');
+                      typeBadge.className = 'badge rounded-pill text-bg-light ms-auto';
+                      typeBadge.textContent = typeLabel;
+                      item.appendChild(typeBadge);
+                    }
 
                     item.addEventListener('click', function() {
                       input.value = prediction.description;
@@ -1360,6 +1386,20 @@ async function initLocationFinder() {
           let sessionTokenMobile = new google.maps.places.AutocompleteSessionToken();
           const autocompleteServiceMobile = new google.maps.places.AutocompleteService();
 
+          // Fetch suggestions via the shared helper (adds the same-name county, skips stale
+          // responses); falls back to the direct call when map.js helpers aren't loaded
+          const requestPredictionsMobile = (request, callback) => {
+            if (typeof window.fetchPlacePredictions === 'function') {
+              window.fetchPlacePredictions(autocompleteServiceMobile, request, inputMobile)
+                .then((result) => {
+                  if (!result.stale) callback(result.predictions, result.status);
+                })
+                .catch((error) => console.warn('Autocomplete predictions failed:', error));
+            } else {
+              autocompleteServiceMobile.getPlacePredictions(request, callback);
+            }
+          };
+
           let debounceTimerMobile;
           const debounceDelayMobile = 300; // Wait 300ms after user stops typing
 
@@ -1376,7 +1416,9 @@ async function initLocationFinder() {
             max-height: 280px;
             overflow-y: auto;
             display: none;
-            width: 100%;
+            top: 100%;
+            left: 0;
+            right: 0;
             margin-top: 4px;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
           `;
@@ -1451,7 +1493,7 @@ async function initLocationFinder() {
 
             // Debounce API call - only fire after user stops typing
             debounceTimerMobile = setTimeout(() => {
-              autocompleteServiceMobile.getPlacePredictions({
+              requestPredictionsMobile({
                 input: value,
                 types: ['(regions)'],  // Regions type for city/ZIP searches (cheaper than geocode)
                 componentRestrictions: { country: 'US' },
@@ -1474,6 +1516,13 @@ async function initLocationFinder() {
                       </svg>
                       <span class="autocomplete-text-location-mobile">${prediction.description}</span>
                     `;
+                    const typeLabel = typeof window.getPredictionTypeLabel === 'function' ? window.getPredictionTypeLabel(prediction) : '';
+                    if (typeLabel) {
+                      const typeBadge = document.createElement('span');
+                      typeBadge.className = 'badge rounded-pill text-bg-light ms-auto';
+                      typeBadge.textContent = typeLabel;
+                      item.appendChild(typeBadge);
+                    }
 
                     item.addEventListener('click', async function() {
                       inputMobile.value = prediction.description;
@@ -1543,6 +1592,7 @@ async function initLocationFinder() {
       const address = '{{request.queryParam(address)}}';
       const services = '{{request.queryParam(services)}}';
       const placeId = '{{request.queryParam(place_id)}}';
+      const autofilled = '{{request.queryParam(autofilled)}}';
       // A malformed % sequence must not abort init: fall back to the raw value
       const safeDecode = (value) => {
         try {
@@ -1564,6 +1614,10 @@ async function initLocationFinder() {
           if (placeId) {
             addressInput.dataset.placeId = safeDecode(placeId);
             addressInput.dataset.placeDescription = decodedAddress;
+          }
+          // Address came from "use my location": don't read "City, State" as a county search
+          if (autofilled === '1') {
+            addressInput.dataset.autofilledText = decodedAddress;
           }
           hasParams = true;
         }

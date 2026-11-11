@@ -845,6 +845,9 @@ const handleUseMyLocation = async () => {
       input.value = formattedAddress;
       const inputEvent = new Event('input', { bubbles: true });
       input.dispatchEvent(inputEvent);
+      // Mark as autofilled (after the input event, which clears it) so a
+      // "City, State" result isn't read as a typed county search
+      input.dataset.autofilledText = formattedAddress;
     }
 
     await new Promise(resolve => setTimeout(resolve, 100));
@@ -952,6 +955,20 @@ function angelTreeInputAddressSuggestion() {
     let sessionToken = new google.maps.places.AutocompleteSessionToken();
     const autocompleteService = new google.maps.places.AutocompleteService();
 
+    // Fetch suggestions via the shared helper (adds the same-name county, skips stale
+    // responses); falls back to the direct call when map.js helpers aren't loaded
+    const requestPredictions = (request, callback) => {
+      if (typeof window.fetchPlacePredictions === 'function') {
+        window.fetchPlacePredictions(autocompleteService, request, input)
+          .then((result) => {
+            if (!result.stale) callback(result.predictions, result.status);
+          })
+          .catch((error) => console.warn('Autocomplete predictions failed:', error));
+      } else {
+        autocompleteService.getPlacePredictions(request, callback);
+      }
+    };
+
     let debounceTimer;
     const debounceDelay = 300;
     // Bumped whenever a search is triggered, so a Places response already
@@ -966,6 +983,7 @@ function angelTreeInputAddressSuggestion() {
       position: absolute;
       top: 100%;
       left: 0;
+      right: 0;
       z-index: 1050;
       background: white;
       border: 1px solid #d1d5db;
@@ -1048,7 +1066,7 @@ function angelTreeInputAddressSuggestion() {
 
       debounceTimer = setTimeout(() => {
         const requestToken = suggestionToken;
-        autocompleteService.getPlacePredictions({
+        requestPredictions({
           input: value,
           types: ['(regions)'],
           componentRestrictions: { country: 'US' },
@@ -1072,6 +1090,13 @@ function angelTreeInputAddressSuggestion() {
                 </svg>
                 <span class="autocomplete-text-angel-tree">${prediction.description}</span>
               `;
+              const typeLabel = typeof window.getPredictionTypeLabel === 'function' ? window.getPredictionTypeLabel(prediction) : '';
+              if (typeLabel) {
+                const typeBadge = document.createElement('span');
+                typeBadge.className = 'badge rounded-pill text-bg-light ms-auto';
+                typeBadge.textContent = typeLabel;
+                item.appendChild(typeBadge);
+              }
 
               item.addEventListener('click', function () {
                 input.value = prediction.description;
