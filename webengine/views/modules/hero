@@ -476,20 +476,35 @@
         const divisionZUID = cookieManager.get(cookieKeys.divisionZUID);
         const territoryZUID = cookieManager.get(cookieKeys.territoryZUID);
 
-        const filterBy = (field, zuid) =>
-          heroSliders.filter((s) => (s?.[field] || "").includes(zuid));
+        const pageZUID = "{{this.zuid}}";
+
+        // Relation fields are comma-separated ZUID strings; match ZUIDs exactly
+        const toList = (v) => String(v || "").split(",").map((z) => z.trim()).filter(Boolean);
+        const has = (s, field, zuid) => !!zuid && toList(s?.[field]).includes(zuid);
+        const hasAny = (s, field) => toList(s?.[field]).length > 0;
 
         const national = () => heroSliders.filter((s) => s.display_on_national === "1");
 
+        // Rule: an assigned unit's own page always matches directly. A higher-level
+        // assignment cascades down only when the item has NO assignments at any
+        // lower level (e.g. division + specific locations => only those locations).
+
         // LOCATION: location -> division(cookie) -> territory(cookie) -> national
         if (level === locationModelZUID) {
-          const loc = filterBy("display_on_locations", "{{this.zuid}}");
+          const loc = heroSliders.filter((s) => has(s, "display_on_locations", pageZUID));
           if (loc.length) return loc;
 
-          const div = filterBy("display_on_divisions", divisionZUID);
+          // division cascades only if no locations were assigned
+          const div = heroSliders.filter((s) =>
+            has(s, "display_on_divisions", divisionZUID) &&
+            !hasAny(s, "display_on_locations"));
           if (div.length) return div;
 
-          const terr = filterBy("display_on_territories", territoryZUID);
+          // territory cascades only if no divisions or locations were assigned
+          const terr = heroSliders.filter((s) =>
+            has(s, "display_on_territories", territoryZUID) &&
+            !hasAny(s, "display_on_locations") &&
+            !hasAny(s, "display_on_divisions"));
           if (terr.length) return terr;
 
           return national();
@@ -497,18 +512,22 @@
 
         // DIVISION: division -> territory(cookie) -> national
         if (level === divisionModelZUID) {
-          const div = filterBy("display_on_divisions", "{{this.zuid}}");
+          const div = heroSliders.filter((s) => has(s, "display_on_divisions", pageZUID));
           if (div.length) return div;
 
-          const terr = filterBy("display_on_territories", territoryZUID);
+          // territory cascades only if no divisions or locations were assigned
+          const terr = heroSliders.filter((s) =>
+            has(s, "display_on_territories", territoryZUID) &&
+            !hasAny(s, "display_on_divisions") &&
+            !hasAny(s, "display_on_locations"));
           if (terr.length) return terr;
 
           return national();
         }
 
-        // TERRITORY: territory -> national
+        // TERRITORY: territory (own page always matches) -> national
         if (level === territoryModelZUID) {
-          const terr = filterBy("display_on_territories", "{{this.zuid}}");
+          const terr = heroSliders.filter((s) => has(s, "display_on_territories", pageZUID));
           return terr.length ? terr : national();
         }
 
