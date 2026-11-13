@@ -1,0 +1,88 @@
+name: Zesty Preflight
+
+# Read-only preflight for PRs into stage: blocks the merge when the stage sync
+# would fail, lose a file, or overwrite an edit made only in the Zesty manager.
+# Add the `allow-zesty-drift` label to accept "not from git" drift on purpose.
+#
+# The sync script runs from the PR's BASE commit (stage), not from the PR, so a
+# PR that only edits the script can't change the code that runs with the Zesty
+# token. It reads the PR's merge result (webengine/, zesty.config.json, git
+# history) as data, and a PR that changes the script is checked with stage's
+# current script. This is not full protection: on pull_request GitHub runs this
+# workflow file from the PR, so a PR that edits the workflow still controls what
+# runs. See workflow-changes.md for stronger options.
+on:
+  pull_request:
+    branches: [stage]
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout (merge result)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout sync script from the base commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: .zesty-base
+          sparse-checkout: scripts
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Preflight (read-only)
+        id: check
+        continue-on-error: true
+        env:
+          ZESTY_INSTANCE_ZUID: ${{ secrets.ZESTY_INSTANCE_ZUID }}
+          ZESTY_DEVELOPER_TOKEN: ${{ secrets.ZESTY_DEVELOPER_TOKEN }}
+          CHECK: 'true'
+          DRY_RUN: 'true'
+          BRANCH: stage
+          # Only problems in the PR's own changes block; the rest is listed as pre-existing.
+          DIFF_BASE: ${{ github.event.pull_request.base.sha }}
+          ALLOW_DRIFT: ${{ contains(github.event.pull_request.labels.*.name, 'allow-zesty-drift') }}
+        run: node .zesty-base/scripts/sync-to-zesty.js
+
+      - name: Post / update PR comment
+        if: ${{ always() }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const marker = '<!-- zesty-sync-check -->';
+            let body;
+            try {
+              body = fs.readFileSync('zesty-check.md', 'utf8');
+            } catch {
+              body = `zesty-sync preflight: no summary was generated (see the job log).\n${marker}`;
+            }
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const { data: comments } = await github.rest.issues.listComments({
+              owner, repo, issue_number, per_page: 100,
+            });
+            const existing = comments.find((c) => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }
+
+      - name: Fail when blocked
+        if: ${{ steps.check.outcome == 'failure' }}
+        run: |
+          echo "Zesty preflight found blocking problems; see the PR comment."
+          exit 1

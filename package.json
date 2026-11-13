@@ -6,6 +6,8 @@
   "scripts": {
     "deploy": "node scripts/sync-to-zesty.js",
     "deploy:dry": "DRY_RUN=true node scripts/sync-to-zesty.js",
+    "deploy:check": "node scripts/sync-to-zesty.js --check",
+    "deploy:verify": "node scripts/sync-to-zesty.js --verify",
     "validate": "node scripts/validate-pr.js",
     "test": "node --test --test-reporter=spec tests/static/views.test.js",
     "test:render": "playwright test"
