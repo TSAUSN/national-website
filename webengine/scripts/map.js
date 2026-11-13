@@ -1,3 +1,4 @@
+// Place autocomplete: place_id resolution, county suggestions, comma = county rule
 // Function to reset the map to original state
 function resetMap() {
   // Reset the map to original zoom and center
@@ -721,6 +722,510 @@ function geocodeAddress(address, retriesLeft = 3, retryDelay = 500) {
   });
 }
 
+// --- Autocomplete place selection helpers -----------------------------------
+// The Geocoder can resolve a free-text prediction description such as
+// "Jackson, GA, USA" to the county instead of the city. When the user picks a
+// suggestion we keep its place_id and geocode by placeId instead, which always
+// resolves to the exact place the user picked.
+const latestPlacePredictions = new WeakMap();
+
+function rememberPlaceSelection(inputEl, prediction) {
+  if (!inputEl || !prediction) return;
+  if (prediction.place_id) {
+    inputEl.dataset.placeId = prediction.place_id;
+    inputEl.dataset.placeDescription = prediction.description;
+    delete inputEl.dataset.pickedText;
+  } else {
+    clearPlaceSelection(inputEl);
+  }
+}
+
+function clearPlaceSelection(inputEl) {
+  if (!inputEl) return;
+  delete inputEl.dataset.placeId;
+  delete inputEl.dataset.placeDescription;
+  delete inputEl.dataset.autofilledText;
+  delete inputEl.dataset.pickedText;
+}
+
+function cachePredictions(inputEl, predictions) {
+  if (!inputEl) return;
+  latestPlacePredictions.set(inputEl, Array.isArray(predictions) ? predictions : []);
+}
+
+function getSearchGeocoder() {
+  return window.geocoder || new google.maps.Geocoder();
+}
+
+function geocodeByPlaceId(placeId) {
+  return new Promise((resolve, reject) => {
+    // placeId must be the only lookup parameter (no address/componentRestrictions)
+    getSearchGeocoder().geocode({ placeId: placeId }, (results, status) => {
+      if (status === 'OK' && results && results.length > 0) {
+        resolve(results[0].geometry.location);
+      } else {
+        reject(new Error(`Geocoding failed for placeId: ${placeId} (status: ${status})`));
+      }
+    });
+  });
+}
+
+function geocodeSearchText(text) {
+  const geocodeRequest = {
+    address: text,
+    componentRestrictions: { country: 'US' }
+  };
+  if (isValidUSZipcode(text)) {
+    geocodeRequest.componentRestrictions.postalCode = text;
+  }
+
+  return new Promise((resolve, reject) => {
+    getSearchGeocoder().geocode(geocodeRequest, (results, status) => {
+      if (status === 'OK' && results && results.length > 0) {
+        resolve(results);
+      } else {
+        const error = new Error(`Geocoding failed for address: ${text} (status: ${status})`);
+        error.status = status;
+        error.geocodeRequest = geocodeRequest;
+        reject(error);
+      }
+    });
+  });
+}
+
+function findCityPrediction(text) {
+  return new Promise((resolve) => {
+    if (!google.maps.places || !google.maps.places.AutocompleteService) {
+      resolve(null);
+      return;
+    }
+    new google.maps.places.AutocompleteService().getPlacePredictions(
+      {
+        input: text,
+        types: ['(cities)'],
+        componentRestrictions: { country: 'US' }
+      },
+      (predictions, status) => {
+        if (
+          status === google.maps.places.PlacesServiceStatus.OK &&
+          predictions &&
+          predictions.length > 0
+        ) {
+          resolve(predictions[0]);
+        } else {
+          resolve(null);
+        }
+      }
+    );
+  });
+}
+
+// Resolves the search text to a google.maps.LatLng, preferring the place_id of
+// the autocomplete suggestion the user picked (or one whose description
+// matches the typed text) over a free-text geocode.
+async function resolveSearchLatLng(inputEl, text) {
+  const searchText = String(text || '').trim();
+
+  const dataset = inputEl && inputEl.dataset;
+  const pickedSuggestion =
+    !!dataset && !!dataset.placeId && searchText === dataset.placeDescription;
+  const isAutofilledText =
+    !!dataset &&
+    dataset.autofilledText !== undefined &&
+    searchText === String(dataset.autofilledText).trim();
+  // A picked suggestion whose place_id failed: still the user's pick, not typed text
+  const isPickedText =
+    !!dataset && dataset.pickedText !== undefined && searchText === dataset.pickedText;
+
+  // 1b. Typed "Place, ST" (with a comma) means the same-name county; "Place ST"
+  //     (no comma) falls through to the city. Skipped for a picked suggestion
+  //     and for text filled by "use my location".
+  if (!pickedSuggestion && !isAutofilledText && !isPickedText) {
+    const commaPlace = parseCommaPlaceName(searchText);
+    if (
+      commaPlace &&
+      window.google &&
+      google.maps.places &&
+      google.maps.places.AutocompleteService
+    ) {
+      let county = null;
+      try {
+        county = await findSameNameCounty(
+          new google.maps.places.AutocompleteService(),
+          { types: ['(regions)'], componentRestrictions: { country: 'US' } },
+          commaPlace.name,
+          commaPlace.stateCode
+        );
+      } catch (error) {
+        console.warn('County lookup failed, falling back to text search:', error);
+      }
+      if (county && county.place_id) {
+        try {
+          return await geocodeByPlaceId(county.place_id);
+        } catch (error) {
+          console.warn('County place ID lookup failed, falling back to text search:', error);
+          forgetFailedCounty(county.place_id, commaPlace.name, commaPlace.stateCode, inputEl);
+        }
+      }
+    }
+  }
+
+  if (dataset) {
+    // 1. Suggestion picked and text not edited since
+    //    (on failure, e.g. a stale/invalid place_id, fall through to the text geocode)
+    let placeId = null;
+    let fromStoredSelection = false;
+    let cachedMatch = null;
+    if (pickedSuggestion) {
+      placeId = inputEl.dataset.placeId;
+      fromStoredSelection = true;
+    } else {
+      // 2. Typed text exactly matches one of the latest suggestions
+      const cached = latestPlacePredictions.get(inputEl) || [];
+      const lowerText = searchText.toLowerCase();
+      const match = cached.find(
+        (prediction) =>
+          prediction &&
+          prediction.place_id &&
+          String(prediction.description || '').trim().toLowerCase() === lowerText
+      );
+      if (match) {
+        placeId = match.place_id;
+        cachedMatch = match;
+      }
+    }
+
+    if (placeId) {
+      try {
+        return await geocodeByPlaceId(placeId);
+      } catch (error) {
+        console.warn('Place ID lookup failed, falling back to text search:', error);
+        // Forget the failed place_id so later searches don't retry it
+        if (fromStoredSelection) {
+          // Keep a "picked" marker so the same text still skips the comma rule
+          // until the user edits the input (clearPlaceSelection removes it)
+          const pickedText = inputEl.dataset.placeDescription;
+          delete inputEl.dataset.placeId;
+          delete inputEl.dataset.placeDescription;
+          inputEl.dataset.pickedText = pickedText;
+          // The cached suggestion with the same place_id must not retry it either
+          const remaining = (latestPlacePredictions.get(inputEl) || []).filter(
+            (prediction) => prediction && prediction.place_id !== placeId
+          );
+          latestPlacePredictions.set(inputEl, remaining);
+        } else if (cachedMatch) {
+          const remaining = (latestPlacePredictions.get(inputEl) || []).filter(
+            (prediction) => prediction !== cachedMatch
+          );
+          latestPlacePredictions.set(inputEl, remaining);
+        }
+      }
+    }
+  }
+
+  // 3. Free-text geocode
+  const results = await geocodeSearchText(searchText);
+  const first = results[0];
+  const firstTypes = first.types || [];
+
+  // County guard: "Jackson, GA" can geocode to Jackson County. Unless the user
+  // asked for a county/parish/borough, prefer a city/ZIP result.
+  if (
+    firstTypes.includes('administrative_area_level_2') &&
+    !/\b(county|parish|borough)\b/i.test(searchText)
+  ) {
+    const cityResult = results.find((result) => {
+      const types = result.types || [];
+      return (
+        types.includes('locality') ||
+        types.includes('postal_code') ||
+        types.includes('sublocality')
+      );
+    });
+    if (cityResult) {
+      return cityResult.geometry.location;
+    }
+
+    try {
+      const cityPrediction = await findCityPrediction(searchText);
+      if (cityPrediction && cityPrediction.place_id) {
+        return await geocodeByPlaceId(cityPrediction.place_id);
+      }
+    } catch (error) {
+      console.warn('City fallback lookup failed, using first geocode result:', error);
+    }
+  }
+
+  return first.geometry.location;
+}
+
+// --- City + county autocomplete suggestions ---------------------------------
+// For "Jackson GA" the (regions) predictions only return the city. When the
+// text names a city and a state, also suggest that state's same-name county
+// (parish in LA, borough in AK) right after the city.
+const US_STATE_NAMES = {
+  AL: 'Alabama', AK: 'Alaska', AZ: 'Arizona', AR: 'Arkansas', CA: 'California',
+  CO: 'Colorado', CT: 'Connecticut', DE: 'Delaware', DC: 'District of Columbia',
+  FL: 'Florida', GA: 'Georgia', HI: 'Hawaii', ID: 'Idaho', IL: 'Illinois',
+  IN: 'Indiana', IA: 'Iowa', KS: 'Kansas', KY: 'Kentucky', LA: 'Louisiana',
+  ME: 'Maine', MD: 'Maryland', MA: 'Massachusetts', MI: 'Michigan', MN: 'Minnesota',
+  MS: 'Mississippi', MO: 'Missouri', MT: 'Montana', NE: 'Nebraska', NV: 'Nevada',
+  NH: 'New Hampshire', NJ: 'New Jersey', NM: 'New Mexico', NY: 'New York',
+  NC: 'North Carolina', ND: 'North Dakota', OH: 'Ohio', OK: 'Oklahoma', OR: 'Oregon',
+  PA: 'Pennsylvania', RI: 'Rhode Island', SC: 'South Carolina', SD: 'South Dakota',
+  TN: 'Tennessee', TX: 'Texas', UT: 'Utah', VT: 'Vermont', VA: 'Virginia',
+  WA: 'Washington', WV: 'West Virginia', WI: 'Wisconsin', WY: 'Wyoming'
+};
+const US_STATE_CODES_BY_NAME = Object.keys(US_STATE_NAMES).reduce((codes, code) => {
+  codes[US_STATE_NAMES[code].toLowerCase()] = code;
+  return codes;
+}, {});
+const STATE_HINT_PATTERN = new RegExp(
+  '^(.+?)[,\\s]+(' +
+    Object.keys(US_STATE_NAMES)
+      .concat(Object.values(US_STATE_NAMES))
+      .sort((a, b) => b.length - a.length)
+      .join('|') +
+    ')(?:[,\\s]+(usa|us|united states))?$',
+  'i'
+);
+const COUNTY_LIKE_PATTERN = /\b(county|parish|borough|census area)\b/i;
+const countySuggestionCache = new Map();
+const predictionRequestCounters = new WeakMap();
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function toStateCode(value) {
+  const text = String(value || '').trim();
+  if (US_STATE_NAMES[text.toUpperCase()]) return text.toUpperCase();
+  return US_STATE_CODES_BY_NAME[text.toLowerCase()] || null;
+}
+
+function parseCityStateHint(text) {
+  const match = String(text || '').trim().match(STATE_HINT_PATTERN);
+  if (!match) return null;
+  const name = match[1].replace(/[,\s]+$/, '').trim();
+  const stateCode = toStateCode(match[2]);
+  if (!name || !stateCode) return null;
+  return { name, stateCode };
+}
+
+// "Place, ST" typed with a comma (e.g. "Jackson, GA", "Jackson, Georgia, USA").
+// Unlike STATE_HINT_PATTERN, the name may not contain commas or start with a
+// digit, so street addresses and "City ST" (no comma) don't match.
+const COMMA_PLACE_PATTERN = new RegExp(
+  '^([^,\\d][^,]*?)\\s*,\\s*(' +
+    Object.keys(US_STATE_NAMES)
+      .concat(Object.values(US_STATE_NAMES))
+      .sort((a, b) => b.length - a.length)
+      .join('|') +
+    ')(?:[,\\s]+(?:usa|us|united states))?\\s*,?$',
+  'i'
+);
+
+function parseCommaPlaceName(text) {
+  const normalized = String(text || '')
+    .trim()
+    .replace(/\s+/g, ' ');
+  const match = normalized.match(COMMA_PLACE_PATTERN);
+  if (!match) return null;
+  const name = match[1].trim();
+  const stateCode = toStateCode(match[2]);
+  if (!name || !stateCode || COUNTY_LIKE_PATTERN.test(name)) return null;
+  return { name, stateCode };
+}
+
+function getPredictionStateCode(prediction) {
+  const terms = (prediction && prediction.terms) || [];
+  if (terms.length < 2) return null;
+  return toStateCode(terms[terms.length - 2].value);
+}
+
+function getPredictionMainText(prediction) {
+  return String(
+    (prediction && prediction.structured_formatting && prediction.structured_formatting.main_text) ||
+      ''
+  ).trim();
+}
+
+function hasPredictionType(prediction, types) {
+  const predictionTypes = (prediction && prediction.types) || [];
+  return types.some((type) => predictionTypes.includes(type));
+}
+
+function isSameNameCounty(prediction, name, stateCode) {
+  const countyPattern = new RegExp(
+    '^' +
+      escapeRegExp(name) +
+      ' (County|Parish|Borough|Census Area|Municipality|City and Borough)$',
+    'i'
+  );
+  return (
+    hasPredictionType(prediction, ['administrative_area_level_2']) &&
+    countyPattern.test(getPredictionMainText(prediction)) &&
+    getPredictionStateCode(prediction) === stateCode
+  );
+}
+
+function getPlacePredictionsAsync(service, request) {
+  return new Promise((resolve) => {
+    try {
+      service.getPlacePredictions(request, (predictions, status) => {
+        resolve({ predictions: predictions || null, status });
+      });
+    } catch (error) {
+      resolve({ predictions: null, status: 'ERROR', error });
+    }
+  });
+}
+
+function countyCacheKey(name, stateCode) {
+  return `${String(name).toLowerCase()}|${stateCode}`;
+}
+
+// A county place_id that failed to geocode is never retried: cache "no county"
+// for that city/state (so the dropdown stops showing the row) and drop it from
+// the input's cached suggestions (so the cached-match step can't retry it).
+function forgetFailedCounty(placeId, name, stateCode, inputEl) {
+  countySuggestionCache.set(countyCacheKey(name, stateCode), null);
+  countySuggestionCache.forEach((cachedCounty, key) => {
+    if (cachedCounty && cachedCounty.place_id === placeId) {
+      countySuggestionCache.set(key, null);
+    }
+  });
+  if (inputEl) {
+    const remaining = (latestPlacePredictions.get(inputEl) || []).filter(
+      (prediction) => prediction && prediction.place_id !== placeId
+    );
+    latestPlacePredictions.set(inputEl, remaining);
+  }
+}
+
+// Looks up (and caches) the same-name county for a city. Never rejects.
+async function findSameNameCounty(service, request, name, stateCode) {
+  const cacheKey = countyCacheKey(name, stateCode);
+  if (countySuggestionCache.has(cacheKey)) {
+    return countySuggestionCache.get(cacheKey);
+  }
+
+  const suffix = stateCode === 'LA' ? 'Parish' : stateCode === 'AK' ? 'Borough' : 'County';
+  const { predictions, status } = await getPlacePredictionsAsync(service, {
+    ...request,
+    input: `${name} ${suffix}, ${stateCode}`
+  });
+
+  if (status !== google.maps.places.PlacesServiceStatus.OK && status !== 'ZERO_RESULTS') {
+    // Transient failure: don't cache, just skip the county row this time
+    return null;
+  }
+
+  const county =
+    (predictions || []).find((prediction) => isSameNameCounty(prediction, name, stateCode)) ||
+    null;
+  countySuggestionCache.set(cacheKey, county);
+  return county;
+}
+
+// Wraps AutocompleteService.getPlacePredictions and, for "City ST" input, adds
+// the same-name county right after the city. Resolves { predictions, status,
+// stale }; callers should skip rendering when stale is true.
+async function fetchPlacePredictions(service, request, inputEl) {
+  const requestId = inputEl ? (predictionRequestCounters.get(inputEl) || 0) + 1 : 0;
+  if (inputEl) predictionRequestCounters.set(inputEl, requestId);
+
+  const isStale = () =>
+    !!inputEl &&
+    (predictionRequestCounters.get(inputEl) !== requestId || inputEl.value !== request.input);
+
+  const primary = await getPlacePredictionsAsync(service, request);
+  if (isStale()) return { ...primary, stale: true };
+  if (primary.status !== google.maps.places.PlacesServiceStatus.OK || !primary.predictions) {
+    return primary;
+  }
+
+  const predictions = primary.predictions;
+  const inputText = String(request.input || '').trim();
+
+  try {
+    if (/^\d/.test(inputText) || COUNTY_LIKE_PATTERN.test(inputText)) return primary;
+
+    const hint = parseCityStateHint(inputText);
+    if (!hint) return primary;
+
+    const cityIndex = predictions.findIndex(
+      (prediction) =>
+        hasPredictionType(prediction, ['locality', 'administrative_area_level_3']) &&
+        getPredictionMainText(prediction).toLowerCase() === hint.name.toLowerCase() &&
+        getPredictionStateCode(prediction) === hint.stateCode
+    );
+    if (cityIndex === -1) return primary;
+    if (predictions.some((prediction) => isSameNameCounty(prediction, hint.name, hint.stateCode))) {
+      return primary;
+    }
+
+    const cityName = getPredictionMainText(predictions[cityIndex]);
+    const county = await findSameNameCounty(service, request, cityName, hint.stateCode);
+    if (isStale()) return { ...primary, stale: true };
+    if (!county || predictions.some((prediction) => prediction.place_id === county.place_id)) {
+      return primary;
+    }
+
+    const merged = predictions.slice();
+    merged.splice(cityIndex + 1, 0, county);
+    return { predictions: merged, status: primary.status };
+  } catch (error) {
+    // The county lookup must never block the primary suggestions
+    console.warn('County suggestion lookup failed:', error);
+    return isStale() ? { ...primary, stale: true } : primary;
+  }
+}
+
+// Short label for a suggestion's place type ('' when there is nothing useful)
+function getPredictionTypeLabel(prediction) {
+  const types = (prediction && prediction.types) || [];
+  if (types.includes('postal_code')) return 'ZIP';
+  if (types.includes('locality') || types.includes('administrative_area_level_3')) return 'City';
+  if (types.includes('administrative_area_level_2')) {
+    const mainText = getPredictionMainText(prediction);
+    if (/\bParish$/i.test(mainText)) return 'Parish';
+    if (/\bBorough$/i.test(mainText)) return 'Borough';
+    return 'County';
+  }
+  if (types.includes('administrative_area_level_1')) return 'State';
+  if (types.some((type) => type.indexOf('sublocality') === 0) || types.includes('neighborhood')) {
+    return 'Neighborhood';
+  }
+  return '';
+}
+
+// Used by the map.js widgets: fetch (with county rows) and skip stale responses
+function requestWidgetPredictions(service, request, inputEl, callback) {
+  fetchPlacePredictions(service, request, inputEl)
+    .then((result) => {
+      if (!result.stale) callback(result.predictions, result.status);
+    })
+    .catch((error) => console.warn('Autocomplete predictions failed:', error));
+}
+
+// Appends the place-type badge ("City", "County", "ZIP", ...) to a suggestion row
+function appendPredictionTypeBadge(item, prediction) {
+  const typeLabel = getPredictionTypeLabel(prediction);
+  if (!typeLabel) return;
+  const badge = document.createElement('span');
+  badge.className = 'badge rounded-pill text-bg-light ms-auto';
+  badge.textContent = typeLabel;
+  item.appendChild(badge);
+}
+
+window.rememberPlaceSelection = rememberPlaceSelection;
+window.clearPlaceSelection = clearPlaceSelection;
+window.cachePredictions = cachePredictions;
+window.resolveSearchLatLng = resolveSearchLatLng;
+window.fetchPlacePredictions = fetchPlacePredictions;
+window.getPredictionTypeLabel = getPredictionTypeLabel;
+
 async function displayLocationMarkers(searchLocation) {
   try {
     const searchInput =
@@ -1102,7 +1607,9 @@ window.initAutocomplete = async function () {
       max-height: 280px;
       overflow-y: auto;
       display: none;
-      width: 100%;
+      top: 100%;
+      left: 0;
+      right: 0;
       margin-top: 4px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     `;
@@ -1164,6 +1671,7 @@ window.initAutocomplete = async function () {
 
     input.addEventListener('input', function () {
       const value = this.value;
+      clearPlaceSelection(this);
 
       clearTimeout(debounceTimer);
 
@@ -1174,15 +1682,18 @@ window.initAutocomplete = async function () {
 
       // Debounce API call - only fire after user stops typing
       debounceTimer = setTimeout(() => {
-        autocompleteService.getPlacePredictions(
+        requestWidgetPredictions(
+          autocompleteService,
           {
             input: value,
             types: ['(regions)'], // Regions type for city/ZIP searches (cheaper than geocode)
             componentRestrictions: { country: 'US' },
             sessionToken: sessionToken
           },
+          input,
           (predictions, status) => {
             if (status === google.maps.places.PlacesServiceStatus.OK && predictions) {
+              cachePredictions(input, predictions);
               autocompleteContainer.innerHTML = '';
               autocompleteContainer.style.display = 'block';
 
@@ -1196,6 +1707,7 @@ window.initAutocomplete = async function () {
                 </svg>
                 <span class="autocomplete-text-map">${prediction.description}</span>
               `;
+                appendPredictionTypeBadge(item, prediction);
 
                 item.addEventListener('click', function () {
                   input.value = prediction.description;
@@ -1205,6 +1717,9 @@ window.initAutocomplete = async function () {
                   input.setAttribute('data-location-search-term-type', prediction.description);
                   input.setAttribute('data-location-search-type', 'location search - body');
                   input.setAttribute('data-location-search-method-type', 'user-entered');
+
+                  // Keep the picked place_id so the search resolves to this exact place
+                  rememberPlaceSelection(input, prediction);
 
                   // Create new session token for next search
                   sessionToken = new google.maps.places.AutocompleteSessionToken();
@@ -1253,7 +1768,9 @@ window.initAutocomplete = async function () {
       max-height: 280px;
       overflow-y: auto;
       display: none;
-      width: 100%;
+      top: 100%;
+      left: 0;
+      right: 0;
       margin-top: 4px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     `;
@@ -1315,6 +1832,7 @@ window.initAutocomplete = async function () {
 
     inputMobile.addEventListener('input', function () {
       const value = this.value;
+      clearPlaceSelection(this);
 
       clearTimeout(debounceTimerMobile);
 
@@ -1325,15 +1843,18 @@ window.initAutocomplete = async function () {
 
       // Debounce API call - only fire after user stops typing
       debounceTimerMobile = setTimeout(() => {
-        autocompleteServiceMobile.getPlacePredictions(
+        requestWidgetPredictions(
+          autocompleteServiceMobile,
           {
             input: value,
             types: ['(regions)'], // Regions type for city/ZIP searches (cheaper than geocode)
             componentRestrictions: { country: 'US' },
             sessionToken: sessionTokenMobile
           },
+          inputMobile,
           (predictions, status) => {
             if (status === google.maps.places.PlacesServiceStatus.OK && predictions) {
+              cachePredictions(inputMobile, predictions);
               autocompleteContainerMobile.innerHTML = '';
               autocompleteContainerMobile.style.display = 'block';
 
@@ -1347,6 +1868,7 @@ window.initAutocomplete = async function () {
                 </svg>
                 <span class="autocomplete-text-map-mobile">${prediction.description}</span>
               `;
+                appendPredictionTypeBadge(item, prediction);
 
                 item.addEventListener('click', function () {
                   inputMobile.value = prediction.description;
@@ -1359,6 +1881,9 @@ window.initAutocomplete = async function () {
                   );
                   inputMobile.setAttribute('data-location-search-type', 'location search - body');
                   inputMobile.setAttribute('data-location-search-method-type', 'user-entered');
+
+                  // Keep the picked place_id so the search resolves to this exact place
+                  rememberPlaceSelection(inputMobile, prediction);
 
                   // Create new session token for next search
                   sessionTokenMobile = new google.maps.places.AutocompleteSessionToken();
@@ -1430,6 +1955,9 @@ function getCurrentLocation() {
 
         if (desktopInput) desktopInput.value = address;
         if (mobileInput) mobileInput.value = address;
+        // Mark as autofilled so a "City, State" result isn't read as a typed county search
+        if (desktopInput) desktopInput.dataset.autofilledText = address;
+        if (mobileInput) mobileInput.dataset.autofilledText = address;
 
         // Track geolocation search
         const searchInput =
@@ -1495,39 +2023,35 @@ function searchLocation(address, coordinates = null) {
     // If coordinates are provided, use them directly
     updateMap(coordinates);
   } else {
-    let geocodeRequest;
-
-    if (isValidUSZipcode(address)) {
-      geocodeRequest = {
-        address: address,
-        componentRestrictions: {
-          country: 'US',
-          postalCode: address
-        }
-      };
-    } else {
-      geocodeRequest = {
-        address: address,
-        componentRestrictions: {
-          country: 'US'
-        }
-      };
+    // Use whichever form input the search came from, so its picked place_id is used
+    const trimmedAddress = String(address || '').trim();
+    const desktopInput = document.getElementById('pac-input');
+    const mobileInput = document.getElementById('pac-input-mobile');
+    let sourceInput = searchInput;
+    if (desktopInput && desktopInput.value.trim() === trimmedAddress) {
+      sourceInput = desktopInput;
+    } else if (mobileInput && mobileInput.value.trim() === trimmedAddress) {
+      sourceInput = mobileInput;
     }
 
-    window.geocoder.geocode(geocodeRequest, (results, status) => {
-      if (status === 'OK' && results.length > 0) {
-        const location = results[0].geometry.location;
+    resolveSearchLatLng(sourceInput, address)
+      .then((location) => {
         updateMap(location);
         searchInput.setAttribute('data-search-term-type', address);
-      } else {
-        console.error('Geocode was not successful for the following reason:', status);
+      })
+      .catch((error) => {
+        console.error(
+          'Geocode was not successful for the following reason:',
+          (error && error.status) || error
+        );
         console.error('Input address:', address);
-        console.error('Geocode request:', geocodeRequest);
+        if (error && error.geocodeRequest) {
+          console.error('Geocode request:', error.geocodeRequest);
+        }
         console.error(
           'Unable to find the location. Please try a different search term or check if the zip code is correct.'
         );
-      }
-    });
+      });
   }
 }
 

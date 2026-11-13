@@ -1,4 +1,5 @@
 {{$contactImage = {homepage.first().contact_us_image.getImage()} }}
+{{$nationalVolunteerURL = {truepath(7-d8b3f99bc0-707gmt)} }}
 <footer
   class="bg-light-gray py-5"
   data-component-type="footer"
@@ -169,7 +170,7 @@
         >
         <a
           class="nav-link fs-7 volunteer-footer-link"
-          href="#"
+          href="{{$nationalVolunteerURL}}"
           data-page-componentType-type="footer component"
           data-page-componentHeading-type="Volunteer"
           data-page-componentSubheading-type="null"
@@ -317,7 +318,7 @@
                   data-link-type="internal"
                   data-slug="volunteer"
                   onclick="LinkTrackingClickEvent(this,'view_content_click')"
-                  href="#"
+                  href="{{$nationalVolunteerURL}}"
                   >Volunteer</a
                 >
                 <a
@@ -793,8 +794,12 @@
   footerEmploymentButtons.forEach((employmentLink) => {
     employmentLink.setAttribute('href', getCookieByName('employment_url'));
   });
-  footerVolunteerButtons.forEach((volunteerLink) => {
-    volunteerLink.setAttribute('href', getCookieByName('volunteer_url'));
+  Promise.resolve(window.cookiesReady).then(() => {
+    const volunteerUrl = getCookieByName('volunteer_url');
+    if (!volunteerUrl || volunteerUrl === 'null' || volunteerUrl === 'undefined') return;
+    footerVolunteerButtons.forEach((volunteerLink) => {
+      volunteerLink.setAttribute('href', volunteerUrl);
+    });
   });
   
   waysToGiveButtons.forEach((waysToGiveLink) => {

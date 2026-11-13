@@ -84,4 +84,50 @@ run('gcloud', [
   `--concurrency=${config.concurrency || 1}`,
 ]);
 
+// Confirm the flags actually stuck - a throttled CPU silently freezes the post-response rebuild.
+const describeArgs = [
+  'run',
+  'services',
+  'describe',
+  config.functionName,
+  `--project=${config.projectId}`,
+  `--region=${config.region}`,
+  '--format=json',
+];
+console.log(`\n$ gcloud ${describeArgs.join(' ')}\n`);
+const described = spawnSync('gcloud', describeArgs, {
+  encoding: 'utf8',
+  shell: process.platform === 'win32',
+  maxBuffer: 10 * 1024 * 1024,
+});
+if (described.status !== 0) {
+  console.error(described.stderr || 'gcloud run services describe failed.');
+  process.exit(described.status || 1);
+}
+
+let annotations;
+let containerConcurrency;
+try {
+  const service = JSON.parse(described.stdout);
+  annotations = service.spec.template.metadata.annotations || {};
+  containerConcurrency = service.spec.template.spec.containerConcurrency;
+} catch (err) {
+  console.error(`Could not read the Cloud Run service description: ${err.message}`);
+  process.exit(1);
+}
+
+const cpuThrottling = annotations['run.googleapis.com/cpu-throttling'];
+const maxScale = annotations['autoscaling.knative.dev/maxScale'];
+console.log(`cpu-throttling=${cpuThrottling} max-instances=${maxScale} concurrency=${containerConcurrency}`);
+
+if (cpuThrottling !== 'false') {
+  console.error(
+    `\nCPU throttling is not disabled on ${config.functionName} (cpu-throttling=${cpuThrottling}).\n` +
+      'The rebuild runs after the webhook response and will be frozen. Re-run:\n' +
+      `  gcloud run services update ${config.functionName} --project=${config.projectId} ` +
+      `--region=${config.region} --no-cpu-throttling`,
+  );
+  process.exit(1);
+}
+
 console.log('\nDeploy complete.');

@@ -45,6 +45,13 @@ function isSiteError(url, baseURL) {
   }
 }
 
+// An embed that only allows framing on the production domain (e.g. GoFundMe) is refused
+// on previews and staging. That is the embed's own CSP, not a site error.
+function isThirdPartyFramingRefusal(text, baseURL) {
+  const framed = (text.match(/^Framing '([^']+)' violates the following Content Security Policy directive: "frame-ancestors/) || [])[1];
+  return Boolean(framed) && !isSiteError(framed, baseURL);
+}
+
 for (const { path, status = 200, modules } of PAGES) {
   test.describe(path, () => {
     let page;
@@ -64,6 +71,7 @@ for (const { path, status = 200, modules } of PAGES) {
         // The page's own non-200 status (e.g. the 404 page) is expected, not an error.
         if (msg.location().url === page.url() && msg.text().startsWith('Failed to load resource')) return;
         if (IGNORED_MESSAGES.some((re) => re.test(msg.text()))) return;
+        if (isThirdPartyFramingRefusal(msg.text(), baseURL)) return;
         if (msg.type() === 'error' && isSiteError(msg.location().url, baseURL)) {
           jsErrors.push({ message: msg.text(), fn: null });
         }
