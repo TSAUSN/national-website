@@ -1,39 +1,63 @@
-// Writes the rebuilt locations JSON straight into a Zesty.io view file via the Instances API
-// (PUT the view's code, publishing it immediately), replacing the old GitHub Contents API commit.
+// Writes the rebuilt locations JSON straight into Zesty.io view files via the Instances API
+// (PUT the view's code): always the dev view as a draft, plus the live view - published with a
+// cache purge - only for live-affecting triggers. Replaces the old GitHub Contents API commit.
 const axios = require('axios');
 
-const INSTANCE_ZUID = process.env.INSTANCE_ZUID;
-const DEV_TOKEN = process.env.DEV_TOKEN;
-const LOCATIONS_VIEW_ZUID = process.env.LOCATIONS_VIEW_ZUID;
-const LOCATIONS_VIEW_DEV_ZUID = process.env.LOCATIONS_VIEW_DEV_ZUID;
-
-const API_BASE = `https://${INSTANCE_ZUID}.api.zesty.io/v1`;
-
-function authHeaders() {
+// Read on every call; the token is trimmed since a secret created with a trailing newline
+// makes an invalid Authorization header.
+function getConfig() {
   return {
-    Authorization: `Bearer ${DEV_TOKEN}`,
-    'Content-Type': 'application/json',
+    apiBase: String(process.env.ZESTY_API_BASE || `https://${process.env.INSTANCE_ZUID}.api.zesty.io/v1`)
+      .trim()
+      .replace(/\/+$/, ''),
+    token: String(process.env.DEV_TOKEN || '').trim(),
+    liveViewZuid: process.env.LOCATIONS_VIEW_ZUID,
+    devViewZuid: process.env.LOCATIONS_VIEW_DEV_ZUID,
   };
 }
 
 // PUTs the rebuilt JSON into a single view's code, optionally publishing and purging the cache.
-async function putViewCode(viewZuid, code, publish) {
-  await axios.put(
-    `${API_BASE}/web/views/${viewZuid}`,
+// Resolves to the response status.
+async function putViewCode(config, viewZuid, code, publish) {
+  const response = await axios.put(
+    `${config.apiBase}/web/views/${viewZuid}`,
     { code },
-    { headers: authHeaders(), params: publish ? { action: 'publish', purge_cache: true } : {} },
+    {
+      headers: {
+        Authorization: `Bearer ${config.token}`,
+        'Content-Type': 'application/json',
+      },
+      params: publish ? { action: 'publish', purge_cache: true } : {},
+    },
   );
+  return response && response.status;
 }
 
-// Writes the rebuilt locations JSON to both the live view (LOCATIONS_VIEW_ZUID, publishing
-// unless `publish: false`) and the dev view (LOCATIONS_VIEW_DEV_ZUID, always draft-only -
-// the dev domain serves draft content, so it never needs publishing).
+// Writes the rebuilt locations JSON to the dev view (LOCATIONS_VIEW_DEV_ZUID, always
+// draft-only - the dev domain serves draft content, so it never needs publishing) and,
+// only when `publish` is true, to the live view (LOCATIONS_VIEW_ZUID). The live view is
+// skipped entirely on non-publishing triggers so it doesn't accumulate unpublished draft
+// versions from updates that aren't meant to go live yet. Every write is attempted and each
+// failure is printed; rejects with the first failure if any failed, otherwise resolves to the
+// view zuids written.
 async function updateLocationsView(data, { publish = true } = {}) {
+  const config = getConfig();
   const code = JSON.stringify(data, null, 2);
-  await Promise.all([
-    putViewCode(LOCATIONS_VIEW_ZUID, code, publish),
-    putViewCode(LOCATIONS_VIEW_DEV_ZUID, code, false),
-  ]);
+  const viewZuids = [config.devViewZuid];
+  const writes = [putViewCode(config, config.devViewZuid, code, false)];
+  if (publish) {
+    viewZuids.push(config.liveViewZuid);
+    writes.push(putViewCode(config, config.liveViewZuid, code, publish));
+  }
+  const results = await Promise.allSettled(writes);
+  results.forEach((result, i) => {
+    if (result.status === 'rejected') {
+      console.error(`updateLocationsView: view write failed for ${viewZuids[i]}:`, result.reason && result.reason.message);
+    }
+  });
+  const failed = results.find((result) => result.status === 'rejected');
+  if (failed) throw failed.reason;
+  return viewZuids;
 }
 
 module.exports = { updateLocationsView };

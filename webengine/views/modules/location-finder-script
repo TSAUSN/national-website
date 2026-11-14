@@ -617,7 +617,29 @@ async function displayLocations(locations, selectedServices) {
 }
 
 // Function to update map position without loading pins
-async function updateMapPosition(address) {
+async function updateMapPosition(address, inputEl) {
+  // Prefer the shared resolver (uses the picked suggestion's place_id) when an input is given
+  if (inputEl && typeof window.resolveSearchLatLng === 'function') {
+    let location;
+    try {
+      location = await window.resolveSearchLatLng(inputEl, address);
+    } catch (error) {
+      throw new Error("Geocoding failed");
+    }
+
+    // Clear any existing markers
+    if (window.markers) {
+      window.markers.forEach(marker => marker.setMap(null));
+      window.markers = [];
+    }
+
+    // Center the map on the searched location and zoom in
+    window.map.setCenter(location);
+    window.map.setZoom(10);
+
+    return location;
+  }
+
   return new Promise((resolve, reject) => {
     const geocoder = new google.maps.Geocoder();
     let geocodeRequest;
@@ -674,17 +696,26 @@ async function searchServices() {
   // window.mapClusters.cleanupClusters();
 
   try {
-    // Get the location coordinates
-    const geocoder = new google.maps.Geocoder();
-    const geocodeResult = await new Promise((resolve, reject) => {
-      geocoder.geocode({ address: location, componentRestrictions: { country: 'US' } }, (results, status) => {
-        if (status === "OK" && results.length > 0) {
-          resolve(results[0].geometry.location);
-        } else {
-          reject(new Error("Geocoding failed"));
-        }
+    // Get the location coordinates (prefers the picked suggestion's place_id)
+    let geocodeResult;
+    if (typeof window.resolveSearchLatLng === 'function') {
+      try {
+        geocodeResult = await window.resolveSearchLatLng(searchInput, location);
+      } catch (error) {
+        throw new Error("Geocoding failed");
+      }
+    } else {
+      const geocoder = new google.maps.Geocoder();
+      geocodeResult = await new Promise((resolve, reject) => {
+        geocoder.geocode({ address: location, componentRestrictions: { country: 'US' } }, (results, status) => {
+          if (status === "OK" && results.length > 0) {
+            resolve(results[0].geometry.location);
+          } else {
+            reject(new Error("Geocoding failed"));
+          }
+        });
       });
-    });
+    }
     
     // Store current search location for distance calculations
     window.currentSearchLocation = {
@@ -1115,6 +1146,9 @@ async function initLocationFinder() {
               
               if (desktopInput) desktopInput.value = address;
               if (mobileInput) mobileInput.value = address;
+              // Mark as autofilled so a "City, State" result isn't read as a typed county search
+              if (desktopInput) desktopInput.dataset.autofilledText = address;
+              if (mobileInput) mobileInput.dataset.autofilledText = address;
 
               const searchInput = document.getElementById('location-finder__input') || document.getElementById('pac-input-mobile');
               if (searchInput) {
@@ -1180,6 +1214,20 @@ async function initLocationFinder() {
           let sessionToken = new google.maps.places.AutocompleteSessionToken();
           const autocompleteService = new google.maps.places.AutocompleteService();
 
+          // Fetch suggestions via the shared helper (adds the same-name county, skips stale
+          // responses); falls back to the direct call when map.js helpers aren't loaded
+          const requestPredictions = (request, callback) => {
+            if (typeof window.fetchPlacePredictions === 'function') {
+              window.fetchPlacePredictions(autocompleteService, request, input)
+                .then((result) => {
+                  if (!result.stale) callback(result.predictions, result.status);
+                })
+                .catch((error) => console.warn('Autocomplete predictions failed:', error));
+            } else {
+              autocompleteService.getPlacePredictions(request, callback);
+            }
+          };
+
           let debounceTimer;
           const debounceDelay = 300; // Wait 300ms after user stops typing
 
@@ -1196,7 +1244,9 @@ async function initLocationFinder() {
             max-height: 280px;
             overflow-y: auto;
             display: none;
-            width: 100%;
+            top: 100%;
+            left: 0;
+            right: 0;
             margin-top: 4px;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
           `;
@@ -1258,6 +1308,9 @@ async function initLocationFinder() {
 
           input.addEventListener('input', function() {
             const value = this.value;
+            if (typeof window.clearPlaceSelection === 'function') {
+              window.clearPlaceSelection(this);
+            }
 
             clearTimeout(debounceTimer);
 
@@ -1268,13 +1321,16 @@ async function initLocationFinder() {
 
             // Debounce API call - only fire after user stops typing
             debounceTimer = setTimeout(() => {
-              autocompleteService.getPlacePredictions({
+              requestPredictions({
                 input: value,
                 types: ['(regions)'],  // Regions type for city/ZIP searches (cheaper than geocode)
                 componentRestrictions: { country: 'US' },
                 sessionToken: sessionToken
               }, (predictions, status) => {
                 if (status === google.maps.places.PlacesServiceStatus.OK && predictions) {
+                  if (typeof window.cachePredictions === 'function') {
+                    window.cachePredictions(input, predictions);
+                  }
                   autocompleteContainer.innerHTML = '';
                   autocompleteContainer.style.display = 'block';
 
@@ -1288,10 +1344,21 @@ async function initLocationFinder() {
                       </svg>
                       <span class="autocomplete-text-location">${prediction.description}</span>
                     `;
+                    const typeLabel = typeof window.getPredictionTypeLabel === 'function' ? window.getPredictionTypeLabel(prediction) : '';
+                    if (typeLabel) {
+                      const typeBadge = document.createElement('span');
+                      typeBadge.className = 'badge rounded-pill text-bg-light ms-auto';
+                      typeBadge.textContent = typeLabel;
+                      item.appendChild(typeBadge);
+                    }
 
                     item.addEventListener('click', function() {
                       input.value = prediction.description;
                       autocompleteContainer.style.display = 'none';
+                      // Keep the picked place_id so the search resolves to this exact place
+                      if (typeof window.rememberPlaceSelection === 'function') {
+                        window.rememberPlaceSelection(input, prediction);
+                      }
                       debouncedSearchServices();
 
                       // Create new session token for next search
@@ -1319,6 +1386,20 @@ async function initLocationFinder() {
           let sessionTokenMobile = new google.maps.places.AutocompleteSessionToken();
           const autocompleteServiceMobile = new google.maps.places.AutocompleteService();
 
+          // Fetch suggestions via the shared helper (adds the same-name county, skips stale
+          // responses); falls back to the direct call when map.js helpers aren't loaded
+          const requestPredictionsMobile = (request, callback) => {
+            if (typeof window.fetchPlacePredictions === 'function') {
+              window.fetchPlacePredictions(autocompleteServiceMobile, request, inputMobile)
+                .then((result) => {
+                  if (!result.stale) callback(result.predictions, result.status);
+                })
+                .catch((error) => console.warn('Autocomplete predictions failed:', error));
+            } else {
+              autocompleteServiceMobile.getPlacePredictions(request, callback);
+            }
+          };
+
           let debounceTimerMobile;
           const debounceDelayMobile = 300; // Wait 300ms after user stops typing
 
@@ -1335,7 +1416,9 @@ async function initLocationFinder() {
             max-height: 280px;
             overflow-y: auto;
             display: none;
-            width: 100%;
+            top: 100%;
+            left: 0;
+            right: 0;
             margin-top: 4px;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
           `;
@@ -1397,6 +1480,9 @@ async function initLocationFinder() {
 
           inputMobile.addEventListener('input', function() {
             const value = this.value;
+            if (typeof window.clearPlaceSelection === 'function') {
+              window.clearPlaceSelection(this);
+            }
 
             clearTimeout(debounceTimerMobile);
 
@@ -1407,13 +1493,16 @@ async function initLocationFinder() {
 
             // Debounce API call - only fire after user stops typing
             debounceTimerMobile = setTimeout(() => {
-              autocompleteServiceMobile.getPlacePredictions({
+              requestPredictionsMobile({
                 input: value,
                 types: ['(regions)'],  // Regions type for city/ZIP searches (cheaper than geocode)
                 componentRestrictions: { country: 'US' },
                 sessionToken: sessionTokenMobile
               }, (predictions, status) => {
                 if (status === google.maps.places.PlacesServiceStatus.OK && predictions) {
+                  if (typeof window.cachePredictions === 'function') {
+                    window.cachePredictions(inputMobile, predictions);
+                  }
                   autocompleteContainerMobile.innerHTML = '';
                   autocompleteContainerMobile.style.display = 'block';
 
@@ -1427,11 +1516,22 @@ async function initLocationFinder() {
                       </svg>
                       <span class="autocomplete-text-location-mobile">${prediction.description}</span>
                     `;
+                    const typeLabel = typeof window.getPredictionTypeLabel === 'function' ? window.getPredictionTypeLabel(prediction) : '';
+                    if (typeLabel) {
+                      const typeBadge = document.createElement('span');
+                      typeBadge.className = 'badge rounded-pill text-bg-light ms-auto';
+                      typeBadge.textContent = typeLabel;
+                      item.appendChild(typeBadge);
+                    }
 
                     item.addEventListener('click', async function() {
                       inputMobile.value = prediction.description;
                       autocompleteContainerMobile.style.display = 'none';
-                      await updateMapPosition(prediction.description);
+                      // Keep the picked place_id so the map centers on this exact place
+                      if (typeof window.rememberPlaceSelection === 'function') {
+                        window.rememberPlaceSelection(inputMobile, prediction);
+                      }
+                      await updateMapPosition(prediction.description, inputMobile);
 
                       // Create new session token for next search
                       sessionTokenMobile = new google.maps.places.AutocompleteSessionToken();
@@ -1491,22 +1591,41 @@ async function initLocationFinder() {
       // Handle URL parameters
       const address = '{{request.queryParam(address)}}';
       const services = '{{request.queryParam(services)}}';
-      
+      const placeId = '{{request.queryParam(place_id)}}';
+      const autofilled = '{{request.queryParam(autofilled)}}';
+      // A malformed % sequence must not abort init: fall back to the raw value
+      const safeDecode = (value) => {
+        try {
+          return decodeURIComponent(value);
+        } catch (error) {
+          return value;
+        }
+      };
+
       
       if (address || services) {
         let hasParams = false;
         
         // Apply address parameter
         if (address && addressInput) {
-          const decodedAddress = decodeURIComponent(address);
+          const decodedAddress = safeDecode(address);
           addressInput.value = decodedAddress;
+          // Suggestion picked in the header modal: resolve by its place_id
+          if (placeId) {
+            addressInput.dataset.placeId = safeDecode(placeId);
+            addressInput.dataset.placeDescription = decodedAddress;
+          }
+          // Address came from "use my location": don't read "City, State" as a county search
+          if (autofilled === '1') {
+            addressInput.dataset.autofilledText = decodedAddress;
+          }
           hasParams = true;
         }
 
         // Apply services parameter
         if (services) {
           const addressInput = document.querySelector('#location-finder__input');
-          const servicesList = decodeURIComponent(services).split(',').map(s => s.trim().toLowerCase());
+          const servicesList = safeDecode(services).split(',').map(s => s.trim().toLowerCase());
           const checkboxes = document.querySelectorAll('input[type="checkbox"]');
           let servicesApplied = false;
           
@@ -1554,8 +1673,13 @@ async function initLocationFinder() {
         }
 
         // If we have an address parameter, update the map position
+        // (a failure here must not block re-enabling the search button or initLoad)
         if (address && addressInput) {
-          await updateMapPosition(addressInput.value);
+          try {
+            await updateMapPosition(addressInput.value, addressInput);
+          } catch (error) {
+            console.error('Error updating map position:', error);
+          }
         }
 
         // searchServices();

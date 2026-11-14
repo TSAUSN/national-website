@@ -129,6 +129,25 @@
   }
 }
 
+iframe {
+  max-width: 100%;
+}
+
+iframe[src*='youtube.com'],
+iframe[src*='youtube-nocookie.com'],
+iframe[src*='player.vimeo.com'] {
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+// Wrappers that size their iframe by absolute fill keep their own ratio.
+.ratio > iframe[src],
+.wrapVideo iframe[src],
+.ja-video-wrapper iframe[src] {
+  height: 100%;
+  aspect-ratio: auto;
+}
+
 .h-5rem {
   height: 5rem;
 }
