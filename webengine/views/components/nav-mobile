@@ -340,17 +340,6 @@
       <div class="nav-item py-3 px-4 mb-3">
           <a href="https://www.satruck.org" target="_blank" class="text-decoration-none text-dark-100">Donate Goods</a>
       </div>
-      <div class="nav-item py-3 px-4 mb-3 d-none">
-        <a
-          class="angel-tree-link text-dark-100 text-decoration-none d-none"
-          href="/walmart-angel-tree/"
-          data-function-type="navigation"
-          data-format-type="text"
-          data-link-type="internal"
-          onclick="LinkTrackingClickEvent(this,'header_click')"
-          >Angel Tree Campaign</a
-        >
-      </div>
       <div class="nav-item py-3 px-4 mb-3">
         <a
         class="text-decoration-none text-dark-100 ways-to-give-link"

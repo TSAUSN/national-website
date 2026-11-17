@@ -285,15 +285,6 @@
                 >Planned Giving</a
               >
               <a
-                class="angel-tree-link dropdown-item py-2 px-2 d-none display-3 display-xl-2"
-                href="/walmart-angel-tree/"
-                data-function-type="navigation"
-                data-format-type="text"
-                data-link-type="internal"
-                onclick="LinkTrackingClickEvent(this,'header_click')"
-                >Angel Tree Campaign</a
-              >
-              <a
                 class="dropdown-item py-2 px-2 ways-to-give-link display-3 display-xl-2"
                 href="#"
                 data-function-type="navigation"
@@ -1405,14 +1396,7 @@ function setDynamicColumnCount() {
     await syncHeaderCookieValues();
     const hLoader = document.querySelector(".header-content-loader")
     const mainHeaderContainer = document.querySelector(".header-main-container")
-    const angelTreeLinks = document.querySelectorAll('.angel-tree-link');
 
-    if(getCookieByName('location_home_url') == '/') {
-      angelTreeLinks.forEach((angelTreeLink) => {
-        angelTreeLink.classList.remove("d-none");
-      });
-    }
-    
     hLoader.classList.add("d-none")
     mainHeaderContainer.classList.add("d-flex")
     mainHeaderContainer.classList.remove("d-none")
