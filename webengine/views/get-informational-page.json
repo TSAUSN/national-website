@@ -1,7 +1,7 @@
 {{$zuid = {request.queryParam(zuid)} }}
 
 {{each informational_pages as ip WHERE z.zuid = '{$zuid}' LIMIT 1}}
-    (** Each relation reads the one-to-many field, else the older one-to-one field; a list uses its first matching item. **)
+    (** Each relation reads the one-to-many field, else the older one-to-one field. **)
     {{$ipHasLocation = 0 }}
     {{$ipHasDivision = 0 }}
     {{$ipHasTerritory = 0 }}
@@ -18,7 +18,7 @@
     {{/each}}
     {
         {{if {$ipHasLocation} == 1 }}
-            {{$ipOwnerZUID = {$ipLocation} }}{{each locations as ipFirst WHERE find_in_set(z.zuid, '{$ipLocation}') LIMIT 1 }}{{$ipOwnerZUID = {ipFirst.zuid} }}{{/each}}
+            {{$ipOwnerZUID = {$ipLocation} }}
             {{$cityZUID = {locations.filter({$ipOwnerZUID}).city} }}
             {{$stateZUID = {locations.filter({$ipOwnerZUID}).state} }}
             "content": {{ locations.filter({$ipOwnerZUID}).toJSON() }},
@@ -27,7 +27,7 @@
             "state": "{{states.filter({$stateZUID}).name }}",
             "zipcode": "{{ locations.filter({$ipOwnerZUID}).zipcode }}"
         {{else-if {$ipHasDivision} == 1 }}
-            {{$ipOwnerZUID = {$ipDivision} }}{{each divisions as ipFirst WHERE find_in_set(z.zuid, '{$ipDivision}') LIMIT 1 }}{{$ipOwnerZUID = {ipFirst.zuid} }}{{/each}}
+            {{$ipOwnerZUID = {$ipDivision} }}
             {{$cityZUID = {divisions.filter({$ipOwnerZUID}).city} }}
             {{$stateZUID = {divisions.filter({$ipOwnerZUID}).state} }}
             "content": {{ divisions.filter({$ipOwnerZUID}).toJSON() }},
@@ -36,7 +36,7 @@
             "state": "{{states.filter({$stateZUID}).name }}",
             "zipcode": "{{ divisions.filter({$ipOwnerZUID}).zipcode }}"
         {{else-if {$ipHasTerritory} == 1 }}
-            {{$ipOwnerZUID = {$ipTerritory} }}{{each territories as ipFirst WHERE find_in_set(z.zuid, '{$ipTerritory}') LIMIT 1 }}{{$ipOwnerZUID = {ipFirst.zuid} }}{{/each}}
+            {{$ipOwnerZUID = {$ipTerritory} }}
             {{$cityZUID = {territories.filter({$ipOwnerZUID}).city} }}
             {{$stateZUID = {territories.filter({$ipOwnerZUID}).state} }}
             "content": {{ territories.filter({$ipOwnerZUID}).toJSON() }},
@@ -45,7 +45,7 @@
             "state": "{{states.filter({$stateZUID}).name }}",
             "zipcode": "{{ territories.filter({$ipOwnerZUID}).zipcode }}"
         {{else-if {$ipHasParentLocation} == 1 }}
-            {{$ipOwnerZUID = {$ipParentLocation} }}{{each locations as ipFirst WHERE find_in_set(z.zuid, '{$ipParentLocation}') LIMIT 1 }}{{$ipOwnerZUID = {ipFirst.zuid} }}{{/each}}
+            {{$ipOwnerZUID = {$ipParentLocation} }}
             {{$cityZUID = {locations.filter({$ipOwnerZUID}).city} }}
             {{$stateZUID = {locations.filter({$ipOwnerZUID}).state} }}
             "content": {{ locations.filter({$ipOwnerZUID}).toJSON() }},
@@ -54,7 +54,7 @@
             "state": "{{states.filter({$stateZUID}).name }}",
             "zipcode": "{{ locations.filter({$ipOwnerZUID}).zipcode }}"
         {{else-if {$ipHasParentDivision} == 1 }}
-            {{$ipOwnerZUID = {$ipParentDivision} }}{{each divisions as ipFirst WHERE find_in_set(z.zuid, '{$ipParentDivision}') LIMIT 1 }}{{$ipOwnerZUID = {ipFirst.zuid} }}{{/each}}
+            {{$ipOwnerZUID = {$ipParentDivision} }}
             {{$cityZUID = {divisions.filter({$ipOwnerZUID}).city} }}
             {{$stateZUID = {divisions.filter({$ipOwnerZUID}).state} }}
             "content": {{ divisions.filter({$ipOwnerZUID}).toJSON() }},
@@ -63,7 +63,7 @@
             "state": "{{states.filter({$stateZUID}).name }}",
             "zipcode": "{{ divisions.filter({$ipOwnerZUID}).zipcode }}"
         {{else-if {$ipHasParentTerritory} == 1 }}
-            {{$ipOwnerZUID = {$ipParentTerritory} }}{{each territories as ipFirst WHERE find_in_set(z.zuid, '{$ipParentTerritory}') LIMIT 1 }}{{$ipOwnerZUID = {ipFirst.zuid} }}{{/each}}
+            {{$ipOwnerZUID = {$ipParentTerritory} }}
             {{$cityZUID = {territories.filter({$ipOwnerZUID}).city} }}
             {{$stateZUID = {territories.filter({$ipOwnerZUID}).state} }}
             "content": {{ territories.filter({$ipOwnerZUID}).toJSON() }},
