@@ -668,9 +668,6 @@ const handleCategoryClick = (button) => {
   .news-swiper {
     height: auto;
   }
-  .author-date {
-    font-family: 'AJensonPro', sans-serif;
-  }
 </style>
 
 <script>

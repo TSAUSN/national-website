@@ -36,7 +36,7 @@
             {{/if}}
             
         </h4>
-          <div class="w-sm-100 pe-lg-16 pe-sm-0 text-dark-50 fs-7 map-description f-ajenson">
+          <div class="w-sm-100 pe-lg-16 pe-sm-0 text-dark-50 fs-7 map-description">
             {{ if {$territory} }}
                 {{territories.filter({$territory}).map_excerpt_description}}
             {{else if {$division} }}
@@ -128,9 +128,3 @@
   }
   getPageZuid();
 </script>
-
-<style>
-  .map-description {
-    font-family: 'AJensonPro', sans-serif;
-  }
-</style>

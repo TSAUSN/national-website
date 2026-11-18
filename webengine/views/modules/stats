@@ -372,7 +372,7 @@ function filterCarousel(stats) {
                       <h5 class="card-title fs-md-4 fs-sm-6 fw-normal">
                         ${stat.right_side_header}
                       </h5>
-                      <div class="mb-16 fs-7 f-ajenson text-dark-50 ">
+                      <div class="mb-16 fs-7 text-dark-50 ">
                         ${stat.right_side_content}
                       </div>
                     </div>
