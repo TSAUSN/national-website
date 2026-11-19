@@ -1,10 +1,9 @@
 # locations-webhook
 
 Receives a Zesty.io locations-model webhook and rebuilds the full locations JSON from a
-Parsley endpoint, writing it straight into a Zesty view file. Delete, publish and unpublish
-events publish the rebuilt view immediately; update/save events only update the draft.
-Update rebuilds are debounced so a burst of saves collapses into one rebuild; publish,
-delete and unpublish rebuilds are never debounced or dropped.
+Parsley endpoint, writing it straight into a Zesty view file. Delete and publish events
+publish the rebuilt view immediately; update/save events only update the draft. Rebuilds
+are debounced so a burst of changes collapses into one rebuild.
 
 Runs two ways from the same handler (`src/webhook-handler.js`):
 - Locally as a long-lived Express server (`src/webhook-server.js`), via `npm start`.
@@ -46,18 +45,11 @@ Runs two ways from the same handler (`src/webhook-handler.js`):
   without `--no-cpu-throttling`, the rebuild can be silently killed mid-flight.
 
 The deploy also pins `max-instances=1` / `concurrency=1` by default. `locations-sync.js`
-keeps its run state in memory (`lastRunAt`/`inFlight`/`queued`), which only works correctly
-within a single instance - see the comment in that file. Keeping it to one instance makes it
-behave like it does today under `npm start`:
-- Update/save rebuilds are debounced: one arriving within `REBUILD_DEBOUNCE_MS` of the last
-  rebuild's start, or while a rebuild is running, is skipped - its draft change only lands once
-  a later rebuild runs.
-- Publish/delete/unpublish rebuilds are never debounced or dropped. If one arrives while a
-  rebuild is running, it is queued, and all such events arriving meanwhile are coalesced into a
-  single publish rebuild that starts as soon as the current one finishes.
-
-The state isn't durable: a restart or a cold start after scale-to-zero resets it, losing any
-queued publish rebuild that hadn't started yet.
+debounces in-memory (`lastRunAt`/`inFlight`), which only works correctly within a single
+instance - see the comment in that file. Keeping it to one instance makes the debounce behave
+like it does today under `npm start`. It's still not perfectly durable (a cold start after
+scale-to-zero resets `lastRunAt` to 0), but that only risks an extra rebuild, never a skipped
+one.
 
 After the first deploy, point the Zesty webhook at the printed Cloud Run URL instead of the
 old server's address.
