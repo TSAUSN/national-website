@@ -7,9 +7,13 @@
 {{$property = "" }}
 {{$division = "" }}
 {{$territory = "" }}
-{{$querfield1 = informational_page.location IS NULL OR informational_page.location=""}}
-{{$querfield2 = informational_page.division IS NULL OR informational_page.division=""}}
-{{$querfield3 = informational_page.territory IS NULL OR informational_page.territory=""}}
+(** Each relation reads the one-to-many field (locations, divisions, territories), else the one-to-one field when the new one is empty. **)
+{{$noLocations = informational_page.locations IS NULL OR informational_page.locations=""}}
+{{$noDivisions = informational_page.divisions IS NULL OR informational_page.divisions=""}}
+{{$noTerritories = informational_page.territories IS NULL OR informational_page.territories=""}}
+{{$querfield1 = ({$noLocations}) AND (informational_page.location IS NULL OR informational_page.location="")}}
+{{$querfield2 = ({$noDivisions}) AND (informational_page.division IS NULL OR informational_page.division="")}}
+{{$querfield3 = ({$noTerritories}) AND (informational_page.territory IS NULL OR informational_page.territory="")}}
 {{$queryFilter = informational_page.title LIKE {$search} AND ({$querfield1}) AND ({$querfield2}) AND ({$querfield3}) AND national = 1}}
 
 
@@ -49,21 +53,24 @@
 
 {{if {request.queryParam(property)} }}
 {{$property = "{request.queryParam(property)}" }}
-{{$queryFilter = informational_page.title LIKE {$search} AND informational_page.location = {$property} }}
+{{$propertyLike = "%{request.queryParam(property)}%" }}
+{{$queryFilter = informational_page.title LIKE {$search} AND (informational_page.locations LIKE {$propertyLike} OR (({$noLocations}) AND informational_page.location = {$property})) }}
 {{else}}
 {{$property = "" }}
 {{end-if}}
 
 {{if {request.queryParam(division)} }}
 {{$division = "{request.queryParam(division)}" }}
-{{$queryFilter = informational_page.title LIKE {$search} AND informational_page.location IS NULL && informational_page.division = {$division} && informational_page.territory IS NOT NULL }}
+{{$divisionLike = "%{request.queryParam(division)}%" }}
+{{$queryFilter = informational_page.title LIKE {$search} AND (({$noLocations}) AND informational_page.location IS NULL) && (informational_page.divisions LIKE {$divisionLike} OR (({$noDivisions}) AND informational_page.division = {$division})) && ((informational_page.territories IS NOT NULL AND informational_page.territories!="") OR informational_page.territory IS NOT NULL) }}
 {{else}}
 {{$division = "" }}
 {{end-if}}
 
 {{if {request.queryParam(territory)} }}
 {{$territory = "{request.queryParam(territory)}" }}
-{{$queryFilter = informational_page.title LIKE {$search} AND informational_page.location IS NULL && informational_page.division IS NULL && informational_page.territory = {$territory} }}
+{{$territoryLike = "%{request.queryParam(territory)}%" }}
+{{$queryFilter = informational_page.title LIKE {$search} AND (({$noLocations}) AND informational_page.location IS NULL) && (({$noDivisions}) AND informational_page.division IS NULL) && (informational_page.territories LIKE {$territoryLike} OR (({$noTerritories}) AND informational_page.territory = {$territory})) }}
 {{else}}
 {{$territory = "" }}
 {{end-if}}
@@ -83,7 +90,7 @@
                 "title": "{{informational_page.title.escapeForJs()}}",
                 "description": "Last modified {{event.updated_at.date(m/d/Y)}}",
                 "image": "{{informational_page.hero_image}}",
-                "property":  "{{informational_page.location}}",
+                "property":  "{{if {informational_page.locations} }}{{informational_page.locations}}{{else}}{{informational_page.location}}{{end-if}}",
                 "url_path": "{{informational_page.getUrl()}}"
                 },
             "meta": {

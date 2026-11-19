@@ -113,18 +113,21 @@
     {{/if}}
 
     {{if {$informational} }}
-        {{each informational_pages as ip WHERE find_in_set('{$zuid}', territory) LIMIT {$offset}, {$perPage} }}
+        {{each informational_pages as ip WHERE (find_in_set('{$zuid}', territories) OR ((territories = "" OR territories IS NULL) AND find_in_set('{$zuid}', territory))) LIMIT {$offset}, {$perPage} }}
             {{if {$isFirst} == 0}},{{/if}}
             {{$isFirst = 0}}
+            {{$ipHasTerList = 0 }}{{if {ip.territories} }}{{$ipTerList = {ip.territories} }}{{$ipHasTerList = 1 }}{{else-if {ip.territory} }}{{$ipTerList = {ip.territory} }}{{$ipHasTerList = 1 }}{{/if}}
+            {{$ipHasDivList = 0 }}{{if {ip.divisions} }}{{$ipDivList = {ip.divisions} }}{{$ipHasDivList = 1 }}{{else-if {ip.division} }}{{$ipDivList = {ip.division} }}{{$ipHasDivList = 1 }}{{/if}}
+            {{$ipHasLocList = 0 }}{{if {ip.locations} }}{{$ipLocList = {ip.locations} }}{{$ipHasLocList = 1 }}{{else-if {ip.location} }}{{$ipLocList = {ip.location} }}{{$ipHasLocList = 1 }}{{/if}}
             {
                 "model": "Informational Pages",
                 "model_zuid": "{{ip.set_zuid}}",
                 "zuid": "{{ip.zuid}}",
                 "title": "{{ip.title.escapeForJs() }}",
                 "page_type": "{{ information_page_types.filter({ip.page_type}).name.escapeForJs() }}",
-                "territory": {{if {ip.territory} }} "{{$ipNameSep = 0 }}{{each territories as ipTerName WHERE find_in_set(z.zuid, '{ip.territory}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipTerName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
-                "division":  {{if {ip.division} }} "{{$ipNameSep = 0 }}{{each divisions as ipDivName WHERE find_in_set(z.zuid, '{ip.division}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipDivName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
-                "location":  {{if {ip.location} }} "{{$ipNameSep = 0 }}{{each locations as ipLocName WHERE find_in_set(z.zuid, '{ip.location}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipLocName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
+                "territory": {{if {$ipHasTerList} == 1 }} "{{$ipNameSep = 0 }}{{each territories as ipTerName WHERE find_in_set(z.zuid, '{$ipTerList}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipTerName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
+                "division":  {{if {$ipHasDivList} == 1 }} "{{$ipNameSep = 0 }}{{each divisions as ipDivName WHERE find_in_set(z.zuid, '{$ipDivList}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipDivName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
+                "location":  {{if {$ipHasLocList} == 1 }} "{{$ipNameSep = 0 }}{{each locations as ipLocName WHERE find_in_set(z.zuid, '{$ipLocList}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipLocName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
                 "path_part": "{{truepath({ip.zuid})}}",
 
                 "publish_status": "{{if {isPublished({ip.zuid})} }}publish{{else}}unpublish{{/if}}",
@@ -353,18 +356,21 @@
     {{/if}}
 
     {{if {$informational} }}
-        {{each informational_pages as ip WHERE find_in_set('{$zuidD}', division) LIMIT {$offset}, {$perPage} }}
+        {{each informational_pages as ip WHERE (find_in_set('{$zuidD}', divisions) OR ((divisions = "" OR divisions IS NULL) AND find_in_set('{$zuidD}', division))) LIMIT {$offset}, {$perPage} }}
             {{if {$isFirst} == 0}},{{/if}}
             {{$isFirst = 0}}
+            {{$ipHasTerList = 0 }}{{if {ip.territories} }}{{$ipTerList = {ip.territories} }}{{$ipHasTerList = 1 }}{{else-if {ip.territory} }}{{$ipTerList = {ip.territory} }}{{$ipHasTerList = 1 }}{{/if}}
+            {{$ipHasDivList = 0 }}{{if {ip.divisions} }}{{$ipDivList = {ip.divisions} }}{{$ipHasDivList = 1 }}{{else-if {ip.division} }}{{$ipDivList = {ip.division} }}{{$ipHasDivList = 1 }}{{/if}}
+            {{$ipHasLocList = 0 }}{{if {ip.locations} }}{{$ipLocList = {ip.locations} }}{{$ipHasLocList = 1 }}{{else-if {ip.location} }}{{$ipLocList = {ip.location} }}{{$ipHasLocList = 1 }}{{/if}}
             {
                 "model": "Informational Pages",
                 "model_zuid": "{{ip.set_zuid}}",
                 "zuid": "{{ip.zuid}}",
                 "title": "{{ip.title.escapeForJs() }}",
                 "page_type": "{{ information_page_types.filter({ip.page_type}).name.escapeForJs() }}",
-                "territory": {{if {ip.territory} }} "{{$ipNameSep = 0 }}{{each territories as ipTerName WHERE find_in_set(z.zuid, '{ip.territory}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipTerName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
-                "division":  {{if {ip.division} }} "{{$ipNameSep = 0 }}{{each divisions as ipDivName WHERE find_in_set(z.zuid, '{ip.division}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipDivName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
-                "location":  {{if {ip.location} }} "{{$ipNameSep = 0 }}{{each locations as ipLocName WHERE find_in_set(z.zuid, '{ip.location}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipLocName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
+                "territory": {{if {$ipHasTerList} == 1 }} "{{$ipNameSep = 0 }}{{each territories as ipTerName WHERE find_in_set(z.zuid, '{$ipTerList}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipTerName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
+                "division":  {{if {$ipHasDivList} == 1 }} "{{$ipNameSep = 0 }}{{each divisions as ipDivName WHERE find_in_set(z.zuid, '{$ipDivList}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipDivName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
+                "location":  {{if {$ipHasLocList} == 1 }} "{{$ipNameSep = 0 }}{{each locations as ipLocName WHERE find_in_set(z.zuid, '{$ipLocList}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipLocName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
                 "path_part": "{{truepath({ip.zuid})}}",
 
                 "publish_status": "{{if {isPublished({ip.zuid})} }}publish{{else}}unpublish{{/if}}",
@@ -593,18 +599,21 @@
     {{/if}}
 
     {{if {$informational} }}
-        {{each informational_pages as ip WHERE find_in_set('{$zuidL}', location) LIMIT {$offset}, {$perPage} }}
+        {{each informational_pages as ip WHERE (find_in_set('{$zuidL}', locations) OR ((locations = "" OR locations IS NULL) AND find_in_set('{$zuidL}', location))) LIMIT {$offset}, {$perPage} }}
             {{if {$isFirst} == 0}},{{/if}}
             {{$isFirst = 0}}
+            {{$ipHasTerList = 0 }}{{if {ip.territories} }}{{$ipTerList = {ip.territories} }}{{$ipHasTerList = 1 }}{{else-if {ip.territory} }}{{$ipTerList = {ip.territory} }}{{$ipHasTerList = 1 }}{{/if}}
+            {{$ipHasDivList = 0 }}{{if {ip.divisions} }}{{$ipDivList = {ip.divisions} }}{{$ipHasDivList = 1 }}{{else-if {ip.division} }}{{$ipDivList = {ip.division} }}{{$ipHasDivList = 1 }}{{/if}}
+            {{$ipHasLocList = 0 }}{{if {ip.locations} }}{{$ipLocList = {ip.locations} }}{{$ipHasLocList = 1 }}{{else-if {ip.location} }}{{$ipLocList = {ip.location} }}{{$ipHasLocList = 1 }}{{/if}}
             {
                 "model": "Informational Pages",
                 "model_zuid": "{{ip.set_zuid}}",
                 "zuid": "{{ip.zuid}}",
                 "title": "{{ip.title.escapeForJs() }}",
                 "page_type": "{{ information_page_types.filter({ip.page_type}).name.escapeForJs() }}",
-                "territory": {{if {ip.territory} }} "{{$ipNameSep = 0 }}{{each territories as ipTerName WHERE find_in_set(z.zuid, '{ip.territory}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipTerName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
-                "division":  {{if {ip.division} }} "{{$ipNameSep = 0 }}{{each divisions as ipDivName WHERE find_in_set(z.zuid, '{ip.division}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipDivName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
-                "location":  {{if {ip.location} }} "{{$ipNameSep = 0 }}{{each locations as ipLocName WHERE find_in_set(z.zuid, '{ip.location}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipLocName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
+                "territory": {{if {$ipHasTerList} == 1 }} "{{$ipNameSep = 0 }}{{each territories as ipTerName WHERE find_in_set(z.zuid, '{$ipTerList}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipTerName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
+                "division":  {{if {$ipHasDivList} == 1 }} "{{$ipNameSep = 0 }}{{each divisions as ipDivName WHERE find_in_set(z.zuid, '{$ipDivList}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipDivName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
+                "location":  {{if {$ipHasLocList} == 1 }} "{{$ipNameSep = 0 }}{{each locations as ipLocName WHERE find_in_set(z.zuid, '{$ipLocList}') }}{{if {$ipNameSep} == 1 }} | {{/if}}{{$ipNameSep = 1 }}{{ipLocName.name.escapeForJs()}}{{/each}}" {{else}} null {{/if}},
                 "path_part": "{{truepath({ip.zuid})}}",
 
                 "publish_status": "{{if {isPublished({ip.zuid})} }}publish{{else}}unpublish{{/if}}",
