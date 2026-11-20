@@ -1,0 +1,57 @@
+<div
+  class="featured-article bg-opacity-25 mb-4 position-relative rounded-5 position-relative overflow-hidden mb-15"
+>
+  <img
+    id="hero-full-image"
+    class="w-100 rounded-5 object-fit-cover"
+    src="{{if {this.image} }}{{ this.image.getImage() }}{{else}}{{ globals.default_og_image.getImage() }}{{/if}}"
+    alt=""
+    onerror="this.onerror=null;this.src='{{ globals.default_og_image.getImage() }}' + (window.innerWidth <= 768 ? '?width=396&crop=3:2,smart' : '?width=1400&crop=3:1,smart');"
+    fetchpriority="high"
+    decoding="async"
+    loading="eager"
+  />
+  <div
+    class="px-6 py-8 position-absolute top-0 left-0 w-100 h-100 d-inline-flex flex-column align-items-start justify-content-center z-3"
+  >
+    <div>
+      <h1 class="fs-4 mb-3 text-white">
+        {{ this.title }}
+      </h1>
+      {{if {this.subtitle} }}
+      <div class="mb-3 text-white display-1 w-lg-50 w-sm-100">
+        {{ this.subtitle }}
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</div>
+<script>
+  function setBannerImage() {
+    let bannerImage = '{{if {this.image} }}{{ this.image.getImage() }}{{else}}{{ globals.default_og_image.getImage() }}{{/if}}';
+    let bannerImg = document.querySelector("#hero-full-image");
+    let fallbackImage = '{{ globals.default_og_image.getImage() }}';
+    if(window.innerWidth <= 768) {
+      bannerImage += "?width=396&crop=3:2,smart";
+      fallbackImage += "?width=396&crop=3:2,smart";
+    } else {
+      bannerImage += "?width=1400&crop=3:1,smart";
+      fallbackImage += "?width=1400&crop=3:1,smart";
+    }
+    if (bannerImg) {
+      bannerImg.onerror = function () {
+        this.onerror = null;
+        this.src = fallbackImage;
+      };
+      bannerImg.setAttribute('src', bannerImage);
+    }
+  }
+  document.addEventListener("DOMContentLoaded", function() {
+    setBannerImage();
+  });
+</script>
+<style>
+  .featured-article img {
+    max-height: 640px;
+  }
+</style>
