@@ -1,1 +1,324 @@
 {{ include modules/hero-full-ways-to-give }}
+
+(** Static placeholder content until the Ways to Give model has fields for these sections. **)
+<section class="mb-15" id="main-ways-to-give">
+  <h2 class="fs-4 fw-normal mb-8">Main Ways to Give</h2>
+  <div class="row g-4">
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card h-100 rounded-5 overflow-hidden border-0 bg-light">
+        <div class="ratio ratio-16x9">
+          <img
+            class="w-100 h-100 object-fit-cover"
+            src="{{ globals.default_og_image.getImage() }}?width=676&height=380&crop=16:9,smart"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="card-body px-6 pt-6">
+          <h3 class="card-title display-2 text-dark-100 fw-normal">Donate Money</h3>
+          <p class="card-text text-dark display-3">
+            Your donations to The Salvation Army help us serve the most vulnerable members of your community.
+          </p>
+        </div>
+        <div class="card-footer bg-transparent border-0 px-6 pb-6">
+          <a href="#" class="btn btn-secondary text-white w-100">Give Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card h-100 rounded-5 overflow-hidden border-0 bg-light">
+        <div class="ratio ratio-16x9">
+          <img
+            class="w-100 h-100 object-fit-cover"
+            src="{{ globals.default_og_image.getImage() }}?width=676&height=380&crop=16:9,smart"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="card-body px-6 pt-6">
+          <h3 class="card-title display-2 text-dark-100 fw-normal">Donate Goods</h3>
+          <p class="card-text text-dark display-3">
+            Donate clothing, household items and other goods to The Salvation Army.
+          </p>
+        </div>
+        <div class="card-footer bg-transparent border-0 px-6 pb-6">
+          <a href="#" class="btn btn-secondary text-white w-100">Donate Goods</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card h-100 rounded-5 overflow-hidden border-0 bg-light">
+        <div class="ratio ratio-16x9">
+          <img
+            class="w-100 h-100 object-fit-cover"
+            src="{{ globals.default_og_image.getImage() }}?width=676&height=380&crop=16:9,smart"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="card-body px-6 pt-6">
+          <h3 class="card-title display-2 text-dark-100 fw-normal">Become a Fundraiser</h3>
+          <p class="card-text text-dark display-3">
+            Create your own fundraiser to support a cause that's important to you and provide hope to those in need in your community.
+          </p>
+        </div>
+        <div class="card-footer bg-transparent border-0 px-6 pb-6">
+          <a href="#" class="btn btn-secondary text-white w-100">Get Started</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card h-100 rounded-5 overflow-hidden border-0 bg-light">
+        <div class="ratio ratio-16x9">
+          <img
+            class="w-100 h-100 object-fit-cover"
+            src="{{ globals.default_og_image.getImage() }}?width=676&height=380&crop=16:9,smart"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="card-body px-6 pt-6">
+          <h3 class="card-title display-2 text-dark-100 fw-normal">Donate Monthly</h3>
+          <p class="card-text text-dark display-3">
+            Set up a recurring monthly gift to The Salvation Army.
+          </p>
+        </div>
+        <div class="card-footer bg-transparent border-0 px-6 pb-6">
+          <a href="#" class="btn btn-secondary text-white w-100">Give Monthly</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mb-15" id="more-ways-to-give">
+  <h2 class="fs-4 fw-normal mb-8">More Ways to Give</h2>
+
+  <div class="accordion accordion-flush mb-4" id="wtg-group-give-time">
+    <div class="accordion-item bg-light rounded-5 overflow-hidden">
+      <h3 class="accordion-header" id="wtg-group-give-time-heading">
+        <button
+          class="accordion-button p-6 fw-normal text-dark-100 accordion-button-partners"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#wtg-group-give-time-collapse"
+          aria-expanded="true"
+          aria-controls="wtg-group-give-time-collapse"
+        >
+          <span class="fs-7">Give Time</span>
+        </button>
+      </h3>
+      <div
+        id="wtg-group-give-time-collapse"
+        class="accordion-collapse collapse show"
+        aria-labelledby="wtg-group-give-time-heading"
+      >
+        <div class="accordion-body px-6 pt-0 pb-6">
+          <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="bg-area rounded-5 p-6 h-100 d-flex flex-column">
+                <h4 class="fs-7 fw-normal text-dark-100 mb-2">Volunteer</h4>
+                <p class="text-dark display-3 mb-4">
+                  Help The Salvation Army create change and provide hope throughout your community.
+                </p>
+                <a href="#" class="btn btn-secondary text-white w-100 mt-auto">Volunteer</a>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="bg-area rounded-5 p-6 h-100 d-flex flex-column">
+                <h4 class="fs-7 fw-normal text-dark-100 mb-2">Serve on an Advisory Board</h4>
+                <p class="text-dark display-3 mb-4">
+                  Share your time and expertise with The Salvation Army in your community.
+                </p>
+                <a href="#" class="btn btn-secondary text-white w-100 mt-auto">Find a Local Advisory Board</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion accordion-flush mb-4" id="wtg-group-financial">
+    <div class="accordion-item bg-light rounded-5 overflow-hidden">
+      <h3 class="accordion-header" id="wtg-group-financial-heading">
+        <button
+          class="accordion-button p-6 fw-normal text-dark-100 accordion-button-partners"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#wtg-group-financial-collapse"
+          aria-expanded="true"
+          aria-controls="wtg-group-financial-collapse"
+        >
+          <span class="fs-7">Additional Financial Contributions</span>
+        </button>
+      </h3>
+      <div
+        id="wtg-group-financial-collapse"
+        class="accordion-collapse collapse show"
+        aria-labelledby="wtg-group-financial-heading"
+      >
+        <div class="accordion-body px-6 pt-0 pb-6">
+          <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="bg-area rounded-5 p-6 h-100 d-flex flex-column">
+                <h4 class="fs-7 fw-normal text-dark-100 mb-2">Bonds, Funds, Stocks, and IRA Rollover</h4>
+                <p class="text-dark display-3 mb-4">
+                  Make a gift of your securities to help those who need it most.
+                </p>
+                <a href="#" class="btn btn-secondary text-white w-100 mt-auto">Give Now</a>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="bg-area rounded-5 p-6 h-100 d-flex flex-column">
+                <h4 class="fs-7 fw-normal text-dark-100 mb-2">Planned Giving, Wills, and Gift Annuities</h4>
+                <p class="text-dark display-3 mb-4">
+                  Provide hope for the future with the gift of a planned donation.
+                </p>
+                <a href="#" class="btn btn-secondary text-white w-100 mt-auto">Leave a Legacy</a>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="bg-area rounded-5 p-6 h-100 d-flex flex-column">
+                <h4 class="fs-7 fw-normal text-dark-100 mb-2">Donate with Cryptocurrency</h4>
+                <p class="text-dark display-3 mb-4">
+                  Support The Salvation Army with a gift of cryptocurrency.
+                </p>
+                <a href="#" class="btn btn-secondary text-white w-100 mt-auto">Learn More</a>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="bg-area rounded-5 p-6 h-100 d-flex flex-column">
+                <h4 class="fs-7 fw-normal text-dark-100 mb-2">Double Your Donation</h4>
+                <p class="text-dark display-3 mb-4">
+                  Make an employer-matched contribution to double the impact of your donation.
+                </p>
+                <a href="#" class="btn btn-secondary text-white w-100 mt-auto">Match my Donation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion accordion-flush mb-4" id="wtg-group-in-kind">
+    <div class="accordion-item bg-light rounded-5 overflow-hidden">
+      <h3 class="accordion-header" id="wtg-group-in-kind-heading">
+        <button
+          class="accordion-button p-6 fw-normal text-dark-100 accordion-button-partners"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#wtg-group-in-kind-collapse"
+          aria-expanded="true"
+          aria-controls="wtg-group-in-kind-collapse"
+        >
+          <span class="fs-7">In-Kind Donations</span>
+        </button>
+      </h3>
+      <div
+        id="wtg-group-in-kind-collapse"
+        class="accordion-collapse collapse show"
+        aria-labelledby="wtg-group-in-kind-heading"
+      >
+        <div class="accordion-body px-6 pt-0 pb-6">
+          <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="bg-area rounded-5 p-6 h-100 d-flex flex-column">
+                <h4 class="fs-7 fw-normal text-dark-100 mb-2">Airline Miles</h4>
+                <p class="text-dark display-3 mb-4">
+                  Donate your airline miles to support The Salvation Army.
+                </p>
+                <a href="#" class="btn btn-secondary text-white w-100 mt-auto">Give Miles</a>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="bg-area rounded-5 p-6 h-100 d-flex flex-column">
+                <h4 class="fs-7 fw-normal text-dark-100 mb-2">Vehicle Donation</h4>
+                <p class="text-dark display-3 mb-4">
+                  Help get someone on the road to recovery with the gift of your vehicle donation.
+                </p>
+                <a href="#" class="btn btn-secondary text-white w-100 mt-auto">Donate Your Vehicle</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion accordion-flush mb-4" id="wtg-group-corporate">
+    <div class="accordion-item bg-light rounded-5 overflow-hidden">
+      <h3 class="accordion-header" id="wtg-group-corporate-heading">
+        <button
+          class="accordion-button p-6 fw-normal text-dark-100 accordion-button-partners"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#wtg-group-corporate-collapse"
+          aria-expanded="true"
+          aria-controls="wtg-group-corporate-collapse"
+        >
+          <span class="fs-7">Corporate and Organizational Support</span>
+        </button>
+      </h3>
+      <div
+        id="wtg-group-corporate-collapse"
+        class="accordion-collapse collapse show"
+        aria-labelledby="wtg-group-corporate-heading"
+      >
+        <div class="accordion-body px-6 pt-0 pb-6">
+          <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="bg-area rounded-5 p-6 h-100 d-flex flex-column">
+                <h4 class="fs-7 fw-normal text-dark-100 mb-2">Corporate Partnerships</h4>
+                <p class="text-dark display-3 mb-4">
+                  Join a meaningful partnership to help The Salvation Army do the most good.
+                </p>
+                <a href="#" class="btn btn-secondary text-white w-100 mt-auto">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion accordion-flush mb-4" id="wtg-group-international">
+    <div class="accordion-item bg-light rounded-5 overflow-hidden">
+      <h3 class="accordion-header" id="wtg-group-international-heading">
+        <button
+          class="accordion-button p-6 fw-normal text-dark-100 accordion-button-partners"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#wtg-group-international-collapse"
+          aria-expanded="true"
+          aria-controls="wtg-group-international-collapse"
+        >
+          <span class="fs-7">International Support</span>
+        </button>
+      </h3>
+      <div
+        id="wtg-group-international-collapse"
+        class="accordion-collapse collapse show"
+        aria-labelledby="wtg-group-international-heading"
+      >
+        <div class="accordion-body px-6 pt-0 pb-6">
+          <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="bg-area rounded-5 p-6 h-100 d-flex flex-column">
+                <h4 class="fs-7 fw-normal text-dark-100 mb-2">Help Overseas Efforts</h4>
+                <p class="text-dark display-3 mb-4">
+                  Support The Salvation Army's work with communities around the world.
+                </p>
+                <div class="d-flex flex-wrap gap-2 mt-auto">
+                  <a href="#" class="btn btn-secondary text-white flex-fill">Donate Now</a>
+                  <a href="#" class="btn btn-secondary text-white flex-fill">Sponsor a Child</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
