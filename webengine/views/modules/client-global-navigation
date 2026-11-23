@@ -47,6 +47,7 @@
 {{$leadershipLandingPageModelZUID = 6-cee4dda7e4-0md6ts}}
 {{$volunteerPageModelZUID = 6-8489c3a590-kn21jh}}
 {{$informationalPageModelZUID = 6-c2b7f2a9ad-k4frxv}}
+{{$waysToGiveModelZUID = 6-b4f2a1b9fb-mbm1pq}}
 {{$eventsModelZUID = 6-a2dbc1a6e2-x4pzmx}}
 {{$storiesModelZUID = 6-80c7e29486-k0pq6s}}
 {{$locationFinderModelZUID = 6-8e91efbf9b-jqqxjt}}
@@ -202,21 +203,23 @@
 {{$citiesTerritoryContactTitle = {territories.filter({$citiesTerritoryZUID}).contact_us_title} }}
 {{$citiesTerritoryContactHeader = {territories.filter({$citiesTerritoryZUID}).contact_us_cta_header} }}
 
-(** Informational page ownership: location, division and territory each hold one ZUID or a comma-separated list. **)
-(** Division and territory come from the locations, else the page fields, else the parent informational page. **)
+(** Informational page and Ways to Give ownership: location, division and territory each hold one ZUID or a comma-separated list. **)
+(** Division and territory come from the locations, else the page fields, else (informational pages only) the parent informational page. **)
 (** Owner level: 1 one location, 2 one division, 3 one territory, 0 national. **)
 (** ZUID variables are only assigned non-empty values; the ipHas and ipUse flags record which are set and needed. **)
-(** Each list reads the one-to-many field (locations, divisions, territories), else the older one-to-one field. **)
+(** Each list reads the one-to-many field (locations, divisions, territories), else on informational pages the older one-to-one field. **)
 {{$ipOwnerLevel = 0 }}
 {{$ipHasOwnerLocation = 0 }}
 {{$ipHasOwnerDivision = 0 }}
 {{$ipHasOwnerTerritory = 0 }}
 {{$ipUseDivision = 0 }}
 {{$ipUseTerritory = 0 }}
+{{$ipResolveOwner = 0 }}
+{{$ipHasLocationList = 0 }}
+{{$ipHasDivisionList = 0 }}
+{{$ipHasTerritoryList = 0 }}
 {{if {this.set_zuid} == {$informationalPageModelZUID} }}
-    {{$ipHasLocationList = 0 }}
-    {{$ipHasDivisionList = 0 }}
-    {{$ipHasTerritoryList = 0 }}
+    {{$ipResolveOwner = 1 }}
     {{each informational_pages as ipSelf WHERE z.zuid = '{this.zuid}' LIMIT 1 }}
         {{if {ipSelf.locations} }}{{$ipLocationList = {ipSelf.locations} }}{{$ipHasLocationList = 1 }}{{else-if {ipSelf.location} }}{{$ipLocationList = {ipSelf.location} }}{{$ipHasLocationList = 1 }}{{/if}}
         {{if {ipSelf.divisions} }}{{$ipDivisionList = {ipSelf.divisions} }}{{$ipHasDivisionList = 1 }}{{else-if {ipSelf.division} }}{{$ipDivisionList = {ipSelf.division} }}{{$ipHasDivisionList = 1 }}{{/if}}
@@ -229,6 +232,16 @@
             {{if {ipParent.territories} }}{{$ipTerritoryList = {ipParent.territories} }}{{$ipHasTerritoryList = 1 }}{{else-if {ipParent.territory} }}{{$ipTerritoryList = {ipParent.territory} }}{{$ipHasTerritoryList = 1 }}{{/if}}
         {{/each}}
     {{/if}}{{/if}}{{/if}}
+{{/if}}
+{{if {this.set_zuid} == {$waysToGiveModelZUID} }}
+    {{$ipResolveOwner = 1 }}
+    {{each ways_to_give as wtgSelf WHERE z.zuid = '{this.zuid}' LIMIT 1 }}
+        {{if {wtgSelf.locations} }}{{$ipLocationList = {wtgSelf.locations} }}{{$ipHasLocationList = 1 }}{{/if}}
+        {{if {wtgSelf.divisions} }}{{$ipDivisionList = {wtgSelf.divisions} }}{{$ipHasDivisionList = 1 }}{{/if}}
+        {{if {wtgSelf.territories} }}{{$ipTerritoryList = {wtgSelf.territories} }}{{$ipHasTerritoryList = 1 }}{{/if}}
+    {{/each}}
+{{/if}}
+{{if {$ipResolveOwner} == 1 }}
 
     {{$ipHasLocation = 0 }}
     {{$ipHasDivision = 0 }}
@@ -415,6 +428,7 @@
     leadershipLandingPage: `{{$leadershipLandingPageModelZUID}}`,
     volunteerPage: `{{$volunteerPageModelZUID}}`,
     informationalPage: `{{$informationalPageModelZUID}}`,
+    waysToGive: `{{$waysToGiveModelZUID}}`,
     events: `{{$eventsModelZUID}}`,
     stories: `{{$storiesModelZUID}}`,
     locationFinder: `{{$locationFinderModelZUID}}`,
@@ -1947,7 +1961,8 @@
         }
         break;
 
-      case models.informationalPage: { // Informational Page
+      case models.informationalPage: // Informational Page
+      case models.waysToGive: { // Ways to Give
         // A persisted location sets the context; the page's own ownership applies only when there is none.
         if (cookieManager.get(cookieKeys.locationZUID)) {
           break;
