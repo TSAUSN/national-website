@@ -7,7 +7,7 @@
 {{$locationModelZUID = 6-b4c9aba69c-h2nqvm}}
 {{$totalItems = 0}}
 {{$whereProperty = }}
-{{$nameQuery = }}
+{{$whereStories = }}
 
 {{if {request.queryParam(skip)} }}
   {{$skip = {request.queryParam(skip)} }}
@@ -21,10 +21,6 @@
   {{$limit = 10}}
 {{end-if}}
 
-{{if {$name} }}
-  {{$nameQuery = AND title LIKE "%{$name}%" }}
-{{end-if}}
-
 {{if {$propertyModel} == {$locationModelZUID} }}
   {{$whereProperty = AND find_in_set('{$property}', property) }}
 {{else if {$propertyModel} == {$divisioModelZUID} }}
@@ -35,14 +31,20 @@
   {{$whereProperty = }}
 {{end-if}}
 
-{{each stories as storiescounter WHERE find_in_set('{$tagID}', article_tags) {$whereProperty} {$nameQuery} }}
+{{if {$name} }}
+  {{$whereStories = find_in_set('{$tagID}', article_tags) {$whereProperty} AND title LIKE "%{$name}%" OR find_in_set('{$tagID}', article_tags) {$whereProperty} AND seo_meta_title LIKE "%{$name}%" OR find_in_set('{$tagID}', article_tags) {$whereProperty} AND seo_meta_description LIKE "%{$name}%" }}
+{{else}}
+  {{$whereStories = find_in_set('{$tagID}', article_tags) {$whereProperty} }}
+{{end-if}}
+
+{{each stories as storiescounter WHERE {$whereStories} }}
   {{$totalItems = {storiescounter._num} }}
 {{/each}}
 
 {
   "data":
   [
-    {{ each stories as story WHERE find_in_set('{$tagID}', article_tags) {$whereProperty} {$nameQuery} LIMIT {$skip}, {$limit} }}
+    {{ each stories as story WHERE {$whereStories} LIMIT {$skip}, {$limit} }}
       {
         "title": "{{story.title.htmlentities()}}",
         "date": "{{story.story_date_picker.date(Y-m-d)}}",
@@ -50,6 +52,8 @@
         "body": "{{story.body.escapeForJs() }}",
         "url": "https://{{instance.domain}}{{story.getUrl()}}",
         "external_url": "{{story.external_url}}",
+        "zuid": "{{story.zuid}}",
+        "seo_meta_title": "{{story.seo_meta_title.htmlentities().escapeForJs()}}",
         "seo_meta_description": "{{story.seo_meta_description.htmlentities().escapeForJs()}}",
         "author": "{{story.author}}",
         "property": "{{story.property}}",

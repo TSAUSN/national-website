@@ -8,7 +8,7 @@
                         <h2 class="fs-7 text-dark-100 mb-4">Search {{this.name}}</h2>
                         <!-- Search Input -->
                         <div class="col-md-10 mt-0 mb-sm-4">
-                            <label for="searchTags" class="form-label text-dark-100">Search Tags</label>
+                            <label for="searchTags" class="form-label text-dark-100">Search {{this.name}} Tags</label>
                             <div class="input-group">
                                 <div class="input-group-text ps-4 pe-0 rounded-start-2">
                                     <span class="material-symbols-outlined">

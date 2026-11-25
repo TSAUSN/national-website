@@ -8,7 +8,7 @@
   class="tags-cards-swiper__nav d-inline-flex w-100 justify-content-center align-items-center mt-5"
 >
   <div
-    class="swiper-button-prev prev-tags-button position-relative bg-opacity-60 bg-light me-4"
+    class="swiper-button-prev prev-tags-button position-relative bg-opacity-60 bg-light me-4 invisible"
     data-location-type="body:related-tags"
     data-function-type="other"
     data-format-type="icon-block"

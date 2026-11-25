@@ -197,15 +197,38 @@
         }
     }
 
+    // Caches origin-name lookups (keyed `${type}:${zuid}`) so stories sharing a
+    // property don't re-fetch its name on every card/page. Concurrent callers share
+    // the in-flight promise; failed/empty lookups are evicted so they can be retried.
+    const originNameCache = new Map();
+
     async function getOriginName(type, zuid) {
-        if (type === 'location') return getLocationName(zuid);
-        if (type === 'division') return getDivisionName(zuid);
-        if (type === 'territory') return getTerritoryName(zuid);
-        return '';
+        const cacheKey = `${type}:${zuid}`;
+        if (originNameCache.has(cacheKey)) return originNameCache.get(cacheKey);
+
+        let namePromise = Promise.resolve('');
+        if (type === 'location') namePromise = getLocationName(zuid);
+        else if (type === 'division') namePromise = getDivisionName(zuid);
+        else if (type === 'territory') namePromise = getTerritoryName(zuid);
+
+        namePromise = namePromise.then(
+            name => {
+                if (!name) originNameCache.delete(cacheKey);
+                return name;
+            },
+            error => {
+                originNameCache.delete(cacheKey);
+                throw error;
+            }
+        );
+
+        originNameCache.set(cacheKey, namePromise);
+        return namePromise;
     }
 
-    // Determines which relational field to fan a story out on: locations (property)
-    // wins if present, then divisions, then territory (most specific available wins).
+    // Returns the related origin IDs and their type, used to build the property tag
+    // section on a single story card: locations (property) win if present, then
+    // divisions, then territory (most specific available wins).
     function getStoryOrigins(story) {
         const locations = (story.property || '').split(',').map(s => s.trim()).filter(Boolean);
         const divisions = (story.divisions || '').split(',').map(s => s.trim()).filter(Boolean);
@@ -270,7 +293,9 @@ async function buildTagsList(pageNumber, params, fetchData, newSearchResults = n
             const tagResultCount = document.querySelector('#tagResultCount');
             const totalArticleCountElement = document.querySelector('#totalTagCount');
             const paginationElement = document.querySelector(".swiper-pagination");
-            
+            const prevButton = document.querySelector(".swiper-button-prev");
+
+            if (prevButton) prevButton.classList.add('invisible');
             if (tagResultCount) tagResultCount.innerHTML = '0';
             if (totalArticleCountElement) totalArticleCountElement.innerHTML = '0';
             if (paginationElement) paginationElement.innerHTML = '';
@@ -280,11 +305,17 @@ async function buildTagsList(pageNumber, params, fetchData, newSearchResults = n
         // Process stories for current page
         let processedStories = "";
 
-        const showAllLocationsCheckbox = document.getElementById('showAllLocationsTags');
-        const showAllLocations = showAllLocationsCheckbox ? showAllLocationsCheckbox.checked : false;
-
         // Parse response based on the structure
-        const stories = results['initialReturn'] == 0 ? results['data'] : results;
+        const rawStories = results['initialReturn'] == 0 ? results['data'] : results;
+        // Defensive dedupe: never render the same story twice on a page
+        const seenStoryKeys = new Set();
+        const stories = (Array.isArray(rawStories) ? rawStories : []).filter(story => {
+            const key = story && (story.zuid || story.url);
+            if (!key) return true;
+            if (seenStoryKeys.has(key)) return false;
+            seenStoryKeys.add(key);
+            return true;
+        });
         stories.sort((a, b) => new Date(b.date) - new Date(a.date));
         // For each story in the current page, build the card
         for (let i = 0; i < stories.length; i++) {
@@ -297,61 +328,59 @@ async function buildTagsList(pageNumber, params, fetchData, newSearchResults = n
             storyImage += "?width=338&height=190&crop=16:9,smart&quality=100";
             }
 
-            // When showing every location, fan the story out once per location/division/
-            // territory it belongs to (most specific relation available wins), labelled
-            // with that origin's name so duplicate cards can be told apart.
-            let originNames = [null];
-            if (showAllLocations) {
-                const origins = getStoryOrigins(story);
-                originNames = origins.ids.length
-                    ? await Promise.all(origins.ids.map(zuid => getOriginName(origins.type, zuid)))
-                    : [null];
-            }
+            // One card per story; its related locations/divisions/territories (most
+            // specific relation available wins) are listed as tags on that card.
+            const origins = getStoryOrigins(story);
+            const resolvedNames = origins.ids.length
+                ? await Promise.all(origins.ids.map(zuid => getOriginName(origins.type, zuid)))
+                : [];
+            const propertyNames = [...new Set(resolvedNames.filter(Boolean))];
+            const propertyTags = propertyNames.length
+                ? `<div class="d-flex flex-wrap gap-2 mb-2">${propertyNames.map(name => `<span class="badge bg-primary-200 text-white rounded-5 px-3 py-1 display-4">${name}</span>`).join('')}</div>`
+                : '';
 
-            for (const originName of originNames) {
-                processedStories += `
-                    <div class="card me-2 mb-2 rounded-5 overflow-hidden p-0" style="width: 31.9%; height:490px">
-                        <div class="card-img-top card-img-top__large bg-secondary bg-opacity-25 position-relative overflow-hidden">
+            processedStories += `
+                <div class="card me-2 mb-2 rounded-5 overflow-hidden p-0" style="width: 31.9%; height:490px">
+                    <div class="card-img-top card-img-top__large bg-secondary bg-opacity-25 position-relative overflow-hidden">
 
-                        <div
-                            class="position-absolute bottom-4 start-0 d-flex align-items-center justify-content-between w-100 px-6 text-light display-4 z-3"
-                        >
-                            <span class="d-block">${dateFormatter(story.date)}</span>
-                            <span class="d-block">${story.author ? `By ${story.author}` : '' }</span>
-                        </div>
-                        <div class="ratio ratio-16x9 h-100">
-                        <img
-                            class="img-fluid"
-                            src="${storyImage}"
-                            alt="${story.image ? story.image : 'Stories Image' }"
-                            style="object-fit: cover;"
-                        />
-                        </div>
-                        </div>
-                        <div class="card-body px-6 pt-6">
-                        ${originName ? `<span class="badge bg-primary-200 text-white rounded-5 px-3 py-1 mb-2 display-4">${originName}</span>` : ''}
-                        <h5 class="card-title display-2 text-start text-dark-100 fw-normal">${story.title}</h5>
-                        <div class="card-text text-dark display-3 text-start">
-                            ${story.seo_meta_description}
-                        </div>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 px-6 pb-6">
-                        <a
-                            href=${story.url}
-                            class="btn btn-secondary text-white w-100"
-                            data-link-url="${story.url}"
-                            data-link-text="Read Article"
-                            data-link-location="body:tags-section"
-                            data-function-type="navigation"
-                            data-link-format="button"
-                            data-link-type="internal"
-                            onclick="newsSearchResultClickEvent(this)"
-                            >Read Article</a
-                        >
-                        </div>
+                    <div
+                        class="position-absolute bottom-4 start-0 d-flex align-items-center justify-content-between w-100 px-6 text-light display-4 z-3"
+                    >
+                        <span class="d-block">${dateFormatter(story.date)}</span>
+                        <span class="d-block">${story.author ? `By ${story.author}` : '' }</span>
                     </div>
-                `;
-            }
+                    <div class="ratio ratio-16x9 h-100">
+                    <img
+                        class="img-fluid"
+                        src="${storyImage}"
+                        alt="${story.image ? story.image : 'Stories Image' }"
+                        style="object-fit: cover;"
+                    />
+                    </div>
+                    </div>
+                    <div class="card-body px-6 pt-6">
+                    ${propertyTags}
+                    <h5 class="card-title display-2 text-start text-dark-100 fw-normal">${story.title}</h5>
+                    <div class="card-text text-dark display-3 text-start">
+                        ${story.seo_meta_description}
+                    </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 px-6 pb-6">
+                    <a
+                        href=${story.url}
+                        class="btn btn-secondary text-white w-100"
+                        data-link-url="${story.url}"
+                        data-link-text="Read Article"
+                        data-link-location="body:tags-section"
+                        data-function-type="navigation"
+                        data-link-format="button"
+                        data-link-type="internal"
+                        onclick="newsSearchResultClickEvent(this)"
+                        >Read Article</a
+                    >
+                    </div>
+                </div>
+            `;
         }
 
         // Update the list container
@@ -675,10 +704,11 @@ async function buildTagsList(pageNumber, params, fetchData, newSearchResults = n
         
         if (prevButton) {
             if (pageNumber <= 1) {
-                prevButton.classList.add("swiper-button-disabled");
+                // Hidden (but keeps its space) on the first page
+                prevButton.classList.add("swiper-button-disabled", "invisible");
                 prevButton.setAttribute("aria-disabled", "true");
             } else {
-                prevButton.classList.remove("swiper-button-disabled");
+                prevButton.classList.remove("swiper-button-disabled", "invisible");
                 prevButton.setAttribute("aria-disabled", "false");
             }
         }
