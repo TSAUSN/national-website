@@ -335,12 +335,25 @@ async function buildTagsList(pageNumber, params, fetchData, newSearchResults = n
                 ? await Promise.all(origins.ids.map(zuid => getOriginName(origins.type, zuid)))
                 : [];
             const propertyNames = [...new Set(resolvedNames.filter(Boolean))];
+            // Cap visible badges so the badge row can't push the card content out of view.
+            const maxVisibleTags = 2;
+            const escapeAttr = value => String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/"/g, '&quot;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+            const badgeClass = 'badge bg-primary-200 text-white rounded-5 px-3 py-1 display-4 text-truncate mw-100';
+            const visibleNames = propertyNames.slice(0, maxVisibleTags);
+            const hiddenNames = propertyNames.slice(maxVisibleTags);
+            const moreTag = hiddenNames.length
+                ? `<span class="${badgeClass}" title="${escapeAttr(hiddenNames.join(', '))}">+${hiddenNames.length} more</span>`
+                : '';
             const propertyTags = propertyNames.length
-                ? `<div class="d-flex flex-wrap gap-2 mb-2">${propertyNames.map(name => `<span class="badge bg-primary-200 text-white rounded-5 px-3 py-1 display-4">${name}</span>`).join('')}</div>`
+                ? `<div class="d-flex flex-wrap gap-2 mb-2">${visibleNames.map(name => `<span class="${badgeClass}" title="${escapeAttr(name)}">${name}</span>`).join('')}${moreTag}</div>`
                 : '';
 
             processedStories += `
-                <div class="card me-2 mb-2 rounded-5 overflow-hidden p-0" style="width: 31.9%; height:490px">
+                <div class="card me-2 mb-2 rounded-5 overflow-hidden p-0" style="width: 31.9%; min-height:490px">
                     <div class="card-img-top card-img-top__large bg-secondary bg-opacity-25 position-relative overflow-hidden">
 
                     <div
